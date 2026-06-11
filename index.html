@@ -66,7 +66,6 @@
         
         .meta-header { font-size: 13px; color: var(--text-muted); font-weight: bold; letter-spacing: 0.5px; }
 
-        /* Navigation Toggles */
         .mode-selector, .side-selector {
             background-color: rgba(6, 12, 26, 0.9);
             padding: 10px;
@@ -98,8 +97,21 @@
         .view-content { padding: 15px; display: none; }
         .view-content.active { display: block; }
 
-        /* Grid View CSS */
-        table { width: 100%; border-collapse: collapse; }
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            color: var(--text-neon);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 15px 20px;
+            background-color: rgba(6, 12, 26, 0.5);
+            border-bottom: 1px solid var(--border-grid);
+            margin: 0;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        table:last-of-type { margin-bottom: 0; }
         thead th { font-family: 'Orbitron', sans-serif; padding: 14px; border-bottom: 2px solid var(--border-grid); font-size: 11px; color: var(--text-gold); text-transform: uppercase; }
         .match-card { border-bottom: 1px solid var(--border-grid); }
         .col-matchup { padding: 15px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); }
@@ -120,23 +132,31 @@
         .pct-cell.win { background-color: var(--color-favorite); }
         .pct-cell.draw { background-color: var(--color-draw); }
         .pct-cell.loss { background-color: var(--color-underdog); }
-        .final-score-box { grid-column: 2 / span 3; background: rgba(255,255,255,0.05); color: var(--text-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; text-align: center; padding: 10px; border-radius: 4px; font-size: 15px; border: 1px dashed var(--text-gold); }
+        
+        /* Completed Rows Overhauls */
+        .completed-layer-row { display: grid; grid-template-columns: 1.5fr 3fr 1fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 10px 15px; }
+        .completed-layer-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .final-badge-box { background: linear-gradient(135deg, #1A263F, #111A2E); color: var(--text-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; text-align: center; padding: 6px; border-radius: 4px; font-size: 13px; border: 1px solid rgba(243, 156, 18, 0.3); letter-spacing: 1px; }
+        .audit-marker { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 14px; text-align: center; }
+        .audit-marker.correct { color: #2ECC71; }
+        .audit-marker.incorrect { color: #E74C3C; }
+        
+        /* Interactive Match Insight Bar */
+        .insight-row { background: rgba(243, 156, 18, 0.04); padding: 10px 15px; display: flex; align-items: center; gap: 10px; font-size: 13px; border-top: 1px solid rgba(243, 156, 18, 0.1); }
+        .insight-tag { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 9px; color: var(--text-gold); text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(243, 156, 18, 0.4); padding: 2px 6px; border-radius: 3px; background: rgba(243, 156, 18, 0.1); white-space: nowrap; }
+        .insight-text { color: #D1DCE8; font-weight: 500; }
 
-        /* Bracket Layout Structure */
+        /* Bracket View CSS */
         .bracket-viewport { overflow-x: auto; padding: 10px 0; }
         .bracket-wrapper { display: none; gap: 20px; min-width: 950px; }
         .bracket-wrapper.active { display: flex; }
         .round { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 10px; }
         .round-header { font-family: 'Orbitron', sans-serif; text-align: center; color: var(--text-neon); text-transform: uppercase; font-size: 12px; font-weight: 900; padding-bottom: 8px; border-bottom: 1px solid var(--border-grid); margin-bottom: 10px; }
-        
         .matchup-slot { display: flex; flex-direction: column; position: relative; background-color: rgba(10, 17, 33, 0.6); border: 1px solid var(--border-grid); border-radius: 6px; padding: 6px; }
         .bracket-team { display: flex; align-items: center; gap: 8px; padding: 6px; font-size: 14px; font-weight: 600; }
         .bracket-team:first-of-type { border-bottom: 1px solid rgba(255,255,255,0.03); }
         .bracket-consensus { font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 900; color: var(--text-gold); margin-left: auto; }
-        
         .tie-probability-bubble { font-family: 'Orbitron', sans-serif; font-size: 9px; color: var(--text-neon); text-align: center; padding: 2px 0; background: rgba(0, 210, 255, 0.05); border-radius: 3px; font-weight: bold; margin: 2px 0; }
-        
-        /* Lookahead Projections Styles */
         .lookahead-block { background: rgba(243, 156, 18, 0.05); border: 1px dashed rgba(243, 156, 18, 0.3); border-radius: 4px; padding: 4px; margin-top: 5px; font-size: 10px; }
         .lookahead-header { font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--text-gold); font-size: 9px; text-transform: uppercase; margin-bottom: 3px; }
         .lookahead-line { display: flex; justify-content: space-between; color: var(--text-muted); padding: 1px 0; }
@@ -150,7 +170,7 @@
 <div class="dashboard-container">
     <div class="header-banner">
         <h1>2026 World Cup Matchday Tracker</h1>
-        <div class="meta-header">LIVE ANALYTICS SYSTEM · DISPATCHED GENERATION</div>
+        <div class="meta-header">LIVE ANALYTICS SYSTEM · EDITORIAL OVERLAY ACTIVE</div>
     </div>
 
     <div class="mode-selector">
@@ -164,13 +184,14 @@
     </div>
 
     <div id="view-grid" class="view-content active">
+        <div class="section-title">Upcoming Fixtures</div>
         <table>
             <thead>
                 <tr>
                     <th style="padding-left: 20px;">Matchup (Group Slate)</th>
                     <th>
                         <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0 20px;">
-                            <span>Probability Layer</span>
+                            <span>Information Source</span>
                             <span style="text-align: center;">Favorite %</span>
                             <span style="text-align: center;">Draw %</span>
                             <span style="text-align: center;">Underdog %</span>
@@ -178,7 +199,24 @@
                     </th>
                 </tr>
             </thead>
-            <tbody id="match-table-body"></tbody>
+            <tbody id="upcoming-table-body"></tbody>
+        </table>
+
+        <div class="section-title">Completed Matches</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">Matchup (Group Slate)</th>
+                    <th>
+                        <div style="display: grid; grid-template-columns: 1.5fr 3fr 1fr; padding: 0 20px;">
+                            <span>Information Source</span>
+                            <span style="text-align: center;">Official Outcome</span>
+                            <span style="text-align: center;">Audit</span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="completed-table-body"></tbody>
         </table>
     </div>
 
@@ -190,7 +228,7 @@
     </div>
 
     <div class="footer-key">
-        <strong>COMPUTATIONAL NOTE:</strong> Lookahead overlay projections utilize internal multi-variant mathematical strength ratings. Real-time percentages adjust automatically as match parameters shift across execution iterations.
+        <strong>AUDIT KEY:</strong> Concluded targets trace actual outcome vectors against initial lines. Green markers ($\checkmark$) represent a source correctly identifying the winning vector, while red markers ($\times$) designate a baseline prediction failure.
     </div>
 </div>
 
@@ -207,20 +245,21 @@
         ger: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#000"/><rect y="6.6" width="32" height="6.8" fill="#D00"/><rect y="13.4" width="32" height="6.6" fill="#FFCE00"/></svg>`,
         arg: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#74ACDF"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#74ACDF"/></svg>`,
         eng: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
-        ita: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`,
-        bra: `<svg viewBox="0 0 32 20" style="background:#009C3B"><polygon points="16,2 30,10 16,18 2,10" fill="#FFDF00"/></svg>`,
-        jpn: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="6" fill="#BC002D"/></svg>`
+        ita: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`
     };
 
-    // Predictive Engine Strength Values (Locked Baseline Ratings)
     const baselineElo = {
         "Mexico": 1820, "South Africa": 1610, "South Korea": 1740, "Czechia": 1715,
         "Canada": 1765, "Bosnia & Herzegovina": 1660, "United States": 1845, "Paraguay": 1705,
-        "Germany": 1930, "Argentina": 2040, "England": 1960, "Italy": 1910, "Brazil": 1980, "Japan": 1810
+        "Germany": 1930, "Argentina": 2040, "England": 1960, "Italy": 1910
     };
 
     const dataset = [
-        { type: "COMPLETED", side: "left", home: "Mexico", away: "South Africa", favTeam: "Mexico", undTeam: "South Africa", homeFlag: flags.mex, awayFlag: flags.rsa, meta: "Group A · Final", score: "MEXICO 2 - 1 SOUTH AFRICA" },
+        { 
+            type: "COMPLETED", side: "left", home: "Mexico", away: "South Africa", favTeam: "Mexico", undTeam: "South Africa", homeFlag: flags.mex, awayFlag: flags.rsa, meta: "Group A Slate", score: "MEXICO 2 - 1 SOUTH AFRICA", 
+            sourceAccuracy: { "Sportsbooks (Consensus)": true, "Supercomputer Model (Opta)": true, "Prediction Markets (P2P)": true },
+            insight: "The single most likely score, 2-1 had a 14.2% chance of occurring between these teams based on the model's target Poisson goal matrix lines."
+        },
         { type: "UPCOMING", side: "left", home: "South Korea", away: "Czechia", favTeam: "South Korea", undTeam: "Czechia", homeFlag: flags.kor, awayFlag: flags.cze, meta: "10:00 PM EDT · Group A", layers: [{ source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%" }, { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%" }, { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%" }] },
         { type: "UPCOMING", side: "left", home: "Canada", away: "Bosnia & Herzegovina", favTeam: "Canada", undTeam: "Bosnia", homeFlag: flags.can, awayFlag: flags.bih, meta: "June 12 · 3:00 PM EDT · Group B", layers: [{ source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%" }, { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%" }, { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%" }] },
         { type: "UPCOMING", side: "left", home: "United States", away: "Paraguay", favTeam: "United States", undTeam: "Paraguay", homeFlag: flags.usa, awayFlag: flags.pry, meta: "June 12 · 9:00 PM EDT · Group D", layers: [{ source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%" }, { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%" }, { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%" }] },
@@ -229,76 +268,64 @@
     ];
 
     function calculateEloOdds(teamA, teamB) {
-        let eloA = baselineElo[teamA] || 1700;
-        let eloB = baselineElo[teamB] || 1700;
-        let probA = 1 / (1 + Math.pow(10, (eloB - eloA) / 400));
-        return (probA * 100).toFixed(1);
+        let eloA = baselineElo[teamA] || 1700; let eloB = baselineElo[teamB] || 1700;
+        return (1 / (1 + Math.pow(10, (eloB - eloA) / 400)) * 100).toFixed(1);
     }
 
     function getAverageFavValue(layers) {
         if (!layers) return "TBD";
-        let sum = 0;
-        layers.forEach(row => { sum += parseFloat(row.fav.replace('%', '')); });
+        let sum = 0; layers.forEach(row => { sum += parseFloat(row.fav.replace('%', '')); });
         return (sum / layers.length).toFixed(1);
     }
 
     function getAverageDrawValue(layers) {
         if (!layers) return "0.0";
-        let sum = 0;
-        layers.forEach(row => { sum += parseFloat(row.draw.replace('%', '')); });
+        let sum = 0; layers.forEach(row => { sum += parseFloat(row.draw.replace('%', '')); });
         return (sum / layers.length).toFixed(1);
     }
 
-    // Grid Renderer Execution
-    const tbody = document.getElementById('match-table-body');
+    // Split Execution Rendering Engine
+    const upcomingBody = document.getElementById('upcoming-table-body');
+    const completedBody = document.getElementById('completed-table-body');
+
     dataset.forEach(match => {
         let isHomeFav = match.favTeam === match.home;
-        let rowHtml = `<tr class="match-card"><td class="col-matchup"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${match.home}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${match.away}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div></div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
-        if (match.type === "COMPLETED") {
-            rowHtml += `<div class="layer-row" style="padding: 15px 20px;"><div class="col-source" style="color: var(--text-muted);">Concluded</div><div class="final-score-box">${match.score}</div></div>`;
-        } else {
+        
+        if (match.type === "UPCOMING") {
+            let rowHtml = `<tr class="match-card"><td class="col-matchup"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${match.home}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${match.away}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div></div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
             match.layers.forEach(layer => {
                 rowHtml += `<div class="layer-row"><div class="col-source">${layer.source}</div><div class="pct-cell win">${layer.fav}</div><div class="pct-cell draw">${layer.draw}</div><div class="pct-cell loss">${layer.und}</div></div>`;
             });
+            rowHtml += `</td></tr>`;
+            upcomingBody.innerHTML += rowHtml;
+        } else if (match.type === "COMPLETED") {
+            let rowHtml = `<tr class="match-card"><td class="col-matchup" rowspan="2"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${match.home}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${match.away}</span></div></div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
+            Object.keys(match.sourceAccuracy).forEach(src => {
+                let isCorrect = match.sourceAccuracy[src];
+                rowHtml += `<div class="completed-layer-row"><div class="col-source" style="color:var(--text-muted);">${src}</div><div class="final-badge-box">${match.score}</div><div class="audit-marker ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '&#156;' : '&#215;'}</div></div>`;
+            });
+            rowHtml += `</td></tr>`;
+            
+            // Appending the Match Insight Context Block Sub-Row
+            rowHtml += `<tr class="match-card"><td class="col-data-layers" style="background: rgba(6,12,26,0.3);"><div class="insight-row"><div class="insight-tag">Match Insight</div><div class="insight-text">${match.insight || 'Analytical log entry pending verification.'}</div></div></td></tr>`;
+            completedBody.innerHTML += rowHtml;
         }
-        rowHtml += `</td></tr>`;
-        tbody.innerHTML += rowHtml;
     });
 
-    // Symmetrical Bracket Generator Function
+    // Symmetrical Bracket Logic
     function renderSymmetricalSide(targetSide, containerId) {
         const sideContainer = document.getElementById(containerId);
         const matches = dataset.filter(m => m.side === targetSide);
+        let html = `<div class="round"><div class="round-header">Round of 32</div>`;
         
-        let html = `
-            <div class="round"><div class="round-header">Round of 32</div>`;
-        
-        // Render Bracket Node Elements
         for(let i = 0; i < matches.length; i += 2) {
-            let m1 = matches[i];
-            let m2 = matches[i+1];
-            
+            let m1 = matches[i]; let m2 = matches[i+1];
             if(m1 && m2) {
-                let m1Avg = getAverageFavValue(m1.layers);
-                let m1Draw = getAverageDrawValue(m1.layers);
-                
-                html += `
-                    <div class="matchup-slot">
-                        <div class="bracket-team"><span class="flag-icon">${m1.homeFlag}</span>${m1.home} <span class="bracket-consensus">${m1.type === 'COMPLETED' ? 'WINNER' : '(F'+m1Avg+'%)'}</span></div>
-                        <div class="bracket-team"><span class="flag-icon">${m1.awayFlag}</span>${m1.away} <span class="bracket-consensus">${m1.type === 'COMPLETED' ? 'LOST' : 'TBD'}</span></div>
-                        <div class="tie-probability-bubble">Draw: ${m1Draw}%</div>`;
-                
-                // If Match 1 is finished, immediately output the Lookahead Overlay Projections
+                let m1Avg = getAverageFavValue(m1.layers); let m1Draw = getAverageDrawValue(m1.layers);
+                html += `<div class="matchup-slot"><div class="bracket-team"><span class="flag-icon">${m1.homeFlag}</span>${m1.home} <span class="bracket-consensus">${m1.type === 'COMPLETED' ? 'WINNER' : '(F'+m1Avg+'%)'}</span></div><div class="bracket-team"><span class="flag-icon">${m1.awayFlag}</span>${m1.away} <span class="bracket-consensus">${m1.type === 'COMPLETED' ? 'LOST' : 'TBD'}</span></div><div class="tie-probability-bubble">Draw: ${m1Draw}%</div>`;
                 if(m1.type === "COMPLETED") {
-                    let condA = calculateEloOdds(m1.favTeam, m2.home);
-                    let condB = calculateEloOdds(m1.favTeam, m2.away);
-                    
-                    html += `
-                        <div class="lookahead-block">
-                            <div class="lookahead-header">Lookahead Projections (Round of 16)</div>
-                            <div class="lookahead-line">vs ${m2.home}: <strong>${condA}%</strong> | <strong>${(100-condA).toFixed(1)}%</strong></div>
-                            <div class="lookahead-line">vs ${m2.away}: <strong>${condB}%</strong> | <strong>${(100-condB).toFixed(1)}%</strong></div>
-                        </div>`;
+                    let condA = calculateEloOdds(m1.favTeam, m2.home); let condB = calculateEloOdds(m1.favTeam, m2.away);
+                    html += `<div class="lookahead-block"><div class="lookahead-header">Lookahead Projections (Round of 16)</div><div class="lookahead-line">vs ${m2.home}: <strong>${condA}%</strong> | <strong>${(100-condA).toFixed(1)}%</strong></div><div class="lookahead-line">vs ${m2.away}: <strong>${condB}%</strong> | <strong>${(100-condB).toFixed(1)}%</strong></div></div>`;
                 }
                 html += `</div>`;
             }
@@ -314,7 +341,6 @@
         document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.mode-btn').forEach(el => el.classList.remove('active'));
         const sideSelector = document.getElementById('bracket-side-controls');
-        
         if (mode === 'grid') {
             document.getElementById('view-grid').classList.add('active');
             document.querySelector('.mode-btn:nth-child(1)').classList.add('active');
@@ -329,7 +355,6 @@
     function switchSide(side) {
         document.querySelectorAll('.bracket-wrapper').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.side-btn').forEach(el => el.classList.remove('active'));
-        
         if (side === 'left') {
             document.getElementById('bracket-left-wrapper').classList.add('active');
             document.querySelector('.side-btn:nth-child(1)').classList.add('active');
