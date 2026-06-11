@@ -3,60 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 World Cup Matchday Live-Tracker</title>
+    <title>2026 World Cup Premium Analytics Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-body: #0A0F1D;
-            --bg-dashboard: #111827;
-            --bg-header: #1F2937;
-            --border-grid: #2D3748;
+            --bg-body: #050814;
+            --bg-dashboard: rgba(13, 22, 41, 0.75);
+            --bg-header: #0f192e;
+            --border-neon: rgba(0, 210, 255, 0.2);
+            --border-grid: rgba(255, 255, 255, 0.08);
             --text-main: #FFFFFF;
-            --text-gold: #F1C40F;
-            --text-muted: #94A3B8;
-            --color-favorite: #1E8449;
-            --color-draw: #21618C;
-            --color-underdog: #D35400;
+            --text-gold: #F39C12;
+            --text-neon: #00D2FF;
+            --text-muted: #8A99AD;
+            --color-favorite: #2ECC71;
+            --color-draw: #3498DB;
+            --color-underdog: #E67E22;
         }
 
         body { 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            font-family: 'Rajdhani', sans-serif; 
             background-color: var(--bg-body); 
-            background-image: radial-gradient(circle at top, #1E293B 0%, #0A0F1D 70%);
+            /* Advanced CSS Math simulating atmospheric stadium lights over a pitch */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 10% 20%, rgba(30, 132, 73, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 20%, rgba(30, 132, 73, 0.08) 0%, transparent 50%),
+                linear-gradient(to bottom, #050814 0%, #0c1527 100%);
+            background-attachment: fixed;
             color: var(--text-main); 
             margin: 0; 
-            padding: 20px; 
+            padding: 30px 15px; 
+            -webkit-font-smoothing: antialiased;
         }
         
         .dashboard-container { 
-            max-width: 1200px; 
+            max-width: 1250px; 
             margin: 0 auto; 
             background-color: var(--bg-dashboard);
-            border: 2px solid var(--border-grid);
-            border-radius: 8px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-neon);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
         }
 
         .header-banner {
             background-color: var(--bg-header);
-            padding: 20px;
+            background-image: linear-gradient(90deg, #090f1d 0%, #0f192e 50%, #090f1d 100%);
+            padding: 25px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--border-grid);
+            border-bottom: 2px solid #00D2FF;
+            position: relative;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00D2FF, transparent);
+            box-shadow: 0 0 10px #00D2FF;
         }
 
         h1 { 
-            margin: 0 0 5px 0; 
-            font-size: 26px; 
-            letter-spacing: 1px; 
-            color: var(--text-gold);
-            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0 0 8px 0; 
+            font-size: 24px; 
+            font-weight: 900;
+            letter-spacing: 1.5px; 
+            color: #FFFFFF;
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
         }
         
         .meta-header { 
-            font-size: 13px; 
-            color: var(--text-main); 
-            font-weight: bold; 
-            letter-spacing: 0.5px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px; 
+            color: var(--text-neon); 
+            font-weight: 700; 
+            letter-spacing: 2px;
         }
 
         table { 
@@ -65,239 +97,98 @@
         }
         
         thead th { 
-            background-color: #1A2232; 
-            padding: 16px; 
+            font-family: 'Orbitron', sans-serif;
+            background-color: rgba(6, 12, 26, 0.8); 
+            padding: 18px 15px; 
             border-bottom: 2px solid var(--border-grid); 
-            font-size: 14px; 
+            font-size: 12px; 
             color: var(--text-gold); 
             text-transform: uppercase; 
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .match-card { 
-            border-bottom: 2px solid var(--border-grid); 
+            border-bottom: 1px solid var(--border-grid); 
+            transition: background-color 0.2s ease;
         }
-        .match-card:last-child {
-            border-bottom: none;
+        
+        .match-card:hover {
+            background-color: rgba(255,255,255,0.02);
         }
 
         .col-matchup { 
-            padding: 20px; 
+            padding: 24px 20px; 
             vertical-align: middle; 
-            width: 38%; 
-            background-color: #151F32;
-            border-right: 2px solid var(--border-grid);
+            width: 36%; 
+            background-color: rgba(10, 17, 33, 0.5);
+            border-right: 1px solid var(--border-grid);
         }
         
-        .match-title { 
-            font-size: 18px; 
-            font-weight: 900; 
+        .match-title-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .team-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .flag-icon {
+            display: flex;
+            align-items: center;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .team-name { 
+            font-size: 19px; 
+            font-weight: 700; 
             color: var(--text-main); 
-            margin-bottom: 6px; 
-            letter-spacing: 0.3px;
-        }
-        
-        .match-designations {
-            font-size: 11px;
-            font-weight: bold;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            line-height: 1.5;
         }
         
-        .match-designations .fav-label { color: #2ECC71; }
-        .match-designations .und-label { color: #E67E22; }
+        .team-role {
+            font-size: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-left: auto;
+            letter-spacing: 0.5px;
+        }
+        .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); border: 1px solid rgba(46, 204, 113, 0.3); }
+        .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); border: 1px solid rgba(230, 126, 34, 0.3); }
         
         .match-meta { 
             font-size: 12px; 
             color: var(--text-muted); 
-            font-weight: bold;
-            line-height: 1.4; 
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-top: 6px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 8px;
         }
 
         .col-data-layers { 
             padding: 0; 
-            width: 62%; 
+            width: 64%; 
         }
         
         .layer-row { 
             display: grid; 
-            grid-template-columns: 1.6fr 1fr 1fr 1fr; 
+            grid-template-columns: 1.5fr 1fr 1fr 1fr; 
             align-items: center; 
             border-bottom: 1px solid var(--border-grid); 
-            padding: 12px 20px; 
+            padding: 14px 20px; 
         }
         .layer-row:last-child { 
             border-bottom: none; 
         }
         
-        .col-source { 
-            font-size: 13px; 
-            font-weight: bold; 
-            color: var(--text-main); 
-        }
-        
-        .pct-cell { 
-            font-weight: 900; 
-            font-size: 15px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 5px; 
-            height: 36px; 
-            border-radius: 4px; 
-            color: var(--text-main); 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-            margin: 0 4px;
-        }
-        
-        .pct-cell.win { background-color: var(--color-favorite); }
-        .pct-cell.draw { background-color: var(--color-draw); }
-        .pct-cell.loss { background-color: var(--color-underdog); }
-        
-        .final-score-box { 
-            grid-column: 2 / span 3; 
-            background-color: #2D3748; 
-            color: var(--text-gold); 
-            font-weight: 900; 
-            text-align: center; 
-            padding: 14px; 
-            border-radius: 4px; 
-            font-size: 16px; 
-            letter-spacing: 1px; 
-            border: 2px solid var(--border-grid); 
-        }
-        
-        .trend-arrow { 
-            font-size: 14px; 
-            opacity: 0.9;
-        }
-        
-        .footer-key { 
-            padding: 20px; 
-            background-color: #1A2232; 
-            font-size: 12px; 
-            color: var(--text-muted); 
-            line-height: 1.6; 
-            border-top: 2px solid var(--border-grid); 
-        }
-        .footer-key strong { 
-            color: var(--text-gold); 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="dashboard-container">
-    <div class="header-banner">
-        <h1>2026 World Cup Matchday Live-Tracker: Rolling Phase Probabilities</h1>
-        <div class="meta-header">AS OF: JUNE 11, 2026 · 11:30 AM EDT</div>
-    </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th style="padding-left: 20px;">Matchup (Opening Round Slate)</th>
-                <th>
-                    <div style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; padding: 0 20px;">
-                        <span>Probability Layer (Source)</span>
-                        <span style="text-align: center;">Fav Win %</span>
-                        <span style="text-align: center;">Draw %</span>
-                        <span style="text-align: center;">Und Win %</span>
-                    </div>
-                </th>
-            </tr>
-        </thead>
-        <tbody id="match-table-body">
-            </tbody>
-    </table>
-
-    <div class="footer-key">
-        <strong>Metadata &amp; Operational Footer Key:</strong><br>
-        Percentage metrics reflect automated tracking data compiled globally. <strong>Sportsbooks (Consensus):</strong> Formulated via shifting implied market liabilities. <strong>Supercomputer Model (Opta):</strong> Generated via 10,000-run predictive Monte Carlo simulations. <strong>Prediction Markets (P2P Exchanges):</strong> Real-time peer-to-peer contract asset values. Solid Green, Blue, and Orange cell fills map strictly to favored, draw, and underdog designations. Trend indicators ($\nearrow$, $\searrow$, $\rightarrow$) denote shifting price velocity over a rolling 60-minute evaluation interval.
-    </div>
-</div>
-
-<script>
-    const dataset = [
-        {
-            type: "COMPLETED",
-            home: "Mexico", away: "South Africa", 
-            favTeam: "Mexico", undTeam: "South Africa",
-            meta: "June 11 · Group A · Final Result",
-            score: "MEXICO 2 - 1 SOUTH AFRICA"
-        },
-        {
-            type: "UPCOMING",
-            home: "South Korea", away: "Czechia",
-            favTeam: "South Korea", undTeam: "Czechia",
-            meta: "June 11 · 10:00 PM EDT · Group A",
-            layers: [
-                { source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%", arrF: "↗", arrD: "→", arrU: "↘" },
-                { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%", arrF: "↗", arrD: "↘", arrU: "↗" },
-                { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%", arrF: "↗", arrD: "→", arrU: "↘" }
-            ]
-        },
-        {
-            type: "UPCOMING",
-            home: "Canada", away: "Bosnia & Herzegovina",
-            favTeam: "Canada", undTeam: "Bosnia & Herzegovina",
-            meta: "June 12 · 3:00 PM EDT · Group B",
-            layers: [
-                { source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%", arrF: "↗", arrD: "↘", arrU: "↗" },
-                { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%", arrF: "↘", arrD: "↗", arrU: "→" },
-                { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%", arrF: "↗", arrD: "↘", arrU: "↘" }
-            ]
-        },
-        {
-            type: "UPCOMING",
-            home: "United States", away: "Paraguay",
-            favTeam: "United States", undTeam: "Paraguay",
-            meta: "June 12 · 9:00 PM EDT · Group D",
-            layers: [
-                { source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%", arrF: "↗", arrD: "→", arrU: "↘" },
-                { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%", arrF: "↘", arrD: "↗", arrU: "↗" },
-                { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%", arrF: "↗", arrD: "→", arrU: "↘" }
-            ]
-        },
-        {
-            type: "UPCOMING",
-            home: "Qatar", away: "Switzerland",
-            favTeam: "Switzerland", undTeam: "Qatar",
-            meta: "June 13 · 3:00 PM EDT · Group B",
-            layers: [
-                { source: "Sportsbooks (Consensus)", fav: "76.5%", draw: "16.5%", und: "7.0%", arrF: "↗", arrD: "↘", arrU: "→" },
-                { source: "Supercomputer Model (Opta)", fav: "71.3%", draw: "19.8%", und: "8.9%", arrF: "↘", arrD: "↗", arrU: "↗" },
-                { source: "Prediction Markets (P2P)", fav: "75.0%", draw: "17.0%", und: "8.0%", arrF: "↗", arrD: "→", arrU: "↘" }
-            ]
-        }
-    ];
-
-    const tbody = document.getElementById('match-table-body');
-    dataset.forEach(match => {
-        let rowHtml = `<tr class="match-card">
-            <td class="col-matchup">
-                <div class="match-title">${match.home} vs. ${match.away}</div>
-                <div class="match-designations">
-                    <span class="fav-label">FAV: ${match.favTeam}</span> &nbsp;|&nbsp; 
-                    <span class="und-label">UND: ${match.undTeam}</span>
-                </div>
-                <div class="match-meta">${match.meta}</div>
-            </td>
-            <td class="col-data-layers">`;
-            
-        if (match.type === "COMPLETED") {
-            rowHtml += `<div class="layer-row" style="padding: 15px 20px;"><div class="col-source" style="color: var(--text-muted);">Match Concluded</div><div class="final-score-box">${match.score}</div></div>`;
-        } else {
-            match.layers.forEach(layer => {
-                rowHtml += `<div class="layer-row"><div class="col-source">${layer.source}</div><div class="pct-cell win">${layer.fav} <span class="trend-arrow">${layer.arrF}</span></div><div class="pct-cell draw">${layer.draw} <span class="trend-arrow">${layer.arrD}</span></div><div class="pct-cell loss">${layer.und} <span class="trend-arrow">${layer.arrU}</span></div></div>`;
-            });
-        }
-        rowHtml += `</td></tr>`;
-        tbody.innerHTML += rowHtml;
-    });
-</script>
-</body>
-</html>
+        .
