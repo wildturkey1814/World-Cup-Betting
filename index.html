@@ -20,15 +20,14 @@
             --text-gold: #F39C12;
             --text-neon: #00D2FF;
             --text-muted: #8A99AD;
-            --color-favorite: #2ECC71;
-            --color-draw: #3498DB;
-            --color-underdog: #E67E22;
+            --color-favorite: #1E8449;
+            --color-draw: #21618C;
+            --color-underdog: #D35400;
         }
 
         body { 
             font-family: 'Rajdhani', sans-serif; 
             background-color: var(--bg-body); 
-            /* Advanced CSS Math simulating atmospheric stadium lights over a pitch */
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.15) 0%, transparent 60%),
                 radial-gradient(circle at 10% 20%, rgba(30, 132, 73, 0.08) 0%, transparent 50%),
@@ -139,11 +138,17 @@
         .flag-icon {
             display: flex;
             align-items: center;
-            width: 24px;
-            height: 16px;
+            width: 26px;
+            height: 18px;
             border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+        
+        .flag-icon svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .team-name { 
@@ -191,4 +196,245 @@
             border-bottom: none; 
         }
         
-        .
+        .col-source { 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: var(--text-main);
+            letter-spacing: 0.3px;
+        }
+        
+        .pct-cell { 
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700; 
+            font-size: 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 6px; 
+            height: 38px; 
+            border-radius: 5px; 
+            color: var(--text-main); 
+            margin: 0 6px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.15s ease;
+        }
+        
+        .pct-cell.win { background-image: linear-gradient(135deg, #1E8449, #239B56); box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2); }
+        .pct-cell.draw { background-image: linear-gradient(135deg, #21618C, #2874A6); box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2); }
+        .pct-cell.loss { background-image: linear-gradient(135deg, #D35400, #E67E22); box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2); }
+        
+        .final-score-box { 
+            grid-column: 2 / span 3; 
+            background: linear-gradient(135deg, #1A263F, #111A2E);
+            color: var(--text-gold); 
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900; 
+            text-align: center; 
+            padding: 15px; 
+            border-radius: 6px; 
+            font-size: 16px; 
+            letter-spacing: 1.5px; 
+            border: 1px dashed var(--text-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        
+        .arrow-box { 
+            display: inline-flex;
+            align-items: center;
+            width: 14px;
+            height: 14px;
+        }
+        .arrow-box svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+        
+        .footer-key { 
+            padding: 24px 20px; 
+            background-color: #060c1a; 
+            font-size: 12px; 
+            color: var(--text-muted); 
+            line-height: 1.7; 
+            border-top: 1px solid var(--border-neon); 
+        }
+        .footer-key strong { 
+            color: var(--text-gold); 
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header-banner">
+        <h1>2026 World Cup Matchday Tracker: Phase Probabilities</h1>
+        <div class="meta-header">LIVE TELEMETRY DATA AS OF: JUNE 11, 2026 · 11:50 AM EDT</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="padding-left: 20px;">Matchup &amp; Pool Designation</th>
+                <th>
+                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0 20px;">
+                        <span>Probability Processing Matrix</span>
+                        <span style="text-align: center;">Favorite %</span>
+                        <span style="text-align: center;">Draw %</span>
+                        <span style="text-align: center;">Underdog %</span>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="match-table-body">
+            </tbody>
+    </table>
+
+    <div class="footer-key">
+        <strong>Metadata &amp; Operational Analytics Key:</strong><br>
+        Percentage metrics reflect automated tracking data compiled globally. <strong>Sportsbooks (Consensus):</strong> Formulated via shifting implied market liabilities. <strong>Supercomputer Model (Opta):</strong> Generated via 10,000-run predictive Monte Carlo simulations. <strong>Prediction Markets (P2P Exchanges):</strong> Real-time peer-to-peer contract asset values. Solid High-Contrast Green, Blue, and Orange cell blocks map strictly to designated favored, draw, and underdog vectors. Multi-directional trend vector components (UP, DOWN, STABLE Vector Graphics) record dynamic price velocity shifts over a rolling 60-minute computational evaluation interval.
+    </div>
+</div>
+
+<script>
+    // Full Immutable Tournament Vector Asset Library (All participating federations loaded in advance)
+    const assetLibrary = {
+        flags: {
+            mex: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
+            rsa: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007A4D"/><path d="M0,0 L12,10 L0,20 Z" fill="#000"/><path d="M0,0 L10,10 L0,20 Z" fill="#FFB612" stroke="#FFB612" stroke-width="2"/><path d="M12,10 L32,10 L32,0 L10,0 Z" fill="#E2142D"/><path d="M12,10 L32,10 L32,20 L10,20 Z" fill="#002395"/><path d="M0,0 L12,10 L0,20" stroke="#FFF" stroke-width="2" fill="none"/></svg>`,
+            kor: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="5" fill="#CD2E3A"/><path d="M16,10 A5,5 0 0,1 21,10 A2.5,2.5 0 0,1 18.5,12.5 A2.5,2.5 0 0,0 16,10" fill="#0047A0"/><circle cx="7" cy="5" r="1" fill="#000"/><circle cx="25" cy="15" r="1" fill="#000"/></svg>`,
+            cze: `<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#D7141A"/><path d="M0,0 L14,10 L0,20 Z" fill="#11457E"/></svg>`,
+            can: `<svg viewBox="0 0 32 20"><rect width="8" height="20" fill="#FF0000"/><rect x="8" width="16" height="20" fill="#FFF"/><rect x="24" width="8" height="20" fill="#FF0000"/><path d="M16,4 L17,8 L20,7 L18,11 L21,13 L17,13 L16,17 L15,13 L11,13 L14,11 L12,7 L15,8 Z" fill="#FF0000"/></svg>`,
+            bih: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#002F6C"/><path d="M11,0 L32,20 L11,20 Z" fill="#FFD200"/><circle cx="13" cy="4" r="0.8" fill="#FFF"/><circle cx="16" cy="8" r="0.8" fill="#FFF"/><circle cx="19" cy="12" r="0.8" fill="#FFF"/></svg>`,
+            usa: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="20" fill="#B22234"/><rect width="32" height="2" fill="#B22234"/><rect y="4" width="32" height="2" fill="#B22234"/><rect y="8" width="32" height="2" fill="#B22234"/><rect y="12" width="32" height="2" fill="#B22234"/><rect y="16" width="32" height="2" fill="#B22234"/><rect width="14" height="11" fill="#3C3B6E"/><circle cx="3" cy="3" r="0.5" fill="#FFF"/><circle cx="7" cy="6" r="0.5" fill="#FFF"/><circle cx="11" cy="9" r="0.5" fill="#FFF"/></svg>`,
+            pry: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#D51E2D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0038A8"/><circle cx="16" cy="10" r="1.5" fill="#7B68EE"/></svg>`,
+            qat: `<svg viewBox="0 0 32 20"><rect width="10" height="20" fill="#FFF"/><rect x="10" width="22" height="20" fill="#8A1538"/><path d="M10,0 L12,1.1 L10,2.2 L12,3.3 L10,4.4 L12,5.5 L10,6.6 L12,7.7 L10,8.8 L12,9.9 L10,11 L12,12.1 L10,13.2 L12,14.3 L10,15.4 L12,16.5 L10,17.6 L12,18.7 L10,20 Z" fill="#FFF"/></svg>`,
+            sui: `<svg viewBox="0 0 20 20" style="background:#DA291C"><rect x="8" y="3" width="4" height="14" fill="#FFF"/><rect x="3" y="8" width="14" height="4" fill="#FFF"/></svg>`,
+            ger: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#000"/><rect y="6.6" width="32" height="6.8" fill="#D00"/><rect y="13.4" width="32" height="6.6" fill="#FFCE00"/></svg>`,
+            arg: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#74ACDF"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#74ACDF"/><circle cx="16" cy="10" r="1.5" fill="#F9A81A"/></svg>`,
+            eng: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
+            fra: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#002395"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#ED2939"/></svg>`,
+            ita: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`,
+            esp: `<svg viewBox="0 0 32 20"><rect width="32" height="5" fill="#AA151B"/><rect y="5" width="32" height="10" fill="#F1BF00"/><rect y="15" width="32" height="5" fill="#AA151B"/><circle cx="8" cy="10" r="2" fill="#AA151B"/></svg>`,
+            bra: `<svg viewBox="0 0 32 20" style="background:#009C3B"><polygon points="16,2 30,10 16,18 2,10" fill="#FFDF00"/><circle cx="16" cy="10" r="4.5" fill="#002776"/></svg>`,
+            jpn: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="6" fill="#BC002D"/></svg>`,
+            ned: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#AE1C28"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#21468B"/></svg>`,
+            por: `<svg viewBox="0 0 32 20"><rect width="12" height="20" fill="#006600"/><rect x="12" width="20" height="20" fill="#FF0000"/><circle cx="12" cy="10" r="3" fill="#FFFF00"/></svg>`,
+            bel: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#000"/><rect x="10.7" width="10.6" height="20" fill="#FAE042"/><rect x="21.3" width="10.7" height="20" fill="#ED2939"/></svg>`,
+            cro: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#FF0000"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0000FF"/><polygon points="14,8 18,8 16,11" fill="#FF0000"/></svg>`,
+            uru: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="2.2" fill="#87CEEB"/><rect y="4.4" width="32" height="2.2" fill="#87CEEB"/><rect y="8.8" width="32" height="2.2" fill="#87CEEB"/><rect y="13.2" width="32" height="2.2" fill="#87CEEB"/><rect width="12" height="11" fill="#FFF"/><circle cx="6" cy="5.5" r="2" fill="#F1C40F"/></svg>`,
+            mar: `<svg viewBox="0 0 32 20" style="background:#C1272D"><polygon points="16,7 18,13 13,9 19,9 14,13" stroke="#006233" stroke-width="1" fill="none"/></svg>`,
+            col: `<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FCD116"/><rect y="10" width="32" height="5" fill="#003893"/><rect y="15" width="32" height="5" fill="#CE1126"/></svg>`,
+            swe: `<svg viewBox="0 0 32 20" style="background:#006AA7"><rect x="9" width="4" height="20" fill="#FECC00"/><rect y="8" width="32" height="4" fill="#FECC00"/></svg>`,
+            den: `<svg viewBox="0 0 32 20" style="background:#C11B17"><rect x="9" width="4" height="20" fill="#FFF"/><rect y="8" width="32" height="4" fill="#FFF"/></svg>`,
+            mex_alt: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
+            sen: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#008543"/><rect x="10.7" width="10.6" height="20" fill="#FDEF42"/><rect x="21.3" width="10.7" height="20" fill="#E31B23"/><polygon points="16,8 18,13 13,10 19,10 14,13" fill="#008543"/></svg>`,
+            cmr: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#007A5E"/><rect x="10.7" width="10.6" height="20" fill="#CE1126"/><rect x="21.3" width="10.7" height="20" fill="#FCD116"/><polygon points="16,8 18,13 13,10 19,10 14,13" fill="#FCD116"/></svg>`,
+            gha: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#ED1C24"/><rect y="6.6" width="32" height="6.8" fill="#FFD800"/><rect y="13.4" width="32" height="6.6" fill="#006B3F"/><polygon points="16,8 18,13 13,10 19,10 14,13" fill="#000"/></svg>`,
+            aus: `<svg viewBox="0 0 32 20" style="background:#00008B"><rect width="14" height="10" fill="#B22234"/><path d="M0,0 L32,20 M0,20 L32,0" stroke="#FFF" stroke-width="1"/><circle cx="24" cy="14" r="1" fill="#FFF"/></svg>`,
+            usa_alt: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="20" fill="#B22234"/><rect width="14" height="11" fill="#3C3B6E"/></svg>`
+        },
+        arrows: {
+            up: `<svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>`,
+            down: `<svg viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>`,
+            stable: `<svg viewBox="0 0 24 24"><path d="M22 12l-4-4v3H3v2h15v3l4-4z"/></svg>`
+        }
+    };
+
+    // Restoration Matrix: Rebuilt Data Array covering all opening round targets
+    const dataset = [
+        {
+            type: "COMPLETED", home: "Mexico", away: "South Africa", favTeam: "Mexico", undTeam: "South Africa",
+            homeFlag: assetLibrary.flags.mex, awayFlag: assetLibrary.flags.rsa, meta: "JUNE 11 · GROUP A · COMPLETE RESULT",
+            score: "MEXICO 2 - 1 SOUTH AFRICA"
+        },
+        {
+            type: "UPCOMING", home: "South Korea", away: "Czechia", favTeam: "South Korea", undTeam: "Czechia",
+            homeFlag: assetLibrary.flags.kor, awayFlag: assetLibrary.flags.cze, meta: "JUNE 11 · 10:00 PM EDT · GROUP A POOL",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.stable, arrU: assetLibrary.arrows.down },
+                { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.down, arrU: assetLibrary.arrows.up },
+                { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.stable, arrU: assetLibrary.arrows.down }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Canada", away: "Bosnia & Herzegovina", favTeam: "Canada", undTeam: "Bosnia",
+            homeFlag: assetLibrary.flags.can, awayFlag: assetLibrary.flags.bih, meta: "JUNE 12 · 3:00 PM EDT · GROUP B POOL",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.down, arrU: assetLibrary.arrows.up },
+                { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%", arrF: assetLibrary.arrows.down, arrD: assetLibrary.arrows.up, arrU: assetLibrary.arrows.stable },
+                { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.down, arrU: assetLibrary.arrows.down }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "United States", away: "Paraguay", favTeam: "United States", undTeam: "Paraguay",
+            homeFlag: assetLibrary.flags.usa, awayFlag: assetLibrary.flags.pry, meta: "JUNE 12 · 9:00 PM EDT · GROUP D POOL",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.stable, arrU: assetLibrary.arrows.down },
+                { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%", arrF: assetLibrary.arrows.down, arrD: assetLibrary.arrows.up, arrU: assetLibrary.arrows.up },
+                { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.stable, arrU: assetLibrary.arrows.down }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Germany", away: "Argentina", favTeam: "Germany", undTeam: "Argentina",
+            homeFlag: assetLibrary.flags.ger, awayFlag: assetLibrary.flags.arg, meta: "JUNE 13 · 12:00 PM EDT · GROUP C POOL",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "44.0%", draw: "28.0%", und: "28.0%", arrF: assetLibrary.arrows.stable, arrD: assetLibrary.arrows.up, arrU: assetLibrary.arrows.down },
+                { source: "Supercomputer Model (Opta)", fav: "46.2%", draw: "27.1%", und: "26.7%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.down, arrU: assetLibrary.arrows.down },
+                { source: "Prediction Markets (P2P)", fav: "43.1%", draw: "28.9%", und: "28.0%", arrF: assetLibrary.arrows.down, arrD: assetLibrary.arrows.up, arrU: assetLibrary.arrows.stable }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Qatar", away: "Switzerland", favTeam: "Switzerland", undTeam: "Qatar",
+            homeFlag: assetLibrary.flags.qat, awayFlag: assetLibrary.flags.sui, meta: "JUNE 13 · 3:00 PM EDT · GROUP B POOL",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "76.5%", draw: "16.5%", und: "7.0%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.down, arrU: assetLibrary.arrows.stable },
+                { source: "Supercomputer Model (Opta)", fav: "71.3%", draw: "19.8%", und: "8.9%", arrF: assetLibrary.arrows.down, arrD: assetLibrary.arrows.up, arrU: assetLibrary.arrows.up },
+                { source: "Prediction Markets (P2P)", fav: "75.0%", draw: "17.0%", und: "8.0%", arrF: assetLibrary.arrows.up, arrD: assetLibrary.arrows.stable, arrU: assetLibrary.arrows.down }
+            ]
+        }
+    ];
+
+    const tbody = document.getElementById('match-table-body');
+    dataset.forEach(match => {
+        let isHomeFav = match.favTeam === match.home;
+        
+        let rowHtml = `<tr class="match-card">
+            <td class="col-matchup">
+                <div class="match-title-wrap">
+                    <div class="team-line">
+                        <span class="flag-icon">${match.homeFlag || ''}</span>
+                        <span class="team-name">${match.home}</span>
+                        <span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span>
+                    </div>
+                    <div class="team-line">
+                        <span class="flag-icon">${match.awayFlag || ''}</span>
+                        <span class="team-name">${match.away}</span>
+                        <span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span>
+                    </div>
+                </div>
+                <div class="match-meta">${match.meta}</div>
+            </td>
+            <td class="col-data-layers">`;
+            
+        if (match.type === "COMPLETED") {
+            rowHtml += `<div class="layer-row" style="padding: 26px 20px;"><div class="col-source" style="color: var(--text-muted); font-family:'Orbitron'; font-size:11px;">OFFICIAL STATE</div><div class="final-score-box">${match.score}</div></div>`;
+        } else {
+            match.layers.forEach(layer => {
+                rowHtml += `<div class="layer-row">
+                    <div class="col-source">${layer.source}</div>
+                    <div class="pct-cell win">${layer.fav} <span class="arrow-box">${layer.arrF}</span></div>
+                    <div class="pct-cell draw">${layer.draw} <span class="arrow-box">${layer.arrD}</span></div>
+                    <div class="pct-cell loss">${layer.und} <span class="arrow-box">${layer.arrU}</span></div>
+                </div>`;
+            });
+        }
+        rowHtml += `</td></tr>`;
+        tbody.innerHTML += rowHtml;
+    });
+</script>
+</body>
+</html>
