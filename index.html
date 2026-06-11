@@ -28,220 +28,721 @@
         body { 
             font-family: 'Rajdhani', sans-serif; 
             background-color: var(--bg-body); 
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 10% 20%, rgba(30, 132, 73, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 90% 20%, rgba(30, 132, 73, 0.08) 0%, transparent 50%),
-                linear-gradient(to bottom, #050814 0%, #0c1527 100%);
+            background-image: radial-gradient(circle at top, #1E293B 0%, #0A0F1D 70%);
             background-attachment: fixed;
             color: var(--text-main); 
             margin: 0; 
-            padding: 30px 15px; 
+            padding: 20px; 
             -webkit-font-smoothing: antialiased;
         }
         
         .dashboard-container { 
-            max-width: 1250px; 
+            max-width: 1300px; 
             margin: 0 auto; 
             background-color: var(--bg-dashboard);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border-neon);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
         .header-banner {
             background-color: var(--bg-header);
-            background-image: linear-gradient(90deg, #090f1d 0%, #0f192e 50%, #090f1d 100%);
-            padding: 25px 20px;
+            padding: 20px;
             text-align: center;
-            border-bottom: 1px solid var(--border-grid);
+            border-bottom: 2px solid var(--border-grid);
         }
 
         h1 { 
             font-family: 'Orbitron', sans-serif;
-            margin: 0 0 8px 0; 
+            margin: 0 0 5px 0; 
             font-size: 24px; 
             font-weight: 900;
-            letter-spacing: 1.5px; 
             color: #FFFFFF;
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
         }
         
         .meta-header { 
-            font-family: 'Orbitron', sans-serif;
-            font-size: 11px; 
-            color: var(--text-neon); 
-            font-weight: 700; 
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            font-size: 13px; 
+            color: var(--text-muted); 
+            font-weight: bold; 
+            letter-spacing: 0.5px;
         }
 
-        /* Controller Routing Panel */
-        .control-panel {
-            background-color: rgba(6, 12, 26, 0.8);
-            padding: 12px 20px;
+        /* Mode Selector CSS */
+        .mode-selector {
+            background-color: rgba(6, 12, 26, 0.9);
+            padding: 10px;
+            border-bottom: 2px solid var(--border-grid);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #00D2FF;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .control-label {
+        .mode-btn {
             font-family: 'Orbitron', sans-serif;
             font-size: 11px;
-            color: var(--text-gold);
-            font-weight: 900;
+            font-weight: bold;
             letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .stage-dropdown {
-            font-family: 'Orbitron', sans-serif;
-            background-color: #0f192e;
-            color: #FFFFFF;
-            border: 1px solid var(--text-neon);
-            padding: 6px 32px 6px 12px;
-            font-size: 12px;
-            font-weight: 700;
+            background: none;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 6px 16px;
             border-radius: 4px;
-            outline: none;
             cursor: pointer;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 8px rgba(0, 210, 255, 0.2);
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%2300D2FF' d='M0 0l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
+            transition: all 0.2s ease;
         }
 
-        .stage-dropdown:focus {
-            border-color: var(--text-gold);
-            box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
-        }
+        .mode-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.1); }
+        .mode-btn.active { color: #FFFFFF; border-color: var(--text-neon); background-color: rgba(0,210,255,0.05); box-shadow: 0 0 10px rgba(0,210,255,0.2); }
 
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-        }
+        /* VIEW CONTAINER CSS */
+        .view-content { padding: 20px; display: none; }
+        .view-content.active { display: block; }
+
+        /* [1] GRID VIEW SPECIFIC CSS */
+        table { width: 100%; border-collapse: collapse; }
+        thead th { font-family: 'Orbitron', sans-serif; padding: 16px; border-bottom: 2px solid var(--border-grid); font-size: 12px; color: var(--text-gold); text-transform: uppercase; }
+        .match-card { border-bottom: 1px solid var(--border-grid); }
+        .col-matchup { padding: 20px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); }
+        .match-title-wrap { display: flex; flex-direction: column; gap: 8px; }
+        .team-line { display: flex; align-items: center; gap: 10px; }
+        .flag-icon { width: 22px; height: 14px; border-radius: 2px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .flag-icon svg { width: 100%; height: 100%; object-fit: cover; }
+        .team-name { font-size: 18px; font-weight: 700; color: #FFFFFF; }
+        .team-role { font-size: 10px; font-family: 'Orbitron', sans-serif; font-weight: 900; padding: 1px 4px; border-radius: 3px; margin-left: auto; }
+        .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); }
+        .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); }
+        .pct-cell { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 4px; height: 34px; border-radius: 4px; }
+        .pct-cell.win { background-color: var(--color-favorite); }
+        .pct-cell.draw { background-color: var(--color-draw); }
+        .pct-cell.loss { background-color: var(--color-underdog); }
+        .final-score-box { grid-column: 2 / span 3; background: rgba(255,255,255,0.05); color: var(--text-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; text-align: center; padding: 12px; border-radius: 4px; font-size: 16px; border: 1px dashed var(--text-gold); }
+
+        /* [2] BRACKET VIEW SPECIFIC CSS */
+        #bracket-viewport { overflow-x: auto; padding: 10px; }
+        .bracket-container { display: flex; align-items: stretch; gap: 10px; min-width: 1000px; padding-bottom: 20px; }
+        .round { flex: 1; display: flex; flex-direction: column; }
+        .round-header { font-family: 'Orbitron', sans-serif; text-align: center; color: var(--text-neon); text-transform: uppercase; font-size: 13px; font-weight: 900; letter-spacing: 1.5px; padding-bottom: 15px; border-bottom: 1px solid var(--border-grid); margin-bottom: 15px; }
+
+        .bracket-spacer { flex-grow: 1; }
+        .matchup-slot { display: flex; flex-direction: column; justify-content: center; position: relative; margin-bottom: 20px; }
         
-        thead th { 
-            font-family: 'Orbitron', sans-serif;
-            background-color: rgba(4, 8, 18, 0.9); 
-            padding: 15px; 
-            border-bottom: 2px solid var(--border-grid); 
-            font-size: 11px; 
-            color: var(--text-muted); 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-        }
+        /* Bracket Connector Lines */
+        .matchup-slot::after { content: ''; position: absolute; left: 100%; top: 50%; width: 10px; height: 1px; background-color: var(--border-grid); }
+        .round-of-32 .matchup-slot::after { width: calc(5px + 10px); }
+        .quarterfinals .matchup-slot::after { width: calc(5px + 10px); }
 
-        .match-card { 
-            border-bottom: 1px solid var(--border-grid); 
-            transition: background-color 0.2s ease;
-        }
-        
-        .match-card:hover {
-            background-color: rgba(255,255,255,0.01);
-        }
-
-        .col-matchup { 
-            padding: 24px 20px; 
-            vertical-align: middle; 
-            width: 36%; 
-            background-color: rgba(10, 17, 33, 0.4);
-            border-right: 1px solid var(--border-grid);
-        }
-        
-        .match-title-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .team-line {
+        .team-slot {
+            background: linear-gradient(135deg, #0e1526, #090f1d);
+            border: 1px solid var(--border-grid);
+            padding: 10px 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            font-size: 13px;
+            position: relative;
         }
+        .team-slot:first-of-type { border-radius: 5px 5px 0 0; }
+        .team-slot:last-of-type { border-radius: 0 0 5px 5px; border-top: none; }
+        .team-slot:hover { background-color: rgba(255,255,255,0.01); }
 
-        .flag-icon {
-            display: flex;
-            align-items: center;
-            width: 26px;
-            height: 18px;
-            border-radius: 2px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-        }
-        
-        .flag-icon svg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .team-name { 
-            font-size: 19px; 
-            font-weight: 700; 
-            color: var(--text-main); 
-            letter-spacing: 0.5px;
-        }
-        
-        .team-role {
-            font-size: 10px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            padding: 1px 5px;
-            border-radius: 3px;
+        .bracket-data { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 10px; 
+            font-weight: 900; 
+            color: var(--text-gold); 
             margin-left: auto;
-            letter-spacing: 0.5px;
+            text-align: right;
+            line-height: 1.3;
         }
-        .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); border: 1px solid rgba(46, 204, 113, 0.3); }
-        .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); border: 1px solid rgba(230, 126, 34, 0.3); }
         
-        .match-meta { 
-            font-size: 12px; 
-            color: var(--text-muted); 
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            margin-top: 6px;
-            border-top: 1px solid rgba(255,255,255,0.04);
-            padding-top: 8px;
+        .avg-p { display: block; }
+        .p2p { color: var(--color-underdog); opacity: 0.8; font-size: 8px; }
+
+        .tie-probability-bubble {
+            position: absolute;
+            top: 50%;
+            left: calc(100% - 30px);
+            transform: translate(-50%, -50%);
+            background-color: var(--bg-dashboard);
+            border: 1px solid var(--border-grid);
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 9px;
+            color: var(--color-draw);
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .winner-tag {
+            border-color: var(--text-neon);
+            color: #FFFFFF;
+            font-weight: bold;
+            background-color: rgba(0,210,255,0.03);
         }
 
-        .col-data-layers { 
-            padding: 0; 
-            width: 64%; 
-        }
-        
-        .layer-row { 
-            display: grid; 
-            grid-template-columns: 1.5fr 1fr 1fr 1fr; 
-            align-items: center; 
-            border-bottom: 1px solid var(--border-grid); 
-            padding: 14px 20px; 
-        }
-        .layer-row:last-child { 
-            border-bottom: none; 
-        }
-        
-        .col-source { 
-            font-size: 14px; 
-            font-weight: 600; 
-            color: var(--text-main);
-            letter-spacing: 0.3px;
-        }
-        
-        .pct-cell { 
+        .winner-tag::before {
+            content: ' Winner A';
             font-family: 'Orbitron', sans-serif;
-            font-weight: 700; 
-            font-size: 15px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 6px; 
-            height: 38px
+            position: absolute;
+            left: calc(100% + 5px);
+            color: var(--text-neon);
+            font-size: 9px;
+            width: max-content;
+        }
+
+        .footer-key { padding: 20px; background-color: rgba(6, 12, 26, 0.8); font-size: 12px; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-grid); }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header-banner">
+        <h1>2026 World Cup Matchday Tracker</h1>
+        <div class="meta-header">LIVE ANALYTICS AS OF: JUNE 11, 2026 · 11:55 AM EDT</div>
+    </div>
+
+    <div class="mode-selector">
+        <button class="mode-btn active" onclick="switchView('grid')">Probability Grid</button>
+        <button class="mode-btn" onclick="switchView('bracket')">Tournament Bracket</button>
+    </div>
+
+    <div id="view-grid" class="view-content active">
+        <table>
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">Matchup (Group Slate)</th>
+                    <th>
+                        <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0 20px;">
+                            <span>Probability Layer</span>
+                            <span style="text-align: center;">Favorite %</span>
+                            <span style="text-align: center;">Draw %</span>
+                            <span style="text-align: center;">Underdog %</span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="match-table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div id="view-bracket" class="view-content">
+        <div id="bracket-viewport">
+            <div id="bracket-root" class="bracket-container">
+                </div>
+        </div>
+    </div>
+
+    <div class="footer-key">
+        <strong>OPERATIONAL DATA KEY:</strong> <strong>Sportsbooks (Consensus):</strong> Market implied probability. <strong>Supercomputer Model (Opta):</strong> Generated via 10,000 predictive simulations. <strong>Prediction Markets (P2P Exchanges):</strong> Peer-to-peer asset values. <strong>Tournament Bracket:</strong> Numbers represent the implicit arithmetic mean of all three forecasting layers: `(Favorite consensus %)`. Solid blocks (Green, Blue, Orange) map to favorite, draw, underdog vectors.
+    </div>
+</div>
+
+<script>
+    // Centralized Visual Asset Library (Procedural SVG Flags)
+    const flags = {
+        mex: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
+        rsa: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007A4D"/><path d="M0,0 L12,10 L0,20 Z" fill="#000"/><path d="M0,0 L10,10 L0,20 Z" fill="#FFB612" stroke="#FFB612" stroke-width="2"/><path d="M12,10 L32,10 L32,0 L10,0 Z" fill="#E2142D"/><path d="M12,10 L32,10 L32,20 L10,20 Z" fill="#002395"/><path d="M0,0 L12,10 L0,20" stroke="#FFF" stroke-width="2" fill="none"/></svg>`,
+        kor: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="5" fill="#CD2E3A"/><path d="M16,10 A5,5 0 0,1 21,10 A2.5,2.5 0 0,1 18.5,12.5 A2.5,2.5 0 0,0 16,10" fill="#0047A0"/></svg>`,
+        cze: `<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#D7141A"/><path d="M0,0 L14,10 L0,20 Z" fill="#11457E"/></svg>`,
+        can: `<svg viewBox="0 0 32 20"><rect width="8" height="20" fill="#FF0000"/><rect x="8" width="16" height="20" fill="#FFF"/><rect x="24" width="8" height="20" fill="#FF0000"/><path d="M16,4 L17,8 L20,7 L18,11 L21,13 L17,13 L16,17 L15,13 L11,13 L14,11 L12,7 L15,8 Z" fill="#FF0000"/></svg>`,
+        bih: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#002F6C"/><path d="M11,0 L32,20 L11,20 Z" fill="#FFD200"/><circle cx="16" cy="8" r="0.8" fill="#FFF"/></svg>`,
+        usa: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="20" fill="#B22234"/><rect width="14" height="11" fill="#3C3B6E"/></svg>`,
+        pry: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#D51E2D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0038A8"/></svg>`,
+        qat: `<svg viewBox="0 0 32 20"><rect width="10" height="20" fill="#FFF"/><rect x="10" width="22" height="20" fill="#8A1538"/></svg>`,
+        sui: `<svg viewBox="0 0 20 20" style="background:#DA291C"><rect x="8" y="3" width="4" height="14" fill="#FFF"/><rect x="3" y="8" width="14" height="4" fill="#FFF"/></svg>`,
+        // Restoration Matrix - Reloading all pre-game vector tags for the expanded round of 32 slate
+        ger: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#000"/><rect y="6.6" width="32" height="6.8" fill="#D00"/><rect y="13.4" width="32" height="6.6" fill="#FFCE00"/></svg>`,
+        arg: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#74ACDF"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#74ACDF"/><circle cx="16" cy="10" r="1.5" fill="#F9A81A"/></svg>`,
+        eng: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
+        ita: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`,
+        bra: `<svg viewBox="0 0 32 20" style="background:#009C3B"><polygon points="16,2 30,10 16,18 2,10" fill="#FFDF00"/><circle cx="16" cy="10" r="4.5" fill="#002776"/></svg>`,
+        jpn: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="6" fill="#BC002D"/></svg>`,
+        fra: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#002395"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#ED2939"/></svg>`,
+        esp: `<svg viewBox="0 0 32 20"><rect width="32" height="5" fill="#AA151B"/><rect y="5" width="32" height="10" fill="#F1BF00"/><rect y="15" width="32" height="5" fill="#AA151B"/><circle cx="8" cy="10" r="2" fill="#AA151B"/></svg>`
+    };
+
+    // Consolidated master tournament data array
+    const dataset = [
+        {
+            type: "COMPLETED", home: "Mexico", away: "South Africa", favTeam: "Mexico", undTeam: "South Africa",
+            homeFlag: flags.mex, awayFlag: flags.rsa, meta: "June 11 · Group A · Complete",
+            score: "MEXICO 2 - 1 SOUTH AFRICA"
+        },
+        {
+            type: "UPCOMING", home: "South Korea", away: "Czechia", favTeam: "South Korea", undTeam: "Czechia",
+            homeFlag: flags.kor, awayFlag: flags.cze, meta: "June 11 · 10:00 PM EDT · Group A",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%" },
+                { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%" },
+                { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Canada", away: "Bosnia & Herzegovina", favTeam: "Canada", undTeam: "Bosnia",
+            homeFlag: flags.can, awayFlag: flags.bih, meta: "June 12 · 3:00 PM EDT · Group B",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%" },
+                { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "United States", away: "Paraguay", favTeam: "United States", undTeam: "Paraguay",
+            homeFlag: flags.usa, awayFlag: flags.pry, meta: "June 12 · 9:00 PM EDT · Group D",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%" },
+                { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Germany", away: "Argentina", favTeam: "Germany", undTeam: "Argentina",
+            homeFlag: flags.ger, awayFlag: flags.arg, meta: "June 13 · 12:00 PM EDT · Group C",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "44.0%", draw: "28.0%", und: "28.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "46.2%", draw: "27.1%", und: "26.7%" },
+                { source: "Prediction Markets (P2P)", fav: "43.1%", draw: "28.9%", und: "28.0%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Qatar", away: "Switzerland", favTeam: "Switzerland", undTeam: "Qatar",
+            homeFlag: flags.qat, awayFlag: flags.sui, meta: "June 13 · 3:00 PM EDT · Group B",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "76.5%", draw: "16.5%", und: "7.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "71.3%", draw: "19.8%", und: "8.9%" },
+                { source: "Prediction Markets (P2P)", fav: "75.0%", draw: "17.0%", und: "8.0%" }
+            ]
+        }
+    ];
+
+    // Core function to calculate mathematical average across forecasting rows
+    function getAverageFavValue(layers) {
+        if (!layers) return null;
+        let sum = 0;
+        layers.forEach(row => { sum += parseFloat(row.fav.replace('%', '')); });
+        return (sum / layers.length).toFixed(1);
+    }
+    
+    // Core function to calculate mathematical average Draw percentage
+    function getAverageDrawValue(layers) {
+        if (!layers) return 'TBD';
+        let sum = 0;
+        layers.forEach(row => { sum += parseFloat(row.draw.replace('%', '')); });
+        return (sum / layers.length).toFixed(1);
+    }
+
+    // 1. Initial Render Function for Probability Grid
+    const tbody = document.getElementById('match-table-body');
+    dataset.forEach(match => {
+        let isHomeFav = match.favTeam === match.home;
+        
+        let rowHtml = `<tr class="match-card">
+            <td class="col-matchup">
+                <div class="match-title-wrap">
+                    <div class="team-line">
+                        <span class="flag-icon">${match.homeFlag}</span>
+                        <span class="team-name">${match.home}</span>
+                        <span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span>
+                    </div>
+                    <div class="team-line">
+                        <span class="flag-icon">${match.awayFlag}</span>
+                        <span class="team-name">${match.away}</span>
+                        <span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span>
+                    </div>
+                </div>
+                <div class="match-meta">${match.meta}[2026-06-11 | 12:05:30 EDT]
+
+Seeing your handwritten sketch is fantastic—it provides a crystal clear operational model and visual blueprint. Merging a simplified **Bracket view** that automatically computes the arithmetic mean of all three forecasting layers into one consensus number is an exceptional way to streamline the analysis.
+
+I have drafted the complete, unified **HTML Code Overhaul** below. This single paste replaces your entire `index.html` file and transforms your system from a list view into a professional dual-mode analytical application.
+
+### Highlights of this Visual & Functional Upgrade:
+
+1. **Dual-View Controller:** Just like major sports betting apps, I have added a humanist, glowing control panel right beneath your main banner. You or your viewers can now instantly toggle between the original **"Probability Grid"** and your new **"Tournament Bracket."**
+2. **Dynamic Consensus Calculation:** The JavaScript engine now automatically finds the Favorite Win percentage from all three data rows (Sportsbooks, Supercomputer, and P2P) and divides by three to render that clean, mathematical mean on the bracket card: `(F70.0%)`.
+3. **Explicit Label Placement:** As you requested, the average tie percentage is rendered in a specialized probability bubble floating exactly between the two teams holding the connection lines.
+4. **Automated Vector Flag Ingestion:** Since we pre-loaded your asset dictionary, the new bracket view automatically pulls the crisp country shield vector next to each team name based on the live data, matching the visual polish of your sketch idea.
+
+Go to your **`index.html`** file on GitHub, enter edit mode, completely clear the old text, and paste this entire master layout file over it:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 World Cup Premium Analytics Dashboard</title>
+    
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap)" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-body: #050814;
+            --bg-dashboard: rgba(13, 22, 41, 0.75);
+            --bg-header: #0f192e;
+            --border-neon: rgba(0, 210, 255, 0.2);
+            --border-grid: rgba(255, 255, 255, 0.08);
+            --text-main: #FFFFFF;
+            --text-gold: #F39C12;
+            --text-neon: #00D2FF;
+            --text-muted: #8A99AD;
+            --color-favorite: #1E8449;
+            --color-draw: #21618C;
+            --color-underdog: #D35400;
+        }
+
+        body { 
+            font-family: 'Rajdhani', sans-serif; 
+            background-color: var(--bg-body); 
+            background-image: radial-gradient(circle at top, #1E293B 0%, #0A0F1D 70%);
+            background-attachment: fixed;
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 20px; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .dashboard-container { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            background-color: var(--bg-dashboard);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-neon);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .header-banner {
+            background-color: var(--bg-header);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-grid);
+        }
+
+        h1 { 
+            font-family: 'Orbitron', sans-serif;
+            margin: 0 0 5px 0; 
+            font-size: 24px; 
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        }
+        
+        .meta-header { 
+            font-size: 13px; 
+            color: var(--text-muted); 
+            font-weight: bold; 
+            letter-spacing: 0.5px;
+        }
+
+        /* Mode Selector CSS */
+        .mode-selector {
+            background-color: rgba(6, 12, 26, 0.9);
+            padding: 10px;
+            border-bottom: 2px solid var(--border-grid);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .mode-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: none;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 6px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mode-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.1); }
+        .mode-btn.active { color: #FFFFFF; border-color: var(--text-neon); background-color: rgba(0,210,255,0.05); box-shadow: 0 0 10px rgba(0,210,255,0.2); }
+
+        /* VIEW CONTAINER CSS */
+        .view-content { padding: 20px; display: none; }
+        .view-content.active { display: block; }
+
+        /* [1] GRID VIEW SPECIFIC CSS */
+        table { width: 100%; border-collapse: collapse; }
+        thead th { font-family: 'Orbitron', sans-serif; padding: 16px; border-bottom: 2px solid var(--border-grid); font-size: 12px; color: var(--text-gold); text-transform: uppercase; }
+        .match-card { border-bottom: 1px solid var(--border-grid); }
+        .col-matchup { padding: 20px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); }
+        .match-title-wrap { display: flex; flex-direction: column; gap: 8px; }
+        .team-line { display: flex; align-items: center; gap: 10px; }
+        .flag-icon { width: 22px; height: 14px; border-radius: 2px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .flag-icon svg { width: 100%; height: 100%; object-fit: cover; }
+        .team-name { font-size: 18px; font-weight: 700; color: #FFFFFF; }
+        .team-role { font-size: 10px; font-family: 'Orbitron', sans-serif; font-weight: 900; padding: 1px 4px; border-radius: 3px; margin-left: auto; }
+        .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); }
+        .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); }
+        .pct-cell { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 4px; height: 34px; border-radius: 4px; }
+        .pct-cell.win { background-color: var(--color-favorite); }
+        .pct-cell.draw { background-color: var(--color-draw); }
+        .pct-cell.loss { background-color: var(--color-underdog); }
+        .final-score-box { grid-column: 2 / span 3; background: rgba(255,255,255,0.05); color: var(--text-gold); font-family: 'Orbitron', sans-serif; font-weight: 900; text-align: center; padding: 12px; border-radius: 4px; font-size: 16px; border: 1px dashed var(--text-gold); }
+
+        /* [2] BRACKET VIEW SPECIFIC CSS */
+        #bracket-viewport { overflow-x: auto; padding: 10px; }
+        .bracket-container { display: flex; gap: 15px; min-width: 1000px; padding-bottom: 20px; }
+        .round { flex: 1; display: flex; flex-direction: column; }
+        .round-header { font-family: 'Orbitron', sans-serif; text-align: center; color: var(--text-neon); text-transform: uppercase; font-size: 13px; font-weight: 900; letter-spacing: 1.5px; padding-bottom: 10px; border-bottom: 1px solid var(--border-grid); margin-bottom: 15px; }
+
+        .bracket-spacer { flex-grow: 1; }
+        .matchup-slot { display: flex; flex-direction: column; position: relative; margin-bottom: 15px; justify-content: center;}
+
+        .team-slot {
+            background-color: rgba(10, 17, 33, 0.6);
+            border: 1px solid var(--border-grid);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+        }
+        .team-slot:first-of-type { border-radius: 4px 4px 0 0; }
+        .team-slot:last-of-type { border-radius: 0 0 4px 4px; border-top: none; }
+        .team-slot:hover { background-color: rgba(255,255,255,0.01); }
+
+        .bracket-consensus { font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 900; color: var(--text-gold); margin-left: auto; letter-spacing: 0.5px; }
+        
+        .tie-probability-bubble {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--bg-dashboard);
+            border: 1px solid var(--border-grid);
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 9px;
+            color: var(--color-draw);
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .footer-key { padding: 20px; background-color: rgba(6, 12, 26, 0.8); font-size: 12px; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border-grid); }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header-banner">
+        <h1>2026 World Cup Matchday Tracker</h1>
+        <div class="meta-header">LIVE ANALYTICS AS OF: JUNE 11, 2026 · 11:55 AM EDT</div>
+    </div>
+
+    <div class="mode-selector">
+        <button class="mode-btn active" onclick="switchView('grid')">Probability Grid</button>
+        <button class="mode-btn" onclick="switchView('bracket')">Tournament Bracket</button>
+    </div>
+
+    <div id="view-grid" class="view-content active">
+        <table>
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">Matchup (Group Slate)</th>
+                    <th>
+                        <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0 20px;">
+                            <span>Probability Layer</span>
+                            <span style="text-align: center;">Favorite %</span>
+                            <span style="text-align: center;">Draw %</span>
+                            <span style="text-align: center;">Underdog %</span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="match-table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div id="view-bracket" class="view-content">
+        <div id="bracket-viewport">
+            <div id="bracket-root" class="bracket-container">
+                </div>
+        </div>
+    </div>
+
+    <div class="footer-key">
+        <strong>OPERATIONAL DATA KEY:</strong> <strong>Sportsbooks (Consensus):</strong> Market implied probability. <strong>Supercomputer Model (Opta):</strong> Generated via 10,000 predictive simulations. <strong>Prediction Markets (P2P Exchanges):</strong> Peer-to-peer asset values. <strong>Tournament Bracket:</strong> Numbers represent the implicit arithmetic mean of all three forecasting layers: `(Favorite consensus %)`. Solid blocks (Green, Blue, Orange) map to favorite, draw, underdog vectors.
+    </div>
+</div>
+
+<script>
+    // Centralized Visual Asset Library (Vector Flags)
+    const flags = {
+        mex: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
+        rsa: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007A4D"/><path d="M0,0 L12,10 L0,20 Z" fill="#000"/><path d="M0,0 L10,10 L0,20 Z" fill="#FFB612" stroke="#FFB612" stroke-width="2"/><path d="M12,10 L32,10 L32,0 L10,0 Z" fill="#E2142D"/><path d="M12,10 L32,10 L32,20 L10,20 Z" fill="#002395"/><path d="M0,0 L12,10 L0,20" stroke="#FFF" stroke-width="2" fill="none"/></svg>`,
+        kor: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="5" fill="#CD2E3A"/><path d="M16,10 A5,5 0 0,1 21,10 A2.5,2.5 0 0,1 18.5,12.5 A2.5,2.5 0 0,0 16,10" fill="#0047A0"/></svg>`,
+        cze: `<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#D7141A"/><path d="M0,0 L14,10 L0,20 Z" fill="#11457E"/></svg>`,
+        can: `<svg viewBox="0 0 32 20"><rect width="8" height="20" fill="#FF0000"/><rect x="8" width="16" height="20" fill="#FFF"/><rect x="24" width="8" height="20" fill="#FF0000"/><path d="M16,4 L17,8 L20,7 L18,11 L21,13 L17,13 L16,17 L15,13 L11,13 L14,11 L12,7 L15,8 Z" fill="#FF0000"/></svg>`,
+        bih: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#002F6C"/><path d="M11,0 L32,20 L11,20 Z" fill="#FFD200"/><circle cx="16" cy="8" r="0.8" fill="#FFF"/></svg>`,
+        usa: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="20" fill="#B22234"/><rect width="14" height="11" fill="#3C3B6E"/></svg>`,
+        pry: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#D51E2D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0038A8"/></svg>`,
+        qat: `<svg viewBox="0 0 32 20"><rect width="10" height="20" fill="#FFF"/><rect x="10" width="22" height="20" fill="#8A1538"/></svg>`,
+        sui: `<svg viewBox="0 0 20 20" style="background:#DA291C"><rect x="8" y="3" width="4" height="14" fill="#FFF"/><rect x="3" y="8" width="14" height="4" fill="#FFF"/></svg>`
+    };
+
+    // Consolidated master data matrix containing all opening matches
+    const dataset = [
+        {
+            type: "COMPLETED", home: "Mexico", away: "South Africa", favTeam: "Mexico", undTeam: "South Africa",
+            homeFlag: flags.mex, awayFlag: flags.rsa, meta: "June 11 · Group A · Complete",
+            score: "MEXICO 2 - 1 SOUTH AFRICA"
+        },
+        {
+            type: "UPCOMING", home: "South Korea", away: "Czechia", favTeam: "South Korea", undTeam: "Czechia",
+            homeFlag: flags.kor, awayFlag: flags.cze, meta: "June 11 · 10:00 PM EDT · Group A",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%" },
+                { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%" },
+                { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Canada", away: "Bosnia & Herzegovina", favTeam: "Canada", undTeam: "Bosnia",
+            homeFlag: flags.can, awayFlag: flags.bih, meta: "June 12 · 3:00 PM EDT · Group B",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%" },
+                { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "United States", away: "Paraguay", favTeam: "United States", undTeam: "Paraguay",
+            homeFlag: flags.usa, awayFlag: flags.pry, meta: "June 12 · 9:00 PM EDT · Group D",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%" },
+                { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Germany", away: "Argentina", favTeam: "Germany", undTeam: "Argentina",
+            homeFlag: flags.ger, awayFlag: flags.arg, meta: "June 13 · 12:00 PM EDT · Group C",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "44.0%", draw: "28.0%", und: "28.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "46.2%", draw: "27.1%", und: "26.7%" },
+                { source: "Prediction Markets (P2P)", fav: "43.1%", draw: "28.9%", und: "28.0%" }
+            ]
+        },
+        {
+            type: "UPCOMING", home: "Qatar", away: "Switzerland", favTeam: "Switzerland", undTeam: "Qatar",
+            homeFlag: flags.qat, awayFlag: flags.sui, meta: "June 13 · 3:00 PM EDT · Group B",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "76.5%", draw: "16.5%", und: "7.0%" },
+                { source: "Supercomputer Model (Opta)", fav: "71.3%", draw: "19.8%", und: "8.9%" },
+                { source: "Prediction Markets (P2P)", fav: "75.0%", draw: "17.0%", und: "8.0%" }
+            ]
+        }
+    ];
+
+    // Core logic to mathematically average consensus values across the three rows
+    function getAverageFavValue(layers) {
+        if (!layers) return null;
+        let sum = 0;
+        layers.forEach(row => { sum += parseFloat(row.fav.replace('%', '')); });
+        return (sum / layers.length).toFixed(1);
+    }
+    
+    // Core logic to mathematically average consensus tie probability
+    function getAverageDrawValue(layers) {
+        if (!layers) return 'TBD';
+        let sum = 0;
+        layers.forEach(row => { sum += parseFloat(row.draw.replace('%', '')); });
+        return (sum / layers.length).toFixed(1);
+    }
+
+    // 1. Render Function for Probability Grid (Original View)
+    const tbody = document.getElementById('match-table-body');
+    dataset.forEach(match => {
+        let isHomeFav = match.favTeam === match.home;
+        
+        let rowHtml = `<tr class="match-card">
+            <td class="col-matchup">
+                <div class="match-title-wrap">
+                    <div class="team-line">
+                        <span class="flag-icon">${match.homeFlag}</span>
+                        <span class="team-name">${match.home}</span>
+                        <span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span>
+                    </div>
+                    <div class="team-line">
+                        <span class="flag-icon">${match.awayFlag}</span>
+                        <span class="team-name">${match.away}</span>
+                        <span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span>
+                    </div>
+                </div>
+                <div class="match-meta">${match.meta}</div>
+            </td>
+            <td class="col-data-layers">`;
+            
+        if (match.type === "COMPLETED") {
+            rowHtml += `<div class="layer-row" style="padding: 15px 20px;"><div class="col-source" style="color: var(--text-muted);">Match Concluded</div><div class="final-score-box">${match.score}</div></div>`;
+        } else {
+            match.layers.forEach(layer => {
+                rowHtml += `<div class="layer-row">
+                    <div class="col-source">${layer.source}</div>
+                    <div class="pct-cell win">${layer.fav}</div>
+                    <div class="pct-cell draw">${layer.draw}</div>
+                    <div class="pct-cell loss">${layer.und}</div>
+                </div>`;
+            });
+        }
+        rowHtml += `</td></tr>`;
+        tbody.innerHTML += rowHtml;
+    });
+
+    // 2. Render Function for Tournament Bracket (New View)
+    const bracketRoot = document.getElementById('bracket-root');
+    const knockoutMatches = [
+        { round: "Round of 32", teams: ["United States", "Paraguay"], data: dataset[3] },
+        { round: "Round of 32", teams: ["Germany", "Argentina"], data: dataset[4] }
+    ];
+
+    let bracketHtml = `<div class="round"><div class="round-header">Opening Knockout</div><div class="bracket-spacer"></div>`;
+    
+    knockoutMatches.forEach(match => {
+        let avgFav = getAverageFavValue(match.data.layers);
+        let avgDraw = getAverageDrawValue(match.data.layers);
+        
+        bracketHtml += `<div class="matchup-slot">
+            <div class="team-slot"><span class="flag-icon">${match.data.homeFlag}</span> ${match.data.home} <span class="bracket-consensus">${avgFav ? '(F'+avgFav+'%)' : '(Average TBD)'}</span></div>
+            <div class="team-slot"><span class="flag-icon">${match.data.awayFlag}</span> ${match.data.away} <span class="bracket-consensus">TBD</span></div>
+            <div class="tie-probability-bubble">(Draw ${avgDraw}%)</div>
+        </div>
+        <div class="bracket-spacer"></div>`;
+    });
+    bracketHtml += `</div>`;
+    bracketRoot.innerHTML = bracketHtml;
+
+    // View Switching Logic
+    function switchView(mode) {
+        document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.mode-btn').forEach(el => el.classList.remove('active'));
+        
+        if (mode === 'grid') {
+            document.getElementById('view-grid').classList.add('active');
+            document.querySelector('.mode-btn:nth-child(1)').classList.add('active');
+        } else {
+            document.getElementById('view-bracket').classList.add('active');
+            document.querySelector('.mode-btn:nth-child(2)').classList.add('active');
+        }
+    }
+</script>
+</body>
+</html>
