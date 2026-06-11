@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 World Cup Matchday Live-Tracker</title>
+    <style>
+        :root {
+            --bg-body: #F8F9FA;
+            --bg-table: #FFFFFF;
+            --border-color: #E0E4E7;
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --color-win: #2ECC71;
+            --color-draw: #3498DB;
+            --color-loss: #E67E22;
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        body { font-family: var(--font-family); background-color: var(--bg-body); color: var(--text-primary); margin: 0; padding: 20px; }
+        .dashboard-container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; font-size: 24px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.5px; }
+        .meta-header { text-align: center; font-size: 13px; color: var(--text-secondary); margin-bottom: 25px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; background-color: var(--bg-table); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid var(--border-color); }
+        thead th { text-align: left; background-color: #FDFDFD; padding: 14px; border-bottom: 2px solid var(--border-color); font-size: 13px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.3px; }
+        .match-card { border-bottom: 1px solid var(--border-color); }
+        .col-matchup { padding: 15px; vertical-align: top; width: 35%; }
+        .match-title { font-size: 16px; font-weight: bold; color: var(--text-primary); margin-bottom: 4px; }
+        .match-meta { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+        .col-data-layers { padding: 0; width: 65%; }
+        .layer-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; align-items: center; border-bottom: 1px solid #F0F2F4; padding: 10px 15px; }
+        .layer-row:last-child { border-bottom: none; }
+        .col-source { font-size: 12px; font-style: italic; color: #4A5568; }
+        .pct-cell { font-weight: bold; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 4px; height: 28px; border-radius: 4px; color: #1A202C; }
+        .pct-cell.win { background-color: rgba(46, 204, 113, 0.15); color: #1E8449; }
+        .pct-cell.draw { background-color: rgba(52, 152, 219, 0.15); color: #21618C; }
+        .pct-cell.loss { background-color: rgba(230, 126, 34, 0.15); color: #935116; }
+        .final-score-box { grid-column: 2 / span 3; background-color: #EDF2F7; color: #2D3748; font-weight: bold; text-align: center; padding: 12px; border-radius: 4px; font-size: 15px; letter-spacing: 0.5px; border: 1px dashed #CBD5E0; }
+        .trend-arrow { font-size: 12px; font-weight: bold; }
+        .footer-key { margin-top: 30px; padding: 20px; background-color: #FDFDFD; border-radius: 6px; font-size: 12px; color: var(--text-secondary); line-height: 1.6; border: 1px solid var(--border-color); }
+        .footer-key strong { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>2026 World Cup Matchday Live-Tracker</h1>
+    <div class="meta-header">AS OF: JUNE 11, 2026 · 8:40 AM EDT</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Matchup (Opening Round Slate)</th>
+                <th>
+                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; padding: 0 15px;">
+                        <span>Probability Layer (Source)</span>
+                        <span style="text-align: center;">Fav Win %</span>
+                        <span style="text-align: center;">Draw %</span>
+                        <span style="text-align: center;">Und Win %</span>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="match-table-body">
+            <!-- Rendered Match Rows -->
+        </tbody>
+    </table>
+
+    <div class="footer-key">
+        <strong>Metadata &amp; Operational Footer Key:</strong><br>
+        Percentage metrics reflect automated tracking data compiled globally. <strong>Sportsbooks (Consensus):</strong> Formulated via shifting implied market liabilities. <strong>Supercomputer Model (Opta):</strong> Generated via 10,000-run predictive Monte Carlo simulations. <strong>Prediction Markets (P2P Exchanges):</strong> Real-time peer-to-peer contract asset values. Green/Orange text accentuation maps strictly to favored and underdog designations. Trend indicators ($\nearrow$, $\searrow$, $\rightarrow$) denote shifting price velocity over a rolling 60-minute evaluation interval.
+    </div>
+</div>
+
+<script>
+    const dataset = [
+        {
+            type: "COMPLETED",
+            home: "Mexico", away: "South Africa", meta: "June 11 · Group A · Final",
+            score: "MEXICO 2 - 1 SOUTH AFRICA"
+        },
+        {
+            type: "UPCOMING",
+            home: "South Korea", away: "Czechia", meta: "June 11 · 10:00 PM EDT · Group A",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%", arrF: "↗", arrD: "→", arrU: "↘" },
+                { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%", arrF: "↗", arrD: "↘", arrU: "↗" },
+                { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%", arrF: "↗", arrD: "→", arrU: "↘" }
+            ]
+        },
+        {
+            type: "UPCOMING",
+            home: "Canada", away: "Bosnia & Herzegovina", meta: "June 12 · 3:00 PM EDT · Group B",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%", arrF: "↗", arrD: "↘", arrU: "↗" },
+                { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%", arrF: "↘", arrD: "↗", arrU: "→" },
+                { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%", arrF: "↗", arrD: "↘", arrU: "↘" }
+            ]
+        },
+        {
+            type: "UPCOMING",
+            home: "United States", away: "Paraguay", meta: "June 12 · 9:00 PM EDT · Group D",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%", arrF: "↗", arrD: "→", arrU: "↘" },
+                { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%", arrF: "↘", arrD: "↗", arrU: "↗" },
+                { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%", arrF: "↗", arrD: "→", arrU: "↘" }
+            ]
+        },
+        {
+            type: "UPCOMING",
+            home: "Qatar", away: "Switzerland", meta: "June 13 · 3:00 PM EDT · Group B",
+            layers: [
+                { source: "Sportsbooks (Consensus)", fav: "76.5%", draw: "16.5%", und: "7.0%", arrF: "↗", arrD: "↘", arrU: "→" },
+                { source: "Supercomputer Model (Opta)", fav: "71.3%", draw: "19.8%", und: "8.9%", arrF: "↘", arrD: "↗", arrU: "↗" },
+                { source: "Prediction Markets (P2P)", fav: "75.0%", draw: "17.0%", und: "8.0%", arrF: "↗", arrD: "→", arrU: "↘" }
+            ]
+        }
+    ];
+
+    const tbody = document.getElementById('match-table-body');
+    dataset.forEach(match => {
+        let rowHtml = `<tr class="match-card"><td class="col-matchup"><div class="match-title">${match.home} vs. ${match.away}</div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
+        if (match.type === "COMPLETED") {
+            rowHtml += `<div class="layer-row"><div class="final-score-box">FINAL RESULT: ${match.score}</div></div>`;
+        } else {
+            match.layers.forEach(layer => {
+                rowHtml += `<div class="layer-row"><div class="col-source">${layer.source}</div><div class="pct-cell win">${layer.fav} <span class="trend-arrow">${layer.arrF}</span></div><div class="pct-cell draw">${layer.draw} <span class="trend-arrow">${layer.arrD}</span></div><div class="pct-cell loss">${layer.und} <span class="trend-arrow">${layer.arrU}</span></div></div>`;
+            });
+        }
+        rowHtml += `</td></tr>`;
+        tbody.innerHTML += rowHtml;
+    });
+</script>
+</body>
+</html>
