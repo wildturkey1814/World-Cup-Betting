@@ -1,0 +1,74 @@
+{
+  "currentStage": "Group Stage",
+  "lastUpdated": "June 11, 2026 · 12:00 PM EDT",
+  "matches": [
+    {
+      "id": "match_01",
+      "stage": "Group Stage",
+      "type": "COMPLETED",
+      "home": "Mexico", "away": "South Africa", "favTeam": "Mexico", "undTeam": "South Africa",
+      "homeFlag": "mex", "awayFlag": "rsa", "meta": "Group A · Final Result",
+      "score": "MEXICO 2 - 1 SOUTH AFRICA"
+    },
+    {
+      "id": "match_02",
+      "stage": "Group Stage",
+      "type": "UPCOMING",
+      "home": "South Korea", "away": "Czechia", "favTeam": "South Korea", "undTeam": "Czechia",
+      "homeFlag": "kor", "awayFlag": "cze", "meta": "10:00 PM EDT · Group A",
+      "layers": [
+        { "source": "Sportsbooks (Consensus)", "fav": "42.0%", "draw": "29.5%", "und": "28.5%", "arrF": "stable", "arrD": "stable", "arrU": "stable" },
+        { "source": "Supercomputer Model (Opta)", "fav": "42.9%", "draw": "26.0%", "und": "31.1%", "arrF": "up", "arrD": "down", "arrU": "up" },
+        { "source": "Prediction Markets (P2P)", "fav": "43.5%", "draw": "28.5%", "und": "28.0%", "arrF": "up", "arrD": "stable", "arrU": "down" }
+      ]
+    },
+    {
+      "id": "match_03",
+      "stage": "Group Stage",
+      "type": "UPCOMING",
+      "home": "Canada", "away": "Bosnia & Herzegovina", "favTeam": "Canada", "undTeam": "Bosnia",
+      "homeFlag": "can", "awayFlag": "bih", "meta": "JUNE 12 · 3:00 PM EDT · Group B",
+      "layers": [
+        { "source": "Sportsbooks (Consensus)", "fav": "51.5%", "draw": "25.5%", "und": "23.0%", "arrF": "up", "arrD": "down", "arrU": "up" },
+        { "source": "Supercomputer Model (Opta)", "fav": "48.1%", "draw": "27.4%", "und": "24.5%", "arrF": "down", "arrD": "up", "arrU": "stable" },
+        { "source": "Prediction Markets (P2P)", "fav": "52.0%", "draw": "25.5%", "und": "22.5%", "arrF": "up", "arrD": "down", "arrU": "down" }
+      ]
+    },
+    {
+      "id": "match_04",
+      "stage": "Group Stage",
+      "type": "UPCOMING",
+      "home": "United States", "away": "Paraguay", "favTeam": "United States", "undTeam": "Paraguay",
+      "homeFlag": "usa", "awayFlag": "pry", "meta": "JUNE 12 · 9:00 PM EDT · Group D",
+      "layers": [
+        { "source": "Sportsbooks (Consensus)", "fav": "48.5%", "draw": "27.5%", "und": "24.0%", "arrF": "up", "arrD": "stable", "arrU": "down" },
+        { "source": "Supercomputer Model (Opta)", "fav": "45.1%", "draw": "29.3%", "und": "25.6%", "arrF": "down", "arrD": "up", "arrU": "up" },
+        { "source": "Prediction Markets (P2P)", "fav": "49.5%", "draw": "28.5%", "und": "22.0%", "arrF": "up", "arrD": "stable", "arrU": "down" }
+      ]
+    },
+    {
+      "id": "match_05",
+      "stage": "Group Stage",
+      "type": "UPCOMING",
+      "home": "Germany", "away": "Argentina", "favTeam": "Germany", "undTeam": "Argentina",
+      "homeFlag": "ger", "awayFlag": "arg", "meta": "JUNE 13 · 12:00 PM EDT · Group C",
+      "layers": [
+        { "source": "Sportsbooks (Consensus)", "fav": "44.0%", "draw": "28.0%", "und": "28.0%", "arrF": "stable", "arrD": "up", "arrU": "down" },
+        { "source": "Supercomputer Model (Opta)", "fav": "46.2%", "draw": "27.1%", "und": "26.7%", "arrF": "up", "arrD": "down", "arrU": "down" },
+        { "source": "Prediction Markets (P2P)", "fav": "43.1%", "draw": "28.9%", "und": "28.0%", "arrF": "down", "arrD": "up", "arrU": "stable" }
+      ]
+    },
+    {
+      "id": "match_06",
+      "stage": "Round of 32",
+      "type": "UPCOMING",
+      "home": "England", "away": "Italy", "favTeam": "England", "undTeam": "Italy",
+      "homeFlag": "eng", "awayFlag": "ita", "meta": "KNOCKOUT PHASE · BRACKET POSITION A1",
+      "layers": [
+        { "source": "Sportsbooks (Opening Odds)", "fav": "52.0%", "draw": "26.0%", "und": "22.0%", "arrF": "stable", "arrD": "stable", "arrU": "stable" },
+        { "source": "Supercomputer Model (Opta)", "fav": "55.4%", "draw": "23.1%", "und": "21.5%", "arrF": "stable", "arrD": "stable", "arrU": "stable" },
+        { "source": "Prediction Markets (P2P)", "fav": "51.8%", "draw": "26.2%", "und": "22.0%", "arrF": "stable", "arrD": "stable", "arrU": "stable" }
+      ]
+    }
+  ]
+}
