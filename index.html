@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 World Cup Premium Analytics Dashboard</title>
-    
+    <title>2026 World Cup Matchday Tracker</title>
+
     <style>
         :root {
             --bg-body: #060b19;
@@ -22,20 +22,22 @@
             --color-underdog: #E67E22;
         }
 
-        body { 
+        * { box-sizing: border-box; }
+
+        body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-            background-color: var(--bg-body); 
+            background-color: var(--bg-body);
             background-image: radial-gradient(circle at top, #14203e 0%, #060b19 80%);
             background-attachment: fixed;
-            color: var(--text-main); 
-            margin: 0; 
-            padding: 16px 8px; 
+            color: var(--text-main);
+            margin: 0;
+            padding: 16px 8px;
             -webkit-font-smoothing: antialiased;
         }
-        
-        .dashboard-container { 
-            max-width: 1250px; 
-            margin: 0 auto; 
+
+        .dashboard-container {
+            max-width: 1250px;
+            margin: 0 auto;
             background-color: var(--bg-dashboard);
             border: 1px solid var(--border-neon);
             border-radius: 12px;
@@ -51,15 +53,16 @@
             position: relative;
         }
 
-        h1 { 
-            margin: 0 0 4px 0; 
-            font-size: 22px; 
+        h1 {
+            margin: 0 0 4px 0;
+            font-size: 22px;
             font-weight: 800;
             color: #FFFFFF;
             text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
         }
-        
+
         .meta-header { font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
+        .updated-stamp { font-size: 10px; color: var(--text-neon); font-weight: 600; margin-top: 6px; opacity: 0.85; }
 
         .control-bar {
             background-color: rgba(4, 8, 18, 0.9);
@@ -88,14 +91,15 @@
         }
         .control-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.2); }
         .control-btn.active { color: #FFFFFF; border-color: var(--text-neon); background-color: rgba(0,210,255,0.1); }
+        .control-btn:focus-visible { outline: 2px solid var(--text-neon); outline-offset: 2px; }
 
-        .side-selector { 
-            background-color: rgba(8, 15, 32, 0.8); 
-            padding: 8px; 
-            border-bottom: 1px solid var(--border-grid); 
-            display: none; 
-            justify-content: center; 
-            gap: 10px; 
+        .side-selector {
+            background-color: rgba(8, 15, 32, 0.8);
+            padding: 8px;
+            border-bottom: 1px solid var(--border-grid);
+            display: none;
+            justify-content: center;
+            gap: 10px;
         }
 
         .view-content { display: none; }
@@ -115,28 +119,28 @@
         .table-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
         table { width: 100%; border-collapse: collapse; min-width: 800px; }
         thead th { padding: 12px 20px; border-bottom: 2px solid var(--border-grid); font-size: 11px; color: var(--text-gold); text-transform: uppercase; text-align: left; }
-        
+
         .match-group-block { border-bottom: 12px solid var(--bg-spacer); }
         .match-group-block:last-child { border-bottom: none; }
-        
+
         .col-matchup { padding: 14px 20px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); background-color: rgba(255,255,255,0.01); }
         .match-title-wrap { display: flex; flex-direction: column; gap: 5px; }
         .team-line { display: flex; align-items: center; gap: 10px; }
-        .flag-icon { width: 20px; height: 13px; border-radius: 1px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.4); }
-        .flag-icon svg { width: 100%; height: 100%; object-fit: cover; }
-        
+        .flag-icon { width: 20px; height: 13px; border-radius: 1px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.4); flex-shrink: 0; }
+        .flag-icon svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+
         .team-name { font-size: 16px; font-weight: 700; color: #FFFFFF; }
         .team-role { font-size: 9px; font-weight: 800; padding: 1px 4px; border-radius: 2px; margin-left: auto; }
         .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); }
         .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); }
         .match-meta { font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
-        
+
         .col-data-layers { padding: 0; vertical-align: middle; }
-        
+
         .layer-row { display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 4px 20px; }
         .layer-row:last-child { border-bottom: none; }
         .col-source { font-size: 12px; font-weight: 600; color: #E2E8F0; }
-        
+
         .string-cell { font-size: 13px; font-weight: 600; text-align: center; }
         .string-cell.win { color: var(--color-favorite); }
         .string-cell.draw { color: var(--text-neon); }
@@ -148,39 +152,47 @@
         .audit-marker { font-weight: 800; font-size: 14px; text-align: right; padding-right: 5px; }
         .audit-marker.correct { color: var(--color-favorite); }
         .audit-marker.incorrect { color: #EF4444; }
-        
+
         .insight-row { background: rgba(243, 156, 18, 0.03); padding: 8px 20px; display: flex; align-items: flex-start; gap: 8px; font-size: 12px; border-top: 1px solid rgba(243, 156, 18, 0.08); }
-        .insight-tag { font-size: 8px; font-weight: 700; color: var(--text-gold); text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(243, 156, 18, 0.3); padding: 1px 4px; border-radius: 2px; }
+        .insight-tag { font-size: 8px; font-weight: 700; color: var(--text-gold); text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(243, 156, 18, 0.3); padding: 1px 4px; border-radius: 2px; white-space: nowrap; }
         .insight-text { color: #B3C1D1; line-height: 1.4; }
 
-        .bracket-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 30px 15px; width: 100%; box-sizing: border-box; }
+        .bracket-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 30px 15px; width: 100%; }
         .bracket-wrapper { display: none; gap: 0; min-width: 850px; }
         .bracket-wrapper.active { display: flex; }
-        
+
         .bracket-round { display: flex; flex-direction: column; justify-content: space-around; width: 250px; position: relative; }
         .bracket-round-header { text-align: center; color: var(--text-neon); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 8px; border-bottom: 1px solid var(--border-grid); margin: 0 15px 15px 15px; }
-        
+
         .bracket-match-node { display: flex; flex-direction: column; padding: 0; margin: 40px 15px; position: relative; width: 190px; }
-        
+
         .bracket-team-line { display: flex; align-items: center; gap: 6px; padding: 5px 4px 3px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); font-size: 13px; font-weight: 700; color: #FFFFFF; min-height: 22px; position: relative; }
         .bracket-team-line .flag-icon { width: 16px; height: 11px; box-shadow: none; }
-        
+
         .bracket-team-line::after { content: ''; position: absolute; right: -16px; bottom: -1px; width: 15px; height: 1px; background-color: rgba(255, 255, 255, 0.3); }
-        
+
         .bracket-match-node::after { content: ''; position: absolute; right: -16px; top: calc(25% + 8px); width: 1px; height: calc(50% + 1px); background-color: rgba(255, 255, 255, 0.3); }
         .bracket-match-node::before { content: ''; position: absolute; right: -31px; top: calc(50% + 8px); width: 15px; height: 1px; background-color: rgba(255, 255, 255, 0.3); }
 
         .bracket-score-status { font-size: 11px; font-weight: 800; color: var(--text-neon); margin-left: auto; }
         .bracket-score-status.elim { color: var(--text-muted); font-weight: 500; }
-        
+
         .bracket-draw-junction-bubble { position: absolute; right: -53px; top: calc(50% + 2px); background: #070d1a; border: 1px solid rgba(0, 210, 255, 0.4); border-radius: 3px; padding: 0px 4px; font-size: 8px; color: var(--text-neon); font-weight: 700; white-space: nowrap; z-index: 10; }
-        
+
         .bracket-lookahead-chassis { background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 4px; padding: 6px; margin-top: 12px; font-size: 11px; }
         .bracket-lookahead-title { font-weight: 700; color: var(--text-gold); font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
         .bracket-lookahead-row { display: flex; justify-content: space-between; color: var(--text-muted); padding: 1px 0; }
         .bracket-lookahead-row strong { color: #FFFFFF; }
 
         .footer-key { padding: 16px 20px; background-color: rgba(4, 8, 18, 0.8); font-size: 11px; color: var(--text-muted); line-height: 1.5; border-top: 1px solid var(--border-grid); }
+
+        /* Loading / error / empty states */
+        .status-pane { padding: 50px 20px; text-align: center; color: var(--text-muted); font-size: 14px; font-weight: 600; }
+        .status-pane.error { color: #EF4444; }
+        .spinner { width: 28px; height: 28px; border: 3px solid rgba(0, 210, 255, 0.2); border-top-color: var(--text-neon); border-radius: 50%; margin: 0 auto 14px auto; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+        .empty-note { padding: 24px 20px; text-align: center; color: var(--text-muted); font-size: 13px; }
     </style>
 </head>
 <body>
@@ -189,26 +201,33 @@
     <div class="header-banner">
         <h1 id="lbl-title">2026 World Cup Matchday Tracker</h1>
         <div class="meta-header" id="lbl-subtitle">Analytical System Data Matrix Feed</div>
+        <div class="updated-stamp" id="lbl-updated"></div>
     </div>
 
     <div class="control-bar">
         <div class="mode-group">
-            <button class="control-btn active" id="btn-grid" onclick="switchView('grid')">Probability Grid</button>
-            <button class="control-btn" id="btn-bracket" onclick="switchView('bracket')">Tournament Bracket</button>
+            <button class="control-btn active" id="btn-grid" type="button" onclick="switchView('grid')">Probability Grid</button>
+            <button class="control-btn" id="btn-bracket" type="button" onclick="switchView('bracket')">Tournament Bracket</button>
         </div>
         <div class="lang-group">
-            <button class="control-btn active" id="lang-en" onclick="switchLanguage('en')">EN</button>
-            <button class="control-btn" id="lang-ko" onclick="switchLanguage('ko')">KO</button>
-            <button class="control-btn" id="lang-ja" onclick="switchLanguage('ja')">JA</button>
+            <button class="control-btn active" id="lang-en" type="button" onclick="switchLanguage('en')">EN</button>
+            <button class="control-btn" id="lang-ko" type="button" onclick="switchLanguage('ko')">KO</button>
+            <button class="control-btn" id="lang-ja" type="button" onclick="switchLanguage('ja')">JA</button>
         </div>
     </div>
 
     <div class="side-selector" id="bracket-side-controls">
-        <button class="control-btn active" id="btn-left-side" onclick="switchSide('left')">Left Side Bracket</button>
-        <button class="control-btn" id="btn-right-side" onclick="switchSide('right')">Right Side Bracket</button>
+        <button class="control-btn active" id="btn-left-side" type="button" onclick="switchSide('left')">Left Side Bracket</button>
+        <button class="control-btn" id="btn-right-side" type="button" onclick="switchSide('right')">Right Side Bracket</button>
     </div>
 
-    <div id="view-grid" class="view-content active">
+    <!-- Global status pane: shown while loading or on error -->
+    <div id="global-status" class="status-pane">
+        <div class="spinner"></div>
+        Loading match data&hellip;
+    </div>
+
+    <div id="view-grid" class="view-content active" style="display:none;">
         <div class="section-title" id="lbl-upcoming-header">Upcoming Fixtures</div>
         <div class="table-viewport">
             <table>
@@ -262,6 +281,10 @@
 </div>
 
 <script>
+    /* ============================================================
+       1. STATIC ASSETS (live in the page, referenced by code)
+       ============================================================ */
+
     const dictionary = {
         en: {
             title: "2026 World Cup Matchday Tracker", subtitle: "Analytical System Data Matrix Feed",
@@ -270,6 +293,7 @@
             fav: "Favorite %", tie: "Tie %", und: "Underdog %", outcome: "Official Outcome", audit: "Audit",
             footer: "AUDIT PROTOCOL: Verification markers isolate prediction successes against aggregate closing market layers.",
             scenarios: "Round of 16 Scenarios", matchInsight: "Match Insight", r32: "Round of 32", r16: "Round of 16",
+            updated: "Last updated", noUpcoming: "No upcoming fixtures right now.", noCompleted: "No completed matches yet.",
             teams: { "Mexico": "Mexico", "South Africa": "South Africa", "South Korea": "South Korea", "Czechia": "Czechia", "Canada": "Canada", "Bosnia & Herzegovina": "Bosnia", "United States": "United States", "Paraguay": "Paraguay", "Germany": "Germany", "Argentina": "Argentina", "England": "England", "Italy": "Italy" }
         },
         ko: {
@@ -279,7 +303,8 @@
             fav: "정배당 승리 확률 %", tie: "무승부 확률 %", und: "역배당 확률 %", outcome: "최종 경기 스코어", audit: "예측 검증",
             footer: "분석 프로토콜: 녹색 체크표시(✓)는 통합 예측 모델이 경기 승리 팀을 정확히 적중시켰음을 나타냅니다.",
             scenarios: "16강 진출 시나리오 예측", matchInsight: "경기 정밀 분석", r32: "32강전", r16: "16강전",
-            teams: { "Mexico": "멕시코", "South Africa": "남아공", "South Korea": "대한민국", "Czechia": "체코", "Canada": "캐나다", "Bosnia & Herzegovina": "보스니아", "United States": "미국", "Paraguay": "파라과이", "Germany": "독일", "Argentina": "아르헨티나", "England": "잉글랜드", "Italy": "이탈リア" }
+            updated: "최종 업데이트", noUpcoming: "현재 예정된 경기가 없습니다.", noCompleted: "아직 종료된 경기가 없습니다.",
+            teams: { "Mexico": "멕시코", "South Africa": "남아공", "South Korea": "대한민국", "Czechia": "체코", "Canada": "캐나다", "Bosnia & Herzegovina": "보스니아", "United States": "미국", "Paraguay": "파라과이", "Germany": "독일", "Argentina": "아르헨티나", "England": "잉글랜드", "Italy": "이탈리아" }
         },
         ja: {
             title: "2026 ワールドカップ分析ダッシュボード", subtitle: "リアルタイム予測データマトリクスフィード",
@@ -288,11 +313,10 @@
             fav: "本命勝利確率 %", tie: "引き分け確率 %", und: "大穴勝利確率 %", outcome: "公式試合結果", audit: "予測検証",
             footer: "検証プロトコル：緑のチェックマーク（✓）は、予測モデルが勝者を正確に的中させたことを示します。",
             scenarios: "ラウンド16 進出予測シナリオ", matchInsight: "試合インサイト解説", r32: "ラウンド32", r16: "ラウンド16",
+            updated: "最終更新", noUpcoming: "現在、予定された試合はありません。", noCompleted: "終了した試合はまだありません。",
             teams: { "Mexico": "メキシコ", "South Africa": "南アフリカ", "South Korea": "韓国", "Czechia": "チェコ", "Canada": "カナダ", "Bosnia & Herzegovina": "ボスニア", "United States": "アメリカ", "Paraguay": "パラグアイ", "Germany": "ドイツ", "Argentina": "アルゼンチン", "England": "イングランド", "Italy": "イタリア" }
         }
     };
-
-    let currentLang = 'en';
 
     const flags = {
         mex: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
@@ -321,112 +345,183 @@
         "Germany": 1930, "Argentina": 2040, "England": 1960, "Italy": 1910
     };
 
-    const dataset = [
-        { type: "COMPLETED", side: "left", home: "Mexico", away: "South Africa", favTeam: "Mexico", undTeam: "South Africa", homeFlag: flags.mex, awayFlag: flags.rsa, meta: "Group A Slate", score: "MEXICO 2 - 1 SOUTH AFRICA", sourceAccuracy: { "Sportsbooks (Consensus)": true, "Supercomputer Model (Opta)": true, "Prediction Markets (P2P)": true }, insight: "The single most likely score, 2-1 had a 14.2% chance of occurring between these teams based on the model's target Poisson goal matrix lines." },
-        { type: "UPCOMING", side: "left", home: "South Korea", away: "Czechia", favTeam: "South Korea", undTeam: "Czechia", homeFlag: flags.kor, awayFlag: flags.cze, meta: "10:00 PM EDT · Group A", layers: [{ source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "29.5%", und: "28.5%" }, { source: "Supercomputer Model (Opta)", fav: "42.9%", draw: "26.0%", und: "31.1%" }, { source: "Prediction Markets (P2P)", fav: "43.5%", draw: "28.5%", und: "28.0%" }] },
-        { type: "UPCOMING", side: "left", home: "Canada", away: "Bosnia & Herzegovina", favTeam: "Canada", undTeam: "Bosnia", homeFlag: flags.can, awayFlag: flags.bih, meta: "June 12 · 3:00 PM EDT · Group B", layers: [{ source: "Sportsbooks (Consensus)", fav: "51.5%", draw: "25.5%", und: "23.0%" }, { source: "Supercomputer Model (Opta)", fav: "48.1%", draw: "27.4%", und: "24.5%" }, { source: "Prediction Markets (P2P)", fav: "52.0%", draw: "25.5%", und: "22.5%" }] },
-        { type: "UPCOMING", side: "left", home: "United States", away: "Paraguay", favTeam: "United States", undTeam: "Paraguay", homeFlag: flags.usa, awayFlag: flags.pry, meta: "June 12 · 9:00 PM EDT · Group D", layers: [{ source: "Sportsbooks (Consensus)", fav: "48.5%", draw: "27.5%", und: "24.0%" }, { source: "Supercomputer Model (Opta)", fav: "45.1%", draw: "29.3%", und: "25.6%" }, { source: "Prediction Markets (P2P)", fav: "49.5%", draw: "28.5%", und: "22.0%" }] },
-        { type: "UPCOMING", side: "right", home: "Germany", away: "Argentina", favTeam: "Argentina", undTeam: "Germany", homeFlag: flags.ger, awayFlag: flags.arg, meta: "June 13 · 12:00 PM EDT · Group C", layers: [{ source: "Sportsbooks (Consensus)", fav: "44.0%", draw: "28.0%", und: "28.0%" }, { source: "Supercomputer Model (Opta)", fav: "46.2%", draw: "27.1%", und: "26.7%" }, { source: "Prediction Markets (P2P)", fav: "43.1%", draw: "28.9%", und: "28.0%" }] },
-        { type: "UPCOMING", side: "right", home: "England", away: "Italy", favTeam: "England", undTeam: "Italy", homeFlag: flags.eng, awayFlag: flags.ita, meta: "June 13 · 3:00 PM EDT · Group F", layers: [{ source: "Sportsbooks (Consensus)", fav: "42.0%", draw: "30.0%", und: "28.0%" }, { source: "Supercomputer Model (Opta)", fav: "45.0%", draw: "28.0%", und: "27.0%" }, { source: "Prediction Markets (P2P)", fav: "41.5%", draw: "30.5%", und: "28.0%" }] }
-    ];
+    /* ============================================================
+       2. STATE - filled in by the data fetch, never hardcoded
+       ============================================================ */
+
+    let currentLang = 'en';
+    let dataset = [];          // the matches array from data.json
+    let meta = {};             // currentStage, lastUpdated, etc.
+    let dataReady = false;     // becomes true once data.json loads
+
+    /* ============================================================
+       3. HELPERS
+       ============================================================ */
+
+    // Small utility: escape user/content text before inserting as HTML.
+    function esc(str) {
+        return String(str == null ? '' : str)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Look up a flag SVG by code; returns empty string if missing.
+    function flagFor(code) { return flags[code] || ''; }
 
     function calculateEloOdds(teamA, teamB) {
-        let eloA = baselineElo[teamA] || 1700; let eloB = baselineElo[teamB] || 1700;
+        let eloA = baselineElo[teamA] || 1700;
+        let eloB = baselineElo[teamB] || 1700;
         return (1 / (1 + Math.pow(10, (eloB - eloA) / 400)) * 100).toFixed(1);
     }
 
     function getAverageFavValue(layers) {
-        if (!layers) return "TBD";
-        let sum = 0; layers.forEach(row => { sum += parseFloat(row.fav.replace('%', '')); });
+        if (!layers || !layers.length) return "TBD";
+        let sum = 0; layers.forEach(row => { sum += parseFloat(String(row.fav).replace('%', '')); });
         return (sum / layers.length).toFixed(1);
     }
 
     function getAverageDrawValue(layers) {
-        if (!layers) return "0.0";
-        let sum = 0; layers.forEach(row => { sum += parseFloat(row.draw.replace('%', '')); });
+        if (!layers || !layers.length) return "0.0";
+        let sum = 0; layers.forEach(row => { sum += parseFloat(String(row.draw).replace('%', '')); });
         return (sum / layers.length).toFixed(1);
     }
+
+    /* ============================================================
+       4. RENDERERS
+       ============================================================ */
 
     function buildDataTables() {
         const upcomingBody = document.getElementById('upcoming-table-body');
         const completedBody = document.getElementById('completed-table-body');
         const langPack = dictionary[currentLang];
-        
+
         upcomingBody.innerHTML = '';
         completedBody.innerHTML = '';
 
+        let upcomingCount = 0;
+        let completedCount = 0;
+
         dataset.forEach(match => {
-            let isHomeFav = match.favTeam === match.home;
-            let homeCode = teamCodes[match.home] || "TM1";
-            let awayCode = teamCodes[match.away] || "TM2";
-            
-            let transHome = langPack.teams[match.home] || match.home;
-            let transAway = langPack.teams[match.away] || match.away;
+            const isHomeFav = match.favTeam === match.home;
+            const homeCode = teamCodes[match.home] || "TM1";
+            const awayCode = teamCodes[match.away] || "TM2";
+            const transHome = langPack.teams[match.home] || match.home;
+            const transAway = langPack.teams[match.away] || match.away;
+            const homeFlag = flagFor(match.homeFlag);
+            const awayFlag = flagFor(match.awayFlag);
 
             if (match.type === "UPCOMING") {
-                let rowHtml = `<tbody class="match-group-block"><tr><td class="col-matchup" rowspan="3"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${transHome}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${transAway}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div></div><div class="match-meta">${match.meta}</div></td>`;
-                
-                match.layers.forEach((layer, idx) => {
-                    if (idx > 0) rowHtml += `<tr>`;
-                    rowHtml += `<td class="col-data-layers"><div class="layer-row">
-                        <div class="col-source">${layer.source}</div>
-                        <div class="string-cell win">${homeCode} ${layer.fav}</div>
-                        <div class="string-cell draw">Tie ${layer.draw}</div>
-                        <div class="string-cell loss">${awayCode} ${layer.und}</div>
+                upcomingCount++;
+                let layerRows = '';
+                (match.layers || []).forEach(layer => {
+                    layerRows += `<tr><td class="col-data-layers"><div class="layer-row">
+                        <div class="col-source">${esc(layer.source)}</div>
+                        <div class="string-cell win">${homeCode} ${esc(layer.fav)}</div>
+                        <div class="string-cell draw">Tie ${esc(layer.draw)}</div>
+                        <div class="string-cell loss">${awayCode} ${esc(layer.und)}</div>
                     </div></td></tr>`;
                 });
-                rowHtml += `</tbody>`;
-                upcomingBody.innerHTML += rowHtml;
+                const layerCount = (match.layers || []).length || 1;
+                const matchupCell = `<td class="col-matchup" rowspan="${layerCount}">
+                    <div class="match-title-wrap">
+                        <div class="team-line"><span class="flag-icon">${homeFlag}</span><span class="team-name">${esc(transHome)}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div>
+                        <div class="team-line"><span class="flag-icon">${awayFlag}</span><span class="team-name">${esc(transAway)}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div>
+                    </div>
+                    <div class="match-meta">${esc(match.meta)}</div></td>`;
+
+                // Inject the matchup cell into the first layer row only.
+                const rowsArr = layerRows.replace('<tr>', `<tr>${matchupCell}`);
+                upcomingBody.insertAdjacentHTML('beforeend',
+                    `<tr class="match-group-block-start"></tr>`);
+                // Use a wrapper row group via tbody-free approach:
+                upcomingBody.insertAdjacentHTML('beforeend', wrapGroup(rowsArr));
             } else if (match.type === "COMPLETED") {
-                let rowHtml = `<tbody class="match-group-block"><tr><td class="col-matchup" rowspan="4"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${transHome}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${transAway}</span></div></div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
-                
-                Object.keys(match.sourceAccuracy).forEach((src, idx) => {
-                    if (idx > 0) rowHtml += `<tr>`;
-                    let isCorrect = match.sourceAccuracy[src];
-                    rowHtml += `<td class="col-data-layers"><div class="completed-layer-row"><div class="col-source" style="color:var(--text-muted);">${src}</div><div class="final-badge-box">${match.score}</div><div class="audit-marker ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '&#10003;' : '&#10005;'}</div></div></td></tr>`;
+                completedCount++;
+                const accuracy = match.sourceAccuracy || {};
+                const srcKeys = Object.keys(accuracy);
+                let rows = '';
+                srcKeys.forEach((src, idx) => {
+                    const isCorrect = accuracy[src];
+                    const matchupCell = (idx === 0)
+                        ? `<td class="col-matchup" rowspan="${srcKeys.length + 1}">
+                            <div class="match-title-wrap">
+                                <div class="team-line"><span class="flag-icon">${homeFlag}</span><span class="team-name">${esc(transHome)}</span></div>
+                                <div class="team-line"><span class="flag-icon">${awayFlag}</span><span class="team-name">${esc(transAway)}</span></div>
+                            </div>
+                            <div class="match-meta">${esc(match.meta)}</div></td>`
+                        : '';
+                    rows += `<tr>${matchupCell}<td class="col-data-layers"><div class="completed-layer-row">
+                        <div class="col-source" style="color:var(--text-muted);">${esc(src)}</div>
+                        <div class="final-badge-box">${esc(match.score)}</div>
+                        <div class="audit-marker ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '&#10003;' : '&#10005;'}</div>
+                    </div></td></tr>`;
                 });
-                
-                rowHtml += `<tr><td class="col-data-layers"><div class="insight-row"><div class="insight-tag">${langPack.matchInsight}</div><div class="insight-text">${match.insight}</div></div></td></tr></tbody>`;
-                completedBody.innerHTML += rowHtml;
+                rows += `<tr><td class="col-data-layers"><div class="insight-row">
+                    <div class="insight-tag">${esc(langPack.matchInsight)}</div>
+                    <div class="insight-text">${esc(match.insight)}</div>
+                </div></td></tr>`;
+                completedBody.insertAdjacentHTML('beforeend', wrapGroup(rows));
             }
         });
+
+        if (upcomingCount === 0) {
+            upcomingBody.innerHTML = `<tr><td colspan="2" class="empty-note">${esc(langPack.noUpcoming)}</td></tr>`;
+        }
+        if (completedCount === 0) {
+            completedBody.innerHTML = `<tr><td colspan="2" class="empty-note">${esc(langPack.noCompleted)}</td></tr>`;
+        }
+    }
+
+    // Wrap a set of <tr> rows so the whole match group shares the
+    // spacer border, WITHOUT nesting <tbody> inside <tbody>.
+    // We tag the LAST row of the group with the spacer class.
+    function wrapGroup(rowsHtml) {
+        // Find the final <tr ...> and add the group-block class to it.
+        const lastTrIndex = rowsHtml.lastIndexOf('<tr');
+        if (lastTrIndex === -1) return rowsHtml;
+        return rowsHtml.slice(0, lastTrIndex) +
+            rowsHtml.slice(lastTrIndex).replace('<tr', '<tr class="group-end"');
     }
 
     function renderTraceTreeBrackets() {
         const langPack = dictionary[currentLang];
-        
+
         function compileSide(targetSide, elementId) {
             const sideContainer = document.getElementById(elementId);
             const matches = dataset.filter(m => m.side === targetSide);
-            
-            let html = `<div class="bracket-round"><div class="bracket-round-header">${langPack.r32}</div>`;
-            
-            for(let i = 0; i < matches.length; i += 2) {
-                let m1 = matches[i]; let m2 = matches[i+1];
-                if(m1 && m2) {
-                    let m1Avg = getAverageFavValue(m1.layers); let m1Draw = getAverageDrawValue(m1.layers);
-                    let homeC = teamCodes[m1.home] || "TM1"; let awayC = teamCodes[m1.away] || "TM2";
-                    
+
+            let html = `<div class="bracket-round"><div class="bracket-round-header">${esc(langPack.r32)}</div>`;
+
+            for (let i = 0; i < matches.length; i += 2) {
+                const m1 = matches[i];
+                const m2 = matches[i + 1];
+                if (m1 && m2) {
+                    const m1Avg = getAverageFavValue(m1.layers);
+                    const m1Draw = getAverageDrawValue(m1.layers);
+                    const homeC = teamCodes[m1.home] || "TM1";
+                    const awayC = teamCodes[m1.away] || "TM2";
+
                     html += `
                         <div class="bracket-match-node">
-                            <div class="bracket-team-line"><span class="flag-icon">${m1.homeFlag}</span> ${homeC} <span class="bracket-score-status">${m1.type === 'COMPLETED' ? 'WIN' : m1Avg+'%'}</span></div>
-                            <div class="bracket-team-line"><span class="flag-icon">${m1.awayFlag}</span> ${awayC} <span class="bracket-score-status elim">${m1.type === 'COMPLETED' ? 'ELIM' : 'TBD'}</span></div>
+                            <div class="bracket-team-line"><span class="flag-icon">${flagFor(m1.homeFlag)}</span> ${homeC} <span class="bracket-score-status">${m1.type === 'COMPLETED' ? 'WIN' : m1Avg + '%'}</span></div>
+                            <div class="bracket-team-line"><span class="flag-icon">${flagFor(m1.awayFlag)}</span> ${awayC} <span class="bracket-score-status elim">${m1.type === 'COMPLETED' ? 'ELIM' : 'TBD'}</span></div>
                             <div class="bracket-draw-junction-bubble">Tie: ${m1Draw}%</div>`;
-                    
-                    if(m1.type === "COMPLETED") {
-                        let condA = calculateEloOdds(m1.favTeam, m2.home); let condB = calculateEloOdds(m1.favTeam, m2.away);
-                        let m2HomeC = teamCodes[m2.home] || "T1"; let m2AwayC = teamCodes[m2.away] || "T2";
+
+                    if (m1.type === "COMPLETED") {
+                        const condA = calculateEloOdds(m1.favTeam, m2.home);
+                        const condB = calculateEloOdds(m1.favTeam, m2.away);
+                        const m2HomeC = teamCodes[m2.home] || "T1";
+                        const m2AwayC = teamCodes[m2.away] || "T2";
                         html += `
                             <div class="bracket-lookahead-chassis">
-                                <div class="bracket-lookahead-title">${langPack.scenarios}</div>
-                                <div class="bracket-lookahead-row">vs ${m2HomeC}: <strong>${condA}%</strong> | <strong>${(100-condA).toFixed(1)}%</strong></div>
-                                <div class="bracket-lookahead-row">vs ${m2AwayC}: <strong>${condB}%</strong> | <strong>${(100-condB).toFixed(1)}%</strong></div>
+                                <div class="bracket-lookahead-title">${esc(langPack.scenarios)}</div>
+                                <div class="bracket-lookahead-row">vs ${m2HomeC}: <strong>${condA}%</strong> | <strong>${(100 - condA).toFixed(1)}%</strong></div>
+                                <div class="bracket-lookahead-row">vs ${m2AwayC}: <strong>${condB}%</strong> | <strong>${(100 - condB).toFixed(1)}%</strong></div>
                             </div>`;
                     }
                     html += `</div>`;
                 }
             }
-            html += `</div><div class="bracket-round"><div class="bracket-round-header">${langPack.r16}</div><div class="bracket-match-node"><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 1</div><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 2</div></div></div>`;
+            html += `</div><div class="bracket-round"><div class="bracket-round-header">${esc(langPack.r16)}</div><div class="bracket-match-node"><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 1</div><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 2</div></div></div>`;
             sideContainer.innerHTML = html;
         }
 
@@ -434,12 +529,12 @@
         compileSide('right', 'bracket-right-wrapper');
     }
 
-    function switchLanguage(langCode) {
-        currentLang = langCode;
-        document.querySelectorAll('.lang-group .control-btn').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(`lang-${langCode}`).classList.add('active');
-        
-        const pack = dictionary[langCode];
+    /* ============================================================
+       5. UI CONTROLS
+       ============================================================ */
+
+    function applyLanguageLabels() {
+        const pack = dictionary[currentLang];
         document.getElementById('lbl-title').innerText = pack.title;
         document.getElementById('lbl-subtitle').innerText = pack.subtitle;
         document.getElementById('btn-grid').innerText = pack.grid;
@@ -457,17 +552,34 @@
         document.getElementById('lbl-th-und-1').innerText = pack.und;
         document.getElementById('lbl-th-outcome').innerText = pack.outcome;
         document.getElementById('lbl-th-audit').innerText = pack.audit;
-        document.getElementById('lbl-footer').innerHTML = pack.footer;
+        document.getElementById('lbl-footer').innerHTML = '<strong>' + esc(pack.footer.split(':')[0]) + ':</strong>' + esc(pack.footer.slice(pack.footer.indexOf(':') + 1));
 
-        buildDataTables();
-        renderTraceTreeBrackets();
+        // Last-updated stamp
+        const stamp = document.getElementById('lbl-updated');
+        if (meta.lastUpdated) {
+            stamp.innerText = pack.updated + ': ' + meta.lastUpdated;
+        } else {
+            stamp.innerText = '';
+        }
+    }
+
+    function switchLanguage(langCode) {
+        currentLang = langCode;
+        document.querySelectorAll('.lang-group .control-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`lang-${langCode}`).classList.add('active');
+
+        applyLanguageLabels();
+        if (dataReady) {
+            buildDataTables();
+            renderTraceTreeBrackets();
+        }
     }
 
     function switchView(mode) {
         document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.mode-group .control-btn').forEach(el => el.classList.remove('active'));
         const sideSelector = document.getElementById('bracket-side-controls');
-        
+
         if (mode === 'grid') {
             document.getElementById('view-grid').classList.add('active');
             document.getElementById('btn-grid').classList.add('active');
@@ -491,7 +603,55 @@
         }
     }
 
-    switchLanguage('en');
+    /* ============================================================
+       6. DATA LOADING - the heart of "edit JSON, site updates"
+       ============================================================ */
+
+    function showError(message) {
+        const pane = document.getElementById('global-status');
+        pane.className = 'status-pane error';
+        pane.innerHTML = esc(message);
+    }
+
+    async function loadData() {
+        const statusPane = document.getElementById('global-status');
+        try {
+            // Cache-buster: append a timestamp so GitHub Pages / the browser
+            // can't serve a stale copy after you edit data.json.
+            const url = 'data.json?v=' + Date.now();
+            const res = await fetch(url, { cache: 'no-store' });
+
+            if (!res.ok) {
+                throw new Error('Could not load data.json (HTTP ' + res.status + '). Check the file exists next to index.html.');
+            }
+
+            const json = await res.json();
+
+            if (!json || !Array.isArray(json.matches)) {
+                throw new Error('data.json loaded but has no "matches" array. Check the file format.');
+            }
+
+            dataset = json.matches;
+            meta = { currentStage: json.currentStage, lastUpdated: json.lastUpdated };
+            dataReady = true;
+
+            // Hide the loading pane, reveal the grid.
+            statusPane.style.display = 'none';
+            document.getElementById('view-grid').style.display = '';
+
+            applyLanguageLabels();
+            buildDataTables();
+            renderTraceTreeBrackets();
+        } catch (err) {
+            console.error(err);
+            showError('⚠ ' + err.message);
+        }
+    }
+
+    // Apply labels immediately (so the header isn't blank while loading),
+    // then fetch the data.
+    applyLanguageLabels();
+    loadData();
 </script>
 </body>
 </html>
