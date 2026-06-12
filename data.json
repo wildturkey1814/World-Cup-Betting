@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 11, 2026 · 6:00 PM EDT",
+  "lastUpdated": "June 12, 2026 · 11:38 AM UTC",
   "matches": [
     {
       "id": "match_01",
@@ -23,93 +23,4218 @@
       "insight": "The single most likely score, 2-1 had a 14.2% chance of occurring between these teams based on the model's target Poisson goal matrix lines."
     },
     {
-      "id": "match_02",
+      "id": "match_id1003878572011392",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Mexico SRL",
+      "away": "South Africa SRL",
+      "favTeam": "South Africa SRL",
+      "undTeam": "Mexico SRL",
+      "homeFlag": "mex",
+      "awayFlag": "sou",
+      "meta": "June 11 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011394",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "South Korea Srl",
+      "away": "Czech Republic SRL",
+      "favTeam": "Czech Republic SRL",
+      "undTeam": "South Korea Srl",
+      "homeFlag": "sou",
+      "awayFlag": "cze",
+      "meta": "June 11 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456904",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Mexico",
+      "away": "South Africa",
+      "favTeam": "Mexico",
+      "undTeam": "South Africa",
+      "homeFlag": "mex",
+      "awayFlag": "rsa",
+      "meta": "June 11 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "69.1%",
+          "draw": "19.2%",
+          "und": "11.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456906",
       "stage": "Group Stage",
       "side": "left",
       "type": "UPCOMING",
       "home": "South Korea",
       "away": "Czechia",
-      "favTeam": "South Korea",
-      "undTeam": "Czechia",
+      "favTeam": "Czechia",
+      "undTeam": "South Korea",
       "homeFlag": "kor",
       "awayFlag": "cze",
-      "meta": "10:00 PM EDT · Group A",
+      "meta": "June 11 · 10:00 PM EDT · Group Stage",
       "layers": [
-        { "source": "Sportsbooks (Consensus)", "fav": "42.0%", "draw": "29.5%", "und": "28.5%" },
-        { "source": "Supercomputer Model (Opta)", "fav": "42.9%", "draw": "26.0%", "und": "31.1%" },
-        { "source": "Prediction Markets (P2P)", "fav": "43.5%", "draw": "28.5%", "und": "28.0%" }
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "39.5%",
+          "draw": "26.4%",
+          "und": "34.2%"
+        }
       ]
     },
     {
-      "id": "match_03",
+      "id": "match_id1003878572011396",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Canada SRL",
+      "away": "Bosnia And Herzegovina Srl",
+      "favTeam": "Bosnia And Herzegovina Srl",
+      "undTeam": "Canada SRL",
+      "homeFlag": "can",
+      "awayFlag": "bos",
+      "meta": "June 12 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011398",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "USA SRL",
+      "away": "Paraguay SRL",
+      "favTeam": "Paraguay SRL",
+      "undTeam": "USA SRL",
+      "homeFlag": "usa",
+      "awayFlag": "par",
+      "meta": "June 12 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456916",
       "stage": "Group Stage",
       "side": "left",
       "type": "UPCOMING",
       "home": "Canada",
       "away": "Bosnia & Herzegovina",
       "favTeam": "Canada",
-      "undTeam": "Bosnia",
+      "undTeam": "Bosnia & Herzegovina",
       "homeFlag": "can",
       "awayFlag": "bih",
-      "meta": "June 12 · 3:00 PM EDT · Group B",
+      "meta": "June 12 · 3:00 PM EDT · Group Stage",
       "layers": [
-        { "source": "Sportsbooks (Consensus)", "fav": "51.5%", "draw": "25.5%", "und": "23.0%" },
-        { "source": "Supercomputer Model (Opta)", "fav": "48.1%", "draw": "27.4%", "und": "24.5%" },
-        { "source": "Prediction Markets (P2P)", "fav": "52.0%", "draw": "25.5%", "und": "22.5%" }
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "52.6%",
+          "draw": "27.5%",
+          "und": "19.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "59.8%",
+          "draw": "21.9%",
+          "und": "18.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "52.7%",
+          "draw": "26.8%",
+          "und": "20.5%"
+        }
       ]
     },
     {
-      "id": "match_04",
+      "id": "match_id1000001666456940",
       "stage": "Group Stage",
       "side": "left",
       "type": "UPCOMING",
       "home": "United States",
       "away": "Paraguay",
-      "favTeam": "United States",
-      "undTeam": "Paraguay",
+      "favTeam": "Paraguay",
+      "undTeam": "United States",
       "homeFlag": "usa",
       "awayFlag": "pry",
-      "meta": "June 12 · 9:00 PM EDT · Group D",
+      "meta": "June 12 · 9:00 PM EDT · Group Stage",
       "layers": [
-        { "source": "Sportsbooks (Consensus)", "fav": "48.5%", "draw": "27.5%", "und": "24.0%" },
-        { "source": "Supercomputer Model (Opta)", "fav": "45.1%", "draw": "29.3%", "und": "25.6%" },
-        { "source": "Prediction Markets (P2P)", "fav": "49.5%", "draw": "28.5%", "und": "22.0%" }
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "45.7%",
+          "draw": "29.6%",
+          "und": "24.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "63.1%",
+          "draw": "21.0%",
+          "und": "15.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "47.5%",
+          "draw": "28.7%",
+          "und": "23.8%"
+        }
       ]
     },
     {
-      "id": "match_05",
+      "id": "match_id1003878572011402",
       "stage": "Group Stage",
-      "side": "right",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Brazil SRL",
+      "away": "Morocco SRL",
+      "favTeam": "Morocco SRL",
+      "undTeam": "Brazil SRL",
+      "homeFlag": "bra",
+      "awayFlag": "mor",
+      "meta": "June 13 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011400",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Qatar SRL",
+      "away": "Switzerland SRL",
+      "favTeam": "Switzerland SRL",
+      "undTeam": "Qatar SRL",
+      "homeFlag": "qat",
+      "awayFlag": "swi",
+      "meta": "June 13 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011406",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Australia SRL",
+      "away": "Turkiye SRL",
+      "favTeam": "Turkiye SRL",
+      "undTeam": "Australia SRL",
+      "homeFlag": "aus",
+      "awayFlag": "tur",
+      "meta": "June 13 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011404",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Haiti Srl",
+      "away": "Scotland SRL",
+      "favTeam": "Scotland SRL",
+      "undTeam": "Haiti Srl",
+      "homeFlag": "hai",
+      "awayFlag": "sco",
+      "meta": "June 13 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456918",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "favTeam": "Switzerland",
+      "undTeam": "Qatar",
+      "homeFlag": "qat",
+      "awayFlag": "sui",
+      "meta": "June 13 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "6.3%",
+          "draw": "14.4%",
+          "und": "79.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "11.3%",
+          "draw": "19.1%",
+          "und": "69.5%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "6.3%",
+          "draw": "13.8%",
+          "und": "79.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456928",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Brazil",
+      "away": "Morocco",
+      "favTeam": "Brazil",
+      "undTeam": "Morocco",
+      "homeFlag": "bra",
+      "awayFlag": "mar",
+      "meta": "June 13 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "58.4%",
+          "draw": "24.7%",
+          "und": "16.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "55.1%",
+          "draw": "23.0%",
+          "und": "21.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "58.3%",
+          "draw": "24.5%",
+          "und": "17.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456930",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Haiti",
+      "away": "Scotland",
+      "favTeam": "Scotland",
+      "undTeam": "Haiti",
+      "homeFlag": "hai",
+      "awayFlag": "sco",
+      "meta": "June 13 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "16.3%",
+          "draw": "22.8%",
+          "und": "60.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "13.3%",
+          "draw": "20.0%",
+          "und": "66.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "15.9%",
+          "draw": "22.4%",
+          "und": "61.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456942",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Australia",
+      "away": "Turkiye",
+      "favTeam": "Turkiye",
+      "undTeam": "Australia",
+      "homeFlag": "aus",
+      "awayFlag": "tur",
+      "meta": "June 14 · 12:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "18.3%",
+          "draw": "25.4%",
+          "und": "56.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "44.8%",
+          "draw": "25.2%",
+          "und": "29.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "18.4%",
+          "draw": "25.2%",
+          "und": "56.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011408",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Germany SRL",
+      "away": "Curacao Srl",
+      "favTeam": "Curacao Srl",
+      "undTeam": "Germany SRL",
+      "homeFlag": "ger",
+      "awayFlag": "cur",
+      "meta": "June 14 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011410",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Netherlands SRL",
+      "away": "Japan SRL",
+      "favTeam": "Japan SRL",
+      "undTeam": "Netherlands SRL",
+      "homeFlag": "net",
+      "awayFlag": "jap",
+      "meta": "June 14 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011412",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ivory Coast SRL",
+      "away": "Ecuador SRL",
+      "favTeam": "Ecuador SRL",
+      "undTeam": "Ivory Coast SRL",
+      "homeFlag": "ivo",
+      "awayFlag": "ecu",
+      "meta": "June 14 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011414",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Sweden SRL",
+      "away": "Tunisia SRL",
+      "favTeam": "Tunisia SRL",
+      "undTeam": "Sweden SRL",
+      "homeFlag": "swe",
+      "awayFlag": "tun",
+      "meta": "June 14 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457070",
+      "stage": "Group Stage",
+      "side": "left",
       "type": "UPCOMING",
       "home": "Germany",
-      "away": "Argentina",
-      "favTeam": "Argentina",
-      "undTeam": "Germany",
+      "away": "Curacao",
+      "favTeam": "Germany",
+      "undTeam": "Curacao",
       "homeFlag": "ger",
-      "awayFlag": "arg",
-      "meta": "June 13 · 12:00 PM EDT · Group C",
+      "awayFlag": "cuw",
+      "meta": "June 14 · 1:00 PM EDT · Group Stage",
       "layers": [
-        { "source": "Sportsbooks (Consensus)", "fav": "44.0%", "draw": "28.0%", "und": "28.0%" },
-        { "source": "Supercomputer Model (Opta)", "fav": "46.2%", "draw": "27.1%", "und": "26.7%" },
-        { "source": "Prediction Markets (P2P)", "fav": "43.1%", "draw": "28.9%", "und": "28.0%" }
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "92.2%",
+          "draw": "5.2%",
+          "und": "2.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "79.4%",
+          "draw": "15.2%",
+          "und": "5.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "92.9%",
+          "draw": "4.4%",
+          "und": "2.6%"
+        }
       ]
     },
     {
-      "id": "match_06",
+      "id": "match_id1000001666456968",
       "stage": "Group Stage",
-      "side": "right",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Netherlands",
+      "away": "Japan",
+      "favTeam": "Japan",
+      "undTeam": "Netherlands",
+      "homeFlag": "ned",
+      "awayFlag": "jpn",
+      "meta": "June 14 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "47.9%",
+          "draw": "26.5%",
+          "und": "25.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "52.3%",
+          "draw": "23.6%",
+          "und": "24.1%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "48.0%",
+          "draw": "26.5%",
+          "und": "25.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457072",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "favTeam": "Ecuador",
+      "undTeam": "Ivory Coast",
+      "homeFlag": "civ",
+      "awayFlag": "ecu",
+      "meta": "June 14 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "26.6%",
+          "draw": "34.0%",
+          "und": "39.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "28.1%",
+          "draw": "24.8%",
+          "und": "47.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "27.0%",
+          "draw": "33.3%",
+          "und": "39.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456970",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "favTeam": "Sweden",
+      "undTeam": "Tunisia",
+      "homeFlag": "swe",
+      "awayFlag": "tun",
+      "meta": "June 14 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "50.9%",
+          "draw": "27.6%",
+          "und": "21.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "47.7%",
+          "draw": "24.6%",
+          "und": "27.6%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "51.0%",
+          "draw": "27.5%",
+          "und": "21.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011418",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium SRL",
+      "away": "Egypt SRL",
+      "favTeam": "Egypt SRL",
+      "undTeam": "Belgium SRL",
+      "homeFlag": "bel",
+      "awayFlag": "egy",
+      "meta": "June 15 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011420",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Spain SRL",
+      "away": "Cape Verde Srl",
+      "favTeam": "Cape Verde Srl",
+      "undTeam": "Spain SRL",
+      "homeFlag": "spa",
+      "awayFlag": "cap",
+      "meta": "June 15 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011422",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Iran SRL",
+      "away": "New Zealand SRL",
+      "favTeam": "New Zealand SRL",
+      "undTeam": "Iran SRL",
+      "homeFlag": "ira",
+      "awayFlag": "new",
+      "meta": "June 15 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011416",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Saudi Arabia SRL",
+      "away": "Uruguay SRL",
+      "favTeam": "Uruguay SRL",
+      "undTeam": "Saudi Arabia SRL",
+      "homeFlag": "sau",
+      "awayFlag": "uru",
+      "meta": "June 15 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456994",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "favTeam": "Spain",
+      "undTeam": "Cape Verde",
+      "homeFlag": "esp",
+      "awayFlag": "cpv",
+      "meta": "June 15 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "88.8%",
+          "draw": "7.7%",
+          "und": "3.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "79.4%",
+          "draw": "15.2%",
+          "und": "5.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "89.8%",
+          "draw": "6.8%",
+          "und": "3.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456982",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium",
+      "away": "Egypt",
+      "favTeam": "Belgium",
+      "undTeam": "Egypt",
+      "homeFlag": "bel",
+      "awayFlag": "egy",
+      "meta": "June 15 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "59.4%",
+          "draw": "24.3%",
+          "und": "16.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "67.1%",
+          "draw": "19.9%",
+          "und": "13.0%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "59.5%",
+          "draw": "23.9%",
+          "und": "16.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456996",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "favTeam": "Uruguay",
+      "undTeam": "Saudi Arabia",
+      "homeFlag": "ksa",
+      "awayFlag": "uru",
+      "meta": "June 15 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "12.4%",
+          "draw": "21.3%",
+          "und": "66.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "14.2%",
+          "draw": "20.4%",
+          "und": "65.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "12.3%",
+          "draw": "21.2%",
+          "und": "66.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456984",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "IR Iran",
+      "away": "New Zealand",
+      "favTeam": "IR Iran",
+      "undTeam": "New Zealand",
+      "homeFlag": "ir ",
+      "awayFlag": "nzl",
+      "meta": "June 15 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "52.1%",
+          "draw": "27.7%",
+          "und": "20.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "60.3%",
+          "draw": "21.8%",
+          "und": "18.0%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "52.4%",
+          "draw": "27.5%",
+          "und": "20.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011424",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "France SRL",
+      "away": "Senegal SRL",
+      "favTeam": "Senegal SRL",
+      "undTeam": "France SRL",
+      "homeFlag": "fra",
+      "awayFlag": "sen",
+      "meta": "June 16 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011426",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Iraq Srl",
+      "away": "Norway Srl",
+      "favTeam": "Norway Srl",
+      "undTeam": "Iraq Srl",
+      "homeFlag": "ira",
+      "awayFlag": "nor",
+      "meta": "June 16 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011436",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina SRL",
+      "away": "Algeria Srl",
+      "favTeam": "Algeria Srl",
+      "undTeam": "Argentina SRL",
+      "homeFlag": "arg",
+      "awayFlag": "alg",
+      "meta": "June 16 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011430",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Austria SRL",
+      "away": "Jordan Srl",
+      "favTeam": "Jordan Srl",
+      "undTeam": "Austria SRL",
+      "homeFlag": "aus",
+      "awayFlag": "jor",
+      "meta": "June 16 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457006",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "France",
+      "away": "Senegal",
+      "favTeam": "France",
+      "undTeam": "Senegal",
+      "homeFlag": "fra",
+      "awayFlag": "sen",
+      "meta": "June 16 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "64.8%",
+          "draw": "21.5%",
+          "und": "13.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "61.2%",
+          "draw": "21.5%",
+          "und": "17.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "66.0%",
+          "draw": "21.4%",
+          "und": "12.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457008",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Iraq",
+      "away": "Norway",
+      "favTeam": "Norway",
+      "undTeam": "Iraq",
+      "homeFlag": "irq",
+      "awayFlag": "nor",
+      "meta": "June 16 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "6.9%",
+          "draw": "13.5%",
+          "und": "79.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "19.1%",
+          "draw": "22.1%",
+          "und": "58.8%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "6.8%",
+          "draw": "13.2%",
+          "und": "80.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457018",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina",
+      "away": "Algeria",
+      "favTeam": "Argentina",
+      "undTeam": "Algeria",
+      "homeFlag": "arg",
+      "awayFlag": "alg",
+      "meta": "June 16 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "68.8%",
+          "draw": "20.6%",
+          "und": "10.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "78.6%",
+          "draw": "15.6%",
+          "und": "5.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "68.9%",
+          "draw": "20.4%",
+          "und": "10.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457020",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Austria",
+      "away": "Jordan",
+      "favTeam": "Austria",
+      "undTeam": "Jordan",
+      "homeFlag": "aus",
+      "awayFlag": "jor",
+      "meta": "June 17 · 12:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "71.9%",
+          "draw": "17.1%",
+          "und": "11.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "57.2%",
+          "draw": "22.5%",
+          "und": "20.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "72.5%",
+          "draw": "16.7%",
+          "und": "10.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011432",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "England SRL",
+      "away": "Croatia SRL",
+      "favTeam": "Croatia SRL",
+      "undTeam": "England SRL",
+      "homeFlag": "eng",
+      "awayFlag": "cro",
+      "meta": "June 17 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011434",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Portugal SRL",
+      "away": "Congo DR SRL",
+      "favTeam": "Congo DR SRL",
+      "undTeam": "Portugal SRL",
+      "homeFlag": "por",
+      "awayFlag": "con",
+      "meta": "June 17 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011428",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ghana SRL",
+      "away": "Panama Srl",
+      "favTeam": "Panama Srl",
+      "undTeam": "Ghana SRL",
+      "homeFlag": "gha",
+      "awayFlag": "pan",
+      "meta": "June 17 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011438",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uzbekistan Srl",
+      "away": "Colombia SRL",
+      "favTeam": "Colombia SRL",
+      "undTeam": "Uzbekistan Srl",
+      "homeFlag": "uzb",
+      "awayFlag": "col",
+      "meta": "June 17 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457030",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Portugal",
+      "away": "Congo DR",
+      "favTeam": "Portugal",
+      "undTeam": "Congo DR",
+      "homeFlag": "por",
+      "awayFlag": "con",
+      "meta": "June 17 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "74.8%",
+          "draw": "16.4%",
+          "und": "8.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "63.1%",
+          "draw": "21.0%",
+          "und": "15.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "75.5%",
+          "draw": "16.7%",
+          "und": "7.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457042",
+      "stage": "Group Stage",
+      "side": "left",
       "type": "UPCOMING",
       "home": "England",
-      "away": "Italy",
+      "away": "Croatia",
       "favTeam": "England",
-      "undTeam": "Italy",
+      "undTeam": "Croatia",
       "homeFlag": "eng",
-      "awayFlag": "ita",
-      "meta": "June 13 · 3:00 PM EDT · Group F",
+      "awayFlag": "cro",
+      "meta": "June 17 · 4:00 PM EDT · Group Stage",
       "layers": [
-        { "source": "Sportsbooks (Consensus)", "fav": "42.0%", "draw": "30.0%", "und": "28.0%" },
-        { "source": "Supercomputer Model (Opta)", "fav": "45.0%", "draw": "28.0%", "und": "27.0%" },
-        { "source": "Prediction Markets (P2P)", "fav": "41.5%", "draw": "30.5%", "und": "28.0%" }
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "55.6%",
+          "draw": "25.0%",
+          "und": "19.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "46.0%",
+          "draw": "25.0%",
+          "und": "29.0%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "55.6%",
+          "draw": "25.4%",
+          "und": "19.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457044",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ghana",
+      "away": "Panama",
+      "favTeam": "Panama",
+      "undTeam": "Ghana",
+      "homeFlag": "gha",
+      "awayFlag": "pan",
+      "meta": "June 17 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.5%",
+          "draw": "27.8%",
+          "und": "27.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "49.5%",
+          "draw": "24.2%",
+          "und": "26.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "44.3%",
+          "draw": "27.6%",
+          "und": "28.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457032",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "favTeam": "Colombia",
+      "undTeam": "Uzbekistan",
+      "homeFlag": "uzb",
+      "awayFlag": "col",
+      "meta": "June 17 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "10.7%",
+          "draw": "20.5%",
+          "und": "68.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "10.3%",
+          "draw": "18.6%",
+          "und": "71.0%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "9.8%",
+          "draw": "20.1%",
+          "und": "70.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011440",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Czech Republic SRL",
+      "away": "South Africa SRL",
+      "favTeam": "South Africa SRL",
+      "undTeam": "Czech Republic SRL",
+      "homeFlag": "cze",
+      "awayFlag": "sou",
+      "meta": "June 18 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011442",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Switzerland SRL",
+      "away": "Bosnia And Herzegovina Srl",
+      "favTeam": "Bosnia And Herzegovina Srl",
+      "undTeam": "Switzerland SRL",
+      "homeFlag": "swi",
+      "awayFlag": "bos",
+      "meta": "June 18 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011446",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Mexico SRL",
+      "away": "South Korea Srl",
+      "favTeam": "South Korea Srl",
+      "undTeam": "Mexico SRL",
+      "homeFlag": "mex",
+      "awayFlag": "sou",
+      "meta": "June 18 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011444",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Canada SRL",
+      "away": "Qatar SRL",
+      "favTeam": "Qatar SRL",
+      "undTeam": "Canada SRL",
+      "homeFlag": "can",
+      "awayFlag": "qat",
+      "meta": "June 18 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456910",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Czechia",
+      "away": "South Africa",
+      "favTeam": "Czechia",
+      "undTeam": "South Africa",
+      "homeFlag": "cze",
+      "awayFlag": "rsa",
+      "meta": "June 18 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "56.8%",
+          "draw": "24.8%",
+          "und": "18.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "48.9%",
+          "draw": "24.4%",
+          "und": "26.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "57.4%",
+          "draw": "24.5%",
+          "und": "18.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456922",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Switzerland",
+      "away": "Bosnia & Herzegovina",
+      "favTeam": "Switzerland",
+      "undTeam": "Bosnia & Herzegovina",
+      "homeFlag": "sui",
+      "awayFlag": "bih",
+      "meta": "June 18 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "59.3%",
+          "draw": "23.6%",
+          "und": "17.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "54.5%",
+          "draw": "23.1%",
+          "und": "22.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "60.0%",
+          "draw": "23.4%",
+          "und": "16.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456920",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Canada",
+      "away": "Qatar",
+      "favTeam": "Canada",
+      "undTeam": "Qatar",
+      "homeFlag": "can",
+      "awayFlag": "qat",
+      "meta": "June 18 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "73.0%",
+          "draw": "18.0%",
+          "und": "9.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "73.2%",
+          "draw": "17.9%",
+          "und": "8.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "73.7%",
+          "draw": "17.6%",
+          "und": "8.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456908",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Mexico",
+      "away": "South Korea",
+      "favTeam": "South Korea",
+      "undTeam": "Mexico",
+      "homeFlag": "mex",
+      "awayFlag": "kor",
+      "meta": "June 18 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "47.8%",
+          "draw": "28.7%",
+          "und": "23.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "57.2%",
+          "draw": "22.5%",
+          "und": "20.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "48.3%",
+          "draw": "27.8%",
+          "und": "23.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011450",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Scotland SRL",
+      "away": "Morocco SRL",
+      "favTeam": "Morocco SRL",
+      "undTeam": "Scotland SRL",
+      "homeFlag": "sco",
+      "awayFlag": "mor",
+      "meta": "June 19 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011448",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "USA SRL",
+      "away": "Australia SRL",
+      "favTeam": "Australia SRL",
+      "undTeam": "USA SRL",
+      "homeFlag": "usa",
+      "awayFlag": "aus",
+      "meta": "June 19 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011452",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Brazil SRL",
+      "away": "Haiti Srl",
+      "favTeam": "Haiti Srl",
+      "undTeam": "Brazil SRL",
+      "homeFlag": "bra",
+      "awayFlag": "hai",
+      "meta": "June 19 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011454",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Turkiye SRL",
+      "away": "Paraguay SRL",
+      "favTeam": "Paraguay SRL",
+      "undTeam": "Turkiye SRL",
+      "homeFlag": "tur",
+      "awayFlag": "par",
+      "meta": "June 19 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456944",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "United States",
+      "away": "Australia",
+      "favTeam": "United States",
+      "undTeam": "Australia",
+      "homeFlag": "usa",
+      "awayFlag": "aus",
+      "meta": "June 19 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "54.7%",
+          "draw": "24.2%",
+          "und": "21.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "56.7%",
+          "draw": "22.6%",
+          "und": "20.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "55.4%",
+          "draw": "24.3%",
+          "und": "20.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456934",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Scotland",
+      "away": "Morocco",
+      "favTeam": "Morocco",
+      "undTeam": "Scotland",
+      "homeFlag": "sco",
+      "awayFlag": "mar",
+      "meta": "June 19 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "22.8%",
+          "draw": "28.8%",
+          "und": "48.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "29.5%",
+          "draw": "25.1%",
+          "und": "45.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "22.6%",
+          "draw": "28.4%",
+          "und": "49.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457076",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ecuador",
+      "away": "Curacao",
+      "favTeam": "Ecuador",
+      "undTeam": "Curacao",
+      "homeFlag": "ecu",
+      "awayFlag": "cuw",
+      "meta": "June 20 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "79.2%",
+          "draw": "13.4%",
+          "und": "7.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "65.8%",
+          "draw": "20.2%",
+          "und": "13.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "80.0%",
+          "draw": "13.3%",
+          "und": "6.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456974",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Tunisia",
+      "away": "Japan",
+      "favTeam": "Japan",
+      "undTeam": "Tunisia",
+      "homeFlag": "tun",
+      "awayFlag": "jpn",
+      "meta": "June 21 · 12:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "17.6%",
+          "draw": "26.4%",
+          "und": "55.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "19.1%",
+          "draw": "22.1%",
+          "und": "58.8%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "16.1%",
+          "draw": "26.3%",
+          "und": "57.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011462",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium SRL",
+      "away": "Iran SRL",
+      "favTeam": "Iran SRL",
+      "undTeam": "Belgium SRL",
+      "homeFlag": "bel",
+      "awayFlag": "ira",
+      "meta": "June 21 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011464",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Spain SRL",
+      "away": "Saudi Arabia SRL",
+      "favTeam": "Saudi Arabia SRL",
+      "undTeam": "Spain SRL",
+      "homeFlag": "spa",
+      "awayFlag": "sau",
+      "meta": "June 21 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011470",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "New Zealand SRL",
+      "away": "Egypt SRL",
+      "favTeam": "Egypt SRL",
+      "undTeam": "New Zealand SRL",
+      "homeFlag": "new",
+      "awayFlag": "egy",
+      "meta": "June 21 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011460",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uruguay SRL",
+      "away": "Cape Verde Srl",
+      "favTeam": "Cape Verde Srl",
+      "undTeam": "Uruguay SRL",
+      "homeFlag": "uru",
+      "awayFlag": "cap",
+      "meta": "June 21 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456998",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "favTeam": "Spain",
+      "undTeam": "Saudi Arabia",
+      "homeFlag": "esp",
+      "awayFlag": "ksa",
+      "meta": "June 21 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "86.3%",
+          "draw": "9.7%",
+          "und": "4.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "72.5%",
+          "draw": "18.1%",
+          "und": "9.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "87.0%",
+          "draw": "8.8%",
+          "und": "4.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456986",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium",
+      "away": "IR Iran",
+      "favTeam": "Belgium",
+      "undTeam": "IR Iran",
+      "homeFlag": "bel",
+      "awayFlag": "ir ",
+      "meta": "June 21 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "67.5%",
+          "draw": "20.1%",
+          "und": "12.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "56.7%",
+          "draw": "22.6%",
+          "und": "20.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "68.1%",
+          "draw": "19.6%",
+          "und": "12.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457000",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uruguay",
+      "away": "Cape Verde",
+      "favTeam": "Uruguay",
+      "undTeam": "Cape Verde",
+      "homeFlag": "uru",
+      "awayFlag": "cpv",
+      "meta": "June 21 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "66.5%",
+          "draw": "20.9%",
+          "und": "12.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "74.2%",
+          "draw": "17.5%",
+          "und": "8.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "68.3%",
+          "draw": "20.0%",
+          "und": "11.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456988",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "New Zealand",
+      "away": "Egypt",
+      "favTeam": "Egypt",
+      "undTeam": "New Zealand",
+      "homeFlag": "nzl",
+      "awayFlag": "egy",
+      "meta": "June 21 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "19.8%",
+          "draw": "25.7%",
+          "und": "54.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "27.2%",
+          "draw": "24.5%",
+          "und": "48.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "20.2%",
+          "draw": "25.1%",
+          "und": "54.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011472",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina SRL",
+      "away": "Austria SRL",
+      "favTeam": "Austria SRL",
+      "undTeam": "Argentina SRL",
+      "homeFlag": "arg",
+      "awayFlag": "aus",
+      "meta": "June 22 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011474",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "France SRL",
+      "away": "Iraq Srl",
+      "favTeam": "Iraq Srl",
+      "undTeam": "France SRL",
+      "homeFlag": "fra",
+      "awayFlag": "ira",
+      "meta": "June 22 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011478",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Jordan Srl",
+      "away": "Algeria Srl",
+      "favTeam": "Algeria Srl",
+      "undTeam": "Jordan Srl",
+      "homeFlag": "jor",
+      "awayFlag": "alg",
+      "meta": "June 22 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011476",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Norway Srl",
+      "away": "Senegal SRL",
+      "favTeam": "Senegal SRL",
+      "undTeam": "Norway Srl",
+      "homeFlag": "nor",
+      "awayFlag": "sen",
+      "meta": "June 22 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457022",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina",
+      "away": "Austria",
+      "favTeam": "Argentina",
+      "undTeam": "Austria",
+      "homeFlag": "arg",
+      "awayFlag": "aus",
+      "meta": "June 22 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "58.3%",
+          "draw": "24.8%",
+          "und": "16.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "71.4%",
+          "draw": "18.5%",
+          "und": "10.1%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "59.9%",
+          "draw": "23.7%",
+          "und": "16.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457010",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "France",
+      "away": "Iraq",
+      "favTeam": "France",
+      "undTeam": "Iraq",
+      "homeFlag": "fra",
+      "awayFlag": "irq",
+      "meta": "June 22 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "84.7%",
+          "draw": "11.1%",
+          "und": "4.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "79.7%",
+          "draw": "15.1%",
+          "und": "5.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "86.6%",
+          "draw": "9.8%",
+          "und": "3.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457012",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Norway",
+      "away": "Senegal",
+      "favTeam": "Senegal",
+      "undTeam": "Norway",
+      "homeFlag": "nor",
+      "awayFlag": "sen",
+      "meta": "June 22 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.4%",
+          "draw": "27.5%",
+          "und": "28.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "30.9%",
+          "draw": "25.5%",
+          "und": "43.6%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "44.6%",
+          "draw": "27.0%",
+          "und": "28.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457024",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Jordan",
+      "away": "Algeria",
+      "favTeam": "Algeria",
+      "undTeam": "Jordan",
+      "homeFlag": "jor",
+      "awayFlag": "alg",
+      "meta": "June 22 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "14.7%",
+          "draw": "23.1%",
+          "und": "62.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "30.4%",
+          "draw": "25.4%",
+          "und": "44.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "14.7%",
+          "draw": "21.1%",
+          "und": "64.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011482",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "England SRL",
+      "away": "Ghana SRL",
+      "favTeam": "Ghana SRL",
+      "undTeam": "England SRL",
+      "homeFlag": "eng",
+      "awayFlag": "gha",
+      "meta": "June 23 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011480",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Portugal SRL",
+      "away": "Uzbekistan Srl",
+      "favTeam": "Uzbekistan Srl",
+      "undTeam": "Portugal SRL",
+      "homeFlag": "por",
+      "awayFlag": "uzb",
+      "meta": "June 23 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011486",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Colombia SRL",
+      "away": "Congo DR SRL",
+      "favTeam": "Congo DR SRL",
+      "undTeam": "Colombia SRL",
+      "homeFlag": "col",
+      "awayFlag": "con",
+      "meta": "June 23 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011484",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Panama Srl",
+      "away": "Croatia SRL",
+      "favTeam": "Croatia SRL",
+      "undTeam": "Panama Srl",
+      "homeFlag": "pan",
+      "awayFlag": "cro",
+      "meta": "June 23 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457034",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Portugal",
+      "away": "Uzbekistan",
+      "favTeam": "Portugal",
+      "undTeam": "Uzbekistan",
+      "homeFlag": "por",
+      "awayFlag": "uzb",
+      "meta": "June 23 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "76.2%",
+          "draw": "14.9%",
+          "und": "8.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "77.2%",
+          "draw": "16.2%",
+          "und": "6.5%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "78.4%",
+          "draw": "14.2%",
+          "und": "7.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457046",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "England",
+      "away": "Ghana",
+      "favTeam": "England",
+      "undTeam": "Ghana",
+      "homeFlag": "eng",
+      "awayFlag": "gha",
+      "meta": "June 23 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "71.8%",
+          "draw": "18.2%",
+          "und": "10.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "68.8%",
+          "draw": "19.4%",
+          "und": "11.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "72.8%",
+          "draw": "16.5%",
+          "und": "10.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457048",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Panama",
+      "away": "Croatia",
+      "favTeam": "Croatia",
+      "undTeam": "Panama",
+      "homeFlag": "pan",
+      "awayFlag": "cro",
+      "meta": "June 23 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "14.9%",
+          "draw": "23.9%",
+          "und": "61.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "10.3%",
+          "draw": "18.6%",
+          "und": "71.0%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "13.8%",
+          "draw": "23.6%",
+          "und": "62.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457036",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Colombia",
+      "away": "Congo DR",
+      "favTeam": "Colombia",
+      "undTeam": "Congo DR",
+      "homeFlag": "col",
+      "awayFlag": "con",
+      "meta": "June 23 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "64.9%",
+          "draw": "22.2%",
+          "und": "13.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "53.4%",
+          "draw": "23.4%",
+          "und": "23.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "66.2%",
+          "draw": "21.6%",
+          "und": "12.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011488",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Bosnia And Herzegovina Srl",
+      "away": "Qatar SRL",
+      "favTeam": "Qatar SRL",
+      "undTeam": "Bosnia And Herzegovina Srl",
+      "homeFlag": "bos",
+      "awayFlag": "qat",
+      "meta": "June 24 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011490",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Switzerland SRL",
+      "away": "Canada SRL",
+      "favTeam": "Canada SRL",
+      "undTeam": "Switzerland SRL",
+      "homeFlag": "swi",
+      "awayFlag": "can",
+      "meta": "June 24 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011492",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Morocco SRL",
+      "away": "Haiti Srl",
+      "favTeam": "Haiti Srl",
+      "undTeam": "Morocco SRL",
+      "homeFlag": "mor",
+      "awayFlag": "hai",
+      "meta": "June 24 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011494",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Scotland SRL",
+      "away": "Brazil SRL",
+      "favTeam": "Brazil SRL",
+      "undTeam": "Scotland SRL",
+      "homeFlag": "sco",
+      "awayFlag": "bra",
+      "meta": "June 24 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011502",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Czech Republic SRL",
+      "away": "Mexico SRL",
+      "favTeam": "Mexico SRL",
+      "undTeam": "Czech Republic SRL",
+      "homeFlag": "cze",
+      "awayFlag": "mex",
+      "meta": "June 24 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011504",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "South Africa SRL",
+      "away": "South Korea Srl",
+      "favTeam": "South Korea Srl",
+      "undTeam": "South Africa SRL",
+      "homeFlag": "sou",
+      "awayFlag": "sou",
+      "meta": "June 24 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456924",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Switzerland",
+      "away": "Canada",
+      "favTeam": "Canada",
+      "undTeam": "Switzerland",
+      "homeFlag": "sui",
+      "awayFlag": "can",
+      "meta": "June 24 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.9%",
+          "draw": "28.1%",
+          "und": "27.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "42.4%",
+          "draw": "25.8%",
+          "und": "31.8%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "44.1%",
+          "draw": "28.4%",
+          "und": "27.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456926",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Bosnia & Herzegovina",
+      "away": "Qatar",
+      "favTeam": "Bosnia & Herzegovina",
+      "undTeam": "Qatar",
+      "homeFlag": "bih",
+      "awayFlag": "qat",
+      "meta": "June 24 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "58.4%",
+          "draw": "25.0%",
+          "und": "16.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "55.1%",
+          "draw": "23.0%",
+          "und": "21.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "58.0%",
+          "draw": "25.4%",
+          "und": "16.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456938",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Morocco",
+      "away": "Haiti",
+      "favTeam": "Morocco",
+      "undTeam": "Haiti",
+      "homeFlag": "mar",
+      "awayFlag": "hai",
+      "meta": "June 24 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "71.7%",
+          "draw": "18.3%",
+          "und": "10.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "72.5%",
+          "draw": "18.1%",
+          "und": "9.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "73.3%",
+          "draw": "17.3%",
+          "und": "9.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456936",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Scotland",
+      "away": "Brazil",
+      "favTeam": "Brazil",
+      "undTeam": "Scotland",
+      "homeFlag": "sco",
+      "awayFlag": "bra",
+      "meta": "June 24 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "15.0%",
+          "draw": "19.8%",
+          "und": "65.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "16.2%",
+          "draw": "21.1%",
+          "und": "62.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "14.8%",
+          "draw": "19.2%",
+          "und": "66.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456914",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "South Africa",
+      "away": "South Korea",
+      "favTeam": "South Korea",
+      "undTeam": "South Africa",
+      "homeFlag": "rsa",
+      "awayFlag": "kor",
+      "meta": "June 24 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "16.8%",
+          "draw": "23.7%",
+          "und": "59.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "24.5%",
+          "draw": "23.8%",
+          "und": "51.8%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "15.5%",
+          "draw": "23.7%",
+          "und": "60.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456912",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Czechia",
+      "away": "Mexico",
+      "favTeam": "Mexico",
+      "undTeam": "Czechia",
+      "homeFlag": "cze",
+      "awayFlag": "mex",
+      "meta": "June 24 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "21.1%",
+          "draw": "26.9%",
+          "und": "52.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "26.7%",
+          "draw": "24.4%",
+          "und": "48.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "19.8%",
+          "draw": "26.2%",
+          "und": "54.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011506",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ecuador SRL",
+      "away": "Germany SRL",
+      "favTeam": "Germany SRL",
+      "undTeam": "Ecuador SRL",
+      "homeFlag": "ecu",
+      "awayFlag": "ger",
+      "meta": "June 25 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011500",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Curacao Srl",
+      "away": "Ivory Coast SRL",
+      "favTeam": "Ivory Coast SRL",
+      "undTeam": "Curacao Srl",
+      "homeFlag": "cur",
+      "awayFlag": "ivo",
+      "meta": "June 25 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011498",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Japan SRL",
+      "away": "Sweden SRL",
+      "favTeam": "Sweden SRL",
+      "undTeam": "Japan SRL",
+      "homeFlag": "jap",
+      "awayFlag": "swe",
+      "meta": "June 25 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011496",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Tunisia SRL",
+      "away": "Netherlands SRL",
+      "favTeam": "Netherlands SRL",
+      "undTeam": "Tunisia SRL",
+      "homeFlag": "tun",
+      "awayFlag": "net",
+      "meta": "June 25 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011508",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Paraguay SRL",
+      "away": "Australia SRL",
+      "favTeam": "Australia SRL",
+      "undTeam": "Paraguay SRL",
+      "homeFlag": "par",
+      "awayFlag": "aus",
+      "meta": "June 25 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011510",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Turkiye SRL",
+      "away": "USA SRL",
+      "favTeam": "USA SRL",
+      "undTeam": "Turkiye SRL",
+      "homeFlag": "tur",
+      "awayFlag": "usa",
+      "meta": "June 25 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457078",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ecuador",
+      "away": "Germany",
+      "favTeam": "Germany",
+      "undTeam": "Ecuador",
+      "homeFlag": "ecu",
+      "awayFlag": "ger",
+      "meta": "June 25 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "19.7%",
+          "draw": "25.2%",
+          "und": "55.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "18.7%",
+          "draw": "22.0%",
+          "und": "59.3%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "20.1%",
+          "draw": "25.0%",
+          "und": "54.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457080",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Curacao",
+      "away": "Ivory Coast",
+      "favTeam": "Ivory Coast",
+      "undTeam": "Curacao",
+      "homeFlag": "cuw",
+      "awayFlag": "civ",
+      "meta": "June 25 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "7.4%",
+          "draw": "14.6%",
+          "und": "78.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "20.3%",
+          "draw": "22.5%",
+          "und": "57.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "7.8%",
+          "draw": "14.1%",
+          "und": "78.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456976",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Tunisia",
+      "away": "Netherlands",
+      "favTeam": "Netherlands",
+      "undTeam": "Tunisia",
+      "homeFlag": "tun",
+      "awayFlag": "ned",
+      "meta": "June 25 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "14.8%",
+          "draw": "22.1%",
+          "und": "63.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "10.6%",
+          "draw": "18.8%",
+          "und": "70.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "13.7%",
+          "draw": "21.5%",
+          "und": "64.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456978",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Japan",
+      "away": "Sweden",
+      "favTeam": "Sweden",
+      "undTeam": "Japan",
+      "homeFlag": "jpn",
+      "awayFlag": "swe",
+      "meta": "June 25 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "45.7%",
+          "draw": "27.5%",
+          "und": "26.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "48.3%",
+          "draw": "24.5%",
+          "und": "27.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "46.3%",
+          "draw": "27.1%",
+          "und": "26.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456950",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Paraguay",
+      "away": "Australia",
+      "favTeam": "Australia",
+      "undTeam": "Paraguay",
+      "homeFlag": "pry",
+      "awayFlag": "aus",
+      "meta": "June 25 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.3%",
+          "draw": "29.1%",
+          "und": "26.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "30.4%",
+          "draw": "25.4%",
+          "und": "44.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "44.8%",
+          "draw": "29.5%",
+          "und": "25.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456948",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Turkiye",
+      "away": "United States",
+      "favTeam": "United States",
+      "undTeam": "Turkiye",
+      "homeFlag": "tur",
+      "awayFlag": "usa",
+      "meta": "June 25 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "36.2%",
+          "draw": "26.9%",
+          "und": "36.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "23.2%",
+          "draw": "23.4%",
+          "und": "53.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "37.2%",
+          "draw": "26.1%",
+          "und": "36.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011512",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Norway Srl",
+      "away": "France SRL",
+      "favTeam": "France SRL",
+      "undTeam": "Norway Srl",
+      "homeFlag": "nor",
+      "awayFlag": "fra",
+      "meta": "June 26 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011514",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Senegal SRL",
+      "away": "Iraq Srl",
+      "favTeam": "Iraq Srl",
+      "undTeam": "Senegal SRL",
+      "homeFlag": "sen",
+      "awayFlag": "ira",
+      "meta": "June 26 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011530",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Cape Verde Srl",
+      "away": "Saudi Arabia SRL",
+      "favTeam": "Saudi Arabia SRL",
+      "undTeam": "Cape Verde Srl",
+      "homeFlag": "cap",
+      "awayFlag": "sau",
+      "meta": "June 26 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011516",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uruguay SRL",
+      "away": "Spain SRL",
+      "favTeam": "Spain SRL",
+      "undTeam": "Uruguay SRL",
+      "homeFlag": "uru",
+      "awayFlag": "spa",
+      "meta": "June 26 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011528",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Egypt SRL",
+      "away": "Iran SRL",
+      "favTeam": "Iran SRL",
+      "undTeam": "Egypt SRL",
+      "homeFlag": "egy",
+      "awayFlag": "ira",
+      "meta": "June 26 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011526",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "New Zealand SRL",
+      "away": "Belgium SRL",
+      "favTeam": "Belgium SRL",
+      "undTeam": "New Zealand SRL",
+      "homeFlag": "new",
+      "awayFlag": "bel",
+      "meta": "June 26 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457014",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Norway",
+      "away": "France",
+      "favTeam": "France",
+      "undTeam": "Norway",
+      "homeFlag": "nor",
+      "awayFlag": "fra",
+      "meta": "June 26 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "22.1%",
+          "draw": "26.3%",
+          "und": "51.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "13.3%",
+          "draw": "20.0%",
+          "und": "66.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "22.3%",
+          "draw": "25.7%",
+          "und": "51.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457016",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Senegal",
+      "away": "Iraq",
+      "favTeam": "Senegal",
+      "undTeam": "Iraq",
+      "homeFlag": "sen",
+      "awayFlag": "irq",
+      "meta": "June 26 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "67.2%",
+          "draw": "20.4%",
+          "und": "12.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "64.5%",
+          "draw": "20.6%",
+          "und": "14.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "69.1%",
+          "draw": "20.1%",
+          "und": "10.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457004",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Cape Verde",
+      "away": "Saudi Arabia",
+      "favTeam": "Saudi Arabia",
+      "undTeam": "Cape Verde",
+      "homeFlag": "cpv",
+      "awayFlag": "ksa",
+      "meta": "June 26 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "39.1%",
+          "draw": "27.7%",
+          "und": "33.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "25.8%",
+          "draw": "24.1%",
+          "und": "50.1%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "38.3%",
+          "draw": "28.2%",
+          "und": "33.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457002",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uruguay",
+      "away": "Spain",
+      "favTeam": "Spain",
+      "undTeam": "Uruguay",
+      "homeFlag": "uru",
+      "awayFlag": "esp",
+      "meta": "June 26 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "18.0%",
+          "draw": "23.9%",
+          "und": "58.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "28.1%",
+          "draw": "24.8%",
+          "und": "47.2%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "18.0%",
+          "draw": "23.8%",
+          "und": "58.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456992",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Egypt",
+      "away": "IR Iran",
+      "favTeam": "IR Iran",
+      "undTeam": "Egypt",
+      "homeFlag": "egy",
+      "awayFlag": "ir ",
+      "meta": "June 26 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "42.1%",
+          "draw": "31.4%",
+          "und": "26.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "26.3%",
+          "draw": "24.2%",
+          "und": "49.5%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "42.4%",
+          "draw": "30.7%",
+          "und": "26.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456990",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "New Zealand",
+      "away": "Belgium",
+      "favTeam": "Belgium",
+      "undTeam": "New Zealand",
+      "homeFlag": "nzl",
+      "awayFlag": "bel",
+      "meta": "June 26 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "9.7%",
+          "draw": "16.4%",
+          "und": "73.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "8.1%",
+          "draw": "17.4%",
+          "und": "74.5%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "8.7%",
+          "draw": "16.0%",
+          "und": "75.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011524",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Croatia SRL",
+      "away": "Ghana SRL",
+      "favTeam": "Ghana SRL",
+      "undTeam": "Croatia SRL",
+      "homeFlag": "cro",
+      "awayFlag": "gha",
+      "meta": "June 27 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011522",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Panama Srl",
+      "away": "England SRL",
+      "favTeam": "England SRL",
+      "undTeam": "Panama Srl",
+      "homeFlag": "pan",
+      "awayFlag": "eng",
+      "meta": "June 27 · 5:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011518",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Colombia SRL",
+      "away": "Portugal SRL",
+      "favTeam": "Portugal SRL",
+      "undTeam": "Colombia SRL",
+      "homeFlag": "col",
+      "awayFlag": "por",
+      "meta": "June 27 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011520",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Congo DR SRL",
+      "away": "Uzbekistan Srl",
+      "favTeam": "Uzbekistan Srl",
+      "undTeam": "Congo DR SRL",
+      "homeFlag": "con",
+      "awayFlag": "uzb",
+      "meta": "June 27 · 6:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011532",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Algeria Srl",
+      "away": "Austria SRL",
+      "favTeam": "Austria SRL",
+      "undTeam": "Algeria Srl",
+      "homeFlag": "alg",
+      "awayFlag": "aus",
+      "meta": "June 27 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1003878572011534",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Jordan Srl",
+      "away": "Argentina SRL",
+      "favTeam": "Argentina SRL",
+      "undTeam": "Jordan Srl",
+      "homeFlag": "jor",
+      "awayFlag": "arg",
+      "meta": "June 27 · 7:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457050",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Panama",
+      "away": "England",
+      "favTeam": "England",
+      "undTeam": "Panama",
+      "homeFlag": "pan",
+      "awayFlag": "eng",
+      "meta": "June 27 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "11.0%",
+          "draw": "15.3%",
+          "und": "73.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "7.0%",
+          "draw": "16.6%",
+          "und": "76.4%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "10.2%",
+          "draw": "15.1%",
+          "und": "74.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457052",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Croatia",
+      "away": "Ghana",
+      "favTeam": "Croatia",
+      "undTeam": "Ghana",
+      "homeFlag": "cro",
+      "awayFlag": "gha",
+      "meta": "June 27 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "58.0%",
+          "draw": "24.9%",
+          "und": "17.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "61.7%",
+          "draw": "21.4%",
+          "und": "16.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "59.2%",
+          "draw": "24.8%",
+          "und": "16.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457038",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Colombia",
+      "away": "Portugal",
+      "favTeam": "Portugal",
+      "undTeam": "Colombia",
+      "homeFlag": "col",
+      "awayFlag": "por",
+      "meta": "June 27 · 7:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "27.3%",
+          "draw": "28.5%",
+          "und": "44.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "27.6%",
+          "draw": "24.6%",
+          "und": "47.7%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "27.4%",
+          "draw": "27.4%",
+          "und": "45.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457040",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Congo DR",
+      "away": "Uzbekistan",
+      "favTeam": "Uzbekistan",
+      "undTeam": "Congo DR",
+      "homeFlag": "con",
+      "awayFlag": "uzb",
+      "meta": "June 27 · 7:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "40.8%",
+          "draw": "28.6%",
+          "und": "30.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "58.2%",
+          "draw": "22.2%",
+          "und": "19.5%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "40.8%",
+          "draw": "28.6%",
+          "und": "30.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457028",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Algeria",
+      "away": "Austria",
+      "favTeam": "Austria",
+      "undTeam": "Algeria",
+      "homeFlag": "alg",
+      "awayFlag": "aus",
+      "meta": "June 27 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "26.4%",
+          "draw": "29.8%",
+          "und": "43.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "25.8%",
+          "draw": "24.1%",
+          "und": "50.1%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "25.0%",
+          "draw": "30.9%",
+          "und": "44.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457026",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Jordan",
+      "away": "Argentina",
+      "favTeam": "Argentina",
+      "undTeam": "Jordan",
+      "homeFlag": "jor",
+      "awayFlag": "arg",
+      "meta": "June 27 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "6.5%",
+          "draw": "13.7%",
+          "und": "79.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "4.1%",
+          "draw": "15.0%",
+          "und": "80.9%"
+        },
+        {
+          "source": "Prediction Markets (P2P)",
+          "fav": "6.9%",
+          "draw": "11.8%",
+          "und": "81.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452545",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "2A",
+      "away": "2B",
+      "favTeam": "2B",
+      "undTeam": "2A",
+      "homeFlag": "2a",
+      "awayFlag": "2b",
+      "meta": "June 28 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452557",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1C",
+      "away": "2F",
+      "favTeam": "2F",
+      "undTeam": "1C",
+      "homeFlag": "1c",
+      "awayFlag": "2f",
+      "meta": "June 29 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452541",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1E",
+      "away": "3A/3B/3C/3D/3F",
+      "favTeam": "3A/3B/3C/3D/3F",
+      "undTeam": "1E",
+      "homeFlag": "1e",
+      "awayFlag": "3a/",
+      "meta": "June 29 · 4:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452563",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1A",
+      "away": "3C/3E/3F/3H/3I",
+      "favTeam": "3C/3E/3F/3H/3I",
+      "undTeam": "1A",
+      "homeFlag": "1a",
+      "awayFlag": "3c/",
+      "meta": "June 30 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452565",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1L",
+      "away": "3E/3H/3I/3J/3K",
+      "favTeam": "3E/3H/3I/3J/3K",
+      "undTeam": "1L",
+      "homeFlag": "1l",
+      "awayFlag": "3e/",
+      "meta": "July 1 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452555",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1G",
+      "away": "3A/3E/3H/3I/3J",
+      "favTeam": "3A/3E/3H/3I/3J",
+      "undTeam": "1G",
+      "homeFlag": "1g",
+      "awayFlag": "3a/",
+      "meta": "July 1 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452553",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1D",
+      "away": "3B/3E/3F/3I/3J",
+      "favTeam": "3B/3E/3F/3I/3J",
+      "undTeam": "1D",
+      "homeFlag": "1d",
+      "awayFlag": "3b/",
+      "meta": "July 1 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452551",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1H",
+      "away": "2J",
+      "favTeam": "2J",
+      "undTeam": "1H",
+      "homeFlag": "1h",
+      "awayFlag": "2j",
+      "meta": "July 2 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452549",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "2K",
+      "away": "2L",
+      "favTeam": "2L",
+      "undTeam": "2K",
+      "homeFlag": "2k",
+      "awayFlag": "2l",
+      "meta": "July 2 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452505",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1B",
+      "away": "3E/3F/3G/3I/3J",
+      "favTeam": "3E/3F/3G/3I/3J",
+      "undTeam": "1B",
+      "homeFlag": "1b",
+      "awayFlag": "3e/",
+      "meta": "July 2 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452503",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "2D",
+      "away": "2G",
+      "favTeam": "2G",
+      "undTeam": "2D",
+      "homeFlag": "2d",
+      "awayFlag": "2g",
+      "meta": "July 3 · 2:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452569",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1J",
+      "away": "2H",
+      "favTeam": "2H",
+      "undTeam": "1J",
+      "homeFlag": "1j",
+      "awayFlag": "2h",
+      "meta": "July 3 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452507",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "1K",
+      "away": "3D/3E/3I/3J/3L",
+      "favTeam": "3D/3E/3I/3J/3L",
+      "undTeam": "1K",
+      "homeFlag": "1k",
+      "awayFlag": "3d/",
+      "meta": "July 3 · 9:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452511",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W73",
+      "away": "W75",
+      "favTeam": "W75",
+      "undTeam": "W73",
+      "homeFlag": "w73",
+      "awayFlag": "w75",
+      "meta": "July 4 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452509",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W74",
+      "away": "W77",
+      "favTeam": "W77",
+      "undTeam": "W74",
+      "homeFlag": "w74",
+      "awayFlag": "w77",
+      "meta": "July 4 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452517",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W76",
+      "away": "W78",
+      "favTeam": "W78",
+      "undTeam": "W76",
+      "homeFlag": "w76",
+      "awayFlag": "w78",
+      "meta": "July 5 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452519",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W79",
+      "away": "W80",
+      "favTeam": "W80",
+      "undTeam": "W79",
+      "homeFlag": "w79",
+      "awayFlag": "w80",
+      "meta": "July 5 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452513",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W83",
+      "away": "W84",
+      "favTeam": "W84",
+      "undTeam": "W83",
+      "homeFlag": "w83",
+      "awayFlag": "w84",
+      "meta": "July 6 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452515",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W81",
+      "away": "W82",
+      "favTeam": "W82",
+      "undTeam": "W81",
+      "homeFlag": "w81",
+      "awayFlag": "w82",
+      "meta": "July 6 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452521",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W86",
+      "away": "W88",
+      "favTeam": "W88",
+      "undTeam": "W86",
+      "homeFlag": "w86",
+      "awayFlag": "w88",
+      "meta": "July 7 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452523",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W85",
+      "away": "W87",
+      "favTeam": "W87",
+      "undTeam": "W85",
+      "homeFlag": "w85",
+      "awayFlag": "w87",
+      "meta": "July 7 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452525",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W89",
+      "away": "W90",
+      "favTeam": "W90",
+      "undTeam": "W89",
+      "homeFlag": "w89",
+      "awayFlag": "w90",
+      "meta": "July 9 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452529",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W91",
+      "away": "W92",
+      "favTeam": "W92",
+      "undTeam": "W91",
+      "homeFlag": "w91",
+      "awayFlag": "w92",
+      "meta": "July 11 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452531",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W95",
+      "away": "W96",
+      "favTeam": "W96",
+      "undTeam": "W95",
+      "homeFlag": "w95",
+      "awayFlag": "w96",
+      "meta": "July 11 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452533",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W97",
+      "away": "W98",
+      "favTeam": "W98",
+      "undTeam": "W97",
+      "homeFlag": "w97",
+      "awayFlag": "w98",
+      "meta": "July 14 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452535",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "W99",
+      "away": "W100",
+      "favTeam": "W100",
+      "undTeam": "W99",
+      "homeFlag": "w99",
+      "awayFlag": "w10",
+      "meta": "July 15 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001653452539",
+      "stage": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "RU101",
+      "away": "RU102",
+      "favTeam": "RU102",
+      "undTeam": "RU101",
+      "homeFlag": "ru1",
+      "awayFlag": "ru1",
+      "meta": "July 18 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
+        }
       ]
     }
   ]
