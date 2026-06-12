@@ -1,0 +1,68 @@
+# .github/workflows/update-odds.yml
+#
+# Runs the World Cup data ingestion script every 30 minutes.
+# Commits an updated data.json back to the repo if anything changed.
+# GitHub Pages then serves the fresh file automatically.
+#
+# SETUP REQUIRED (one-time):
+#   1. Go to your repo → Settings → Secrets and variables → Actions
+#   2. Click "New repository secret"
+#   3. Name:  ODDSPAPI_KEY
+#   4. Value: (paste your OddsPapi API key here)
+#   5. Click "Add secret"
+#
+# That's the only setup needed. The workflow handles everything else.
+
+name: Update World Cup Odds
+
+on:
+  # Run automatically every 30 minutes
+  schedule:
+    - cron: "*/30 * * * *"
+
+  # Also allow manual trigger from the Actions tab in GitHub
+  # (useful for testing or forcing an immediate refresh)
+  workflow_dispatch:
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+
+    # Only run one instance at a time — prevents overlapping runs
+    concurrency:
+      group: update-odds
+      cancel-in-progress: false
+
+    steps:
+      # 1. Check out the repo so the script can read/write data.json
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: pip install requests
+
+      # 4. Run the ingestion script
+      #    The secret is injected as an environment variable — never appears in logs
+      - name: Fetch live odds and update data.json
+        env:
+          ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
+        run: python fetch_odds.py
+
+      # 5. Commit the updated file back to the repo
+      #    Only commits if data.json actually changed (git is smart about this)
+      - name: Commit updated data.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          # Exit cleanly with code 0 if there's nothing to commit
+          git diff --staged --quiet || git commit -m "chore: auto-update odds [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          git push
