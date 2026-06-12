@@ -630,6 +630,65 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
 
+/* ── SEARCH BAR ─────────────────────────────────────────────────────── */
+.search-wrap {
+  position: relative; margin-bottom: 10px;
+}
+.search-input {
+  width: 100%; padding: 10px 36px 10px 14px;
+  background: var(--surface); border: 1px solid var(--border-hi);
+  border-radius: var(--radius-sm); color: var(--text-hi);
+  font-family: var(--font); font-size: 13px; font-weight: 500;
+  outline: none; transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+.search-input::placeholder { color: var(--text-lo); }
+.search-input:focus { border-color: var(--neon); }
+.search-clear {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--text-lo); font-size: 16px; cursor: pointer;
+  display: none; padding: 2px 4px;
+}
+.search-clear.visible { display: block; }
+.search-no-results {
+  text-align: center; padding: 30px 20px;
+  color: var(--text-lo); font-size: 13px;
+}
+
+/* ── SORT TOGGLE ────────────────────────────────────────────────────── */
+.sort-row {
+  display: flex; gap: 6px; align-items: center; margin-bottom: 8px;
+}
+.sort-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-lo); min-width: 32px;
+}
+
+/* ── DOUBLE-WIDE CARD GRID ──────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 700px) {
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .shell { max-width: 1100px; }
+}
+
+/* ── TOOLTIP — fixed near button ────────────────────────────────────── */
+.reco-tooltip {
+  display: none;
+  position: fixed;
+  background: #1a2d45; border: 1px solid var(--border-hi);
+  border-radius: var(--radius-sm); padding: 10px 12px;
+  font-size: 11px; color: var(--text-mid); line-height: 1.6;
+  z-index: 200; box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  max-width: min(280px, 85vw);
+  pointer-events: none;
+}
+.reco-tooltip.visible { display: block; }
+.reco-tooltip-title { font-weight: 700; color: var(--text-hi); font-size: 12px; margin-bottom: 5px; }
+
 /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .sources-header, .source-row {
@@ -664,13 +723,25 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
       <span class="controls-label" id="lbl-stage">Stage</span>
       <div class="stage-tabs" id="stage-tabs"></div>
     </div>
-    <!-- Language -->
+    <!-- Sort + Language row -->
     <div class="controls-row">
-      <span class="controls-label">Lang</span>
+      <div class="sort-row">
+        <span class="sort-label" id="lbl-sort">Sort</span>
+        <button class="btn active" id="btn-sort-time"  onclick="switchSort('time')" ></button>
+        <button class="btn"        id="btn-sort-group" onclick="switchSort('group')"></button>
+      </div>
+      <div style="flex:1"></div>
       <button class="btn lang-active" id="lang-en" onclick="switchLang('en')">EN</button>
       <button class="btn"             id="lang-ko" onclick="switchLang('ko')">KO</button>
       <button class="btn"             id="lang-ja" onclick="switchLang('ja')">JA</button>
     </div>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrap" id="search-wrap">
+    <input class="search-input" id="search-input" type="search"
+           oninput="onSearch(this.value)" placeholder="Search teams…" autocomplete="off" spellcheck="false">
+    <span class="search-clear" id="search-clear" onclick="clearSearch()">✕</span>
   </div>
 
   <!-- STATUS -->
@@ -798,6 +869,8 @@ const DICT = {
     bracketQF:"Quarter-Finals", bracketSF:"Semi-Finals", bracketF:"Final",
     eloScenarios:"ELO Scenarios (opponent TBD)",
     waitingFor:"Awaiting opponent",
+    sortTime:"By Time", sortGroup:"By Group",
+    searchPlaceholder:"Search teams…",
     teams:{
       "Mexico":"Mexico","South Africa":"South Africa","South Korea":"South Korea",
       "Czechia":"Czechia","Canada":"Canada","Bosnia & Herzegovina":"Bosnia & Herz.",
@@ -844,6 +917,8 @@ const DICT = {
     bracketQF:"8강", bracketSF:"4강", bracketF:"결승",
     eloScenarios:"ELO 시나리오 (상대팀 미정)",
     waitingFor:"상대팀 대기 중",
+    sortTime:"시간순", sortGroup:"그룹별",
+    searchPlaceholder:"팀 검색…",
     teams:{
       "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국",
       "Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아",
@@ -890,6 +965,8 @@ const DICT = {
     bracketQF:"準々決勝", bracketSF:"準決勝", bracketF:"決勝",
     eloScenarios:"ELOシナリオ（対戦相手未定）",
     waitingFor:"対戦相手待ち",
+    sortTime:"時間順", sortGroup:"グループ別",
+    searchPlaceholder:"チームを検索…",
     teams:{
       "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国",
       "Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア",
@@ -917,6 +994,8 @@ const DICT = {
 let lang       = 'en';
 let currentView  = 'grid';
 let currentStage = 'Group Stage';
+let currentSort  = 'time';   // 'time' | 'group'
+let searchQuery  = '';
 let allMatches   = [];
 let meta         = {};
 
@@ -931,16 +1010,27 @@ const STAGE_KEYS = {
 ================================================================ */
 let activeTooltip = null;
 
-function toggleTooltip(id) {
-  // Close any open tooltip
-  if (activeTooltip && activeTooltip !== id) {
+function toggleTooltip(btnEl, tipId) {
+  // Close any open tooltip first
+  if (activeTooltip && activeTooltip !== tipId) {
     const prev = document.getElementById(activeTooltip);
     if (prev) prev.classList.remove('visible');
   }
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.classList.toggle('visible');
-  activeTooltip = el.classList.contains('visible') ? id : null;
+  const tip = document.getElementById(tipId);
+  if (!tip) return;
+
+  const isVisible = tip.classList.contains('visible');
+  tip.classList.remove('visible');
+  activeTooltip = null;
+
+  if (!isVisible) {
+    // Position near the button using getBoundingClientRect
+    const rect = btnEl.getBoundingClientRect();
+    tip.style.top  = (rect.bottom + 6) + 'px';
+    tip.style.left = Math.max(8, rect.left - 200) + 'px';
+    tip.classList.add('visible');
+    activeTooltip = tipId;
+  }
 }
 
 // Close tooltips on outside click
@@ -1071,7 +1161,7 @@ function renderUpcoming(match) {
     return `
     <div class="reco-bar ${reco.cls}">
       <div class="reco-header">
-        <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip('${tipId}')" aria-label="More info">i</button>
+        <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')" aria-label="More info">i</button>
         <div class="reco-title">${esc(DICT[lang].recoTitle)} →</div>
       </div>
       <div class="reco-call">${esc(reco.call)}: ${esc(callTeam)}</div>
@@ -1199,16 +1289,17 @@ function toggleGroup(groupKey) {
 function renderGrid() {
   const d = DICT[lang];
 
-  // Deduplicate by match ID — keep last occurrence (most recent data wins)
+  // Deduplicate by match ID
   const seen = new Map();
   allMatches.forEach(m => seen.set(m.id, m));
   const dedupedMatches = [...seen.values()];
 
   const stageMatches = dedupedMatches.filter(m => (m.stage||'Group Stage') === currentStage);
+  const filtered = stageMatches.filter(matchesSearch);
 
-  const upcoming  = stageMatches.filter(m => m.type === 'UPCOMING')
+  const upcoming  = filtered.filter(m => m.type === 'UPCOMING')
     .sort((a,b) => new Date(a.kickoff||0) - new Date(b.kickoff||0));
-  const completed = stageMatches.filter(m => m.type === 'COMPLETED')
+  const completed = filtered.filter(m => m.type === 'COMPLETED')
     .sort((a,b) => new Date(b.kickoff||0) - new Date(a.kickoff||0));
 
   document.getElementById('lbl-upcoming').textContent   = d.upcoming;
@@ -1216,7 +1307,21 @@ function renderGrid() {
   document.getElementById('count-upcoming').textContent  = upcoming.length;
   document.getElementById('count-completed').textContent = completed.length;
 
-  // Group upcoming matches by group label
+  const upEl = document.getElementById('upcoming-list');
+  const coEl = document.getElementById('completed-list');
+
+  // ── SEARCH ACTIVE or BY TIME — flat chronological, double-wide ───────
+  if (searchQuery || currentSort === 'time') {
+    upEl.innerHTML = upcoming.length
+      ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>`
+      : `<div class="empty">${esc(d.noUpcoming)}</div>`;
+    coEl.innerHTML = completed.length
+      ? `<div class="card-grid">${completed.map(renderCompleted).join('')}</div>`
+      : `<div class="empty">${esc(d.noCompleted)}</div>`;
+    return;
+  }
+
+  // ── BY GROUP MODE — collapsible sections, double-wide inside ─────────
   const upcomingByGroup = {};
   upcoming.forEach(m => {
     const g = m.group || m.stage || 'Other';
@@ -1224,47 +1329,34 @@ function renderGrid() {
     upcomingByGroup[g].push(m);
   });
 
-  // Auto-expand the first group with an imminent match (next 48h), else expand all
   if (expandedGroups.size === 0) {
-    const now = Date.now();
-    const next48h = now + 48 * 60 * 60 * 1000;
+    const now = Date.now(), next48h = now + 48*60*60*1000;
     let autoExpanded = false;
     Object.entries(upcomingByGroup).forEach(([g, matches]) => {
       if (!autoExpanded && matches.some(m => {
         const t = new Date(m.kickoff||0).getTime();
         return t >= now && t <= next48h;
-      })) {
-        expandedGroups.add('up-' + g);
-        autoExpanded = true;
-      }
+      })) { expandedGroups.add('up-'+g); autoExpanded = true; }
     });
-    // If nothing imminent, expand first group
-    if (!autoExpanded && Object.keys(upcomingByGroup).length > 0) {
-      expandedGroups.add('up-' + Object.keys(upcomingByGroup)[0]);
-    }
+    if (!autoExpanded && Object.keys(upcomingByGroup).length > 0)
+      expandedGroups.add('up-'+Object.keys(upcomingByGroup)[0]);
   }
 
-  const upEl = document.getElementById('upcoming-list');
-  if (upcoming.length === 0) {
-    upEl.innerHTML = `<div class="empty">${esc(d.noUpcoming)}</div>`;
-  } else {
-    upEl.innerHTML = Object.entries(upcomingByGroup).map(([group, matches]) => {
-      const key = 'up-' + group;
-      const isOpen = expandedGroups.has(key);
-      const nextKickoff = matches[0] ? fmtKickoff(matches[0].kickoff) : '';
-      return `
-        <div class="group-section">
+  upEl.innerHTML = upcoming.length === 0
+    ? `<div class="empty">${esc(d.noUpcoming)}</div>`
+    : Object.entries(upcomingByGroup).map(([group, matches]) => {
+        const key = 'up-'+group, isOpen = expandedGroups.has(key);
+        const nk = matches[0] ? fmtKickoff(matches[0].kickoff) : '';
+        return `<div class="group-section">
           <button class="group-header" onclick="toggleGroup('${esc(key)}')">
             <span class="group-header-label">${esc(group)}</span>
-            <span class="group-header-meta">${esc(nextKickoff)} · ${matches.length} match${matches.length!==1?'es':''}</span>
-            <span class="group-header-chevron">${isOpen ? '▲' : '▼'}</span>
+            <span class="group-header-meta">${esc(nk)} · ${matches.length} match${matches.length!==1?'es':''}</span>
+            <span class="group-header-chevron">${isOpen?'▲':'▼'}</span>
           </button>
-          ${isOpen ? `<div class="group-body">${matches.map(renderUpcoming).join('')}</div>` : ''}
+          ${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderUpcoming).join('')}</div></div>`:''}
         </div>`;
-    }).join('');
-  }
+      }).join('');
 
-  // Group completed matches by group too
   const completedByGroup = {};
   completed.forEach(m => {
     const g = m.group || m.stage || 'Other';
@@ -1272,24 +1364,19 @@ function renderGrid() {
     completedByGroup[g].push(m);
   });
 
-  const coEl = document.getElementById('completed-list');
-  if (completed.length === 0) {
-    coEl.innerHTML = `<div class="empty">${esc(d.noCompleted)}</div>`;
-  } else {
-    coEl.innerHTML = Object.entries(completedByGroup).map(([group, matches]) => {
-      const key = 'co-' + group;
-      const isOpen = expandedGroups.has(key);
-      return `
-        <div class="group-section">
+  coEl.innerHTML = completed.length === 0
+    ? `<div class="empty">${esc(d.noCompleted)}</div>`
+    : Object.entries(completedByGroup).map(([group, matches]) => {
+        const key = 'co-'+group, isOpen = expandedGroups.has(key);
+        return `<div class="group-section">
           <button class="group-header" onclick="toggleGroup('${esc(key)}')">
             <span class="group-header-label">${esc(group)}</span>
             <span class="group-header-meta">${matches.length} match${matches.length!==1?'es':''} played</span>
-            <span class="group-header-chevron">${isOpen ? '▲' : '▼'}</span>
+            <span class="group-header-chevron">${isOpen?'▲':'▼'}</span>
           </button>
-          ${isOpen ? `<div class="group-body">${matches.map(renderCompleted).join('')}</div>` : ''}
+          ${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`:''}
         </div>`;
-    }).join('');
-  }
+      }).join('');
 }
 
 /* ================================================================
@@ -1496,14 +1583,20 @@ function applyLabels() {
   document.getElementById('lbl-stage').textContent   = d.stage;
   document.getElementById('btn-grid').textContent    = d.grid;
   document.getElementById('btn-bracket').textContent = d.bracket;
+  document.getElementById('btn-sort-time').textContent  = d.sortTime  || 'By Time';
+  document.getElementById('btn-sort-group').textContent = d.sortGroup || 'By Group';
+  const si = document.getElementById('search-input');
+  if (si) si.placeholder = d.searchPlaceholder || 'Search teams…';
   if (meta.lastUpdated) {
     document.getElementById('lbl-updated').textContent = d.updated + ': ' + meta.lastUpdated;
   }
-  // Language buttons
   ['en','ko','ja'].forEach(l => {
     const btn = document.getElementById('lang-'+l);
     btn.className = 'btn' + (l===lang?' lang-active':'');
   });
+  // Sync sort button states
+  document.getElementById('btn-sort-time').classList.toggle('active', currentSort==='time');
+  document.getElementById('btn-sort-group').classList.toggle('active', currentSort==='group');
 }
 
 /* ================================================================
@@ -1515,6 +1608,9 @@ function switchView(v) {
   document.getElementById('view-bracket').classList.toggle('active', v==='bracket');
   document.getElementById('btn-grid').classList.toggle('active', v==='grid');
   document.getElementById('btn-bracket').classList.toggle('active', v==='bracket');
+  // Hide search and sort in bracket view
+  const sw = document.getElementById('search-wrap');
+  if (sw) sw.style.display = v==='grid' ? '' : 'none';
   if (v==='bracket') renderBracket(); else renderGrid();
 }
 
@@ -1529,6 +1625,43 @@ function switchLang(l) {
   applyLabels();
   buildStageTabs();
   if (currentView==='bracket') renderBracket(); else renderGrid();
+}
+
+function switchSort(mode) {
+  currentSort = mode;
+  expandedGroups.clear(); // reset expanded state on sort change
+  applyLabels();
+  renderGrid();
+}
+
+/* ── SEARCH ── */
+function onSearch(val) {
+  searchQuery = val.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
+  renderGrid();
+}
+
+function clearSearch() {
+  searchQuery = '';
+  const input = document.getElementById('search-input');
+  if (input) input.value = '';
+  const clearBtn = document.getElementById('search-clear');
+  if (clearBtn) clearBtn.classList.remove('visible');
+  renderGrid();
+}
+
+function matchesSearch(match) {
+  if (!searchQuery) return true;
+  const d = DICT[lang];
+  const homeEn  = (match.home  || '').toLowerCase();
+  const awayEn  = (match.away  || '').toLowerCase();
+  const homeTr  = (teamName(match.home)  || '').toLowerCase();
+  const awayTr  = (teamName(match.away)  || '').toLowerCase();
+  const group   = (match.group || '').toLowerCase();
+  return homeEn.includes(searchQuery) || awayEn.includes(searchQuery) ||
+         homeTr.includes(searchQuery) || awayTr.includes(searchQuery) ||
+         group.includes(searchQuery);
 }
 
 /* ================================================================
