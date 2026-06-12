@@ -7,33 +7,29 @@
     
     <style>
         :root {
-            /* STARK HIGH-CONTRAST LIGHT THEME DESIGN TOKENS */
-            --bg-body: #F1F5F9;
-            --bg-dashboard: #FFFFFF;
-            --bg-header: #0F172A;
-            --border-grid: #E2E8F0;
-            --border-separator: #CBD5E1;
-            
-            --text-main: #0F172A;
-            --text-muted: #475569;
-            --text-gold: #B45309;
-            --text-neon: #38BDF8;
-            
-            --color-favorite: #15803D;
-            --color-underdog: #C2410C;
-            --color-draw: #1D4ED8;
-            
-            /* BRACKET CANONICAL LIGHT TOKENS */
-            --bracket-bg: #F8FAFC;
-            --bracket-line: #94A3B8;
+            --bg-body: #060b19;
+            --bg-dashboard: rgba(13, 23, 47, 0.95);
+            --bg-header: #0a1124;
+            --bg-spacer: #03060f;
+            --border-grid: rgba(255, 255, 255, 0.06);
+            --border-neon: rgba(0, 210, 255, 0.2);
+            --text-main: #FFFFFF;
+            --text-gold: #F39C12;
+            --text-neon: #00D2FF;
+            --text-muted: #8A99AD;
+            --color-favorite: #2ECC71;
+            --color-draw: #2563EB;
+            --color-underdog: #E67E22;
         }
 
         body { 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background-color: var(--bg-body); 
+            background-image: radial-gradient(circle at top, #14203e 0%, #060b19 80%);
+            background-attachment: fixed;
             color: var(--text-main); 
             margin: 0; 
-            padding: 24px 16px; 
+            padding: 16px 8px; 
             -webkit-font-smoothing: antialiased;
         }
         
@@ -41,215 +37,216 @@
             max-width: 1250px; 
             margin: 0 auto; 
             background-color: var(--bg-dashboard);
-            border: 2px solid var(--border-separator);
-            border-radius: 8px;
+            border: 1px solid var(--border-neon);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
         .header-banner {
             background-color: var(--bg-header);
-            padding: 24px;
+            padding: 20px;
             text-align: center;
-            border-bottom: 2px solid var(--text-main);
+            border-bottom: 2px solid var(--border-grid);
+            position: relative;
         }
 
         h1 { 
-            margin: 0 0 6px 0; 
-            font-size: 24px; 
+            margin: 0 0 4px 0; 
+            font-size: 22px; 
             font-weight: 800;
             color: #FFFFFF;
-            letter-spacing: -0.5px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
         }
         
-        .meta-header { font-size: 11px; color: var(--text-neon); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .meta-header { font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
 
-        /* Navigation Toggles (Light Mode Optimizations) */
-        .mode-selector, .side-selector {
-            background-color: #F8FAFC;
-            padding: 12px;
+        .control-bar {
+            background-color: rgba(4, 8, 18, 0.9);
+            padding: 10px;
             border-bottom: 1px solid var(--border-grid);
             display: flex;
-            justify-content: center;
-            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .side-selector { background-color: #E2E8F0; border-bottom: 1px solid #CBD5E1; display: none; }
 
-        .mode-btn {
+        .mode-group, .lang-group { display: flex; gap: 8px; }
+
+        .control-btn {
             font-family: inherit;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            background: none;
-            border: 1px solid transparent;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-muted);
-            padding: 6px 16px;
+            padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.1s ease;
+            transition: all 0.15s ease;
         }
-        .mode-btn:hover { color: var(--text-main); }
-        .mode-btn.active { color: #FFFFFF; background-color: var(--bg-header); }
+        .control-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.2); }
+        .control-btn.active { color: #FFFFFF; border-color: var(--text-neon); background-color: rgba(0,210,255,0.1); }
 
-        .side-btn {
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 800;
-            background: none;
-            border: 1px solid transparent;
-            color: #64748B;
-            padding: 5px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .side-selector { 
+            background-color: rgba(8, 15, 32, 0.8); 
+            padding: 8px; 
+            border-bottom: 1px solid var(--border-grid); 
+            display: none; 
+            justify-content: center; 
+            gap: 10px; 
         }
-        .side-btn:hover { color: #0F172A; }
-        .side-btn.active { color: #2563EB; background-color: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
-        .view-content { padding: 0; display: none; }
+        .view-content { display: none; }
         .view-content.active { display: block; }
 
         .section-title {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-neon);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 16px 20px;
-            background-color: #E2E8F0;
-            border-bottom: 1px solid var(--border-separator);
-            margin: 0;
+            letter-spacing: 1px;
+            padding: 12px 20px;
+            background-color: rgba(4, 8, 18, 0.4);
+            border-bottom: 1px solid var(--border-grid);
         }
 
-        /* HIGH-HEAVY TYPOGRAPHY TABLE VIEW LAYOUT */
-        table { width: 100%; border-collapse: collapse; }
-        thead th { padding: 14px 20px; border-bottom: 2px solid var(--border-separator); background-color: #F8FAFC; font-size: 12px; font-weight: 800; color: var(--text-gold); text-transform: uppercase; text-align: left; letter-spacing: 0.5px; }
+        .table-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        thead th { padding: 12px 20px; border-bottom: 2px solid var(--border-grid); font-size: 11px; color: var(--text-gold); text-transform: uppercase; text-align: left; }
         
-        /* Deep Structural Separation Margins Between Match Blocks */
-        .match-card-group { border-bottom: 10px solid var(--bg-body); }
-        .match-card-group:last-child { border-bottom: none; }
+        .match-group-block { border-bottom: 12px solid var(--bg-spacer); }
+        .match-group-block:last-child { border-bottom: none; }
         
-        .col-matchup { padding: 18px 20px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); background-color: #FFFFFF; }
-        .match-title-wrap { display: flex; flex-direction: column; gap: 6px; }
+        .col-matchup { padding: 14px 20px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); background-color: rgba(255,255,255,0.01); }
+        .match-title-wrap { display: flex; flex-direction: column; gap: 5px; }
         .team-line { display: flex; align-items: center; gap: 10px; }
-        .flag-icon { width: 22px; height: 14px; border-radius: 1px; overflow: hidden; display: inline-block; border: 1px solid #CBD5E1; }
+        .flag-icon { width: 20px; height: 13px; border-radius: 1px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.4); }
         .flag-icon svg { width: 100%; height: 100%; object-fit: cover; }
         
-        .team-name { font-size: 17px; font-weight: 700; color: var(--text-main); }
-        .team-role { font-size: 10px; font-weight: 800; padding: 2px 5px; border-radius: 2px; margin-left: auto; letter-spacing: 0.3px; }
-        .team-role.fav { background-color: #DCFCE7; color: var(--color-favorite); }
-        .team-role.und { background-color: #FFEDD5; color: var(--color-underdog); }
-        .match-meta { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
+        .team-name { font-size: 16px; font-weight: 700; color: #FFFFFF; }
+        .team-role { font-size: 9px; font-weight: 800; padding: 1px 4px; border-radius: 2px; margin-left: auto; }
+        .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); }
+        .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); }
+        .match-meta { font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
         
-        .col-data-layers { padding: 0; vertical-align: middle; background-color: #F8FAFC; }
+        .col-data-layers { padding: 0; vertical-align: middle; }
         
-        /* Ultra-Tight Row Spacing & Bold Text Outputs */
-        .layer-row { display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 6px 20px; }
+        .layer-row { display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 4px 20px; }
         .layer-row:last-child { border-bottom: none; }
-        .col-source { font-size: 13px; font-weight: 700; color: var(--text-main); }
+        .col-source { font-size: 12px; font-weight: 600; color: #E2E8F0; }
         
-        .string-cell { font-size: 14px; text-align: center; white-space: nowrap; }
-        .string-cell.win { color: var(--color-favorite); font-weight: 800; }
-        .string-cell.draw { color: var(--color-draw); font-weight: 700; }
-        .string-cell.loss { color: var(--text-main); font-weight: 600; }
+        .string-cell { font-size: 13px; font-weight: 600; text-align: center; }
+        .string-cell.win { color: var(--color-favorite); }
+        .string-cell.draw { color: var(--text-neon); }
+        .string-cell.loss { color: #FFFFFF; opacity: 0.85; }
 
-        /* Concluded Match Layout Structures */
-        .completed-layer-row { display: grid; grid-template-columns: 1.4fr 2.15fr 0.5fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 8px 20px; }
-        .completed-layer-row:last-child { border-bottom: 1px solid var(--border-grid); }
-        .final-badge-box { background: var(--bg-header); color: #FFFFFF; font-weight: 800; text-align: center; padding: 4px 12px; border-radius: 4px; font-size: 13px; letter-spacing: 0.5px; width: fit-content; }
-        .audit-marker { font-weight: 900; font-size: 16px; text-align: right; padding-right: 5px; }
+        .completed-layer-row { display: grid; grid-template-columns: 1.4fr 2.15fr 0.5fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 6px 20px; }
+        .completed-layer-row:last-child { border-bottom: none; }
+        .final-badge-box { background: rgba(0, 210, 255, 0.06); color: var(--text-gold); font-weight: 700; text-align: center; padding: 4px 12px; border-radius: 4px; font-size: 13px; border: 1px solid rgba(243, 156, 18, 0.2); width: fit-content; }
+        .audit-marker { font-weight: 800; font-size: 14px; text-align: right; padding-right: 5px; }
         .audit-marker.correct { color: var(--color-favorite); }
-        .audit-marker.incorrect { color: #DC2626; }
+        .audit-marker.incorrect { color: #EF4444; }
         
-        .insight-row { background: #FEF3C7; padding: 10px 20px; display: flex; align-items: flex-start; gap: 8px; font-size: 13px; border-top: 1px solid #FDE68A; }
-        .insight-tag { font-size: 9px; font-weight: 800; color: var(--text-gold); text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid var(--text-gold); padding: 1px 4px; border-radius: 2px; background-color: #FFFFFF; }
-        .insight-text { color: #78350F; font-weight: 600; line-height: 1.4; }
+        .insight-row { background: rgba(243, 156, 18, 0.03); padding: 8px 20px; display: flex; align-items: flex-start; gap: 8px; font-size: 12px; border-top: 1px solid rgba(243, 156, 18, 0.08); }
+        .insight-tag { font-size: 8px; font-weight: 700; color: var(--text-gold); text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(243, 156, 18, 0.3); padding: 1px 4px; border-radius: 2px; }
+        .insight-text { color: #B3C1D1; line-height: 1.4; }
 
-        /* NCAA CLASSIC WHITE CANVAS BRACKET LAYER */
-        .bracket-viewport { overflow-x: auto; padding: 40px 20px; background-color: var(--bracket-bg); }
+        .bracket-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 30px 15px; width: 100%; box-sizing: border-box; }
         .bracket-wrapper { display: none; gap: 0; min-width: 850px; }
         .bracket-wrapper.active { display: flex; }
         
         .bracket-round { display: flex; flex-direction: column; justify-content: space-around; width: 250px; position: relative; }
-        .bracket-round-header { text-align: center; color: var(--text-main); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 8px; border-bottom: 2px solid var(--bracket-line); margin: 0 15px 10px 15px; }
+        .bracket-round-header { text-align: center; color: var(--text-neon); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 8px; border-bottom: 1px solid var(--border-grid); margin: 0 15px 15px 15px; }
         
-        .bracket-match-node { display: flex; flex-direction: column; padding: 0; margin: 35px 15px; position: relative; width: 200px; }
+        .bracket-match-node { display: flex; flex-direction: column; padding: 0; margin: 40px 15px; position: relative; width: 190px; }
         
-        .bracket-team-line { display: flex; align-items: center; gap: 6px; padding: 4px 4px 2px 4px; border-bottom: 2px solid var(--bracket-line); font-size: 13px; font-weight: 700; color: var(--text-main); min-height: 22px; position: relative; }
-        .bracket-team-line .flag-icon { width: 16px; height: 11px; border: 1px solid #CBD5E1; }
+        .bracket-team-line { display: flex; align-items: center; gap: 6px; padding: 5px 4px 3px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); font-size: 13px; font-weight: 700; color: #FFFFFF; min-height: 22px; position: relative; }
+        .bracket-team-line .flag-icon { width: 16px; height: 11px; box-shadow: none; }
         
-        .bracket-team-line::after { content: ''; position: absolute; right: -16px; bottom: -2px; width: 15px; height: 2px; background-color: var(--bracket-line); }
+        .bracket-team-line::after { content: ''; position: absolute; right: -16px; bottom: -1px; width: 15px; height: 1px; background-color: rgba(255, 255, 255, 0.3); }
         
-        .bracket-match-node::after { content: ''; position: absolute; right: -16px; top: calc(25% + 7px); width: 2px; height: calc(50% + 2px); background-color: var(--bracket-line); }
-        .bracket-match-node::before { content: ''; position: absolute; right: -31px; top: calc(50% + 8px); width: 15px; height: 2px; background-color: var(--bracket-line); }
+        .bracket-match-node::after { content: ''; position: absolute; right: -16px; top: calc(25% + 8px); width: 1px; height: calc(50% + 1px); background-color: rgba(255, 255, 255, 0.3); }
+        .bracket-match-node::before { content: ''; position: absolute; right: -31px; top: calc(50% + 8px); width: 15px; height: 1px; background-color: rgba(255, 255, 255, 0.3); }
 
-        .bracket-score-status { font-size: 11px; font-weight: 800; color: #2563EB; margin-left: auto; }
-        .bracket-score-status.elim { color: #64748B; font-weight: 600; }
+        .bracket-score-status { font-size: 11px; font-weight: 800; color: var(--text-neon); margin-left: auto; }
+        .bracket-score-status.elim { color: var(--text-muted); font-weight: 500; }
         
-        .bracket-draw-junction-bubble { position: absolute; right: -53px; top: calc(50% + 1px); background: #FFFFFF; border: 2px solid var(--bracket-line); border-radius: 4px; padding: 1px 4px; font-size: 9px; color: var(--text-main); font-weight: 800; white-space: nowrap; z-index: 10; }
+        .bracket-draw-junction-bubble { position: absolute; right: -53px; top: calc(50% + 2px); background: #070d1a; border: 1px solid rgba(0, 210, 255, 0.4); border-radius: 3px; padding: 0px 4px; font-size: 8px; color: var(--text-neon); font-weight: 700; white-space: nowrap; z-index: 10; }
         
-        .bracket-lookahead-chassis { background: #E2E8F0; border: 1px solid #CBD5E1; border-radius: 4px; padding: 6px; margin-top: 12px; font-size: 11px; }
-        .bracket-lookahead-title { font-weight: 800; color: var(--text-main); font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
-        .bracket-lookahead-row { display: flex; justify-content: space-between; color: var(--text-muted); font-weight: 600; padding: 1px 0; }
-        .bracket-lookahead-row strong { color: #0F172A; font-weight: 800; }
+        .bracket-lookahead-chassis { background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 4px; padding: 6px; margin-top: 12px; font-size: 11px; }
+        .bracket-lookahead-title { font-weight: 700; color: var(--text-gold); font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
+        .bracket-lookahead-row { display: flex; justify-content: space-between; color: var(--text-muted); padding: 1px 0; }
+        .bracket-lookahead-row strong { color: #FFFFFF; }
 
-        .footer-key { padding: 16px 20px; background-color: var(--bg-header); font-size: 12px; color: #94A3B8; font-weight: 600; line-height: 1.5; border-top: 2px solid var(--text-main); }
+        .footer-key { padding: 16px 20px; background-color: rgba(4, 8, 18, 0.8); font-size: 11px; color: var(--text-muted); line-height: 1.5; border-top: 1px solid var(--border-grid); }
     </style>
 </head>
 <body>
 
 <div class="dashboard-container">
     <div class="header-banner">
-        <h1>2026 World Cup Matchday Tracker</h1>
-        <div class="meta-header">High-Contrast Geometric Readability System</div>
+        <h1 id="lbl-title">2026 World Cup Matchday Tracker</h1>
+        <div class="meta-header" id="lbl-subtitle">Analytical System Data Matrix Feed</div>
     </div>
 
-    <div class="mode-selector">
-        <button class="mode-btn active" onclick="switchView('grid')">Probability Grid</button>
-        <button class="mode-btn" onclick="switchView('bracket')">Tournament Bracket</button>
+    <div class="control-bar">
+        <div class="mode-group">
+            <button class="control-btn active" id="btn-grid" onclick="switchView('grid')">Probability Grid</button>
+            <button class="control-btn" id="btn-bracket" onclick="switchView('bracket')">Tournament Bracket</button>
+        </div>
+        <div class="lang-group">
+            <button class="control-btn active" id="lang-en" onclick="switchLanguage('en')">EN</button>
+            <button class="control-btn" id="lang-ko" onclick="switchLanguage('ko')">KO</button>
+            <button class="control-btn" id="lang-ja" onclick="switchLanguage('ja')">JA</button>
+        </div>
     </div>
 
     <div class="side-selector" id="bracket-side-controls">
-        <button class="side-btn active" onclick="switchSide('left')">Left Side Bracket</button>
-        <button class="side-btn" onclick="switchSide('right')">Right Side Bracket</button>
+        <button class="control-btn active" id="btn-left-side" onclick="switchSide('left')">Left Side Bracket</button>
+        <button class="control-btn" id="btn-right-side" onclick="switchSide('right')">Right Side Bracket</button>
     </div>
 
     <div id="view-grid" class="view-content active">
-        <div class="section-title">Upcoming Fixtures</div>
-        <table>
-            <thead>
-                <tr>
-                    <th style="padding-left: 20px;">Matchup</th>
-                    <th>
-                        <div style="display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; padding-right: 20px; text-align: center;">
-                            <span style="text-align: left;">Information Source</span>
-                            <span>Favorite %</span>
-                            <span>Tie %</span>
-                            <span>Underdog %</span>
-                        </div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="upcoming-table-body"></tbody>
-        </table>
+        <div class="section-title" id="lbl-upcoming-header">Upcoming Fixtures</div>
+        <div class="table-viewport">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="padding-left: 20px;" id="lbl-th-matchup-1">Matchup</th>
+                        <th>
+                            <div style="display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; padding-right: 20px; text-align: center;">
+                                <span style="text-align: left;" id="lbl-th-source-1">Information Source</span>
+                                <span id="lbl-th-fav-1">Favorite %</span>
+                                <span id="lbl-th-tie-1">Tie %</span>
+                                <span id="lbl-th-und-1">Underdog %</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="upcoming-table-body"></tbody>
+            </table>
+        </div>
 
-        <div class="section-title">Completed Matches</div>
-        <table>
-            <thead>
-                <tr>
-                    <th style="padding-left: 20px;">Matchup</th>
-                    <th>
-                        <div style="display: grid; grid-template-columns: 1.4fr 2.15fr 0.5fr; padding-right: 20px;">
-                            <span>Information Source</span>
-                            <span>Official Outcome</span>
-                            <span style="text-align: right; padding-right: 5px;">Audit</span>
-                        </div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="completed-table-body"></tbody>
-        </table>
+        <div class="section-title" id="lbl-completed-header">Completed Matches</div>
+        <div class="table-viewport">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="padding-left: 20px;" id="lbl-th-matchup-2">Matchup</th>
+                        <th>
+                            <div style="display: grid; grid-template-columns: 1.4fr 2.15fr 0.5fr; padding-right: 20px;">
+                                <span id="lbl-th-source-2">Information Source</span>
+                                <span id="lbl-th-outcome">Official Outcome</span>
+                                <span style="text-align: right; padding-right: 5px;" id="lbl-th-audit">Audit</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="completed-table-body"></tbody>
+            </table>
+        </div>
     </div>
 
     <div id="view-bracket" class="view-content">
@@ -259,12 +256,44 @@
         </div>
     </div>
 
-    <div class="footer-key">
-        <strong>AUDIT PROTOCOL:</strong> Verification markers isolate prediction successes against aggregate closing market layers. Inks optimized for daylight viewport environments.
+    <div class="footer-key" id="lbl-footer">
+        <strong>AUDIT PROTOCOL:</strong> Verification markers isolate prediction successes against aggregate closing market layers.
     </div>
 </div>
 
 <script>
+    const dictionary = {
+        en: {
+            title: "2026 World Cup Matchday Tracker", subtitle: "Analytical System Data Matrix Feed",
+            grid: "Probability Grid", bracket: "Tournament Bracket", leftSide: "Left Side Bracket", rightSide: "Right Side Bracket",
+            upcoming: "Upcoming Fixtures", completed: "Completed Matches", matchup: "Matchup", source: "Information Source",
+            fav: "Favorite %", tie: "Tie %", und: "Underdog %", outcome: "Official Outcome", audit: "Audit",
+            footer: "AUDIT PROTOCOL: Verification markers isolate prediction successes against aggregate closing market layers.",
+            scenarios: "Round of 16 Scenarios", matchInsight: "Match Insight", r32: "Round of 32", r16: "Round of 16",
+            teams: { "Mexico": "Mexico", "South Africa": "South Africa", "South Korea": "South Korea", "Czechia": "Czechia", "Canada": "Canada", "Bosnia & Herzegovina": "Bosnia", "United States": "United States", "Paraguay": "Paraguay", "Germany": "Germany", "Argentina": "Argentina", "England": "England", "Italy": "Italy" }
+        },
+        ko: {
+            title: "2026 월드컵 매치데이 분석기", subtitle: "실시간 예측 데이터 분석 매트릭스 피드",
+            grid: "확률 데이터 그리드", bracket: "토너먼트 대진표 보기", leftSide: "좌측 브래킷 경로", rightSide: "우측 브래킷 경로",
+            upcoming: "예정된 경기 일정", completed: "종료된 경기 결과", matchup: "경기 대진", source: "분석 정보 출처",
+            fav: "정배당 승리 확률 %", tie: "무승부 확률 %", und: "역배당 확률 %", outcome: "최종 경기 스코어", audit: "예측 검증",
+            footer: "분석 프로토콜: 녹색 체크표시(✓)는 통합 예측 모델이 경기 승리 팀을 정확히 적중시켰음을 나타냅니다.",
+            scenarios: "16강 진출 시나리오 예측", matchInsight: "경기 정밀 분석", r32: "32강전", r16: "16강전",
+            teams: { "Mexico": "멕시코", "South Africa": "남아공", "South Korea": "대한민국", "Czechia": "체코", "Canada": "캐나다", "Bosnia & Herzegovina": "보스니아", "United States": "미국", "Paraguay": "파라과이", "Germany": "독일", "Argentina": "아르헨티나", "England": "잉글랜드", "Italy": "이탈リア" }
+        },
+        ja: {
+            title: "2026 ワールドカップ分析ダッシュボード", subtitle: "リアルタイム予測データマトリクスフィード",
+            grid: "確率データグリッド", bracket: "トーナメント表", leftSide: "左側ブラケット", rightSide: "右側ブラケット",
+            upcoming: "今後の対戦カード", completed: "終了した試合結果", matchup: "対戦カード", source: "予測データソース",
+            fav: "本命勝利確率 %", tie: "引き分け確率 %", und: "大穴勝利確率 %", outcome: "公式試合結果", audit: "予測検証",
+            footer: "検証プロトコル：緑のチェックマーク（✓）は、予測モデルが勝者を正確に的中させたことを示します。",
+            scenarios: "ラウンド16 進出予測シナリオ", matchInsight: "試合インサイト解説", r32: "ラウンド32", r16: "ラウンド16",
+            teams: { "Mexico": "メキシコ", "South Africa": "南アフリカ", "South Korea": "韓国", "Czechia": "チェコ", "Canada": "カナダ", "Bosnia & Herzegovina": "ボスニア", "United States": "アメリカ", "Paraguay": "パラグアイ", "Germany": "ドイツ", "Argentina": "アルゼンチン", "England": "イングランド", "Italy": "イタリア" }
+        }
+    };
+
+    let currentLang = 'en';
+
     const flags = {
         mex: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
         rsa: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007A4D"/><path d="M0,0 L12,10 L0,20 Z" fill="#000"/><path d="M0,0 L10,10 L0,20 Z" fill="#FFB612" stroke="#FFB612" stroke-width="2"/><path d="M12,10 L32,10 L32,0 L10,0 Z" fill="#E2142D"/><path d="M12,10 L32,10 L32,20 L10,20 Z" fill="#002395"/></svg>`,
@@ -276,7 +305,7 @@
         pry: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#D51E2D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0038A8"/></svg>`,
         ger: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#000"/><rect y="6.6" width="32" height="6.8" fill="#D00"/><rect y="13.4" width="32" height="6.6" fill="#FFCE00"/></svg>`,
         arg: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#74ACDF"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#74ACDF"/></svg>`,
-        eng: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
+        eng: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
         ita: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`
     };
 
@@ -318,107 +347,151 @@
         return (sum / layers.length).toFixed(1);
     }
 
-    const upcomingBody = document.getElementById('upcoming-table-body');
-    const completedBody = document.getElementById('completed-table-body');
+    function buildDataTables() {
+        const upcomingBody = document.getElementById('upcoming-table-body');
+        const completedBody = document.getElementById('completed-table-body');
+        const langPack = dictionary[currentLang];
+        
+        upcomingBody.innerHTML = '';
+        completedBody.innerHTML = '';
 
-    dataset.forEach(match => {
-        let isHomeFav = match.favTeam === match.home;
-        let homeCode = teamCodes[match.home] || "TM1";
-        let awayCode = teamCodes[match.away] || "TM2";
-        
-        if (match.type === "UPCOMING") {
-            let rowHtml = `<tbody class="match-card-group"><tr><td class="col-matchup" rowspan="3"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${match.home}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${match.away}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div></div><div class="match-meta">${match.meta}</div></td>`;
+        dataset.forEach(match => {
+            let isHomeFav = match.favTeam === match.home;
+            let homeCode = teamCodes[match.home] || "TM1";
+            let awayCode = teamCodes[match.away] || "TM2";
             
-            match.layers.forEach((layer, idx) => {
-                if (idx > 0) rowHtml += `<tr>`;
-                rowHtml += `<td class="col-data-layers"><div class="layer-row">
-                    <div class="col-source">${layer.source}</div>
-                    <div class="string-cell win">${homeCode} ${layer.fav}</div>
-                    <div class="string-cell draw">Tie ${layer.draw}</div>
-                    <div class="string-cell loss">${awayCode} ${layer.und}</div>
-                </div></td></tr>`;
-            });
-            rowHtml += `</tbody>`;
-            upcomingBody.innerHTML += rowHtml;
-        } else if (match.type === "COMPLETED") {
-            let rowHtml = `<tbody class="match-card-group"><tr><td class="col-matchup" rowspan="4"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${match.home}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${match.away}</span></div></div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
-            
-            Object.keys(match.sourceAccuracy).forEach((src, idx) => {
-                if (idx > 0) rowHtml += `<tr>`;
-                let isCorrect = match.sourceAccuracy[src];
-                rowHtml += `<td class="col-data-layers"><div class="completed-layer-row"><div class="col-source" style="color:var(--text-muted);">${src}</div><div class="final-badge-box">${match.score}</div><div class="audit-marker ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '&#10003;' : '&#10005;'}</div></div></td></tr>`;
-            });
-            
-            rowHtml += `<tr><td class="col-data-layers"><div class="insight-row"><div class="insight-tag">Match Insight</div><div class="insight-text">${match.insight}</div></div></td></tr></tbody>`;
-            completedBody.innerHTML += rowHtml;
-        }
-    });
+            let transHome = langPack.teams[match.home] || match.home;
+            let transAway = langPack.teams[match.away] || match.away;
 
-    function renderTraceTreeSide(targetSide, containerId) {
-        const sideContainer = document.getElementById(containerId);
-        const matches = dataset.filter(m => m.side === targetSide);
-        
-        let html = `<div class="bracket-round"><div class="bracket-round-header">Round of 32</div>`;
-        
-        for(let i = 0; i < matches.length; i += 2) {
-            let m1 = matches[i]; let m2 = matches[i+1];
-            if(m1 && m2) {
-                let m1Avg = getAverageFavValue(m1.layers); let m1Draw = getAverageDrawValue(m1.layers);
-                let homeC = teamCodes[m1.home] || "TM1"; let awayC = teamCodes[m1.away] || "TM2";
+            if (match.type === "UPCOMING") {
+                let rowHtml = `<tbody class="match-group-block"><tr><td class="col-matchup" rowspan="3"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${transHome}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${transAway}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div></div><div class="match-meta">${match.meta}</div></td>`;
                 
-                html += `
-                    <div class="bracket-match-node">
-                        <div class="bracket-team-line"><span class="flag-icon">${m1.homeFlag}</span> ${homeC} <span class="bracket-score-status">${m1.type === 'COMPLETED' ? '48' : m1Avg+'%'}</span></div>
-                        <div class="bracket-team-line"><span class="flag-icon">${m1.awayFlag}</span> ${awayC} <span class="bracket-score-status delim">${m1.type === 'COMPLETED' ? '32' : 'TBD'}</span></div>
-                        <div class="bracket-draw-junction-bubble">Tie: ${m1Draw}%</div>`;
+                match.layers.forEach((layer, idx) => {
+                    if (idx > 0) rowHtml += `<tr>`;
+                    rowHtml += `<td class="col-data-layers"><div class="layer-row">
+                        <div class="col-source">${layer.source}</div>
+                        <div class="string-cell win">${homeCode} ${layer.fav}</div>
+                        <div class="string-cell draw">Tie ${layer.draw}</div>
+                        <div class="string-cell loss">${awayCode} ${layer.und}</div>
+                    </div></td></tr>`;
+                });
+                rowHtml += `</tbody>`;
+                upcomingBody.innerHTML += rowHtml;
+            } else if (match.type === "COMPLETED") {
+                let rowHtml = `<tbody class="match-group-block"><tr><td class="col-matchup" rowspan="4"><div class="match-title-wrap"><div class="team-line"><span class="flag-icon">${match.homeFlag}</span><span class="team-name">${transHome}</span></div><div class="team-line"><span class="flag-icon">${match.awayFlag}</span><span class="team-name">${transAway}</span></div></div><div class="match-meta">${match.meta}</div></td><td class="col-data-layers">`;
                 
-                if(m1.type === "COMPLETED") {
-                    let condA = calculateEloOdds(m1.favTeam, m2.home); let condB = calculateEloOdds(m1.favTeam, m2.away);
-                    let m2HomeC = teamCodes[m2.home] || "T1"; let m2AwayC = teamCodes[m2.away] || "T2";
-                    html += `
-                        <div class="bracket-lookahead-chassis">
-                            <div class="bracket-lookahead-title">Round of 16 Scenarios</div>
-                            <div class="bracket-lookahead-row">vs ${m2HomeC}: <strong>${condA}%</strong> | <strong>${(100-condA).toFixed(1)}%</strong></div>
-                            <div class="bracket-lookahead-row">vs ${m2AwayC}: <strong>${condB}%</strong> | <strong>${(100-condB).toFixed(1)}%</strong></div>
-                        </div>`;
-                }
-                html += `</div>`;
+                Object.keys(match.sourceAccuracy).forEach((src, idx) => {
+                    if (idx > 0) rowHtml += `<tr>`;
+                    let isCorrect = match.sourceAccuracy[src];
+                    rowHtml += `<td class="col-data-layers"><div class="completed-layer-row"><div class="col-source" style="color:var(--text-muted);">${src}</div><div class="final-badge-box">${match.score}</div><div class="audit-marker ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '&#10003;' : '&#10005;'}</div></div></td></tr>`;
+                });
+                
+                rowHtml += `<tr><td class="col-data-layers"><div class="insight-row"><div class="insight-tag">${langPack.matchInsight}</div><div class="insight-text">${match.insight}</div></div></td></tr></tbody>`;
+                completedBody.innerHTML += rowHtml;
             }
-        }
-        html += `</div><div class="bracket-round"><div class="bracket-round-header">Round of 16</div><div class="bracket-match-node"><div class="bracket-team-line" style="color: #64748B;">Winner Match 1</div><div class="bracket-team-line" style="color: #64748B;">Winner Match 2</div></div></div>`;
-        sideContainer.innerHTML = html;
+        });
     }
 
-    renderTraceTreeSide('left', 'bracket-left-wrapper');
-    renderTraceTreeSide('right', 'bracket-right-wrapper');
+    function renderTraceTreeBrackets() {
+        const langPack = dictionary[currentLang];
+        
+        function compileSide(targetSide, elementId) {
+            const sideContainer = document.getElementById(elementId);
+            const matches = dataset.filter(m => m.side === targetSide);
+            
+            let html = `<div class="bracket-round"><div class="bracket-round-header">${langPack.r32}</div>`;
+            
+            for(let i = 0; i < matches.length; i += 2) {
+                let m1 = matches[i]; let m2 = matches[i+1];
+                if(m1 && m2) {
+                    let m1Avg = getAverageFavValue(m1.layers); let m1Draw = getAverageDrawValue(m1.layers);
+                    let homeC = teamCodes[m1.home] || "TM1"; let awayC = teamCodes[m1.away] || "TM2";
+                    
+                    html += `
+                        <div class="bracket-match-node">
+                            <div class="bracket-team-line"><span class="flag-icon">${m1.homeFlag}</span> ${homeC} <span class="bracket-score-status">${m1.type === 'COMPLETED' ? 'WIN' : m1Avg+'%'}</span></div>
+                            <div class="bracket-team-line"><span class="flag-icon">${m1.awayFlag}</span> ${awayC} <span class="bracket-score-status elim">${m1.type === 'COMPLETED' ? 'ELIM' : 'TBD'}</span></div>
+                            <div class="bracket-draw-junction-bubble">Tie: ${m1Draw}%</div>`;
+                    
+                    if(m1.type === "COMPLETED") {
+                        let condA = calculateEloOdds(m1.favTeam, m2.home); let condB = calculateEloOdds(m1.favTeam, m2.away);
+                        let m2HomeC = teamCodes[m2.home] || "T1"; let m2AwayC = teamCodes[m2.away] || "T2";
+                        html += `
+                            <div class="bracket-lookahead-chassis">
+                                <div class="bracket-lookahead-title">${langPack.scenarios}</div>
+                                <div class="bracket-lookahead-row">vs ${m2HomeC}: <strong>${condA}%</strong> | <strong>${(100-condA).toFixed(1)}%</strong></div>
+                                <div class="bracket-lookahead-row">vs ${m2AwayC}: <strong>${condB}%</strong> | <strong>${(100-condB).toFixed(1)}%</strong></div>
+                            </div>`;
+                    }
+                    html += `</div>`;
+                }
+            }
+            html += `</div><div class="bracket-round"><div class="bracket-round-header">${langPack.r16}</div><div class="bracket-match-node"><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 1</div><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 2</div></div></div>`;
+            sideContainer.innerHTML = html;
+        }
+
+        compileSide('left', 'bracket-left-wrapper');
+        compileSide('right', 'bracket-right-wrapper');
+    }
+
+    function switchLanguage(langCode) {
+        currentLang = langCode;
+        document.querySelectorAll('.lang-group .control-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`lang-${langCode}`).classList.add('active');
+        
+        const pack = dictionary[langCode];
+        document.getElementById('lbl-title').innerText = pack.title;
+        document.getElementById('lbl-subtitle').innerText = pack.subtitle;
+        document.getElementById('btn-grid').innerText = pack.grid;
+        document.getElementById('btn-bracket').innerText = pack.bracket;
+        document.getElementById('btn-left-side').innerText = pack.leftSide;
+        document.getElementById('btn-right-side').innerText = pack.rightSide;
+        document.getElementById('lbl-upcoming-header').innerText = pack.upcoming;
+        document.getElementById('lbl-completed-header').innerText = pack.completed;
+        document.getElementById('lbl-th-matchup-1').innerText = pack.matchup;
+        document.getElementById('lbl-th-matchup-2').innerText = pack.matchup;
+        document.getElementById('lbl-th-source-1').innerText = pack.source;
+        document.getElementById('lbl-th-source-2').innerText = pack.source;
+        document.getElementById('lbl-th-fav-1').innerText = pack.fav;
+        document.getElementById('lbl-th-tie-1').innerText = pack.tie;
+        document.getElementById('lbl-th-und-1').innerText = pack.und;
+        document.getElementById('lbl-th-outcome').innerText = pack.outcome;
+        document.getElementById('lbl-th-audit').innerText = pack.audit;
+        document.getElementById('lbl-footer').innerHTML = pack.footer;
+
+        buildDataTables();
+        renderTraceTreeBrackets();
+    }
 
     function switchView(mode) {
         document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.mode-btn').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.mode-group .control-btn').forEach(el => el.classList.remove('active'));
         const sideSelector = document.getElementById('bracket-side-controls');
+        
         if (mode === 'grid') {
             document.getElementById('view-grid').classList.add('active');
-            document.querySelector('.mode-btn:nth-child(1)').classList.add('active');
+            document.getElementById('btn-grid').classList.add('active');
             sideSelector.style.display = 'none';
         } else {
             document.getElementById('view-bracket').classList.add('active');
-            document.querySelector('.mode-btn:nth-child(2)').classList.add('active');
+            document.getElementById('btn-bracket').classList.add('active');
             sideSelector.style.display = 'flex';
         }
     }
 
-    // Side Selection Script Rules
     function switchSide(side) {
         document.querySelectorAll('.bracket-wrapper').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.side-btn').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.side-selector .control-btn').forEach(el => el.classList.remove('active'));
         if (side === 'left') {
             document.getElementById('bracket-left-wrapper').classList.add('active');
-            document.querySelector('.side-btn:nth-child(1)').classList.add('active');
+            document.getElementById('btn-left-side').classList.add('active');
         } else {
             document.getElementById('bracket-right-wrapper').classList.add('active');
-            document.querySelector('.side-btn:nth-child(2)').classList.add('active');
+            document.getElementById('btn-right-side').classList.add('active');
         }
     }
+
+    switchLanguage('en');
 </script>
 </body>
 </html>
