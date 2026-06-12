@@ -1048,12 +1048,19 @@ function calcReco(match) {
 
   function p(str) { return (!str || str === '--') ? null : parseFloat(str); }
 
+  // If the favourite is the away team, fav/und are from home team's perspective
+  // so we need to read 'und' as the favourite's probability
+  const favIsHome = match.favTeam === match.home;
+
   let favVals = [], drawVals = [], undVals = [];
   layers.forEach(l => {
-    const f = p(l.fav), d = p(l.draw), u = p(l.und);
-    if (f != null) favVals.push(f);
-    if (d != null) drawVals.push(d);
-    if (u != null) undVals.push(u);
+    // favProb = probability of the designated favourite winning
+    const favProb = favIsHome ? p(l.fav) : p(l.und);
+    const undProb = favIsHome ? p(l.und) : p(l.fav);
+    const drawProb = p(l.draw);
+    if (favProb != null) favVals.push(favProb);
+    if (drawProb != null) drawVals.push(drawProb);
+    if (undProb != null) undVals.push(undProb);
   });
 
   if (!favVals.length) return null;
@@ -1064,38 +1071,49 @@ function calcReco(match) {
 
   const eloLayer = layers.find(l => l.source.includes('ELO') || l.source.includes('Poisson'));
   const mktLayer = layers.find(l => l.source.includes('Sportsbook') || l.source.includes('P2P'));
-  const eloFav   = eloLayer ? p(eloLayer.fav) : null;
-  const mktFav   = mktLayer ? p(mktLayer.fav) : null;
+  // Read the favourite's win probability correctly regardless of home/away
+  const eloFav = eloLayer ? (favIsHome ? p(eloLayer.fav) : p(eloLayer.und)) : null;
+  const mktFav = mktLayer ? (favIsHome ? p(mktLayer.fav) : p(mktLayer.und)) : null;
   const modelMarketGap = (eloFav != null && mktFav != null) ? Math.abs(eloFav - mktFav) : 0;
 
   const d = DICT[lang];
 
-  if (avgFav >= 72) {
-    return { type:'back', cls:'reco-back', icon:'✅',
+  // Rule 1: Strong consensus favourite — nothing overrides this
+  if (avgFav >= 65) {
+    return { type:'back', cls:'reco-back',
       call: d.recoBack, tipKey:'tipBack',
       sub: `${avgFav.toFixed(1)}% avg — ${favVals.length}/3 sources aligned` };
   }
-  if (avgDraw >= 30) {
-    return { type:'draw', cls:'reco-draw', icon:'⚖️',
+
+  // Rule 2: Model vs market divergence — only meaningful when favourite isn't dominant
+  if (modelMarketGap >= 15 && eloFav != null && mktFav != null) {
+    if (eloFav < mktFav) {
+      return { type:'upset', cls:'reco-upset',
+        call: d.recoUpset, tipKey:'tipUpset',
+        sub: `ELO: ${(100-eloFav).toFixed(1)}% underdog vs market's ${(100-mktFav).toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt gap` };
+    } else {
+      return { type:'value', cls:'reco-value',
+        call: d.recoValue, tipKey:'tipValue',
+        sub: `ELO sees ${eloFav.toFixed(1)}% vs market's ${mktFav.toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt divergence` };
+    }
+  }
+
+  // Rule 3: Draw is genuinely live — only flag when no clear favourite
+  if (avgDraw >= 30 && avgFav < 52) {
+    return { type:'draw', cls:'reco-draw',
       call: d.recoDraw, tipKey:'tipDraw',
-      sub: `${avgDraw.toFixed(1)}% avg draw probability across sources` };
+      sub: `${avgDraw.toFixed(1)}% avg draw probability — no clear favourite` };
   }
-  if (modelMarketGap >= 15 && eloFav < mktFav) {
-    return { type:'upset', cls:'reco-upset', icon:'⚡',
-      call: d.recoUpset, tipKey:'tipUpset',
-      sub: `ELO: ${(100-eloFav).toFixed(1)}% underdog vs market's ${(100-mktFav).toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt gap` };
-  }
-  if (modelMarketGap >= 15 && eloFav > mktFav) {
-    return { type:'value', cls:'reco-value', icon:'💎',
-      call: d.recoValue, tipKey:'tipValue',
-      sub: `ELO sees ${eloFav.toFixed(1)}% vs market's ${mktFav.toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt divergence` };
-  }
-  if (avgFav >= 52) {
-    return { type:'lean', cls:'reco-lean', icon:'📊',
+
+  // Rule 4: Lean favourite
+  if (avgFav >= 50) {
+    return { type:'lean', cls:'reco-lean',
       call: d.recoLean, tipKey:'tipLean',
       sub: `${avgFav.toFixed(1)}% avg — sources agree but margin is slim` };
   }
-  return { type:'draw', cls:'reco-draw', icon:'⚖️',
+
+  // Rule 5: Genuinely too close to call
+  return { type:'draw', cls:'reco-draw',
     call: d.recoDraw, tipKey:'tipDraw',
     sub: `${avgFav.toFixed(1)}% vs ${avgUnd.toFixed(1)}% — too close to call confidently` };
 }
@@ -1128,37 +1146,46 @@ function renderUpcoming(match) {
   const d    = DICT[lang];
   const home = teamName(match.home);
   const away = teamName(match.away);
-  // Compare against raw (English) names — favTeam is always stored in English
   const isHomeFav = match.favTeam === match.home;
+
+  // Always show favourite on top, underdog below
+  const favName  = isHomeFav ? home : away;
+  const undName  = isHomeFav ? away : home;
+  const favFlag  = isHomeFav ? match.homeFlag : match.awayFlag;
+  const undFlag  = isHomeFav ? match.awayFlag : match.homeFlag;
+
   const reco = calcReco(match);
   const signal = reco ? reco.type : 'lean';
 
-  // Always render in fixed order: Sportsbooks, ELO, Prediction Markets
+  // Always render sources in fixed order: Sportsbooks, ELO, Prediction Markets
+  // Column order: FAV | DRAW | UND — swap fav/und values when away is the favourite
   const allSources = ['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
   let sourceRows = '';
   allSources.forEach(s => {
     const layer = (match.layers||[]).find(l => l.source === s);
-    const favVal  = layer ? (layer.fav  || '--') : '--';
+    // Raw fav/und in data are always home/away perspective
+    // We want to show favourite's probability in the first column
+    const rawFav = layer ? (layer.fav  || '--') : '--';
+    const rawUnd = layer ? (layer.und  || '--') : '--';
     const drawVal = layer ? (layer.draw || '--') : '--';
-    const undVal  = layer ? (layer.und  || '--') : '--';
-    const isNull  = v => v === '--';
+    const col1 = isHomeFav ? rawFav : rawUnd;  // favourite's win %
+    const col3 = isHomeFav ? rawUnd : rawFav;  // underdog's win %
+    const isNull = v => v === '--';
     sourceRows += `
       <div class="source-row">
         <div class="source-name">${esc(s)}</div>
-        <div class="prob-cell hi ${isNull(favVal)?'null-val':''}">${esc(favVal)}</div>
+        <div class="prob-cell hi ${isNull(col1)?'null-val':''}">${esc(col1)}</div>
         <div class="prob-cell ${isNull(drawVal)?'null-val':''}">${esc(drawVal)}</div>
-        <div class="prob-cell ${isNull(undVal)?'null-val':''}">${esc(undVal)}</div>
+        <div class="prob-cell ${isNull(col3)?'null-val':''}">${esc(col3)}</div>
       </div>`;
   });
 
-  const recoHTML = reco ? (() => {
-    const favName = isHomeFav ? home : away;
-    const tipId = 'tip-' + match.id;
-    const tipText = DICT[lang][reco.tipKey] || '';
-    let callTeam = favName;
-    if (reco.type === 'upset') callTeam = isHomeFav ? away : home;
+  const tipId = 'tip-' + match.id;
+  const tipText = DICT[lang][reco ? reco.tipKey : ''] || '';
+  let callTeam = favName;
+  if (reco && reco.type === 'upset') callTeam = undName;
 
-    return `
+  const recoHTML = reco ? `
     <div class="reco-bar ${reco.cls}">
       <div class="reco-header">
         <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')" aria-label="More info">i</button>
@@ -1170,21 +1197,21 @@ function renderUpcoming(match) {
         <div class="reco-tooltip-title">${esc(reco.call)}</div>
         ${esc(tipText)}
       </div>
-    </div>`; })() : '';
+    </div>` : '';
 
   return `
   <div class="match-card" data-signal="${signal}">
     <div class="match-header">
       <div class="match-teams">
         <div class="team-row">
-          <div class="flag">${flagHTML(match.homeFlag)}</div>
-          <span class="team-name">${esc(home)}</span>
-          <span class="team-badge ${isHomeFav?'badge-fav':'badge-und'}">${isHomeFav?'FAV':'UND'}</span>
+          <div class="flag">${flagHTML(favFlag)}</div>
+          <span class="team-name">${esc(favName)}</span>
+          <span class="team-badge badge-fav">FAV</span>
         </div>
         <div class="team-row">
-          <div class="flag">${flagHTML(match.awayFlag)}</div>
-          <span class="team-name">${esc(away)}</span>
-          <span class="team-badge ${!isHomeFav?'badge-fav':'badge-und'}">${!isHomeFav?'FAV':'UND'}</span>
+          <div class="flag">${flagHTML(undFlag)}</div>
+          <span class="team-name">${esc(undName)}</span>
+          <span class="team-badge badge-und">UND</span>
         </div>
       </div>
       <div class="match-meta-col">
@@ -1195,9 +1222,9 @@ function renderUpcoming(match) {
     <div class="sources-table">
       <div class="sources-header">
         <span>${esc(d.source)}</span>
-        <span class="col-fav-label">${esc(home.split(' ')[0])}</span>
+        <span class="col-fav-label">${esc(favName.split(' ')[0])}</span>
         <span class="col-draw-label">${esc(d.colDraw)}</span>
-        <span class="col-und-label">${esc(away.split(' ')[0])}</span>
+        <span class="col-und-label">${esc(undName.split(' ')[0])}</span>
       </div>
       ${sourceRows}
     </div>
