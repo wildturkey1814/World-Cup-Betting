@@ -318,18 +318,44 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
 /* ── RECOMMENDATION BAR ─────────────────────────────────────────────── */
 .reco-bar {
-  margin: 0 17px;
-  padding: 8px 10px;
+  margin: 0 17px 12px;
+  padding: 9px 11px;
   border-radius: var(--radius-sm);
-  margin-bottom: 12px;
   margin-top: 8px;
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  position: relative;
 }
-.reco-icon { font-size: 14px; flex-shrink: 0; line-height: 1.3; }
-.reco-text { font-size: 12px; font-weight: 600; line-height: 1.4; }
-.reco-sub  { font-size: 10px; font-weight: 500; opacity: 0.8; margin-top: 2px; }
+.reco-icon { font-size: 14px; flex-shrink: 0; line-height: 1.4; }
+.reco-body { flex: 1; min-width: 0; }
+.reco-title {
+  font-size: 9px; font-weight: 800; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--text-lo); margin-bottom: 3px;
+}
+.reco-call  { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.reco-sub   { font-size: 11px; font-weight: 500; opacity: 0.8; margin-top: 3px; line-height: 1.4; }
+
+/* ⓘ info button */
+.reco-info-btn {
+  flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);
+  color: var(--text-lo); font-size: 10px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.15s; margin-top: 2px;
+}
+.reco-info-btn:hover { border-color: var(--neon); color: var(--neon); background: rgba(56,189,248,0.1); }
+
+/* tooltip */
+.reco-tooltip {
+  display: none; position: absolute; bottom: calc(100% + 6px); right: 0;
+  background: #1a2d45; border: 1px solid var(--border-hi);
+  border-radius: var(--radius-sm); padding: 10px 12px;
+  font-size: 11px; color: var(--text-mid); line-height: 1.5;
+  max-width: 280px; z-index: 20; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.reco-tooltip.visible { display: block; }
+.reco-tooltip-title { font-weight: 700; color: var(--text-hi); font-size: 11px; margin-bottom: 4px; }
 
 .reco-back  { background: rgba(52,211,153,0.08);  border: 1px solid rgba(52,211,153,0.2);  }
 .reco-draw  { background: rgba(251,191,36,0.08);  border: 1px solid rgba(251,191,36,0.2);  }
@@ -337,11 +363,11 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 .reco-value { background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.2); }
 .reco-lean  { background: rgba(56,189,248,0.08);  border: 1px solid rgba(56,189,248,0.2);  }
 
-.reco-back  .reco-text { color: var(--green); }
-.reco-draw  .reco-text { color: var(--amber); }
-.reco-upset .reco-text { color: var(--red); }
-.reco-value .reco-text { color: var(--purple); }
-.reco-lean  .reco-text { color: var(--neon); }
+.reco-back  .reco-call { color: var(--green); }
+.reco-draw  .reco-call { color: var(--amber); }
+.reco-upset .reco-call { color: var(--red); }
+.reco-value .reco-call { color: var(--purple); }
+.reco-lean  .reco-call { color: var(--neon); }
 
 /* ── COMPLETED CARD ─────────────────────────────────────────────────── */
 .score-block {
@@ -408,81 +434,158 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 .bracket-outer {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 16px 0;
+  padding: 0;
 }
-.bracket-grid {
-  display: flex;
+.bracket-zone-tabs {
+  display: flex; gap: 6px; padding: 12px 0 10px; flex-wrap: wrap;
+}
+.bracket-wall {
+  display: none;
+}
+.bracket-wall.active {
+  display: grid;
+  grid-template-columns: repeat(5, 190px) 60px repeat(5, 190px);
   gap: 0;
-  min-width: 700px;
+  min-width: 1940px;
+  padding: 16px 0 24px;
+  align-items: start;
 }
-.bracket-round {
+/* Simpler zone view (when no R32+ data — just show zone matches) */
+.bracket-zone-simple {
+  display: none;
+}
+.bracket-zone-simple.active {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.bracket-round-col {
   display: flex;
   flex-direction: column;
-  width: 210px;
-  flex-shrink: 0;
+  gap: 0;
 }
-.bracket-round-label {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--neon);
-  padding: 0 12px 12px;
+.bracket-round-header {
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--neon);
+  padding: 0 8px 10px; text-align: center;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
-.bracket-match {
-  margin: 20px 12px;
+.bracket-center-col {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding-top: 40px;
+}
+.bracket-final-label {
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--gold);
+  text-align: center; margin-bottom: 8px;
+}
+.bracket-final-node {
+  background: rgba(240,180,41,0.08); border: 1px solid rgba(240,180,41,0.3);
+  border-radius: var(--radius-sm); padding: 8px 10px; text-align: center;
+  min-width: 50px;
+}
+.bracket-final-node .bracket-tbd {
+  font-size: 9px; color: var(--text-lo);
+}
+
+/* Match node */
+.bracket-node {
+  margin: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: visible;
   position: relative;
 }
-.bracket-match::after {
+.bracket-node.winner-known {
+  border-color: var(--border-hi);
+}
+/* Connector lines */
+.bracket-node::after {
   content: '';
   position: absolute;
-  right: -12px;
-  top: 50%;
-  width: 12px;
-  height: 1px;
+  right: -9px; top: 50%;
+  width: 9px; height: 1px;
   background: var(--border-hi);
 }
-.bracket-team {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.bracket-node.no-connector::after { display: none; }
+
+.bracket-team-row {
+  display: flex; align-items: center; gap: 6px;
   padding: 6px 8px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-hi);
-  border-bottom: 1px solid var(--border-hi);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px; font-weight: 600;
+  color: var(--text-mid);
   position: relative;
 }
-.bracket-team:last-of-type { border-bottom: none; }
-.bracket-team .flag { width: 16px; height: 11px; }
-.bracket-odds {
-  margin-left: auto;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--neon);
-  font-variant-numeric: tabular-nums;
+.bracket-team-row:last-of-type { border-bottom: none; }
+.bracket-team-row.is-winner {
+  color: var(--text-hi); font-weight: 700;
+  background: rgba(52,211,153,0.05);
 }
-.bracket-draw-pill {
-  position: absolute;
-  right: -38px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--surface2);
-  border: 1px solid var(--border-hi);
-  border-radius: 10px;
-  padding: 2px 5px;
-  font-size: 9px;
-  font-weight: 700;
-  color: var(--neon);
-  white-space: nowrap;
-  z-index: 2;
+.bracket-team-row.is-eliminated { opacity: 0.45; }
+.bracket-team-row .flag { width: 16px; height: 11px; flex-shrink: 0; }
+.bracket-team-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bracket-pct {
+  font-size: 11px; font-weight: 700; color: var(--neon);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
 }
-.bracket-tbd {
-  color: var(--text-lo);
-  font-size: 11px;
+.bracket-pct.fav  { color: var(--green); }
+.bracket-pct.und  { color: var(--text-lo); }
+.bracket-pct.won  { color: var(--green); }
+.bracket-pct.lost { color: var(--text-lo); }
+
+.bracket-draw-tag {
+  text-align: center; font-size: 9px; font-weight: 700;
+  color: var(--neon); padding: 2px 0;
+  background: rgba(56,189,248,0.05);
+  border-top: 1px solid var(--border);
+}
+
+/* ELO scenario panel (waiting state) */
+.bracket-elo-panel {
+  padding: 5px 8px 6px;
+  background: rgba(167,139,250,0.05);
+  border-top: 1px solid rgba(167,139,250,0.15);
+}
+.bracket-elo-label {
+  font-size: 8px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--purple); margin-bottom: 3px;
+}
+.bracket-elo-row {
+  font-size: 10px; color: var(--text-mid);
+  display: flex; justify-content: space-between;
+  padding: 1px 0;
+}
+.bracket-elo-row strong { color: var(--text-hi); font-weight: 700; }
+
+/* TBD slot */
+.bracket-tbd-node {
+  margin: 8px;
+  padding: 10px 8px;
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  font-size: 11px; color: var(--text-lo); text-align: center;
   font-style: italic;
+}
+
+/* Zone bracket simple grid */
+.zone-bracket-grid {
+  display: flex; gap: 0;
+  min-width: 600px;
+  padding: 12px 0;
+}
+.zone-round-col {
+  width: 190px; flex-shrink: 0;
+  display: flex; flex-direction: column;
+}
+.zone-round-header {
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--neon);
+  padding: 0 8px 10px; border-bottom: 1px solid var(--border);
+  margin-bottom: 4px; text-align: center;
 }
 
 /* ── STATUS PANE ────────────────────────────────────────────────────── */
@@ -574,8 +677,9 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
   <!-- BRACKET VIEW -->
   <div id="view-bracket" class="view-panel">
+    <div class="bracket-zone-tabs" id="bracket-zone-tabs"></div>
     <div class="bracket-outer">
-      <div class="bracket-grid" id="bracket-grid"></div>
+      <div id="bracket-zone-simple" class="bracket-zone-simple"></div>
     </div>
   </div>
 
@@ -656,9 +760,21 @@ const DICT = {
     noUpcoming:"No upcoming matches in this stage.",
     noCompleted:"No completed matches yet.",
     insight:"Match Insight",
-    recoBack:"Back the Favourite", recoLean:"Lean Favourite",
-    recoDraw:"Draw is Live", recoUpset:"Upset Alert",
-    recoValue:"Value on Underdog",
+    recoTitle:"Model Divergence Suggests",
+    recoBack:"Bet", recoLean:"Lean",
+    recoDraw:"Draw in Play", recoUpset:"Upset Watch",
+    recoValue:"Model Backs",
+    tipBack:"All three sources — sportsbooks, our ELO model, and prediction markets — agree on the likely winner. Higher agreement = lower uncertainty.",
+    tipLean:"Sources broadly agree but the margin is slim. A reasonable bet, not a lock — worth including in a hedge.",
+    tipDraw:"Average draw probability across sources exceeds 30%. In a coin-betting game, a draw pick may offer better value than backing either side outright.",
+    tipUpset:"The ELO model gives the underdog significantly more credit than the sportsbook and prediction market consensus. Sources disagree — treat with extra caution.",
+    tipValue:"Our ELO/Poisson model assigns a higher win probability to the favourite than the market implies. This gap can signal underpriced value.",
+    zoneLabel:"Zone", zoneMex:"Mexico Zone", zoneCen:"Central Zone",
+    zoneEast:"East Zone", zoneWest:"West Zone",
+    bracketR32:"Round of 32", bracketR16:"Round of 16",
+    bracketQF:"Quarter-Finals", bracketSF:"Semi-Finals", bracketF:"Final",
+    eloScenarios:"ELO Scenarios (opponent TBD)",
+    waitingFor:"Awaiting opponent",
     teams:{
       "Mexico":"Mexico","South Africa":"South Africa","South Korea":"South Korea",
       "Czechia":"Czechia","Canada":"Canada","Bosnia & Herzegovina":"Bosnia & Herz.",
@@ -690,9 +806,21 @@ const DICT = {
     noUpcoming:"이 단계에 예정된 경기가 없습니다.",
     noCompleted:"아직 종료된 경기가 없습니다.",
     insight:"경기 분석",
-    recoBack:"정배당 추천", recoLean:"정배당 우세",
-    recoDraw:"무승부 가능", recoUpset:"이변 가능성",
-    recoValue:"역배당 가치",
+    recoTitle:"모델 분석 결과",
+    recoBack:"베팅 추천", recoLean:"우세",
+    recoDraw:"무승부 가능", recoUpset:"이변 주의",
+    recoValue:"모델 추천",
+    tipBack:"세 가지 출처(스포츠북, ELO 모델, 예측 시장) 모두 동일한 팀을 승자로 예측합니다. 일치도가 높을수록 불확실성이 낮습니다.",
+    tipLean:"출처들이 대체로 동의하지만 격차가 좁습니다. 합리적인 베팅이지만 확실하지는 않습니다.",
+    tipDraw:"평균 무승부 확률이 30%를 초과합니다. 코인 베팅에서 무승부가 더 나은 가치를 제공할 수 있습니다.",
+    tipUpset:"ELO 모델이 언더독에게 시장보다 훨씬 높은 확률을 부여합니다. 출처들이 불일치하므로 주의가 필요합니다.",
+    tipValue:"ELO/포아송 모델이 시장보다 높은 승리 확률을 예측합니다. 저평가된 가치를 나타낼 수 있습니다.",
+    zoneLabel:"구역", zoneMex:"멕시코 구역", zoneCen:"중부 구역",
+    zoneEast:"동부 구역", zoneWest:"서부 구역",
+    bracketR32:"32강", bracketR16:"16강",
+    bracketQF:"8강", bracketSF:"4강", bracketF:"결승",
+    eloScenarios:"ELO 시나리오 (상대팀 미정)",
+    waitingFor:"상대팀 대기 중",
     teams:{
       "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국",
       "Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아",
@@ -724,9 +852,21 @@ const DICT = {
     noUpcoming:"このステージに予定試合はありません。",
     noCompleted:"まだ終了した試合はありません。",
     insight:"試合インサイト",
-    recoBack:"本命推奨", recoLean:"本命優勢",
-    recoDraw:"引き分け有力", recoUpset:"番狂わせ警戒",
-    recoValue:"大穴に価値あり",
+    recoTitle:"モデル分析結果",
+    recoBack:"ベット推奨", recoLean:"優勢",
+    recoDraw:"引き分け有力", recoUpset:"番狂わせ注意",
+    recoValue:"モデル推奨",
+    tipBack:"3つの情報源（スポーツブック、ELOモデル、予測市場）すべてが同じチームを勝者と予測しています。一致度が高いほど不確実性が低くなります。",
+    tipLean:"情報源はおおむね一致していますが、差は僅差です。合理的なベットですが、確実ではありません。",
+    tipDraw:"複数の情報源での平均引き分け確率が30%を超えています。コインベットでは引き分け選択がより良い価値を提供する可能性があります。",
+    tipUpset:"ELOモデルが市場よりもアンダードッグに大幅に高い確率を与えています。情報源が一致していないため、注意が必要です。",
+    tipValue:"ELO/ポアソンモデルが市場が示すよりも高い勝利確率を予測しています。割安な価値を示している可能性があります。",
+    zoneLabel:"ゾーン", zoneMex:"メキシコゾーン", zoneCen:"中部ゾーン",
+    zoneEast:"東部ゾーン", zoneWest:"西部ゾーン",
+    bracketR32:"ラウンド32", bracketR16:"ラウンド16",
+    bracketQF:"準々決勝", bracketSF:"準決勝", bracketF:"決勝",
+    eloScenarios:"ELOシナリオ（対戦相手未定）",
+    waitingFor:"対戦相手待ち",
     teams:{
       "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国",
       "Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア",
@@ -766,13 +906,34 @@ const STAGE_KEYS = {
 /* ================================================================
    RECOMMENDATION ENGINE
 ================================================================ */
+let activeTooltip = null;
+
+function toggleTooltip(id) {
+  // Close any open tooltip
+  if (activeTooltip && activeTooltip !== id) {
+    const prev = document.getElementById(activeTooltip);
+    if (prev) prev.classList.remove('visible');
+  }
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('visible');
+  activeTooltip = el.classList.contains('visible') ? id : null;
+}
+
+// Close tooltips on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('.reco-info-btn') && !e.target.closest('.reco-tooltip')) {
+    document.querySelectorAll('.reco-tooltip.visible').forEach(t => t.classList.remove('visible'));
+    activeTooltip = null;
+  }
+});
+
 function calcReco(match) {
   if (match.type === 'COMPLETED') return null;
   const layers = match.layers || [];
   if (!layers.length) return null;
 
-  // Parse percentages to floats
-  function p(str) { return str === '--' ? null : parseFloat(str); }
+  function p(str) { return (!str || str === '--') ? null : parseFloat(str); }
 
   let favVals = [], drawVals = [], undVals = [];
   layers.forEach(l => {
@@ -788,12 +949,6 @@ function calcReco(match) {
   const avgDraw = drawVals.length ? drawVals.reduce((a,b)=>a+b,0)/drawVals.length : 0;
   const avgUnd  = undVals.length  ? undVals.reduce((a,b)=>a+b,0)/undVals.length   : 0;
 
-  // Divergence: difference between max and min fav across sources
-  const favSpread = favVals.length > 1
-    ? Math.max(...favVals) - Math.min(...favVals)
-    : 0;
-
-  // Find ELO fav specifically for model vs market comparison
   const eloLayer = layers.find(l => l.source.includes('ELO') || l.source.includes('Poisson'));
   const mktLayer = layers.find(l => l.source.includes('Sportsbook') || l.source.includes('P2P'));
   const eloFav   = eloLayer ? p(eloLayer.fav) : null;
@@ -802,45 +957,33 @@ function calcReco(match) {
 
   const d = DICT[lang];
 
-  // Decision tree
   if (avgFav >= 72) {
-    // Strong consensus favourite — just back them
     return { type:'back', cls:'reco-back', icon:'✅',
-      text: d.recoBack,
-      sub: `${avgFav.toFixed(1)}% avg across ${favVals.length} source${favVals.length>1?'s':''}` };
+      call: d.recoBack, tipKey:'tipBack',
+      sub: `${avgFav.toFixed(1)}% avg — ${favVals.length}/3 sources aligned` };
   }
-
   if (avgDraw >= 30) {
-    // Draw is a genuine contender
     return { type:'draw', cls:'reco-draw', icon:'⚖️',
-      text: d.recoDraw,
-      sub: `${avgDraw.toFixed(1)}% draw probability — consider hedging with a draw bet` };
+      call: d.recoDraw, tipKey:'tipDraw',
+      sub: `${avgDraw.toFixed(1)}% avg draw probability across sources` };
   }
-
   if (modelMarketGap >= 15 && eloFav < mktFav) {
-    // Markets see favourite more strongly than model — potential upset
     return { type:'upset', cls:'reco-upset', icon:'⚡',
-      text: d.recoUpset,
-      sub: `ELO model gives underdog ${(100 - eloFav).toFixed(1)}% vs market's ${(100 - mktFav).toFixed(1)}%` };
+      call: d.recoUpset, tipKey:'tipUpset',
+      sub: `ELO: ${(100-eloFav).toFixed(1)}% underdog vs market's ${(100-mktFav).toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt gap` };
   }
-
   if (modelMarketGap >= 15 && eloFav > mktFav) {
-    // Model likes favourite more than market — value on favourite
     return { type:'value', cls:'reco-value', icon:'💎',
-      text: d.recoValue,
-      sub: `ELO model sees more upside than market implies — gap of ${modelMarketGap.toFixed(1)}%` };
+      call: d.recoValue, tipKey:'tipValue',
+      sub: `ELO sees ${eloFav.toFixed(1)}% vs market's ${mktFav.toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt divergence` };
   }
-
   if (avgFav >= 52) {
-    // Lean favourite but not a lock
     return { type:'lean', cls:'reco-lean', icon:'📊',
-      text: d.recoLean,
-      sub: `${avgFav.toFixed(1)}% avg — sources broadly agree but margin is slim` };
+      call: d.recoLean, tipKey:'tipLean',
+      sub: `${avgFav.toFixed(1)}% avg — sources agree but margin is slim` };
   }
-
-  // Close match — coin flip territory
   return { type:'draw', cls:'reco-draw', icon:'⚖️',
-    text: d.recoDraw,
+    call: d.recoDraw, tipKey:'tipDraw',
     sub: `${avgFav.toFixed(1)}% vs ${avgUnd.toFixed(1)}% — too close to call confidently` };
 }
 
@@ -907,14 +1050,28 @@ function renderUpcoming(match) {
     }
   });
 
-  const recoHTML = reco ? `
+  const recoHTML = reco ? (() => {
+    const favName = isHomeFav ? home : away;
+    const tipId = 'tip-' + match.id;
+    const tipText = DICT[lang][reco.tipKey] || '';
+    // For upset/value, the team name in the call is the underdog or the fav respectively
+    let callTeam = favName;
+    if (reco.type === 'upset') callTeam = isHomeFav ? away : home;
+
+    return `
     <div class="reco-bar ${reco.cls}">
       <span class="reco-icon">${reco.icon}</span>
-      <div>
-        <div class="reco-text">${esc(reco.text)} — ${esc(isHomeFav ? home : away)}</div>
+      <div class="reco-body">
+        <div class="reco-title">${esc(DICT[lang].recoTitle)} →</div>
+        <div class="reco-call">${esc(reco.call)}: ${esc(callTeam)}</div>
         <div class="reco-sub">${esc(reco.sub)}</div>
       </div>
-    </div>` : '';
+      <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip('${tipId}')" aria-label="More info">ⓘ</button>
+      <div class="reco-tooltip" id="${tipId}">
+        <div class="reco-tooltip-title">${esc(reco.call)}</div>
+        ${esc(tipText)}
+      </div>
+    </div>`; })() : '';
 
   return `
   <div class="match-card" data-signal="${signal}">
@@ -1046,62 +1203,195 @@ function renderGrid() {
 }
 
 /* ================================================================
-   RENDER BRACKET VIEW
+   BRACKET VIEW — NCAA wall-chart style
+   4 zones: Mexico · Central · East · West
+   Each zone shows its matches flowing toward center
 ================================================================ */
+
+// Zone definitions — which groups feed which zone
+const ZONE_GROUPS = {
+  mexico:  ['Group A','Group B','Group C'],
+  central: ['Group D','Group E','Group F'],
+  east:    ['Group G','Group H','Group I'],
+  west:    ['Group J','Group K','Group L'],
+};
+
+const ZONE_ORDER = ['mexico','central','east','west'];
+
+let currentBracketZone = 'mexico';
+
+function avgPct(match, field) {
+  const vals = (match.layers||[]).map(l=>parseFloat(l[field])).filter(v=>!isNaN(v));
+  return vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length) : null;
+}
+
+function buildBracketNode(match, opts={}) {
+  const d = DICT[lang];
+  if (!match) {
+    return `<div class="bracket-tbd-node">${esc(d.waitingFor||'TBD')}</div>`;
+  }
+
+  const home = teamName(match.home);
+  const away = teamName(match.away);
+  const isHomeFav = match.favTeam === match.home;
+
+  let homeClass = '', awayClass = '', homePct = '', awayPct = '';
+  let drawTag = '', eloPanel = '';
+
+  if (match.type === 'COMPLETED') {
+    const homeWon = match.score && match.score.toUpperCase().includes(match.home.toUpperCase().split(' ')[0]);
+    homeClass = homeWon ? 'is-winner' : 'is-eliminated';
+    awayClass = homeWon ? 'is-eliminated' : 'is-winner';
+    homePct = homeWon ? '✓' : '—';
+    awayPct = homeWon ? '—' : '✓';
+  } else if (match.eloWaiting) {
+    // Waiting state — show ELO scenarios
+    const scenarios = match.eloScenarios || [];
+    homePct = (avgPct(match,'fav')||0).toFixed(1)+'%';
+    awayPct = '—';
+    homeClass = isHomeFav ? '' : '';
+    if (scenarios.length) {
+      eloPanel = `<div class="bracket-elo-panel">
+        <div class="bracket-elo-label">${esc(d.eloScenarios)}</div>
+        ${scenarios.map(s=>`<div class="bracket-elo-row"><span>${esc(s.vs)}</span><strong>${esc(s.pct)}</strong></div>`).join('')}
+      </div>`;
+    }
+  } else {
+    const fp = avgPct(match,'fav');
+    const up = avgPct(match,'und');
+    const dp = avgPct(match,'draw');
+    homePct = fp != null ? fp.toFixed(1)+'%' : '--';
+    awayPct = up != null ? up.toFixed(1)+'%' : '--';
+    homeClass = isHomeFav ? 'fav' : 'und';
+    awayClass = isHomeFav ? 'und' : 'fav';
+    if (dp != null) {
+      drawTag = `<div class="bracket-draw-tag">Draw ${dp.toFixed(1)}%</div>`;
+    }
+  }
+
+  const noConn = opts.noConnector ? ' no-connector' : '';
+
+  return `
+  <div class="bracket-node${noConn}">
+    <div class="bracket-team-row ${homeClass}">
+      <div class="flag">${flagHTML(match.homeFlag)}</div>
+      <span class="bracket-team-name">${esc(home)}</span>
+      <span class="bracket-pct ${homeClass}">${esc(homePct)}</span>
+    </div>
+    <div class="bracket-team-row ${awayClass}">
+      <div class="flag">${flagHTML(match.awayFlag)}</div>
+      <span class="bracket-team-name">${esc(away)}</span>
+      <span class="bracket-pct ${awayClass}">${esc(awayPct)}</span>
+    </div>
+    ${drawTag}
+    ${eloPanel}
+  </div>`;
+}
+
+function buildBracketZoneTabs() {
+  const d = DICT[lang];
+  const zoneNames = {
+    mexico: d.zoneMex||'Mexico Zone',
+    central: d.zoneCen||'Central Zone',
+    east: d.zoneEast||'East Zone',
+    west: d.zoneWest||'West Zone',
+  };
+  const container = document.getElementById('bracket-zone-tabs');
+  if (!container) return;
+  container.innerHTML = ZONE_ORDER.map(z => {
+    const active = z === currentBracketZone ? ' active' : '';
+    return `<button class="btn${active}" onclick="switchBracketZone('${z}')">${esc(zoneNames[z])}</button>`;
+  }).join('');
+}
+
+function switchBracketZone(zone) {
+  currentBracketZone = zone;
+  buildBracketZoneTabs();
+  renderBracket();
+}
+
 function renderBracket() {
   const d = DICT[lang];
-  const stageMatches = allMatches.filter(m => (m.stage||'Group Stage') === currentStage);
-  const grid = document.getElementById('bracket-grid');
+  buildBracketZoneTabs();
 
-  // Group into left/right sides
-  const left  = stageMatches.filter(m => m.side === 'left');
-  const right = stageMatches.filter(m => m.side === 'right');
-  const sides = left.length || right.length ? [{label:'Left', matches:left},{label:'Right', matches:right}]
-    : [{label:'', matches:stageMatches}];
+  const container = document.getElementById('bracket-zone-simple');
+  if (!container) return;
 
-  grid.innerHTML = sides.map(side => {
-    const matchNodes = side.matches.map(m => {
-      const home = teamName(m.home);
-      const away = teamName(m.away);
+  // Get matches for this zone's groups
+  const groups = ZONE_GROUPS[currentBracketZone] || [];
 
-      // Average probabilities across sources
-      function avgProb(field) {
-        const vals = (m.layers||[]).map(l=>parseFloat(l[field])).filter(v=>!isNaN(v));
-        return vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1)+'%' : '--';
-      }
-      const homePct = m.type==='COMPLETED' ? (m.favTeam===m.home?'WIN':'—') : avgProb('fav');
-      const awayPct = m.type==='COMPLETED' ? (m.favTeam===m.away?'WIN':'—') : avgProb('und');
-      const drawPct = m.type==='COMPLETED' ? '' : avgProb('draw');
+  // Separate by stage
+  const groupMatches = allMatches.filter(m =>
+    (m.stage==='Group Stage') && groups.includes(m.group||'')
+  );
+  const r32Matches = allMatches.filter(m =>
+    (m.stage==='Round of 32') && groups.includes(m.bracketZone||m.group||'')
+  );
+  const r16Matches = allMatches.filter(m =>
+    (m.stage==='Round of 16') && groups.includes(m.bracketZone||m.group||'')
+  );
 
-      return `
-        <div class="bracket-match">
-          <div class="bracket-team">
-            <div class="flag">${flagHTML(m.homeFlag)}</div>
-            <span>${esc(home)}</span>
-            <span class="bracket-odds">${esc(homePct)}</span>
-          </div>
-          <div class="bracket-team">
-            <div class="flag">${flagHTML(m.awayFlag)}</div>
-            <span>${esc(away)}</span>
-            <span class="bracket-odds">${esc(awayPct)}</span>
-          </div>
-          ${drawPct ? `<div class="bracket-draw-pill">Draw ${esc(drawPct)}</div>` : ''}
-        </div>`;
-    }).join('');
+  // Build the zone bracket — starts from R32 if available, else show group matches
+  // For now during group stage: show group matches per group, flowing right
+  const groupsInZone = groups.filter(g =>
+    allMatches.some(m => (m.group||'') === g)
+  );
 
-    return `
-      <div class="bracket-round">
-        <div class="bracket-round-label">${esc(side.label ? side.label+' Bracket' : currentStage)}</div>
-        ${matchNodes || `<div class="empty" style="padding:20px">${esc(d.noUpcoming)}</div>`}
-      </div>`;
-  }).join('') + `
-    <div class="bracket-round">
-      <div class="bracket-round-label">Next Round</div>
-      <div class="bracket-match">
-        <div class="bracket-team bracket-tbd">Winner Left →</div>
-        <div class="bracket-team bracket-tbd">Winner Right →</div>
-      </div>
-    </div>`;
+  let html = `<div class="zone-bracket-grid">`;
+
+  // Column 1: Group stage matches (grouped by group)
+  html += `<div class="zone-round-col">
+    <div class="zone-round-header">${esc(d.groupStage||'Group Stage')}</div>`;
+
+  groupsInZone.forEach(g => {
+    const gMatches = groupMatches.filter(m => (m.group||'')===g);
+    gMatches.forEach(m => {
+      html += buildBracketNode(m);
+    });
+    // Spacer between groups
+    if (gMatches.length) html += `<div style="height:8px"></div>`;
+  });
+
+  if (!groupsInZone.length) {
+    html += `<div class="bracket-tbd-node">${esc(d.noUpcoming)}</div>`;
+  }
+
+  html += `</div>`; // end group col
+
+  // Column 2: Round of 32
+  html += `<div class="zone-round-col">
+    <div class="zone-round-header">${esc(d.bracketR32||'Round of 32')}</div>`;
+
+  if (r32Matches.length) {
+    r32Matches.forEach(m => { html += buildBracketNode(m); });
+  } else {
+    // TBD slots — one per pair of group matches
+    const slots = Math.ceil(groupsInZone.reduce((a,g)=>a+groupMatches.filter(m=>m.group===g).length,0)/2);
+    for (let i=0; i<Math.max(slots,1); i++) {
+      html += buildBracketNode(null);
+    }
+  }
+  html += `</div>`;
+
+  // Column 3: Round of 16
+  html += `<div class="zone-round-col">
+    <div class="zone-round-header">${esc(d.bracketR16||'Round of 16')}</div>`;
+  if (r16Matches.length) {
+    r16Matches.forEach(m => { html += buildBracketNode(m); });
+  } else {
+    html += buildBracketNode(null);
+  }
+  html += `</div>`;
+
+  // Column 4: Zone winner → points to Semi
+  html += `<div class="zone-round-col">
+    <div class="zone-round-header">${esc(d.bracketQF||'QF')}</div>
+    <div class="bracket-tbd-node" style="margin-top:40px">${esc(d.waitingFor||'TBD')}</div>
+  </div>`;
+
+  html += `</div>`; // end grid
+  container.innerHTML = html;
+  container.classList.add('active');
 }
 
 /* ================================================================
