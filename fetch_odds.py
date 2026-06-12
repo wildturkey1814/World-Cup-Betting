@@ -345,7 +345,7 @@ def fetch_all_fixtures() -> list:
         all_fixtures.extend(chunk)
         cursor = window_end + timedelta(days=1)
         if cursor <= end:
-            time.sleep(REQUEST_DELAY)
+            time.sleep(6.0)  # fixture endpoint needs more breathing room on free tier
 
     # Deduplicate by fixture ID
     seen = set()
