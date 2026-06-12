@@ -124,6 +124,13 @@ TEAM_NAME_MAP = {
     "Belgium":                           "Belgium",
     "Scotland":                          "Scotland",
     "DR Congo":                          "DR Congo",
+    "Congo DR":                          "DR Congo",
+    "IR Iran":                           "Iran",
+    "Turkiye":                           "Turkey",
+    "Austria":                           "Austria",
+    "Sweden":                            "Sweden",
+    "Ivory Coast":                       "Ivory Coast",
+    "Côte d'Ivoire":                     "Ivory Coast",
 }
 
 # ── Team metadata (3-letter code + flag key for the dashboard) ─────────────
@@ -182,6 +189,8 @@ TEAM_META = {
     "Belgium":              {"code": "BEL", "flag": "bel"},
     "Scotland":             {"code": "SCO", "flag": "sco"},
     "DR Congo":             {"code": "COD", "flag": "cod"},
+    "Austria":              {"code": "AUT", "flag": "aut"},
+    "Sweden":               {"code": "SWE", "flag": "swe"},
 }
 
 # ── ELO ratings ────────────────────────────────────────────────────────────
@@ -200,7 +209,7 @@ ELO = {
     "Nigeria": 1580, "Panama": 1545, "Costa Rica": 1540, "Iraq": 1530,
     "Jordan": 1520, "Uzbekistan": 1510, "Qatar": 1500, "New Zealand": 1490,
     "Cape Verde": 1480, "Curacao": 1460, "Haiti": 1440, "Scotland": 1720,
-    "DR Congo": 1620, "Wales": 1680,
+    "DR Congo": 1620, "Wales": 1680, "Austria": 1830, "Sweden": 1790,
 }
 
 HOST_NATIONS   = {"United States", "Mexico", "Canada"}
@@ -310,7 +319,9 @@ def fetch_fixtures_window(date_from: str, date_to: str) -> list:
     fixtures = data if isinstance(data, list) else data.get("data", data.get("fixtures", []))
     wc = [f for f in fixtures
           if isinstance(f, dict) and
-          TOURNAMENT_NAME.lower() in str(f.get("tournamentName", "")).lower()]
+          TOURNAMENT_NAME.lower() in str(f.get("tournamentName", "")).lower() and
+          "srl" not in str(f.get("participant1Name", "")).lower() and
+          "srl" not in str(f.get("participant2Name", "")).lower()]
     log.info("  %s to %s: %d World Cup fixtures", date_from, date_to, len(wc))
     return wc
 
