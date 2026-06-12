@@ -319,43 +319,45 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 /* ── RECOMMENDATION BAR ─────────────────────────────────────────────── */
 .reco-bar {
   margin: 0 17px 12px;
-  padding: 9px 11px;
+  padding: 10px 12px;
   border-radius: var(--radius-sm);
   margin-top: 8px;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
   position: relative;
 }
-.reco-icon { font-size: 14px; flex-shrink: 0; line-height: 1.4; }
-.reco-body { flex: 1; min-width: 0; }
-.reco-title {
-  font-size: 9px; font-weight: 800; letter-spacing: 1.2px;
-  text-transform: uppercase; color: var(--text-lo); margin-bottom: 3px;
+.reco-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
 }
-.reco-call  { font-size: 13px; font-weight: 700; line-height: 1.3; }
-.reco-sub   { font-size: 11px; font-weight: 500; opacity: 0.8; margin-top: 3px; line-height: 1.4; }
-
-/* ⓘ info button */
 .reco-info-btn {
-  flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);
-  color: var(--text-lo); font-size: 10px; font-weight: 800;
+  flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+  color: #fff; font-size: 11px; font-weight: 800;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.15s; margin-top: 2px;
+  cursor: pointer; transition: all 0.15s;
+  font-style: italic; font-family: Georgia, serif;
 }
-.reco-info-btn:hover { border-color: var(--neon); color: var(--neon); background: rgba(56,189,248,0.1); }
+.reco-info-btn:hover { border-color: var(--neon); background: rgba(56,189,248,0.15); }
+.reco-title {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-hi);
+  flex: 1;
+}
+.reco-call  { font-size: 15px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
+.reco-sub   { font-size: 11px; font-weight: 500; color: var(--text-mid); line-height: 1.4; }
 
 /* tooltip */
 .reco-tooltip {
-  display: none; position: absolute; bottom: calc(100% + 6px); right: 0;
+  display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
   background: #1a2d45; border: 1px solid var(--border-hi);
   border-radius: var(--radius-sm); padding: 10px 12px;
-  font-size: 11px; color: var(--text-mid); line-height: 1.5;
-  max-width: 280px; z-index: 20; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  font-size: 11px; color: var(--text-mid); line-height: 1.6;
+  z-index: 20; box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 .reco-tooltip.visible { display: block; }
-.reco-tooltip-title { font-weight: 700; color: var(--text-hi); font-size: 11px; margin-bottom: 4px; }
+.reco-tooltip-title { font-weight: 700; color: var(--text-hi); font-size: 12px; margin-bottom: 5px; }
 
 .reco-back  { background: rgba(52,211,153,0.08);  border: 1px solid rgba(52,211,153,0.2);  }
 .reco-draw  { background: rgba(251,191,36,0.08);  border: 1px solid rgba(251,191,36,0.2);  }
@@ -421,6 +423,27 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   display: block;
   margin-bottom: 3px;
 }
+
+/* ── COLLAPSIBLE GROUP SECTIONS ─────────────────────────────────────── */
+.group-section { margin-bottom: 6px; }
+.group-header {
+  width: 100%; display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; background: var(--surface2);
+  border: 1px solid var(--border-hi); border-radius: var(--radius-sm);
+  cursor: pointer; text-align: left; transition: background 0.15s;
+}
+.group-header:hover { background: rgba(255,255,255,0.07); }
+.group-header-label {
+  font-size: 12px; font-weight: 800; color: var(--text-hi);
+  letter-spacing: 0.3px;
+}
+.group-header-meta {
+  font-size: 11px; color: var(--text-mid); flex: 1;
+}
+.group-header-chevron {
+  font-size: 10px; color: var(--text-lo);
+}
+.group-body { padding-top: 6px; }
 
 /* ── EMPTY STATE ─────────────────────────────────────────────────────── */
 .empty {
@@ -1015,58 +1038,44 @@ function renderUpcoming(match) {
   const d    = DICT[lang];
   const home = teamName(match.home);
   const away = teamName(match.away);
-  const fav  = teamName(match.favTeam);
+  // Compare against raw (English) names — favTeam is always stored in English
   const isHomeFav = match.favTeam === match.home;
   const reco = calcReco(match);
   const signal = reco ? reco.type : 'lean';
 
+  // Always render in fixed order: Sportsbooks, ELO, Prediction Markets
+  const allSources = ['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
   let sourceRows = '';
-  (match.layers || []).forEach(layer => {
-    const favVal  = layer.fav  || '--';
-    const drawVal = layer.draw || '--';
-    const undVal  = layer.und  || '--';
+  allSources.forEach(s => {
+    const layer = (match.layers||[]).find(l => l.source === s);
+    const favVal  = layer ? (layer.fav  || '--') : '--';
+    const drawVal = layer ? (layer.draw || '--') : '--';
+    const undVal  = layer ? (layer.und  || '--') : '--';
     const isNull  = v => v === '--';
     sourceRows += `
       <div class="source-row">
-        <div class="source-name">${esc(layer.source)}</div>
+        <div class="source-name">${esc(s)}</div>
         <div class="prob-cell hi ${isNull(favVal)?'null-val':''}">${esc(favVal)}</div>
         <div class="prob-cell ${isNull(drawVal)?'null-val':''}">${esc(drawVal)}</div>
         <div class="prob-cell ${isNull(undVal)?'null-val':''}">${esc(undVal)}</div>
       </div>`;
   });
 
-  // Fill missing sources with dashes
-  const sourcesFound = (match.layers||[]).map(l=>l.source);
-  const allSources = ['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
-  allSources.forEach(s => {
-    if (!sourcesFound.includes(s)) {
-      sourceRows += `
-        <div class="source-row">
-          <div class="source-name">${esc(s)}</div>
-          <div class="prob-cell null-val">--</div>
-          <div class="prob-cell null-val">--</div>
-          <div class="prob-cell null-val">--</div>
-        </div>`;
-    }
-  });
-
   const recoHTML = reco ? (() => {
     const favName = isHomeFav ? home : away;
     const tipId = 'tip-' + match.id;
     const tipText = DICT[lang][reco.tipKey] || '';
-    // For upset/value, the team name in the call is the underdog or the fav respectively
     let callTeam = favName;
     if (reco.type === 'upset') callTeam = isHomeFav ? away : home;
 
     return `
     <div class="reco-bar ${reco.cls}">
-      <span class="reco-icon">${reco.icon}</span>
-      <div class="reco-body">
+      <div class="reco-header">
+        <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip('${tipId}')" aria-label="More info">i</button>
         <div class="reco-title">${esc(DICT[lang].recoTitle)} →</div>
-        <div class="reco-call">${esc(reco.call)}: ${esc(callTeam)}</div>
-        <div class="reco-sub">${esc(reco.sub)}</div>
       </div>
-      <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip('${tipId}')" aria-label="More info">ⓘ</button>
+      <div class="reco-call">${esc(reco.call)}: ${esc(callTeam)}</div>
+      <div class="reco-sub">${esc(reco.sub)}</div>
       <div class="reco-tooltip" id="${tipId}">
         <div class="reco-tooltip-title">${esc(reco.call)}</div>
         ${esc(tipText)}
@@ -1161,10 +1170,8 @@ function renderCompleted(match) {
 ================================================================ */
 function buildStageTabs() {
   const stages = [...new Set(allMatches.map(m => m.stage||'Group Stage'))];
-  // Always show known stages in order if present
   const ordered = STAGES.filter(s => stages.includes(s));
   const rest = stages.filter(s => !STAGES.includes(s));
-
   const tabsEl = document.getElementById('stage-tabs');
   tabsEl.innerHTML = [...ordered,...rest].map(s => {
     const key = STAGE_KEYS[s] || 'groupStage';
@@ -1174,32 +1181,115 @@ function buildStageTabs() {
   }).join('');
 }
 
+// Track which groups are expanded
+const expandedGroups = new Set();
+
+function toggleGroup(groupKey) {
+  if (expandedGroups.has(groupKey)) {
+    expandedGroups.delete(groupKey);
+  } else {
+    expandedGroups.add(groupKey);
+  }
+  renderGrid();
+}
+
 /* ================================================================
    RENDER GRID VIEW
 ================================================================ */
 function renderGrid() {
   const d = DICT[lang];
-  const stageMatches = allMatches.filter(m => (m.stage||'Group Stage') === currentStage);
+
+  // Deduplicate by match ID — keep last occurrence (most recent data wins)
+  const seen = new Map();
+  allMatches.forEach(m => seen.set(m.id, m));
+  const dedupedMatches = [...seen.values()];
+
+  const stageMatches = dedupedMatches.filter(m => (m.stage||'Group Stage') === currentStage);
 
   const upcoming  = stageMatches.filter(m => m.type === 'UPCOMING')
     .sort((a,b) => new Date(a.kickoff||0) - new Date(b.kickoff||0));
   const completed = stageMatches.filter(m => m.type === 'COMPLETED')
     .sort((a,b) => new Date(b.kickoff||0) - new Date(a.kickoff||0));
 
-  document.getElementById('lbl-upcoming').textContent  = d.upcoming;
-  document.getElementById('lbl-completed').textContent = d.completed;
+  document.getElementById('lbl-upcoming').textContent   = d.upcoming;
+  document.getElementById('lbl-completed').textContent  = d.completed;
   document.getElementById('count-upcoming').textContent  = upcoming.length;
   document.getElementById('count-completed').textContent = completed.length;
 
+  // Group upcoming matches by group label
+  const upcomingByGroup = {};
+  upcoming.forEach(m => {
+    const g = m.group || m.stage || 'Other';
+    if (!upcomingByGroup[g]) upcomingByGroup[g] = [];
+    upcomingByGroup[g].push(m);
+  });
+
+  // Auto-expand the first group with an imminent match (next 48h), else expand all
+  if (expandedGroups.size === 0) {
+    const now = Date.now();
+    const next48h = now + 48 * 60 * 60 * 1000;
+    let autoExpanded = false;
+    Object.entries(upcomingByGroup).forEach(([g, matches]) => {
+      if (!autoExpanded && matches.some(m => {
+        const t = new Date(m.kickoff||0).getTime();
+        return t >= now && t <= next48h;
+      })) {
+        expandedGroups.add('up-' + g);
+        autoExpanded = true;
+      }
+    });
+    // If nothing imminent, expand first group
+    if (!autoExpanded && Object.keys(upcomingByGroup).length > 0) {
+      expandedGroups.add('up-' + Object.keys(upcomingByGroup)[0]);
+    }
+  }
+
   const upEl = document.getElementById('upcoming-list');
-  upEl.innerHTML = upcoming.length
-    ? upcoming.map(renderUpcoming).join('')
-    : `<div class="empty">${esc(d.noUpcoming)}</div>`;
+  if (upcoming.length === 0) {
+    upEl.innerHTML = `<div class="empty">${esc(d.noUpcoming)}</div>`;
+  } else {
+    upEl.innerHTML = Object.entries(upcomingByGroup).map(([group, matches]) => {
+      const key = 'up-' + group;
+      const isOpen = expandedGroups.has(key);
+      const nextKickoff = matches[0] ? fmtKickoff(matches[0].kickoff) : '';
+      return `
+        <div class="group-section">
+          <button class="group-header" onclick="toggleGroup('${esc(key)}')">
+            <span class="group-header-label">${esc(group)}</span>
+            <span class="group-header-meta">${esc(nextKickoff)} · ${matches.length} match${matches.length!==1?'es':''}</span>
+            <span class="group-header-chevron">${isOpen ? '▲' : '▼'}</span>
+          </button>
+          ${isOpen ? `<div class="group-body">${matches.map(renderUpcoming).join('')}</div>` : ''}
+        </div>`;
+    }).join('');
+  }
+
+  // Group completed matches by group too
+  const completedByGroup = {};
+  completed.forEach(m => {
+    const g = m.group || m.stage || 'Other';
+    if (!completedByGroup[g]) completedByGroup[g] = [];
+    completedByGroup[g].push(m);
+  });
 
   const coEl = document.getElementById('completed-list');
-  coEl.innerHTML = completed.length
-    ? completed.map(renderCompleted).join('')
-    : `<div class="empty">${esc(d.noCompleted)}</div>`;
+  if (completed.length === 0) {
+    coEl.innerHTML = `<div class="empty">${esc(d.noCompleted)}</div>`;
+  } else {
+    coEl.innerHTML = Object.entries(completedByGroup).map(([group, matches]) => {
+      const key = 'co-' + group;
+      const isOpen = expandedGroups.has(key);
+      return `
+        <div class="group-section">
+          <button class="group-header" onclick="toggleGroup('${esc(key)}')">
+            <span class="group-header-label">${esc(group)}</span>
+            <span class="group-header-meta">${matches.length} match${matches.length!==1?'es':''} played</span>
+            <span class="group-header-chevron">${isOpen ? '▲' : '▼'}</span>
+          </button>
+          ${isOpen ? `<div class="group-body">${matches.map(renderCompleted).join('')}</div>` : ''}
+        </div>`;
+    }).join('');
+  }
 }
 
 /* ================================================================
