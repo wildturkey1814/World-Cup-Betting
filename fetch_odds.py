@@ -1,15 +1,23 @@
 """
 2026 World Cup Prediction Engine - Data Ingestion Script
 =========================================================
-Fetches live odds from OddsPapi (sportsbooks + prediction markets),
-calculates an ELO/Poisson probability layer, strips bookmaker margin,
-and writes a normalized data.json for the dashboard.
+Fetches live odds from OddsPapi, calculates ELO/Poisson layer,
+strips bookmaker margin, and writes normalized data.json.
+
+API docs: https://oddspapi.io/blog/world-cup-odds-api-2026-fifa/
+
+Key facts about this API:
+  - Auth: query param ?apiKey=KEY  (NOT a header)
+  - Fixtures: GET /fixtures?sportId=10&from=DATE&to=DATE
+  - Odds:     GET /odds?fixtureId=ID&bookmakers=pinnacle,bet365,...
+  - Odds path: bookmakerOdds[slug]["markets"]["101"]["outcomes"]["101"]["players"]["0"]["price"]
+  - Market 101 = 1X2 Full Time Result
+  - Outcome 101 = Home, 102 = Draw, 103 = Away
 
 Run manually:  python fetch_odds.py
-Run via CI:    GitHub Action calls this automatically every 30 minutes.
-
+Run via CI:    GitHub Action calls this on schedule
 Requirements:  pip install requests
-Environment:   ODDSPAPI_KEY must be set (via GitHub Secret or local .env)
+Environment:   ODDSPAPI_KEY must be set
 """
 
 import os
@@ -19,7 +27,7 @@ import time
 import logging
 import tempfile
 import shutil
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import Optional
 
 import requests
@@ -33,89 +41,92 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # ── Configuration ──────────────────────────────────────────────────────────
-API_KEY        = os.environ.get("ODDSPAPI_KEY", "")
-BASE_URL       = "https://api.oddspapi.io/v4"          # OddsPapi base URL
-SPORT          = "soccer"
-LEAGUE_SLUG    = "world-cup"                            # OddsPapi soccer league slug
-OUTPUT_FILE    = "data.json"                            # written to repo root
-REQUEST_DELAY  = 1.0                                    # seconds between API calls (rate-limit safety)
-REQUEST_TIMEOUT = 15                                    # seconds before giving up on a call
+API_KEY         = os.environ.get("ODDSPAPI_KEY", "")
+BASE_URL        = "https://api.oddspapi.io/v4"
+SPORT_ID        = 10          # Soccer
+TOURNAMENT_NAME = "World Cup"
+OUTPUT_FILE     = "data.json"
+REQUEST_DELAY   = 1.0         # seconds between calls (free tier ~0.88s cooldown)
+REQUEST_TIMEOUT = 15
+
+# Bookmakers to pull odds from (sharps + US books + prediction markets)
+BOOKMAKERS = "pinnacle,bet365,draftkings,fanduel,polymarket,kalshi"
+
+# Market IDs
+MARKET_1X2   = "101"
+OUTCOME_HOME = "101"
+OUTCOME_DRAW = "102"
+OUTCOME_AWAY = "103"
 
 # ── Team name normalisation ────────────────────────────────────────────────
-# Maps every known variant from the API to a single display name.
-# Add entries here if a new variant shows up in the feed.
 TEAM_NAME_MAP = {
-    # United States
-    "United States":                        "United States",
-    "USA":                                  "United States",
-    "USMNT":                                "United States",
-    "United States Men's National Team":    "United States",
-    "US":                                   "United States",
-    # South Korea
-    "South Korea":                          "South Korea",
-    "Korea Republic":                       "South Korea",
-    "Republic of Korea":                    "South Korea",
-    "KOR":                                  "South Korea",
-    # Bosnia
-    "Bosnia & Herzegovina":                 "Bosnia & Herzegovina",
-    "Bosnia and Herzegovina":               "Bosnia & Herzegovina",
-    "Bosnia":                               "Bosnia & Herzegovina",
-    "BIH":                                  "Bosnia & Herzegovina",
-    # Standard names that may appear inconsistently
-    "Mexico":                               "Mexico",
-    "South Africa":                         "South Africa",
-    "Czechia":                              "Czechia",
-    "Czech Republic":                       "Czechia",
-    "Canada":                               "Canada",
-    "Paraguay":                             "Paraguay",
-    "Germany":                              "Germany",
-    "Argentina":                            "Argentina",
-    "England":                              "England",
-    "Italy":                                "Italy",
-    "France":                               "France",
-    "Brazil":                               "Brazil",
-    "Spain":                                "Spain",
-    "Portugal":                             "Portugal",
-    "Netherlands":                          "Netherlands",
-    "Holland":                              "Netherlands",
-    "Morocco":                              "Morocco",
-    "Japan":                                "Japan",
-    "Australia":                            "Australia",
-    "Croatia":                              "Croatia",
-    "Switzerland":                          "Switzerland",
-    "Uruguay":                              "Uruguay",
-    "Colombia":                             "Colombia",
-    "Senegal":                              "Senegal",
-    "Denmark":                              "Denmark",
-    "Ecuador":                              "Ecuador",
-    "Ghana":                                "Ghana",
-    "Cameroon":                             "Cameroon",
-    "Serbia":                               "Serbia",
-    "Poland":                               "Poland",
-    "Wales":                                "Wales",
-    "Iran":                                 "Iran",
-    "Saudi Arabia":                         "Saudi Arabia",
-    "Tunisia":                              "Tunisia",
-    "Costa Rica":                           "Costa Rica",
-    "Nigeria":                              "Nigeria",
-    "Egypt":                                "Egypt",
-    "Algeria":                              "Algeria",
-    "Norway":                               "Norway",
-    "Turkey":                               "Turkey",
-    "Uzbekistan":                           "Uzbekistan",
-    "Panama":                               "Panama",
-    "Venezuela":                            "Venezuela",
-    "Iraq":                                 "Iraq",
-    "Jordan":                               "Jordan",
-    "Qatar":                                "Qatar",
-    "New Zealand":                          "New Zealand",
-    "Cape Verde":                           "Cape Verde",
-    "Curacao":                              "Curacao",
-    "Haiti":                                "Haiti",
+    "United States":                     "United States",
+    "USA":                               "United States",
+    "USMNT":                             "United States",
+    "US":                                "United States",
+    "South Korea":                       "South Korea",
+    "Korea Republic":                    "South Korea",
+    "Republic of Korea":                 "South Korea",
+    "KOR":                               "South Korea",
+    "Bosnia & Herzegovina":              "Bosnia & Herzegovina",
+    "Bosnia and Herzegovina":            "Bosnia & Herzegovina",
+    "Bosnia":                            "Bosnia & Herzegovina",
+    "Czech Republic":                    "Czechia",
+    "Czechia":                           "Czechia",
+    "Netherlands":                       "Netherlands",
+    "Holland":                           "Netherlands",
+    "Mexico":                            "Mexico",
+    "South Africa":                      "South Africa",
+    "Canada":                            "Canada",
+    "Paraguay":                          "Paraguay",
+    "Germany":                           "Germany",
+    "Argentina":                         "Argentina",
+    "England":                           "England",
+    "Italy":                             "Italy",
+    "France":                            "France",
+    "Brazil":                            "Brazil",
+    "Spain":                             "Spain",
+    "Portugal":                          "Portugal",
+    "Morocco":                           "Morocco",
+    "Japan":                             "Japan",
+    "Australia":                         "Australia",
+    "Croatia":                           "Croatia",
+    "Switzerland":                       "Switzerland",
+    "Uruguay":                           "Uruguay",
+    "Colombia":                          "Colombia",
+    "Senegal":                           "Senegal",
+    "Denmark":                           "Denmark",
+    "Ecuador":                           "Ecuador",
+    "Norway":                            "Norway",
+    "Turkey":                            "Turkey",
+    "Serbia":                            "Serbia",
+    "Poland":                            "Poland",
+    "Iran":                              "Iran",
+    "Saudi Arabia":                      "Saudi Arabia",
+    "Ghana":                             "Ghana",
+    "Cameroon":                          "Cameroon",
+    "Ivory Coast":                       "Ivory Coast",
+    "Tunisia":                           "Tunisia",
+    "Egypt":                             "Egypt",
+    "Algeria":                           "Algeria",
+    "Nigeria":                           "Nigeria",
+    "Panama":                            "Panama",
+    "Costa Rica":                        "Costa Rica",
+    "Wales":                             "Wales",
+    "Uzbekistan":                        "Uzbekistan",
+    "Iraq":                              "Iraq",
+    "Jordan":                            "Jordan",
+    "Qatar":                             "Qatar",
+    "New Zealand":                       "New Zealand",
+    "Cape Verde":                        "Cape Verde",
+    "Curacao":                           "Curacao",
+    "Haiti":                             "Haiti",
+    "Belgium":                           "Belgium",
+    "Scotland":                          "Scotland",
+    "DR Congo":                          "DR Congo",
 }
 
-# ── Team metadata ──────────────────────────────────────────────────────────
-# 3-letter code and flag SVG key for each normalised team name.
+# ── Team metadata (3-letter code + flag key for the dashboard) ─────────────
 TEAM_META = {
     "Mexico":               {"code": "MEX", "flag": "mex"},
     "South Africa":         {"code": "RSA", "flag": "rsa"},
@@ -152,12 +163,13 @@ TEAM_META = {
     "Saudi Arabia":         {"code": "KSA", "flag": "ksa"},
     "Ghana":                {"code": "GHA", "flag": "gha"},
     "Cameroon":             {"code": "CMR", "flag": "cmr"},
+    "Ivory Coast":          {"code": "CIV", "flag": "civ"},
     "Tunisia":              {"code": "TUN", "flag": "tun"},
     "Egypt":                {"code": "EGY", "flag": "egy"},
     "Algeria":              {"code": "ALG", "flag": "alg"},
+    "Nigeria":              {"code": "NGA", "flag": "nga"},
     "Panama":               {"code": "PAN", "flag": "pan"},
     "Costa Rica":           {"code": "CRC", "flag": "crc"},
-    "Nigeria":              {"code": "NGA", "flag": "nga"},
     "Wales":                {"code": "WAL", "flag": "wal"},
     "Uzbekistan":           {"code": "UZB", "flag": "uzb"},
     "Iraq":                 {"code": "IRQ", "flag": "irq"},
@@ -167,123 +179,64 @@ TEAM_META = {
     "Cape Verde":           {"code": "CPV", "flag": "cpv"},
     "Curacao":              {"code": "CUW", "flag": "cuw"},
     "Haiti":                {"code": "HAI", "flag": "hai"},
+    "Belgium":              {"code": "BEL", "flag": "bel"},
+    "Scotland":             {"code": "SCO", "flag": "sco"},
+    "DR Congo":             {"code": "COD", "flag": "cod"},
 }
 
-# ── ELO ratings (baseline, updated pre-tournament) ─────────────────────────
-# Source: eloratings.net pre-tournament values.
-# Update these once before the tournament starts; they don't change mid-game.
-ELO_RATINGS = {
-    "Argentina":            2040,
-    "France":               2005,
-    "England":              1960,
-    "Brazil":               1955,
-    "Spain":                1950,
-    "Portugal":             1940,
-    "Netherlands":          1935,
-    "Germany":              1930,
-    "Italy":                1910,
-    "Croatia":              1880,
-    "Belgium":              1875,
-    "Uruguay":              1860,
-    "Colombia":             1845,
-    "United States":        1845,
-    "Mexico":               1820,
-    "Switzerland":          1815,
-    "Denmark":              1810,
-    "Japan":                1800,
-    "Morocco":              1795,
-    "Senegal":              1785,
-    "Australia":            1770,
-    "Canada":               1765,
-    "South Korea":          1740,
-    "Ecuador":              1730,
-    "Norway":               1725,
-    "Turkey":               1720,
-    "Czechia":              1715,
-    "Serbia":               1710,
-    "Paraguay":             1705,
-    "Poland":               1700,
-    "Bosnia & Herzegovina": 1660,
-    "Ghana":                1655,
-    "Cameroon":             1650,
-    "Ivory Coast":          1640,
-    "South Africa":         1610,
-    "Tunisia":              1605,
-    "Iran":                 1600,
-    "Saudi Arabia":         1595,
-    "Egypt":                1590,
-    "Algeria":              1585,
-    "Nigeria":              1580,
-    "Panama":               1545,
-    "Costa Rica":           1540,
-    "Iraq":                 1530,
-    "Jordan":               1520,
-    "Uzbekistan":           1510,
-    "Qatar":                1500,
-    "New Zealand":          1490,
-    "Cape Verde":           1480,
-    "Curacao":              1460,
-    "Haiti":                1440,
+# ── ELO ratings ────────────────────────────────────────────────────────────
+ELO = {
+    "Argentina": 2040, "France": 2005, "England": 1960, "Brazil": 1955,
+    "Spain": 1950, "Portugal": 1940, "Netherlands": 1935, "Germany": 1930,
+    "Italy": 1910, "Croatia": 1880, "Belgium": 1875, "Uruguay": 1860,
+    "Colombia": 1845, "United States": 1845, "Mexico": 1820,
+    "Switzerland": 1815, "Denmark": 1810, "Japan": 1800, "Morocco": 1795,
+    "Senegal": 1785, "Australia": 1770, "Canada": 1765, "South Korea": 1740,
+    "Ecuador": 1730, "Norway": 1725, "Turkey": 1720, "Czechia": 1715,
+    "Serbia": 1710, "Paraguay": 1705, "Poland": 1700,
+    "Bosnia & Herzegovina": 1660, "Ghana": 1655, "Cameroon": 1650,
+    "Ivory Coast": 1640, "South Africa": 1610, "Tunisia": 1605,
+    "Iran": 1600, "Saudi Arabia": 1595, "Egypt": 1590, "Algeria": 1585,
+    "Nigeria": 1580, "Panama": 1545, "Costa Rica": 1540, "Iraq": 1530,
+    "Jordan": 1520, "Uzbekistan": 1510, "Qatar": 1500, "New Zealand": 1490,
+    "Cape Verde": 1480, "Curacao": 1460, "Haiti": 1440, "Scotland": 1720,
+    "DR Congo": 1620, "Wales": 1680,
 }
 
-# Host-nation bonus applied during group stage (home crowd effect)
 HOST_NATIONS   = {"United States", "Mexico", "Canada"}
 HOST_ELO_BONUS = 100
 
-# ── Maths helpers ──────────────────────────────────────────────────────────
+# ── Maths ──────────────────────────────────────────────────────────────────
 
 def normalise_team(raw: str) -> str:
-    """Return the canonical team name, or the raw string if not in the map."""
     return TEAM_NAME_MAP.get(raw, raw)
 
 
-def strip_vig(outcomes: list[dict]) -> dict:
-    """
-    Given a list of {"name": str, "price": float} decimal-odds outcomes,
-    strip the bookmaker margin and return true probabilities.
-
-    P_raw_i  = 1 / decimal_odds_i
-    overround = sum(P_raw_i)
-    P_true_i  = P_raw_i / overround
-    """
-    raw_probs = {o["name"]: 1.0 / o["price"] for o in outcomes if o.get("price", 0) > 1}
-    total = sum(raw_probs.values())
-    if total == 0:
+def strip_vig(home_price: float, draw_price: float, away_price: float) -> dict:
+    """Strip bookmaker margin; return true win/draw/loss probabilities."""
+    if not all([home_price, draw_price, away_price]):
         return {}
-    return {name: round(p / total, 4) for name, p in raw_probs.items()}
+    raws = [1/home_price, 1/draw_price, 1/away_price]
+    total = sum(raws)
+    return {
+        "home": round(raws[0] / total, 4),
+        "draw": round(raws[1] / total, 4),
+        "away": round(raws[2] / total, 4),
+    }
 
 
-def elo_win_prob(elo_a: float, elo_b: float) -> float:
-    """Expected win probability for team A against team B using ELO formula."""
-    return 1.0 / (1.0 + math.pow(10, (elo_b - elo_a) / 400.0))
-
-
-def elo_match_probs(home: str, away: str, group_stage: bool = True) -> dict:
-    """
-    Estimate Win / Draw / Loss probabilities from ELO ratings.
-
-    Draw probability is derived empirically from tournament data:
-    roughly 23-27% of World Cup group matches end level. We use a
-    base draw rate modulated by how close the teams are in ELO.
-    """
-    elo_h = ELO_RATINGS.get(home, 1700)
-    elo_a = ELO_RATINGS.get(away, 1700)
-
+def elo_probs(home: str, away: str, group_stage: bool = True) -> dict:
+    """Estimate match probabilities from ELO ratings."""
+    elo_h = ELO.get(home, 1700)
+    elo_a = ELO.get(away, 1700)
     if group_stage and home in HOST_NATIONS:
         elo_h += HOST_ELO_BONUS
-
-    p_home_win_raw = elo_win_prob(elo_h, elo_a)
-
-    # Draw rate: closer teams draw more often (max ~30%), dominant gaps draw less (~15%)
-    elo_diff = abs(elo_h - elo_a)
-    draw_rate = max(0.15, 0.27 - (elo_diff / 4000.0))
-
-    # Split remaining probability proportionally
-    p_home = p_home_win_raw * (1.0 - draw_rate)
-    p_away = (1.0 - p_home_win_raw) * (1.0 - draw_rate)
+    p_home_raw = 1.0 / (1.0 + math.pow(10, (elo_a - elo_h) / 400.0))
+    diff = abs(elo_h - elo_a)
+    draw_rate = max(0.15, 0.27 - diff / 4000.0)
+    p_home = p_home_raw * (1.0 - draw_rate)
+    p_away = (1.0 - p_home_raw) * (1.0 - draw_rate)
     p_draw = draw_rate
-
-    # Normalise to ensure they sum to 1.0
     total = p_home + p_away + p_draw
     return {
         "home": round(p_home / total, 4),
@@ -292,222 +245,207 @@ def elo_match_probs(home: str, away: str, group_stage: bool = True) -> dict:
     }
 
 
-# ── API client ─────────────────────────────────────────────────────────────
-
-def api_get(path: str, params: Optional[dict] = None) -> Optional[dict]:
+def extract_1x2(bookmaker_odds: dict, slug: str):
     """
-    GET request to OddsPapi with error isolation.
-    Returns parsed JSON dict or None if the call fails.
+    Safely dig out (home, draw, away) decimal prices for one bookmaker.
+    Path: bookmakerOdds[slug]["markets"]["101"]["outcomes"]["101"]["players"]["0"]["price"]
+    Returns (home, draw, away) floats or None.
     """
-    if not API_KEY:
-        log.error("ODDSPAPI_KEY environment variable is not set.")
-        return None
-
-    url = f"{BASE_URL}/{path}"
-    headers = {"Authorization": f"Bearer {API_KEY}"}
-
     try:
-        resp = requests.get(url, headers=headers, params=params or {}, timeout=REQUEST_TIMEOUT)
+        markets = bookmaker_odds[slug]["markets"]
+        outcomes = markets[MARKET_1X2]["outcomes"]
+        home = outcomes[OUTCOME_HOME]["players"]["0"]["price"]
+        draw = outcomes[OUTCOME_DRAW]["players"]["0"]["price"]
+        away = outcomes[OUTCOME_AWAY]["players"]["0"]["price"]
+        # Validate all are sensible decimal odds
+        if all(isinstance(p, (int, float)) and p > 1.0 for p in [home, draw, away]):
+            return float(home), float(draw), float(away)
+    except (KeyError, TypeError, IndexError):
+        pass
+    return None
+
+# ── API helpers ─────────────────────────────────────────────────────────────
+
+def api_get(path: str, params: dict = None) -> Optional[dict]:
+    """GET with error isolation. Auth goes in query params."""
+    if not API_KEY:
+        log.error("ODDSPAPI_KEY not set.")
+        return None
+    url = f"{BASE_URL}/{path}"
+    p = {"apiKey": API_KEY}
+    if params:
+        p.update(params)
+    try:
+        resp = requests.get(url, params=p, timeout=REQUEST_TIMEOUT)
         if resp.status_code == 429:
-            log.warning("Rate limited — waiting 5 s then retrying.")
+            log.warning("Rate limited — sleeping 5s.")
             time.sleep(5)
-            resp = requests.get(url, headers=headers, params=params or {}, timeout=REQUEST_TIMEOUT)
+            resp = requests.get(url, params=p, timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
         return resp.json()
-    except requests.exceptions.Timeout:
-        log.error("Request timed out: %s", url)
     except requests.exceptions.HTTPError as e:
-        log.error("HTTP error %s for %s", e.response.status_code, url)
+        log.error("HTTP %s for %s", e.response.status_code, url)
+    except requests.exceptions.Timeout:
+        log.error("Timeout: %s", url)
     except requests.exceptions.RequestException as e:
         log.error("Request failed: %s", e)
     except ValueError:
-        log.error("Response was not valid JSON from %s", url)
+        log.error("Non-JSON response from %s", url)
     return None
 
 
-# ── Data fetching ──────────────────────────────────────────────────────────
-
-def fetch_fixtures() -> list[dict]:
+def fetch_fixtures_window(date_from: str, date_to: str) -> list:
     """
-    Pull all upcoming and live World Cup fixtures.
-    OddsPapi returns fixtures paginated; we walk all pages.
+    Fetch fixtures for a date window (max 10 days).
+    Filters to World Cup tournament only.
     """
-    fixtures = []
-    page = 1
-
-    while True:
-        data = api_get(f"sports/{SPORT}/leagues/{LEAGUE_SLUG}/fixtures",
-                       params={"page": page, "status": "upcoming"})
-        if not data:
-            break
-
-        batch = data.get("data") or data.get("fixtures") or []
-        if not batch:
-            break
-
-        fixtures.extend(batch)
-        log.info("  fetched fixtures page %d (%d fixtures so far)", page, len(fixtures))
-
-        meta = data.get("meta", {})
-        if not meta.get("next_page"):
-            break
-        page += 1
-        time.sleep(REQUEST_DELAY)
-
-    log.info("Total fixtures found: %d", len(fixtures))
-    return fixtures
+    data = api_get("fixtures", {
+        "sportId": SPORT_ID,
+        "from": date_from,
+        "to": date_to,
+    })
+    if not data:
+        return []
+    # Response may be a list directly or wrapped in a key
+    fixtures = data if isinstance(data, list) else data.get("data", data.get("fixtures", []))
+    wc = [f for f in fixtures
+          if isinstance(f, dict) and
+          TOURNAMENT_NAME.lower() in str(f.get("tournamentName", "")).lower()]
+    log.info("  %s to %s: %d World Cup fixtures", date_from, date_to, len(wc))
+    return wc
 
 
-def fetch_odds_for_fixture(fixture_id: str) -> Optional[dict]:
+def fetch_all_fixtures() -> list:
     """
-    Fetch 1X2 head-to-head odds for a single fixture.
-    Returns the raw bookmakers list or None.
+    Walk the full tournament window in 9-day chunks (API max is 10 days).
+    Tournament: June 11 – July 19, 2026.
     """
+    start = datetime(2026, 6, 11)
+    end   = datetime(2026, 7, 19)
+    all_fixtures = []
+    cursor = start
+
+    while cursor <= end:
+        window_end = min(cursor + timedelta(days=9), end)
+        chunk = fetch_fixtures_window(
+            cursor.strftime("%Y-%m-%d"),
+            window_end.strftime("%Y-%m-%d"),
+        )
+        all_fixtures.extend(chunk)
+        cursor = window_end + timedelta(days=1)
+        if cursor <= end:
+            time.sleep(REQUEST_DELAY)
+
+    # Deduplicate by fixture ID
+    seen = set()
+    unique = []
+    for f in all_fixtures:
+        fid = str(f.get("fixtureId") or f.get("id") or "")
+        if fid and fid not in seen:
+            seen.add(fid)
+            unique.append(f)
+
+    log.info("Total unique World Cup fixtures: %d", len(unique))
+    return unique
+
+
+def fetch_odds(fixture_id: str) -> Optional[dict]:
+    """Fetch 1X2 odds for one fixture. Returns bookmakerOdds dict or None."""
     time.sleep(REQUEST_DELAY)
-    data = api_get(f"sports/{SPORT}/fixtures/{fixture_id}/odds",
-                   params={"market": "h2h"})
+    data = api_get("odds", {
+        "fixtureId": fixture_id,
+        "bookmakers": BOOKMAKERS,
+    })
     if not data:
         return None
-    return data.get("data") or data.get("bookmakers")
+    # bookmakerOdds is the key per the docs
+    return data.get("bookmakerOdds") or data.get("bookmakers")
 
 
-# ── Match processing ───────────────────────────────────────────────────────
+# ── Build match record ──────────────────────────────────────────────────────
 
-def process_sportsbook_layer(bookmakers_data) -> Optional[dict]:
-    """
-    Average the vig-stripped probabilities across all available bookmakers.
-    Returns {"home": float, "draw": float, "away": float} or None.
-    """
-    if not bookmakers_data:
-        return None
+def build_record(fixture: dict, bm_odds: Optional[dict]) -> Optional[dict]:
+    """Combine fixture + live odds + ELO into the dashboard's data schema."""
+    raw_home = (fixture.get("participant1Name") or
+                fixture.get("home_team") or
+                fixture.get("homeTeam") or "")
+    raw_away = (fixture.get("participant2Name") or
+                fixture.get("away_team") or
+                fixture.get("awayTeam") or "")
 
-    home_probs, draw_probs, away_probs = [], [], []
-
-    books = bookmakers_data if isinstance(bookmakers_data, list) else [bookmakers_data]
-
-    for book in books:
-        markets = book.get("markets", [])
-        for market in markets:
-            if market.get("key") not in ("h2h", "1x2", "match_winner"):
-                continue
-            outcomes = market.get("outcomes", [])
-            if len(outcomes) < 3:
-                continue
-            stripped = strip_vig(outcomes)
-            for name, prob in stripped.items():
-                norm = normalise_team(name)
-                if name.lower() in ("draw", "tie", "x"):
-                    draw_probs.append(prob)
-                # We'll match home/away later once we know the teams
-                else:
-                    # Stash with the normalised team name
-                    if norm:
-                        home_probs.append((norm, prob))
-
-    # This raw approach works; the caller correlates home/away names
-    return {"raw_books": books}
-
-
-def build_match_record(fixture: dict, bookmakers_data) -> Optional[dict]:
-    """
-    Combine fixture metadata + sportsbook odds + ELO layer into the
-    exact schema that data.json (and the dashboard) expects.
-    """
-    raw_home = fixture.get("home_team") or fixture.get("homeTeam") or ""
-    raw_away = fixture.get("away_team") or fixture.get("awayTeam") or ""
     home = normalise_team(raw_home)
     away = normalise_team(raw_away)
-
     if not home or not away:
         return None
 
-    fixture_id   = fixture.get("id") or fixture.get("fixture_id") or ""
-    kickoff      = fixture.get("date") or fixture.get("kickoff") or ""
-    group        = fixture.get("group") or fixture.get("league_round") or "Group Stage"
-    is_group     = "group" in str(group).lower()
+    fixture_id = str(fixture.get("fixtureId") or fixture.get("id") or "")
+    kickoff    = fixture.get("startTime") or fixture.get("date") or ""
+    group      = (fixture.get("roundName") or
+                  fixture.get("group") or
+                  fixture.get("league_round") or "Group Stage")
+    is_group   = "group" in str(group).lower()
 
     home_meta = TEAM_META.get(home, {"code": home[:3].upper(), "flag": home[:3].lower()})
     away_meta = TEAM_META.get(away, {"code": away[:3].upper(), "flag": away[:3].lower()})
 
-    # ── Layer 1: Sportsbook consensus (vig-stripped average) ──────────────
-    sb_home_probs, sb_draw_probs, sb_away_probs = [], [], []
+    # ── Layer 1: Sportsbook consensus (average across sharp books) ─────────
+    sb_home, sb_draw, sb_away = [], [], []
+    SHARP_BOOKS = ["pinnacle", "bet365", "draftkings", "fanduel", "sbobet"]
 
-    if bookmakers_data:
-        books = bookmakers_data if isinstance(bookmakers_data, list) else [bookmakers_data]
-        for book in books:
-            markets = book.get("markets", [])
-            for market in markets:
-                if market.get("key") not in ("h2h", "1x2", "match_winner"):
-                    continue
-                outcomes = market.get("outcomes", [])
-                if len(outcomes) < 3:
-                    continue
-                stripped = strip_vig(outcomes)
-                for name, prob in stripped.items():
-                    norm = normalise_team(name)
-                    low  = name.lower()
-                    if low in ("draw", "tie", "x"):
-                        sb_draw_probs.append(prob)
-                    elif norm == home:
-                        sb_home_probs.append(prob)
-                    elif norm == away:
-                        sb_away_probs.append(prob)
+    if bm_odds:
+        for slug in SHARP_BOOKS:
+            prices = extract_1x2(bm_odds, slug)
+            if prices:
+                stripped = strip_vig(*prices)
+                sb_home.append(stripped["home"])
+                sb_draw.append(stripped["draw"])
+                sb_away.append(stripped["away"])
 
-    has_sb = sb_home_probs and sb_draw_probs and sb_away_probs
+    has_sb = bool(sb_home)
     if has_sb:
         sb_layer = {
-            "source":   "Sportsbooks (Consensus)",
-            "fav":      f"{round(sum(sb_home_probs)/len(sb_home_probs)*100, 1)}%",
-            "draw":     f"{round(sum(sb_draw_probs)/len(sb_draw_probs)*100, 1)}%",
-            "und":      f"{round(sum(sb_away_probs)/len(sb_away_probs)*100, 1)}%",
+            "source": "Sportsbooks (Consensus)",
+            "fav":    f"{round(sum(sb_home)/len(sb_home)*100, 1)}%",
+            "draw":   f"{round(sum(sb_draw)/len(sb_draw)*100, 1)}%",
+            "und":    f"{round(sum(sb_away)/len(sb_away)*100, 1)}%",
         }
     else:
         sb_layer = None
 
-    # ── Layer 2: ELO / Poisson model ──────────────────────────────────────
-    elo_probs = elo_match_probs(home, away, group_stage=is_group)
+    # ── Layer 2: ELO/Poisson model ─────────────────────────────────────────
+    ep = elo_probs(home, away, group_stage=is_group)
     elo_layer = {
         "source": "ELO/Poisson Model",
-        "fav":    f"{round(elo_probs['home']*100, 1)}%",
-        "draw":   f"{round(elo_probs['draw']*100, 1)}%",
-        "und":    f"{round(elo_probs['away']*100, 1)}%",
+        "fav":    f"{round(ep['home']*100, 1)}%",
+        "draw":   f"{round(ep['draw']*100, 1)}%",
+        "und":    f"{round(ep['away']*100, 1)}%",
     }
 
-    # ── Layer 3: Prediction markets (Polymarket / Kalshi) ─────────────────
-    # OddsPapi includes these as bookmakers with keys "polymarket"/"kalshi"
-    pm_home_probs, pm_draw_probs, pm_away_probs = [], [], []
+    # ── Layer 3: Prediction markets ────────────────────────────────────────
+    pm_home, pm_draw, pm_away = [], [], []
+    PM_BOOKS = ["polymarket", "kalshi"]
 
-    if bookmakers_data:
-        books = bookmakers_data if isinstance(bookmakers_data, list) else [bookmakers_data]
-        for book in books:
-            if book.get("key", "").lower() not in ("polymarket", "kalshi"):
-                continue
-            markets = book.get("markets", [])
-            for market in markets:
-                outcomes = market.get("outcomes", [])
-                stripped = strip_vig(outcomes)
-                for name, prob in stripped.items():
-                    norm = normalise_team(name)
-                    low  = name.lower()
-                    if low in ("draw", "tie", "x"):
-                        pm_draw_probs.append(prob)
-                    elif norm == home:
-                        pm_home_probs.append(prob)
-                    elif norm == away:
-                        pm_away_probs.append(prob)
+    if bm_odds:
+        for slug in PM_BOOKS:
+            prices = extract_1x2(bm_odds, slug)
+            if prices:
+                stripped = strip_vig(*prices)
+                pm_home.append(stripped["home"])
+                pm_draw.append(stripped["draw"])
+                pm_away.append(stripped["away"])
 
-    has_pm = pm_home_probs and pm_draw_probs and pm_away_probs
+    has_pm = bool(pm_home)
     if has_pm:
         pm_layer = {
             "source": "Prediction Markets (P2P)",
-            "fav":    f"{round(sum(pm_home_probs)/len(pm_home_probs)*100, 1)}%",
-            "draw":   f"{round(sum(pm_draw_probs)/len(pm_draw_probs)*100, 1)}%",
-            "und":    f"{round(sum(pm_away_probs)/len(pm_away_probs)*100, 1)}%",
+            "fav":    f"{round(sum(pm_home)/len(pm_home)*100, 1)}%",
+            "draw":   f"{round(sum(pm_draw)/len(pm_draw)*100, 1)}%",
+            "und":    f"{round(sum(pm_away)/len(pm_away)*100, 1)}%",
         }
     else:
         pm_layer = None
 
-    # Build the layers list — always include ELO, include others when available
+    # Build layers list (always include ELO; others when data available)
     layers = []
     if sb_layer:
         layers.append(sb_layer)
@@ -515,75 +453,66 @@ def build_match_record(fixture: dict, bookmakers_data) -> Optional[dict]:
     if pm_layer:
         layers.append(pm_layer)
 
-    # Determine favourite (highest home-win probability across available sources)
-    best_home_pct = elo_probs["home"]
-    if sb_home_probs:
-        best_home_pct = sum(sb_home_probs) / len(sb_home_probs)
+    # Favourite = team with highest average home-win probability
+    best_home_pct = ep["home"]
+    if sb_home:
+        best_home_pct = sum(sb_home) / len(sb_home)
 
     fav_team = home if best_home_pct >= 0.5 else away
     und_team = away if fav_team == home else home
 
-    # Human-readable meta line
-    if kickoff:
-        try:
-            dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
-            meta_str = f"{dt.strftime('%B %-d · %-I:%M %p %Z')} · {group}"
-        except Exception:
-            meta_str = f"{kickoff} · {group}"
-    else:
-        meta_str = group
+    # Human-readable kickoff line
+    try:
+        dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+        # Convert to EDT (UTC-4) for display
+        edt = dt - timedelta(hours=4)
+        meta_str = f"{edt.strftime('%B %-d · %-I:%M %p')} EDT · {group}"
+    except Exception:
+        meta_str = f"{kickoff} · {group}" if kickoff else group
 
     return {
-        "id":        f"match_{fixture_id}",
-        "stage":     group,
-        "side":      "left",          # bracket side — future enhancement
-        "type":      "UPCOMING",
-        "home":      home,
-        "away":      away,
-        "favTeam":   fav_team,
-        "undTeam":   und_team,
-        "homeFlag":  home_meta["flag"],
-        "awayFlag":  away_meta["flag"],
-        "meta":      meta_str,
-        "layers":    layers,
+        "id":       f"match_{fixture_id}",
+        "stage":    str(group),
+        "side":     "left",
+        "type":     "UPCOMING",
+        "home":     home,
+        "away":     away,
+        "favTeam":  fav_team,
+        "undTeam":  und_team,
+        "homeFlag": home_meta["flag"],
+        "awayFlag": away_meta["flag"],
+        "meta":     meta_str,
+        "layers":   layers,
     }
 
 
-# ── Atomic file writer ─────────────────────────────────────────────────────
+# ── Atomic file write ──────────────────────────────────────────────────────
 
 def atomic_write(path: str, data: dict) -> None:
-    """
-    Write to a temp file first, then rename over the target.
-    This prevents the dashboard from ever reading a half-written file.
-    """
     dir_name = os.path.dirname(os.path.abspath(path)) or "."
-    fd, tmp_path = tempfile.mkstemp(dir=dir_name, suffix=".tmp")
+    fd, tmp = tempfile.mkstemp(dir=dir_name, suffix=".tmp")
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
             f.write("\n")
-        shutil.move(tmp_path, path)
+        shutil.move(tmp, path)
         log.info("Wrote %s successfully.", path)
     except Exception:
-        os.unlink(tmp_path)
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
         raise
 
 
-# ── Load existing data (preserve completed matches) ───────────────────────
-
 def load_existing(path: str) -> dict:
-    """
-    Read the current data.json.
-    We keep all COMPLETED matches exactly as they are — only UPCOMING
-    records get replaced by fresh API data.
-    """
     if not os.path.exists(path):
         return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
     try:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except (json.JSONDecodeError, OSError) as e:
-        log.warning("Could not read existing %s (%s) — starting fresh.", path, e)
+        log.warning("Could not read %s (%s) — starting fresh.", path, e)
         return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
 
 
@@ -593,47 +522,53 @@ def main() -> None:
     log.info("=== World Cup data ingestion starting ===")
 
     if not API_KEY:
-        log.error("ODDSPAPI_KEY is not set. Set it as an environment variable and retry.")
+        log.error("ODDSPAPI_KEY is not set.")
         raise SystemExit(1)
 
-    # Load existing file so we can preserve completed matches
-    existing = load_existing(OUTPUT_FILE)
-    completed_matches = [m for m in existing.get("matches", []) if m.get("type") == "COMPLETED"]
-    log.info("Preserved %d completed match(es) from existing file.", len(completed_matches))
+    existing      = load_existing(OUTPUT_FILE)
+    completed     = [m for m in existing.get("matches", []) if m.get("type") == "COMPLETED"]
+    log.info("Preserved %d completed match(es).", len(completed))
 
-    # Fetch live fixtures
-    log.info("Fetching fixtures from OddsPapi...")
-    fixtures = fetch_fixtures()
+    log.info("Fetching fixtures (June 11 – July 19)...")
+    fixtures = fetch_all_fixtures()
 
     if not fixtures:
         log.warning("No fixtures returned — keeping existing data unchanged.")
         return
 
-    # Process each fixture
-    new_upcoming = []
+    # Only process UPCOMING fixtures (skip ones we already have as COMPLETED)
+    completed_ids = {m["id"] for m in completed}
+    new_upcoming  = []
+
     for i, fixture in enumerate(fixtures):
-        fid = fixture.get("id") or fixture.get("fixture_id") or f"unknown_{i}"
-        log.info("Processing fixture %s (%d/%d)...", fid, i + 1, len(fixtures))
+        fid = str(fixture.get("fixtureId") or fixture.get("id") or f"unknown_{i}")
+        match_id = f"match_{fid}"
 
-        bookmakers = fetch_odds_for_fixture(str(fid))
+        if match_id in completed_ids:
+            log.info("Skipping %s (already completed).", match_id)
+            continue
 
-        record = build_match_record(fixture, bookmakers)
+        log.info("Processing %s (%d/%d)...", fid, i+1, len(fixtures))
+        bm_odds = fetch_odds(fid)
+
+        record = build_record(fixture, bm_odds)
         if record:
             new_upcoming.append(record)
+            layers_count = len(record.get("layers", []))
+            log.info("  → %s vs %s | %d layer(s)", record["home"], record["away"], layers_count)
         else:
-            log.warning("Skipped fixture %s (could not build record).", fid)
+            log.warning("  → Skipped fixture %s (no valid teams).", fid)
 
-    log.info("Built %d upcoming match record(s).", len(new_upcoming))
+    log.info("Built %d upcoming record(s).", len(new_upcoming))
 
-    # Assemble final output — completed first (chronological), then upcoming
     output = {
         "currentStage": existing.get("currentStage", "Group Stage"),
         "lastUpdated":  datetime.now(timezone.utc).strftime("%B %-d, %Y · %-I:%M %p UTC"),
-        "matches":      completed_matches + new_upcoming,
+        "matches":      completed + new_upcoming,
     }
 
     atomic_write(OUTPUT_FILE, output)
-    log.info("=== Done. %d total matches in data.json ===", len(output["matches"]))
+    log.info("=== Done. %d total matches in %s ===", len(output["matches"]), OUTPUT_FILE)
 
 
 if __name__ == "__main__":
