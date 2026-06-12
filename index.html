@@ -1,657 +1,1208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 World Cup Matchday Tracker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 World Cup · Prediction Tracker</title>
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────── */
+:root {
+  --bg:          #07101f;
+  --surface:     #0d1b30;
+  --surface2:    #112240;
+  --border:      rgba(255,255,255,0.07);
+  --border-hi:   rgba(255,255,255,0.14);
 
-    <style>
-        :root {
-            --bg-body: #060b19;
-            --bg-dashboard: rgba(13, 23, 47, 0.95);
-            --bg-header: #0a1124;
-            --bg-spacer: #03060f;
-            --border-grid: rgba(255, 255, 255, 0.06);
-            --border-neon: rgba(0, 210, 255, 0.2);
-            --text-main: #FFFFFF;
-            --text-gold: #F39C12;
-            --text-neon: #00D2FF;
-            --text-muted: #8A99AD;
-            --color-favorite: #2ECC71;
-            --color-draw: #2563EB;
-            --color-underdog: #E67E22;
-        }
+  --text-hi:     #f0f4ff;
+  --text-mid:    #8fa3be;
+  --text-lo:     #4a607a;
 
-        * { box-sizing: border-box; }
+  --gold:        #f0b429;
+  --neon:        #38bdf8;
+  --green:       #34d399;
+  --amber:       #fbbf24;
+  --red:         #f87171;
+  --purple:      #a78bfa;
 
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-            background-color: var(--bg-body);
-            background-image: radial-gradient(circle at top, #14203e 0%, #060b19 80%);
-            background-attachment: fixed;
-            color: var(--text-main);
-            margin: 0;
-            padding: 16px 8px;
-            -webkit-font-smoothing: antialiased;
-        }
+  --signal-back:   #34d399;
+  --signal-draw:   #fbbf24;
+  --signal-upset:  #f87171;
+  --signal-value:  #a78bfa;
+  --signal-lean:   #38bdf8;
 
-        .dashboard-container {
-            max-width: 1250px;
-            margin: 0 auto;
-            background-color: var(--bg-dashboard);
-            border: 1px solid var(--border-neon);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-        }
+  --radius:      10px;
+  --radius-sm:   6px;
+  --font:        -apple-system, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  --font-mono:   "SF Mono", "Fira Code", monospace;
+}
 
-        .header-banner {
-            background-color: var(--bg-header);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--border-grid);
-            position: relative;
-        }
+/* ── RESET & BASE ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-hi);
+  min-height: 100vh;
+  padding: 12px 8px 32px;
+  -webkit-font-smoothing: antialiased;
+}
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
-        h1 {
-            margin: 0 0 4px 0;
-            font-size: 22px;
-            font-weight: 800;
-            color: #FFFFFF;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
-        }
+/* ── SHELL ──────────────────────────────────────────────────────────── */
+.shell {
+  max-width: 780px;
+  margin: 0 auto;
+}
 
-        .meta-header { font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
-        .updated-stamp { font-size: 10px; color: var(--text-neon); font-weight: 600; margin-top: 6px; opacity: 0.85; }
+/* ── HEADER ─────────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: 20px 16px 16px;
+  margin-bottom: 4px;
+}
+.header-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 6px;
+}
+.header-title {
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 800;
+  color: var(--text-hi);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.header-meta {
+  font-size: 11px;
+  color: var(--text-mid);
+  margin-top: 6px;
+}
+.header-updated {
+  font-size: 10px;
+  color: var(--neon);
+  margin-top: 4px;
+  opacity: 0.8;
+}
 
-        .control-bar {
-            background-color: rgba(4, 8, 18, 0.9);
-            padding: 10px;
-            border-bottom: 1px solid var(--border-grid);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
+/* ── CONTROL BAR ────────────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+}
+.controls-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.controls-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-lo);
+  min-width: 50px;
+}
+.btn {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hi);
+  color: var(--text-mid);
+  background: rgba(255,255,255,0.03);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { color: var(--text-hi); border-color: rgba(255,255,255,0.25); }
+.btn.active {
+  color: var(--text-hi);
+  border-color: var(--neon);
+  background: rgba(56,189,248,0.1);
+}
+.btn.lang-active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(240,180,41,0.08);
+}
 
-        .mode-group, .lang-group { display: flex; gap: 8px; }
+/* ── STAGE TABS ─────────────────────────────────────────────────────── */
+.stage-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.stage-tabs::-webkit-scrollbar { display: none; }
 
-        .control-btn {
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 700;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-        .control-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.2); }
-        .control-btn.active { color: #FFFFFF; border-color: var(--text-neon); background-color: rgba(0,210,255,0.1); }
-        .control-btn:focus-visible { outline: 2px solid var(--text-neon); outline-offset: 2px; }
+/* ── VIEW PANELS ────────────────────────────────────────────────────── */
+.view-panel { display: none; }
+.view-panel.active { display: block; }
 
-        .side-selector {
-            background-color: rgba(8, 15, 32, 0.8);
-            padding: 8px;
-            border-bottom: 1px solid var(--border-grid);
-            display: none;
-            justify-content: center;
-            gap: 10px;
-        }
+/* ── SECTION HEADER ─────────────────────────────────────────────────── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0 10px;
+}
+.section-head-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--neon);
+}
+.section-head-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.section-head-count {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-lo);
+}
 
-        .view-content { display: none; }
-        .view-content.active { display: block; }
+/* ── MATCH CARD ─────────────────────────────────────────────────────── */
+.match-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  /* left accent bar via box-shadow */
+  box-shadow: inset 3px 0 0 var(--signal-back);
+  transition: box-shadow 0.2s;
+}
+.match-card[data-signal="draw"]   { box-shadow: inset 3px 0 0 var(--signal-draw); }
+.match-card[data-signal="upset"]  { box-shadow: inset 3px 0 0 var(--signal-upset); }
+.match-card[data-signal="value"]  { box-shadow: inset 3px 0 0 var(--signal-value); }
+.match-card[data-signal="lean"]   { box-shadow: inset 3px 0 0 var(--signal-lean); }
+.match-card[data-signal="back"]   { box-shadow: inset 3px 0 0 var(--signal-back); }
+.match-card[data-signal="done"]   { box-shadow: inset 3px 0 0 var(--text-lo); }
 
-        .section-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-neon);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 12px 20px;
-            background-color: rgba(4, 8, 18, 0.4);
-            border-bottom: 1px solid var(--border-grid);
-        }
+/* ── MATCH HEADER (teams + meta) ────────────────────────────────────── */
+.match-header {
+  padding: 12px 14px 10px 17px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+}
+.match-teams { display: flex; flex-direction: column; gap: 5px; }
+.team-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.flag {
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.flag svg { width: 100%; height: 100%; display: block; }
+.team-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-hi);
+  line-height: 1;
+}
+.team-badge {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-left: 2px;
+}
+.badge-fav {
+  background: rgba(52,211,153,0.15);
+  color: var(--green);
+  border: 1px solid rgba(52,211,153,0.3);
+}
+.badge-und {
+  background: rgba(248,113,113,0.1);
+  color: var(--red);
+  border: 1px solid rgba(248,113,113,0.25);
+}
+.match-meta-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-end;
+}
+.match-group-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(240,180,41,0.1);
+  border: 1px solid rgba(240,180,41,0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.match-kickoff {
+  font-size: 10px;
+  color: var(--text-mid);
+  font-weight: 600;
+}
 
-        .table-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
-        table { width: 100%; border-collapse: collapse; min-width: 800px; }
-        thead th { padding: 12px 20px; border-bottom: 2px solid var(--border-grid); font-size: 11px; color: var(--text-gold); text-transform: uppercase; text-align: left; }
+/* ── SOURCE ROWS TABLE ──────────────────────────────────────────────── */
+.sources-table {
+  width: 100%;
+  padding: 0 17px;
+}
+.sources-header {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 80px;
+  padding: 7px 0 5px;
+  border-bottom: 1px solid var(--border);
+}
+.sources-header span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-lo);
+  text-align: center;
+}
+.sources-header span:first-child { text-align: left; }
+.source-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 80px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  align-items: center;
+}
+.source-row:last-child { border-bottom: none; }
+.source-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-mid);
+}
+.prob-cell {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-mid);
+}
+.prob-cell.hi { color: var(--text-hi); }
+.prob-cell.null-val { color: var(--text-lo); font-size: 12px; }
 
-        .match-group-block { border-bottom: 12px solid var(--bg-spacer); }
-        .match-group-block:last-child { border-bottom: none; }
+/* ── COL HEADERS (fav/draw/und labels) ──────────────────────────────── */
+.col-fav-label  { color: var(--green) !important; }
+.col-draw-label { color: var(--neon) !important; }
+.col-und-label  { color: var(--red) !important; }
 
-        .col-matchup { padding: 14px 20px; vertical-align: middle; width: 35%; border-right: 1px solid var(--border-grid); background-color: rgba(255,255,255,0.01); }
-        .match-title-wrap { display: flex; flex-direction: column; gap: 5px; }
-        .team-line { display: flex; align-items: center; gap: 10px; }
-        .flag-icon { width: 20px; height: 13px; border-radius: 1px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.4); flex-shrink: 0; }
-        .flag-icon svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* ── RECOMMENDATION BAR ─────────────────────────────────────────────── */
+.reco-bar {
+  margin: 0 17px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.reco-icon { font-size: 14px; flex-shrink: 0; line-height: 1.3; }
+.reco-text { font-size: 12px; font-weight: 600; line-height: 1.4; }
+.reco-sub  { font-size: 10px; font-weight: 500; opacity: 0.8; margin-top: 2px; }
 
-        .team-name { font-size: 16px; font-weight: 700; color: #FFFFFF; }
-        .team-role { font-size: 9px; font-weight: 800; padding: 1px 4px; border-radius: 2px; margin-left: auto; }
-        .team-role.fav { background-color: rgba(46, 204, 113, 0.15); color: var(--color-favorite); }
-        .team-role.und { background-color: rgba(230, 126, 34, 0.15); color: var(--color-underdog); }
-        .match-meta { font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
+.reco-back  { background: rgba(52,211,153,0.08);  border: 1px solid rgba(52,211,153,0.2);  }
+.reco-draw  { background: rgba(251,191,36,0.08);  border: 1px solid rgba(251,191,36,0.2);  }
+.reco-upset { background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2); }
+.reco-value { background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.2); }
+.reco-lean  { background: rgba(56,189,248,0.08);  border: 1px solid rgba(56,189,248,0.2);  }
 
-        .col-data-layers { padding: 0; vertical-align: middle; }
+.reco-back  .reco-text { color: var(--green); }
+.reco-draw  .reco-text { color: var(--amber); }
+.reco-upset .reco-text { color: var(--red); }
+.reco-value .reco-text { color: var(--purple); }
+.reco-lean  .reco-text { color: var(--neon); }
 
-        .layer-row { display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 4px 20px; }
-        .layer-row:last-child { border-bottom: none; }
-        .col-source { font-size: 12px; font-weight: 600; color: #E2E8F0; }
+/* ── COMPLETED CARD ─────────────────────────────────────────────────── */
+.score-block {
+  padding: 10px 17px 12px;
+}
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.audit-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.audit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+.audit-source { font-size: 11px; color: var(--text-mid); }
+.audit-mark { font-size: 16px; font-weight: 800; }
+.audit-correct   { color: var(--green); }
+.audit-incorrect { color: var(--red); }
+.insight-row {
+  margin-top: 8px;
+  padding: 7px 10px;
+  background: rgba(240,180,41,0.05);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid rgba(240,180,41,0.3);
+  font-size: 11px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+.insight-label {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3px;
+}
 
-        .string-cell { font-size: 13px; font-weight: 600; text-align: center; }
-        .string-cell.win { color: var(--color-favorite); }
-        .string-cell.draw { color: var(--text-neon); }
-        .string-cell.loss { color: #FFFFFF; opacity: 0.85; }
+/* ── EMPTY STATE ─────────────────────────────────────────────────────── */
+.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-lo);
+  font-size: 13px;
+}
 
-        .completed-layer-row { display: grid; grid-template-columns: 1.4fr 2.15fr 0.5fr; align-items: center; border-bottom: 1px solid var(--border-grid); padding: 6px 20px; }
-        .completed-layer-row:last-child { border-bottom: none; }
-        .final-badge-box { background: rgba(0, 210, 255, 0.06); color: var(--text-gold); font-weight: 700; text-align: center; padding: 4px 12px; border-radius: 4px; font-size: 13px; border: 1px solid rgba(243, 156, 18, 0.2); width: fit-content; }
-        .audit-marker { font-weight: 800; font-size: 14px; text-align: right; padding-right: 5px; }
-        .audit-marker.correct { color: var(--color-favorite); }
-        .audit-marker.incorrect { color: #EF4444; }
+/* ── BRACKET VIEW ───────────────────────────────────────────────────── */
+.bracket-outer {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 0;
+}
+.bracket-grid {
+  display: flex;
+  gap: 0;
+  min-width: 700px;
+}
+.bracket-round {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  flex-shrink: 0;
+}
+.bracket-round-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--neon);
+  padding: 0 12px 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.bracket-match {
+  margin: 20px 12px;
+  position: relative;
+}
+.bracket-match::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: var(--border-hi);
+}
+.bracket-team {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-hi);
+  border-bottom: 1px solid var(--border-hi);
+  position: relative;
+}
+.bracket-team:last-of-type { border-bottom: none; }
+.bracket-team .flag { width: 16px; height: 11px; }
+.bracket-odds {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--neon);
+  font-variant-numeric: tabular-nums;
+}
+.bracket-draw-pill {
+  position: absolute;
+  right: -38px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--border-hi);
+  border-radius: 10px;
+  padding: 2px 5px;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--neon);
+  white-space: nowrap;
+  z-index: 2;
+}
+.bracket-tbd {
+  color: var(--text-lo);
+  font-size: 11px;
+  font-style: italic;
+}
 
-        .insight-row { background: rgba(243, 156, 18, 0.03); padding: 8px 20px; display: flex; align-items: flex-start; gap: 8px; font-size: 12px; border-top: 1px solid rgba(243, 156, 18, 0.08); }
-        .insight-tag { font-size: 8px; font-weight: 700; color: var(--text-gold); text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(243, 156, 18, 0.3); padding: 1px 4px; border-radius: 2px; white-space: nowrap; }
-        .insight-text { color: #B3C1D1; line-height: 1.4; }
+/* ── STATUS PANE ────────────────────────────────────────────────────── */
+.status-pane {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-mid);
+  font-size: 14px;
+}
+.status-pane.error { color: var(--red); }
+.spinner {
+  width: 24px; height: 24px;
+  border: 2px solid rgba(56,189,248,0.2);
+  border-top-color: var(--neon);
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
 
-        .bracket-viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 30px 15px; width: 100%; }
-        .bracket-wrapper { display: none; gap: 0; min-width: 850px; }
-        .bracket-wrapper.active { display: flex; }
-
-        .bracket-round { display: flex; flex-direction: column; justify-content: space-around; width: 250px; position: relative; }
-        .bracket-round-header { text-align: center; color: var(--text-neon); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 8px; border-bottom: 1px solid var(--border-grid); margin: 0 15px 15px 15px; }
-
-        .bracket-match-node { display: flex; flex-direction: column; padding: 0; margin: 40px 15px; position: relative; width: 190px; }
-
-        .bracket-team-line { display: flex; align-items: center; gap: 6px; padding: 5px 4px 3px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); font-size: 13px; font-weight: 700; color: #FFFFFF; min-height: 22px; position: relative; }
-        .bracket-team-line .flag-icon { width: 16px; height: 11px; box-shadow: none; }
-
-        .bracket-team-line::after { content: ''; position: absolute; right: -16px; bottom: -1px; width: 15px; height: 1px; background-color: rgba(255, 255, 255, 0.3); }
-
-        .bracket-match-node::after { content: ''; position: absolute; right: -16px; top: calc(25% + 8px); width: 1px; height: calc(50% + 1px); background-color: rgba(255, 255, 255, 0.3); }
-        .bracket-match-node::before { content: ''; position: absolute; right: -31px; top: calc(50% + 8px); width: 15px; height: 1px; background-color: rgba(255, 255, 255, 0.3); }
-
-        .bracket-score-status { font-size: 11px; font-weight: 800; color: var(--text-neon); margin-left: auto; }
-        .bracket-score-status.elim { color: var(--text-muted); font-weight: 500; }
-
-        .bracket-draw-junction-bubble { position: absolute; right: -53px; top: calc(50% + 2px); background: #070d1a; border: 1px solid rgba(0, 210, 255, 0.4); border-radius: 3px; padding: 0px 4px; font-size: 8px; color: var(--text-neon); font-weight: 700; white-space: nowrap; z-index: 10; }
-
-        .bracket-lookahead-chassis { background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 255, 255, 0.1); border-radius: 4px; padding: 6px; margin-top: 12px; font-size: 11px; }
-        .bracket-lookahead-title { font-weight: 700; color: var(--text-gold); font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
-        .bracket-lookahead-row { display: flex; justify-content: space-between; color: var(--text-muted); padding: 1px 0; }
-        .bracket-lookahead-row strong { color: #FFFFFF; }
-
-        .footer-key { padding: 16px 20px; background-color: rgba(4, 8, 18, 0.8); font-size: 11px; color: var(--text-muted); line-height: 1.5; border-top: 1px solid var(--border-grid); }
-
-        /* Loading / error / empty states */
-        .status-pane { padding: 50px 20px; text-align: center; color: var(--text-muted); font-size: 14px; font-weight: 600; }
-        .status-pane.error { color: #EF4444; }
-        .spinner { width: 28px; height: 28px; border: 3px solid rgba(0, 210, 255, 0.2); border-top-color: var(--text-neon); border-radius: 50%; margin: 0 auto 14px auto; animation: spin 0.8s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
-        .empty-note { padding: 24px 20px; text-align: center; color: var(--text-muted); font-size: 13px; }
-    </style>
+/* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .sources-header, .source-row {
+    grid-template-columns: 1fr 70px 70px 70px;
+  }
+  .prob-cell { font-size: 12px; }
+  .team-name { font-size: 14px; }
+}
+</style>
 </head>
 <body>
+<div class="shell">
 
-<div class="dashboard-container">
-    <div class="header-banner">
-        <h1 id="lbl-title">2026 World Cup Matchday Tracker</h1>
-        <div class="meta-header" id="lbl-subtitle">Analytical System Data Matrix Feed</div>
-        <div class="updated-stamp" id="lbl-updated"></div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-eyebrow" id="lbl-eyebrow">2026 FIFA World Cup</div>
+    <h1 class="header-title" id="lbl-title">Prediction Tracker</h1>
+    <div class="header-meta" id="lbl-meta">Sportsbooks · ELO/Poisson Model · Prediction Markets</div>
+    <div class="header-updated" id="lbl-updated"></div>
+  </header>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <!-- View toggle -->
+    <div class="controls-row">
+      <span class="controls-label" id="lbl-view">View</span>
+      <button class="btn active" id="btn-grid"    onclick="switchView('grid')"   ></button>
+      <button class="btn"        id="btn-bracket" onclick="switchView('bracket')"></button>
     </div>
-
-    <div class="control-bar">
-        <div class="mode-group">
-            <button class="control-btn active" id="btn-grid" type="button" onclick="switchView('grid')">Probability Grid</button>
-            <button class="control-btn" id="btn-bracket" type="button" onclick="switchView('bracket')">Tournament Bracket</button>
-        </div>
-        <div class="lang-group">
-            <button class="control-btn active" id="lang-en" type="button" onclick="switchLanguage('en')">EN</button>
-            <button class="control-btn" id="lang-ko" type="button" onclick="switchLanguage('ko')">KO</button>
-            <button class="control-btn" id="lang-ja" type="button" onclick="switchLanguage('ja')">JA</button>
-        </div>
+    <!-- Stage tabs -->
+    <div class="controls-row">
+      <span class="controls-label" id="lbl-stage">Stage</span>
+      <div class="stage-tabs" id="stage-tabs"></div>
     </div>
-
-    <div class="side-selector" id="bracket-side-controls">
-        <button class="control-btn active" id="btn-left-side" type="button" onclick="switchSide('left')">Left Side Bracket</button>
-        <button class="control-btn" id="btn-right-side" type="button" onclick="switchSide('right')">Right Side Bracket</button>
+    <!-- Language -->
+    <div class="controls-row">
+      <span class="controls-label">Lang</span>
+      <button class="btn lang-active" id="lang-en" onclick="switchLang('en')">EN</button>
+      <button class="btn"             id="lang-ko" onclick="switchLang('ko')">KO</button>
+      <button class="btn"             id="lang-ja" onclick="switchLang('ja')">JA</button>
     </div>
+  </div>
 
-    <!-- Global status pane: shown while loading or on error -->
-    <div id="global-status" class="status-pane">
-        <div class="spinner"></div>
-        Loading match data&hellip;
+  <!-- STATUS -->
+  <div id="status-pane" class="status-pane">
+    <div class="spinner"></div>
+    Loading…
+  </div>
+
+  <!-- GRID VIEW -->
+  <div id="view-grid" class="view-panel">
+    <!-- Upcoming -->
+    <div class="section-head">
+      <span class="section-head-label" id="lbl-upcoming"></span>
+      <div class="section-head-line"></div>
+      <span class="section-head-count" id="count-upcoming"></span>
     </div>
+    <div id="upcoming-list"></div>
 
-    <div id="view-grid" class="view-content active" style="display:none;">
-        <div class="section-title" id="lbl-upcoming-header">Upcoming Fixtures</div>
-        <div class="table-viewport">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="padding-left: 20px;" id="lbl-th-matchup-1">Matchup</th>
-                        <th>
-                            <div style="display: grid; grid-template-columns: 1.4fr 0.9fr 0.85fr 0.9fr; padding-right: 20px; text-align: center;">
-                                <span style="text-align: left;" id="lbl-th-source-1">Information Source</span>
-                                <span id="lbl-th-fav-1">Favorite %</span>
-                                <span id="lbl-th-tie-1">Tie %</span>
-                                <span id="lbl-th-und-1">Underdog %</span>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="upcoming-table-body"></tbody>
-            </table>
-        </div>
-
-        <div class="section-title" id="lbl-completed-header">Completed Matches</div>
-        <div class="table-viewport">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="padding-left: 20px;" id="lbl-th-matchup-2">Matchup</th>
-                        <th>
-                            <div style="display: grid; grid-template-columns: 1.4fr 2.15fr 0.5fr; padding-right: 20px;">
-                                <span id="lbl-th-source-2">Information Source</span>
-                                <span id="lbl-th-outcome">Official Outcome</span>
-                                <span style="text-align: right; padding-right: 5px;" id="lbl-th-audit">Audit</span>
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="completed-table-body"></tbody>
-            </table>
-        </div>
+    <!-- Completed -->
+    <div class="section-head" style="margin-top:8px;">
+      <span class="section-head-label" id="lbl-completed"></span>
+      <div class="section-head-line"></div>
+      <span class="section-head-count" id="count-completed"></span>
     </div>
+    <div id="completed-list"></div>
+  </div>
 
-    <div id="view-bracket" class="view-content">
-        <div class="bracket-viewport">
-            <div id="bracket-left-wrapper" class="bracket-wrapper active"></div>
-            <div id="bracket-right-wrapper" class="bracket-wrapper"></div>
-        </div>
+  <!-- BRACKET VIEW -->
+  <div id="view-bracket" class="view-panel">
+    <div class="bracket-outer">
+      <div class="bracket-grid" id="bracket-grid"></div>
     </div>
+  </div>
 
-    <div class="footer-key" id="lbl-footer">
-        <strong>AUDIT PROTOCOL:</strong> Verification markers isolate prediction successes against aggregate closing market layers.
-    </div>
-</div>
+</div><!-- /shell -->
 
 <script>
-    /* ============================================================
-       1. STATIC ASSETS (live in the page, referenced by code)
-       ============================================================ */
+/* ================================================================
+   FLAGS
+================================================================ */
+const FLAGS = {
+  mex:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/></svg>`,
+  rsa:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007A4D"/><path d="M0,0 L12,10 L0,20Z" fill="#000"/><path d="M0,0 L10,10 L0,20Z" fill="#FFB612"/><path d="M12,10 L32,10 L32,0 L10,0Z" fill="#E2142D"/><path d="M12,10 L32,10 L32,20 L10,20Z" fill="#002395"/></svg>`,
+  kor:`<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="5" fill="#CD2E3A"/><path d="M16,10 A5,5 0 0,1 21,10 A2.5,2.5 0 0,1 18.5,12.5 A2.5,2.5 0 0,0 16,10" fill="#0047A0"/></svg>`,
+  cze:`<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#D7141A"/><path d="M0,0 L14,10 L0,20Z" fill="#11457E"/></svg>`,
+  can:`<svg viewBox="0 0 32 20"><rect width="8" height="20" fill="#FF0000"/><rect x="8" width="16" height="20" fill="#FFF"/><rect x="24" width="8" height="20" fill="#FF0000"/></svg>`,
+  bih:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#002F6C"/><path d="M11,0 L32,20 L11,20Z" fill="#FFD200"/></svg>`,
+  usa:`<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="20" fill="#B22234"/><rect width="14" height="11" fill="#3C3B6E"/></svg>`,
+  pry:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#D51E2D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0038A8"/></svg>`,
+  qat:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#8D1B3D"/><rect width="10" height="20" fill="#FFF"/></svg>`,
+  sui:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#FF0000"/><rect x="13" y="6" width="6" height="8" fill="#FFF"/><rect x="10" y="9" width="12" height="2" fill="#FFF"/></svg>`,
+  bra:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#009C3B"/><polygon points="16,2 30,10 16,18 2,10" fill="#FEDF00"/><circle cx="16" cy="10" r="4" fill="#002776"/></svg>`,
+  mar:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#C1272D"/><text x="16" y="14" text-anchor="middle" font-size="10" fill="#006233">★</text></svg>`,
+  hai:`<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#00209F"/><rect y="10" width="32" height="10" fill="#D21034"/></svg>`,
+  sco:`<svg viewBox="0 0 32 20" style="background:#003580"><line x1="0" y1="0" x2="32" y2="20" stroke="#FFF" stroke-width="4"/><line x1="32" y1="0" x2="0" y2="20" stroke="#FFF" stroke-width="4"/></svg>`,
+  aus:`<svg viewBox="0 0 32 20" style="background:#00008B"><rect width="16" height="10" fill="#012169"/><line x1="0" y1="0" x2="16" y2="10" stroke="#FFF" stroke-width="2.5"/><line x1="16" y1="0" x2="0" y2="10" stroke="#FFF" stroke-width="2.5"/><line x1="8" y1="0" x2="8" y2="10" stroke="#FFF" stroke-width="1.5"/><line x1="0" y1="5" x2="16" y2="5" stroke="#FFF" stroke-width="1.5"/></svg>`,
+  tur:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#E30A17"/><circle cx="13" cy="10" r="5" fill="#FFF"/><circle cx="15" cy="10" r="4" fill="#E30A17"/><text x="20" y="13" font-size="8" fill="#FFF">★</text></svg>`,
+  ger:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#000"/><rect y="6.6" width="32" height="6.8" fill="#D00"/><rect y="13.4" width="32" height="6.6" fill="#FFCE00"/></svg>`,
+  cuw:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#002B7F"/><rect y="14" width="32" height="6" fill="#F9E814"/><line x1="0" y1="11" x2="32" y2="11" stroke="#FFF" stroke-width="1.5"/></svg>`,
+  ned:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#AE1C28"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#21468B"/></svg>`,
+  jpn:`<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="6" fill="#BC002D"/></svg>`,
+  civ:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#F77F00"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#009A44"/></svg>`,
+  ecu:`<svg viewBox="0 0 32 20"><rect width="32" height="8" fill="#FFD100"/><rect y="8" width="32" height="6" fill="#003893"/><rect y="14" width="32" height="6" fill="#FF0000"/></svg>`,
+  swe:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#006AA7"/><rect x="10" width="4" height="20" fill="#FECC02"/><rect y="8" width="32" height="4" fill="#FECC02"/></svg>`,
+  tun:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#E70013"/><circle cx="16" cy="10" r="7" fill="#FFF"/><circle cx="16" cy="10" r="5" fill="#E70013"/><text x="19" y="13" font-size="7" fill="#FFF">☽</text></svg>`,
+  esp:`<svg viewBox="0 0 32 20"><rect width="32" height="5" fill="#AA151B"/><rect y="5" width="32" height="10" fill="#F1BF00"/><rect y="15" width="32" height="5" fill="#AA151B"/></svg>`,
+  cpv:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#003893"/><rect y="10" width="32" height="4" fill="#FFF"/><rect y="14" width="32" height="2" fill="#CF2027"/></svg>`,
+  bel:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#000"/><rect x="10.7" width="10.6" height="20" fill="#FAE042"/><rect x="21.3" width="10.7" height="20" fill="#EF3340"/></svg>`,
+  egy:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#CE1126"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#000"/></svg>`,
+  ksa:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#006C35"/><text x="16" y="14" text-anchor="middle" font-size="9" fill="#FFF">🌙</text></svg>`,
+  uru:`<svg viewBox="0 0 32 20" style="background:#FFF"><rect y="3.3" width="32" height="3.3" fill="#75AADB"/><rect y="9.9" width="32" height="3.3" fill="#75AADB"/><rect y="13.2" width="32" height="3.3" fill="#75AADB"/></svg>`,
+  irn:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#239F40"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#DA0000"/></svg>`,
+  nzl:`<svg viewBox="0 0 32 20" style="background:#00247D"><rect width="16" height="10" fill="#00247D"/><line x1="0" y1="0" x2="16" y2="10" stroke="#FFF" stroke-width="2.5"/><line x1="16" y1="0" x2="0" y2="10" stroke="#FFF" stroke-width="2.5"/></svg>`,
+  fra:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#002395"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#ED2939"/></svg>`,
+  sen:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#00853F"/><rect x="10.7" width="10.6" height="20" fill="#FDEF42"/><rect x="21.3" width="10.7" height="20" fill="#E31B23"/><text x="16" y="14" text-anchor="middle" font-size="9" fill="#00853F">★</text></svg>`,
+  irq:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#CE1126"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#000"/></svg>`,
+  nor:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#EF2B2D"/><rect x="10" width="4" height="20" fill="#FFF"/><rect y="8" width="32" height="4" fill="#FFF"/><rect x="11" width="2" height="20" fill="#002868"/><rect y="9" width="32" height="2" fill="#002868"/></svg>`,
+  arg:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#74ACDF"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#74ACDF"/></svg>`,
+  alg:`<svg viewBox="0 0 32 20"><rect width="16" height="20" fill="#006233"/><rect x="16" width="16" height="20" fill="#FFF"/></svg>`,
+  aut:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#ED2939"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#ED2939"/></svg>`,
+  jor:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#007A3D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#000"/><path d="M0,0 L14,10 L0,20Z" fill="#CE1126"/></svg>`,
+  por:`<svg viewBox="0 0 32 20"><rect width="12" height="20" fill="#006600"/><rect x="12" width="20" height="20" fill="#FF0000"/><circle cx="12" cy="10" r="4" fill="#FFD700" opacity="0.9"/></svg>`,
+  cod:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007FFF"/><path d="M0,20 L32,0" stroke="#F7D618" stroke-width="4"/><rect width="32" height="4" fill="#CE1021"/><rect y="16" width="32" height="4" fill="#CE1021"/></svg>`,
+  eng:`<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
+  cro:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#FF0000"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0000CD"/></svg>`,
+  gha:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#006B3F"/><rect y="6.6" width="32" height="6.8" fill="#FCD116"/><rect y="13.4" width="32" height="6.6" fill="#CE1126"/><polygon points="16,7 17.5,11.5 12.5,8.5 19.5,8.5 14.5,11.5" fill="#000"/></svg>`,
+  pan:`<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="16" height="10" fill="#FFF"/><rect x="16" y="10" width="16" height="10" fill="#FFF"/><rect x="16" width="16" height="10" fill="#D21034"/><rect y="10" width="16" height="10" fill="#005293"/></svg>`,
+  uzb:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#1EB53A"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#CE1126"/></svg>`,
+  col:`<svg viewBox="0 0 32 20"><rect width="32" height="8" fill="#FCD116"/><rect y="8" width="32" height="6" fill="#003087"/><rect y="14" width="32" height="6" fill="#CE1126"/></svg>`,
+};
 
-    const dictionary = {
-        en: {
-            title: "2026 World Cup Matchday Tracker", subtitle: "Analytical System Data Matrix Feed",
-            grid: "Probability Grid", bracket: "Tournament Bracket", leftSide: "Left Side Bracket", rightSide: "Right Side Bracket",
-            upcoming: "Upcoming Fixtures", completed: "Completed Matches", matchup: "Matchup", source: "Information Source",
-            fav: "Favorite %", tie: "Tie %", und: "Underdog %", outcome: "Official Outcome", audit: "Audit",
-            footer: "AUDIT PROTOCOL: Verification markers isolate prediction successes against aggregate closing market layers.",
-            scenarios: "Round of 16 Scenarios", matchInsight: "Match Insight", r32: "Round of 32", r16: "Round of 16",
-            updated: "Last updated", noUpcoming: "No upcoming fixtures right now.", noCompleted: "No completed matches yet.",
-            teams: { "Mexico": "Mexico", "South Africa": "South Africa", "South Korea": "South Korea", "Czechia": "Czechia", "Canada": "Canada", "Bosnia & Herzegovina": "Bosnia", "United States": "United States", "Paraguay": "Paraguay", "Germany": "Germany", "Argentina": "Argentina", "England": "England", "Italy": "Italy" }
-        },
-        ko: {
-            title: "2026 월드컵 매치데이 분석기", subtitle: "실시간 예측 데이터 분석 매트릭스 피드",
-            grid: "확률 데이터 그리드", bracket: "토너먼트 대진표 보기", leftSide: "좌측 브래킷 경로", rightSide: "우측 브래킷 경로",
-            upcoming: "예정된 경기 일정", completed: "종료된 경기 결과", matchup: "경기 대진", source: "분석 정보 출처",
-            fav: "정배당 승리 확률 %", tie: "무승부 확률 %", und: "역배당 확률 %", outcome: "최종 경기 스코어", audit: "예측 검증",
-            footer: "분석 프로토콜: 녹색 체크표시(✓)는 통합 예측 모델이 경기 승리 팀을 정확히 적중시켰음을 나타냅니다.",
-            scenarios: "16강 진출 시나리오 예측", matchInsight: "경기 정밀 분석", r32: "32강전", r16: "16강전",
-            updated: "최종 업데이트", noUpcoming: "현재 예정된 경기가 없습니다.", noCompleted: "아직 종료된 경기가 없습니다.",
-            teams: { "Mexico": "멕시코", "South Africa": "남아공", "South Korea": "대한민국", "Czechia": "체코", "Canada": "캐나다", "Bosnia & Herzegovina": "보스니아", "United States": "미국", "Paraguay": "파라과이", "Germany": "독일", "Argentina": "아르헨티나", "England": "잉글랜드", "Italy": "이탈리아" }
-        },
-        ja: {
-            title: "2026 ワールドカップ分析ダッシュボード", subtitle: "リアルタイム予測データマトリクスフィード",
-            grid: "確率データグリッド", bracket: "トーナメント表", leftSide: "左側ブラケット", rightSide: "右側ブラケット",
-            upcoming: "今後の対戦カード", completed: "終了した試合結果", matchup: "対戦カード", source: "予測データソース",
-            fav: "本命勝利確率 %", tie: "引き分け確率 %", und: "大穴勝利確率 %", outcome: "公式試合結果", audit: "予測検証",
-            footer: "検証プロトコル：緑のチェックマーク（✓）は、予測モデルが勝者を正確に的中させたことを示します。",
-            scenarios: "ラウンド16 進出予測シナリオ", matchInsight: "試合インサイト解説", r32: "ラウンド32", r16: "ラウンド16",
-            updated: "最終更新", noUpcoming: "現在、予定された試合はありません。", noCompleted: "終了した試合はまだありません。",
-            teams: { "Mexico": "メキシコ", "South Africa": "南アフリカ", "South Korea": "韓国", "Czechia": "チェコ", "Canada": "カナダ", "Bosnia & Herzegovina": "ボスニア", "United States": "アメリカ", "Paraguay": "パラグアイ", "Germany": "ドイツ", "Argentina": "アルゼンチン", "England": "イングランド", "Italy": "イタリア" }
+function flagHTML(code) {
+  return FLAGS[code] || `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#1a2a3a"/><text x="16" y="14" text-anchor="middle" font-size="8" fill="#4a607a">?</text></svg>`;
+}
+
+/* ================================================================
+   DICTIONARY
+================================================================ */
+const DICT = {
+  en: {
+    eyebrow:"2026 FIFA World Cup", title:"Prediction Tracker",
+    meta:"Sportsbooks · ELO/Poisson Model · Prediction Markets",
+    view:"View", stage:"Stage", grid:"Match Grid", bracket:"Bracket",
+    upcoming:"Upcoming Matches", completed:"Completed Matches",
+    colFav:"Fav Win", colDraw:"Draw", colUnd:"Und Win",
+    source:"Source", updated:"Last updated",
+    groupStage:"Group Stage", r32:"Round of 32", r16:"Round of 16",
+    quarters:"Quarter-Finals", semis:"Semi-Finals", final:"Final",
+    noUpcoming:"No upcoming matches in this stage.",
+    noCompleted:"No completed matches yet.",
+    insight:"Match Insight",
+    recoBack:"Back the Favourite", recoLean:"Lean Favourite",
+    recoDraw:"Draw is Live", recoUpset:"Upset Alert",
+    recoValue:"Value on Underdog",
+    teams:{
+      "Mexico":"Mexico","South Africa":"South Africa","South Korea":"South Korea",
+      "Czechia":"Czechia","Canada":"Canada","Bosnia & Herzegovina":"Bosnia & Herz.",
+      "United States":"United States","Paraguay":"Paraguay","Germany":"Germany",
+      "Argentina":"Argentina","England":"England","Italy":"Italy","France":"France",
+      "Brazil":"Brazil","Spain":"Spain","Portugal":"Portugal","Netherlands":"Netherlands",
+      "Morocco":"Morocco","Japan":"Japan","Australia":"Australia","Croatia":"Croatia",
+      "Switzerland":"Switzerland","Uruguay":"Uruguay","Colombia":"Colombia",
+      "Senegal":"Senegal","Denmark":"Denmark","Ecuador":"Ecuador","Norway":"Norway",
+      "Turkey":"Turkey","Serbia":"Serbia","Poland":"Poland","Iran":"Iran",
+      "Saudi Arabia":"Saudi Arabia","Ghana":"Ghana","Cameroon":"Cameroon",
+      "Ivory Coast":"Ivory Coast","Tunisia":"Tunisia","Egypt":"Egypt",
+      "Algeria":"Algeria","Nigeria":"Nigeria","Panama":"Panama",
+      "Qatar":"Qatar","New Zealand":"New Zealand","Cape Verde":"Cape Verde",
+      "Curacao":"Curaçao","Haiti":"Haiti","Belgium":"Belgium","Scotland":"Scotland",
+      "DR Congo":"DR Congo","Austria":"Austria","Sweden":"Sweden",
+      "Iraq":"Iraq","Jordan":"Jordan","Uzbekistan":"Uzbekistan",
+    }
+  },
+  ko: {
+    eyebrow:"2026 FIFA 월드컵", title:"예측 트래커",
+    meta:"스포츠북 · ELO/포아송 모델 · 예측 시장",
+    view:"보기", stage:"단계", grid:"경기 목록", bracket:"대진표",
+    upcoming:"예정 경기", completed:"종료 경기",
+    colFav:"승리 확률", colDraw:"무승부", colUnd:"역배 확률",
+    source:"출처", updated:"최종 업데이트",
+    groupStage:"조별 리그", r32:"32강", r16:"16강",
+    quarters:"8강", semis:"4강", final:"결승",
+    noUpcoming:"이 단계에 예정된 경기가 없습니다.",
+    noCompleted:"아직 종료된 경기가 없습니다.",
+    insight:"경기 분석",
+    recoBack:"정배당 추천", recoLean:"정배당 우세",
+    recoDraw:"무승부 가능", recoUpset:"이변 가능성",
+    recoValue:"역배당 가치",
+    teams:{
+      "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국",
+      "Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아",
+      "United States":"미국","Paraguay":"파라과이","Germany":"독일",
+      "Argentina":"아르헨티나","England":"잉글랜드","Italy":"이탈리아",
+      "France":"프랑스","Brazil":"브라질","Spain":"스페인","Portugal":"포르투갈",
+      "Netherlands":"네덜란드","Morocco":"모로코","Japan":"일본",
+      "Australia":"호주","Croatia":"크로아티아","Switzerland":"스위스",
+      "Uruguay":"우루과이","Colombia":"콜롬비아","Senegal":"세네갈",
+      "Ecuador":"에콰도르","Norway":"노르웨이","Turkey":"튀르키예",
+      "Iran":"이란","Saudi Arabia":"사우디아라비아","Ghana":"가나",
+      "Ivory Coast":"코트디부아르","Tunisia":"튀니지","Egypt":"이집트",
+      "Algeria":"알제리","Panama":"파나마","Qatar":"카타르",
+      "New Zealand":"뉴질랜드","Cape Verde":"카보베르데","Curacao":"퀴라소",
+      "Haiti":"아이티","Belgium":"벨기에","Scotland":"스코틀랜드",
+      "DR Congo":"콩고","Austria":"오스트리아","Sweden":"스웨덴",
+      "Iraq":"이라크","Jordan":"요르단","Uzbekistan":"우즈베키스탄",
+    }
+  },
+  ja: {
+    eyebrow:"2026 FIFAワールドカップ", title:"予測トラッカー",
+    meta:"スポーツブック · ELO/ポアソンモデル · 予測市場",
+    view:"表示", stage:"ステージ", grid:"試合一覧", bracket:"トーナメント表",
+    upcoming:"予定試合", completed:"終了試合",
+    colFav:"本命勝率", colDraw:"引分", colUnd:"大穴勝率",
+    source:"出典", updated:"最終更新",
+    groupStage:"グループステージ", r32:"ラウンド32", r16:"ラウンド16",
+    quarters:"準々決勝", semis:"準決勝", final:"決勝",
+    noUpcoming:"このステージに予定試合はありません。",
+    noCompleted:"まだ終了した試合はありません。",
+    insight:"試合インサイト",
+    recoBack:"本命推奨", recoLean:"本命優勢",
+    recoDraw:"引き分け有力", recoUpset:"番狂わせ警戒",
+    recoValue:"大穴に価値あり",
+    teams:{
+      "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国",
+      "Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア",
+      "United States":"アメリカ","Paraguay":"パラグアイ","Germany":"ドイツ",
+      "Argentina":"アルゼンチン","England":"イングランド","Italy":"イタリア",
+      "France":"フランス","Brazil":"ブラジル","Spain":"スペイン","Portugal":"ポルトガル",
+      "Netherlands":"オランダ","Morocco":"モロッコ","Japan":"日本",
+      "Australia":"オーストラリア","Croatia":"クロアチア","Switzerland":"スイス",
+      "Uruguay":"ウルグアイ","Colombia":"コロンビア","Senegal":"セネガル",
+      "Ecuador":"エクアドル","Norway":"ノルウェー","Turkey":"トルコ",
+      "Iran":"イラン","Saudi Arabia":"サウジアラビア","Ghana":"ガーナ",
+      "Ivory Coast":"コートジボワール","Tunisia":"チュニジア","Egypt":"エジプト",
+      "Algeria":"アルジェリア","Panama":"パナマ","Qatar":"カタール",
+      "New Zealand":"ニュージーランド","Cape Verde":"カーボベルデ","Curacao":"キュラソー",
+      "Haiti":"ハイチ","Belgium":"ベルギー","Scotland":"スコットランド",
+      "DR Congo":"コンゴ","Austria":"オーストリア","Sweden":"スウェーデン",
+      "Iraq":"イラク","Jordan":"ヨルダン","Uzbekistan":"ウズベキスタン",
+    }
+  }
+};
+
+/* ================================================================
+   STATE
+================================================================ */
+let lang       = 'en';
+let currentView  = 'grid';
+let currentStage = 'Group Stage';
+let allMatches   = [];
+let meta         = {};
+
+const STAGES = ['Group Stage','Round of 32','Round of 16','Quarter-Finals','Semi-Finals','Final'];
+const STAGE_KEYS = {
+  'Group Stage':'groupStage','Round of 32':'r32','Round of 16':'r16',
+  'Quarter-Finals':'quarters','Semi-Finals':'semis','Final':'final'
+};
+
+/* ================================================================
+   RECOMMENDATION ENGINE
+================================================================ */
+function calcReco(match) {
+  if (match.type === 'COMPLETED') return null;
+  const layers = match.layers || [];
+  if (!layers.length) return null;
+
+  // Parse percentages to floats
+  function p(str) { return str === '--' ? null : parseFloat(str); }
+
+  let favVals = [], drawVals = [], undVals = [];
+  layers.forEach(l => {
+    const f = p(l.fav), d = p(l.draw), u = p(l.und);
+    if (f != null) favVals.push(f);
+    if (d != null) drawVals.push(d);
+    if (u != null) undVals.push(u);
+  });
+
+  if (!favVals.length) return null;
+
+  const avgFav  = favVals.reduce((a,b)=>a+b,0) / favVals.length;
+  const avgDraw = drawVals.length ? drawVals.reduce((a,b)=>a+b,0)/drawVals.length : 0;
+  const avgUnd  = undVals.length  ? undVals.reduce((a,b)=>a+b,0)/undVals.length   : 0;
+
+  // Divergence: difference between max and min fav across sources
+  const favSpread = favVals.length > 1
+    ? Math.max(...favVals) - Math.min(...favVals)
+    : 0;
+
+  // Find ELO fav specifically for model vs market comparison
+  const eloLayer = layers.find(l => l.source.includes('ELO') || l.source.includes('Poisson'));
+  const mktLayer = layers.find(l => l.source.includes('Sportsbook') || l.source.includes('P2P'));
+  const eloFav   = eloLayer ? p(eloLayer.fav) : null;
+  const mktFav   = mktLayer ? p(mktLayer.fav) : null;
+  const modelMarketGap = (eloFav != null && mktFav != null) ? Math.abs(eloFav - mktFav) : 0;
+
+  const d = DICT[lang];
+
+  // Decision tree
+  if (avgFav >= 72) {
+    // Strong consensus favourite — just back them
+    return { type:'back', cls:'reco-back', icon:'✅',
+      text: d.recoBack,
+      sub: `${avgFav.toFixed(1)}% avg across ${favVals.length} source${favVals.length>1?'s':''}` };
+  }
+
+  if (avgDraw >= 30) {
+    // Draw is a genuine contender
+    return { type:'draw', cls:'reco-draw', icon:'⚖️',
+      text: d.recoDraw,
+      sub: `${avgDraw.toFixed(1)}% draw probability — consider hedging with a draw bet` };
+  }
+
+  if (modelMarketGap >= 15 && eloFav < mktFav) {
+    // Markets see favourite more strongly than model — potential upset
+    return { type:'upset', cls:'reco-upset', icon:'⚡',
+      text: d.recoUpset,
+      sub: `ELO model gives underdog ${(100 - eloFav).toFixed(1)}% vs market's ${(100 - mktFav).toFixed(1)}%` };
+  }
+
+  if (modelMarketGap >= 15 && eloFav > mktFav) {
+    // Model likes favourite more than market — value on favourite
+    return { type:'value', cls:'reco-value', icon:'💎',
+      text: d.recoValue,
+      sub: `ELO model sees more upside than market implies — gap of ${modelMarketGap.toFixed(1)}%` };
+  }
+
+  if (avgFav >= 52) {
+    // Lean favourite but not a lock
+    return { type:'lean', cls:'reco-lean', icon:'📊',
+      text: d.recoLean,
+      sub: `${avgFav.toFixed(1)}% avg — sources broadly agree but margin is slim` };
+  }
+
+  // Close match — coin flip territory
+  return { type:'draw', cls:'reco-draw', icon:'⚖️',
+    text: d.recoDraw,
+    sub: `${avgFav.toFixed(1)}% vs ${avgUnd.toFixed(1)}% — too close to call confidently` };
+}
+
+/* ================================================================
+   FORMAT HELPERS
+================================================================ */
+function esc(s) {
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function teamName(raw) {
+  return DICT[lang].teams[raw] || raw;
+}
+
+function fmtKickoff(iso) {
+  if (!iso) return '';
+  try {
+    const dt = new Date(iso);
+    const edt = new Date(dt.getTime() - 4*60*60*1000);
+    return edt.toLocaleString('en-US',{month:'short',day:'numeric',
+      hour:'numeric',minute:'2-digit',hour12:true}).replace(',','') + ' EDT';
+  } catch(e) { return iso; }
+}
+
+/* ================================================================
+   RENDER MATCH CARD (UPCOMING)
+================================================================ */
+function renderUpcoming(match) {
+  const d    = DICT[lang];
+  const home = teamName(match.home);
+  const away = teamName(match.away);
+  const fav  = teamName(match.favTeam);
+  const isHomeFav = match.favTeam === match.home;
+  const reco = calcReco(match);
+  const signal = reco ? reco.type : 'lean';
+
+  let sourceRows = '';
+  (match.layers || []).forEach(layer => {
+    const favVal  = layer.fav  || '--';
+    const drawVal = layer.draw || '--';
+    const undVal  = layer.und  || '--';
+    const isNull  = v => v === '--';
+    sourceRows += `
+      <div class="source-row">
+        <div class="source-name">${esc(layer.source)}</div>
+        <div class="prob-cell hi ${isNull(favVal)?'null-val':''}">${esc(favVal)}</div>
+        <div class="prob-cell ${isNull(drawVal)?'null-val':''}">${esc(drawVal)}</div>
+        <div class="prob-cell ${isNull(undVal)?'null-val':''}">${esc(undVal)}</div>
+      </div>`;
+  });
+
+  // Fill missing sources with dashes
+  const sourcesFound = (match.layers||[]).map(l=>l.source);
+  const allSources = ['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
+  allSources.forEach(s => {
+    if (!sourcesFound.includes(s)) {
+      sourceRows += `
+        <div class="source-row">
+          <div class="source-name">${esc(s)}</div>
+          <div class="prob-cell null-val">--</div>
+          <div class="prob-cell null-val">--</div>
+          <div class="prob-cell null-val">--</div>
+        </div>`;
+    }
+  });
+
+  const recoHTML = reco ? `
+    <div class="reco-bar ${reco.cls}">
+      <span class="reco-icon">${reco.icon}</span>
+      <div>
+        <div class="reco-text">${esc(reco.text)} — ${esc(isHomeFav ? home : away)}</div>
+        <div class="reco-sub">${esc(reco.sub)}</div>
+      </div>
+    </div>` : '';
+
+  return `
+  <div class="match-card" data-signal="${signal}">
+    <div class="match-header">
+      <div class="match-teams">
+        <div class="team-row">
+          <div class="flag">${flagHTML(match.homeFlag)}</div>
+          <span class="team-name">${esc(home)}</span>
+          <span class="team-badge ${isHomeFav?'badge-fav':'badge-und'}">${isHomeFav?'FAV':'UND'}</span>
+        </div>
+        <div class="team-row">
+          <div class="flag">${flagHTML(match.awayFlag)}</div>
+          <span class="team-name">${esc(away)}</span>
+          <span class="team-badge ${!isHomeFav?'badge-fav':'badge-und'}">${!isHomeFav?'FAV':'UND'}</span>
+        </div>
+      </div>
+      <div class="match-meta-col">
+        <span class="match-group-tag">${esc(match.group||match.stage||'')}</span>
+        <span class="match-kickoff">${fmtKickoff(match.kickoff)}</span>
+      </div>
+    </div>
+    <div class="sources-table">
+      <div class="sources-header">
+        <span>${esc(d.source)}</span>
+        <span class="col-fav-label">${esc(home.split(' ')[0])}</span>
+        <span class="col-draw-label">${esc(d.colDraw)}</span>
+        <span class="col-und-label">${esc(away.split(' ')[0])}</span>
+      </div>
+      ${sourceRows}
+    </div>
+    ${recoHTML}
+  </div>`;
+}
+
+/* ================================================================
+   RENDER MATCH CARD (COMPLETED)
+================================================================ */
+function renderCompleted(match) {
+  const d = DICT[lang];
+  const home = teamName(match.home);
+  const away = teamName(match.away);
+
+  let auditRows = '';
+  const acc = match.sourceAccuracy || {};
+  Object.entries(acc).forEach(([src, correct]) => {
+    auditRows += `
+      <div class="audit-row">
+        <span class="audit-source">${esc(src)}</span>
+        <span class="audit-mark ${correct?'audit-correct':'audit-incorrect'}">${correct?'✓':'✗'}</span>
+      </div>`;
+  });
+
+  const insightHTML = match.insight ? `
+    <div class="insight-row">
+      <span class="insight-label">${esc(d.insight)}</span>
+      ${esc(match.insight)}
+    </div>` : '';
+
+  return `
+  <div class="match-card" data-signal="done">
+    <div class="match-header">
+      <div class="match-teams">
+        <div class="team-row">
+          <div class="flag">${flagHTML(match.homeFlag)}</div>
+          <span class="team-name">${esc(home)}</span>
+        </div>
+        <div class="team-row">
+          <div class="flag">${flagHTML(match.awayFlag)}</div>
+          <span class="team-name">${esc(away)}</span>
+        </div>
+      </div>
+      <div class="match-meta-col">
+        <span class="match-group-tag">${esc(match.group||match.stage||'')}</span>
+        <span class="match-kickoff">${fmtKickoff(match.kickoff)}</span>
+      </div>
+    </div>
+    <div class="score-block">
+      <div class="score-badge">⚽ ${esc(match.score||'Final')}</div>
+      <div class="audit-grid">${auditRows}</div>
+      ${insightHTML}
+    </div>
+  </div>`;
+}
+
+/* ================================================================
+   BUILD STAGE TABS
+================================================================ */
+function buildStageTabs() {
+  const stages = [...new Set(allMatches.map(m => m.stage||'Group Stage'))];
+  // Always show known stages in order if present
+  const ordered = STAGES.filter(s => stages.includes(s));
+  const rest = stages.filter(s => !STAGES.includes(s));
+
+  const tabsEl = document.getElementById('stage-tabs');
+  tabsEl.innerHTML = [...ordered,...rest].map(s => {
+    const key = STAGE_KEYS[s] || 'groupStage';
+    const label = DICT[lang][key] || s;
+    const active = s === currentStage ? ' active' : '';
+    return `<button class="btn${active}" onclick="switchStage('${esc(s)}')">${esc(label)}</button>`;
+  }).join('');
+}
+
+/* ================================================================
+   RENDER GRID VIEW
+================================================================ */
+function renderGrid() {
+  const d = DICT[lang];
+  const stageMatches = allMatches.filter(m => (m.stage||'Group Stage') === currentStage);
+
+  const upcoming  = stageMatches.filter(m => m.type === 'UPCOMING')
+    .sort((a,b) => new Date(a.kickoff||0) - new Date(b.kickoff||0));
+  const completed = stageMatches.filter(m => m.type === 'COMPLETED')
+    .sort((a,b) => new Date(b.kickoff||0) - new Date(a.kickoff||0));
+
+  document.getElementById('lbl-upcoming').textContent  = d.upcoming;
+  document.getElementById('lbl-completed').textContent = d.completed;
+  document.getElementById('count-upcoming').textContent  = upcoming.length;
+  document.getElementById('count-completed').textContent = completed.length;
+
+  const upEl = document.getElementById('upcoming-list');
+  upEl.innerHTML = upcoming.length
+    ? upcoming.map(renderUpcoming).join('')
+    : `<div class="empty">${esc(d.noUpcoming)}</div>`;
+
+  const coEl = document.getElementById('completed-list');
+  coEl.innerHTML = completed.length
+    ? completed.map(renderCompleted).join('')
+    : `<div class="empty">${esc(d.noCompleted)}</div>`;
+}
+
+/* ================================================================
+   RENDER BRACKET VIEW
+================================================================ */
+function renderBracket() {
+  const d = DICT[lang];
+  const stageMatches = allMatches.filter(m => (m.stage||'Group Stage') === currentStage);
+  const grid = document.getElementById('bracket-grid');
+
+  // Group into left/right sides
+  const left  = stageMatches.filter(m => m.side === 'left');
+  const right = stageMatches.filter(m => m.side === 'right');
+  const sides = left.length || right.length ? [{label:'Left', matches:left},{label:'Right', matches:right}]
+    : [{label:'', matches:stageMatches}];
+
+  grid.innerHTML = sides.map(side => {
+    const matchNodes = side.matches.map(m => {
+      const home = teamName(m.home);
+      const away = teamName(m.away);
+
+      // Average probabilities across sources
+      function avgProb(field) {
+        const vals = (m.layers||[]).map(l=>parseFloat(l[field])).filter(v=>!isNaN(v));
+        return vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1)+'%' : '--';
+      }
+      const homePct = m.type==='COMPLETED' ? (m.favTeam===m.home?'WIN':'—') : avgProb('fav');
+      const awayPct = m.type==='COMPLETED' ? (m.favTeam===m.away?'WIN':'—') : avgProb('und');
+      const drawPct = m.type==='COMPLETED' ? '' : avgProb('draw');
+
+      return `
+        <div class="bracket-match">
+          <div class="bracket-team">
+            <div class="flag">${flagHTML(m.homeFlag)}</div>
+            <span>${esc(home)}</span>
+            <span class="bracket-odds">${esc(homePct)}</span>
+          </div>
+          <div class="bracket-team">
+            <div class="flag">${flagHTML(m.awayFlag)}</div>
+            <span>${esc(away)}</span>
+            <span class="bracket-odds">${esc(awayPct)}</span>
+          </div>
+          ${drawPct ? `<div class="bracket-draw-pill">Draw ${esc(drawPct)}</div>` : ''}
+        </div>`;
+    }).join('');
+
+    return `
+      <div class="bracket-round">
+        <div class="bracket-round-label">${esc(side.label ? side.label+' Bracket' : currentStage)}</div>
+        ${matchNodes || `<div class="empty" style="padding:20px">${esc(d.noUpcoming)}</div>`}
+      </div>`;
+  }).join('') + `
+    <div class="bracket-round">
+      <div class="bracket-round-label">Next Round</div>
+      <div class="bracket-match">
+        <div class="bracket-team bracket-tbd">Winner Left →</div>
+        <div class="bracket-team bracket-tbd">Winner Right →</div>
+      </div>
+    </div>`;
+}
+
+/* ================================================================
+   APPLY LANGUAGE LABELS
+================================================================ */
+function applyLabels() {
+  const d = DICT[lang];
+  document.getElementById('lbl-eyebrow').textContent = d.eyebrow;
+  document.getElementById('lbl-title').textContent   = d.title;
+  document.getElementById('lbl-meta').textContent    = d.meta;
+  document.getElementById('lbl-view').textContent    = d.view;
+  document.getElementById('lbl-stage').textContent   = d.stage;
+  document.getElementById('btn-grid').textContent    = d.grid;
+  document.getElementById('btn-bracket').textContent = d.bracket;
+  if (meta.lastUpdated) {
+    document.getElementById('lbl-updated').textContent = d.updated + ': ' + meta.lastUpdated;
+  }
+  // Language buttons
+  ['en','ko','ja'].forEach(l => {
+    const btn = document.getElementById('lang-'+l);
+    btn.className = 'btn' + (l===lang?' lang-active':'');
+  });
+}
+
+/* ================================================================
+   SWITCH HANDLERS
+================================================================ */
+function switchView(v) {
+  currentView = v;
+  document.getElementById('view-grid').classList.toggle('active', v==='grid');
+  document.getElementById('view-bracket').classList.toggle('active', v==='bracket');
+  document.getElementById('btn-grid').classList.toggle('active', v==='grid');
+  document.getElementById('btn-bracket').classList.toggle('active', v==='bracket');
+  if (v==='bracket') renderBracket(); else renderGrid();
+}
+
+function switchStage(s) {
+  currentStage = s;
+  buildStageTabs();
+  if (currentView==='bracket') renderBracket(); else renderGrid();
+}
+
+function switchLang(l) {
+  lang = l;
+  applyLabels();
+  buildStageTabs();
+  if (currentView==='bracket') renderBracket(); else renderGrid();
+}
+
+/* ================================================================
+   DATA LOAD
+================================================================ */
+function showError(msg) {
+  const p = document.getElementById('status-pane');
+  p.className = 'status-pane error';
+  p.innerHTML = '⚠ ' + esc(msg);
+}
+
+async function loadData() {
+  try {
+    const res = await fetch('data.json?v=' + Date.now(), { cache:'no-store' });
+    if (!res.ok) throw new Error('Could not load data.json (HTTP ' + res.status + ')');
+    const json = await res.json();
+    if (!Array.isArray(json.matches)) throw new Error('data.json missing "matches" array');
+
+    allMatches = json.matches;
+    meta = { lastUpdated: json.lastUpdated, currentStage: json.currentStage };
+
+    // Set default stage to whatever's in the data
+    if (meta.currentStage) currentStage = meta.currentStage;
+
+    document.getElementById('status-pane').style.display = 'none';
+    document.getElementById('view-grid').classList.add('active');
+
+    applyLabels();
+    buildStageTabs();
+    renderGrid();
+
+    // Poll every 5 minutes
+    setInterval(async () => {
+      try {
+        const r = await fetch('data.json?v=' + Date.now(), { cache:'no-store' });
+        if (!r.ok) return;
+        const j = await r.json();
+        if (Array.isArray(j.matches)) {
+          allMatches = j.matches;
+          meta.lastUpdated = j.lastUpdated;
+          applyLabels();
+          if (currentView==='bracket') renderBracket(); else renderGrid();
         }
-    };
+      } catch(e) { /* silent poll failure */ }
+    }, 300000);
 
-    const flags = {
-        mex: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#006847"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#C8102E"/><circle cx="16" cy="10" r="2" fill="#8B5A2B"/></svg>`,
-        rsa: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#007A4D"/><path d="M0,0 L12,10 L0,20 Z" fill="#000"/><path d="M0,0 L10,10 L0,20 Z" fill="#FFB612" stroke="#FFB612" stroke-width="2"/><path d="M12,10 L32,10 L32,0 L10,0 Z" fill="#E2142D"/><path d="M12,10 L32,10 L32,20 L10,20 Z" fill="#002395"/></svg>`,
-        kor: `<svg viewBox="0 0 32 20" style="background:#FFF"><circle cx="16" cy="10" r="5" fill="#CD2E3A"/><path d="M16,10 A5,5 0 0,1 21,10 A2.5,2.5 0 0,1 18.5,12.5 A2.5,2.5 0 0,0 16,10" fill="#0047A0"/></svg>`,
-        cze: `<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#D7141A"/><path d="M0,0 L14,10 L0,20 Z" fill="#11457E"/></svg>`,
-        can: `<svg viewBox="0 0 32 20"><rect width="8" height="20" fill="#FF0000"/><rect x="8" width="16" height="20" fill="#FFF"/><rect x="24" width="8" height="20" fill="#FF0000"/></svg>`,
-        bih: `<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#002F6C"/><path d="M11,0 L32,20 L11,20 Z" fill="#FFD200"/></svg>`,
-        usa: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="32" height="20" fill="#B22234"/><rect width="14" height="11" fill="#3C3B6E"/></svg>`,
-        pry: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#D51E2D"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#0038A8"/></svg>`,
-        ger: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#000"/><rect y="6.6" width="32" height="6.8" fill="#D00"/><rect y="13.4" width="32" height="6.6" fill="#FFCE00"/></svg>`,
-        arg: `<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#74ACDF"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#74ACDF"/></svg>`,
-        eng: `<svg viewBox="0 0 32 20" style="background:#FFF"><rect x="14" width="4" height="20" fill="#CE1126"/><rect y="8" width="32" height="4" fill="#CE1126"/></svg>`,
-        ita: `<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`
-    };
+  } catch(e) {
+    console.error(e);
+    showError(e.message);
+  }
+}
 
-    const teamCodes = {
-        "Mexico": "MEX", "South Africa": "RSA", "South Korea": "KOR", "Czechia": "CZE",
-        "Canada": "CAN", "Bosnia & Herzegovina": "BIH", "United States": "USA", "Paraguay": "PRY",
-        "Germany": "GER", "Argentina": "ARG", "England": "ENG", "Italy": "ITA"
-    };
-
-    const baselineElo = {
-        "Mexico": 1820, "South Africa": 1610, "South Korea": 1740, "Czechia": 1715,
-        "Canada": 1765, "Bosnia & Herzegovina": 1660, "United States": 1845, "Paraguay": 1705,
-        "Germany": 1930, "Argentina": 2040, "England": 1960, "Italy": 1910
-    };
-
-    /* ============================================================
-       2. STATE - filled in by the data fetch, never hardcoded
-       ============================================================ */
-
-    let currentLang = 'en';
-    let dataset = [];          // the matches array from data.json
-    let meta = {};             // currentStage, lastUpdated, etc.
-    let dataReady = false;     // becomes true once data.json loads
-
-    /* ============================================================
-       3. HELPERS
-       ============================================================ */
-
-    // Small utility: escape user/content text before inserting as HTML.
-    function esc(str) {
-        return String(str == null ? '' : str)
-            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    // Look up a flag SVG by code; returns empty string if missing.
-    function flagFor(code) { return flags[code] || ''; }
-
-    function calculateEloOdds(teamA, teamB) {
-        let eloA = baselineElo[teamA] || 1700;
-        let eloB = baselineElo[teamB] || 1700;
-        return (1 / (1 + Math.pow(10, (eloB - eloA) / 400)) * 100).toFixed(1);
-    }
-
-    function getAverageFavValue(layers) {
-        if (!layers || !layers.length) return "TBD";
-        let sum = 0; layers.forEach(row => { sum += parseFloat(String(row.fav).replace('%', '')); });
-        return (sum / layers.length).toFixed(1);
-    }
-
-    function getAverageDrawValue(layers) {
-        if (!layers || !layers.length) return "0.0";
-        let sum = 0; layers.forEach(row => { sum += parseFloat(String(row.draw).replace('%', '')); });
-        return (sum / layers.length).toFixed(1);
-    }
-
-    /* ============================================================
-       4. RENDERERS
-       ============================================================ */
-
-    function buildDataTables() {
-        const upcomingBody = document.getElementById('upcoming-table-body');
-        const completedBody = document.getElementById('completed-table-body');
-        const langPack = dictionary[currentLang];
-
-        upcomingBody.innerHTML = '';
-        completedBody.innerHTML = '';
-
-        let upcomingCount = 0;
-        let completedCount = 0;
-
-        dataset.forEach(match => {
-            const isHomeFav = match.favTeam === match.home;
-            const homeCode = teamCodes[match.home] || "TM1";
-            const awayCode = teamCodes[match.away] || "TM2";
-            const transHome = langPack.teams[match.home] || match.home;
-            const transAway = langPack.teams[match.away] || match.away;
-            const homeFlag = flagFor(match.homeFlag);
-            const awayFlag = flagFor(match.awayFlag);
-
-            if (match.type === "UPCOMING") {
-                upcomingCount++;
-                let layerRows = '';
-                (match.layers || []).forEach(layer => {
-                    layerRows += `<tr><td class="col-data-layers"><div class="layer-row">
-                        <div class="col-source">${esc(layer.source)}</div>
-                        <div class="string-cell win">${homeCode} ${esc(layer.fav)}</div>
-                        <div class="string-cell draw">Tie ${esc(layer.draw)}</div>
-                        <div class="string-cell loss">${awayCode} ${esc(layer.und)}</div>
-                    </div></td></tr>`;
-                });
-                const layerCount = (match.layers || []).length || 1;
-                const matchupCell = `<td class="col-matchup" rowspan="${layerCount}">
-                    <div class="match-title-wrap">
-                        <div class="team-line"><span class="flag-icon">${homeFlag}</span><span class="team-name">${esc(transHome)}</span><span class="team-role ${isHomeFav ? 'fav' : 'und'}">${isHomeFav ? 'FAV' : 'UND'}</span></div>
-                        <div class="team-line"><span class="flag-icon">${awayFlag}</span><span class="team-name">${esc(transAway)}</span><span class="team-role ${!isHomeFav ? 'fav' : 'und'}">${!isHomeFav ? 'FAV' : 'UND'}</span></div>
-                    </div>
-                    <div class="match-meta">${esc(match.meta)}</div></td>`;
-
-                // Inject the matchup cell into the first layer row only.
-                const rowsArr = layerRows.replace('<tr>', `<tr>${matchupCell}`);
-                upcomingBody.insertAdjacentHTML('beforeend',
-                    `<tr class="match-group-block-start"></tr>`);
-                // Use a wrapper row group via tbody-free approach:
-                upcomingBody.insertAdjacentHTML('beforeend', wrapGroup(rowsArr));
-            } else if (match.type === "COMPLETED") {
-                completedCount++;
-                const accuracy = match.sourceAccuracy || {};
-                const srcKeys = Object.keys(accuracy);
-                let rows = '';
-                srcKeys.forEach((src, idx) => {
-                    const isCorrect = accuracy[src];
-                    const matchupCell = (idx === 0)
-                        ? `<td class="col-matchup" rowspan="${srcKeys.length + 1}">
-                            <div class="match-title-wrap">
-                                <div class="team-line"><span class="flag-icon">${homeFlag}</span><span class="team-name">${esc(transHome)}</span></div>
-                                <div class="team-line"><span class="flag-icon">${awayFlag}</span><span class="team-name">${esc(transAway)}</span></div>
-                            </div>
-                            <div class="match-meta">${esc(match.meta)}</div></td>`
-                        : '';
-                    rows += `<tr>${matchupCell}<td class="col-data-layers"><div class="completed-layer-row">
-                        <div class="col-source" style="color:var(--text-muted);">${esc(src)}</div>
-                        <div class="final-badge-box">${esc(match.score)}</div>
-                        <div class="audit-marker ${isCorrect ? 'correct' : 'incorrect'}">${isCorrect ? '&#10003;' : '&#10005;'}</div>
-                    </div></td></tr>`;
-                });
-                rows += `<tr><td class="col-data-layers"><div class="insight-row">
-                    <div class="insight-tag">${esc(langPack.matchInsight)}</div>
-                    <div class="insight-text">${esc(match.insight)}</div>
-                </div></td></tr>`;
-                completedBody.insertAdjacentHTML('beforeend', wrapGroup(rows));
-            }
-        });
-
-        if (upcomingCount === 0) {
-            upcomingBody.innerHTML = `<tr><td colspan="2" class="empty-note">${esc(langPack.noUpcoming)}</td></tr>`;
-        }
-        if (completedCount === 0) {
-            completedBody.innerHTML = `<tr><td colspan="2" class="empty-note">${esc(langPack.noCompleted)}</td></tr>`;
-        }
-    }
-
-    // Wrap a set of <tr> rows so the whole match group shares the
-    // spacer border, WITHOUT nesting <tbody> inside <tbody>.
-    // We tag the LAST row of the group with the spacer class.
-    function wrapGroup(rowsHtml) {
-        // Find the final <tr ...> and add the group-block class to it.
-        const lastTrIndex = rowsHtml.lastIndexOf('<tr');
-        if (lastTrIndex === -1) return rowsHtml;
-        return rowsHtml.slice(0, lastTrIndex) +
-            rowsHtml.slice(lastTrIndex).replace('<tr', '<tr class="group-end"');
-    }
-
-    function renderTraceTreeBrackets() {
-        const langPack = dictionary[currentLang];
-
-        function compileSide(targetSide, elementId) {
-            const sideContainer = document.getElementById(elementId);
-            const matches = dataset.filter(m => m.side === targetSide);
-
-            let html = `<div class="bracket-round"><div class="bracket-round-header">${esc(langPack.r32)}</div>`;
-
-            for (let i = 0; i < matches.length; i += 2) {
-                const m1 = matches[i];
-                const m2 = matches[i + 1];
-                if (m1 && m2) {
-                    const m1Avg = getAverageFavValue(m1.layers);
-                    const m1Draw = getAverageDrawValue(m1.layers);
-                    const homeC = teamCodes[m1.home] || "TM1";
-                    const awayC = teamCodes[m1.away] || "TM2";
-
-                    html += `
-                        <div class="bracket-match-node">
-                            <div class="bracket-team-line"><span class="flag-icon">${flagFor(m1.homeFlag)}</span> ${homeC} <span class="bracket-score-status">${m1.type === 'COMPLETED' ? 'WIN' : m1Avg + '%'}</span></div>
-                            <div class="bracket-team-line"><span class="flag-icon">${flagFor(m1.awayFlag)}</span> ${awayC} <span class="bracket-score-status elim">${m1.type === 'COMPLETED' ? 'ELIM' : 'TBD'}</span></div>
-                            <div class="bracket-draw-junction-bubble">Tie: ${m1Draw}%</div>`;
-
-                    if (m1.type === "COMPLETED") {
-                        const condA = calculateEloOdds(m1.favTeam, m2.home);
-                        const condB = calculateEloOdds(m1.favTeam, m2.away);
-                        const m2HomeC = teamCodes[m2.home] || "T1";
-                        const m2AwayC = teamCodes[m2.away] || "T2";
-                        html += `
-                            <div class="bracket-lookahead-chassis">
-                                <div class="bracket-lookahead-title">${esc(langPack.scenarios)}</div>
-                                <div class="bracket-lookahead-row">vs ${m2HomeC}: <strong>${condA}%</strong> | <strong>${(100 - condA).toFixed(1)}%</strong></div>
-                                <div class="bracket-lookahead-row">vs ${m2AwayC}: <strong>${condB}%</strong> | <strong>${(100 - condB).toFixed(1)}%</strong></div>
-                            </div>`;
-                    }
-                    html += `</div>`;
-                }
-            }
-            html += `</div><div class="bracket-round"><div class="bracket-round-header">${esc(langPack.r16)}</div><div class="bracket-match-node"><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 1</div><div class="bracket-team-line" style="color:var(--text-muted);">Winner Match 2</div></div></div>`;
-            sideContainer.innerHTML = html;
-        }
-
-        compileSide('left', 'bracket-left-wrapper');
-        compileSide('right', 'bracket-right-wrapper');
-    }
-
-    /* ============================================================
-       5. UI CONTROLS
-       ============================================================ */
-
-    function applyLanguageLabels() {
-        const pack = dictionary[currentLang];
-        document.getElementById('lbl-title').innerText = pack.title;
-        document.getElementById('lbl-subtitle').innerText = pack.subtitle;
-        document.getElementById('btn-grid').innerText = pack.grid;
-        document.getElementById('btn-bracket').innerText = pack.bracket;
-        document.getElementById('btn-left-side').innerText = pack.leftSide;
-        document.getElementById('btn-right-side').innerText = pack.rightSide;
-        document.getElementById('lbl-upcoming-header').innerText = pack.upcoming;
-        document.getElementById('lbl-completed-header').innerText = pack.completed;
-        document.getElementById('lbl-th-matchup-1').innerText = pack.matchup;
-        document.getElementById('lbl-th-matchup-2').innerText = pack.matchup;
-        document.getElementById('lbl-th-source-1').innerText = pack.source;
-        document.getElementById('lbl-th-source-2').innerText = pack.source;
-        document.getElementById('lbl-th-fav-1').innerText = pack.fav;
-        document.getElementById('lbl-th-tie-1').innerText = pack.tie;
-        document.getElementById('lbl-th-und-1').innerText = pack.und;
-        document.getElementById('lbl-th-outcome').innerText = pack.outcome;
-        document.getElementById('lbl-th-audit').innerText = pack.audit;
-        document.getElementById('lbl-footer').innerHTML = '<strong>' + esc(pack.footer.split(':')[0]) + ':</strong>' + esc(pack.footer.slice(pack.footer.indexOf(':') + 1));
-
-        // Last-updated stamp
-        const stamp = document.getElementById('lbl-updated');
-        if (meta.lastUpdated) {
-            stamp.innerText = pack.updated + ': ' + meta.lastUpdated;
-        } else {
-            stamp.innerText = '';
-        }
-    }
-
-    function switchLanguage(langCode) {
-        currentLang = langCode;
-        document.querySelectorAll('.lang-group .control-btn').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(`lang-${langCode}`).classList.add('active');
-
-        applyLanguageLabels();
-        if (dataReady) {
-            buildDataTables();
-            renderTraceTreeBrackets();
-        }
-    }
-
-    function switchView(mode) {
-        document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.mode-group .control-btn').forEach(el => el.classList.remove('active'));
-        const sideSelector = document.getElementById('bracket-side-controls');
-
-        if (mode === 'grid') {
-            document.getElementById('view-grid').classList.add('active');
-            document.getElementById('btn-grid').classList.add('active');
-            sideSelector.style.display = 'none';
-        } else {
-            document.getElementById('view-bracket').classList.add('active');
-            document.getElementById('btn-bracket').classList.add('active');
-            sideSelector.style.display = 'flex';
-        }
-    }
-
-    function switchSide(side) {
-        document.querySelectorAll('.bracket-wrapper').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.side-selector .control-btn').forEach(el => el.classList.remove('active'));
-        if (side === 'left') {
-            document.getElementById('bracket-left-wrapper').classList.add('active');
-            document.getElementById('btn-left-side').classList.add('active');
-        } else {
-            document.getElementById('bracket-right-wrapper').classList.add('active');
-            document.getElementById('btn-right-side').classList.add('active');
-        }
-    }
-
-    /* ============================================================
-       6. DATA LOADING - the heart of "edit JSON, site updates"
-       ============================================================ */
-
-    function showError(message) {
-        const pane = document.getElementById('global-status');
-        pane.className = 'status-pane error';
-        pane.innerHTML = esc(message);
-    }
-
-    async function loadData() {
-        const statusPane = document.getElementById('global-status');
-        try {
-            // Cache-buster: append a timestamp so GitHub Pages / the browser
-            // can't serve a stale copy after you edit data.json.
-            const url = 'data.json?v=' + Date.now();
-            const res = await fetch(url, { cache: 'no-store' });
-
-            if (!res.ok) {
-                throw new Error('Could not load data.json (HTTP ' + res.status + '). Check the file exists next to index.html.');
-            }
-
-            const json = await res.json();
-
-            if (!json || !Array.isArray(json.matches)) {
-                throw new Error('data.json loaded but has no "matches" array. Check the file format.');
-            }
-
-            dataset = json.matches;
-            meta = { currentStage: json.currentStage, lastUpdated: json.lastUpdated };
-            dataReady = true;
-
-            // Hide the loading pane, reveal the grid.
-            statusPane.style.display = 'none';
-            document.getElementById('view-grid').style.display = '';
-
-            applyLanguageLabels();
-            buildDataTables();
-            renderTraceTreeBrackets();
-        } catch (err) {
-            console.error(err);
-            showError('⚠ ' + err.message);
-        }
-    }
-
-    // Apply labels immediately (so the header isn't blank while loading),
-    // then fetch the data.
-    applyLanguageLabels();
-    loadData();
+applyLabels();
+loadData();
 </script>
 </body>
 </html>
