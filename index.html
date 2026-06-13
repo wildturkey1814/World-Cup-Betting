@@ -12,24 +12,20 @@
   --surface2:    #112240;
   --border:      rgba(255,255,255,0.07);
   --border-hi:   rgba(255,255,255,0.14);
-
   --text-hi:     #f0f4ff;
   --text-mid:    #8fa3be;
   --text-lo:     #4a607a;
-
   --gold:        #f0b429;
   --neon:        #38bdf8;
   --green:       #34d399;
   --amber:       #fbbf24;
   --red:         #f87171;
   --purple:      #a78bfa;
-
   --signal-back:   #34d399;
   --signal-draw:   #fbbf24;
   --signal-upset:  #f87171;
   --signal-value:  #a78bfa;
   --signal-lean:   #38bdf8;
-
   --radius:      10px;
   --radius-sm:   6px;
   --font:        -apple-system, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
@@ -51,101 +47,26 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
 /* ── SHELL ──────────────────────────────────────────────────────────── */
-.shell {
-  max-width: 780px;
-  margin: 0 auto;
-}
+.shell { max-width: 780px; margin: 0 auto; }
 
 /* ── HEADER ─────────────────────────────────────────────────────────── */
-.header {
-  text-align: center;
-  padding: 20px 16px 16px;
-  margin-bottom: 4px;
-}
-.header-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--neon);
-  margin-bottom: 6px;
-}
-.header-title {
-  font-size: clamp(20px, 5vw, 28px);
-  font-weight: 800;
-  color: var(--text-hi);
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-}
-.header-meta {
-  font-size: 11px;
-  color: var(--text-mid);
-  margin-top: 6px;
-}
-.header-updated {
-  font-size: 10px;
-  color: var(--neon);
-  margin-top: 4px;
-  opacity: 0.8;
-}
+.header { text-align: center; padding: 20px 16px 16px; margin-bottom: 4px; }
+.header-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--neon); margin-bottom: 6px; }
+.header-title { font-size: clamp(20px, 5vw, 28px); font-weight: 800; color: var(--text-hi); letter-spacing: -0.5px; line-height: 1.1; }
+.header-meta { font-size: 11px; color: var(--text-mid); margin-top: 6px; }
+.header-updated { font-size: 10px; color: var(--neon); margin-top: 4px; opacity: 0.8; }
 
 /* ── CONTROL BAR ────────────────────────────────────────────────────── */
-.controls {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px;
-  background: var(--surface);
-  border-radius: var(--radius);
-  margin-bottom: 10px;
-  border: 1px solid var(--border);
-}
-.controls-row {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.controls-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text-lo);
-  min-width: 50px;
-}
-.btn {
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-hi);
-  color: var(--text-mid);
-  background: rgba(255,255,255,0.03);
-  transition: all 0.15s;
-  white-space: nowrap;
-}
+.controls { display: flex; flex-direction: column; gap: 8px; padding: 12px; background: var(--surface); border-radius: var(--radius); margin-bottom: 10px; border: 1px solid var(--border); }
+.controls-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.controls-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-lo); min-width: 50px; }
+.btn { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-hi); color: var(--text-mid); background: rgba(255,255,255,0.03); transition: all 0.15s; white-space: nowrap; }
 .btn:hover { color: var(--text-hi); border-color: rgba(255,255,255,0.25); }
-.btn.active {
-  color: var(--text-hi);
-  border-color: var(--neon);
-  background: rgba(56,189,248,0.1);
-}
-.btn.lang-active {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(240,180,41,0.08);
-}
+.btn.active { color: var(--text-hi); border-color: var(--neon); background: rgba(56,189,248,0.1); }
+.btn.lang-active { border-color: var(--gold); color: var(--gold); background: rgba(240,180,41,0.08); }
 
 /* ── STAGE TABS ─────────────────────────────────────────────────────── */
-.stage-tabs {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding-bottom: 2px;
-}
+.stage-tabs { display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
 .stage-tabs::-webkit-scrollbar { display: none; }
 
 /* ── VIEW PANELS ────────────────────────────────────────────────────── */
@@ -153,42 +74,13 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 .view-panel.active { display: block; }
 
 /* ── SECTION HEADER ─────────────────────────────────────────────────── */
-.section-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 0 10px;
-}
-.section-head-label {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--neon);
-}
-.section-head-line {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-.section-head-count {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--text-lo);
-}
+.section-head { display: flex; align-items: center; gap: 10px; padding: 16px 0 10px; }
+.section-head-label { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neon); }
+.section-head-line { flex: 1; height: 1px; background: var(--border); }
+.section-head-count { font-size: 10px; font-weight: 700; color: var(--text-lo); }
 
 /* ── MATCH CARD ─────────────────────────────────────────────────────── */
-.match-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  margin-bottom: 10px;
-  overflow: hidden;
-  position: relative;
-  /* left accent bar via box-shadow */
-  box-shadow: inset 3px 0 0 var(--signal-back);
-  transition: box-shadow 0.2s;
-}
+.match-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 10px; overflow: hidden; position: relative; box-shadow: inset 3px 0 0 var(--signal-back); transition: box-shadow 0.2s; }
 .match-card[data-signal="draw"]   { box-shadow: inset 3px 0 0 var(--signal-draw); }
 .match-card[data-signal="upset"]  { box-shadow: inset 3px 0 0 var(--signal-upset); }
 .match-card[data-signal="value"]  { box-shadow: inset 3px 0 0 var(--signal-value); }
@@ -196,655 +88,245 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 .match-card[data-signal="back"]   { box-shadow: inset 3px 0 0 var(--signal-back); }
 .match-card[data-signal="done"]   { box-shadow: inset 3px 0 0 var(--text-lo); }
 
-/* ── MATCH HEADER (teams + meta) ────────────────────────────────────── */
-.match-header {
-  padding: 12px 14px 10px 17px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
-  align-items: start;
-  border-bottom: 1px solid var(--border);
-}
+/* ── MATCH HEADER ───────────────────────────────────────────────────── */
+.match-header { padding: 12px 14px 10px 17px; display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; border-bottom: 1px solid var(--border); }
 .match-teams { display: flex; flex-direction: column; gap: 5px; }
-.team-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.flag {
-  width: 22px;
-  height: 15px;
-  border-radius: 2px;
-  overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
+.team-row { display: flex; align-items: center; gap: 8px; }
+.flag { width: 22px; height: 15px; border-radius: 2px; overflow: hidden; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 .flag svg { width: 100%; height: 100%; display: block; }
-.team-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-hi);
-  line-height: 1;
-}
-.team-badge {
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  padding: 2px 5px;
-  border-radius: 3px;
-  margin-left: 2px;
-}
-.badge-fav {
-  background: rgba(52,211,153,0.15);
-  color: var(--green);
-  border: 1px solid rgba(52,211,153,0.3);
-}
-.badge-und {
-  background: rgba(248,113,113,0.1);
-  color: var(--red);
-  border: 1px solid rgba(248,113,113,0.25);
-}
-.match-meta-col {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  align-items: flex-end;
-}
-.match-group-tag {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(240,180,41,0.1);
-  border: 1px solid rgba(240,180,41,0.2);
-  padding: 2px 6px;
-  border-radius: 3px;
-}
-.match-kickoff {
-  font-size: 10px;
-  color: var(--text-mid);
-  font-weight: 600;
-}
+.team-name { font-size: 15px; font-weight: 700; color: var(--text-hi); line-height: 1; }
+.team-badge { font-size: 8px; font-weight: 800; letter-spacing: 0.5px; padding: 2px 5px; border-radius: 3px; margin-left: 2px; }
+.badge-fav { background: rgba(52,211,153,0.15); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+.badge-und { background: rgba(248,113,113,0.1); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
+.match-meta-col { text-align: right; display: flex; flex-direction: column; gap: 3px; align-items: flex-end; }
+.match-group-tag { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); background: rgba(240,180,41,0.1); border: 1px solid rgba(240,180,41,0.2); padding: 2px 6px; border-radius: 3px; }
+.match-kickoff { font-size: 10px; color: var(--text-mid); font-weight: 600; }
 
 /* ── SOURCE ROWS TABLE ──────────────────────────────────────────────── */
-.sources-table {
-  width: 100%;
-  padding: 0 17px;
-}
-.sources-header {
-  display: grid;
-  grid-template-columns: 1fr 80px 80px 80px;
-  padding: 7px 0 5px;
-  border-bottom: 1px solid var(--border);
-}
-.sources-header span {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--text-lo);
-  text-align: center;
-}
+.sources-table { width: 100%; padding: 0 17px; }
+.sources-header { display: grid; grid-template-columns: 1fr 80px 80px 80px; padding: 7px 0 5px; border-bottom: 1px solid var(--border); }
+.sources-header span { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-lo); text-align: center; }
 .sources-header span:first-child { text-align: left; }
-.source-row {
-  display: grid;
-  grid-template-columns: 1fr 80px 80px 80px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  align-items: center;
-}
+.source-row { display: grid; grid-template-columns: 1fr 80px 80px 80px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); align-items: center; }
 .source-row:last-child { border-bottom: none; }
-.source-name {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-mid);
-}
-.prob-cell {
-  font-size: 13px;
-  font-weight: 700;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-  color: var(--text-mid);
-}
+.source-name { font-size: 11px; font-weight: 600; color: var(--text-mid); }
+.prob-cell { font-size: 13px; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums; color: var(--text-mid); }
 .prob-cell.hi { color: var(--text-hi); }
 .prob-cell.null-val { color: var(--text-lo); font-size: 12px; }
-
-/* ── COL HEADERS (fav/draw/und labels) ──────────────────────────────── */
 .col-fav-label  { color: var(--green) !important; }
 .col-draw-label { color: var(--neon) !important; }
 .col-und-label  { color: var(--red) !important; }
 
 /* ── RECOMMENDATION BAR ─────────────────────────────────────────────── */
-.reco-bar {
-  margin: 0 17px 12px;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  margin-top: 8px;
-  position: relative;
-}
-.reco-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 5px;
-}
-.reco-info-btn {
-  flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.08);
-  color: #fff; font-size: 11px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.15s;
-  font-style: italic; font-family: Georgia, serif;
-}
+.reco-bar { margin: 0 17px 12px; padding: 10px 12px; border-radius: var(--radius-sm); margin-top: 8px; position: relative; }
+.reco-header { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.reco-info-btn { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); background: rgba(255,255,255,0.08); color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; font-style: italic; font-family: Georgia, serif; }
 .reco-info-btn:hover { border-color: var(--neon); background: rgba(56,189,248,0.15); }
-.reco-title {
-  font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--text-hi);
-  flex: 1;
-}
+.reco-title { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-hi); flex: 1; }
 .reco-call  { font-size: 15px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
 .reco-sub   { font-size: 11px; font-weight: 500; color: var(--text-mid); line-height: 1.4; }
-
-/* tooltip */
-.reco-tooltip {
-  display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
-  background: #1a2d45; border: 1px solid var(--border-hi);
-  border-radius: var(--radius-sm); padding: 10px 12px;
-  font-size: 11px; color: var(--text-mid); line-height: 1.6;
-  z-index: 20; box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-}
+.reco-tooltip { display: none; position: fixed; background: #1a2d45; border: 1px solid var(--border-hi); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 11px; color: var(--text-mid); line-height: 1.6; z-index: 200; box-shadow: 0 8px 24px rgba(0,0,0,0.6); max-width: min(280px, 85vw); pointer-events: none; }
 .reco-tooltip.visible { display: block; }
 .reco-tooltip-title { font-weight: 700; color: var(--text-hi); font-size: 12px; margin-bottom: 5px; }
-
 .reco-back  { background: rgba(52,211,153,0.08);  border: 1px solid rgba(52,211,153,0.2);  }
 .reco-draw  { background: rgba(251,191,36,0.08);  border: 1px solid rgba(251,191,36,0.2);  }
 .reco-upset { background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2); }
 .reco-value { background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.2); }
 .reco-lean  { background: rgba(56,189,248,0.08);  border: 1px solid rgba(56,189,248,0.2);  }
-
 .reco-back  .reco-call { color: var(--green); }
 .reco-draw  .reco-call { color: var(--amber); }
 .reco-upset .reco-call { color: var(--red); }
 .reco-value .reco-call { color: var(--purple); }
 .reco-lean  .reco-call { color: var(--neon); }
 
-/* ── COMPLETED CARD ─────────────────────────────────────────────────── */
-.score-block {
-  padding: 10px 17px 12px;
-}
-.score-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border-hi);
+/* ── TOURNAMENT OUTLOOK PANEL ───────────────────────────────────────── */
+.tournament-outlook {
+  margin: 0 17px 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.03);
   border-radius: var(--radius-sm);
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--gold);
-  letter-spacing: 0.5px;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.tournament-outlook-title {
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-lo);
   margin-bottom: 8px;
 }
-.audit-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.audit-row {
-  display: flex;
+.outlook-grid {
+  display: grid;
+  grid-template-columns: 1fr 72px 72px;
+  gap: 3px 8px;
   align-items: center;
-  justify-content: space-between;
-  padding: 4px 0;
 }
+.outlook-col-header {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: var(--text-lo);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--border);
+}
+.outlook-col-header.fav { color: var(--green); }
+.outlook-col-header.und { color: var(--text-lo); }
+.outlook-source {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--text-mid); font-weight: 600;
+  padding: 2px 0;
+}
+.source-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+}
+.source-dot.kalshi     { background: #7c3aed; }
+.source-dot.polymarket { background: #0ea5e9; }
+.outlook-prob {
+  font-size: 12px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.outlook-prob.fav  { color: var(--green); }
+.outlook-prob.und  { color: var(--text-mid); }
+.outlook-prob.null { color: var(--text-lo); font-size: 11px; }
+.outlook-divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--border);
+  margin: 2px 0;
+}
+
+/* ── COMPLETED CARD ─────────────────────────────────────────────────── */
+.score-block { padding: 10px 17px 12px; }
+.score-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-hi); border-radius: var(--radius-sm); padding: 6px 12px; font-size: 13px; font-weight: 800; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 8px; }
+.audit-grid { display: flex; flex-direction: column; gap: 3px; }
+.audit-row { display: flex; align-items: center; justify-content: space-between; padding: 4px 0; }
 .audit-source { font-size: 11px; color: var(--text-mid); }
 .audit-mark { font-size: 16px; font-weight: 800; }
 .audit-correct   { color: var(--green); }
 .audit-incorrect { color: var(--red); }
-.insight-row {
-  margin-top: 8px;
-  padding: 7px 10px;
-  background: rgba(240,180,41,0.05);
-  border-radius: var(--radius-sm);
-  border-left: 2px solid rgba(240,180,41,0.3);
-  font-size: 11px;
-  color: var(--text-mid);
-  line-height: 1.5;
-}
-.insight-label {
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 3px;
-}
+.insight-row { margin-top: 8px; padding: 7px 10px; background: rgba(240,180,41,0.05); border-radius: var(--radius-sm); border-left: 2px solid rgba(240,180,41,0.3); font-size: 11px; color: var(--text-mid); line-height: 1.5; }
+.insight-label { font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 3px; }
 
 /* ── COLLAPSIBLE GROUP SECTIONS ─────────────────────────────────────── */
 .group-section { margin-bottom: 6px; }
-.group-header {
-  width: 100%; display: flex; align-items: center; gap: 8px;
-  padding: 9px 14px; background: var(--surface2);
-  border: 1px solid var(--border-hi); border-radius: var(--radius-sm);
-  cursor: pointer; text-align: left; transition: background 0.15s;
-}
+.group-header { width: 100%; display: flex; align-items: center; gap: 8px; padding: 9px 14px; background: var(--surface2); border: 1px solid var(--border-hi); border-radius: var(--radius-sm); cursor: pointer; text-align: left; transition: background 0.15s; }
 .group-header:hover { background: rgba(255,255,255,0.07); }
-.group-header-label {
-  font-size: 12px; font-weight: 800; color: var(--text-hi);
-  letter-spacing: 0.3px;
-}
-.group-header-meta {
-  font-size: 11px; color: var(--text-mid); flex: 1;
-}
-.group-header-chevron {
-  font-size: 10px; color: var(--text-lo);
-}
+.group-header-label { font-size: 12px; font-weight: 800; color: var(--text-hi); letter-spacing: 0.3px; }
+.group-header-meta { font-size: 11px; color: var(--text-mid); flex: 1; }
+.group-header-chevron { font-size: 10px; color: var(--text-lo); }
 .group-body { padding-top: 6px; }
 
 /* ── EMPTY STATE ─────────────────────────────────────────────────────── */
-.empty {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-lo);
-  font-size: 13px;
-}
+.empty { text-align: center; padding: 40px 20px; color: var(--text-lo); font-size: 13px; }
 
 /* ── BRACKET VIEW ───────────────────────────────────────────────────── */
-.bracket-outer {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 0;
-}
-.bracket-zone-tabs {
-  display: flex; gap: 6px; padding: 12px 0 10px; flex-wrap: wrap;
-}
-.bracket-wall {
-  display: none;
-}
-.bracket-wall.active {
-  display: grid;
-  grid-template-columns: repeat(5, 190px) 60px repeat(5, 190px);
-  gap: 0;
-  min-width: 1940px;
-  padding: 16px 0 24px;
-  align-items: start;
-}
-/* Simpler zone view (when no R32+ data — just show zone matches) */
-.bracket-zone-simple {
-  display: none;
-}
-.bracket-zone-simple.active {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.bracket-round-col {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.bracket-round-header {
-  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--neon);
-  padding: 0 8px 10px; text-align: center;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 4px;
-}
-.bracket-center-col {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding-top: 40px;
-}
-.bracket-final-label {
-  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--gold);
-  text-align: center; margin-bottom: 8px;
-}
-.bracket-final-node {
-  background: rgba(240,180,41,0.08); border: 1px solid rgba(240,180,41,0.3);
-  border-radius: var(--radius-sm); padding: 8px 10px; text-align: center;
-  min-width: 50px;
-}
-.bracket-final-node .bracket-tbd {
-  font-size: 9px; color: var(--text-lo);
-}
-
-/* Match node */
-.bracket-node {
-  margin: 8px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: visible;
-  position: relative;
-}
-.bracket-node.winner-known {
-  border-color: var(--border-hi);
-}
-/* Connector lines */
-.bracket-node::after {
-  content: '';
-  position: absolute;
-  right: -9px; top: 50%;
-  width: 9px; height: 1px;
-  background: var(--border-hi);
-}
+.bracket-outer { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0; }
+.bracket-zone-tabs { display: flex; gap: 6px; padding: 12px 0 10px; flex-wrap: wrap; }
+.bracket-wall { display: none; }
+.bracket-wall.active { display: grid; grid-template-columns: repeat(5, 190px) 60px repeat(5, 190px); gap: 0; min-width: 1940px; padding: 16px 0 24px; align-items: start; }
+.bracket-zone-simple { display: none; }
+.bracket-zone-simple.active { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.bracket-round-col { display: flex; flex-direction: column; gap: 0; }
+.bracket-round-header { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neon); padding: 0 8px 10px; text-align: center; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+.bracket-center-col { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 40px; }
+.bracket-final-label { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 8px; }
+.bracket-final-node { background: rgba(240,180,41,0.08); border: 1px solid rgba(240,180,41,0.3); border-radius: var(--radius-sm); padding: 8px 10px; text-align: center; min-width: 50px; }
+.bracket-final-node .bracket-tbd { font-size: 9px; color: var(--text-lo); }
+.bracket-node { margin: 8px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: visible; position: relative; }
+.bracket-node.winner-known { border-color: var(--border-hi); }
+.bracket-node::after { content: ''; position: absolute; right: -9px; top: 50%; width: 9px; height: 1px; background: var(--border-hi); }
 .bracket-node.no-connector::after { display: none; }
-
-.bracket-team-row {
-  display: flex; align-items: center; gap: 6px;
-  padding: 6px 8px;
-  border-bottom: 1px solid var(--border);
-  font-size: 12px; font-weight: 600;
-  color: var(--text-mid);
-  position: relative;
-}
+.bracket-team-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--text-mid); position: relative; }
 .bracket-team-row:last-of-type { border-bottom: none; }
-.bracket-team-row.is-winner {
-  color: var(--text-hi); font-weight: 700;
-  background: rgba(52,211,153,0.05);
-}
+.bracket-team-row.is-winner { color: var(--text-hi); font-weight: 700; background: rgba(52,211,153,0.05); }
 .bracket-team-row.is-eliminated { opacity: 0.45; }
 .bracket-team-row .flag { width: 16px; height: 11px; flex-shrink: 0; }
 .bracket-team-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bracket-pct {
-  font-size: 11px; font-weight: 700; color: var(--neon);
-  font-variant-numeric: tabular-nums; white-space: nowrap;
-}
+.bracket-pct { font-size: 11px; font-weight: 700; color: var(--neon); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .bracket-pct.fav  { color: var(--green); }
 .bracket-pct.und  { color: var(--text-lo); }
 .bracket-pct.won  { color: var(--green); }
 .bracket-pct.lost { color: var(--text-lo); }
-
-.bracket-draw-tag {
-  text-align: center; font-size: 9px; font-weight: 700;
-  color: var(--neon); padding: 2px 0;
-  background: rgba(56,189,248,0.05);
-  border-top: 1px solid var(--border);
-}
-
-/* ELO scenario panel (waiting state) */
-.bracket-elo-panel {
-  padding: 5px 8px 6px;
-  background: rgba(167,139,250,0.05);
-  border-top: 1px solid rgba(167,139,250,0.15);
-}
-.bracket-elo-label {
-  font-size: 8px; font-weight: 800; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--purple); margin-bottom: 3px;
-}
-.bracket-elo-row {
-  font-size: 10px; color: var(--text-mid);
-  display: flex; justify-content: space-between;
-  padding: 1px 0;
-}
+.bracket-draw-tag { text-align: center; font-size: 9px; font-weight: 700; color: var(--neon); padding: 2px 0; background: rgba(56,189,248,0.05); border-top: 1px solid var(--border); }
+.bracket-elo-panel { padding: 5px 8px 6px; background: rgba(167,139,250,0.05); border-top: 1px solid rgba(167,139,250,0.15); }
+.bracket-elo-label { font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--purple); margin-bottom: 3px; }
+.bracket-elo-row { font-size: 10px; color: var(--text-mid); display: flex; justify-content: space-between; padding: 1px 0; }
 .bracket-elo-row strong { color: var(--text-hi); font-weight: 700; }
-
-/* TBD slot */
-.bracket-tbd-node {
-  margin: 8px;
-  padding: 10px 8px;
-  border: 1px dashed rgba(255,255,255,0.1);
-  border-radius: var(--radius-sm);
-  font-size: 11px; color: var(--text-lo); text-align: center;
-  font-style: italic;
-}
-
-/* Zone bracket simple grid */
-.zone-bracket-grid {
-  display: flex; gap: 0;
-  min-width: 600px;
-  padding: 12px 0;
-}
-.zone-round-col {
-  width: 190px; flex-shrink: 0;
-  display: flex; flex-direction: column;
-}
-.zone-round-header {
-  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--neon);
-  padding: 0 8px 10px; border-bottom: 1px solid var(--border);
-  margin-bottom: 4px; text-align: center;
-}
+.bracket-tbd-node { margin: 8px; padding: 10px 8px; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius-sm); font-size: 11px; color: var(--text-lo); text-align: center; font-style: italic; }
+.zone-bracket-grid { display: flex; gap: 0; min-width: 600px; padding: 12px 0; }
+.zone-round-col { width: 190px; flex-shrink: 0; display: flex; flex-direction: column; }
+.zone-round-header { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neon); padding: 0 8px 10px; border-bottom: 1px solid var(--border); margin-bottom: 4px; text-align: center; }
 
 /* ── STATUS PANE ────────────────────────────────────────────────────── */
-.status-pane {
-  padding: 60px 20px;
-  text-align: center;
-  color: var(--text-mid);
-  font-size: 14px;
-}
+.status-pane { padding: 60px 20px; text-align: center; color: var(--text-mid); font-size: 14px; }
 .status-pane.error { color: var(--red); }
-.spinner {
-  width: 24px; height: 24px;
-  border: 2px solid rgba(56,189,248,0.2);
-  border-top-color: var(--neon);
-  border-radius: 50%;
-  margin: 0 auto 14px;
-  animation: spin 0.8s linear infinite;
-}
+.spinner { width: 24px; height: 24px; border: 2px solid rgba(56,189,248,0.2); border-top-color: var(--neon); border-radius: 50%; margin: 0 auto 14px; animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
 
 /* ── FLIP CARD ──────────────────────────────────────────────────────── */
-.flip-card {
-  perspective: 1000px;
-  cursor: pointer;
-}
-.flip-card-inner {
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
-  /* min-height set via JS to match tallest face */
-}
-.flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
-.flip-face {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.flip-face-front {
-  position: relative;
-}
-.flip-face-back {
-  position: absolute;
-  inset: 0;
-  transform: rotateY(180deg);
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-
-/* flip hint */
-.flip-hint {
-  font-size: 10px; font-weight: 600; color: var(--text-lo);
-  text-align: center; padding: 4px 0 8px;
-  letter-spacing: 0.5px;
-}
+.flip-card { perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; transform-style: preserve-3d; transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1); }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-face-front { position: relative; }
+.flip-face-back { position: absolute; inset: 0; transform: rotateY(180deg); background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; }
+.flip-hint { font-size: 10px; font-weight: 600; color: var(--text-lo); text-align: center; padding: 4px 0 8px; letter-spacing: 0.5px; }
 .flip-hint span { opacity: 0.6; }
 
 /* ── BOX SCORE BACK FACE ────────────────────────────────────────────── */
-.box-score {
-  padding: 14px 16px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.box-score-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.box-score-title {
-  font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--neon);
-}
-.box-score-close {
-  font-size: 10px; font-weight: 700; color: var(--text-lo);
-  letter-spacing: 0.5px;
-}
-.box-score-teams {
-  display: flex; justify-content: space-between;
-  align-items: center; gap: 8px;
-}
-.box-score-team {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 700; color: var(--text-hi);
-}
+.box-score { padding: 14px 16px; height: 100%; display: flex; flex-direction: column; gap: 12px; }
+.box-score-header { display: flex; justify-content: space-between; align-items: center; }
+.box-score-title { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neon); }
+.box-score-close { font-size: 10px; font-weight: 700; color: var(--text-lo); letter-spacing: 0.5px; }
+.box-score-teams { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.box-score-team { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--text-hi); }
 .box-score-team .flag { width: 18px; height: 12px; }
-.box-score-scoreline {
-  font-size: 22px; font-weight: 800; color: var(--gold);
-  letter-spacing: 2px; text-align: center; flex: 1;
-}
-
-/* possession bar */
+.box-score-scoreline { font-size: 22px; font-weight: 800; color: var(--gold); letter-spacing: 2px; text-align: center; flex: 1; }
 .poss-bar-wrap { display: flex; flex-direction: column; gap: 4px; }
-.poss-label {
-  display: flex; justify-content: space-between;
-  font-size: 10px; font-weight: 700;
-}
+.poss-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; }
 .poss-label span:first-child { color: var(--green); }
 .poss-label span:last-child  { color: var(--text-mid); }
-.poss-label span:nth-child(2) {
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 1px; color: var(--text-lo);
-}
-.poss-bar {
-  height: 5px; border-radius: 3px;
-  background: rgba(255,255,255,0.07);
-  overflow: hidden;
-}
-.poss-bar-fill {
-  height: 100%; border-radius: 3px;
-  background: linear-gradient(90deg, var(--green), var(--neon));
-  transition: width 0.8s ease;
-}
-
-/* stats grid */
-.stats-grid {
-  display: flex; flex-direction: column; gap: 5px;
-}
-.stat-row {
-  display: grid; grid-template-columns: 1fr 80px 1fr;
-  align-items: center; gap: 4px;
-}
-.stat-val {
-  font-size: 13px; font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
+.poss-label span:nth-child(2) { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-lo); }
+.poss-bar { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.07); overflow: hidden; }
+.poss-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--neon)); transition: width 0.8s ease; }
+.stats-grid { display: flex; flex-direction: column; gap: 5px; }
+.stat-row { display: grid; grid-template-columns: 1fr 80px 1fr; align-items: center; gap: 4px; }
+.stat-val { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .stat-val.home { color: var(--text-hi); text-align: left; }
 .stat-val.away { color: var(--text-mid); text-align: right; }
-.stat-label {
-  font-size: 9px; font-weight: 700; text-align: center;
-  text-transform: uppercase; letter-spacing: 0.8px;
-  color: var(--text-lo);
-}
-
-/* goal timeline */
+.stat-label { font-size: 9px; font-weight: 700; text-align: center; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-lo); }
 .goal-timeline { display: flex; flex-direction: column; gap: 4px; }
-.goal-timeline-title {
-  font-size: 9px; font-weight: 800; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--text-lo); margin-bottom: 2px;
-}
-.goal-event {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 600;
-}
+.goal-timeline-title { font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text-lo); margin-bottom: 2px; }
+.goal-event { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; }
 .goal-event.home { flex-direction: row; color: var(--text-hi); }
 .goal-event.away { flex-direction: row-reverse; color: var(--text-mid); justify-content: flex-start; }
-.goal-min {
-  font-size: 10px; font-weight: 800; color: var(--neon);
-  min-width: 30px; text-align: center;
-  background: rgba(56,189,248,0.1); border-radius: 3px; padding: 1px 4px;
-}
+.goal-min { font-size: 10px; font-weight: 800; color: var(--neon); min-width: 30px; text-align: center; background: rgba(56,189,248,0.1); border-radius: 3px; padding: 1px 4px; }
 .goal-icon { font-size: 12px; }
-
-/* live indicator */
-.live-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 10px; font-weight: 800; color: #ef4444;
-  letter-spacing: 1px; text-transform: uppercase;
-}
-.live-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #ef4444;
-  animation: pulse-dot 1.2s ease-in-out infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(0.7); }
-}
+.live-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 800; color: #ef4444; letter-spacing: 1px; text-transform: uppercase; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; animation: pulse-dot 1.2s ease-in-out infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
 @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
-.search-wrap {
-  position: relative; margin-bottom: 10px;
-}
-.search-input {
-  width: 100%; padding: 10px 36px 10px 14px;
-  background: var(--surface); border: 1px solid var(--border-hi);
-  border-radius: var(--radius-sm); color: var(--text-hi);
-  font-family: var(--font); font-size: 13px; font-weight: 500;
-  outline: none; transition: border-color 0.15s;
-  -webkit-appearance: none;
-}
+
+/* ── SEARCH ─────────────────────────────────────────────────────────── */
+.search-wrap { position: relative; margin-bottom: 10px; }
+.search-input { width: 100%; padding: 10px 36px 10px 14px; background: var(--surface); border: 1px solid var(--border-hi); border-radius: var(--radius-sm); color: var(--text-hi); font-family: var(--font); font-size: 13px; font-weight: 500; outline: none; transition: border-color 0.15s; -webkit-appearance: none; }
 .search-input::placeholder { color: var(--text-lo); }
 .search-input:focus { border-color: var(--neon); }
-.search-clear {
-  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-  color: var(--text-lo); font-size: 16px; cursor: pointer;
-  display: none; padding: 2px 4px;
-}
+.search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--text-lo); font-size: 16px; cursor: pointer; display: none; padding: 2px 4px; }
 .search-clear.visible { display: block; }
-.search-no-results {
-  text-align: center; padding: 30px 20px;
-  color: var(--text-lo); font-size: 13px;
-}
+.search-no-results { text-align: center; padding: 30px 20px; color: var(--text-lo); font-size: 13px; }
 
 /* ── SORT TOGGLE ────────────────────────────────────────────────────── */
-.sort-row {
-  display: flex; gap: 6px; align-items: center; margin-bottom: 8px;
-}
-.sort-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--text-lo); min-width: 32px;
-}
+.sort-row { display: flex; gap: 6px; align-items: center; margin-bottom: 8px; }
+.sort-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-lo); min-width: 32px; }
 
 /* ── DOUBLE-WIDE CARD GRID ──────────────────────────────────────────── */
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 @media (min-width: 700px) {
   .card-grid { grid-template-columns: 1fr 1fr; }
   .shell { max-width: 1100px; }
 }
 
-/* ── TOOLTIP — fixed near button ────────────────────────────────────── */
-.reco-tooltip {
-  display: none;
-  position: fixed;
-  background: #1a2d45; border: 1px solid var(--border-hi);
-  border-radius: var(--radius-sm); padding: 10px 12px;
-  font-size: 11px; color: var(--text-mid); line-height: 1.6;
-  z-index: 200; box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-  max-width: min(280px, 85vw);
-  pointer-events: none;
-}
-.reco-tooltip.visible { display: block; }
-.reco-tooltip-title { font-weight: 700; color: var(--text-hi); font-size: 12px; margin-bottom: 5px; }
-
 /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .sources-header, .source-row {
-    grid-template-columns: 1fr 70px 70px 70px;
-  }
+  .sources-header, .source-row { grid-template-columns: 1fr 70px 70px 70px; }
   .prob-cell { font-size: 12px; }
   .team-name { font-size: 14px; }
 }
@@ -863,18 +345,15 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
   <!-- CONTROLS -->
   <div class="controls">
-    <!-- View toggle -->
     <div class="controls-row">
       <span class="controls-label" id="lbl-view">View</span>
       <button class="btn active" id="btn-grid"    onclick="switchView('grid')"   ></button>
       <button class="btn"        id="btn-bracket" onclick="switchView('bracket')"></button>
     </div>
-    <!-- Stage tabs -->
     <div class="controls-row">
       <span class="controls-label" id="lbl-stage">Stage</span>
       <div class="stage-tabs" id="stage-tabs"></div>
     </div>
-    <!-- Sort + Language row -->
     <div class="controls-row">
       <div class="sort-row">
         <span class="sort-label" id="lbl-sort">Sort</span>
@@ -903,15 +382,12 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
   <!-- GRID VIEW -->
   <div id="view-grid" class="view-panel">
-    <!-- Upcoming -->
     <div class="section-head">
       <span class="section-head-label" id="lbl-upcoming"></span>
       <div class="section-head-line"></div>
       <span class="section-head-count" id="count-upcoming"></span>
     </div>
     <div id="upcoming-list"></div>
-
-    <!-- Completed -->
     <div class="section-head" style="margin-top:8px;">
       <span class="section-head-label" id="lbl-completed"></span>
       <div class="section-head-line"></div>
@@ -983,6 +459,14 @@ const FLAGS = {
   pan:`<svg viewBox="0 0 32 20" style="background:#FFF"><rect width="16" height="10" fill="#FFF"/><rect x="16" y="10" width="16" height="10" fill="#FFF"/><rect x="16" width="16" height="10" fill="#D21034"/><rect y="10" width="16" height="10" fill="#005293"/></svg>`,
   uzb:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#1EB53A"/><rect y="6.6" width="32" height="6.8" fill="#FFF"/><rect y="13.4" width="32" height="6.6" fill="#CE1126"/></svg>`,
   col:`<svg viewBox="0 0 32 20"><rect width="32" height="8" fill="#FCD116"/><rect y="8" width="32" height="6" fill="#003087"/><rect y="14" width="32" height="6" fill="#CE1126"/></svg>`,
+  srb:`<svg viewBox="0 0 32 20"><rect width="32" height="6.6" fill="#C6363C"/><rect y="6.6" width="32" height="6.8" fill="#0C4076"/><rect y="13.4" width="32" height="6.6" fill="#FFF"/></svg>`,
+  pol:`<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#DC143C"/></svg>`,
+  den:`<svg viewBox="0 0 32 20"><rect width="32" height="20" fill="#C60C30"/><rect x="10" width="4" height="20" fill="#FFF"/><rect y="8" width="32" height="4" fill="#FFF"/></svg>`,
+  nga:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#008751"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#008751"/></svg>`,
+  cmr:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#007A5E"/><rect x="10.7" width="10.6" height="20" fill="#CE1126"/><rect x="21.3" width="10.7" height="20" fill="#FCD116"/></svg>`,
+  ita:`<svg viewBox="0 0 32 20"><rect width="10.7" height="20" fill="#009246"/><rect x="10.7" width="10.6" height="20" fill="#FFF"/><rect x="21.3" width="10.7" height="20" fill="#CE2B37"/></svg>`,
+  crc:`<svg viewBox="0 0 32 20"><rect width="32" height="4" fill="#002B7F"/><rect y="4" width="32" height="4" fill="#FFF"/><rect y="8" width="32" height="4" fill="#CE1126"/><rect y="12" width="32" height="4" fill="#FFF"/><rect y="16" width="32" height="4" fill="#002B7F"/></svg>`,
+  wal:`<svg viewBox="0 0 32 20"><rect width="32" height="10" fill="#FFF"/><rect y="10" width="32" height="10" fill="#00AB39"/></svg>`,
 };
 
 function flagHTML(code) {
@@ -1023,6 +507,7 @@ const DICT = {
     sortTime:"By Time", sortGroup:"By Group",
     searchPlaceholder:"Search teams…",
     favBadge:"FAV", undBadge:"UND",
+    tournamentOutlook:"🏆 Tournament Winner Odds",
     teams:{
       "Mexico":"Mexico","South Africa":"South Africa","South Korea":"South Korea",
       "Czechia":"Czechia","Canada":"Canada","Bosnia & Herzegovina":"Bosnia & Herz.",
@@ -1058,11 +543,11 @@ const DICT = {
     recoBack:"베팅 추천", recoLean:"우세",
     recoDraw:"무승부 가능", recoUpset:"이변 주의",
     recoValue:"모델 추천",
-    tipBack:"세 가지 출처(스포츠북, ELO 모델, 예측 시장) 모두 동일한 팀을 승자로 예측합니다. 일치도가 높을수록 불확실성이 낮습니다.",
-    tipLean:"출처들이 대체로 동의하지만 격차가 좁습니다. 합리적인 베팅이지만 확실하지는 않습니다.",
-    tipDraw:"평균 무승부 확률이 30%를 초과합니다. 코인 베팅에서 무승부가 더 나은 가치를 제공할 수 있습니다.",
-    tipUpset:"ELO 모델이 언더독에게 시장보다 훨씬 높은 확률을 부여합니다. 출처들이 불일치하므로 주의가 필요합니다.",
-    tipValue:"ELO/포아송 모델이 시장보다 높은 승리 확률을 예측합니다. 저평가된 가치를 나타낼 수 있습니다.",
+    tipBack:"세 가지 출처(스포츠북, ELO 모델, 예측 시장) 모두 동일한 팀을 승자로 예측합니다.",
+    tipLean:"출처들이 대체로 동의하지만 격차가 좁습니다.",
+    tipDraw:"평균 무승부 확률이 30%를 초과합니다.",
+    tipUpset:"ELO 모델이 언더독에게 시장보다 훨씬 높은 확률을 부여합니다.",
+    tipValue:"ELO/포아송 모델이 시장보다 높은 승리 확률을 예측합니다.",
     zoneLabel:"구역", zoneMex:"멕시코 구역", zoneCen:"중부 구역",
     zoneEast:"동부 구역", zoneWest:"서부 구역",
     bracketR32:"32강", bracketR16:"16강",
@@ -1072,6 +557,7 @@ const DICT = {
     sortTime:"시간순", sortGroup:"그룹별",
     searchPlaceholder:"팀 검색…",
     favBadge:"정배", undBadge:"역배",
+    tournamentOutlook:"🏆 대회 우승 확률",
     teams:{
       "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국",
       "Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아",
@@ -1107,11 +593,11 @@ const DICT = {
     recoBack:"ベット推奨", recoLean:"優勢",
     recoDraw:"引き分け有力", recoUpset:"番狂わせ注意",
     recoValue:"モデル推奨",
-    tipBack:"3つの情報源（スポーツブック、ELOモデル、予測市場）すべてが同じチームを勝者と予測しています。一致度が高いほど不確実性が低くなります。",
-    tipLean:"情報源はおおむね一致していますが、差は僅差です。合理的なベットですが、確実ではありません。",
-    tipDraw:"複数の情報源での平均引き分け確率が30%を超えています。コインベットでは引き分け選択がより良い価値を提供する可能性があります。",
-    tipUpset:"ELOモデルが市場よりもアンダードッグに大幅に高い確率を与えています。情報源が一致していないため、注意が必要です。",
-    tipValue:"ELO/ポアソンモデルが市場が示すよりも高い勝利確率を予測しています。割安な価値を示している可能性があります。",
+    tipBack:"3つの情報源すべてが同じチームを勝者と予測しています。",
+    tipLean:"情報源はおおむね一致していますが、差は僅差です。",
+    tipDraw:"複数の情報源での平均引き分け確率が30%を超えています。",
+    tipUpset:"ELOモデルが市場よりもアンダードッグに大幅に高い確率を与えています。",
+    tipValue:"ELO/ポアソンモデルが市場が示すよりも高い勝利確率を予測しています。",
     zoneLabel:"ゾーン", zoneMex:"メキシコゾーン", zoneCen:"中部ゾーン",
     zoneEast:"東部ゾーン", zoneWest:"西部ゾーン",
     bracketR32:"ラウンド32", bracketR16:"ラウンド16",
@@ -1121,6 +607,7 @@ const DICT = {
     sortTime:"時間順", sortGroup:"グループ別",
     searchPlaceholder:"チームを検索…",
     favBadge:"本命", undBadge:"大穴",
+    tournamentOutlook:"🏆 大会優勝オッズ",
     teams:{
       "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国",
       "Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア",
@@ -1145,10 +632,10 @@ const DICT = {
 /* ================================================================
    STATE
 ================================================================ */
-let lang       = 'en';
+let lang         = 'en';
 let currentView  = 'grid';
 let currentStage = 'Group Stage';
-let currentSort  = 'time';   // 'time' | 'group'
+let currentSort  = 'time';
 let searchQuery  = '';
 let allMatches   = [];
 let meta         = {};
@@ -1165,20 +652,16 @@ const STAGE_KEYS = {
 let activeTooltip = null;
 
 function toggleTooltip(btnEl, tipId) {
-  // Close any open tooltip first
   if (activeTooltip && activeTooltip !== tipId) {
     const prev = document.getElementById(activeTooltip);
     if (prev) prev.classList.remove('visible');
   }
   const tip = document.getElementById(tipId);
   if (!tip) return;
-
   const isVisible = tip.classList.contains('visible');
   tip.classList.remove('visible');
   activeTooltip = null;
-
   if (!isVisible) {
-    // Position near the button using getBoundingClientRect
     const rect = btnEl.getBoundingClientRect();
     tip.style.top  = (rect.bottom + 6) + 'px';
     tip.style.left = Math.max(8, rect.left - 200) + 'px';
@@ -1187,7 +670,6 @@ function toggleTooltip(btnEl, tipId) {
   }
 }
 
-// Close tooltips on outside click
 document.addEventListener('click', e => {
   if (!e.target.closest('.reco-info-btn') && !e.target.closest('.reco-tooltip')) {
     document.querySelectorAll('.reco-tooltip.visible').forEach(t => t.classList.remove('visible'));
@@ -1204,97 +686,117 @@ function flipCard(cardId) {
   const inner = card.querySelector('.flip-card-inner');
   const front = card.querySelector('.flip-face-front');
   const back  = card.querySelector('.flip-face-back');
-
-  // On first flip, equalise height of both faces so the card doesn't collapse
   if (inner && front && back && !inner.dataset.sized) {
     inner.dataset.sized = '1';
-    // Briefly unlayer back to measure its natural height
     back.style.cssText = 'position:relative;transform:none;visibility:hidden;backface-visibility:visible';
     const h = Math.max(front.scrollHeight, back.scrollHeight);
     back.style.cssText = '';
     inner.style.height = h + 'px';
   }
-
   card.classList.toggle('flipped');
-  document.querySelectorAll('.reco-tooltip.visible')
-    .forEach(t => t.classList.remove('visible'));
+  document.querySelectorAll('.reco-tooltip.visible').forEach(t => t.classList.remove('visible'));
 }
 
 function calcReco(match) {
   if (match.type === 'COMPLETED') return null;
   const layers = match.layers || [];
   if (!layers.length) return null;
-
   function p(str) { return (!str || str === '--') ? null : parseFloat(str); }
-
-  // If the favourite is the away team, fav/und are from home team's perspective
-  // so we need to read 'und' as the favourite's probability
   const favIsHome = match.favTeam === match.home;
-
   let favVals = [], drawVals = [], undVals = [];
   layers.forEach(l => {
-    // favProb = probability of the designated favourite winning
-    const favProb = favIsHome ? p(l.fav) : p(l.und);
-    const undProb = favIsHome ? p(l.und) : p(l.fav);
+    const favProb  = favIsHome ? p(l.fav) : p(l.und);
+    const undProb  = favIsHome ? p(l.und) : p(l.fav);
     const drawProb = p(l.draw);
-    if (favProb != null) favVals.push(favProb);
+    if (favProb  != null) favVals.push(favProb);
     if (drawProb != null) drawVals.push(drawProb);
-    if (undProb != null) undVals.push(undProb);
+    if (undProb  != null) undVals.push(undProb);
   });
-
   if (!favVals.length) return null;
-
   const avgFav  = favVals.reduce((a,b)=>a+b,0) / favVals.length;
   const avgDraw = drawVals.length ? drawVals.reduce((a,b)=>a+b,0)/drawVals.length : 0;
   const avgUnd  = undVals.length  ? undVals.reduce((a,b)=>a+b,0)/undVals.length   : 0;
-
   const eloLayer = layers.find(l => l.source.includes('ELO') || l.source.includes('Poisson'));
-  const mktLayer = layers.find(l => l.source.includes('Sportsbook') || l.source.includes('P2P'));
-  // Read the favourite's win probability correctly regardless of home/away
+  const mktLayer = layers.find(l => l.source.includes('Sportsbook'));
   const eloFav = eloLayer ? (favIsHome ? p(eloLayer.fav) : p(eloLayer.und)) : null;
   const mktFav = mktLayer ? (favIsHome ? p(mktLayer.fav) : p(mktLayer.und)) : null;
   const modelMarketGap = (eloFav != null && mktFav != null) ? Math.abs(eloFav - mktFav) : 0;
-
   const d = DICT[lang];
-
-  // Rule 1: Strong consensus favourite — nothing overrides this
   if (avgFav >= 65) {
-    return { type:'back', cls:'reco-back',
-      call: d.recoBack, tipKey:'tipBack',
+    return { type:'back', cls:'reco-back', call: d.recoBack, tipKey:'tipBack',
       sub: `${avgFav.toFixed(1)}% avg — ${favVals.length}/3 sources aligned` };
   }
-
-  // Rule 2: Model vs market divergence — only meaningful when favourite isn't dominant
   if (modelMarketGap >= 15 && eloFav != null && mktFav != null) {
     if (eloFav < mktFav) {
-      return { type:'upset', cls:'reco-upset',
-        call: d.recoUpset, tipKey:'tipUpset',
+      return { type:'upset', cls:'reco-upset', call: d.recoUpset, tipKey:'tipUpset',
         sub: `ELO: ${(100-eloFav).toFixed(1)}% underdog vs market's ${(100-mktFav).toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt gap` };
     } else {
-      return { type:'value', cls:'reco-value',
-        call: d.recoValue, tipKey:'tipValue',
+      return { type:'value', cls:'reco-value', call: d.recoValue, tipKey:'tipValue',
         sub: `ELO sees ${eloFav.toFixed(1)}% vs market's ${mktFav.toFixed(1)}% — ${modelMarketGap.toFixed(1)}pt divergence` };
     }
   }
-
-  // Rule 3: Draw is genuinely live — only flag when no clear favourite
   if (avgDraw >= 30 && avgFav < 52) {
-    return { type:'draw', cls:'reco-draw',
-      call: d.recoDraw, tipKey:'tipDraw',
+    return { type:'draw', cls:'reco-draw', call: d.recoDraw, tipKey:'tipDraw',
       sub: `${avgDraw.toFixed(1)}% avg draw probability — no clear favourite` };
   }
-
-  // Rule 4: Lean favourite
   if (avgFav >= 50) {
-    return { type:'lean', cls:'reco-lean',
-      call: d.recoLean, tipKey:'tipLean',
+    return { type:'lean', cls:'reco-lean', call: d.recoLean, tipKey:'tipLean',
       sub: `${avgFav.toFixed(1)}% avg — sources agree but margin is slim` };
   }
-
-  // Rule 5: Genuinely too close to call
-  return { type:'draw', cls:'reco-draw',
-    call: d.recoDraw, tipKey:'tipDraw',
+  return { type:'draw', cls:'reco-draw', call: d.recoDraw, tipKey:'tipDraw',
     sub: `${avgFav.toFixed(1)}% vs ${avgUnd.toFixed(1)}% — too close to call confidently` };
+}
+
+/* ================================================================
+   TOURNAMENT OUTLOOK PANEL
+================================================================ */
+function renderTournamentOutlook(match) {
+  const favIsHome = match.favTeam === match.home;
+
+  const kalshiFav  = favIsHome ? match.kalshiWinProbHome  : match.kalshiWinProbAway;
+  const kalshiUnd  = favIsHome ? match.kalshiWinProbAway  : match.kalshiWinProbHome;
+  const polyFav    = favIsHome ? match.polymarketWinProbHome : match.polymarketWinProbAway;
+  const polyUnd    = favIsHome ? match.polymarketWinProbAway : match.polymarketWinProbHome;
+
+  const hasKalshi = kalshiFav && kalshiFav !== '--' && kalshiUnd && kalshiUnd !== '--';
+  const hasPoly   = polyFav   && polyFav   !== '--' && polyUnd   && polyUnd   !== '--';
+
+  if (!hasKalshi && !hasPoly) return '';
+
+  const favCode = (match.favTeam || '').substring(0,3).toUpperCase();
+  const undCode = (match.undTeam || '').substring(0,3).toUpperCase();
+  const d = DICT[lang];
+
+  let rows = '';
+
+  if (hasKalshi) {
+    rows += `
+      <div class="outlook-source"><span class="source-dot kalshi"></span>Kalshi</div>
+      <div class="outlook-prob fav">${esc(kalshiFav)}</div>
+      <div class="outlook-prob und">${esc(kalshiUnd)}</div>`;
+  }
+
+  if (hasKalshi && hasPoly) {
+    rows += `<div class="outlook-divider"></div>`;
+  }
+
+  if (hasPoly) {
+    rows += `
+      <div class="outlook-source"><span class="source-dot polymarket"></span>Polymarket</div>
+      <div class="outlook-prob fav">${esc(polyFav)}</div>
+      <div class="outlook-prob und">${esc(polyUnd)}</div>`;
+  }
+
+  return `
+    <div class="tournament-outlook">
+      <div class="tournament-outlook-title">${esc(d.tournamentOutlook || '🏆 Tournament Winner Odds')}</div>
+      <div class="outlook-grid">
+        <div class="outlook-col-header">Source</div>
+        <div class="outlook-col-header fav">${esc(favCode)}</div>
+        <div class="outlook-col-header und">${esc(undCode)}</div>
+        ${rows}
+      </div>
+    </div>`;
 }
 
 /* ================================================================
@@ -1303,11 +805,7 @@ function calcReco(match) {
 function esc(s) {
   return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-
-function teamName(raw) {
-  return DICT[lang].teams[raw] || raw;
-}
-
+function teamName(raw) { return DICT[lang].teams[raw] || raw; }
 function fmtKickoff(iso) {
   if (!iso) return '';
   try {
@@ -1326,46 +824,51 @@ function renderUpcoming(match) {
   const home = teamName(match.home);
   const away = teamName(match.away);
   const isHomeFav = match.favTeam === match.home;
-
-  // Always show favourite on top, underdog below
   const favName  = isHomeFav ? home : away;
   const undName  = isHomeFav ? away : home;
   const favFlag  = isHomeFav ? match.homeFlag : match.awayFlag;
   const undFlag  = isHomeFav ? match.awayFlag : match.homeFlag;
-
-  const reco = calcReco(match);
+  const reco   = calcReco(match);
   const signal = reco ? reco.type : 'lean';
 
-  // Always render sources in fixed order: Sportsbooks, ELO, Prediction Markets
-  // Column order: FAV | DRAW | UND — swap fav/und values when away is the favourite
-  const allSources = ['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
-
-  // Source name translations
+  // Source label map — updated to show Kalshi branding
   const sourceLabels = {
     en: {
-      'Sportsbooks (Consensus)':    'Sportsbooks (Consensus)',
-      'ELO/Poisson Model':          'ELO/Poisson Model',
-      'Prediction Markets (P2P)':   'Prediction Markets (P2P)',
+      'Sportsbooks (Consensus)':      'Sportsbooks (Consensus)',
+      'ELO/Poisson Model':            'ELO/Poisson Model',
+      'Prediction Markets (Kalshi)':  'Prediction Markets (Kalshi)',
+      'Prediction Markets (P2P)':     'Prediction Markets (Kalshi)',
     },
     ko: {
-      'Sportsbooks (Consensus)':    '스포츠북 (합의)',
-      'ELO/Poisson Model':          'ELO/포아송 모델',
-      'Prediction Markets (P2P)':   '예측 시장 (P2P)',
+      'Sportsbooks (Consensus)':      '스포츠북 (합의)',
+      'ELO/Poisson Model':            'ELO/포아송 모델',
+      'Prediction Markets (Kalshi)':  '예측 시장 (Kalshi)',
+      'Prediction Markets (P2P)':     '예측 시장 (Kalshi)',
     },
     ja: {
-      'Sportsbooks (Consensus)':    'スポーツブック (コンセンサス)',
-      'ELO/Poisson Model':          'ELO/ポアソンモデル',
-      'Prediction Markets (P2P)':   '予測市場 (P2P)',
+      'Sportsbooks (Consensus)':      'スポーツブック',
+      'ELO/Poisson Model':            'ELO/ポアソンモデル',
+      'Prediction Markets (Kalshi)':  '予測市場 (Kalshi)',
+      'Prediction Markets (P2P)':     '予測市場 (Kalshi)',
     },
   };
 
-  // FAV / UND badge labels
+  // Always render 3 source rows in fixed order
+  const allSources = [
+    'Sportsbooks (Consensus)',
+    'ELO/Poisson Model',
+    'Prediction Markets (Kalshi)',
+  ];
+
   const favLabel = d.favBadge || 'FAV';
   const undLabel = d.undBadge || 'UND';
 
   let sourceRows = '';
   allSources.forEach(s => {
-    const layer = (match.layers||[]).find(l => l.source === s);
+    // Match either exact name or legacy P2P name
+    const layer = (match.layers||[]).find(l =>
+      l.source === s || l.source === 'Prediction Markets (P2P)'
+    ) || null;
     const rawFav  = layer ? (layer.fav  || '--') : '--';
     const rawUnd  = layer ? (layer.und  || '--') : '--';
     const drawVal = layer ? (layer.draw || '--') : '--';
@@ -1382,11 +885,9 @@ function renderUpcoming(match) {
       </div>`;
   });
 
-  const tipId = 'tip-' + match.id;
+  const tipId   = 'tip-' + match.id;
   const tipText = DICT[lang][reco ? reco.tipKey : ''] || '';
-
-  // Draw signal has no team name — other signals name the relevant team
-  let callText = reco ? reco.call : '';
+  let callText  = reco ? reco.call : '';
   if (reco && reco.type !== 'draw') {
     const callTeam = reco.type === 'upset' ? undName : favName;
     callText = `${reco.call}: ${callTeam}`;
@@ -1405,6 +906,9 @@ function renderUpcoming(match) {
         ${esc(tipText)}
       </div>
     </div>` : '';
+
+  // Tournament outlook panel
+  const outlookHTML = renderTournamentOutlook(match);
 
   return `
   <div class="match-card" data-signal="${signal}">
@@ -1436,11 +940,12 @@ function renderUpcoming(match) {
       ${sourceRows}
     </div>
     ${recoHTML}
+    ${outlookHTML}
   </div>`;
 }
 
 /* ================================================================
-   RENDER MATCH CARD (COMPLETED) — with flip-to-box-score
+   RENDER MATCH CARD (COMPLETED)
 ================================================================ */
 function renderCompleted(match) {
   const d    = DICT[lang];
@@ -1449,7 +954,6 @@ function renderCompleted(match) {
   const bs   = match.boxScore;
   const hasBox = bs && (bs.possession || bs.goals || bs.shots);
 
-  // ── Audit rows ──────────────────────────────────────────────────────
   let auditRows = '';
   Object.entries(match.sourceAccuracy || {}).forEach(([src, correct]) => {
     auditRows += `
@@ -1465,13 +969,11 @@ function renderCompleted(match) {
       ${esc(match.insight)}
     </div>` : '';
 
-  // Live badge if match is in progress
   const liveHTML = match.status === 'IN_PLAY' ? `
     <div style="padding:6px 17px 0">
       <span class="live-badge"><span class="live-dot"></span>LIVE ${match.liveScore||''}</span>
     </div>` : '';
 
-  // ── FRONT FACE ──────────────────────────────────────────────────────
   const frontFace = `
     <div class="flip-face flip-face-front">
       <div class="match-header">
@@ -1499,38 +1001,29 @@ function renderCompleted(match) {
       ${hasBox ? `<div class="flip-hint"><span>tap to see box score ↩</span></div>` : ''}
     </div>`;
 
-  // ── BACK FACE (box score) ────────────────────────────────────────────
   let backFace = '';
   if (hasBox) {
-    // Parse scoreline for display e.g. "MEXICO 2 - 1 SOUTH AFRICA" → "2 - 1"
     const scoreDisplay = (() => {
       const raw = match.score || '';
       const m = raw.match(/(\d+)\s*[-–]\s*(\d+)/);
       return m ? `${m[1]} - ${m[2]}` : raw;
     })();
-
-    // Possession bar
     const homePoss = bs.possession?.home ?? 50;
     const awayPoss = bs.possession?.away ?? 50;
-
-    // Stats rows
     const statDefs = [
-      { label:'Shots',     h: bs.shots?.home,         a: bs.shots?.away },
-      { label:'On Target', h: bs.shotsOnTarget?.home,  a: bs.shotsOnTarget?.away },
-      { label:'Corners',   h: bs.corners?.home,        a: bs.corners?.away },
-      { label:'Fouls',     h: bs.fouls?.home,           a: bs.fouls?.away },
-      { label:'🟨',        h: bs.yellowCards?.home,     a: bs.yellowCards?.away },
-      { label:'🟥',        h: bs.redCards?.home,        a: bs.redCards?.away },
+      { label:'Shots',     h: bs.shots?.home,        a: bs.shots?.away },
+      { label:'On Target', h: bs.shotsOnTarget?.home, a: bs.shotsOnTarget?.away },
+      { label:'Corners',   h: bs.corners?.home,       a: bs.corners?.away },
+      { label:'Fouls',     h: bs.fouls?.home,          a: bs.fouls?.away },
+      { label:'🟨',        h: bs.yellowCards?.home,    a: bs.yellowCards?.away },
+      { label:'🟥',        h: bs.redCards?.home,       a: bs.redCards?.away },
     ].filter(s => s.h != null || s.a != null);
-
     const statsHTML = statDefs.map(s => `
       <div class="stat-row">
         <span class="stat-val home">${s.h ?? '—'}</span>
         <span class="stat-label">${s.label}</span>
         <span class="stat-val away">${s.a ?? '—'}</span>
       </div>`).join('');
-
-    // Goal timeline
     const goals = (bs.goals || []).sort((a,b) => (a.minute||0)-(b.minute||0));
     const goalsHTML = goals.length ? `
       <div class="goal-timeline">
@@ -1542,7 +1035,6 @@ function renderCompleted(match) {
             <span>${esc(g.scorer||'')}</span>
           </div>`).join('')}
       </div>` : '';
-
     backFace = `
     <div class="flip-face flip-face-back">
       <div class="box-score">
@@ -1551,25 +1043,15 @@ function renderCompleted(match) {
           <span class="box-score-close">tap to flip back ↩</span>
         </div>
         <div class="box-score-teams">
-          <div class="box-score-team">
-            <div class="flag">${flagHTML(match.homeFlag)}</div>
-            <span>${esc(home)}</span>
-          </div>
+          <div class="box-score-team"><div class="flag">${flagHTML(match.homeFlag)}</div><span>${esc(home)}</span></div>
           <div class="box-score-scoreline">${esc(scoreDisplay)}</div>
-          <div class="box-score-team">
-            <span>${esc(away)}</span>
-            <div class="flag">${flagHTML(match.awayFlag)}</div>
-          </div>
+          <div class="box-score-team"><span>${esc(away)}</span><div class="flag">${flagHTML(match.awayFlag)}</div></div>
         </div>
         <div class="poss-bar-wrap">
           <div class="poss-label">
-            <span>${homePoss}%</span>
-            <span>Possession</span>
-            <span>${awayPoss}%</span>
+            <span>${homePoss}%</span><span>Possession</span><span>${awayPoss}%</span>
           </div>
-          <div class="poss-bar">
-            <div class="poss-bar-fill" style="width:${homePoss}%"></div>
-          </div>
+          <div class="poss-bar"><div class="poss-bar-fill" style="width:${homePoss}%"></div></div>
         </div>
         <div class="stats-grid">${statsHTML}</div>
         ${goalsHTML}
@@ -1577,50 +1059,37 @@ function renderCompleted(match) {
     </div>`;
   }
 
-  // ── Wrap in flip container if we have a box score ────────────────────
   if (hasBox) {
     const cardId = `fc-${esc(match.id)}`;
     return `
     <div class="match-card flip-card" data-signal="done" id="${cardId}" onclick="flipCard('${cardId}')">
-      <div class="flip-card-inner">
-        ${frontFace}
-        ${backFace}
-      </div>
+      <div class="flip-card-inner">${frontFace}${backFace}</div>
     </div>`;
   }
-
-  // No box score — plain card
-  return `
-  <div class="match-card" data-signal="done">
-    ${frontFace}
-  </div>`;
+  return `<div class="match-card" data-signal="done">${frontFace}</div>`;
 }
 
 /* ================================================================
    BUILD STAGE TABS
 ================================================================ */
 function buildStageTabs() {
-  const stages = [...new Set(allMatches.map(m => m.stage||'Group Stage'))];
+  const stages  = [...new Set(allMatches.map(m => m.stage||'Group Stage'))];
   const ordered = STAGES.filter(s => stages.includes(s));
-  const rest = stages.filter(s => !STAGES.includes(s));
-  const tabsEl = document.getElementById('stage-tabs');
+  const rest    = stages.filter(s => !STAGES.includes(s));
+  const tabsEl  = document.getElementById('stage-tabs');
   tabsEl.innerHTML = [...ordered,...rest].map(s => {
-    const key = STAGE_KEYS[s] || 'groupStage';
-    const label = DICT[lang][key] || s;
+    const key    = STAGE_KEYS[s] || 'groupStage';
+    const label  = DICT[lang][key] || s;
     const active = s === currentStage ? ' active' : '';
     return `<button class="btn${active}" onclick="switchStage('${esc(s)}')">${esc(label)}</button>`;
   }).join('');
 }
 
-// Track which groups are expanded
 const expandedGroups = new Set();
 
 function toggleGroup(groupKey) {
-  if (expandedGroups.has(groupKey)) {
-    expandedGroups.delete(groupKey);
-  } else {
-    expandedGroups.add(groupKey);
-  }
+  if (expandedGroups.has(groupKey)) expandedGroups.delete(groupKey);
+  else expandedGroups.add(groupKey);
   renderGrid();
 }
 
@@ -1629,15 +1098,11 @@ function toggleGroup(groupKey) {
 ================================================================ */
 function renderGrid() {
   const d = DICT[lang];
-
-  // Deduplicate by match ID
   const seen = new Map();
   allMatches.forEach(m => seen.set(m.id, m));
   const dedupedMatches = [...seen.values()];
-
   const stageMatches = dedupedMatches.filter(m => (m.stage||'Group Stage') === currentStage);
   const filtered = stageMatches.filter(matchesSearch);
-
   const upcoming  = filtered.filter(m => m.type === 'UPCOMING')
     .sort((a,b) => new Date(a.kickoff||0) - new Date(b.kickoff||0));
   const completed = filtered.filter(m => m.type === 'COMPLETED')
@@ -1651,7 +1116,6 @@ function renderGrid() {
   const upEl = document.getElementById('upcoming-list');
   const coEl = document.getElementById('completed-list');
 
-  // ── SEARCH ACTIVE or BY TIME — flat chronological, double-wide ───────
   if (searchQuery || currentSort === 'time') {
     upEl.innerHTML = upcoming.length
       ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>`
@@ -1662,7 +1126,6 @@ function renderGrid() {
     return;
   }
 
-  // ── BY GROUP MODE — collapsible sections, double-wide inside ─────────
   const upcomingByGroup = {};
   upcoming.forEach(m => {
     const g = m.group || m.stage || 'Other';
@@ -1721,21 +1184,15 @@ function renderGrid() {
 }
 
 /* ================================================================
-   BRACKET VIEW — NCAA wall-chart style
-   4 zones: Mexico · Central · East · West
-   Each zone shows its matches flowing toward center
+   BRACKET VIEW
 ================================================================ */
-
-// Zone definitions — which groups feed which zone
 const ZONE_GROUPS = {
   mexico:  ['Group A','Group B','Group C'],
   central: ['Group D','Group E','Group F'],
   east:    ['Group G','Group H','Group I'],
   west:    ['Group J','Group K','Group L'],
 };
-
 const ZONE_ORDER = ['mexico','central','east','west'];
-
 let currentBracketZone = 'mexico';
 
 function avgPct(match, field) {
@@ -1745,50 +1202,34 @@ function avgPct(match, field) {
 
 function buildBracketNode(match, opts={}) {
   const d = DICT[lang];
-  if (!match) {
-    return `<div class="bracket-tbd-node">${esc(d.waitingFor||'TBD')}</div>`;
-  }
-
+  if (!match) return `<div class="bracket-tbd-node">${esc(d.waitingFor||'TBD')}</div>`;
   const home = teamName(match.home);
   const away = teamName(match.away);
   const isHomeFav = match.favTeam === match.home;
-
   let homeClass = '', awayClass = '', homePct = '', awayPct = '';
   let drawTag = '', eloPanel = '';
-
   if (match.type === 'COMPLETED') {
     const homeWon = match.score && match.score.toUpperCase().includes(match.home.toUpperCase().split(' ')[0]);
     homeClass = homeWon ? 'is-winner' : 'is-eliminated';
     awayClass = homeWon ? 'is-eliminated' : 'is-winner';
-    homePct = homeWon ? '✓' : '—';
-    awayPct = homeWon ? '—' : '✓';
+    homePct = homeWon ? '✓' : '—'; awayPct = homeWon ? '—' : '✓';
   } else if (match.eloWaiting) {
-    // Waiting state — show ELO scenarios
     const scenarios = match.eloScenarios || [];
-    homePct = (avgPct(match,'fav')||0).toFixed(1)+'%';
-    awayPct = '—';
-    homeClass = isHomeFav ? '' : '';
+    homePct = (avgPct(match,'fav')||0).toFixed(1)+'%'; awayPct = '—';
     if (scenarios.length) {
-      eloPanel = `<div class="bracket-elo-panel">
-        <div class="bracket-elo-label">${esc(d.eloScenarios)}</div>
+      eloPanel = `<div class="bracket-elo-panel"><div class="bracket-elo-label">${esc(d.eloScenarios)}</div>
         ${scenarios.map(s=>`<div class="bracket-elo-row"><span>${esc(s.vs)}</span><strong>${esc(s.pct)}</strong></div>`).join('')}
       </div>`;
     }
   } else {
-    const fp = avgPct(match,'fav');
-    const up = avgPct(match,'und');
-    const dp = avgPct(match,'draw');
+    const fp = avgPct(match,'fav'), up = avgPct(match,'und'), dp = avgPct(match,'draw');
     homePct = fp != null ? fp.toFixed(1)+'%' : '--';
     awayPct = up != null ? up.toFixed(1)+'%' : '--';
     homeClass = isHomeFav ? 'fav' : 'und';
     awayClass = isHomeFav ? 'und' : 'fav';
-    if (dp != null) {
-      drawTag = `<div class="bracket-draw-tag">Draw ${dp.toFixed(1)}%</div>`;
-    }
+    if (dp != null) drawTag = `<div class="bracket-draw-tag">Draw ${dp.toFixed(1)}%</div>`;
   }
-
   const noConn = opts.noConnector ? ' no-connector' : '';
-
   return `
   <div class="bracket-node${noConn}">
     <div class="bracket-team-row ${homeClass}">
@@ -1801,18 +1242,15 @@ function buildBracketNode(match, opts={}) {
       <span class="bracket-team-name">${esc(away)}</span>
       <span class="bracket-pct ${awayClass}">${esc(awayPct)}</span>
     </div>
-    ${drawTag}
-    ${eloPanel}
+    ${drawTag}${eloPanel}
   </div>`;
 }
 
 function buildBracketZoneTabs() {
   const d = DICT[lang];
   const zoneNames = {
-    mexico: d.zoneMex||'Mexico Zone',
-    central: d.zoneCen||'Central Zone',
-    east: d.zoneEast||'East Zone',
-    west: d.zoneWest||'West Zone',
+    mexico: d.zoneMex||'Mexico Zone', central: d.zoneCen||'Central Zone',
+    east: d.zoneEast||'East Zone',   west: d.zoneWest||'West Zone',
   };
   const container = document.getElementById('bracket-zone-tabs');
   if (!container) return;
@@ -1831,89 +1269,47 @@ function switchBracketZone(zone) {
 function renderBracket() {
   const d = DICT[lang];
   buildBracketZoneTabs();
-
   const container = document.getElementById('bracket-zone-simple');
   if (!container) return;
-
-  // Get matches for this zone's groups
   const groups = ZONE_GROUPS[currentBracketZone] || [];
-
-  // Separate by stage
-  const groupMatches = allMatches.filter(m =>
-    (m.stage==='Group Stage') && groups.includes(m.group||'')
-  );
-  const r32Matches = allMatches.filter(m =>
-    (m.stage==='Round of 32') && groups.includes(m.bracketZone||m.group||'')
-  );
-  const r16Matches = allMatches.filter(m =>
-    (m.stage==='Round of 16') && groups.includes(m.bracketZone||m.group||'')
-  );
-
-  // Build the zone bracket — starts from R32 if available, else show group matches
-  // For now during group stage: show group matches per group, flowing right
-  const groupsInZone = groups.filter(g =>
-    allMatches.some(m => (m.group||'') === g)
-  );
+  const groupMatches = allMatches.filter(m => (m.stage==='Group Stage') && groups.includes(m.group||''));
+  const r32Matches   = allMatches.filter(m => (m.stage==='Round of 32') && groups.includes(m.bracketZone||m.group||''));
+  const r16Matches   = allMatches.filter(m => (m.stage==='Round of 16') && groups.includes(m.bracketZone||m.group||''));
+  const groupsInZone = groups.filter(g => allMatches.some(m => (m.group||'') === g));
 
   let html = `<div class="zone-bracket-grid">`;
-
-  // Column 1: Group stage matches (grouped by group)
-  html += `<div class="zone-round-col">
-    <div class="zone-round-header">${esc(d.groupStage||'Group Stage')}</div>`;
-
+  html += `<div class="zone-round-col"><div class="zone-round-header">${esc(d.groupStage||'Group Stage')}</div>`;
   groupsInZone.forEach(g => {
     const gMatches = groupMatches.filter(m => (m.group||'')===g);
-    gMatches.forEach(m => {
-      html += buildBracketNode(m);
-    });
-    // Spacer between groups
+    gMatches.forEach(m => { html += buildBracketNode(m); });
     if (gMatches.length) html += `<div style="height:8px"></div>`;
   });
+  if (!groupsInZone.length) html += `<div class="bracket-tbd-node">${esc(d.noUpcoming)}</div>`;
+  html += `</div>`;
 
-  if (!groupsInZone.length) {
-    html += `<div class="bracket-tbd-node">${esc(d.noUpcoming)}</div>`;
-  }
-
-  html += `</div>`; // end group col
-
-  // Column 2: Round of 32
-  html += `<div class="zone-round-col">
-    <div class="zone-round-header">${esc(d.bracketR32||'Round of 32')}</div>`;
-
-  if (r32Matches.length) {
-    r32Matches.forEach(m => { html += buildBracketNode(m); });
-  } else {
-    // TBD slots — one per pair of group matches
+  html += `<div class="zone-round-col"><div class="zone-round-header">${esc(d.bracketR32||'Round of 32')}</div>`;
+  if (r32Matches.length) { r32Matches.forEach(m => { html += buildBracketNode(m); }); }
+  else {
     const slots = Math.ceil(groupsInZone.reduce((a,g)=>a+groupMatches.filter(m=>m.group===g).length,0)/2);
-    for (let i=0; i<Math.max(slots,1); i++) {
-      html += buildBracketNode(null);
-    }
+    for (let i=0; i<Math.max(slots,1); i++) html += buildBracketNode(null);
   }
   html += `</div>`;
 
-  // Column 3: Round of 16
-  html += `<div class="zone-round-col">
-    <div class="zone-round-header">${esc(d.bracketR16||'Round of 16')}</div>`;
-  if (r16Matches.length) {
-    r16Matches.forEach(m => { html += buildBracketNode(m); });
-  } else {
-    html += buildBracketNode(null);
-  }
+  html += `<div class="zone-round-col"><div class="zone-round-header">${esc(d.bracketR16||'Round of 16')}</div>`;
+  if (r16Matches.length) { r16Matches.forEach(m => { html += buildBracketNode(m); }); }
+  else html += buildBracketNode(null);
   html += `</div>`;
 
-  // Column 4: Zone winner → points to Semi
-  html += `<div class="zone-round-col">
-    <div class="zone-round-header">${esc(d.bracketQF||'QF')}</div>
+  html += `<div class="zone-round-col"><div class="zone-round-header">${esc(d.bracketQF||'QF')}</div>
     <div class="bracket-tbd-node" style="margin-top:40px">${esc(d.waitingFor||'TBD')}</div>
   </div>`;
-
-  html += `</div>`; // end grid
+  html += `</div>`;
   container.innerHTML = html;
   container.classList.add('active');
 }
 
 /* ================================================================
-   APPLY LANGUAGE LABELS
+   LANGUAGE + CONTROLS
 ================================================================ */
 function applyLabels() {
   const d = DICT[lang];
@@ -1932,24 +1328,18 @@ function applyLabels() {
     document.getElementById('lbl-updated').textContent = d.updated + ': ' + meta.lastUpdated;
   }
   ['en','ko','ja'].forEach(l => {
-    const btn = document.getElementById('lang-'+l);
-    btn.className = 'btn' + (l===lang?' lang-active':'');
+    document.getElementById('lang-'+l).className = 'btn' + (l===lang?' lang-active':'');
   });
-  // Sync sort button states
   document.getElementById('btn-sort-time').classList.toggle('active', currentSort==='time');
   document.getElementById('btn-sort-group').classList.toggle('active', currentSort==='group');
 }
 
-/* ================================================================
-   SWITCH HANDLERS
-================================================================ */
 function switchView(v) {
   currentView = v;
   document.getElementById('view-grid').classList.toggle('active', v==='grid');
   document.getElementById('view-bracket').classList.toggle('active', v==='bracket');
   document.getElementById('btn-grid').classList.toggle('active', v==='grid');
   document.getElementById('btn-bracket').classList.toggle('active', v==='bracket');
-  // Hide search and sort in bracket view
   const sw = document.getElementById('search-wrap');
   if (sw) sw.style.display = v==='grid' ? '' : 'none';
   if (v==='bracket') renderBracket(); else renderGrid();
@@ -1970,12 +1360,11 @@ function switchLang(l) {
 
 function switchSort(mode) {
   currentSort = mode;
-  expandedGroups.clear(); // reset expanded state on sort change
+  expandedGroups.clear();
   applyLabels();
   renderGrid();
 }
 
-/* ── SEARCH ── */
 function onSearch(val) {
   searchQuery = val.trim().toLowerCase();
   const clearBtn = document.getElementById('search-clear');
@@ -1994,12 +1383,9 @@ function clearSearch() {
 
 function matchesSearch(match) {
   if (!searchQuery) return true;
-  const d = DICT[lang];
-  const homeEn  = (match.home  || '').toLowerCase();
-  const awayEn  = (match.away  || '').toLowerCase();
-  const homeTr  = (teamName(match.home)  || '').toLowerCase();
-  const awayTr  = (teamName(match.away)  || '').toLowerCase();
-  const group   = (match.group || '').toLowerCase();
+  const homeEn = (match.home||'').toLowerCase(), awayEn = (match.away||'').toLowerCase();
+  const homeTr = (teamName(match.home)||'').toLowerCase(), awayTr = (teamName(match.away)||'').toLowerCase();
+  const group  = (match.group||'').toLowerCase();
   return homeEn.includes(searchQuery) || awayEn.includes(searchQuery) ||
          homeTr.includes(searchQuery) || awayTr.includes(searchQuery) ||
          group.includes(searchQuery);
@@ -2020,21 +1406,14 @@ async function loadData() {
     if (!res.ok) throw new Error('Could not load data.json (HTTP ' + res.status + ')');
     const json = await res.json();
     if (!Array.isArray(json.matches)) throw new Error('data.json missing "matches" array');
-
     allMatches = json.matches;
     meta = { lastUpdated: json.lastUpdated, currentStage: json.currentStage };
-
-    // Set default stage to whatever's in the data
     if (meta.currentStage) currentStage = meta.currentStage;
-
     document.getElementById('status-pane').style.display = 'none';
     document.getElementById('view-grid').classList.add('active');
-
     applyLabels();
     buildStageTabs();
     renderGrid();
-
-    // Poll every 5 minutes
     setInterval(async () => {
       try {
         const r = await fetch('data.json?v=' + Date.now(), { cache:'no-store' });
@@ -2048,7 +1427,6 @@ async function loadData() {
         }
       } catch(e) { /* silent poll failure */ }
     }, 300000);
-
   } catch(e) {
     console.error(e);
     showError(e.message);
