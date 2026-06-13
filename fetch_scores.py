@@ -47,8 +47,10 @@ OUTPUT_FILE     = "data.json"
 REQUEST_TIMEOUT = 15
 
 # Match window: how long before/after kickoff to consider a match "active"
-WINDOW_BEFORE_MIN = 30    # start watching 30 min before kickoff
-WINDOW_AFTER_MIN  = 130   # stop watching 130 min after kickoff (incl. ET)
+WINDOW_BEFORE_MIN = 30     # start watching 30 min before kickoff
+WINDOW_AFTER_MIN  = 130    # live window ends 130 min after kickoff
+CATCHUP_HOURS     = 48     # also check any UPCOMING match whose kickoff
+                           # was within the past 48 hours (catches missed matches)
 
 # Team name normalisation — football-data.org uses full official names
 FD_TEAM_MAP = {
@@ -281,14 +283,34 @@ def match_fd_to_record(record: dict, fd_matches: list) -> Optional[dict]:
 # ── Active window check ──────────────────────────────────────────────────────
 
 def is_in_active_window(record: dict, now: datetime) -> bool:
-    """True if this match is within our watch window."""
+    """
+    True if this match should be checked for score updates.
+    Covers three cases:
+      1. Live window: kickoff within the last 130 minutes
+      2. Pre-match: kickoff within the next 30 minutes
+      3. Catchup: UPCOMING match whose kickoff was within the past 48 hours
+         (catches matches we missed while the script wasn't watching)
+    """
     ko_str = record.get("kickoff", "")
     if not ko_str:
         return False
     try:
         ko = datetime.fromisoformat(ko_str.replace("Z", "+00:00"))
-        delta = (now - ko).total_seconds() / 60
-        return -WINDOW_BEFORE_MIN <= delta <= WINDOW_AFTER_MIN
+        mins_since_ko = (now - ko).total_seconds() / 60
+
+        # Pre-match window
+        if -WINDOW_BEFORE_MIN <= mins_since_ko <= 0:
+            return True
+
+        # Live window (match in progress or just finished)
+        if 0 < mins_since_ko <= WINDOW_AFTER_MIN:
+            return True
+
+        # Catchup: still UPCOMING but kickoff was within past 48 hours
+        if record.get("type") == "UPCOMING" and 0 < mins_since_ko <= CATCHUP_HOURS * 60:
+            return True
+
+        return False
     except ValueError:
         return False
 
