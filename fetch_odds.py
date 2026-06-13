@@ -363,13 +363,12 @@ def api_get(path: str, params: dict = None) -> Optional[dict]:
 
 def find_world_cup_tournament_id() -> Optional[str]:
     """
-    Look up the FIFA World Cup 2026 tournament ID from the API.
-    Costs 1 API call but saves us guessing wrong IDs.
-    Result is cached in .fetch_log to avoid repeat lookups.
+    Look up the FIFA World Cup 2026 tournament ID.
+    Logs ALL tournaments on first run so we can identify the correct one.
     """
     fetch_log = load_fetch_log()
     cached_id = fetch_log.get("wc_tournament_id")
-    if cached_id:
+    if cached_id and cached_id != "13":  # 13 was a bad cached result
         log.info("Using cached tournament ID: %s", cached_id)
         return str(cached_id)
 
@@ -381,19 +380,32 @@ def find_world_cup_tournament_id() -> Optional[str]:
     tournaments = data if isinstance(data, list) else (
         data.get("data") or data.get("tournaments") or [])
 
-    keywords = ["world cup", "fifa world", "coupe du monde"]
+    # Log the raw response so we can see all tournament names in Action logs
+    log.info("Raw tournament response (first 3000 chars): %s", str(data)[:3000])
     for t in tournaments:
-        name = str(t.get("name") or t.get("tournamentName") or "").lower()
-        if any(k in name for k in keywords):
+        tid  = t.get("id") or t.get("tournamentId") or ""
+        name = t.get("name") or t.get("tournamentName") or t.get("tournamentSlug") or ""
+        cat  = t.get("categoryName") or t.get("category") or ""
+        log.info("  ID=%-6s  name='%s'  category='%s'", tid, name, cat)
+
+    # Search across all name-like fields
+    keywords = ["world cup", "fifa world", "mundial", "coupe du monde", "wm 2026", "world cup 2026"]
+    for t in tournaments:
+        searchable = " ".join([
+            str(t.get("name") or ""),
+            str(t.get("tournamentName") or ""),
+            str(t.get("tournamentSlug") or ""),
+            str(t.get("categoryName") or ""),
+        ]).lower()
+        if any(k in searchable for k in keywords):
             tid = str(t.get("id") or t.get("tournamentId") or "")
             if tid:
-                log.info("Found tournament: '%s' → ID %s", t.get("name"), tid)
+                log.info("Matched World Cup tournament: '%s' → ID %s", searchable.strip(), tid)
                 fetch_log["wc_tournament_id"] = tid
                 save_fetch_log(fetch_log)
                 return tid
 
-    log.warning("World Cup not found in tournament list. Available: %s",
-                [t.get("name") for t in tournaments[:10]])
+    log.warning("World Cup not found — check the tournament list above and hardcode the ID.")
     return None
 
 
