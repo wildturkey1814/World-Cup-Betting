@@ -44,7 +44,7 @@ log = logging.getLogger(__name__)
 KALSHI_API_KEY_ID  = os.environ.get("KALSHI_API_KEY_ID", "")
 KALSHI_PRIVATE_KEY = os.environ.get("KALSHI_PRIVATE_KEY", "")
 
-BASE_URL        = "https://api.elections.kalshi.com/trade-api/v2"
+BASE_URL        = "https://external-api.kalshi.com/trade-api/v2"
 OUTPUT_FILE     = "data.json"
 REQUEST_TIMEOUT = 20
 
