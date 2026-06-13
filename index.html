@@ -630,7 +630,158 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
 
-/* ── SEARCH BAR ─────────────────────────────────────────────────────── */
+/* ── FLIP CARD ──────────────────────────────────────────────────────── */
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+.flip-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+  /* min-height set via JS to match tallest face */
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-face-front {
+  position: relative;
+}
+.flip-face-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* flip hint */
+.flip-hint {
+  font-size: 10px; font-weight: 600; color: var(--text-lo);
+  text-align: center; padding: 4px 0 8px;
+  letter-spacing: 0.5px;
+}
+.flip-hint span { opacity: 0.6; }
+
+/* ── BOX SCORE BACK FACE ────────────────────────────────────────────── */
+.box-score {
+  padding: 14px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.box-score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-score-title {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--neon);
+}
+.box-score-close {
+  font-size: 10px; font-weight: 700; color: var(--text-lo);
+  letter-spacing: 0.5px;
+}
+.box-score-teams {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 8px;
+}
+.box-score-team {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--text-hi);
+}
+.box-score-team .flag { width: 18px; height: 12px; }
+.box-score-scoreline {
+  font-size: 22px; font-weight: 800; color: var(--gold);
+  letter-spacing: 2px; text-align: center; flex: 1;
+}
+
+/* possession bar */
+.poss-bar-wrap { display: flex; flex-direction: column; gap: 4px; }
+.poss-label {
+  display: flex; justify-content: space-between;
+  font-size: 10px; font-weight: 700;
+}
+.poss-label span:first-child { color: var(--green); }
+.poss-label span:last-child  { color: var(--text-mid); }
+.poss-label span:nth-child(2) {
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--text-lo);
+}
+.poss-bar {
+  height: 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+.poss-bar-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--green), var(--neon));
+  transition: width 0.8s ease;
+}
+
+/* stats grid */
+.stats-grid {
+  display: flex; flex-direction: column; gap: 5px;
+}
+.stat-row {
+  display: grid; grid-template-columns: 1fr 80px 1fr;
+  align-items: center; gap: 4px;
+}
+.stat-val {
+  font-size: 13px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.stat-val.home { color: var(--text-hi); text-align: left; }
+.stat-val.away { color: var(--text-mid); text-align: right; }
+.stat-label {
+  font-size: 9px; font-weight: 700; text-align: center;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  color: var(--text-lo);
+}
+
+/* goal timeline */
+.goal-timeline { display: flex; flex-direction: column; gap: 4px; }
+.goal-timeline-title {
+  font-size: 9px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-lo); margin-bottom: 2px;
+}
+.goal-event {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600;
+}
+.goal-event.home { flex-direction: row; color: var(--text-hi); }
+.goal-event.away { flex-direction: row-reverse; color: var(--text-mid); justify-content: flex-start; }
+.goal-min {
+  font-size: 10px; font-weight: 800; color: var(--neon);
+  min-width: 30px; text-align: center;
+  background: rgba(56,189,248,0.1); border-radius: 3px; padding: 1px 4px;
+}
+.goal-icon { font-size: 12px; }
+
+/* live indicator */
+.live-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 800; color: #ef4444;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #ef4444;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
 .search-wrap {
   position: relative; margin-bottom: 10px;
 }
@@ -1041,6 +1192,31 @@ document.addEventListener('click', e => {
   }
 });
 
+/* ================================================================
+   FLIP CARD
+================================================================ */
+function flipCard(cardId) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  const inner = card.querySelector('.flip-card-inner');
+  const front = card.querySelector('.flip-face-front');
+  const back  = card.querySelector('.flip-face-back');
+
+  // On first flip, equalise height of both faces so the card doesn't collapse
+  if (inner && front && back && !inner.dataset.sized) {
+    inner.dataset.sized = '1';
+    // Briefly unlayer back to measure its natural height
+    back.style.cssText = 'position:relative;transform:none;visibility:hidden;backface-visibility:visible';
+    const h = Math.max(front.scrollHeight, back.scrollHeight);
+    back.style.cssText = '';
+    inner.style.height = h + 'px';
+  }
+
+  card.classList.toggle('flipped');
+  document.querySelectorAll('.reco-tooltip.visible')
+    .forEach(t => t.classList.remove('visible'));
+}
+
 function calcReco(match) {
   if (match.type === 'COMPLETED') return null;
   const layers = match.layers || [];
@@ -1233,16 +1409,18 @@ function renderUpcoming(match) {
 }
 
 /* ================================================================
-   RENDER MATCH CARD (COMPLETED)
+   RENDER MATCH CARD (COMPLETED) — with flip-to-box-score
 ================================================================ */
 function renderCompleted(match) {
-  const d = DICT[lang];
+  const d    = DICT[lang];
   const home = teamName(match.home);
   const away = teamName(match.away);
+  const bs   = match.boxScore;
+  const hasBox = bs && (bs.possession || bs.goals || bs.shots);
 
+  // ── Audit rows ──────────────────────────────────────────────────────
   let auditRows = '';
-  const acc = match.sourceAccuracy || {};
-  Object.entries(acc).forEach(([src, correct]) => {
+  Object.entries(match.sourceAccuracy || {}).forEach(([src, correct]) => {
     auditRows += `
       <div class="audit-row">
         <span class="audit-source">${esc(src)}</span>
@@ -1256,29 +1434,134 @@ function renderCompleted(match) {
       ${esc(match.insight)}
     </div>` : '';
 
+  // Live badge if match is in progress
+  const liveHTML = match.status === 'IN_PLAY' ? `
+    <div style="padding:6px 17px 0">
+      <span class="live-badge"><span class="live-dot"></span>LIVE ${match.liveScore||''}</span>
+    </div>` : '';
+
+  // ── FRONT FACE ──────────────────────────────────────────────────────
+  const frontFace = `
+    <div class="flip-face flip-face-front">
+      <div class="match-header">
+        <div class="match-teams">
+          <div class="team-row">
+            <div class="flag">${flagHTML(match.homeFlag)}</div>
+            <span class="team-name">${esc(home)}</span>
+          </div>
+          <div class="team-row">
+            <div class="flag">${flagHTML(match.awayFlag)}</div>
+            <span class="team-name">${esc(away)}</span>
+          </div>
+        </div>
+        <div class="match-meta-col">
+          <span class="match-group-tag">${esc(match.group||match.stage||'')}</span>
+          <span class="match-kickoff">${fmtKickoff(match.kickoff)}</span>
+        </div>
+      </div>
+      ${liveHTML}
+      <div class="score-block">
+        <div class="score-badge">⚽ ${esc(match.score||'Final')}</div>
+        <div class="audit-grid">${auditRows}</div>
+        ${insightHTML}
+      </div>
+      ${hasBox ? `<div class="flip-hint"><span>tap to see box score ↩</span></div>` : ''}
+    </div>`;
+
+  // ── BACK FACE (box score) ────────────────────────────────────────────
+  let backFace = '';
+  if (hasBox) {
+    // Parse scoreline for display e.g. "MEXICO 2 - 1 SOUTH AFRICA" → "2 - 1"
+    const scoreDisplay = (() => {
+      const raw = match.score || '';
+      const m = raw.match(/(\d+)\s*[-–]\s*(\d+)/);
+      return m ? `${m[1]} - ${m[2]}` : raw;
+    })();
+
+    // Possession bar
+    const homePoss = bs.possession?.home ?? 50;
+    const awayPoss = bs.possession?.away ?? 50;
+
+    // Stats rows
+    const statDefs = [
+      { label:'Shots',     h: bs.shots?.home,         a: bs.shots?.away },
+      { label:'On Target', h: bs.shotsOnTarget?.home,  a: bs.shotsOnTarget?.away },
+      { label:'Corners',   h: bs.corners?.home,        a: bs.corners?.away },
+      { label:'Fouls',     h: bs.fouls?.home,           a: bs.fouls?.away },
+      { label:'🟨',        h: bs.yellowCards?.home,     a: bs.yellowCards?.away },
+      { label:'🟥',        h: bs.redCards?.home,        a: bs.redCards?.away },
+    ].filter(s => s.h != null || s.a != null);
+
+    const statsHTML = statDefs.map(s => `
+      <div class="stat-row">
+        <span class="stat-val home">${s.h ?? '—'}</span>
+        <span class="stat-label">${s.label}</span>
+        <span class="stat-val away">${s.a ?? '—'}</span>
+      </div>`).join('');
+
+    // Goal timeline
+    const goals = (bs.goals || []).sort((a,b) => (a.minute||0)-(b.minute||0));
+    const goalsHTML = goals.length ? `
+      <div class="goal-timeline">
+        <div class="goal-timeline-title">⚽ Goals</div>
+        ${goals.map(g => `
+          <div class="goal-event ${g.team}">
+            <span class="goal-min">${g.minute}'</span>
+            <span class="goal-icon">${g.team==='home'?'→':'←'}</span>
+            <span>${esc(g.scorer||'')}</span>
+          </div>`).join('')}
+      </div>` : '';
+
+    backFace = `
+    <div class="flip-face flip-face-back">
+      <div class="box-score">
+        <div class="box-score-header">
+          <span class="box-score-title">Box Score</span>
+          <span class="box-score-close">tap to flip back ↩</span>
+        </div>
+        <div class="box-score-teams">
+          <div class="box-score-team">
+            <div class="flag">${flagHTML(match.homeFlag)}</div>
+            <span>${esc(home)}</span>
+          </div>
+          <div class="box-score-scoreline">${esc(scoreDisplay)}</div>
+          <div class="box-score-team">
+            <span>${esc(away)}</span>
+            <div class="flag">${flagHTML(match.awayFlag)}</div>
+          </div>
+        </div>
+        <div class="poss-bar-wrap">
+          <div class="poss-label">
+            <span>${homePoss}%</span>
+            <span>Possession</span>
+            <span>${awayPoss}%</span>
+          </div>
+          <div class="poss-bar">
+            <div class="poss-bar-fill" style="width:${homePoss}%"></div>
+          </div>
+        </div>
+        <div class="stats-grid">${statsHTML}</div>
+        ${goalsHTML}
+      </div>
+    </div>`;
+  }
+
+  // ── Wrap in flip container if we have a box score ────────────────────
+  if (hasBox) {
+    const cardId = `fc-${esc(match.id)}`;
+    return `
+    <div class="match-card flip-card" data-signal="done" id="${cardId}" onclick="flipCard('${cardId}')">
+      <div class="flip-card-inner">
+        ${frontFace}
+        ${backFace}
+      </div>
+    </div>`;
+  }
+
+  // No box score — plain card
   return `
   <div class="match-card" data-signal="done">
-    <div class="match-header">
-      <div class="match-teams">
-        <div class="team-row">
-          <div class="flag">${flagHTML(match.homeFlag)}</div>
-          <span class="team-name">${esc(home)}</span>
-        </div>
-        <div class="team-row">
-          <div class="flag">${flagHTML(match.awayFlag)}</div>
-          <span class="team-name">${esc(away)}</span>
-        </div>
-      </div>
-      <div class="match-meta-col">
-        <span class="match-group-tag">${esc(match.group||match.stage||'')}</span>
-        <span class="match-kickoff">${fmtKickoff(match.kickoff)}</span>
-      </div>
-    </div>
-    <div class="score-block">
-      <div class="score-badge">⚽ ${esc(match.score||'Final')}</div>
-      <div class="audit-grid">${auditRows}</div>
-      ${insightHTML}
-    </div>
+    ${frontFace}
   </div>`;
 }
 
