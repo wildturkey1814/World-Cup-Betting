@@ -1022,6 +1022,7 @@ const DICT = {
     waitingFor:"Awaiting opponent",
     sortTime:"By Time", sortGroup:"By Group",
     searchPlaceholder:"Search teams…",
+    favBadge:"FAV", undBadge:"UND",
     teams:{
       "Mexico":"Mexico","South Africa":"South Africa","South Korea":"South Korea",
       "Czechia":"Czechia","Canada":"Canada","Bosnia & Herzegovina":"Bosnia & Herz.",
@@ -1070,6 +1071,7 @@ const DICT = {
     waitingFor:"상대팀 대기 중",
     sortTime:"시간순", sortGroup:"그룹별",
     searchPlaceholder:"팀 검색…",
+    favBadge:"정배", undBadge:"역배",
     teams:{
       "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국",
       "Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아",
@@ -1118,6 +1120,7 @@ const DICT = {
     waitingFor:"対戦相手待ち",
     sortTime:"時間順", sortGroup:"グループ別",
     searchPlaceholder:"チームを検索…",
+    favBadge:"本命", undBadge:"大穴",
     teams:{
       "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国",
       "Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア",
@@ -1336,20 +1339,43 @@ function renderUpcoming(match) {
   // Always render sources in fixed order: Sportsbooks, ELO, Prediction Markets
   // Column order: FAV | DRAW | UND — swap fav/und values when away is the favourite
   const allSources = ['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
+
+  // Source name translations
+  const sourceLabels = {
+    en: {
+      'Sportsbooks (Consensus)':    'Sportsbooks (Consensus)',
+      'ELO/Poisson Model':          'ELO/Poisson Model',
+      'Prediction Markets (P2P)':   'Prediction Markets (P2P)',
+    },
+    ko: {
+      'Sportsbooks (Consensus)':    '스포츠북 (합의)',
+      'ELO/Poisson Model':          'ELO/포아송 모델',
+      'Prediction Markets (P2P)':   '예측 시장 (P2P)',
+    },
+    ja: {
+      'Sportsbooks (Consensus)':    'スポーツブック (コンセンサス)',
+      'ELO/Poisson Model':          'ELO/ポアソンモデル',
+      'Prediction Markets (P2P)':   '予測市場 (P2P)',
+    },
+  };
+
+  // FAV / UND badge labels
+  const favLabel = d.favBadge || 'FAV';
+  const undLabel = d.undBadge || 'UND';
+
   let sourceRows = '';
   allSources.forEach(s => {
     const layer = (match.layers||[]).find(l => l.source === s);
-    // Raw fav/und in data are always home/away perspective
-    // We want to show favourite's probability in the first column
-    const rawFav = layer ? (layer.fav  || '--') : '--';
-    const rawUnd = layer ? (layer.und  || '--') : '--';
+    const rawFav  = layer ? (layer.fav  || '--') : '--';
+    const rawUnd  = layer ? (layer.und  || '--') : '--';
     const drawVal = layer ? (layer.draw || '--') : '--';
-    const col1 = isHomeFav ? rawFav : rawUnd;  // favourite's win %
-    const col3 = isHomeFav ? rawUnd : rawFav;  // underdog's win %
-    const isNull = v => v === '--';
+    const col1    = isHomeFav ? rawFav : rawUnd;
+    const col3    = isHomeFav ? rawUnd : rawFav;
+    const isNull  = v => v === '--';
+    const srcLabel = (sourceLabels[lang] || sourceLabels.en)[s] || s;
     sourceRows += `
       <div class="source-row">
-        <div class="source-name">${esc(s)}</div>
+        <div class="source-name">${esc(srcLabel)}</div>
         <div class="prob-cell hi ${isNull(col1)?'null-val':''}">${esc(col1)}</div>
         <div class="prob-cell ${isNull(drawVal)?'null-val':''}">${esc(drawVal)}</div>
         <div class="prob-cell ${isNull(col3)?'null-val':''}">${esc(col3)}</div>
@@ -1358,8 +1384,13 @@ function renderUpcoming(match) {
 
   const tipId = 'tip-' + match.id;
   const tipText = DICT[lang][reco ? reco.tipKey : ''] || '';
-  let callTeam = favName;
-  if (reco && reco.type === 'upset') callTeam = undName;
+
+  // Draw signal has no team name — other signals name the relevant team
+  let callText = reco ? reco.call : '';
+  if (reco && reco.type !== 'draw') {
+    const callTeam = reco.type === 'upset' ? undName : favName;
+    callText = `${reco.call}: ${callTeam}`;
+  }
 
   const recoHTML = reco ? `
     <div class="reco-bar ${reco.cls}">
@@ -1367,7 +1398,7 @@ function renderUpcoming(match) {
         <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')" aria-label="More info">i</button>
         <div class="reco-title">${esc(DICT[lang].recoTitle)} →</div>
       </div>
-      <div class="reco-call">${esc(reco.call)}: ${esc(callTeam)}</div>
+      <div class="reco-call">${esc(callText)}</div>
       <div class="reco-sub">${esc(reco.sub)}</div>
       <div class="reco-tooltip" id="${tipId}">
         <div class="reco-tooltip-title">${esc(reco.call)}</div>
@@ -1382,12 +1413,12 @@ function renderUpcoming(match) {
         <div class="team-row">
           <div class="flag">${flagHTML(favFlag)}</div>
           <span class="team-name">${esc(favName)}</span>
-          <span class="team-badge badge-fav">FAV</span>
+          <span class="team-badge badge-fav">${esc(favLabel)}</span>
         </div>
         <div class="team-row">
           <div class="flag">${flagHTML(undFlag)}</div>
           <span class="team-name">${esc(undName)}</span>
-          <span class="team-badge badge-und">UND</span>
+          <span class="team-badge badge-und">${esc(undLabel)}</span>
         </div>
       </div>
       <div class="match-meta-col">
