@@ -172,16 +172,16 @@ def fetch_tournament_winner_probs() -> dict:
         for m in markets:
             title     = m.get("title", "")
             # Try yes_bid first, then last_price, then yes_ask
-            yes_price = (m.get("yes_bid") or m.get("last_price") or
-                         m.get("yes_ask") or 0)
+            yes_price = (m.get("yes_bid_dollars") or m.get("last_price_dollars") or
+                         m.get("yes_ask_dollars") or 0)
 
             match = re.search(r"Will (.+?) win", title, re.IGNORECASE)
             if match:
                 raw_team = match.group(1).strip()
                 team = normalise_kalshi_team(raw_team)
                 if yes_price and yes_price > 0:
-                    result[team] = round(yes_price / 100, 4)
-                    log.info("  Tournament: %s → %.1f%%", team, yes_price)
+                    result[team] = round(float(yes_price), 4)
+                    log.info("  Tournament: %s → %.1f%%", team, float(yes_price)*100)
 
         cursor = data.get("cursor")
         if not cursor or not markets:
@@ -241,9 +241,9 @@ def fetch_match_odds() -> dict:
             away = normalise_kalshi_team(away_code)
             key  = (home, away)
 
-            yes_price = (m.get("yes_bid") or m.get("last_price") or
-                         m.get("yes_ask") or 0)
-            title = m.get("subtitle", "") or m.get("title", "")
+            yes_price = (m.get("yes_bid_dollars") or m.get("last_price_dollars") or
+                         m.get("yes_ask_dollars") or 0)
+            title = m.get("no_sub_title", "") or m.get("subtitle", "") or m.get("title", "")
             title_lower = title.lower()
 
             if key not in raw_markets:
@@ -258,11 +258,11 @@ def fetch_match_odds() -> dict:
             # Match outcome type from title/subtitle
             # Kalshi uses "X wins" or team name in subtitle
             if ("tie" in title_lower or "draw" in title_lower):
-                raw_markets[key]["draw"] = yes_price / 100
+                raw_markets[key]["draw"] = float(yes_price)
             elif (hc in title_lower or home.lower() in title_lower):
-                raw_markets[key]["home"] = yes_price / 100
+                raw_markets[key]["home"] = float(yes_price)
             elif (ac in title_lower or away.lower() in title_lower):
-                raw_markets[key]["away"] = yes_price / 100
+                raw_markets[key]["away"] = float(yes_price)
 
         cursor = data.get("cursor")
         if not cursor or not markets:
@@ -279,7 +279,7 @@ def fetch_match_odds() -> dict:
         if h is not None and a is not None:
             if d is not None:
                 total = h + d + a
-                result[(home, away)] = {
+                {
                     "home": round(h / total, 4),
                     "draw": round(d / total, 4),
                     "away": round(a / total, 4),
@@ -288,7 +288,7 @@ def fetch_match_odds() -> dict:
                 # No draw — normalise home/away only, store '--' for draw
                 total = h + a
                 if total > 0:
-                    result[(home, away)] = {
+                    {
                         "home": round(h / total, 4),
                         "draw": None,  # rendered as '--' in frontend
                         "away": round(a / total, 4),
