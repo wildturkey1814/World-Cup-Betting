@@ -27,7 +27,12 @@ jobs:
 
       - name: Fetch live odds and update data.json
         env:
-          ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
+          ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
+          ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
+          ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
+          ODDSPAPI_KEY4: ${{ secrets.ODDSPAPI_KEY4 }}
+          ODDSPAPI_KEY5: ${{ secrets.ODDSPAPI_KEY5 }}
+          ODDSPAPI_KEY6: ${{ secrets.ODDSPAPI_KEY6 }}
         run: python fetch_odds.py
 
       - name: Commit updated data.json
