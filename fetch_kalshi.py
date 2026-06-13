@@ -179,7 +179,7 @@ def fetch_tournament_winner_probs() -> dict:
             if match:
                 raw_team = match.group(1).strip()
                 team = normalise_kalshi_team(raw_team)
-                if yes_price and yes_price > 0:
+                if yes_price and float(yes_price) > 0:
                     result[team] = round(float(yes_price), 4)
                     log.info("  Tournament: %s → %.1f%%", team, float(yes_price)*100)
 
