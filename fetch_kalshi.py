@@ -177,7 +177,7 @@ def fetch_tournament_winner_probs() -> dict:
 
             match = re.search(r"Will (.+?) win", title, re.IGNORECASE)
             if match:
-                raw_team = match.group(1).strip()
+                raw_team = match.group(1).strip().lstrip("the ").strip()
                 team = normalise_kalshi_team(raw_team)
                 if yes_price and float(yes_price) > 0:
                     result[team] = round(float(yes_price), 4)
