@@ -423,42 +423,31 @@ def fetch_all_odds() -> Optional[list]:
 
 
 
-def fetch_participants_map(fixtures: list) -> dict:
+def fetch_participants_map() -> dict:
     """
-    Build a map of {participantId: normalised_team_name} by calling
-    GET /v4/participants for all unique IDs in the fixture list.
-    Returns {} on failure — records will be skipped gracefully.
+    GET /v4/participants?sportId=10 returns ALL soccer participants as
+    a flat {participantId: name} dict. One call, no ID list needed.
+    We cache this in .fetch_log since it rarely changes.
     """
-    ids = set()
-    for fx in fixtures:
-        p1 = fx.get("participant1Id")
-        p2 = fx.get("participant2Id")
-        if p1: ids.add(str(p1))
-        if p2: ids.add(str(p2))
+    fetch_log = load_fetch_log()
+    cached = fetch_log.get("participants_map")
+    if cached and isinstance(cached, dict) and len(cached) > 10:
+        log.info("Using cached participant map (%d entries).", len(cached))
+        return {str(k): normalise_team(v) for k, v in cached.items()}
 
-    if not ids:
-        return {}
-
-    log.info("Fetching participant names for %d IDs...", len(ids))
-    # API accepts comma-separated IDs
-    data = api_get("participants", {"id": ",".join(sorted(ids))})
-    if not data:
+    log.info("Fetching all soccer participants...")
+    data = api_get("participants", {"sportId": 10, "language": "en"})
+    if not data or not isinstance(data, dict):
         log.warning("Participant lookup failed — team names unavailable.")
         return {}
 
-    participants = data if isinstance(data, list) else (
-        data.get("data") or data.get("participants") or [])
+    # Response is {id: name} directly
+    result = {str(k): normalise_team(str(v)) for k, v in data.items()}
+    log.info("Loaded %d participants.", len(result))
 
-    result = {}
-    for p in participants:
-        pid  = str(p.get("id") or p.get("participantId") or "")
-        name = (p.get("name") or p.get("participantName") or
-                p.get("shortName") or "")
-        if pid and name:
-            result[pid] = normalise_team(name)
-            log.info("  %s → %s", pid, result[pid])
-
-    log.info("Resolved %d/%d participant names.", len(result), len(ids))
+    # Cache it (valid for the session)
+    fetch_log["participants_map"] = data
+    save_fetch_log(fetch_log)
     return result
 
 
@@ -598,8 +587,8 @@ def main() -> None:
     # Mark fetch as done BEFORE processing (so a crash doesn't re-trigger immediately)
     record_fetch(fetch_log, wkey)
 
-    # Fetch participant names (API returns IDs, not names)
-    pmap = fetch_participants_map(fixtures)
+    # Fetch participant names (API returns IDs, not names in fixture list)
+    pmap = fetch_participants_map()
 
     # Build records
     upcoming = []
