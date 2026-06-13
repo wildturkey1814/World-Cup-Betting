@@ -538,13 +538,25 @@ def main() -> None:
     # Build records
     upcoming = []
     for i, fx in enumerate(fixtures):
-        if f"match_{fx.get('fixtureId') or fx.get('id','')}" in done_ids:
+        # Log first fixture structure so we can see field names
+        if i == 0:
+            log.info("First fixture keys: %s", list(fx.keys()))
+            log.info("First fixture sample: %s", str(fx)[:800])
+
+        fid = fx.get('fixtureId') or fx.get('id','')
+        if f"match_{fid}" in done_ids:
             continue
         rec = build_record(fx)
         if rec:
             upcoming.append(rec)
             log.info("  [%d] %s vs %s — %d layer(s)", i+1,
                      rec["home"], rec["away"], len(rec["layers"]))
+        else:
+            # Log why it failed
+            p1 = fx.get("participant1Name") or fx.get("home_team") or "?"
+            p2 = fx.get("participant2Name") or fx.get("away_team") or "?"
+            if i < 3:  # only log first 3 failures to avoid spam
+                log.warning("  [%d] Skipped — p1='%s' p2='%s'", i+1, p1, p2)
 
     log.info("Built %d upcoming records.", len(upcoming))
 
