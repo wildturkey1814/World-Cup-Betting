@@ -42,12 +42,25 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # ── Config ─────────────────────────────────────────────────────────────────
-API_KEY         = os.environ.get("ODDSPAPI_KEY", "")
+# Supports up to 6 API keys with automatic rotation.
+# Keys are tried in order — on quota exhaustion (403/429) the next key is used.
+API_KEYS = [k for k in [
+    os.environ.get("ODDSPAPI_KEY",  ""),
+    os.environ.get("ODDSPAPI_KEY2", ""),
+    os.environ.get("ODDSPAPI_KEY3", ""),
+    os.environ.get("ODDSPAPI_KEY4", ""),
+    os.environ.get("ODDSPAPI_KEY5", ""),
+    os.environ.get("ODDSPAPI_KEY6", ""),
+] if k]
+
 BASE_URL        = "https://api.oddspapi.io/v4"
 OUTPUT_FILE     = "data.json"
-FETCH_LOG_FILE  = ".fetch_log"   # JSON log: {window_key: unix_timestamp}
+FETCH_LOG_FILE  = ".fetch_log"
 REQUEST_TIMEOUT = 20
 FORCE_FETCH     = os.environ.get("FORCE_FETCH", "0") == "1"
+
+# Active key — set during api_get, persists for the run
+_active_key_index = 0
 
 # Trigger windows
 PRE_DAY_HOUR_UTC    = 6           # fetch at 06:00 UTC on match days
@@ -356,28 +369,55 @@ def extract_1x2(bm: dict, slug: str):
 # ── API ─────────────────────────────────────────────────────────────────────
 
 def api_get(path: str, params: dict = None) -> Optional[dict]:
-    if not API_KEY:
-        log.error("ODDSPAPI_KEY not set.")
+    """
+    GET from OddsPapi with automatic key rotation.
+    On 403 (quota exceeded) or 429 (rate limited), tries the next key.
+    """
+    global _active_key_index
+
+    if not API_KEYS:
+        log.error("No ODDSPAPI keys set. Add ODDSPAPI_KEY through ODDSPAPI_KEY6 as secrets.")
         return None
+
     url = f"{BASE_URL}/{path}"
-    p   = {"apiKey": API_KEY}
-    if params: p.update(params)
-    try:
-        resp = requests.get(url, params=p, timeout=REQUEST_TIMEOUT)
-        if resp.status_code == 429:
-            log.warning("Rate limited — waiting 10s and retrying.")
-            time.sleep(10)
+
+    # Try each key starting from the current active one
+    for attempt in range(len(API_KEYS)):
+        key_idx = (_active_key_index + attempt) % len(API_KEYS)
+        key     = API_KEYS[key_idx]
+        p       = {"apiKey": key}
+        if params: p.update(params)
+
+        try:
             resp = requests.get(url, params=p, timeout=REQUEST_TIMEOUT)
-        resp.raise_for_status()
-        return resp.json()
-    except requests.exceptions.HTTPError as e:
-        log.error("HTTP %s for %s", e.response.status_code, url)
-    except requests.exceptions.Timeout:
-        log.error("Timeout: %s", url)
-    except requests.exceptions.RequestException as e:
-        log.error("Request failed: %s", e)
-    except ValueError:
-        log.error("Non-JSON response from %s", url)
+
+            if resp.status_code == 429:
+                log.warning("Key %d rate limited — trying next key.", key_idx + 1)
+                _active_key_index = (key_idx + 1) % len(API_KEYS)
+                time.sleep(2)
+                continue
+
+            if resp.status_code == 403:
+                log.warning("Key %d quota exhausted — rotating to next key.", key_idx + 1)
+                _active_key_index = (key_idx + 1) % len(API_KEYS)
+                continue
+
+            resp.raise_for_status()
+            if attempt > 0:
+                log.info("Success with key %d.", key_idx + 1)
+                _active_key_index = key_idx  # remember the working key
+            return resp.json()
+
+        except requests.exceptions.HTTPError as e:
+            log.error("HTTP %s for %s (key %d)", e.response.status_code, url, key_idx + 1)
+        except requests.exceptions.Timeout:
+            log.error("Timeout: %s", url)
+        except requests.exceptions.RequestException as e:
+            log.error("Request failed: %s", e)
+        except ValueError:
+            log.error("Non-JSON response from %s", url)
+
+    log.error("All %d API keys failed for %s.", len(API_KEYS), url)
     return None
 
 WC_TOURNAMENT_ID = "16"   # Confirmed: "World Cup" (International) on OddsPapi
@@ -550,8 +590,11 @@ def load_existing(path: str) -> dict:
 def main() -> None:
     log.info("=== World Cup ingestion starting ===")
 
-    if not API_KEY:
-        log.error("ODDSPAPI_KEY is not set."); raise SystemExit(1)
+    if not API_KEYS:
+        log.error("No ODDSPAPI keys set — add ODDSPAPI_KEY through ODDSPAPI_KEY6 as secrets.")
+        raise SystemExit(1)
+
+    log.info("Loaded %d API key(s).", len(API_KEYS))
 
     now       = datetime.now(timezone.utc)
     fetch_log = load_fetch_log()
