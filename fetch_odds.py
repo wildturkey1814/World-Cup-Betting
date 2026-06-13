@@ -323,16 +323,35 @@ def elo_probs(home: str, away: str, group_stage: bool = True) -> dict:
             "away": round((1-ph)*(1-dr)/t, 4)}
 
 def extract_1x2(bm: dict, slug: str):
+    """
+    Extract (home, draw, away) decimal prices for one bookmaker.
+    The actual API uses dynamic market IDs — we find the 1X2 market
+    by looking for outcomes with bookmakerOutcomeId of 'home'/'draw'/'away'.
+    """
     try:
-        o = bm[slug]["markets"][MARKET_1X2]["outcomes"]
-        h = o[OUTCOME_HOME]["players"]["0"]["price"]
-        d = o[OUTCOME_DRAW]["players"]["0"]["price"]
-        a = o[OUTCOME_AWAY]["players"]["0"]["price"]
-        if all(isinstance(p,(int,float)) and p>1.0 for p in [h,d,a]):
-            return float(h), float(d), float(a)
-    except (KeyError, TypeError, IndexError):
-        pass
-    return None
+        markets = bm[slug]["markets"]
+        home_price = draw_price = away_price = None
+        for market_id, market in markets.items():
+            outcomes = market.get("outcomes", {})
+            for outcome_id, outcome in outcomes.items():
+                players = outcome.get("players", {})
+                for player in players.values():
+                    bid = str(player.get("bookmakerOutcomeId", "")).lower()
+                    price = player.get("price")
+                    if not price or price <= 1.0:
+                        continue
+                    if bid == "home":
+                        home_price = float(price)
+                    elif bid == "draw":
+                        draw_price = float(price)
+                    elif bid == "away":
+                        away_price = float(price)
+            # If we found all three in this market, stop
+            if home_price and draw_price and away_price:
+                return home_price, draw_price, away_price
+        return None
+    except (KeyError, TypeError, AttributeError):
+        return None
 
 # ── API ─────────────────────────────────────────────────────────────────────
 
@@ -404,14 +423,58 @@ def fetch_all_odds() -> Optional[list]:
 
 
 
+def fetch_participants_map(fixtures: list) -> dict:
+    """
+    Build a map of {participantId: normalised_team_name} by calling
+    GET /v4/participants for all unique IDs in the fixture list.
+    Returns {} on failure — records will be skipped gracefully.
+    """
+    ids = set()
+    for fx in fixtures:
+        p1 = fx.get("participant1Id")
+        p2 = fx.get("participant2Id")
+        if p1: ids.add(str(p1))
+        if p2: ids.add(str(p2))
+
+    if not ids:
+        return {}
+
+    log.info("Fetching participant names for %d IDs...", len(ids))
+    # API accepts comma-separated IDs
+    data = api_get("participants", {"id": ",".join(sorted(ids))})
+    if not data:
+        log.warning("Participant lookup failed — team names unavailable.")
+        return {}
+
+    participants = data if isinstance(data, list) else (
+        data.get("data") or data.get("participants") or [])
+
+    result = {}
+    for p in participants:
+        pid  = str(p.get("id") or p.get("participantId") or "")
+        name = (p.get("name") or p.get("participantName") or
+                p.get("shortName") or "")
+        if pid and name:
+            result[pid] = normalise_team(name)
+            log.info("  %s → %s", pid, result[pid])
+
+    log.info("Resolved %d/%d participant names.", len(result), len(ids))
+    return result
+
+
 # ── Record builder ─────────────────────────────────────────────────────────
 
-def build_record(fixture: dict) -> Optional[dict]:
-    raw_home = fixture.get("participant1Name") or fixture.get("home_team") or ""
-    raw_away = fixture.get("participant2Name") or fixture.get("away_team") or ""
-    home     = normalise_team(raw_home)
-    away     = normalise_team(raw_away)
-    if not home or not away: return None
+def build_record(fixture: dict, pmap: dict = None) -> Optional[dict]:
+    # Resolve team names — try name fields first, fall back to participant ID map
+    raw_home = (fixture.get("participant1Name") or
+                (pmap or {}).get(str(fixture.get("participant1Id", ""))) or "")
+    raw_away = (fixture.get("participant2Name") or
+                (pmap or {}).get(str(fixture.get("participant2Id", ""))) or "")
+
+    home = normalise_team(raw_home)
+    away = normalise_team(raw_away)
+    if not home or not away:
+        return None
 
     fid      = str(fixture.get("fixtureId") or fixture.get("id") or "")
     kickoff  = fixture.get("startTime") or fixture.get("date") or ""
@@ -535,28 +598,26 @@ def main() -> None:
     # Mark fetch as done BEFORE processing (so a crash doesn't re-trigger immediately)
     record_fetch(fetch_log, wkey)
 
+    # Fetch participant names (API returns IDs, not names)
+    pmap = fetch_participants_map(fixtures)
+
     # Build records
     upcoming = []
     for i, fx in enumerate(fixtures):
-        # Log first fixture structure so we can see field names
-        if i == 0:
-            log.info("First fixture keys: %s", list(fx.keys()))
-            log.info("First fixture sample: %s", str(fx)[:800])
-
         fid = fx.get('fixtureId') or fx.get('id','')
         if f"match_{fid}" in done_ids:
             continue
-        rec = build_record(fx)
+        rec = build_record(fx, pmap)
         if rec:
             upcoming.append(rec)
             log.info("  [%d] %s vs %s — %d layer(s)", i+1,
                      rec["home"], rec["away"], len(rec["layers"]))
         else:
-            # Log why it failed
-            p1 = fx.get("participant1Name") or fx.get("home_team") or "?"
-            p2 = fx.get("participant2Name") or fx.get("away_team") or "?"
-            if i < 3:  # only log first 3 failures to avoid spam
-                log.warning("  [%d] Skipped — p1='%s' p2='%s'", i+1, p1, p2)
+            p1 = str(fx.get("participant1Id","?"))
+            p2 = str(fx.get("participant2Id","?"))
+            if i < 3:
+                log.warning("  [%d] Skipped — p1=%s (%s) p2=%s (%s)",
+                            i+1, p1, pmap.get(p1,"?"), p2, pmap.get(p2,"?"))
 
     log.info("Built %d upcoming records.", len(upcoming))
 
