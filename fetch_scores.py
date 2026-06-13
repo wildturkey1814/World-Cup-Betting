@@ -162,13 +162,13 @@ def fetch_match_detail(fd_match_id: int) -> Optional[dict]:
 
 
 def fetch_today_matches() -> Optional[list]:
-    """Fetch all World Cup matches today and yesterday (catches late finishers)."""
+    """Fetch all World Cup matches from the past 3 days to catch any missed completions."""
     now   = datetime.now(timezone.utc)
-    today = now.date()
-    yest  = (now - timedelta(days=1)).date()
+    three_days_ago = (now - timedelta(days=3)).date()
+    tomorrow = (now + timedelta(days=1)).date()
     data  = fd_get(f"competitions/{FD_WC_ID}/matches", {
-        "dateFrom": str(yest),
-        "dateTo":   str(today),
+        "dateFrom": str(three_days_ago),
+        "dateTo":   str(tomorrow),
     })
     if not data:
         return None
@@ -285,34 +285,31 @@ def match_fd_to_record(record: dict, fd_matches: list) -> Optional[dict]:
 def is_in_active_window(record: dict, now: datetime) -> bool:
     """
     True if this match should be checked for score updates.
-    Covers three cases:
-      1. Live window: kickoff within the last 130 minutes
-      2. Pre-match: kickoff within the next 30 minutes
-      3. Catchup: UPCOMING match whose kickoff was within the past 48 hours
-         (catches matches we missed while the script wasn't watching)
+    If kickoff is missing or null, checks all UPCOMING matches
+    (since the football-data.org API is free and generous).
     """
-    ko_str = record.get("kickoff", "")
-    if not ko_str:
-        return False
+    ko_str = record.get("kickoff") or ""
+    if not ko_str or ko_str == "null":
+        # No kickoff time — check if UPCOMING (may already be done)
+        return record.get("type") == "UPCOMING"
+
     try:
-        ko = datetime.fromisoformat(ko_str.replace("Z", "+00:00"))
+        ko = datetime.fromisoformat(str(ko_str).replace("Z", "+00:00"))
         mins_since_ko = (now - ko).total_seconds() / 60
 
         # Pre-match window
         if -WINDOW_BEFORE_MIN <= mins_since_ko <= 0:
             return True
-
-        # Live window (match in progress or just finished)
+        # Live window
         if 0 < mins_since_ko <= WINDOW_AFTER_MIN:
             return True
-
-        # Catchup: still UPCOMING but kickoff was within past 48 hours
+        # Catchup: UPCOMING match whose kickoff was in the past 48 hours
         if record.get("type") == "UPCOMING" and 0 < mins_since_ko <= CATCHUP_HOURS * 60:
             return True
-
         return False
-    except ValueError:
-        return False
+    except (ValueError, TypeError):
+        # Can't parse kickoff — check all UPCOMING matches
+        return record.get("type") == "UPCOMING"
 
 
 # ── File helpers ──────────────────────────────────────────────────────────────
