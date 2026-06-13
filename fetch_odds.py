@@ -361,80 +361,24 @@ def api_get(path: str, params: dict = None) -> Optional[dict]:
         log.error("Non-JSON response from %s", url)
     return None
 
-def find_world_cup_tournament_id() -> Optional[str]:
-    """
-    Look up the FIFA World Cup 2026 tournament ID.
-    Logs ALL tournaments on first run so we can identify the correct one.
-    """
-    fetch_log = load_fetch_log()
-    cached_id = fetch_log.get("wc_tournament_id")
-    if cached_id and cached_id != "13":  # 13 was a bad cached result
-        log.info("Using cached tournament ID: %s", cached_id)
-        return str(cached_id)
-
-    log.info("Looking up World Cup tournament ID...")
-    data = api_get("tournaments", {"sportId": 10})
-    if not data:
-        return None
-
-    tournaments = data if isinstance(data, list) else (
-        data.get("data") or data.get("tournaments") or [])
-
-    # Log the raw response so we can see all tournament names in Action logs
-    log.info("Raw tournament response (first 3000 chars): %s", str(data)[:3000])
-    for t in tournaments:
-        tid  = t.get("id") or t.get("tournamentId") or ""
-        name = t.get("name") or t.get("tournamentName") or t.get("tournamentSlug") or ""
-        cat  = t.get("categoryName") or t.get("category") or ""
-        log.info("  ID=%-6s  name='%s'  category='%s'", tid, name, cat)
-
-    # Search across all name-like fields
-    keywords = ["world cup", "fifa world", "mundial", "coupe du monde", "wm 2026", "world cup 2026"]
-    for t in tournaments:
-        searchable = " ".join([
-            str(t.get("name") or ""),
-            str(t.get("tournamentName") or ""),
-            str(t.get("tournamentSlug") or ""),
-            str(t.get("categoryName") or ""),
-        ]).lower()
-        if any(k in searchable for k in keywords):
-            tid = str(t.get("id") or t.get("tournamentId") or "")
-            if tid:
-                log.info("Matched World Cup tournament: '%s' → ID %s", searchable.strip(), tid)
-                fetch_log["wc_tournament_id"] = tid
-                save_fetch_log(fetch_log)
-                return tid
-
-    log.warning("World Cup not found — check the tournament list above and hardcode the ID.")
-    return None
+WC_TOURNAMENT_ID = "16"   # Confirmed: "World Cup" (International) on OddsPapi
+                          # futureFixtures: 100, upcomingFixtures: 1 as of June 13 2026
 
 
 def fetch_all_odds() -> Optional[list]:
     """
     Single API call — all World Cup fixtures + odds.
-    Uses correct OddsPapi v4 parameter names:
-      - bookmaker (singular, not bookmakers)
-      - tournamentIds (plural with s)
+    Tournament ID 16 = "World Cup" (confirmed from live API June 13 2026).
+    Tries multiple bookmakers in case one isn't available on free tier.
     """
-    log.info("Fetching World Cup odds (single request)...")
+    log.info("Fetching World Cup odds (tournamentId=%s)...", WC_TOURNAMENT_ID)
 
-    # Step 1: get the tournament ID (cached after first lookup)
-    tid = find_world_cup_tournament_id()
-
-    # Step 2: try odds-by-tournaments with correct params
-    # bookmaker is singular; tournamentIds is plural
-    attempts = []
-    if tid:
-        attempts.append({"tournamentIds": tid,  "bookmaker": "pinnacle"})
-        attempts.append({"tournamentIds": tid,  "bookmaker": "bet365"})
-    # Fallback attempts with common known World Cup IDs
-    for fallback_id in ["77", "17", "8", "1"]:
-        if fallback_id != tid:
-            attempts.append({"tournamentIds": fallback_id, "bookmaker": "pinnacle"})
-
-    for params in attempts:
-        log.info("  Trying tournamentIds=%s bookmaker=%s",
-                 params["tournamentIds"], params["bookmaker"])
+    for bookmaker in ["pinnacle", "bet365", "draftkings", "fanduel"]:
+        params = {
+            "tournamentIds": WC_TOURNAMENT_ID,
+            "bookmaker":     bookmaker,
+        }
+        log.info("  Trying bookmaker=%s...", bookmaker)
         data = api_get("odds-by-tournaments", params)
         if not data:
             continue
@@ -444,28 +388,21 @@ def fetch_all_odds() -> Optional[list]:
             data.get("matches") or None)
 
         if not fixtures:
-            log.warning("  Response had no fixture array. Keys: %s",
-                        list(data.keys())[:8] if isinstance(data, dict) else type(data))
+            log.warning("  No fixture array in response.")
             continue
 
-        # Filter SRL (simulated reserve league) entries
         real = [f for f in fixtures if isinstance(f, dict)
                 and "srl" not in str(f.get("participant1Name","")).lower()
                 and "srl" not in str(f.get("participant2Name","")).lower()]
 
-        log.info("  Success: %d real fixtures (dropped %d SRL).",
-                 len(real), len(fixtures) - len(real))
-
-        # Cache the working tournament ID
-        if real and params["tournamentIds"] != tid:
-            fetch_log = load_fetch_log()
-            fetch_log["wc_tournament_id"] = params["tournamentIds"]
-            save_fetch_log(fetch_log)
-
+        log.info("  Success via %s: %d real fixtures (dropped %d SRL).",
+                 bookmaker, len(real), len(fixtures) - len(real))
         return real
 
-    log.error("All fetch attempts failed.")
+    log.error("All bookmaker attempts failed for tournament ID %s.", WC_TOURNAMENT_ID)
     return None
+
+
 
 # ── Record builder ─────────────────────────────────────────────────────────
 
