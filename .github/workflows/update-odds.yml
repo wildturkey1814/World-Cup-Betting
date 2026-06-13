@@ -28,7 +28,6 @@ jobs:
       - name: Fetch live odds and update data.json
         env:
           ODDSPAPI_KEY: ${{ secrets.ODDSPAPI_KEY }}
-          FORCE_FETCH: "1"
         run: python fetch_odds.py
 
       - name: Commit updated data.json
