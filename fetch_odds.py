@@ -625,16 +625,43 @@ def main() -> None:
     # Single API call
     fixtures = fetch_all_odds()
     if not fixtures:
-        log.warning("No fixtures returned — keeping existing data."); raise SystemExit(0)
+        # Build lookup of existing upcoming records to preserve
+    # prediction market fields written by other workflows
+    existing_by_teams = {}
+    for m in existing.get("matches", []):
+        if m.get("type") == "UPCOMING":
+            key = (m.get("home",""), m.get("away",""))
+            existing_by_teams[key] = m
 
-    # Mark fetch as done BEFORE processing (so a crash doesn't re-trigger immediately)
-    record_fetch(fetch_log, wkey)
-
-    # Fetch participant names (API returns IDs, not names in fixture list)
-    pmap = fetch_participants_map()
+    MARKET_FIELDS = [
+        "kalshiWinProbHome", "kalshiWinProbAway",
+        "polymarketWinProbHome", "polymarketWinProbAway",
+    ]
 
     # Build records
     upcoming = []
+    for i, fx in enumerate(fixtures):
+        fid = fx.get('fixtureId') or fx.get('id','')
+        if f"match_{fid}" in done_ids:
+            continue
+        rec = build_record(fx, pmap)
+        if rec:
+            existing_rec = existing_by_teams.get(
+                (rec.get("home",""), rec.get("away",""))
+            )
+            if existing_rec:
+                for field in MARKET_FIELDS:
+                    if field in existing_rec:
+                        rec[field] = existing_rec[field]
+                for layer in existing_rec.get("layers", []):
+                    src = layer.get("source", "")
+                    if "Kalshi" in src or "P2P" in src:
+                        if not any("Kalshi" in l.get("source","") or
+                                   "P2P" in l.get("source","")
+                                   for l in rec.get("layers", [])):
+                            rec.setdefault("layers", []).append(layer)
+            upcoming.append(rec)
+upcoming = []
     for i, fx in enumerate(fixtures):
         fid = fx.get('fixtureId') or fx.get('id','')
         if f"match_{fid}" in done_ids:
