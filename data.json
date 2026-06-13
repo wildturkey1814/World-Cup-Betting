@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 13, 2026 · 3:20 PM UTC",
+  "lastUpdated": "June 13, 2026 · 4:16 PM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -68,7 +68,9 @@
             "scorer": "R. Jiménez"
           }
         ]
-      }
+      },
+      "polymarketWinProbHome": "1.4%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_002",
@@ -141,7 +143,9 @@
         },
         "goals": []
       },
-      "insight": "South Korea won 2-1."
+      "insight": "South Korea won 2-1.",
+      "polymarketWinProbHome": "0.4%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_004",
@@ -214,7 +218,9 @@
         },
         "goals": []
       },
-      "insight": "United States won 4-1."
+      "insight": "United States won 4-1.",
+      "polymarketWinProbHome": "1.9%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456918",
@@ -243,7 +249,9 @@
           "draw": "19.1%",
           "und": "69.5%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "1.5%"
     },
     {
       "id": "match_id1000001666456928",
@@ -272,7 +280,9 @@
           "draw": "23.0%",
           "und": "21.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "8.3%",
+      "polymarketWinProbAway": "1.5%"
     },
     {
       "id": "match_id1000001666456930",
@@ -301,7 +311,9 @@
           "draw": "20.0%",
           "und": "66.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.2%"
     },
     {
       "id": "match_id1000001666456942",
@@ -330,7 +342,9 @@
           "draw": "25.8%",
           "und": "31.8%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "1.4%"
     },
     {
       "id": "match_id1000001666457070",
@@ -359,7 +373,8 @@
           "draw": "15.2%",
           "und": "5.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "5.1%"
     },
     {
       "id": "match_id1000001666456968",
@@ -388,7 +403,9 @@
           "draw": "23.6%",
           "und": "24.1%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "5.0%",
+      "polymarketWinProbAway": "1.9%"
     },
     {
       "id": "match_id1000001666457072",
@@ -417,7 +434,9 @@
           "draw": "24.8%",
           "und": "47.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.4%",
+      "polymarketWinProbAway": "0.9%"
     },
     {
       "id": "match_id1000001666456970",
@@ -446,7 +465,9 @@
           "draw": "22.4%",
           "und": "19.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.4%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456994",
@@ -475,7 +496,9 @@
           "draw": "15.2%",
           "und": "5.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "16.8%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456982",
@@ -504,7 +527,9 @@
           "draw": "19.9%",
           "und": "13.0%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "2.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456996",
@@ -533,7 +558,9 @@
           "draw": "20.4%",
           "und": "65.4%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.9%"
     },
     {
       "id": "match_id1000001666456984",
@@ -562,7 +589,9 @@
           "draw": "24.2%",
           "und": "26.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457006",
@@ -591,7 +620,9 @@
           "draw": "21.5%",
           "und": "17.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "16.1%",
+      "polymarketWinProbAway": "0.7%"
     },
     {
       "id": "match_id1000001666457008",
@@ -620,7 +651,9 @@
           "draw": "22.1%",
           "und": "58.8%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "2.5%"
     },
     {
       "id": "match_id1000001666457018",
@@ -649,7 +682,9 @@
           "draw": "15.6%",
           "und": "5.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "7.8%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457020",
@@ -678,7 +713,9 @@
           "draw": "19.2%",
           "und": "11.6%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.4%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457030",
@@ -707,7 +744,9 @@
           "draw": "19.0%",
           "und": "11.1%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "10.5%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457042",
@@ -736,7 +775,9 @@
           "draw": "25.0%",
           "und": "29.0%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "9.7%",
+      "polymarketWinProbAway": "0.9%"
     },
     {
       "id": "match_id1000001666457044",
@@ -765,7 +806,9 @@
           "draw": "24.2%",
           "und": "26.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457032",
@@ -794,7 +837,9 @@
           "draw": "18.6%",
           "und": "71.0%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "1.7%"
     },
     {
       "id": "match_id1000001666456910",
@@ -823,7 +868,9 @@
           "draw": "24.4%",
           "und": "26.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456922",
@@ -852,7 +899,8 @@
           "draw": "23.1%",
           "und": "22.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.5%"
     },
     {
       "id": "match_id1000001666456920",
@@ -881,7 +929,9 @@
           "draw": "17.9%",
           "und": "8.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456908",
@@ -910,7 +960,9 @@
           "draw": "22.5%",
           "und": "20.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.4%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666456944",
@@ -939,7 +991,9 @@
           "draw": "22.6%",
           "und": "20.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.9%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456934",
@@ -968,7 +1022,9 @@
           "draw": "25.1%",
           "und": "45.4%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbAway": "1.5%"
     },
     {
       "id": "match_id1000001666456932",
@@ -991,7 +1047,9 @@
           "draw": "15.0%",
           "und": "4.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "8.3%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456946",
@@ -1020,7 +1078,9 @@
           "draw": "26.6%",
           "und": "35.1%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.4%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456972",
@@ -1049,7 +1109,9 @@
           "draw": "23.4%",
           "und": "23.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "5.0%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666457074",
@@ -1078,7 +1140,9 @@
           "draw": "19.8%",
           "und": "12.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "5.1%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666457076",
@@ -1107,7 +1171,8 @@
           "draw": "20.2%",
           "und": "13.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.9%"
     },
     {
       "id": "match_id1000001666456974",
@@ -1136,7 +1201,9 @@
           "draw": "22.1%",
           "und": "58.8%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "1.9%"
     },
     {
       "id": "match_id1000001666456998",
@@ -1165,7 +1232,9 @@
           "draw": "18.1%",
           "und": "9.4%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "16.8%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456986",
@@ -1194,7 +1263,9 @@
           "draw": "20.1%",
           "und": "13.6%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "2.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457000",
@@ -1223,7 +1294,9 @@
           "draw": "17.5%",
           "und": "8.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.9%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456988",
@@ -1252,7 +1325,9 @@
           "draw": "24.5%",
           "und": "48.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457022",
@@ -1281,7 +1356,9 @@
           "draw": "21.8%",
           "und": "18.0%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "7.8%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666457010",
@@ -1310,7 +1387,9 @@
           "draw": "15.1%",
           "und": "5.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "16.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457012",
@@ -1339,7 +1418,9 @@
           "draw": "25.5%",
           "und": "43.6%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "2.5%",
+      "polymarketWinProbAway": "0.7%"
     },
     {
       "id": "match_id1000001666457024",
@@ -1368,7 +1449,9 @@
           "draw": "25.4%",
           "und": "44.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457034",
@@ -1397,7 +1480,9 @@
           "draw": "16.2%",
           "und": "6.5%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "10.5%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457046",
@@ -1426,7 +1511,9 @@
           "draw": "19.4%",
           "und": "11.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "9.7%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457048",
@@ -1455,7 +1542,9 @@
           "draw": "18.6%",
           "und": "71.0%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.9%"
     },
     {
       "id": "match_id1000001666457036",
@@ -1484,7 +1573,9 @@
           "draw": "21.4%",
           "und": "16.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.7%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456924",
@@ -1513,7 +1604,9 @@
           "draw": "25.8%",
           "und": "31.8%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.5%",
+      "polymarketWinProbAway": "0.2%"
     },
     {
       "id": "match_id1000001666456926",
@@ -1542,7 +1635,8 @@
           "draw": "23.0%",
           "und": "21.9%"
         }
-      ]
+      ],
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456938",
@@ -1571,7 +1665,9 @@
           "draw": "18.1%",
           "und": "9.4%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.5%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456936",
@@ -1600,7 +1696,9 @@
           "draw": "21.1%",
           "und": "62.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbAway": "8.3%"
     },
     {
       "id": "match_id1000001666456914",
@@ -1629,7 +1727,9 @@
           "draw": "23.8%",
           "und": "51.8%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666456912",
@@ -1658,7 +1758,9 @@
           "draw": "24.4%",
           "und": "48.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "1.4%"
     },
     {
       "id": "match_id1000001666457078",
@@ -1687,7 +1789,9 @@
           "draw": "22.0%",
           "und": "59.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.9%",
+      "polymarketWinProbAway": "5.1%"
     },
     {
       "id": "match_id1000001666457080",
@@ -1716,7 +1820,8 @@
           "draw": "22.5%",
           "und": "57.2%"
         }
-      ]
+      ],
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666456976",
@@ -1745,7 +1850,9 @@
           "draw": "18.8%",
           "und": "70.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "5.0%"
     },
     {
       "id": "match_id1000001666456978",
@@ -1774,7 +1881,9 @@
           "draw": "26.8%",
           "und": "35.6%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.9%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666456950",
@@ -1803,7 +1912,9 @@
           "draw": "25.4%",
           "und": "44.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456948",
@@ -1832,7 +1943,9 @@
           "draw": "23.9%",
           "und": "51.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.4%",
+      "polymarketWinProbAway": "1.9%"
     },
     {
       "id": "match_id1000001666457014",
@@ -1861,7 +1974,9 @@
           "draw": "20.0%",
           "und": "66.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "2.5%",
+      "polymarketWinProbAway": "16.1%"
     },
     {
       "id": "match_id1000001666457016",
@@ -1890,7 +2005,9 @@
           "draw": "20.6%",
           "und": "14.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.7%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457004",
@@ -1919,7 +2036,9 @@
           "draw": "24.1%",
           "und": "50.1%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457002",
@@ -1948,7 +2067,9 @@
           "draw": "24.8%",
           "und": "47.2%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.9%",
+      "polymarketWinProbAway": "16.8%"
     },
     {
       "id": "match_id1000001666456992",
@@ -1977,7 +2098,9 @@
           "draw": "26.8%",
           "und": "37.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666456990",
@@ -2006,7 +2129,9 @@
           "draw": "17.4%",
           "und": "74.5%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "2.1%"
     },
     {
       "id": "match_id1000001666457050",
@@ -2035,7 +2160,9 @@
           "draw": "16.6%",
           "und": "76.4%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "9.7%"
     },
     {
       "id": "match_id1000001666457052",
@@ -2064,7 +2191,9 @@
           "draw": "21.4%",
           "und": "16.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.9%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457038",
@@ -2093,7 +2222,9 @@
           "draw": "24.6%",
           "und": "47.7%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "1.7%",
+      "polymarketWinProbAway": "10.5%"
     },
     {
       "id": "match_id1000001666457040",
@@ -2122,7 +2253,9 @@
           "draw": "24.2%",
           "und": "26.3%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "match_id1000001666457028",
@@ -2151,7 +2284,9 @@
           "draw": "20.9%",
           "und": "63.6%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "match_id1000001666457026",
@@ -2180,7 +2315,10 @@
           "draw": "15.0%",
           "und": "80.9%"
         }
-      ]
+      ],
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "7.8%"
     }
-  ]
+  ],
+  "polymarketUpdated": "June 13, 2026 · 4:16 PM UTC"
 }
