@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 14, 2026 · 10:40 AM UTC",
+  "lastUpdated": "June 14, 2026 · 3:29 PM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -461,9 +461,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "93.7%",
-          "draw": "4.2%",
-          "und": "2.1%"
+          "fav": "81.8%",
+          "draw": "15.7%",
+          "und": "2.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -498,9 +498,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.9%",
-          "draw": "42.8%",
-          "und": "21.3%"
+          "fav": "34.4%",
+          "draw": "43.9%",
+          "und": "21.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -537,9 +537,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "29.0%",
-          "draw": "33.7%",
-          "und": "37.3%"
+          "fav": "21.9%",
+          "draw": "51.4%",
+          "und": "26.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -576,9 +576,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "49.3%",
-          "draw": "27.7%",
-          "und": "23.0%"
+          "fav": "36.8%",
+          "draw": "44.3%",
+          "und": "18.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -614,9 +614,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "87.8%",
-          "draw": "8.6%",
-          "und": "3.6%"
+          "fav": "87.2%",
+          "draw": "8.3%",
+          "und": "4.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -643,8 +643,8 @@
       "type": "UPCOMING",
       "home": "Belgium",
       "away": "Egypt",
-      "favTeam": "Egypt",
-      "undTeam": "Belgium",
+      "favTeam": "Belgium",
+      "undTeam": "Egypt",
       "homeFlag": "bel",
       "awayFlag": "egy",
       "kickoff": "2026-06-15T19:00:00.000Z",
@@ -652,9 +652,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "43.7%",
-          "draw": "40.5%",
-          "und": "15.8%"
+          "fav": "59.3%",
+          "draw": "24.0%",
+          "und": "16.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -691,9 +691,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "12.0%",
-          "draw": "37.9%",
-          "und": "50.1%"
+          "fav": "12.1%",
+          "draw": "21.7%",
+          "und": "66.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -729,9 +729,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "52.6%",
-          "draw": "27.3%",
-          "und": "20.1%"
+          "fav": "52.5%",
+          "draw": "27.4%",
+          "und": "20.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -758,8 +758,8 @@
       "type": "UPCOMING",
       "home": "France",
       "away": "Senegal",
-      "favTeam": "France",
-      "undTeam": "Senegal",
+      "favTeam": "Senegal",
+      "undTeam": "France",
       "homeFlag": "fra",
       "awayFlag": "sen",
       "kickoff": "2026-06-16T19:00:00.000Z",
@@ -767,9 +767,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "65.6%",
-          "draw": "21.3%",
-          "und": "13.1%"
+          "fav": "47.9%",
+          "draw": "39.0%",
+          "und": "13.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -806,9 +806,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.9%",
-          "draw": "31.6%",
-          "und": "60.5%"
+          "fav": "6.2%",
+          "draw": "12.8%",
+          "und": "81.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -844,9 +844,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "50.6%",
-          "draw": "38.5%",
-          "und": "10.9%"
+          "fav": "68.7%",
+          "draw": "21.0%",
+          "und": "10.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -883,7 +883,7 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "71.8%",
+          "fav": "71.9%",
           "draw": "17.7%",
           "und": "10.5%"
         },
@@ -950,8 +950,8 @@
       "type": "UPCOMING",
       "home": "England",
       "away": "Croatia",
-      "favTeam": "Croatia",
-      "undTeam": "England",
+      "favTeam": "England",
+      "undTeam": "Croatia",
       "homeFlag": "eng",
       "awayFlag": "cro",
       "kickoff": "2026-06-17T20:00:00.000Z",
@@ -959,9 +959,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "39.6%",
-          "draw": "43.4%",
-          "und": "17.1%"
+          "fav": "55.8%",
+          "draw": "24.8%",
+          "und": "19.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -998,9 +998,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "32.9%",
-          "draw": "44.9%",
-          "und": "22.3%"
+          "fav": "44.0%",
+          "draw": "27.9%",
+          "und": "28.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1036,9 +1036,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "10.9%",
-          "draw": "38.4%",
-          "und": "50.7%"
+          "fav": "10.5%",
+          "draw": "20.3%",
+          "und": "69.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1065,8 +1065,8 @@
       "type": "UPCOMING",
       "home": "Czechia",
       "away": "South Africa",
-      "favTeam": "South Africa",
-      "undTeam": "Czechia",
+      "favTeam": "Czechia",
+      "undTeam": "South Africa",
       "homeFlag": "cze",
       "awayFlag": "rsa",
       "kickoff": "2026-06-18T16:00:00.000Z",
@@ -1074,9 +1074,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "37.4%",
-          "draw": "44.3%",
-          "und": "18.4%"
+          "fav": "54.0%",
+          "draw": "25.1%",
+          "und": "20.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1102,8 +1102,8 @@
       "type": "UPCOMING",
       "home": "Switzerland",
       "away": "Bosnia & Herzegovina",
-      "favTeam": "Switzerland",
-      "undTeam": "Bosnia & Herzegovina",
+      "favTeam": "Bosnia & Herzegovina",
+      "undTeam": "Switzerland",
       "homeFlag": "sui",
       "awayFlag": "bih",
       "kickoff": "2026-06-18T19:00:00.000Z",
@@ -1111,9 +1111,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "61.1%",
-          "draw": "22.6%",
-          "und": "16.3%"
+          "fav": "43.4%",
+          "draw": "41.7%",
+          "und": "14.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1148,9 +1148,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "75.3%",
-          "draw": "16.3%",
-          "und": "8.4%"
+          "fav": "74.7%",
+          "draw": "16.8%",
+          "und": "8.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1186,8 +1186,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.0%",
-          "draw": "45.9%",
+          "fav": "34.7%",
+          "draw": "46.2%",
           "und": "19.1%"
         },
         {
@@ -1225,9 +1225,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "60.3%",
-          "draw": "21.9%",
-          "und": "17.8%"
+          "fav": "59.8%",
+          "draw": "22.1%",
+          "und": "18.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1264,9 +1264,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "19.3%",
-          "draw": "26.6%",
-          "und": "54.1%"
+          "fav": "16.9%",
+          "draw": "43.6%",
+          "und": "39.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1303,9 +1303,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "67.3%",
-          "draw": "26.2%",
-          "und": "6.4%"
+          "fav": "87.4%",
+          "draw": "8.2%",
+          "und": "4.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1342,8 +1342,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "47.0%",
-          "draw": "28.6%",
-          "und": "24.4%"
+          "draw": "28.4%",
+          "und": "24.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1410,8 +1410,8 @@
       "type": "UPCOMING",
       "home": "Germany",
       "away": "Ivory Coast",
-      "favTeam": "Germany",
-      "undTeam": "Ivory Coast",
+      "favTeam": "Ivory Coast",
+      "undTeam": "Germany",
       "homeFlag": "ger",
       "awayFlag": "civ",
       "kickoff": "2026-06-20T20:00:00.000Z",
@@ -1419,9 +1419,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "61.2%",
-          "draw": "21.6%",
-          "und": "17.2%"
+          "fav": "45.6%",
+          "draw": "38.4%",
+          "und": "16.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1458,9 +1458,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "79.5%",
-          "draw": "12.8%",
-          "und": "7.7%"
+          "fav": "79.7%",
+          "draw": "12.7%",
+          "und": "7.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1533,9 +1533,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "67.2%",
-          "draw": "27.1%",
-          "und": "5.7%"
+          "fav": "86.4%",
+          "draw": "9.2%",
+          "und": "4.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1571,8 +1571,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "68.3%",
-          "draw": "19.9%",
+          "fav": "50.9%",
+          "draw": "37.2%",
           "und": "11.8%"
         },
         {
@@ -1725,9 +1725,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "84.7%",
-          "draw": "11.5%",
-          "und": "3.8%"
+          "fav": "68.7%",
+          "draw": "26.1%",
+          "und": "5.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1763,9 +1763,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "34.3%",
-          "draw": "42.2%",
-          "und": "23.5%"
+          "fav": "45.7%",
+          "draw": "26.5%",
+          "und": "27.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1802,9 +1802,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.2%",
-          "draw": "21.9%",
-          "und": "63.9%"
+          "fav": "15.6%",
+          "draw": "40.2%",
+          "und": "44.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1878,9 +1878,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "52.3%",
-          "draw": "36.3%",
-          "und": "11.4%"
+          "fav": "71.8%",
+          "draw": "17.6%",
+          "und": "10.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1993,9 +1993,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "44.9%",
+          "fav": "45.0%",
           "draw": "27.9%",
-          "und": "27.2%"
+          "und": "27.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2023,8 +2023,8 @@
       "type": "UPCOMING",
       "home": "Bosnia & Herzegovina",
       "away": "Qatar",
-      "favTeam": "Bosnia & Herzegovina",
-      "undTeam": "Qatar",
+      "favTeam": "Qatar",
+      "undTeam": "Bosnia & Herzegovina",
       "homeFlag": "bih",
       "awayFlag": "qat",
       "kickoff": "2026-06-24T19:00:00.000Z",
@@ -2032,9 +2032,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "60.5%",
-          "draw": "23.5%",
-          "und": "16.0%"
+          "fav": "43.2%",
+          "draw": "41.5%",
+          "und": "15.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2068,9 +2068,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "57.7%",
-          "draw": "32.7%",
-          "und": "9.6%"
+          "fav": "58.0%",
+          "draw": "32.5%",
+          "und": "9.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2106,9 +2106,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "15.9%",
-          "draw": "18.6%",
-          "und": "65.5%"
+          "fav": "13.3%",
+          "draw": "38.2%",
+          "und": "48.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2145,9 +2145,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "17.1%",
-          "draw": "24.4%",
-          "und": "58.5%"
+          "fav": "15.7%",
+          "draw": "41.2%",
+          "und": "43.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2183,9 +2183,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "20.6%",
-          "draw": "26.6%",
-          "und": "52.8%"
+          "fav": "20.3%",
+          "draw": "43.9%",
+          "und": "35.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2297,9 +2297,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.8%",
-          "draw": "21.9%",
-          "und": "63.3%"
+          "fav": "14.2%",
+          "draw": "38.6%",
+          "und": "47.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2335,9 +2335,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "45.8%",
-          "draw": "27.7%",
-          "und": "26.6%"
+          "fav": "33.5%",
+          "draw": "43.0%",
+          "und": "23.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2374,9 +2374,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "33.2%",
-          "draw": "44.9%",
-          "und": "21.9%"
+          "fav": "33.4%",
+          "draw": "44.8%",
+          "und": "21.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2413,9 +2413,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.0%",
-          "draw": "25.9%",
-          "und": "39.1%"
+          "fav": "26.9%",
+          "draw": "40.8%",
+          "und": "32.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2452,9 +2452,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "22.5%",
-          "draw": "26.3%",
-          "und": "51.2%"
+          "fav": "19.7%",
+          "draw": "42.0%",
+          "und": "38.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2491,8 +2491,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "50.4%",
-          "draw": "37.7%",
+          "fav": "68.3%",
+          "draw": "19.9%",
           "und": "11.8%"
         },
         {
@@ -2605,9 +2605,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "31.2%",
-          "draw": "47.5%",
-          "und": "21.3%"
+          "fav": "42.2%",
+          "draw": "31.4%",
+          "und": "26.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2644,9 +2644,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "10.0%",
-          "draw": "16.6%",
-          "und": "73.4%"
+          "fav": "10.4%",
+          "draw": "35.0%",
+          "und": "54.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2682,9 +2682,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "12.1%",
-          "draw": "14.3%",
-          "und": "73.6%"
+          "fav": "10.3%",
+          "draw": "32.9%",
+          "und": "56.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2711,8 +2711,8 @@
       "type": "UPCOMING",
       "home": "Croatia",
       "away": "Ghana",
-      "favTeam": "Ghana",
-      "undTeam": "Croatia",
+      "favTeam": "Croatia",
+      "undTeam": "Ghana",
       "homeFlag": "cro",
       "awayFlag": "gha",
       "kickoff": "2026-06-27T21:00:00.000Z",
@@ -2720,9 +2720,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "40.6%",
-          "draw": "42.2%",
-          "und": "17.2%"
+          "fav": "58.4%",
+          "draw": "24.7%",
+          "und": "16.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2759,9 +2759,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "26.9%",
-          "draw": "28.5%",
-          "und": "44.6%"
+          "fav": "22.6%",
+          "draw": "43.5%",
+          "und": "33.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -2895,7 +2895,5 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "7.8%"
     }
-  ],
-  "kalshiUpdated": "June 14, 2026 · 10:40 AM UTC",
-  "polymarketUpdated": "June 14, 2026 · 10:40 AM UTC"
+  ]
 }
