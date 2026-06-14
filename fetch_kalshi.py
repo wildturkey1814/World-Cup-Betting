@@ -243,26 +243,34 @@ def fetch_match_odds() -> dict:
 
             yes_price = (m.get("yes_bid_dollars") or m.get("last_price_dollars") or
                          m.get("yes_ask_dollars") or 0)
-            title = m.get("no_sub_title", "") or m.get("subtitle", "") or m.get("title", "")
-            title_lower = title.lower()
 
             if key not in raw_markets:
                 raw_markets[key] = {
-                    "home": None, "away": None,
+                    "home": None, "away": None, "draw": None,
                     "home_code": home_code, "away_code": away_code
                 }
 
-            hc = home_code.lower()
-            ac = away_code.lower()
+            # Use the ticker suffix to identify outcome — most reliable method.
+            # Format: KXWCGAME-26JUN12USAPAR-USA / -TIE / -PRY
+            ticker_parts = ticker.split("-")
+            outcome_code = ticker_parts[-1].upper() if ticker_parts else ""
 
-            # Match outcome type from title/subtitle
-            # Kalshi uses "X wins" or team name in subtitle
-            if ("tie" in title_lower or "draw" in title_lower):
+            if outcome_code in ("TIE", "DRAW"):
                 raw_markets[key]["draw"] = float(yes_price)
-            elif (hc in title_lower or home.lower() in title_lower):
+            elif outcome_code == home_code.upper():
                 raw_markets[key]["home"] = float(yes_price)
-            elif (ac in title_lower or away.lower() in title_lower):
+            elif outcome_code == away_code.upper():
                 raw_markets[key]["away"] = float(yes_price)
+            else:
+                # Fallback: check no_sub_title / subtitle
+                title = m.get("no_sub_title","") or m.get("subtitle","") or m.get("title","")
+                title_lower = title.lower()
+                if "tie" in title_lower or "draw" in title_lower:
+                    raw_markets[key]["draw"] = float(yes_price)
+                elif home_code.lower() in title_lower or home.lower() in title_lower:
+                    raw_markets[key]["home"] = float(yes_price)
+                elif away_code.lower() in title_lower or away.lower() in title_lower:
+                    raw_markets[key]["away"] = float(yes_price)
 
         cursor = data.get("cursor")
         if not cursor or not markets:
