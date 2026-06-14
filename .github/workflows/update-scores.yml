@@ -14,14 +14,18 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Install dependencies
         run: pip install requests
+
       - name: Clean SRL matches
         run: python clean_data.py
+
       - name: Fetch live scores
         env:
           FOOTBALL_DATA_KEY:  ${{ secrets.FOOTBALL_DATA_KEY }}
@@ -30,11 +34,13 @@ jobs:
           API_FOOTBALL_KEY:   ${{ secrets.API_FOOTBALL_KEY }}
           API_FOOTBALL_KEY2:  ${{ secrets.API_FOOTBALL_KEY2 }}
         run: python fetch_scores.py
+
       - name: Inject API keys into index.html
         env:
           API_FOOTBALL_KEY:  ${{ secrets.API_FOOTBALL_KEY }}
           API_FOOTBALL_KEY2: ${{ secrets.API_FOOTBALL_KEY2 }}
         run: python inject_keys.py
+
       - name: Commit updated files
         run: |
           git config user.name  "github-actions[bot]"
