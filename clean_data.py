@@ -1,8 +1,8 @@
 """
-One-time cleanup: removes SRL simulator matches from data.json.
-Run once manually: python clean_data.py
+Removes SRL simulator matches and fixes bad flag codes from data.json.
+Run via GitHub Actions before fetch_scores.py.
 """
-import json, re, tempfile, shutil, os
+import json, tempfile, shutil, os, re
 
 with open("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
@@ -10,9 +10,9 @@ with open("data.json", "r", encoding="utf-8") as f:
 before = len(data["matches"])
 
 def is_srl(m):
-    for field in ["home", "away", "favTeam", "undTeam"]:
-        v = str(m.get(field, ""))
-        if "srl" in v.lower() or "simulator" in v.lower():
+    for field in ["home", "away", "favTeam", "undTeam", "id"]:
+        v = str(m.get(field, "")).lower()
+        if "srl" in v:
             return True
     return False
 
