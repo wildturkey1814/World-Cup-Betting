@@ -124,15 +124,15 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
 /* ── SOURCE ROWS TABLE ──────────────────────────────────────────────── */
 .sources-table { width: 100%; padding: 0 17px; }
-.sources-header { display: grid; grid-template-columns: 1fr 80px 80px 80px; padding: 7px 0 5px; border-bottom: 1px solid var(--border); }
+.sources-header { display: grid; grid-template-columns: 1fr 72px 72px 72px; padding: 6px 0 4px; border-bottom: 1px solid var(--border); }
 .sources-header span { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-lo); text-align: center; }
 .sources-header span:first-child { text-align: left; }
-.source-row { display: grid; grid-template-columns: 1fr 80px 80px 80px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); align-items: center; }
+.source-row { display: grid; grid-template-columns: 1fr 72px 72px 72px; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.03); align-items: center; }
 .source-row:last-child { border-bottom: none; }
-.source-name { font-size: 11px; font-weight: 600; color: var(--text-mid); }
-.prob-cell { font-size: 13px; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums; color: var(--text-mid); }
+.source-name { font-size: 10px; font-weight: 600; color: var(--text-mid); }
+.prob-cell { font-size: 12px; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums; color: var(--text-mid); }
 .prob-cell.hi { color: var(--text-hi); }
-.prob-cell.null-val { color: var(--text-lo); font-size: 12px; }
+.prob-cell.null-val { color: var(--text-lo); font-size: 11px; }
 .col-fav-label  { color: var(--green) !important; }
 .col-draw-label { color: var(--neon) !important; }
 .col-und-label  { color: var(--red) !important; }
@@ -144,8 +144,8 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   background: linear-gradient(90deg, rgba(240,180,41,0.4), transparent);
 }
 .supercharger-row {
-  display: grid; grid-template-columns: 1fr 80px 80px 80px;
-  padding: 6px 0; align-items: center;
+  display: grid; grid-template-columns: 1fr 72px 72px 72px;
+  padding: 4px 0; align-items: center;
 }
 .supercharger-name {
   font-size: 11px; font-weight: 700;
@@ -225,6 +225,128 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 .outlook-prob.fav  { color: var(--green); }
 .outlook-prob.und  { color: var(--text-mid); }
 .outlook-divider { grid-column: 1 / -1; height: 1px; background: var(--border); margin: 2px 0; }
+
+
+/* ── LIVE MATCH CARD ────────────────────────────────────────────────── */
+.live-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid rgba(239,68,68,0.3);
+  margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: inset 3px 0 0 #ef4444, 0 0 20px rgba(239,68,68,0.08);
+}
+.live-card-header {
+  padding: 10px 14px 10px 17px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  border-bottom: 1px solid rgba(239,68,68,0.2);
+  background: rgba(239,68,68,0.04);
+}
+.live-card-teams { display: flex; flex-direction: column; gap: 4px; }
+.live-team-row { display: flex; align-items: center; gap: 8px; }
+.live-team-name { font-size: 14px; font-weight: 700; color: var(--text-hi); }
+.live-score-col { text-align: right; }
+.live-score-display {
+  font-size: 28px; font-weight: 800; color: var(--gold);
+  letter-spacing: 3px; line-height: 1; font-variant-numeric: tabular-nums;
+}
+.live-minute {
+  font-size: 11px; font-weight: 700; color: #ef4444;
+  display: flex; align-items: center; gap: 4px; justify-content: flex-end;
+  margin-top: 3px;
+}
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #ef4444;
+  animation: pulse-dot 1.2s ease-in-out infinite; flex-shrink: 0;
+}
+.live-events {
+  padding: 8px 17px;
+  border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 4px;
+  min-height: 60px;
+}
+.live-event-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; color: var(--text-mid);
+}
+.live-event-row.home { color: var(--text-hi); }
+.live-event-min {
+  font-size: 10px; font-weight: 800; color: var(--neon);
+  min-width: 28px; text-align: center;
+  background: rgba(56,189,248,0.1); border-radius: 3px; padding: 1px 3px;
+  flex-shrink: 0;
+}
+.live-event-icon { font-size: 12px; flex-shrink: 0; }
+.live-event-text { flex: 1; }
+.live-stats {
+  padding: 8px 17px;
+  border-bottom: 1px solid var(--border);
+}
+.live-stat-row {
+  display: grid; grid-template-columns: 32px 1fr 32px;
+  gap: 4px; align-items: center; padding: 2px 0;
+}
+.live-stat-val {
+  font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums;
+  color: var(--text-hi);
+}
+.live-stat-val.away { text-align: right; color: var(--text-mid); }
+.live-stat-bar-wrap {
+  display: flex; align-items: center; gap: 2px;
+}
+.live-stat-bar {
+  height: 4px; border-radius: 2px; background: rgba(255,255,255,0.07);
+  overflow: hidden; flex: 1;
+}
+.live-stat-bar-fill-home {
+  height: 100%; border-radius: 2px;
+  background: var(--green); float: right;
+}
+.live-stat-bar-fill-away {
+  height: 100%; border-radius: 2px;
+  background: var(--text-lo);
+}
+.live-stat-label-center {
+  font-size: 9px; font-weight: 700; text-align: center;
+  text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-lo);
+  white-space: nowrap;
+}
+.live-preodds {
+  padding: 8px 17px 10px;
+}
+.live-preodds-title {
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-lo); margin-bottom: 6px;
+}
+.live-preodds-row {
+  display: grid; grid-template-columns: 1fr 60px 60px 60px;
+  padding: 3px 0; align-items: center;
+}
+.live-preodds-source { font-size: 10px; color: var(--text-lo); font-weight: 600; }
+.live-preodds-val {
+  font-size: 11px; font-weight: 700; text-align: center;
+  font-variant-numeric: tabular-nums; color: var(--text-lo);
+}
+.live-loading {
+  padding: 20px 17px; text-align: center;
+  color: var(--text-lo); font-size: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.live-spinner {
+  width: 12px; height: 12px;
+  border: 2px solid rgba(239,68,68,0.2);
+  border-top-color: #ef4444;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+.live-updated {
+  font-size: 9px; color: var(--text-lo); text-align: right;
+  padding: 0 17px 6px; font-style: italic;
+}
 
 /* ── MATCH EXPLAINER TRIGGER ────────────────────────────────────────── */
 .explainer-trigger {
@@ -426,8 +548,8 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 .bracket-tbd-node { margin: 8px; padding: 10px 8px; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius-sm); font-size: 11px; color: var(--text-lo); text-align: center; font-style: italic; }
 
 @media (max-width: 480px) {
-  .sources-header, .source-row, .supercharger-row { grid-template-columns: 1fr 70px 70px 70px; }
-  .prob-cell { font-size: 12px; }
+  .sources-header, .source-row, .supercharger-row { grid-template-columns: 1fr 60px 60px 60px; }
+  .prob-cell { font-size: 11px; }
   .team-name { font-size: 14px; }
 }
 </style>
@@ -1029,18 +1151,24 @@ function renderUpcoming(match) {
 
   // Supercharger row
   const superName = d.superchargerName || 'Supercharger (ELO+)';
-  const superFootnote = d.superchargerFootnote || 'Available starting with the Knock Outs round!';
+  const superId = 'super-tip-' + match.id;
   const superchargerHTML = `
     <div class="supercharger-divider"></div>
-    <div style="padding:0 17px">
+    <div style="padding:0 17px 8px">
       <div class="supercharger-row">
-        <div class="supercharger-name">${esc(superName)}</div>
+        <div class="supercharger-name">
+          ${esc(superName)}
+          <button class="reco-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${superId}')" aria-label="About Supercharger" style="margin-left:4px">i</button>
+          <div class="reco-tooltip" id="${superId}">
+            <div class="reco-tooltip-title">Supercharger (ELO+)</div>
+            After the group stage, our ELO model is recalibrated using actual match results and Brier score accuracy. The Supercharger blends source weights based on who predicted best — making recommendations smarter as the tournament progresses. Available from the Round of 32 onward.
+          </div>
+        </div>
         <div class="supercharger-prob">--</div>
         <div class="supercharger-prob">--</div>
         <div class="supercharger-prob">--</div>
       </div>
-    </div>
-    <div class="supercharger-footnote">* <strong>Coming soon:</strong> <em>${esc(superFootnote)}</em></div>`;
+    </div>`;
 
   // Recommendation
   const tipId = 'tip-' + match.id;
@@ -1063,7 +1191,6 @@ function renderUpcoming(match) {
     </div>` : '';
 
   const outlookHTML = renderTournamentOutlook(match);
-  const explainerLabel = d.explainerLabel || '✦ Match Explainer';
 
   return `
   <div class="match-card" data-signal="${signal}">
@@ -1098,14 +1225,7 @@ function renderUpcoming(match) {
     ${superchargerHTML}
     ${recoHTML}
     ${outlookHTML}
-    <button class="explainer-trigger" id="exp-trigger-${esc(match.id)}" onclick="toggleExplainer('${esc(match.id)}')" aria-label="Open match explainer">
-      <span class="explainer-trigger-star">✦</span>
-      <span class="explainer-trigger-label">${esc(explainerLabel)}</span>
-      <span class="explainer-trigger-icon">▾</span>
-    </button>
-    <div class="explainer-drawer" id="exp-drawer-${esc(match.id)}">
-      <div class="explainer-content" id="exp-content-${esc(match.id)}"></div>
-    </div>
+
   </div>`;
 }
 
@@ -1240,7 +1360,9 @@ function renderGrid() {
   const coEl = document.getElementById('completed-list');
 
   if (searchQuery || currentSort === 'time') {
-    upEl.innerHTML = upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`;
+    upEl.innerHTML = upcoming.length
+      ? `<div class="card-grid">${upcoming.map(m => isInLiveWindow(m) || m.status === 'IN_PLAY' ? renderLive(m) : renderUpcoming(m)).join('')}</div>`
+      : `<div class="empty">${esc(d.noUpcoming)}</div>`;
     coEl.innerHTML = completed.length ? `<div class="card-grid">${completed.map(renderCompleted).join('')}</div>` : `<div class="empty">${esc(d.noCompleted)}</div>`;
     return;
   }
@@ -1267,7 +1389,7 @@ function renderGrid() {
           <span class="group-header-meta">${esc(nk)} · ${ms.length} match${ms.length!==1?'es':''}</span>
           <span class="group-header-chevron">${isOpen?'▲':'▼'}</span>
         </button>
-        ${isOpen?`<div class="group-body"><div class="card-grid">${ms.map(renderUpcoming).join('')}</div></div>`:''}
+        ${isOpen?`<div class="group-body"><div class="card-grid">${ms.map(m => isInLiveWindow(m) || m.status === 'IN_PLAY' ? renderLive(m) : renderUpcoming(m)).join('')}</div></div>`:''}
       </div>`;
     }).join('');
 
@@ -1419,6 +1541,357 @@ function matchesSearch(match) {
   return homeEn.includes(searchQuery) || awayEn.includes(searchQuery) || homeTr.includes(searchQuery) || awayTr.includes(searchQuery) || (match.group||'').toLowerCase().includes(searchQuery);
 }
 
+
+/* ================================================================
+   LIVE MATCH ENGINE
+   - ESPN polls every 60s for score + status (keyless)
+   - API-Football polls every 2min for events + stats (keyed)
+   - Keys embedded here — acceptable for personal sandbox
+================================================================ */
+
+const AF_KEYS = [
+  typeof API_FOOTBALL_KEY  !== 'undefined' ? API_FOOTBALL_KEY  : '',
+  typeof API_FOOTBALL_KEY2 !== 'undefined' ? API_FOOTBALL_KEY2 : '',
+].filter(Boolean);
+let afKeyIdx = 0;
+function afKey() { return AF_KEYS[afKeyIdx % Math.max(AF_KEYS.length,1)]; }
+function afRotate() { afKeyIdx++; }
+
+// In-memory live state per match id
+const liveState = {};
+// Interval handles
+const liveIntervals = {};
+
+function isInLiveWindow(match) {
+  const ko = match.kickoff ? new Date(match.kickoff) : null;
+  if (!ko) return false;
+  const now = Date.now();
+  const minsFromKo = (now - ko.getTime()) / 60000;
+  return minsFromKo >= -5 && minsFromKo <= 130;
+}
+
+function startLiveTracking(matchId) {
+  if (liveIntervals[matchId]) return; // already running
+
+  // ESPN every 60s
+  const espnHandle = setInterval(() => pollESPN(matchId), 60000);
+  // API-Football every 2min
+  const afHandle   = setInterval(() => pollAPIFootball(matchId), 120000);
+
+  liveIntervals[matchId] = { espn: espnHandle, af: afHandle };
+
+  // Immediate first polls
+  pollESPN(matchId);
+  setTimeout(() => pollAPIFootball(matchId), 3000);
+}
+
+function stopLiveTracking(matchId) {
+  const handles = liveIntervals[matchId];
+  if (!handles) return;
+  clearInterval(handles.espn);
+  clearInterval(handles.af);
+  delete liveIntervals[matchId];
+  log.debug && log.debug('Stopped live tracking for', matchId);
+}
+
+async function pollESPN(matchId) {
+  const match = allMatches.find(m => m.id === matchId);
+  if (!match) return;
+  try {
+    const url = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
+    const resp = await fetch(url);
+    if (!resp.ok) return;
+    const data = await resp.json();
+    const events = data.events || [];
+    for (const ev of events) {
+      const comp = (ev.competitions || [])[0] || {};
+      const competitors = comp.competitors || [];
+      const home = competitors.find(c => c.homeAway === 'home') || {};
+      const away = competitors.find(c => c.homeAway === 'away') || {};
+      const homeName = (home.team||{}).displayName || '';
+      const awayName = (away.team||{}).displayName || '';
+      // Match by team name
+      if (!namesMatch(homeName, match.home) && !namesMatch(homeName, match.away)) continue;
+      const statusObj = comp.status || {};
+      const stateType = statusObj.type || {};
+      const state = stateType.state || ''; // 'pre' | 'in' | 'post'
+      if (state === 'in' || state === 'post') {
+        const hs = parseInt(home.score) || 0;
+        const as_ = parseInt(away.score) || 0;
+        const flipped = namesMatch(homeName, match.away); // ESPN home = our away
+        if (!liveState[matchId]) liveState[matchId] = {};
+        liveState[matchId].homeScore  = flipped ? as_ : hs;
+        liveState[matchId].awayScore  = flipped ? hs : as_;
+        liveState[matchId].minute     = statusObj.displayClock || '';
+        liveState[matchId].state      = state;
+        liveState[matchId].espnUpdate = new Date().toLocaleTimeString();
+        if (state === 'post') stopLiveTracking(matchId);
+        updateLiveCard(matchId);
+      }
+    }
+  } catch(e) { /* silent */ }
+}
+
+async function pollAPIFootball(matchId) {
+  if (!AF_KEYS.length) return;
+  const match = allMatches.find(m => m.id === matchId);
+  if (!match) return;
+  const fixtureId = liveState[matchId]?.fixtureId;
+  if (!fixtureId) {
+    await findAFFixture(matchId);
+    return;
+  }
+  try {
+    // Fetch events
+    const evResp = await fetch(
+      `https://v3.football.api-sports.io/fixtures/events?fixture=${fixtureId}`,
+      { headers: { 'x-rapidapi-key': afKey(), 'x-rapidapi-host': 'v3.football.api-sports.io' } }
+    );
+    if (evResp.status === 429 || evResp.status === 403) { afRotate(); return; }
+    if (evResp.ok) {
+      const evData = await evResp.json();
+      if (!liveState[matchId]) liveState[matchId] = {};
+      liveState[matchId].events = parseAFEvents(evData.response || [], match);
+    }
+    // Fetch stats (separate call)
+    const stResp = await fetch(
+      `https://v3.football.api-sports.io/fixtures/statistics?fixture=${fixtureId}`,
+      { headers: { 'x-rapidapi-key': afKey(), 'x-rapidapi-host': 'v3.football.api-sports.io' } }
+    );
+    if (stResp.status === 429 || stResp.status === 403) { afRotate(); return; }
+    if (stResp.ok) {
+      const stData = await stResp.json();
+      if (!liveState[matchId]) liveState[matchId] = {};
+      liveState[matchId].stats = parseAFStats(stData.response || [], match);
+      liveState[matchId].afUpdate = new Date().toLocaleTimeString();
+      updateLiveCard(matchId);
+    }
+  } catch(e) { /* silent */ }
+}
+
+async function findAFFixture(matchId) {
+  if (!AF_KEYS.length) return;
+  const match = allMatches.find(m => m.id === matchId);
+  if (!match) return;
+  try {
+    const resp = await fetch(
+      `https://v3.football.api-sports.io/fixtures?league=1&season=2026`,
+      { headers: { 'x-rapidapi-key': afKey(), 'x-rapidapi-host': 'v3.football.api-sports.io' } }
+    );
+    if (resp.status === 429 || resp.status === 403) { afRotate(); return; }
+    if (!resp.ok) return;
+    const data = await resp.json();
+    for (const fix of data.response || []) {
+      const h = normaliseTeam((fix.teams||{}).home?.name || '');
+      const a = normaliseTeam((fix.teams||{}).away?.name || '');
+      if ((h === match.home && a === match.away) || (h === match.away && a === match.home)) {
+        if (!liveState[matchId]) liveState[matchId] = {};
+        liveState[matchId].fixtureId = fix.fixture?.id;
+        liveState[matchId].fixtureFlipped = (h === match.away);
+        await pollAPIFootball(matchId);
+        return;
+      }
+    }
+  } catch(e) { /* silent */ }
+}
+
+function parseAFEvents(events, match) {
+  const flipped = liveState[match.id]?.fixtureFlipped || false;
+  return events
+    .filter(ev => ['Goal','Card','subst'].includes(ev.type))
+    .sort((a,b) => (b.time?.elapsed||0) - (a.time?.elapsed||0))
+    .slice(0, 5)
+    .map(ev => {
+      const minute = ev.time?.elapsed || 0;
+      const isHomeTeam = flipped
+        ? ev.team?.name === (match.away)
+        : ev.team?.name === (match.home);
+      const side = isHomeTeam ? 'home' : 'away';
+      let icon = '⚽', text = ev.player?.name || '';
+      if (ev.type === 'Card') {
+        icon = ev.detail?.includes('Yellow') ? '🟨' : '🟥';
+        text = (ev.player?.name || '') + ' (' + (isHomeTeam ? match.home.split(' ')[0] : match.away.split(' ')[0]) + ')';
+      } else if (ev.type === 'subst') {
+        icon = '🔄';
+        text = (ev.player?.name||'') + ' on for ' + (ev.assist?.name||'');
+      } else if (ev.detail === 'Penalty') {
+        text = (ev.player?.name||'') + ' (pen)';
+      }
+      return { minute, side, icon, text };
+    });
+}
+
+function parseAFStats(statsArr, match) {
+  const flipped = liveState[match.id]?.fixtureFlipped || false;
+  const result = { home: {}, away: {} };
+  statsArr.forEach((teamData, i) => {
+    const side = (i === 0 && !flipped) || (i === 1 && flipped) ? 'home' : 'away';
+    const s = {};
+    (teamData.statistics || []).forEach(stat => {
+      if (stat.type === 'Ball Possession') s.possession = parseInt(stat.value) || 0;
+      if (stat.type === 'Total Shots')     s.shots = parseInt(stat.value) || 0;
+      if (stat.type === 'Shots on Goal')   s.shotsOnTarget = parseInt(stat.value) || 0;
+      if (stat.type === 'Corner Kicks')    s.corners = parseInt(stat.value) || 0;
+    });
+    result[side] = s;
+  });
+  return result;
+}
+
+function namesMatch(a, b) {
+  if (!a || !b) return false;
+  const norm = s => s.toLowerCase().replace(/[^a-z]/g,'');
+  return norm(a).includes(norm(b).slice(0,4)) || norm(b).includes(norm(a).slice(0,4));
+}
+
+function normaliseTeam(name) {
+  const MAP = {
+    'Republic of Korea':'South Korea','Korea Republic':'South Korea',
+    'United States':'United States','USA':'United States',
+    'IR Iran':'Iran','Türkiye':'Turkey',
+    'Bosnia and Herzegovina':'Bosnia & Herzegovina',
+    "Côte d'Ivoire":'Ivory Coast','Congo DR':'DR Congo',
+  };
+  return MAP[name] || name;
+}
+
+/* ================================================================
+   RENDER LIVE CARD
+================================================================ */
+function renderLive(match) {
+  const state = liveState[match.id] || {};
+  const home = teamName(match.home);
+  const away = teamName(match.away);
+  const hs = state.homeScore ?? '—';
+  const as_ = state.awayScore ?? '—';
+  const minute = state.minute ? state.minute + "'" : '●';
+  const isLoading = !state.homeScore && state.homeScore !== 0;
+
+  // Events feed (last 4)
+  const events = (state.events || []).slice(0, 4);
+  const eventsHTML = events.length
+    ? events.map(ev => `
+        <div class="live-event-row ${ev.side}">
+          <span class="live-event-min">${ev.minute}'</span>
+          <span class="live-event-icon">${ev.icon}</span>
+          <span class="live-event-text">${esc(ev.text)}</span>
+        </div>`).join('')
+    : `<div style="color:var(--text-lo);font-size:11px;padding:8px 0">Waiting for match events…</div>`;
+
+  // Stats
+  const stats = state.stats || {};
+  const hStats = stats.home || {};
+  const aStats = stats.away || {};
+  const homePoss = hStats.possession ?? 50;
+  const awayPoss = aStats.possession ?? 50;
+
+  const statsHTML = hStats.shots != null ? `
+    <div class="live-stat-row">
+      <span class="live-stat-val">${hStats.shots||0}</span>
+      <div class="live-stat-bar-wrap">
+        <div class="live-stat-bar"><div class="live-stat-bar-fill-home" style="width:${hStats.shots ? Math.min(100,hStats.shots/(hStats.shots+(aStats.shots||0)+0.01)*100) : 50}%"></div></div>
+        <span class="live-stat-label-center" style="min-width:60px">Shots</span>
+        <div class="live-stat-bar"><div class="live-stat-bar-fill-away" style="width:${aStats.shots ? Math.min(100,aStats.shots/(hStats.shots+aStats.shots+0.01)*100) : 50}%"></div></div>
+      </div>
+      <span class="live-stat-val away">${aStats.shots||0}</span>
+    </div>
+    <div class="live-stat-row">
+      <span class="live-stat-val">${hStats.shotsOnTarget||0}</span>
+      <div class="live-stat-bar-wrap">
+        <div class="live-stat-bar"><div class="live-stat-bar-fill-home" style="width:${hStats.shotsOnTarget ? Math.min(100,hStats.shotsOnTarget/((hStats.shotsOnTarget||0)+(aStats.shotsOnTarget||0)+0.01)*100) : 50}%"></div></div>
+        <span class="live-stat-label-center" style="min-width:60px">On Target</span>
+        <div class="live-stat-bar"><div class="live-stat-bar-fill-away" style="width:${aStats.shotsOnTarget ? Math.min(100,aStats.shotsOnTarget/((hStats.shotsOnTarget||0)+(aStats.shotsOnTarget||0)+0.01)*100) : 50}%"></div></div>
+      </div>
+      <span class="live-stat-val away">${aStats.shotsOnTarget||0}</span>
+    </div>` : '';
+
+  // Pre-match odds (frozen)
+  const favIsHome = match.favTeam === match.home;
+  const layers = match.layers || [];
+  const preOddsHTML = layers.slice(0,2).map(l => {
+    const col1 = favIsHome ? (l.fav||'--') : (l.und||'--');
+    const col2 = l.draw || '--';
+    const col3 = favIsHome ? (l.und||'--') : (l.fav||'--');
+    const src = l.source.includes('Sportsbook') ? 'Sportsbooks' :
+                l.source.includes('ELO') ? 'ELO Model' : l.source.substring(0,12);
+    return `<div class="live-preodds-row">
+      <span class="live-preodds-source">${esc(src)}</span>
+      <span class="live-preodds-val">${esc(col1)}</span>
+      <span class="live-preodds-val">${esc(col2)}</span>
+      <span class="live-preodds-val">${esc(col3)}</span>
+    </div>`;
+  }).join('');
+
+  const updatedStr = state.afUpdate ? `Updated ${state.afUpdate}` :
+                     state.espnUpdate ? `Score updated ${state.espnUpdate}` : '';
+
+  return `
+  <div class="live-card" id="live-${esc(match.id)}">
+    <div class="live-card-header">
+      <div class="live-card-teams">
+        <div class="live-team-row">
+          <div class="flag">${flagHTML(match.homeFlag)}</div>
+          <span class="live-team-name">${esc(home)}</span>
+        </div>
+        <div class="live-team-row">
+          <div class="flag">${flagHTML(match.awayFlag)}</div>
+          <span class="live-team-name">${esc(away)}</span>
+        </div>
+      </div>
+      <div class="live-score-col">
+        <div class="live-score-display">${esc(String(hs))} - ${esc(String(as_))}</div>
+        <div class="live-minute"><span class="live-dot"></span>${esc(minute)}</div>
+      </div>
+    </div>
+    <div class="live-events">${eventsHTML}</div>
+    ${statsHTML ? `
+    <div class="live-stats">
+      <div class="live-stat-row">
+        <span class="live-stat-val">${homePoss}%</span>
+        <div class="live-stat-bar-wrap">
+          <div class="live-stat-bar"><div class="live-stat-bar-fill-home" style="width:${homePoss}%"></div></div>
+          <span class="live-stat-label-center" style="min-width:60px">Poss</span>
+          <div class="live-stat-bar"><div class="live-stat-bar-fill-away" style="width:${awayPoss}%"></div></div>
+        </div>
+        <span class="live-stat-val away">${awayPoss}%</span>
+      </div>
+      ${statsHTML}
+    </div>` : ''}
+    ${layers.length ? `
+    <div class="live-preodds">
+      <div class="live-preodds-title">Pre-Match Odds (frozen)</div>
+      <div class="live-preodds-row" style="opacity:0.5">
+        <span></span>
+        <span class="live-preodds-val" style="color:var(--green)">${esc(home.split(' ')[0])}</span>
+        <span class="live-preodds-val" style="color:var(--neon)">Draw</span>
+        <span class="live-preodds-val" style="color:var(--red)">${esc(away.split(' ')[0])}</span>
+      </div>
+      ${preOddsHTML}
+    </div>` : ''}
+    ${updatedStr ? `<div class="live-updated">${esc(updatedStr)}</div>` : ''}
+  </div>`;
+}
+
+function updateLiveCard(matchId) {
+  const match = allMatches.find(m => m.id === matchId);
+  if (!match) return;
+  const el = document.getElementById('live-' + matchId);
+  if (el) {
+    el.outerHTML = renderLive(match);
+  }
+}
+
+// Check for live matches and start tracking on load + each poll
+function checkLiveMatches() {
+  allMatches.forEach(match => {
+    if (match.status === 'IN_PLAY' || isInLiveWindow(match)) {
+      startLiveTracking(match.id);
+    } else {
+      stopLiveTracking(match.id);
+    }
+  });
+}
+
 /* ================================================================
    DATA LOAD
 ================================================================ */
@@ -1441,6 +1914,7 @@ async function loadData() {
     document.getElementById('view-grid').classList.add('active');
     applyLabels();
     buildStageTabs();
+    checkLiveMatches();
     renderGrid();
     setInterval(async () => {
       try {
@@ -1451,6 +1925,7 @@ async function loadData() {
           allMatches = j.matches;
           meta.lastUpdated = j.lastUpdated;
           applyLabels();
+          checkLiveMatches();
           if (currentView==='bracket') renderBracket(); else renderGrid();
         }
       } catch(e) {}
