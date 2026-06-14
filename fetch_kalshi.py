@@ -195,13 +195,20 @@ def fetch_tournament_winner_probs() -> dict:
 
 def parse_match_ticker(ticker: str) -> Optional[tuple]:
     """
-    Parse KXWCGAME-26MMMDDXXXYYY → (month_str, day, home_code, away_code)
-    Example: KXWCGAME-26JUN16FRASEN → ("JUN", 16, "FRA", "SEN")
-    Also handles longer codes: KXWCGAME-26JUN12USAPAR
+    Parse KXWCGAME-26MMMDDXXXXXX-OUTCOME
+    Real format: KXWCGAME-26JUN27CODUZB-UZB
+      event part = CODUZB = home(COD) + away(UZB)
+      outcome    = UZB | COD | TIE
+
+    Returns (month, day, home_code, away_code, outcome_code)
     """
-    m = re.match(r"KXWCGAME-26([A-Z]{3})(\d{2})([A-Z]{2,4})([A-Z]{2,4})$", ticker)
+    m = re.match(r"KXWCGAME-26([A-Z]{3})(\d{2})([A-Z]{6})-([A-Z]{2,4})$", ticker)
     if m:
-        return m.group(1), int(m.group(2)), m.group(3), m.group(4)
+        event     = m.group(3)
+        home_code = event[:3]
+        away_code = event[3:]
+        outcome   = m.group(4)
+        return m.group(1), int(m.group(2)), home_code, away_code, outcome
     return None
 
 
