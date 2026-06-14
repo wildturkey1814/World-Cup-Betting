@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 14, 2026 · 1:19 AM UTC",
+  "lastUpdated": "June 14, 2026 · 4:26 AM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -231,7 +231,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Qatar",
       "away": "Switzerland",
       "favTeam": "Switzerland",
@@ -257,15 +257,51 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.9%",
       "kalshiWinProbAway": "0.8%",
-      "status": "IN_PLAY",
-      "liveScore": "0 - 1"
+      "status": "FINISHED",
+      "score": "QATAR 1 - 1 SWITZERLAND",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "The match ended level at 1-1. A draw was expected — check the model divergence for context."
     },
     {
       "id": "match_id1000001666456928",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Brazil",
       "away": "Morocco",
       "favTeam": "Morocco",
@@ -291,14 +327,52 @@
       "polymarketWinProbHome": "7.4%",
       "polymarketWinProbAway": "2.2%",
       "kalshiWinProbHome": "6.8%",
-      "kalshiWinProbAway": "1.9%"
+      "kalshiWinProbAway": "1.9%",
+      "status": "FINISHED",
+      "score": "BRAZIL 1 - 1 MOROCCO",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "The match ended level at 1-1. A draw was expected — check the model divergence for context."
     },
     {
       "id": "match_id1000001666456930",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Haiti",
       "away": "Scotland",
       "favTeam": "Scotland",
@@ -329,7 +403,46 @@
       ],
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
-      "kalshiWinProbAway": "0.2%"
+      "kalshiWinProbAway": "0.2%",
+      "status": "FINISHED",
+      "score": "HAITI 0 - 1 SCOTLAND",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "Scotland won 1-0 as expected by the majority of sources."
     },
     {
       "id": "match_id1000001666456942",
@@ -368,7 +481,9 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.5%",
       "kalshiWinProbHome": "0.1%",
-      "kalshiWinProbAway": "0.8%"
+      "kalshiWinProbAway": "0.8%",
+      "status": "IN_PLAY",
+      "liveScore": "0 - 0"
     },
     {
       "id": "match_id1000001666457070",
