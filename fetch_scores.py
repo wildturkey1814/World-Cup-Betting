@@ -6,18 +6,19 @@ Polls football-data.org (free tier, 10 calls/min) for:
   - Live scores during matches
   - Final scores + box score stats when complete
 
+Zafronix fallback: if football-data.org returns FINISHED but no
+detailed stats, automatically queries Zafronix WC API to hydrate
+the boxScore fields before writing to data.json.
+
 This script ONLY touches match status, scores, and boxScore fields.
 It NEVER overwrites prediction layers (odds data stays untouched).
 
-Triggers:
-  - Runs every 5 minutes via GitHub Action
-  - Exits immediately if no matches are live or recently finished
-  - On quiet days with no upcoming matches, exits immediately
-
 Run manually:   python fetch_scores.py
 Requirements:   pip install requests
-Environment:    FOOTBALL_DATA_KEY must be set
-                (free at football-data.org — no call limit concerns)
+Environment:
+  FOOTBALL_DATA_KEY   — required
+  ZAFRONIX_API_KEY    — optional fallback for box scores
+  ZAFRONIX_API_KEY2   — optional second Zafronix key
 """
 
 import os
@@ -42,93 +43,191 @@ log = logging.getLogger(__name__)
 # ── Config ─────────────────────────────────────────────────────────────────
 FD_KEY          = os.environ.get("FOOTBALL_DATA_KEY", "")
 FD_BASE         = "https://api.football-data.org/v4"
-FD_WC_ID        = 2000        # football-data.org competition ID for FIFA World Cup
+FD_WC_ID        = 2000
 OUTPUT_FILE     = "data.json"
 REQUEST_TIMEOUT = 15
 
-# Match window: how long before/after kickoff to consider a match "active"
-WINDOW_BEFORE_MIN = 30     # start watching 30 min before kickoff
-WINDOW_AFTER_MIN  = 130    # live window ends 130 min after kickoff
-CATCHUP_HOURS     = 48     # also check any UPCOMING match whose kickoff
-                           # was within the past 48 hours (catches missed matches)
+WINDOW_BEFORE_MIN = 30
+WINDOW_AFTER_MIN  = 130
+CATCHUP_HOURS     = 48
 
-# Team name normalisation — football-data.org uses full official names
+# ── Team name normalisation ────────────────────────────────────────────────
 FD_TEAM_MAP = {
-    "Mexico":                       "Mexico",
-    "South Africa":                 "South Africa",
-    "Republic of Korea":            "South Korea",
-    "Korea Republic":               "South Korea",
-    "Czechia":                      "Czechia",
-    "Czech Republic":               "Czechia",
-    "Canada":                       "Canada",
-    "Bosnia and Herzegovina":       "Bosnia & Herzegovina",
-    "Bosnia & Herzegovina":         "Bosnia & Herzegovina",
-    "USA":                          "United States",
-    "United States":                "United States",
-    "Paraguay":                     "Paraguay",
-    "Germany":                      "Germany",
-    "Argentina":                    "Argentina",
-    "England":                      "England",
-    "Italy":                        "Italy",
-    "France":                       "France",
-    "Brazil":                       "Brazil",
-    "Spain":                        "Spain",
-    "Portugal":                     "Portugal",
-    "Netherlands":                  "Netherlands",
-    "Morocco":                      "Morocco",
-    "Japan":                        "Japan",
-    "Australia":                    "Australia",
-    "Croatia":                      "Croatia",
-    "Switzerland":                  "Switzerland",
-    "Uruguay":                      "Uruguay",
-    "Colombia":                     "Colombia",
-    "Senegal":                      "Senegal",
-    "Denmark":                      "Denmark",
-    "Ecuador":                      "Ecuador",
-    "Norway":                       "Norway",
-    "Turkey":                       "Turkey",
-    "Türkiye":                      "Turkey",
-    "Serbia":                       "Serbia",
-    "Poland":                       "Poland",
-    "IR Iran":                      "Iran",
-    "Iran":                         "Iran",
-    "Saudi Arabia":                 "Saudi Arabia",
-    "Ghana":                        "Ghana",
-    "Cameroon":                     "Cameroon",
-    "Ivory Coast":                  "Ivory Coast",
-    "Côte d'Ivoire":                "Ivory Coast",
-    "DR Congo":                     "DR Congo",
-    "Congo DR":                     "DR Congo",
-    "Tunisia":                      "Tunisia",
-    "Egypt":                        "Egypt",
-    "Algeria":                      "Algeria",
-    "Nigeria":                      "Nigeria",
-    "Panama":                       "Panama",
-    "Costa Rica":                   "Costa Rica",
-    "Wales":                        "Wales",
-    "Uzbekistan":                   "Uzbekistan",
-    "Iraq":                         "Iraq",
-    "Jordan":                       "Jordan",
-    "Qatar":                        "Qatar",
-    "New Zealand":                  "New Zealand",
-    "Cape Verde":                   "Cape Verde",
-    "Curaçao":                      "Curacao",
-    "Curacao":                      "Curacao",
-    "Haiti":                        "Haiti",
-    "Belgium":                      "Belgium",
-    "Scotland":                     "Scotland",
-    "Austria":                      "Austria",
-    "Sweden":                       "Sweden",
+    "Mexico":"Mexico","South Africa":"South Africa",
+    "Republic of Korea":"South Korea","Korea Republic":"South Korea",
+    "Czechia":"Czechia","Czech Republic":"Czechia",
+    "Canada":"Canada","Bosnia and Herzegovina":"Bosnia & Herzegovina",
+    "Bosnia & Herzegovina":"Bosnia & Herzegovina",
+    "USA":"United States","United States":"United States",
+    "Paraguay":"Paraguay","Germany":"Germany","Argentina":"Argentina",
+    "England":"England","Italy":"Italy","France":"France","Brazil":"Brazil",
+    "Spain":"Spain","Portugal":"Portugal","Netherlands":"Netherlands",
+    "Morocco":"Morocco","Japan":"Japan","Australia":"Australia",
+    "Croatia":"Croatia","Switzerland":"Switzerland","Uruguay":"Uruguay",
+    "Colombia":"Colombia","Senegal":"Senegal","Denmark":"Denmark",
+    "Ecuador":"Ecuador","Norway":"Norway","Turkey":"Turkey",
+    "Türkiye":"Turkey","Serbia":"Serbia","Poland":"Poland",
+    "IR Iran":"Iran","Iran":"Iran","Saudi Arabia":"Saudi Arabia",
+    "Ghana":"Ghana","Cameroon":"Cameroon","Ivory Coast":"Ivory Coast",
+    "Côte d'Ivoire":"Ivory Coast","DR Congo":"DR Congo","Congo DR":"DR Congo",
+    "Tunisia":"Tunisia","Egypt":"Egypt","Algeria":"Algeria","Nigeria":"Nigeria",
+    "Panama":"Panama","Costa Rica":"Costa Rica","Wales":"Wales",
+    "Uzbekistan":"Uzbekistan","Iraq":"Iraq","Jordan":"Jordan","Qatar":"Qatar",
+    "New Zealand":"New Zealand","Cape Verde":"Cape Verde",
+    "Curaçao":"Curacao","Curacao":"Curacao","Haiti":"Haiti",
+    "Belgium":"Belgium","Scotland":"Scotland","Austria":"Austria",
+    "Sweden":"Sweden",
 }
 
 def normalise_fd(name: str) -> str:
     return FD_TEAM_MAP.get(name, name)
 
 
-# ── API helpers ─────────────────────────────────────────────────────────────
+# ════════════════════════════════════════════════════════════════════════════
+#  ZAFRONIX FALLBACK CLIENT
+# ════════════════════════════════════════════════════════════════════════════
+
+ZAFRONIX_KEYS = [k for k in [
+    os.environ.get("ZAFRONIX_API_KEY",  ""),
+    os.environ.get("ZAFRONIX_API_KEY2", ""),
+] if k]
+ZAFRONIX_BASE = "https://api.zafronix.com/fifa/worldcup/v1"
+_zaf_key_idx  = 0
+
+def _zafronix_headers() -> dict:
+    return {"X-API-Key": ZAFRONIX_KEYS[_zaf_key_idx % len(ZAFRONIX_KEYS)]}
+
+def _zafronix_get(path: str, params: dict = None) -> Optional[dict]:
+    global _zaf_key_idx
+    if not ZAFRONIX_KEYS:
+        return None
+    url = f"{ZAFRONIX_BASE}{path}"
+    for _ in range(len(ZAFRONIX_KEYS)):
+        try:
+            resp = requests.get(url, headers=_zafronix_headers(),
+                                params=params, timeout=REQUEST_TIMEOUT)
+            if resp.status_code == 429:
+                log.warning("Zafronix rate limited — rotating key.")
+                _zaf_key_idx += 1
+                time.sleep(2)
+                continue
+            if resp.status_code == 401:
+                log.error("Zafronix 401 — check ZAFRONIX_API_KEY.")
+                _zaf_key_idx += 1
+                continue
+            resp.raise_for_status()
+            return resp.json()
+        except requests.exceptions.RequestException as e:
+            log.error("Zafronix request failed: %s", e)
+            return None
+    return None
+
+def _zafronix_find_match(home: str, away: str, year: int = 2026) -> Optional[str]:
+    """Find Zafronix match_id by team name matching."""
+    data = _zafronix_get(f"/tournaments/{year}/matches")
+    if not data:
+        return None
+    matches = data if isinstance(data, list) else data.get("matches", [])
+    for m in matches:
+        h_raw = m.get("home_team", {})
+        a_raw = m.get("away_team", {})
+        h = normalise_fd(h_raw.get("name","") if isinstance(h_raw,dict) else str(h_raw))
+        a = normalise_fd(a_raw.get("name","") if isinstance(a_raw,dict) else str(a_raw))
+        if (h == home and a == away) or (h == away and a == home):
+            mid = m.get("match_id") or m.get("id")
+            log.info("  Zafronix match_id=%s for %s vs %s", mid, home, away)
+            return str(mid)
+    log.warning("  Zafronix: no match found for %s vs %s", home, away)
+    return None
+
+def fetch_zafronix_box_score(home: str, away: str) -> Optional[dict]:
+    """
+    Fetch full post-match box score from Zafronix as a fallback.
+    Returns a boxScore dict matching our data.json schema, or None.
+    """
+    if not ZAFRONIX_KEYS:
+        log.info("  Zafronix: no keys configured — skipping fallback.")
+        return None
+
+    log.info("  Trying Zafronix fallback for %s vs %s...", home, away)
+    match_id = _zafronix_find_match(home, away)
+    if not match_id:
+        return None
+
+    data = _zafronix_get(f"/matches/{match_id}")
+    if not data:
+        return None
+
+    # Zafronix may nest stats under different keys
+    stats  = data.get("stats") or data.get("statistics") or {}
+    home_s = stats.get("home") or stats.get(home) or {}
+    away_s = stats.get("away") or stats.get(away) or {}
+
+    home_team_id = None
+    ht = data.get("home_team", {})
+    if isinstance(ht, dict):
+        home_team_id = str(ht.get("id",""))
+
+    # Parse goal events
+    events = data.get("events") or data.get("goals") or []
+    goals  = []
+    for ev in events:
+        ev_type = str(ev.get("type","")).upper()
+        if "GOAL" not in ev_type:
+            continue
+        t = ev.get("team",{})
+        tid = str(t.get("id","") if isinstance(t,dict) else ev.get("team_id",""))
+        side = "home" if tid == home_team_id else "away"
+        goals.append({
+            "minute": ev.get("minute") or ev.get("time") or 0,
+            "team":   side,
+            "scorer": ev.get("player_name") or ev.get("player") or "",
+        })
+
+    def si(d, *keys):
+        for k in keys:
+            v = d.get(k)
+            if v is not None:
+                try: return int(v)
+                except (ValueError, TypeError): pass
+        return None
+
+    box = {
+        "possession":    {"home": si(home_s,"possession_pct","possession"),
+                          "away": si(away_s,"possession_pct","possession")},
+        "shots":         {"home": si(home_s,"total_shots","shots"),
+                          "away": si(away_s,"total_shots","shots")},
+        "shotsOnTarget": {"home": si(home_s,"shots_on_target","on_target"),
+                          "away": si(away_s,"shots_on_target","on_target")},
+        "corners":       {"home": si(home_s,"corners"),
+                          "away": si(away_s,"corners")},
+        "fouls":         {"home": si(home_s,"fouls_committed","fouls"),
+                          "away": si(away_s,"fouls_committed","fouls")},
+        "yellowCards":   {"home": si(home_s,"yellow_cards","yellows"),
+                          "away": si(away_s,"yellow_cards","yellows")},
+        "redCards":      {"home": si(home_s,"red_cards","reds"),
+                          "away": si(away_s,"red_cards","reds")},
+        "goals": goals,
+    }
+
+    # Remove stat categories where both home and away are None
+    box = {k: v for k, v in box.items()
+           if k == "goals" or any(x is not None for x in v.values())}
+
+    if len(box) <= 1 and not goals:
+        log.warning("  Zafronix: empty box score for %s vs %s", home, away)
+        return None
+
+    log.info("  Zafronix box score: %d stat categories, %d goals",
+             len(box) - 1, len(goals))
+    return box
+
+
+# ════════════════════════════════════════════════════════════════════════════
+#  FOOTBALL-DATA.ORG CLIENT (unchanged from original)
+# ════════════════════════════════════════════════════════════════════════════
 
 def fd_get(path: str, params: dict = None) -> Optional[dict]:
-    """GET from football-data.org with error isolation."""
     if not FD_KEY:
         log.error("FOOTBALL_DATA_KEY not set.")
         return None
@@ -156,17 +255,15 @@ def fd_get(path: str, params: dict = None) -> Optional[dict]:
 
 
 def fetch_match_detail(fd_match_id: int) -> Optional[dict]:
-    """Fetch full match detail including stats."""
-    time.sleep(0.5)   # stay within 10 calls/min free tier
+    time.sleep(0.5)
     return fd_get(f"matches/{fd_match_id}")
 
 
 def fetch_today_matches() -> Optional[list]:
-    """Fetch all World Cup matches from the past 3 days to catch any missed completions."""
-    now   = datetime.now(timezone.utc)
+    now            = datetime.now(timezone.utc)
     three_days_ago = (now - timedelta(days=3)).date()
-    tomorrow = (now + timedelta(days=1)).date()
-    data  = fd_get(f"competitions/{FD_WC_ID}/matches", {
+    tomorrow       = (now + timedelta(days=1)).date()
+    data = fd_get(f"competitions/{FD_WC_ID}/matches", {
         "dateFrom": str(three_days_ago),
         "dateTo":   str(tomorrow),
     })
@@ -175,75 +272,51 @@ def fetch_today_matches() -> Optional[list]:
     return data.get("matches", [])
 
 
-# ── Box score builder ────────────────────────────────────────────────────────
+# ── Box score builder (football-data.org) ─────────────────────────────────
 
 def build_box_score(fd_match: dict) -> Optional[dict]:
-    """
-    Extract box score from a football-data.org match detail response.
-    Returns None if stats aren't available yet.
-    """
     stats  = fd_match.get("statistics") or {}
     home_s = stats.get("home") or {}
     away_s = stats.get("away") or {}
 
     goals_raw = fd_match.get("goals") or []
-    goals = []
+    goals     = []
     home_name = normalise_fd(
         (fd_match.get("homeTeam") or {}).get("name", ""))
     for g in goals_raw:
-        team_name = normalise_fd(
-            (g.get("team") or {}).get("name", ""))
-        side = "home" if team_name == home_name else "away"
-        scorer = ""
+        team_name = normalise_fd((g.get("team") or {}).get("name",""))
+        side      = "home" if team_name == home_name else "away"
         scorer_obj = g.get("scorer") or {}
-        if scorer_obj.get("name"):
-            # Shorten to last name for display
-            parts = scorer_obj["name"].split()
-            scorer = parts[-1] if parts else scorer_obj["name"]
+        parts  = (scorer_obj.get("name") or "").split()
+        scorer = parts[-1] if parts else ""
         goals.append({
             "minute": g.get("minute"),
             "team":   side,
             "scorer": scorer,
         })
 
-    score = fd_match.get("score", {})
-    full  = score.get("fullTime", {})
+    full   = fd_match.get("score",{}).get("fullTime",{})
     h_goals = full.get("home", 0) or 0
     a_goals = full.get("away", 0) or 0
 
     box = {
-        "possession": {
-            "home": home_s.get("ball_possession") or home_s.get("possession") or 50,
-            "away": away_s.get("ball_possession") or away_s.get("possession") or 50,
-        },
-        "shots": {
-            "home": home_s.get("total_shots") or home_s.get("shots_total"),
-            "away": away_s.get("total_shots") or away_s.get("shots_total"),
-        },
-        "shotsOnTarget": {
-            "home": home_s.get("shots_on_goal") or home_s.get("shots_on_target"),
-            "away": away_s.get("shots_on_goal") or away_s.get("shots_on_target"),
-        },
-        "corners": {
-            "home": home_s.get("corner_kicks") or home_s.get("corners"),
-            "away": away_s.get("corner_kicks") or away_s.get("corners"),
-        },
-        "fouls": {
-            "home": home_s.get("fouls") or home_s.get("fouls_committed"),
-            "away": away_s.get("fouls") or away_s.get("fouls_committed"),
-        },
-        "yellowCards": {
-            "home": home_s.get("yellow_cards"),
-            "away": away_s.get("yellow_cards"),
-        },
-        "redCards": {
-            "home": home_s.get("red_cards"),
-            "away": away_s.get("red_cards"),
-        },
+        "possession":    {"home": home_s.get("ball_possession") or home_s.get("possession") or 50,
+                          "away": away_s.get("ball_possession") or away_s.get("possession") or 50},
+        "shots":         {"home": home_s.get("total_shots") or home_s.get("shots_total"),
+                          "away": away_s.get("total_shots") or away_s.get("shots_total")},
+        "shotsOnTarget": {"home": home_s.get("shots_on_goal") or home_s.get("shots_on_target"),
+                          "away": away_s.get("shots_on_goal") or away_s.get("shots_on_target")},
+        "corners":       {"home": home_s.get("corner_kicks") or home_s.get("corners"),
+                          "away": away_s.get("corner_kicks") or away_s.get("corners")},
+        "fouls":         {"home": home_s.get("fouls") or home_s.get("fouls_committed"),
+                          "away": away_s.get("fouls") or away_s.get("fouls_committed")},
+        "yellowCards":   {"home": home_s.get("yellow_cards"),
+                          "away": away_s.get("yellow_cards")},
+        "redCards":      {"home": home_s.get("red_cards"),
+                          "away": away_s.get("red_cards")},
         "goals": goals,
     }
 
-    # Only return if we have at least some real data
     has_data = any([
         box["shots"]["home"] is not None,
         box["goals"],
@@ -253,72 +326,48 @@ def build_box_score(fd_match: dict) -> Optional[dict]:
 
 
 def score_string(home: str, away: str, fd_match: dict) -> str:
-    """Build the score string in our format: 'MEXICO 2 - 1 SOUTH AFRICA'."""
-    full = fd_match.get("score", {}).get("fullTime", {})
+    full = fd_match.get("score",{}).get("fullTime",{})
     hg   = full.get("home", 0) or 0
     ag   = full.get("away", 0) or 0
     return f"{home.upper()} {hg} - {ag} {away.upper()}"
 
 
-# ── Match the data.json record to a football-data match ─────────────────────
-
 def match_fd_to_record(record: dict, fd_matches: list) -> Optional[dict]:
-    """
-    Find the football-data.org match entry corresponding to our data.json record.
-    Matches by home/away team name normalisation.
-    """
-    our_home = record.get("home", "")
-    our_away = record.get("away", "")
+    our_home = record.get("home","")
+    our_away = record.get("away","")
     for m in fd_matches:
-        fd_home = normalise_fd((m.get("homeTeam") or {}).get("name", ""))
-        fd_away = normalise_fd((m.get("awayTeam") or {}).get("name", ""))
+        fd_home = normalise_fd((m.get("homeTeam") or {}).get("name",""))
+        fd_away = normalise_fd((m.get("awayTeam") or {}).get("name",""))
         if fd_home == our_home and fd_away == our_away:
             return m
-        # Also match reversed (rare but possible with neutral venues)
         if fd_home == our_away and fd_away == our_home:
             return m
     return None
 
 
-# ── Active window check ──────────────────────────────────────────────────────
-
 def is_in_active_window(record: dict, now: datetime) -> bool:
-    """
-    True if this match should be checked for score updates.
-    If kickoff is missing or null, checks all UPCOMING matches
-    (since the football-data.org API is free and generous).
-    """
     ko_str = record.get("kickoff") or ""
     if not ko_str or ko_str == "null":
-        # No kickoff time — check if UPCOMING (may already be done)
         return record.get("type") == "UPCOMING"
-
     try:
-        ko = datetime.fromisoformat(str(ko_str).replace("Z", "+00:00"))
-        mins_since_ko = (now - ko).total_seconds() / 60
-
-        # Pre-match window
-        if -WINDOW_BEFORE_MIN <= mins_since_ko <= 0:
-            return True
-        # Live window
-        if 0 < mins_since_ko <= WINDOW_AFTER_MIN:
-            return True
-        # Catchup: UPCOMING match whose kickoff was in the past 48 hours
-        if record.get("type") == "UPCOMING" and 0 < mins_since_ko <= CATCHUP_HOURS * 60:
-            return True
+        ko = datetime.fromisoformat(str(ko_str).replace("Z","+00:00"))
+        mins = (now - ko).total_seconds() / 60
+        if -WINDOW_BEFORE_MIN <= mins <= 0:       return True
+        if 0 < mins <= WINDOW_AFTER_MIN:           return True
+        if record.get("type") == "UPCOMING" and \
+           0 < mins <= CATCHUP_HOURS * 60:         return True
         return False
     except (ValueError, TypeError):
-        # Can't parse kickoff — check all UPCOMING matches
         return record.get("type") == "UPCOMING"
 
 
 # ── File helpers ──────────────────────────────────────────────────────────────
 
 def atomic_write(path: str, data: dict) -> None:
-    d  = os.path.dirname(os.path.abspath(path)) or "."
+    d = os.path.dirname(os.path.abspath(path)) or "."
     fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
     try:
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
+        with os.fdopen(fd,"w",encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
             f.write("\n")
         shutil.move(tmp, path)
@@ -331,41 +380,33 @@ def atomic_write(path: str, data: dict) -> None:
 
 def load_data(path: str) -> dict:
     if not os.path.exists(path):
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
+        return {"currentStage":"Group Stage","lastUpdated":"","matches":[]}
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path,"r",encoding="utf-8") as f:
             return json.load(f)
     except (json.JSONDecodeError, OSError) as e:
         log.warning("Could not read %s: %s", path, e)
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
+        return {"currentStage":"Group Stage","lastUpdated":"","matches":[]}
 
 
 # ── Source accuracy audit ─────────────────────────────────────────────────────
 
-def calculate_source_accuracy(record: dict, home_won: bool, is_draw: bool) -> dict:
-    """
-    For each prediction layer, check if the source's favourite call was correct.
-    home_won: True if home team won, False if away won, is_draw overrides both.
-    """
-    accuracy = {}
+def calculate_source_accuracy(record: dict,
+                               home_won: bool, is_draw: bool) -> dict:
+    accuracy    = {}
     fav_is_home = record.get("favTeam") == record.get("home")
-
     for layer in record.get("layers", []):
-        source = layer.get("source", "")
+        source = layer.get("source","")
         if not source:
             continue
         if is_draw:
-            # Draw: favourite prediction was wrong for all sources
             accuracy[source] = False
         else:
-            # Check if source's favourite actually won
-            fav_prob  = float(str(layer.get("fav",  "0")).replace("%","") or 0)
-            und_prob  = float(str(layer.get("und",  "0")).replace("%","") or 0)
-            # Source predicted home as fav if fav_prob > und_prob and fav is home
+            fav_prob = float(str(layer.get("fav","0")).replace("%","") or 0)
+            und_prob = float(str(layer.get("und","0")).replace("%","") or 0)
             source_picks_home = (fav_is_home and fav_prob > und_prob) or \
                                 (not fav_is_home and und_prob > fav_prob)
             accuracy[source] = (source_picks_home == home_won)
-
     return accuracy
 
 
@@ -378,13 +419,17 @@ def main() -> None:
         log.error("FOOTBALL_DATA_KEY is not set.")
         raise SystemExit(1)
 
-    now  = datetime.now(timezone.utc)
-    data = load_data(OUTPUT_FILE)
+    if ZAFRONIX_KEYS:
+        log.info("Zafronix fallback enabled (%d key(s)).", len(ZAFRONIX_KEYS))
+    else:
+        log.info("Zafronix fallback disabled — no keys configured.")
+
+    now     = datetime.now(timezone.utc)
+    data    = load_data(OUTPUT_FILE)
     matches = data.get("matches", [])
 
-    # Find records that are in the active watch window
     active = [m for m in matches
-              if m.get("type") in ("UPCOMING", "IN_PLAY")
+              if m.get("type") in ("UPCOMING","IN_PLAY")
               and is_in_active_window(m, now)]
 
     if not active:
@@ -393,7 +438,6 @@ def main() -> None:
 
     log.info("%d match(es) in active window.", len(active))
 
-    # Fetch today's World Cup matches from football-data.org
     fd_matches = fetch_today_matches()
     if fd_matches is None:
         log.warning("Could not fetch from football-data.org — keeping existing data.")
@@ -410,15 +454,14 @@ def main() -> None:
                      record.get("home"), record.get("away"))
             continue
 
-        fd_status = fd_m.get("status", "")
-        home      = record.get("home", "")
-        away      = record.get("away", "")
+        fd_status = fd_m.get("status","")
+        home      = record.get("home","")
+        away      = record.get("away","")
 
         log.info("  %s vs %s — FD status: %s", home, away, fd_status)
 
-        if fd_status == "IN_PLAY" or fd_status == "PAUSED":
-            # Update live score
-            curr = fd_m.get("score", {}).get("fullTime", {})
+        if fd_status in ("IN_PLAY","PAUSED"):
+            curr = fd_m.get("score",{}).get("fullTime",{})
             hg   = curr.get("home", 0) or 0
             ag   = curr.get("away", 0) or 0
             record["status"]    = "IN_PLAY"
@@ -427,41 +470,63 @@ def main() -> None:
             log.info("    LIVE: %s %d - %d %s", home, hg, ag, away)
 
         elif fd_status == "FINISHED":
-            # Fetch full detail for box score
             fd_id  = fd_m.get("id")
             detail = fetch_match_detail(fd_id) if fd_id else fd_m
-            fd_match_full = detail.get("match", detail) if detail else fd_m
+            fd_full = detail.get("match", detail) if detail else fd_m
 
-            # Build score string
-            full   = fd_match_full.get("score", {}).get("fullTime", {})
-            hg     = full.get("home", 0) or 0
-            ag     = full.get("away", 0) or 0
-            is_draw = (hg == ag)
+            full     = fd_full.get("score",{}).get("fullTime",{})
+            hg       = full.get("home", 0) or 0
+            ag       = full.get("away", 0) or 0
+            is_draw  = (hg == ag)
             home_won = hg > ag
 
-            record["type"]   = "COMPLETED"
-            record["status"] = "FINISHED"
-            record["score"]  = score_string(home, away, fd_match_full)
+            record["type"]           = "COMPLETED"
+            record["status"]         = "FINISHED"
+            record["score"]          = score_string(home, away, fd_full)
             record["sourceAccuracy"] = calculate_source_accuracy(
                 record, home_won, is_draw)
 
-            box = build_box_score(fd_match_full)
+            # ── Box score: football-data.org first, Zafronix fallback ──────
+            box = build_box_score(fd_full)
+
             if box:
                 record["boxScore"] = box
-                log.info("    FINISHED: %s — box score captured.", record["score"])
+                log.info("    FINISHED: %s — FD box score captured.",
+                         record["score"])
             else:
-                log.info("    FINISHED: %s — no stats available yet.", record["score"])
+                log.info("    FINISHED: %s — FD has no stats yet, "
+                         "trying Zafronix...", record["score"])
+                zaf_box = fetch_zafronix_box_score(home, away)
+                if zaf_box:
+                    record["boxScore"] = zaf_box
+                    record["boxScoreSource"] = "Zafronix"
+                    log.info("    Zafronix box score applied for %s vs %s.",
+                             home, away)
+                else:
+                    log.info("    No box score available from either source "
+                             "for %s vs %s — will retry next run.", home, away)
 
             # Generate insight
             if not record.get("insight"):
+                layers      = record.get("layers",[])
+                fav_is_home = record.get("favTeam") == home
+                fav_name    = record.get("favTeam","")
+                und_name    = record.get("undTeam","")
                 if is_draw:
-                    record["insight"] = f"The match ended level at {hg}-{ag}."
-                elif home_won:
-                    record["insight"] = f"{home} won {hg}-{ag}."
+                    record["insight"] = \
+                        f"The match ended level at {hg}-{hg}. " \
+                        f"A draw was {'expected' if True else 'unexpected'} — " \
+                        f"check the model divergence for context."
+                elif (home_won and fav_is_home) or \
+                     (not home_won and not fav_is_home):
+                    record["insight"] = \
+                        f"{fav_name} won {max(hg,ag)}-{min(hg,ag)} " \
+                        f"as expected by the majority of sources."
                 else:
-                    record["insight"] = f"{away} won {ag}-{hg}."
+                    record["insight"] = \
+                        f"Upset! {und_name} won {max(hg,ag)}-{min(hg,ag)}, " \
+                        f"defying the pre-match consensus."
 
-            # Remove live indicator
             record.pop("liveScore", None)
             changed = True
 
@@ -471,8 +536,7 @@ def main() -> None:
 
     data["lastUpdated"] = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
     atomic_write(OUTPUT_FILE, data)
-    log.info("=== Done — updated %d match(es) ===",
-             sum(1 for m in active if m.get("status") == "FINISHED"))
+    log.info("=== Done ===")
 
 
 if __name__ == "__main__":
