@@ -476,7 +476,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .audit-grid{display:flex;flex-direction:column;gap:3px}
 .audit-row{display:flex;align-items:center;justify-content:space-between;padding:3px 0}
 .audit-source{font-size:11px;color:var(--text-lo)}
-.audit-mark{font-size:15px;font-weight:800}
+.audit-markHex{font-size:15px;font-weight:800}
 .audit-correct  {color:var(--green)}
 .audit-incorrect{color:var(--red)}
 .insight-row{
@@ -608,11 +608,10 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-text">
-    <div class="hero-eyebrow">2026 FIFA World Cup</div>
-    <div class="hero-title">The Road<br><span>to 2026</span></div>
+    <div class="hero-eyebrow" id="lbl-eyebrow">2026 FIFA World Cup</div>
+    <div class="hero-title" id="lbl-title">The Road<br><span>to 2026</span></div>
     <div class="hero-sub" id="lbl-meta">Sportsbooks · ELO/Poisson · Prediction Markets</div>
     <div class="hero-updated" id="lbl-updated"></div>
   </div>
@@ -623,7 +622,6 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   </div>
 </div>
 
-<!-- CONTROLS -->
 <div class="controls">
   <div class="controls-row">
     <span class="controls-label" id="lbl-view">View</span>
@@ -647,7 +645,6 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   </div>
 </div>
 
-<!-- SIGNAL LEGEND -->
 <div class="shell">
 <div class="signal-legend">
   <div class="signal-legend-item"><span class="signal-dot" style="background:var(--signal-back)"></span><span>Bet Favourite</span></div>
@@ -657,19 +654,16 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   <div class="signal-legend-item"><span class="signal-dot" style="background:var(--signal-value)"></span><span>Model Backs</span></div>
 </div>
 
-<!-- SEARCH -->
 <div class="search-wrap" id="search-wrap">
   <input class="search-input" id="search-input" type="search"
     oninput="onSearch(this.value)" placeholder="Search teams…" autocomplete="off" spellcheck="false">
   <span class="search-clear" id="search-clear" onclick="clearSearch()">✕</span>
 </div>
 
-<!-- STATUS -->
 <div id="status-pane" class="status-pane">
   <div class="spinner"></div>Loading…
 </div>
 
-<!-- GRID VIEW -->
 <div id="view-grid" class="view-panel">
   <div id="live-list"></div>
   <div class="section-head">
@@ -686,16 +680,13 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   <div id="completed-list"></div>
 </div>
 
-<!-- BRACKET VIEW -->
 <div id="view-bracket" class="view-panel">
   <div class="bracket-zone-tabs" id="bracket-zone-tabs"></div>
   <div class="bracket-outer">
     <div id="bracket-zone-simple" class="bracket-zone-simple"></div>
   </div>
 </div>
-</div><!-- /shell -->
-
-<script>
+</div><script>
 
 /* ================================================================
    FLAGS
@@ -913,7 +904,7 @@ const DICT = {
       "New Zealand":"ニュージーランド","Cape Verde":"カーボベルデ","Curacao":"キュラソー",
       "Haiti":"ハイチ","Belgium":"ベルギー","Scotland":"スコットランド",
       "DR Congo":"コンゴ","Austria":"オーストリア","Sweden":"スウェーデン",
-      "Iraq":"イラク","Jordan":"ヨルダン","Uzbekistan":"ウズベキスタン",
+      "Iraq":"イラク","Jordan":"よらだん","Uzbekistan":"ウズベキスタン",
     }
   }
 };
@@ -996,8 +987,8 @@ function calcReco(match) {
   });
   if (!favVals.length) return null;
   const avgFav  = favVals.reduce((a,b)=>a+b,0)/favVals.length;
-  const avgDraw = drawVals.length ? drawVals.reduce((a,b)=>a+b,0)/drawVals.length : 0;
-  const avgUnd  = undVals.length  ? undVals.reduce((a,b)=>a+b,0)/undVals.length   : 0;
+  const avgDraw = drawVals.reduce((a,b)=>a+b,0)/drawVals.length;
+  const avgUnd  = undVals.reduce((a,b)=>a+b,0)/undVals.length;
   const eloLayer = layers.find(l => l.source.includes('ELO'));
   const mktLayer = layers.find(l => l.source.includes('Sportsbook'));
   const eloFav = eloLayer ? (favIsHome ? p(eloLayer.fav) : p(eloLayer.und)) : null;
