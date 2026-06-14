@@ -287,25 +287,26 @@ def fetch_match_odds() -> dict:
         if h is not None and a is not None:
             if d is not None:
                 total = h + d + a
-                {
+                result[(home, away)] = {
                     "home": round(h / total, 4),
                     "draw": round(d / total, 4),
                     "away": round(a / total, 4),
                 }
             else:
-                # No draw — normalise home/away only, store '--' for draw
+                # No draw — normalise home/away only, store None for draw
                 total = h + a
                 if total > 0:
-                    {
+                    result[(home, away)] = {
                         "home": round(h / total, 4),
-                        "draw": None,  # rendered as '--' in frontend
+                        "draw": None,
                         "away": round(a / total, 4),
                     }
-            log.info("  Match: %s vs %s → H:%.1f%% D:%s A:%.1f%%",
-                     home, away,
-                     result[(home,away)]["home"]*100,
-                     f"{result[(home,away)]['draw']*100:.1f}%" if result[(home,away)]["draw"] else "--",
-                     result[(home,away)]["away"]*100)
+            if (home, away) in result:
+                r = result[(home, away)]
+                log.info("  Match: %s vs %s → H:%.1f%% D:%s A:%.1f%%",
+                         home, away, r["home"]*100,
+                         f"{r['draw']*100:.1f}%" if r["draw"] else "--",
+                         r["away"]*100)
         else:
             log.warning("  Missing home or away odds for %s vs %s — skipping.", home, away)
 
