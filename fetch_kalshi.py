@@ -230,10 +230,17 @@ def fetch_match_odds() -> dict:
             break
 
         markets = data.get("markets", [])
+        # Log first 5 tickers so we can see the actual format
+        for m in markets[:5]:
+            log.info("  RAW TICKER: %s | title: %s | no_sub_title: %s",
+                     m.get("ticker","?"),
+                     m.get("title","?")[:40],
+                     m.get("no_sub_title","?"))
         for m in markets:
             ticker = m.get("ticker", "")
             parsed = parse_match_ticker(ticker)
             if not parsed:
+                log.debug("  Could not parse ticker: %s", ticker)
                 continue
 
             _, _, home_code, away_code = parsed
