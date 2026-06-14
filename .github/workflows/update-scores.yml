@@ -20,6 +20,8 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: pip install requests
+      - name: Clean SRL matches
+        run: python clean_data.py
       - name: Fetch live scores
         env:
           FOOTBALL_DATA_KEY:  ${{ secrets.FOOTBALL_DATA_KEY }}
