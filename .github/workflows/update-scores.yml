@@ -27,9 +27,13 @@ jobs:
 
       - name: Fetch live scores
         env:
-          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
-          ZAFRONIX_API_KEY:  ${{ secrets.ZAFRONIX_API_KEY }}
-          ZAFRONIX_API_KEY2: ${{ secrets.ZAFRONIX_API_KEY2 }}
+          env:
+          FOOTBALL_DATA_KEY:  ${{ secrets.FOOTBALL_DATA_KEY }}
+          ZAFRONIX_API_KEY:   ${{ secrets.ZAFRONIX_API_KEY }}
+          ZAFRONIX_API_KEY2:  ${{ secrets.ZAFRONIX_API_KEY2 }}
+          API_FOOTBALL_KEY:   ${{ secrets.API_FOOTBALL_KEY }}
+          API_FOOTBALL_KEY2:  ${{ secrets.API_FOOTBALL_KEY2 }}
+
 
         run: python fetch_scores.py
 
