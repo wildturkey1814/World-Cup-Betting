@@ -258,25 +258,25 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   margin-left: auto;
 }
 .live-card {
-  background: var(--surface);
+  background: #0a1628;
   border-radius: var(--radius);
-  border: 1px solid rgba(239,68,68,0.3);
+  border: 1px solid rgba(239,68,68,0.4);
   margin-bottom: 10px;
   overflow: hidden;
-  box-shadow: inset 3px 0 0 #ef4444, 0 0 20px rgba(239,68,68,0.08);
+  box-shadow: inset 3px 0 0 #ef4444, 0 0 30px rgba(239,68,68,0.12);
 }
 .live-card-header {
-  padding: 10px 14px 10px 17px;
+  padding: 12px 14px 12px 17px;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 8px;
   align-items: center;
-  border-bottom: 1px solid rgba(239,68,68,0.2);
-  background: rgba(239,68,68,0.04);
+  border-bottom: 1px solid rgba(239,68,68,0.25);
+  background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.03));
 }
 .live-card-teams { display: flex; flex-direction: column; gap: 4px; }
 .live-team-row { display: flex; align-items: center; gap: 8px; }
-.live-team-name { font-size: 14px; font-weight: 700; color: var(--text-hi); }
+.live-team-name { font-size: 15px; font-weight: 800; color: #f0f4ff; }
 .live-score-col { text-align: right; }
 .live-score-display {
   font-size: 28px; font-weight: 800; color: var(--gold);
@@ -292,16 +292,17 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   animation: pulse-dot 1.2s ease-in-out infinite; flex-shrink: 0;
 }
 .live-events {
-  padding: 8px 17px;
-  border-bottom: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 4px;
+  padding: 10px 17px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; flex-direction: column; gap: 6px;
   min-height: 60px;
+  background: rgba(0,0,0,0.15);
 }
 .live-event-row {
   display: flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 600; color: var(--text-mid);
+  font-size: 12px; font-weight: 600; color: #a0b4cc;
 }
-.live-event-row.home { color: var(--text-hi); }
+.live-event-row.home { color: #f0f4ff; }
 .live-event-min {
   font-size: 10px; font-weight: 800; color: var(--neon);
   min-width: 28px; text-align: center;
@@ -344,20 +345,27 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   white-space: nowrap;
 }
 .live-preodds {
-  padding: 8px 17px 10px;
+  padding: 10px 17px 12px;
+  background: rgba(0,0,0,0.1);
 }
 .live-preodds-title {
   font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--text-lo); margin-bottom: 6px;
+  text-transform: uppercase; color: #4a8fa8; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.live-preodds-title::after {
+  content: ''; flex: 1; height: 1px; background: rgba(56,189,248,0.15);
 }
 .live-preodds-row {
   display: grid; grid-template-columns: 1fr 60px 60px 60px;
-  padding: 3px 0; align-items: center;
+  padding: 4px 0; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
 }
-.live-preodds-source { font-size: 10px; color: var(--text-lo); font-weight: 600; }
+.live-preodds-row:last-child { border-bottom: none; }
+.live-preodds-source { font-size: 10px; color: #6a8faf; font-weight: 600; }
 .live-preodds-val {
-  font-size: 11px; font-weight: 700; text-align: center;
-  font-variant-numeric: tabular-nums; color: var(--text-lo);
+  font-size: 12px; font-weight: 700; text-align: center;
+  font-variant-numeric: tabular-nums; color: #8fa3be;
 }
 .live-loading {
   padding: 20px 17px; text-align: center;
@@ -373,8 +381,8 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   flex-shrink: 0;
 }
 .live-updated {
-  font-size: 9px; color: var(--text-lo); text-align: right;
-  padding: 0 17px 6px; font-style: italic;
+  font-size: 9px; color: rgba(239,68,68,0.4); text-align: right;
+  padding: 0 17px 8px; font-style: italic;
 }
 
 /* ── MATCH EXPLAINER TRIGGER ────────────────────────────────────────── */
@@ -637,11 +645,6 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   </div>
 
   <div id="view-grid" class="view-panel">
-    <div class="section-head" id="live-section-head" style="display:none">
-      <span class="section-head-label" style="color:#ef4444;animation:live-pulse-text 1.5s ease-in-out infinite">⚡ LIVE NOW</span>
-      <div class="section-head-line" style="background:rgba(239,68,68,0.3)"></div>
-      <span class="section-head-count" id="count-live" style="color:#ef4444"></span>
-    </div>
     <div id="live-list"></div>
 
     <div class="section-head">
@@ -1860,22 +1863,26 @@ function renderLive(match) {
       <span class="live-stat-val away">${aStats.shotsOnTarget||0}</span>
     </div>` : '';
 
-  // Pre-match odds (frozen)
+  // Pre-match consensus — all sources including Kalshi/Polymarket
   const favIsHome = match.favTeam === match.home;
   const layers = match.layers || [];
-  const preOddsHTML = layers.slice(0,2).map(l => {
+  const srcShort = s => s.includes('Sportsbook') ? 'Sportsbooks' :
+                        s.includes('ELO') ? 'ELO/Poisson' :
+                        s.includes('Kalshi') || s.includes('P2P') ? 'Pred. Markets' : s.substring(0,14);
+  const preOddsHTML = layers.map(l => {
     const col1 = favIsHome ? (l.fav||'--') : (l.und||'--');
     const col2 = l.draw || '--';
     const col3 = favIsHome ? (l.und||'--') : (l.fav||'--');
-    const src = l.source.includes('Sportsbook') ? 'Sportsbooks' :
-                l.source.includes('ELO') ? 'ELO Model' : l.source.substring(0,12);
     return `<div class="live-preodds-row">
-      <span class="live-preodds-source">${esc(src)}</span>
-      <span class="live-preodds-val">${esc(col1)}</span>
-      <span class="live-preodds-val">${esc(col2)}</span>
-      <span class="live-preodds-val">${esc(col3)}</span>
+      <span class="live-preodds-source">${esc(srcShort(l.source))}</span>
+      <span class="live-preodds-val" style="color:var(--green)">${esc(col1)}</span>
+      <span class="live-preodds-val" style="color:var(--neon)">${esc(col2)}</span>
+      <span class="live-preodds-val" style="color:var(--red)">${esc(col3)}</span>
     </div>`;
   }).join('');
+
+  // Tournament outlook for live card
+  const liveOutlookHTML = renderTournamentOutlook(match);
 
   const updatedStr = state.afUpdate ? `Updated ${state.afUpdate}` :
                      state.espnUpdate ? `Score updated ${state.espnUpdate}` : '';
@@ -1884,7 +1891,7 @@ function renderLive(match) {
   <div class="live-card" id="live-${esc(match.id)}">
     <div class="live-banner">
       <span class="live-banner-dot"></span>
-      <span class="live-banner-text">⚡ Live Match Underway</span>
+      <span class="live-banner-text">⚡ LIVE MATCH UNDERWAY</span>
       <span class="live-banner-group">${esc(match.group || match.stage || '')}</span>
     </div>
     <div class="live-card-header">
@@ -1919,15 +1926,16 @@ function renderLive(match) {
     </div>` : ''}
     ${layers.length ? `
     <div class="live-preodds">
-      <div class="live-preodds-title">Pre-Match Odds (frozen)</div>
-      <div class="live-preodds-row" style="opacity:0.5">
+      <div class="live-preodds-title">Pre-Match Consensus</div>
+      <div class="live-preodds-row" style="opacity:0.45;font-size:9px">
         <span></span>
-        <span class="live-preodds-val" style="color:var(--green)">${esc(home.split(' ')[0])}</span>
-        <span class="live-preodds-val" style="color:var(--neon)">Draw</span>
-        <span class="live-preodds-val" style="color:var(--red)">${esc(away.split(' ')[0])}</span>
+        <span class="live-preodds-val" style="color:var(--green);font-size:9px">${esc(home.split(' ')[0])}</span>
+        <span class="live-preodds-val" style="color:var(--neon);font-size:9px">Draw</span>
+        <span class="live-preodds-val" style="color:var(--red);font-size:9px">${esc(away.split(' ')[0])}</span>
       </div>
       ${preOddsHTML}
     </div>` : ''}
+    ${liveOutlookHTML}
     ${updatedStr ? `<div class="live-updated">${esc(updatedStr)}</div>` : ''}
   </div>`;
 }
