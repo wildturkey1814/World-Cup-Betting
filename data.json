@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 14, 2026 · 3:59 PM UTC",
+  "lastUpdated": "June 14, 2026 · 5:43 PM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -479,7 +479,9 @@
         }
       ],
       "kalshiWinProbHome": "5.0%",
-      "polymarketWinProbHome": "5.1%"
+      "polymarketWinProbHome": "5.1%",
+      "status": "IN_PLAY",
+      "liveScore": "1 - 1"
     },
     {
       "id": "match_id1000001666456968",
