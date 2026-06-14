@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 14, 2026 · 12:43 AM UTC",
+  "lastUpdated": "June 14, 2026 · 12:51 AM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -71,7 +71,7 @@
       },
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "1.8%"
+      "kalshiWinProbHome": "1.9%"
     },
     {
       "id": "match_002",
@@ -223,7 +223,7 @@
       "insight": "United States won 4-1.",
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "3.7%",
+      "kalshiWinProbHome": "3.2%",
       "kalshiWinProbAway": "0.1%"
     },
     {
@@ -291,7 +291,7 @@
       "polymarketWinProbHome": "7.4%",
       "polymarketWinProbAway": "2.5%",
       "kalshiWinProbHome": "6.7%",
-      "kalshiWinProbAway": "2.1%"
+      "kalshiWinProbAway": "2.0%"
     },
     {
       "id": "match_id1000001666456930",
@@ -999,7 +999,7 @@
       ],
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "0.4%",
-      "kalshiWinProbHome": "1.8%",
+      "kalshiWinProbHome": "1.9%",
       "kalshiWinProbAway": "0.4%"
     },
     {
@@ -1032,7 +1032,7 @@
       ],
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "3.7%",
+      "kalshiWinProbHome": "3.2%",
       "kalshiWinProbAway": "0.1%"
     },
     {
@@ -1066,7 +1066,7 @@
       "polymarketWinProbHome": "0.2%",
       "polymarketWinProbAway": "2.5%",
       "kalshiWinProbHome": "0.2%",
-      "kalshiWinProbAway": "2.1%"
+      "kalshiWinProbAway": "2.0%"
     },
     {
       "id": "match_id1000001666456932",
@@ -1737,7 +1737,7 @@
       ],
       "polymarketWinProbHome": "2.5%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "2.1%"
+      "kalshiWinProbHome": "2.0%"
     },
     {
       "id": "match_id1000001666456936",
@@ -1834,7 +1834,7 @@
       ],
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.4%",
-      "kalshiWinProbAway": "1.8%"
+      "kalshiWinProbAway": "1.9%"
     },
     {
       "id": "match_id1000001666457078",
@@ -2029,7 +2029,7 @@
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "1.9%",
       "kalshiWinProbHome": "0.8%",
-      "kalshiWinProbAway": "3.7%"
+      "kalshiWinProbAway": "3.2%"
     },
     {
       "id": "match_id1000001666457014",
@@ -2420,6 +2420,6 @@
       "kalshiWinProbAway": "8.8%"
     }
   ],
-  "polymarketUpdated": "June 14, 2026 · 12:43 AM UTC",
-  "kalshiUpdated": "June 14, 2026 · 12:43 AM UTC"
+  "polymarketUpdated": "June 14, 2026 · 12:51 AM UTC",
+  "kalshiUpdated": "June 14, 2026 · 12:51 AM UTC"
 }
