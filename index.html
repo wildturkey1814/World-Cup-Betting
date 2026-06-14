@@ -228,6 +228,35 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 
 
 /* ── LIVE MATCH CARD ────────────────────────────────────────────────── */
+.live-banner {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 8px 17px;
+  background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
+  border-bottom: 1px solid rgba(239,68,68,0.3);
+  animation: live-pulse-bg 2s ease-in-out infinite;
+}
+@keyframes live-pulse-text {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+@keyframes live-pulse-bg {
+  0%, 100% { background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05)); }
+  50%       { background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(239,68,68,0.1)); }
+}
+.live-banner-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: #ef4444;
+  animation: pulse-dot 1s ease-in-out infinite; flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(239,68,68,0.8);
+}
+.live-banner-text {
+  font-size: 11px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; color: #ef4444;
+}
+.live-banner-group {
+  font-size: 9px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(239,68,68,0.6);
+  margin-left: auto;
+}
 .live-card {
   background: var(--surface);
   border-radius: var(--radius);
@@ -608,6 +637,13 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
   </div>
 
   <div id="view-grid" class="view-panel">
+    <div class="section-head" id="live-section-head" style="display:none">
+      <span class="section-head-label" style="color:#ef4444;animation:live-pulse-text 1.5s ease-in-out infinite">⚡ LIVE NOW</span>
+      <div class="section-head-line" style="background:rgba(239,68,68,0.3)"></div>
+      <span class="section-head-count" id="count-live" style="color:#ef4444"></span>
+    </div>
+    <div id="live-list"></div>
+
     <div class="section-head">
       <span class="section-head-label" id="lbl-upcoming"></span>
       <div class="section-head-line"></div>
@@ -632,8 +668,6 @@ button:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
 </div>
 
 <script>
-const API_FOOTBALL_KEY  = "efbd2e8710bbf2259f34a0648ccbd68c";
-const API_FOOTBALL_KEY2 = "42bd30ac0b17d65203208df32df2f19e";
 /* ================================================================
    FLAGS
 ================================================================ */
@@ -1355,15 +1389,34 @@ function renderGrid() {
 
   document.getElementById('lbl-upcoming').textContent   = d.upcoming;
   document.getElementById('lbl-completed').textContent  = d.completed;
-  document.getElementById('count-upcoming').textContent  = upcoming.length;
+  document.getElementById('count-upcoming').textContent  = upcoming.filter(m => !isInLiveWindow(m) && m.status !== 'IN_PLAY').length;
   document.getElementById('count-completed').textContent = completed.length;
 
+  const liveEl = document.getElementById('live-list');
+  const liveHead = document.getElementById('live-section-head');
+  const liveCount = document.getElementById('count-live');
   const upEl = document.getElementById('upcoming-list');
   const coEl = document.getElementById('completed-list');
 
+  // Split live from upcoming
+  const liveMatches    = upcoming.filter(m => isInLiveWindow(m) || m.status === 'IN_PLAY');
+  const upcomingOnly   = upcoming.filter(m => !isInLiveWindow(m) && m.status !== 'IN_PLAY');
+
+  // Render live section
+  if (liveEl) {
+    if (liveMatches.length) {
+      liveEl.innerHTML = `<div class="card-grid">${liveMatches.map(renderLive).join('')}</div>`;
+      if (liveHead) liveHead.style.display = '';
+      if (liveCount) liveCount.textContent = liveMatches.length;
+    } else {
+      liveEl.innerHTML = '';
+      if (liveHead) liveHead.style.display = 'none';
+    }
+  }
+
   if (searchQuery || currentSort === 'time') {
-    upEl.innerHTML = upcoming.length
-      ? `<div class="card-grid">${upcoming.map(m => isInLiveWindow(m) || m.status === 'IN_PLAY' ? renderLive(m) : renderUpcoming(m)).join('')}</div>`
+    upEl.innerHTML = upcomingOnly.length
+      ? `<div class="card-grid">${upcomingOnly.map(renderUpcoming).join('')}</div>`
       : `<div class="empty">${esc(d.noUpcoming)}</div>`;
     coEl.innerHTML = completed.length ? `<div class="card-grid">${completed.map(renderCompleted).join('')}</div>` : `<div class="empty">${esc(d.noCompleted)}</div>`;
     return;
@@ -1391,7 +1444,7 @@ function renderGrid() {
           <span class="group-header-meta">${esc(nk)} · ${ms.length} match${ms.length!==1?'es':''}</span>
           <span class="group-header-chevron">${isOpen?'▲':'▼'}</span>
         </button>
-        ${isOpen?`<div class="group-body"><div class="card-grid">${ms.map(m => isInLiveWindow(m) || m.status === 'IN_PLAY' ? renderLive(m) : renderUpcoming(m)).join('')}</div></div>`:''}
+        ${isOpen?`<div class="group-body"><div class="card-grid">${ms.filter(m => !isInLiveWindow(m) && m.status !== 'IN_PLAY').map(renderUpcoming).join('')}</div></div>`:''}
       </div>`;
     }).join('');
 
@@ -1829,6 +1882,11 @@ function renderLive(match) {
 
   return `
   <div class="live-card" id="live-${esc(match.id)}">
+    <div class="live-banner">
+      <span class="live-banner-dot"></span>
+      <span class="live-banner-text">⚡ Live Match Underway</span>
+      <span class="live-banner-group">${esc(match.group || match.stage || '')}</span>
+    </div>
     <div class="live-card-header">
       <div class="live-card-teams">
         <div class="live-team-row">
