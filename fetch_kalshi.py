@@ -250,7 +250,7 @@ def fetch_match_odds() -> dict:
                 log.debug("  Could not parse ticker: %s", ticker)
                 continue
 
-            _, _, home_code, away_code = parsed
+            _, _, home_code, away_code, outcome_code = parsed
             home = normalise_kalshi_team(home_code)
             away = normalise_kalshi_team(away_code)
             key  = (home, away)
@@ -264,27 +264,13 @@ def fetch_match_odds() -> dict:
                     "home_code": home_code, "away_code": away_code
                 }
 
-            # Use the ticker suffix to identify outcome — most reliable method.
-            # Format: KXWCGAME-26JUN12USAPAR-USA / -TIE / -PRY
-            ticker_parts = ticker.split("-")
-            outcome_code = ticker_parts[-1].upper() if ticker_parts else ""
-
+            # outcome_code comes directly from the ticker suffix — reliable
             if outcome_code in ("TIE", "DRAW"):
                 raw_markets[key]["draw"] = float(yes_price)
             elif outcome_code == home_code.upper():
                 raw_markets[key]["home"] = float(yes_price)
             elif outcome_code == away_code.upper():
                 raw_markets[key]["away"] = float(yes_price)
-            else:
-                # Fallback: check no_sub_title / subtitle
-                title = m.get("no_sub_title","") or m.get("subtitle","") or m.get("title","")
-                title_lower = title.lower()
-                if "tie" in title_lower or "draw" in title_lower:
-                    raw_markets[key]["draw"] = float(yes_price)
-                elif home_code.lower() in title_lower or home.lower() in title_lower:
-                    raw_markets[key]["home"] = float(yes_price)
-                elif away_code.lower() in title_lower or away.lower() in title_lower:
-                    raw_markets[key]["away"] = float(yes_price)
 
         cursor = data.get("cursor")
         if not cursor or not markets:
