@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 14, 2026 · 12:51 AM UTC",
+  "lastUpdated": "June 14, 2026 · 12:55 AM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -71,7 +71,7 @@
       },
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "1.9%"
+      "kalshiWinProbHome": "1.8%"
     },
     {
       "id": "match_002",
@@ -223,7 +223,7 @@
       "insight": "United States won 4-1.",
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "3.2%",
+      "kalshiWinProbHome": "3.5%",
       "kalshiWinProbAway": "0.1%"
     },
     {
@@ -256,7 +256,7 @@
       ],
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.9%",
-      "kalshiWinProbAway": "0.8%",
+      "kalshiWinProbAway": "0.9%",
       "status": "IN_PLAY",
       "liveScore": "0 - 1"
     },
@@ -290,7 +290,7 @@
       ],
       "polymarketWinProbHome": "7.4%",
       "polymarketWinProbAway": "2.5%",
-      "kalshiWinProbHome": "6.7%",
+      "kalshiWinProbHome": "6.5%",
       "kalshiWinProbAway": "2.0%"
     },
     {
@@ -935,7 +935,7 @@
         }
       ],
       "polymarketWinProbHome": "0.9%",
-      "kalshiWinProbHome": "0.8%"
+      "kalshiWinProbHome": "0.9%"
     },
     {
       "id": "match_id1000001666456920",
@@ -999,7 +999,7 @@
       ],
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "0.4%",
-      "kalshiWinProbHome": "1.9%",
+      "kalshiWinProbHome": "1.8%",
       "kalshiWinProbAway": "0.4%"
     },
     {
@@ -1032,7 +1032,7 @@
       ],
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "3.2%",
+      "kalshiWinProbHome": "3.5%",
       "kalshiWinProbAway": "0.1%"
     },
     {
@@ -1092,7 +1092,7 @@
       ],
       "polymarketWinProbHome": "7.4%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "6.7%"
+      "kalshiWinProbHome": "6.5%"
     },
     {
       "id": "match_id1000001666456946",
@@ -1674,7 +1674,7 @@
       ],
       "polymarketWinProbHome": "0.9%",
       "polymarketWinProbAway": "0.2%",
-      "kalshiWinProbHome": "0.8%",
+      "kalshiWinProbHome": "0.9%",
       "kalshiWinProbAway": "0.2%"
     },
     {
@@ -1770,7 +1770,7 @@
       "polymarketWinProbHome": "0.2%",
       "polymarketWinProbAway": "7.4%",
       "kalshiWinProbHome": "0.2%",
-      "kalshiWinProbAway": "6.7%"
+      "kalshiWinProbAway": "6.5%"
     },
     {
       "id": "match_id1000001666456914",
@@ -1834,7 +1834,7 @@
       ],
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.4%",
-      "kalshiWinProbAway": "1.9%"
+      "kalshiWinProbAway": "1.8%"
     },
     {
       "id": "match_id1000001666457078",
@@ -2029,7 +2029,7 @@
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "1.9%",
       "kalshiWinProbHome": "0.8%",
-      "kalshiWinProbAway": "3.2%"
+      "kalshiWinProbAway": "3.5%"
     },
     {
       "id": "match_id1000001666457014",
@@ -2420,6 +2420,6 @@
       "kalshiWinProbAway": "8.8%"
     }
   ],
-  "polymarketUpdated": "June 14, 2026 · 12:51 AM UTC",
-  "kalshiUpdated": "June 14, 2026 · 12:51 AM UTC"
+  "polymarketUpdated": "June 14, 2026 · 12:55 AM UTC",
+  "kalshiUpdated": "June 14, 2026 · 12:55 AM UTC"
 }
