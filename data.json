@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 14, 2026 · 7:03 PM UTC",
+  "lastUpdated": "June 14, 2026 · 8:24 PM UTC",
   "matches": [
     {
       "id": "match_001",
@@ -449,7 +449,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Germany",
       "away": "Curacao",
       "favTeam": "Germany",
@@ -480,8 +480,45 @@
       ],
       "kalshiWinProbHome": "5.0%",
       "polymarketWinProbHome": "5.1%",
-      "status": "IN_PLAY",
-      "liveScore": "7 - 1"
+      "status": "FINISHED",
+      "score": "GERMANY 7 - 1 CURACAO",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "Germany won 7-1 as expected by the majority of sources."
     },
     {
       "id": "match_id1000001666456968",
@@ -520,7 +557,9 @@
       "kalshiWinProbHome": "5.7%",
       "kalshiWinProbAway": "1.4%",
       "polymarketWinProbHome": "5.0%",
-      "polymarketWinProbAway": "1.8%"
+      "polymarketWinProbAway": "1.8%",
+      "status": "IN_PLAY",
+      "liveScore": "0 - 0"
     },
     {
       "id": "match_id1000001666457072",
