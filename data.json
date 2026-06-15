@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 4:41 PM UTC",
+  "lastUpdated": "June 15, 2026 · 4:46 PM UTC",
   "matches": [
     {
       "id": "match_id1000001666456982",
@@ -10,7 +10,7 @@
       "type": "UPCOMING",
       "home": "Belgium",
       "away": "Egypt",
-      "favTeam": "Egypt",
+      "favTeam": "Belgium",
       "homeFlag": "bel",
       "awayFlag": "egy",
       "kickoff": "2026-06-15T19:00:00.000Z",
@@ -18,9 +18,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "44.1%",
-          "draw": "40.6%",
-          "und": "15.3%"
+          "fav": "60.1%",
+          "draw": "23.6%",
+          "und": "16.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -47,8 +47,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "11.2%",
-          "draw": "21.2%",
-          "und": "67.6%"
+          "draw": "39.8%",
+          "und": "49.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -410,8 +410,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "47.9%",
-          "draw": "28.5%",
+          "fav": "47.8%",
+          "draw": "28.6%",
           "und": "23.6%"
         },
         {
