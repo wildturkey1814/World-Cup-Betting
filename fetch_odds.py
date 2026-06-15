@@ -62,34 +62,39 @@ COOLDOWN_MIN        = 90
 # Direct Wikimedia thumb URLs — single-encoded, clean paths.
 # Key = local filename slug, Value = full URL
 
+# ── Player headshot registry ───────────────────────────────────────────────
+# Direct Wikimedia thumb URLs — RAW strings (No double-percent encoding)
+# Key = local filename slug, Value = full URL
+
 PLAYER_DOWNLOAD_REGISTRY = {
-    "l-messi":       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
-    "k-mbappe":      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kylian_Mbapp%C3%A9_2022.jpg/400px-Kylian_Mbapp%C3%A9_2022.jpg",
-    "j-bellingham":  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jude_Bellingham_2022_%28cropped%29.jpg/400px-Jude_Bellingham_2022_%28cropped%29.jpg",
+    "l-messi":       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_(cropped).jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_(cropped).jpg",
+    "k-mbappe":      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kylian_Mbappé_2022.jpg/400px-Kylian_Mbappé_2022.jpg",
+    "j-bellingham":  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jude_Bellingham_2022_(cropped).jpg/400px-Jude_Bellingham_2022_(cropped).jpg",
     "vinicius-jr":   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vinicius_Junior_2022_FIFA_World_Cup.jpg/400px-Vinicius_Junior_2022_FIFA_World_Cup.jpg",
-    "pedri":         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pedri_2021_%28cropped%29.jpg/400px-Pedri_2021_%28cropped%29.jpg",
+    "pedri":         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pedri_2021_(cropped).jpg/400px-Pedri_2021_(cropped).jpg",
     "c-ronaldo":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/400px-Cristiano_Ronaldo_2018.jpg",
-    "v-van-dijk":    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "j-musiala":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "v-van-dijk":    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_(cropped).jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_(cropped).jpg",
+    "j-musiala":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jamal_Musiala_2022_FIFA_World_Cup_(cropped).jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_(cropped).jpg",
     "a-hakimi":      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Achraf_Hakimi_2022_FIFA_World_Cup.jpg/400px-Achraf_Hakimi_2022_FIFA_World_Cup.jpg",
-    "t-mitoma":      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "c-pulisic":     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Christian_Pulisic_2019_%28cropped%29.jpg/400px-Christian_Pulisic_2019_%28cropped%29.jpg",
+    "t-mitoma":      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_(cropped).jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_(cropped).jpg",
+    "c-pulisic":     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Christian_Pulisic_2019_(cropped).jpg/400px-Christian_Pulisic_2019_(cropped).jpg",
     "h-lozano":      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hirving_Lozano_2018.jpg/400px-Hirving_Lozano_2018.jpg",
-    "a-davies":      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "d-nunez":       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "l-diaz":        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "l-modric":      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "g-xhaka":       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "s-mane":        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sadio_Man%C3%A9_2019_%28cropped%29.jpg/400px-Sadio_Man%C3%A9_2019_%28cropped%29.jpg",
-    "son-heung-min": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "a-davies":      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Alphonso_Davies_2022_FIFA_World_Cup_(cropped).jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_(cropped).jpg",
+    "d-nunez":       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Darwin_Núñez_2022_FIFA_World_Cup_(cropped).jpg/400px-Darwin_Núñez_2022_FIFA_World_Cup_(cropped).jpg",
+    "l-diaz":        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Luis_Díaz_2022_FIFA_World_Cup_(cropped).jpg/400px-Luis_Díaz_2022_FIFA_World_Cup_(cropped).jpg",
+    "l-modric":      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Luka_Modric_2022_FIFA_World_Cup_(cropped).jpg/400px-Luka_Modric_2022_FIFA_World_Cup_(cropped).jpg",
+    "g-xhaka":       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Granit_Xhaka_2022_FIFA_World_Cup_(cropped).jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_(cropped).jpg",
+    "s-mane":        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sadio_Mané_2019_(cropped).jpg/400px-Sadio_Mané_2019_(cropped).jpg",
+    "son-heung-min": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Son_Heung-min_2022_FIFA_World_Cup_(cropped).jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_(cropped).jpg",
     "e-haaland":     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Erling_Haaland_2023.jpg/400px-Erling_Haaland_2023.jpg",
-    "m-leckie":      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg",
-    "e-valencia":    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "m-leckie":      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Mathew_Leckie_2022_FIFA_World_Cup_(cropped).jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_(cropped).jpg",
+    "e-valencia":    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Enner_Valencia_2022_FIFA_World_Cup_(cropped).jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_(cropped).jpg",
     "h-calhanoglu":  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hakan_Calhanoglu_2021.jpg/400px-Hakan_Calhanoglu_2021.jpg",
-    "k-de-bruyne":   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "k-de-bruyne":   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_(cropped).jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_(cropped).jpg",
     "d-alaba":       "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/David_Alaba_2021.jpg/400px-David_Alaba_2021.jpg",
-    "a-robertson":   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Andrew_Robertson_2022_%28cropped%29.jpg/400px-Andrew_Robertson_2022_%28cropped%29.jpg",
+    "a-robertson":   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Andrew_Robertson_2022_(cropped).jpg/400px-Andrew_Robertson_2022_(cropped).jpg",
 }
+
 
 def download_headshots():
     """
