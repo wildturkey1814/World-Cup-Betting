@@ -1,50 +1,51 @@
 name: Update World Cup Odds
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
-  workflow_dispatch:
+ schedule:
+   - cron: "0 */6 * * *"
+ workflow_dispatch:
+   inputs:
+     force_fetch:
+       description: "Force fetch regardless of schedule"
+       required: false
+       default: "0"
 
 jobs:
-  fetch-and-commit:
-    runs-on: ubuntu-latest
+ fetch-and-commit:
+   runs-on: ubuntu-latest
+   concurrency:
+     group: update-odds
+     cancel-in-progress: false
+   steps:
+     - name: Check out repository
+       uses: actions/checkout@v4
 
-    concurrency:
-      group: update-odds
-      cancel-in-progress: false
+     - name: Set up Python 3.11
+       uses: actions/setup-python@v5
+       with:
+         python-version: "3.11"
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+     - name: Install dependencies
+       run: pip install requests
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+     - name: Fetch live odds and update data.json
+       env:
+         ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
+         ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
+         ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
+         ODDSPAPI_KEY4: ${{ secrets.ODDSPAPI_KEY4 }}
+         ODDSPAPI_KEY5: ${{ secrets.ODDSPAPI_KEY5 }}
+         ODDSPAPI_KEY6: ${{ secrets.ODDSPAPI_KEY6 }}
+         FORCE_FETCH:   ${{ github.event.inputs.force_fetch || '0' }}
+       run: python fetch_odds.py
 
-      - name: Install dependencies
-        run: pip install requests
+     - name: Clean SRL matches
+       run: python clean_data.py
 
-      - name: Fetch live odds and update data.json
-        env:
-          ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
-          ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
-          ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
-          ODDSPAPI_KEY4: ${{ secrets.ODDSPAPI_KEY4 }}
-          ODDSPAPI_KEY5: ${{ secrets.ODDSPAPI_KEY5 }}
-          ODDSPAPI_KEY6: ${{ secrets.ODDSPAPI_KEY6 }}
-        run: python fetch_odds.py
-        
-      - name: Clean SRL matches
-        run: python clean_data.py
-
-
-      - name: Commit updated data.json
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
-          git diff --staged --quiet || git commit -m "chore: auto-update odds [$(date -u '+%Y-%m-%d %H:%M UTC')]"
-          git push
-      
-      
+     - name: Commit updated data.json
+       run: |
+         git config user.name  "github-actions[bot]"
+         git config user.email "github-actions[bot]@users.noreply.github.com"
+         git add data.json
+         git diff --staged --quiet || git commit -m "odds: update [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+         git push
