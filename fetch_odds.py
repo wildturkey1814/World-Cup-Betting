@@ -434,13 +434,12 @@ def build_record(fixture: dict, pmap: dict = None) -> Optional[dict]:
 
     home = normalise_team(raw_home)
     away = normalise_team(raw_away)
-    
-    # CRITICAL SECURITY STEP: Catch any hidden SRL records that resolved via ID dictionary map lookup
-    if "srl" in home.lower() or "srl" in away.lower():
-        log.warning("  Dropped hidden SRL match during build layout step: %s vs %s", home, away)
-        return None
-        
     if not home or not away:
+        return None
+
+    # Final SRL guard — catches matches where IDs resolved to SRL names
+    if "srl" in home.lower() or "srl" in away.lower():
+        log.warning("Dropped hidden SRL match after name resolution: %s vs %s", home, away)
         return None
 
     fid      = str(fixture.get("fixtureId") or fixture.get("id") or "")
