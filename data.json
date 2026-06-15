@@ -1,5 +1,1746 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "",
-  "matches": []
+  "lastUpdated": "June 15, 2026 · 3:05 AM UTC",
+  "matches": [
+    {
+      "id": "match_id1000001666456994",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "favTeam": "Spain",
+      "undTeam": "Cape Verde",
+      "homeFlag": "esp",
+      "awayFlag": "cpv",
+      "kickoff": "2026-06-15T16:00:00.000Z",
+      "meta": "June 15 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "88.3%",
+          "draw": "7.7%",
+          "und": "4.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "79.4%",
+          "draw": "15.2%",
+          "und": "5.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456982",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium",
+      "away": "Egypt",
+      "favTeam": "Egypt",
+      "undTeam": "Belgium",
+      "homeFlag": "bel",
+      "awayFlag": "egy",
+      "kickoff": "2026-06-15T19:00:00.000Z",
+      "meta": "June 15 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.3%",
+          "draw": "40.4%",
+          "und": "15.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "67.1%",
+          "draw": "19.9%",
+          "und": "13.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456996",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "favTeam": "Uruguay",
+      "undTeam": "Saudi Arabia",
+      "homeFlag": "ksa",
+      "awayFlag": "uru",
+      "kickoff": "2026-06-15T22:00:00.000Z",
+      "meta": "June 15 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "12.7%",
+          "draw": "22.3%",
+          "und": "64.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "14.2%",
+          "draw": "20.4%",
+          "und": "65.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456984",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Iran",
+      "away": "New Zealand",
+      "favTeam": "New Zealand",
+      "undTeam": "Iran",
+      "homeFlag": "irn",
+      "awayFlag": "nzl",
+      "kickoff": "2026-06-16T01:00:00.000Z",
+      "meta": "June 15 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "49.5%",
+          "draw": "28.3%",
+          "und": "22.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "49.5%",
+          "draw": "24.2%",
+          "und": "26.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457006",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "France",
+      "away": "Senegal",
+      "favTeam": "Senegal",
+      "undTeam": "France",
+      "homeFlag": "fra",
+      "awayFlag": "sen",
+      "kickoff": "2026-06-16T19:00:00.000Z",
+      "meta": "June 16 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "47.9%",
+          "draw": "38.9%",
+          "und": "13.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "61.2%",
+          "draw": "21.5%",
+          "und": "17.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457008",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Iraq",
+      "away": "Norway",
+      "favTeam": "Norway",
+      "undTeam": "Iraq",
+      "homeFlag": "irq",
+      "awayFlag": "nor",
+      "kickoff": "2026-06-16T22:00:00.000Z",
+      "meta": "June 16 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "8.0%",
+          "draw": "31.7%",
+          "und": "60.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "19.1%",
+          "draw": "22.1%",
+          "und": "58.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457018",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina",
+      "away": "Algeria",
+      "favTeam": "Argentina",
+      "undTeam": "Algeria",
+      "homeFlag": "arg",
+      "awayFlag": "alg",
+      "kickoff": "2026-06-17T01:00:00.000Z",
+      "meta": "June 16 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "68.6%",
+          "draw": "21.1%",
+          "und": "10.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "78.6%",
+          "draw": "15.6%",
+          "und": "5.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457020",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Austria",
+      "away": "Jordan",
+      "favTeam": "Austria",
+      "undTeam": "Jordan",
+      "homeFlag": "aut",
+      "awayFlag": "jor",
+      "kickoff": "2026-06-17T04:00:00.000Z",
+      "meta": "June 17 · 12:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "71.9%",
+          "draw": "17.7%",
+          "und": "10.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "69.1%",
+          "draw": "19.2%",
+          "und": "11.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457030",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Portugal",
+      "away": "DR Congo",
+      "favTeam": "Portugal",
+      "undTeam": "DR Congo",
+      "homeFlag": "por",
+      "awayFlag": "cod",
+      "kickoff": "2026-06-17T17:00:00.000Z",
+      "meta": "June 17 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "74.8%",
+          "draw": "16.7%",
+          "und": "8.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "69.9%",
+          "draw": "19.0%",
+          "und": "11.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457042",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "England",
+      "away": "Croatia",
+      "favTeam": "England",
+      "undTeam": "Croatia",
+      "homeFlag": "eng",
+      "awayFlag": "cro",
+      "kickoff": "2026-06-17T20:00:00.000Z",
+      "meta": "June 17 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "55.8%",
+          "draw": "24.8%",
+          "und": "19.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "46.0%",
+          "draw": "25.0%",
+          "und": "29.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457044",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ghana",
+      "away": "Panama",
+      "favTeam": "Panama",
+      "undTeam": "Ghana",
+      "homeFlag": "gha",
+      "awayFlag": "pan",
+      "kickoff": "2026-06-17T23:00:00.000Z",
+      "meta": "June 17 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.0%",
+          "draw": "27.9%",
+          "und": "28.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "49.5%",
+          "draw": "24.2%",
+          "und": "26.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457032",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "favTeam": "Colombia",
+      "undTeam": "Uzbekistan",
+      "homeFlag": "uzb",
+      "awayFlag": "col",
+      "kickoff": "2026-06-18T02:00:00.000Z",
+      "meta": "June 17 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "10.4%",
+          "draw": "20.2%",
+          "und": "69.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "10.3%",
+          "draw": "18.6%",
+          "und": "71.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456910",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Czechia",
+      "away": "South Africa",
+      "favTeam": "Czechia",
+      "undTeam": "South Africa",
+      "homeFlag": "cze",
+      "awayFlag": "rsa",
+      "kickoff": "2026-06-18T16:00:00.000Z",
+      "meta": "June 18 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "54.0%",
+          "draw": "25.1%",
+          "und": "20.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "48.9%",
+          "draw": "24.4%",
+          "und": "26.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456922",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Switzerland",
+      "away": "Bosnia & Herzegovina",
+      "favTeam": "Switzerland",
+      "undTeam": "Bosnia & Herzegovina",
+      "homeFlag": "sui",
+      "awayFlag": "bih",
+      "kickoff": "2026-06-18T19:00:00.000Z",
+      "meta": "June 18 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "60.3%",
+          "draw": "23.0%",
+          "und": "16.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "54.5%",
+          "draw": "23.1%",
+          "und": "22.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456920",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Canada",
+      "away": "Qatar",
+      "favTeam": "Canada",
+      "undTeam": "Qatar",
+      "homeFlag": "can",
+      "awayFlag": "qat",
+      "kickoff": "2026-06-18T22:00:00.000Z",
+      "meta": "June 18 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "55.6%",
+          "draw": "35.5%",
+          "und": "8.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "73.2%",
+          "draw": "17.9%",
+          "und": "8.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456908",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Mexico",
+      "away": "South Korea",
+      "favTeam": "South Korea",
+      "undTeam": "Mexico",
+      "homeFlag": "mex",
+      "awayFlag": "kor",
+      "kickoff": "2026-06-19T01:00:00.000Z",
+      "meta": "June 18 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "34.7%",
+          "draw": "46.2%",
+          "und": "19.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "57.2%",
+          "draw": "22.5%",
+          "und": "20.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456944",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "United States",
+      "away": "Australia",
+      "favTeam": "Australia",
+      "undTeam": "United States",
+      "homeFlag": "usa",
+      "awayFlag": "aus",
+      "kickoff": "2026-06-19T19:00:00.000Z",
+      "meta": "June 19 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "43.3%",
+          "draw": "40.9%",
+          "und": "15.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "56.7%",
+          "draw": "22.6%",
+          "und": "20.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456934",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Scotland",
+      "away": "Morocco",
+      "favTeam": "Morocco",
+      "undTeam": "Scotland",
+      "homeFlag": "sco",
+      "awayFlag": "mar",
+      "kickoff": "2026-06-19T22:00:00.000Z",
+      "meta": "June 19 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "16.7%",
+          "draw": "43.6%",
+          "und": "39.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "29.5%",
+          "draw": "25.1%",
+          "und": "45.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456932",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Brazil",
+      "away": "Haiti",
+      "favTeam": "Brazil",
+      "undTeam": "Haiti",
+      "homeFlag": "bra",
+      "awayFlag": "hai",
+      "kickoff": "2026-06-20T00:30:00.000Z",
+      "meta": "June 19 · 8:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "87.5%",
+          "draw": "8.1%",
+          "und": "4.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "80.8%",
+          "draw": "15.0%",
+          "und": "4.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456946",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Turkey",
+      "away": "Paraguay",
+      "favTeam": "Paraguay",
+      "undTeam": "Turkey",
+      "homeFlag": "tur",
+      "awayFlag": "pry",
+      "kickoff": "2026-06-20T03:00:00.000Z",
+      "meta": "June 19 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "35.0%",
+          "draw": "43.9%",
+          "und": "21.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "38.3%",
+          "draw": "26.6%",
+          "und": "35.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456972",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Netherlands",
+      "away": "Sweden",
+      "favTeam": "Netherlands",
+      "undTeam": "Sweden",
+      "homeFlag": "ned",
+      "awayFlag": "swe",
+      "kickoff": "2026-06-20T17:00:00.000Z",
+      "meta": "June 20 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "57.4%",
+          "draw": "23.4%",
+          "und": "19.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "53.4%",
+          "draw": "23.4%",
+          "und": "23.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457074",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "favTeam": "Ivory Coast",
+      "undTeam": "Germany",
+      "homeFlag": "ger",
+      "awayFlag": "civ",
+      "kickoff": "2026-06-20T20:00:00.000Z",
+      "meta": "June 20 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "45.0%",
+          "draw": "38.1%",
+          "und": "16.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "67.5%",
+          "draw": "19.8%",
+          "und": "12.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457076",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ecuador",
+      "away": "Curacao",
+      "favTeam": "Ecuador",
+      "undTeam": "Curacao",
+      "homeFlag": "ecu",
+      "awayFlag": "cuw",
+      "kickoff": "2026-06-21T00:00:00.000Z",
+      "meta": "June 20 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "65.8%",
+          "draw": "28.1%",
+          "und": "6.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "65.8%",
+          "draw": "20.2%",
+          "und": "13.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456974",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Tunisia",
+      "away": "Japan",
+      "favTeam": "Japan",
+      "undTeam": "Tunisia",
+      "homeFlag": "tun",
+      "awayFlag": "jpn",
+      "kickoff": "2026-06-21T04:00:00.000Z",
+      "meta": "June 21 · 12:00 AM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "15.8%",
+          "draw": "24.8%",
+          "und": "59.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "19.1%",
+          "draw": "22.1%",
+          "und": "58.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456998",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "favTeam": "Spain",
+      "undTeam": "Saudi Arabia",
+      "homeFlag": "esp",
+      "awayFlag": "ksa",
+      "kickoff": "2026-06-21T16:00:00.000Z",
+      "meta": "June 21 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "86.2%",
+          "draw": "9.3%",
+          "und": "4.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "72.5%",
+          "draw": "18.1%",
+          "und": "9.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456986",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium",
+      "away": "Iran",
+      "favTeam": "Belgium",
+      "undTeam": "Iran",
+      "homeFlag": "bel",
+      "awayFlag": "irn",
+      "kickoff": "2026-06-21T19:00:00.000Z",
+      "meta": "June 21 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "50.9%",
+          "draw": "37.2%",
+          "und": "11.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "66.3%",
+          "draw": "20.1%",
+          "und": "13.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457000",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uruguay",
+      "away": "Cape Verde",
+      "favTeam": "Cape Verde",
+      "undTeam": "Uruguay",
+      "homeFlag": "uru",
+      "awayFlag": "cpv",
+      "kickoff": "2026-06-21T22:00:00.000Z",
+      "meta": "June 21 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "48.6%",
+          "draw": "38.5%",
+          "und": "12.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "74.2%",
+          "draw": "17.5%",
+          "und": "8.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456988",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "New Zealand",
+      "away": "Egypt",
+      "favTeam": "Egypt",
+      "undTeam": "New Zealand",
+      "homeFlag": "nzl",
+      "awayFlag": "egy",
+      "kickoff": "2026-06-22T01:00:00.000Z",
+      "meta": "June 21 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "21.5%",
+          "draw": "24.4%",
+          "und": "54.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "27.2%",
+          "draw": "24.5%",
+          "und": "48.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457022",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina",
+      "away": "Austria",
+      "favTeam": "Austria",
+      "undTeam": "Argentina",
+      "homeFlag": "arg",
+      "awayFlag": "aut",
+      "kickoff": "2026-06-22T17:00:00.000Z",
+      "meta": "June 22 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "44.5%",
+          "draw": "40.1%",
+          "und": "15.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "60.3%",
+          "draw": "21.8%",
+          "und": "18.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457010",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "France",
+      "away": "Iraq",
+      "favTeam": "France",
+      "undTeam": "Iraq",
+      "homeFlag": "fra",
+      "awayFlag": "irq",
+      "kickoff": "2026-06-22T21:00:00.000Z",
+      "meta": "June 22 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "68.7%",
+          "draw": "26.1%",
+          "und": "5.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "79.7%",
+          "draw": "15.1%",
+          "und": "5.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457012",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Norway",
+      "away": "Senegal",
+      "favTeam": "Senegal",
+      "undTeam": "Norway",
+      "homeFlag": "nor",
+      "awayFlag": "sen",
+      "kickoff": "2026-06-23T00:00:00.000Z",
+      "meta": "June 22 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "45.7%",
+          "draw": "26.5%",
+          "und": "27.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "30.9%",
+          "draw": "25.5%",
+          "und": "43.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457024",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Jordan",
+      "away": "Algeria",
+      "favTeam": "Algeria",
+      "undTeam": "Jordan",
+      "homeFlag": "jor",
+      "awayFlag": "alg",
+      "kickoff": "2026-06-23T03:00:00.000Z",
+      "meta": "June 22 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "14.2%",
+          "draw": "21.9%",
+          "und": "63.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "30.4%",
+          "draw": "25.4%",
+          "und": "44.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457034",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Portugal",
+      "away": "Uzbekistan",
+      "favTeam": "Portugal",
+      "undTeam": "Uzbekistan",
+      "homeFlag": "por",
+      "awayFlag": "uzb",
+      "kickoff": "2026-06-23T17:00:00.000Z",
+      "meta": "June 23 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "59.4%",
+          "draw": "32.1%",
+          "und": "8.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "77.2%",
+          "draw": "16.2%",
+          "und": "6.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457046",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "England",
+      "away": "Ghana",
+      "favTeam": "England",
+      "undTeam": "Ghana",
+      "homeFlag": "eng",
+      "awayFlag": "gha",
+      "kickoff": "2026-06-23T20:00:00.000Z",
+      "meta": "June 23 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "52.4%",
+          "draw": "36.2%",
+          "und": "11.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "68.8%",
+          "draw": "19.4%",
+          "und": "11.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457048",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Panama",
+      "away": "Croatia",
+      "favTeam": "Croatia",
+      "undTeam": "Panama",
+      "homeFlag": "pan",
+      "awayFlag": "cro",
+      "kickoff": "2026-06-23T23:00:00.000Z",
+      "meta": "June 23 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "14.6%",
+          "draw": "25.0%",
+          "und": "60.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "10.3%",
+          "draw": "18.6%",
+          "und": "71.0%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457036",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Colombia",
+      "away": "DR Congo",
+      "favTeam": "DR Congo",
+      "undTeam": "Colombia",
+      "homeFlag": "col",
+      "awayFlag": "cod",
+      "kickoff": "2026-06-24T02:00:00.000Z",
+      "meta": "June 23 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "47.6%",
+          "draw": "40.7%",
+          "und": "11.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "61.7%",
+          "draw": "21.4%",
+          "und": "16.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456924",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Switzerland",
+      "away": "Canada",
+      "favTeam": "Canada",
+      "undTeam": "Switzerland",
+      "homeFlag": "sui",
+      "awayFlag": "can",
+      "kickoff": "2026-06-24T19:00:00.000Z",
+      "meta": "June 24 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "45.0%",
+          "draw": "27.8%",
+          "und": "27.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "42.4%",
+          "draw": "25.8%",
+          "und": "31.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456926",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Bosnia & Herzegovina",
+      "away": "Qatar",
+      "favTeam": "Qatar",
+      "undTeam": "Bosnia & Herzegovina",
+      "homeFlag": "bih",
+      "awayFlag": "qat",
+      "kickoff": "2026-06-24T19:00:00.000Z",
+      "meta": "June 24 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "43.5%",
+          "draw": "41.4%",
+          "und": "15.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "55.1%",
+          "draw": "23.0%",
+          "und": "21.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456938",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Morocco",
+      "away": "Haiti",
+      "favTeam": "Morocco",
+      "undTeam": "Haiti",
+      "homeFlag": "mar",
+      "awayFlag": "hai",
+      "kickoff": "2026-06-24T22:00:00.000Z",
+      "meta": "June 24 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "71.8%",
+          "draw": "18.0%",
+          "und": "10.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "72.5%",
+          "draw": "18.1%",
+          "und": "9.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456936",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Scotland",
+      "away": "Brazil",
+      "favTeam": "Brazil",
+      "undTeam": "Scotland",
+      "homeFlag": "sco",
+      "awayFlag": "bra",
+      "kickoff": "2026-06-24T22:00:00.000Z",
+      "meta": "June 24 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "13.3%",
+          "draw": "38.2%",
+          "und": "48.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "16.2%",
+          "draw": "21.1%",
+          "und": "62.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456914",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "South Africa",
+      "away": "South Korea",
+      "favTeam": "South Korea",
+      "undTeam": "South Africa",
+      "homeFlag": "rsa",
+      "awayFlag": "kor",
+      "kickoff": "2026-06-25T01:00:00.000Z",
+      "meta": "June 24 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "15.7%",
+          "draw": "41.2%",
+          "und": "43.1%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "24.5%",
+          "draw": "23.8%",
+          "und": "51.8%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456912",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Czechia",
+      "away": "Mexico",
+      "favTeam": "Mexico",
+      "undTeam": "Czechia",
+      "homeFlag": "cze",
+      "awayFlag": "mex",
+      "kickoff": "2026-06-25T01:00:00.000Z",
+      "meta": "June 24 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "20.4%",
+          "draw": "43.9%",
+          "und": "35.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "26.7%",
+          "draw": "24.4%",
+          "und": "48.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457078",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Ecuador",
+      "away": "Germany",
+      "favTeam": "Germany",
+      "undTeam": "Ecuador",
+      "homeFlag": "ecu",
+      "awayFlag": "ger",
+      "kickoff": "2026-06-25T20:00:00.000Z",
+      "meta": "June 25 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "20.8%",
+          "draw": "25.4%",
+          "und": "53.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "18.7%",
+          "draw": "22.0%",
+          "und": "59.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457080",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Curacao",
+      "away": "Ivory Coast",
+      "favTeam": "Ivory Coast",
+      "undTeam": "Curacao",
+      "homeFlag": "cuw",
+      "awayFlag": "civ",
+      "kickoff": "2026-06-25T20:00:00.000Z",
+      "meta": "June 25 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "7.2%",
+          "draw": "30.9%",
+          "und": "61.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "20.3%",
+          "draw": "22.5%",
+          "und": "57.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456976",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Tunisia",
+      "away": "Netherlands",
+      "favTeam": "Netherlands",
+      "undTeam": "Tunisia",
+      "homeFlag": "tun",
+      "awayFlag": "ned",
+      "kickoff": "2026-06-25T23:00:00.000Z",
+      "meta": "June 25 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "13.5%",
+          "draw": "37.9%",
+          "und": "48.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "10.6%",
+          "draw": "18.8%",
+          "und": "70.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456978",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Japan",
+      "away": "Sweden",
+      "favTeam": "Sweden",
+      "undTeam": "Japan",
+      "homeFlag": "jpn",
+      "awayFlag": "swe",
+      "kickoff": "2026-06-25T23:00:00.000Z",
+      "meta": "June 25 · 7:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "33.5%",
+          "draw": "43.0%",
+          "und": "23.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "37.7%",
+          "draw": "26.8%",
+          "und": "35.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456950",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Paraguay",
+      "away": "Australia",
+      "favTeam": "Australia",
+      "undTeam": "Paraguay",
+      "homeFlag": "pry",
+      "awayFlag": "aus",
+      "kickoff": "2026-06-26T02:00:00.000Z",
+      "meta": "June 25 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "45.3%",
+          "draw": "28.1%",
+          "und": "26.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "30.4%",
+          "draw": "25.4%",
+          "und": "44.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456948",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Turkey",
+      "away": "United States",
+      "favTeam": "United States",
+      "undTeam": "Turkey",
+      "homeFlag": "tur",
+      "awayFlag": "usa",
+      "kickoff": "2026-06-26T02:00:00.000Z",
+      "meta": "June 25 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "34.6%",
+          "draw": "25.8%",
+          "und": "39.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "24.9%",
+          "draw": "23.9%",
+          "und": "51.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457014",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Norway",
+      "away": "France",
+      "favTeam": "France",
+      "undTeam": "Norway",
+      "homeFlag": "nor",
+      "awayFlag": "fra",
+      "kickoff": "2026-06-26T19:00:00.000Z",
+      "meta": "June 26 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "22.5%",
+          "draw": "26.3%",
+          "und": "51.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "13.3%",
+          "draw": "20.0%",
+          "und": "66.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457016",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Senegal",
+      "away": "Iraq",
+      "favTeam": "Senegal",
+      "undTeam": "Iraq",
+      "homeFlag": "sen",
+      "awayFlag": "irq",
+      "kickoff": "2026-06-26T19:00:00.000Z",
+      "meta": "June 26 · 3:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "68.3%",
+          "draw": "19.9%",
+          "und": "11.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "64.5%",
+          "draw": "20.6%",
+          "und": "14.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457004",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Cape Verde",
+      "away": "Saudi Arabia",
+      "favTeam": "Saudi Arabia",
+      "undTeam": "Cape Verde",
+      "homeFlag": "cpv",
+      "awayFlag": "ksa",
+      "kickoff": "2026-06-27T00:00:00.000Z",
+      "meta": "June 26 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "39.1%",
+          "draw": "24.4%",
+          "und": "36.5%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "25.8%",
+          "draw": "24.1%",
+          "und": "50.1%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457002",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Uruguay",
+      "away": "Spain",
+      "favTeam": "Spain",
+      "undTeam": "Uruguay",
+      "homeFlag": "uru",
+      "awayFlag": "esp",
+      "kickoff": "2026-06-27T00:00:00.000Z",
+      "meta": "June 26 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "16.7%",
+          "draw": "40.0%",
+          "und": "43.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "28.1%",
+          "draw": "24.8%",
+          "und": "47.2%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456992",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Egypt",
+      "away": "Iran",
+      "favTeam": "Iran",
+      "undTeam": "Egypt",
+      "homeFlag": "egy",
+      "awayFlag": "irn",
+      "kickoff": "2026-06-27T03:00:00.000Z",
+      "meta": "June 26 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "31.2%",
+          "draw": "47.5%",
+          "und": "21.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "35.6%",
+          "draw": "26.8%",
+          "und": "37.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666456990",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "New Zealand",
+      "away": "Belgium",
+      "favTeam": "Belgium",
+      "undTeam": "New Zealand",
+      "homeFlag": "nzl",
+      "awayFlag": "bel",
+      "kickoff": "2026-06-27T03:00:00.000Z",
+      "meta": "June 26 · 11:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "10.4%",
+          "draw": "35.0%",
+          "und": "54.7%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "8.1%",
+          "draw": "17.4%",
+          "und": "74.5%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457050",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Panama",
+      "away": "England",
+      "favTeam": "England",
+      "undTeam": "Panama",
+      "homeFlag": "pan",
+      "awayFlag": "eng",
+      "kickoff": "2026-06-27T21:00:00.000Z",
+      "meta": "June 27 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "11.6%",
+          "draw": "14.0%",
+          "und": "74.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "7.0%",
+          "draw": "16.6%",
+          "und": "76.4%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457052",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Croatia",
+      "away": "Ghana",
+      "favTeam": "Croatia",
+      "undTeam": "Ghana",
+      "homeFlag": "cro",
+      "awayFlag": "gha",
+      "kickoff": "2026-06-27T21:00:00.000Z",
+      "meta": "June 27 · 5:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "58.4%",
+          "draw": "24.7%",
+          "und": "16.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "61.7%",
+          "draw": "21.4%",
+          "und": "16.9%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457038",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Colombia",
+      "away": "Portugal",
+      "favTeam": "Portugal",
+      "undTeam": "Colombia",
+      "homeFlag": "col",
+      "awayFlag": "por",
+      "kickoff": "2026-06-27T23:30:00.000Z",
+      "meta": "June 27 · 7:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "22.6%",
+          "draw": "43.5%",
+          "und": "33.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "27.6%",
+          "draw": "24.6%",
+          "und": "47.7%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457040",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "DR Congo",
+      "away": "Uzbekistan",
+      "favTeam": "Uzbekistan",
+      "undTeam": "DR Congo",
+      "homeFlag": "cod",
+      "awayFlag": "uzb",
+      "kickoff": "2026-06-27T23:30:00.000Z",
+      "meta": "June 27 · 7:30 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "30.8%",
+          "draw": "45.2%",
+          "und": "24.0%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "49.5%",
+          "draw": "24.2%",
+          "und": "26.3%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457028",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Algeria",
+      "away": "Austria",
+      "favTeam": "Austria",
+      "undTeam": "Algeria",
+      "homeFlag": "alg",
+      "awayFlag": "aut",
+      "kickoff": "2026-06-28T02:00:00.000Z",
+      "meta": "June 27 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "24.1%",
+          "draw": "43.3%",
+          "und": "32.6%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "15.5%",
+          "draw": "20.9%",
+          "und": "63.6%"
+        }
+      ]
+    },
+    {
+      "id": "match_id1000001666457026",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Jordan",
+      "away": "Argentina",
+      "favTeam": "Argentina",
+      "undTeam": "Jordan",
+      "homeFlag": "jor",
+      "awayFlag": "arg",
+      "kickoff": "2026-06-28T02:00:00.000Z",
+      "meta": "June 27 · 10:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "8.2%",
+          "draw": "31.5%",
+          "und": "60.3%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "4.1%",
+          "draw": "15.0%",
+          "und": "80.9%"
+        }
+      ]
+    }
+  ]
 }
