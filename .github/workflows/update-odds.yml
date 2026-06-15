@@ -2,7 +2,6 @@ name: Master World Cup Data Sync
 
 on:
   schedule:
-    # Triggers every 30 minutes to update Scores and Prediction Markets frequently
     - cron: '*/30 10-23 * * *'
     - cron: '*/30 0-2 * * *'
   workflow_dispatch:
@@ -30,20 +29,24 @@ jobs:
       - name: Install Network Dependencies
         run: pip install requests cryptography
 
-      # ── LAYER 1: BASE SPORTSBOOK ODDS ──
-      # Uses your input flag or internal logic to skip premium calls unless necessary
       - name: Process Sportsbook Base Odds
         env:
           FORCE_FETCH: ${{ github.event.inputs.pull_expensive_odds }}
+          ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
+          ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
+          ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
+          ODDSPAPI_KEY4: ${{ secrets.ODDSPAPI_KEY4 }}
+          ODDSPAPI_KEY5: ${{ secrets.ODDSPAPI_KEY5 }}
+          ODDSPAPI_KEY6: ${{ secrets.ODDSPAPI_KEY6 }}
         run: python fetch_odds.py
 
-      # ── LAYER 2: REAL-TIME SCORES & RECOS ──
-      # Moves cards dynamically to completed states & handles Box Score flips
       - name: Process Live Scores
+        env:
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+          ZAFRONIX_API_KEY:  ${{ secrets.ZAFRONIX_API_KEY }}
+          ZAFRONIX_API_KEY2: ${{ secrets.ZAFRONIX_API_KEY2 }}
         run: python fetch_scores.py
 
-      # ── LAYER 3: PREDICTION MARKETS ──
-      # Appends P2P market weights below consensus layers
       - name: Process Kalshi Orderbooks
         env:
           KALSHI_API_KEY_ID:  ${{ secrets.KALSHI_API_KEY_ID }}
@@ -53,7 +56,6 @@ jobs:
       - name: Process Polymarket Outrights
         run: python fetch_polymarket.py
 
-      # ── ATOMIC WRITE COMMIT ──
       - name: Commit Unified Dataset
         run: |
           git config user.name "github-actions[bot]"
