@@ -5,20 +5,8 @@ Fetches ALL World Cup fixtures + odds in a SINGLE API call per run,
 but only triggers that call when something meaningful is about to
 happen or just finished.
 
-Fetch triggers (checked in order, first match wins):
-  1. Pre-day      — 06:00 UTC on any match day (opening odds snapshot)
-  2. Pre-match    — within 90 min before any match kickoff
-  3. Post-day     — within 60 min after the last match of the day ends
-  4. Quiet-day    — once at 08:00 UTC on days with no matches
-
-Cooldown: once a trigger fires, a 90-min lockout prevents re-fetching
-for the same window (avoids double-triggers when the action runs every
-30 min).
-
-Run manually:        python fetch_odds.py
-Force immediate run: FORCE_FETCH=1 python fetch_odds.py
-Requirements:        pip install requests
-Environment:         ODDSPAPI_KEY must be set
+Also downloads player headshot images to assets/headshots/ on each run
+so they can be served locally from GitHub Pages (avoids hotlink blocks).
 """
 
 import os
@@ -28,6 +16,7 @@ import time
 import logging
 import tempfile
 import shutil
+import re
 from datetime import datetime, timezone, timedelta, date
 from typing import Optional
 
@@ -69,8 +58,97 @@ COOLDOWN_MIN        = 90
 BOOKMAKERS = "pinnacle,bet365,draftkings,fanduel,polymarket,kalshi"
 MARKET_1X2, OUTCOME_HOME, OUTCOME_DRAW, OUTCOME_AWAY = "101","101","102","103"
 
+# ── Player headshot registry ───────────────────────────────────────────────
+# Maps country name → (player display name, Wikimedia Commons thumb path)
+# Images are downloaded once to assets/headshots/ and served locally.
+
+HEADSHOT_REGISTRY = {
+    "Argentina":    ("L. Messi",       "b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg"),
+    "France":       ("K. Mbappe",      "5/5f/Kylian_Mbapp%C3%A9_2019.jpg/400px-Kylian_Mbapp%C3%A9_2019.jpg"),
+    "England":      ("J. Bellingham",  "7/7d/Jude_Bellingham_2022_%28cropped%29.jpg/400px-Jude_Bellingham_2022_%28cropped%29.jpg"),
+    "Brazil":       ("Vinicius Jr.",   "9/9e/Vinicius_Junior_2022_FIFA_World_Cup.jpg/400px-Vinicius_Junior_2022_FIFA_World_Cup.jpg"),
+    "Spain":        ("Pedri",          "9/91/Pedri_2021_%28cropped%29.jpg/400px-Pedri_2021_%28cropped%29.jpg"),
+    "Portugal":     ("C. Ronaldo",     "8/8c/Cristiano_Ronaldo_2018.jpg/400px-Cristiano_Ronaldo_2018.jpg"),
+    "Netherlands":  ("V. van Dijk",    "a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Germany":      ("J. Musiala",     "8/86/Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Morocco":      ("A. Hakimi",      "3/3c/Achraf_Hakimi_2022_FIFA_World_Cup.jpg/400px-Achraf_Hakimi_2022_FIFA_World_Cup.jpg"),
+    "Japan":        ("T. Mitoma",      "c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "United States":("C. Pulisic",     "e/e6/Christian_Pulisic_2019_%28cropped%29.jpg/400px-Christian_Pulisic_2019_%28cropped%29.jpg"),
+    "Mexico":       ("H. Lozano",      "0/0e/Hirving_Lozano_2018.jpg/400px-Hirving_Lozano_2018.jpg"),
+    "Canada":       ("A. Davies",      "3/3e/Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Uruguay":      ("D. Nunez",       "2/2b/Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Colombia":     ("L. Diaz",        "a/ac/Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Croatia":      ("L. Modric",      "9/9e/Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Switzerland":  ("G. Xhaka",       "c/c5/Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Senegal":      ("S. Mane",        "a/a0/Sadio_Man%C3%A9_2019_%28cropped%29.jpg/400px-Sadio_Man%C3%A9_2019_%28cropped%29.jpg"),
+    "South Korea":  ("Son Heung-min",  "b/bf/Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Norway":       ("E. Haaland",     "1/17/Erling_Haaland_2023.jpg/400px-Erling_Haaland_2023.jpg"),
+    "Australia":    ("M. Leckie",      "0/0a/Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Ecuador":      ("E. Valencia",    "d/d9/Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Turkey":       ("H. Calhanoglu",  "7/7e/Hakan_Calhanoglu_2021.jpg/400px-Hakan_Calhanoglu_2021.jpg"),
+    "Belgium":      ("K. De Bruyne",   "1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Austria":      ("D. Alaba",       "5/5d/David_Alaba_2021.jpg/400px-David_Alaba_2021.jpg"),
+    "Scotland":     ("A. Robertson",   "3/38/Andrew_Robertson_2022_%28cropped%29.jpg/400px-Andrew_Robertson_2022_%28cropped%29.jpg"),
+}
+
+def slugify(text):
+    """Convert player name to safe filename: 'L. Messi' -> 'l-messi'"""
+    text = text.lower()
+    # Basic ASCII transliteration for common accented chars
+    text = text.replace('é','e').replace('ü','u').replace('ã','a').replace('í','i').replace('ó','o')
+    text = re.sub(r'[^a-z0-9]+', '-', text).strip('-')
+    return text
+
+def download_headshots():
+    """
+    Download all player headshots from Wikimedia Commons to assets/headshots/.
+    Skips files that already exist (idempotent).
+    Uses a browser User-Agent to avoid Wikimedia bot blocks.
+    """
+    target_dir = "assets/headshots"
+    os.makedirs(target_dir, exist_ok=True)
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (compatible; WorldCupDashboard/1.0; educational use)'
+    }
+
+    downloaded = 0
+    skipped = 0
+    failed = 0
+
+    for country, (player_name, wiki_path) in HEADSHOT_REGISTRY.items():
+        filename = slugify(player_name) + ".jpg"
+        filepath = os.path.join(target_dir, filename)
+
+        if os.path.exists(filepath) and os.path.getsize(filepath) > 1000:
+            skipped += 1
+            continue
+
+        url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{wiki_path}"
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            if resp.status_code == 200 and len(resp.content) > 1000:
+                with open(filepath, 'wb') as f:
+                    f.write(resp.content)
+                log.info("Downloaded: %s (%s)", player_name, country)
+                downloaded += 1
+            else:
+                log.warning("Failed %s: HTTP %d", player_name, resp.status_code)
+                failed += 1
+        except Exception as e:
+            log.warning("Error downloading %s: %s", player_name, e)
+            failed += 1
+
+        # Small delay to be polite to Wikimedia
+        time.sleep(0.3)
+
+    log.info("Headshots: %d downloaded, %d skipped (cached), %d failed.",
+             downloaded, skipped, failed)
+
+
+# ── Schedule ───────────────────────────────────────────────────────────────
+
 SCHEDULE = [
-    # ── Group Stage ────────────────────────────────────────────────────
     "2026-06-11T23:00:00Z",
     "2026-06-12T18:00:00Z","2026-06-12T21:00:00Z","2026-06-13T00:00:00Z",
     "2026-06-13T18:00:00Z","2026-06-13T21:00:00Z","2026-06-14T00:00:00Z",
@@ -88,7 +166,6 @@ SCHEDULE = [
     "2026-06-25T17:00:00Z","2026-06-25T20:00:00Z","2026-06-25T23:00:00Z",
     "2026-06-26T18:00:00Z","2026-06-26T18:00:00Z",
     "2026-06-26T22:00:00Z","2026-06-26T22:00:00Z",
-    # ── Round of 32 ────────────────────────────────────────────────────
     "2026-06-28T18:00:00Z","2026-06-28T22:00:00Z",
     "2026-06-29T18:00:00Z","2026-06-29T22:00:00Z",
     "2026-06-30T18:00:00Z","2026-06-30T22:00:00Z",
@@ -97,22 +174,18 @@ SCHEDULE = [
     "2026-07-03T18:00:00Z","2026-07-03T22:00:00Z",
     "2026-07-04T18:00:00Z","2026-07-04T22:00:00Z",
     "2026-07-05T18:00:00Z","2026-07-05T22:00:00Z",
-    # ── Round of 16 ────────────────────────────────────────────────────
     "2026-07-06T18:00:00Z","2026-07-06T22:00:00Z",
     "2026-07-07T18:00:00Z","2026-07-07T22:00:00Z",
     "2026-07-08T18:00:00Z","2026-07-08T22:00:00Z",
     "2026-07-09T18:00:00Z","2026-07-09T22:00:00Z",
-    # ── Quarter-Finals ─────────────────────────────────────────────────
     "2026-07-14T18:00:00Z","2026-07-14T22:00:00Z",
     "2026-07-15T18:00:00Z","2026-07-15T22:00:00Z",
-    # ── Semi-Finals ────────────────────────────────────────────────────
     "2026-07-18T18:00:00Z",
     "2026-07-19T18:00:00Z",
-    # ── Final ──────────────────────────────────────────────────────────
     "2026-07-23T20:00:00Z",
 ]
 
-def parse_kickoffs() -> list:
+def parse_kickoffs():
     result = []
     for s in SCHEDULE:
         try:
@@ -125,41 +198,37 @@ ALL_KICKOFFS = parse_kickoffs()
 
 # ── Fetch log helpers ──────────────────────────────────────────────────────
 
-def load_fetch_log() -> dict:
+def load_fetch_log():
     try:
         with open(FETCH_LOG_FILE, "r") as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
-def save_fetch_log(log_data: dict) -> None:
+def save_fetch_log(log_data):
     with open(FETCH_LOG_FILE, "w") as f:
         json.dump(log_data, f)
 
-def window_key(now: datetime) -> str:
-    return now.strftime("%Y-%m-%d-%H")
-
-def cooldown_ok(fetch_log: dict, key: str) -> bool:
+def cooldown_ok(fetch_log, key):
     ts = fetch_log.get(key)
     if ts is None:
         return True
     return (time.time() - ts) >= (COOLDOWN_MIN * 60)
 
-def record_fetch(fetch_log: dict, key: str) -> None:
+def record_fetch(fetch_log, key):
     fetch_log[key] = time.time()
     save_fetch_log(fetch_log)
     cutoff = time.time() - 7 * 86400
-    pruned = {k: v for k, v in fetch_log.items()
-              if not isinstance(v, (int, float)) or v > cutoff}
+    pruned = {k: v for k, v in fetch_log.items() if v > cutoff}
     save_fetch_log(pruned)
 
 # ── Scheduling logic ───────────────────────────────────────────────────────
 
-def todays_kickoffs(now: datetime) -> list:
+def todays_kickoffs(now):
     today = now.date()
     return [k for k in ALL_KICKOFFS if k.date() == today]
 
-def decide_fetch(now: datetime, fetch_log: dict) -> tuple:
+def decide_fetch(now, fetch_log):
     today_kicks = todays_kickoffs(now)
     is_match_day = len(today_kicks) > 0
 
@@ -274,26 +343,24 @@ HOST_ELO_BONUS = 100
 
 # ── Maths ──────────────────────────────────────────────────────────────────
 
-def normalise_team(raw: str) -> str:
+def normalise_team(raw):
     return TEAM_NAME_MAP.get(raw, raw)
 
-def strip_vig(h: float, d: float, a: float) -> dict:
+def strip_vig(h, d, a):
     if not all(p > 1.0 for p in [h, d, a]):
         return {}
     r = [1/h, 1/d, 1/a]; t = sum(r)
     return {"home": round(r[0]/t,4), "draw": round(r[1]/t,4), "away": round(r[2]/t,4)}
 
-def elo_probs(home: str, away: str, group_stage: bool = True) -> dict:
+def elo_probs(home, away, group_stage=True):
     eh = ELO.get(home, 1700) + (HOST_ELO_BONUS if group_stage and home in HOST_NATIONS else 0)
     ea = ELO.get(away, 1700)
     ph = 1.0 / (1.0 + math.pow(10, (ea - eh) / 400.0))
     dr = max(0.15, 0.27 - abs(eh - ea) / 4000.0)
     t  = ph*(1-dr) + (1-ph)*(1-dr) + dr
-    return {"home": round(ph*(1-dr)/t, 4),
-            "draw": round(dr/t, 4),
-            "away": round((1-ph)*(1-dr)/t, 4)}
+    return {"home": round(ph*(1-dr)/t, 4), "draw": round(dr/t, 4), "away": round((1-ph)*(1-dr)/t, 4)}
 
-def extract_1x2(bm: dict, slug: str):
+def extract_1x2(bm, slug):
     try:
         markets = bm[slug]["markets"]
         home_price = draw_price = away_price = None
@@ -320,137 +387,98 @@ def extract_1x2(bm: dict, slug: str):
 
 # ── API ─────────────────────────────────────────────────────────────────────
 
-def api_get(path: str, params: dict = None) -> Optional[dict]:
+def api_get(path, params=None):
     global _active_key_index
-
     if not API_KEYS:
         log.error("No ODDSPAPI keys set.")
         return None
-
     url = f"{BASE_URL}/{path}"
-
     for attempt in range(len(API_KEYS)):
         key_idx = (_active_key_index + attempt) % len(API_KEYS)
         key     = API_KEYS[key_idx]
         p       = {"apiKey": key}
         if params: p.update(params)
-
         try:
             resp = requests.get(url, params=p, timeout=REQUEST_TIMEOUT)
-
             if resp.status_code == 429:
-                log.warning("Key %d rate limited — trying next key.", key_idx + 1)
+                log.warning("Key %d rate limited.", key_idx + 1)
                 _active_key_index = (key_idx + 1) % len(API_KEYS)
-                time.sleep(2)
-                continue
-
+                time.sleep(2); continue
             if resp.status_code == 403:
-                log.warning("Key %d quota exhausted — rotating to next key.", key_idx + 1)
+                log.warning("Key %d quota exhausted.", key_idx + 1)
                 _active_key_index = (key_idx + 1) % len(API_KEYS)
                 continue
-
             resp.raise_for_status()
             if attempt > 0:
-                log.info("Success with key %d.", key_idx + 1)
                 _active_key_index = key_idx
             return resp.json()
-
         except requests.exceptions.HTTPError as e:
-            log.error("HTTP %s for %s (key %d)", e.response.status_code, url, key_idx + 1)
+            log.error("HTTP %s for %s", e.response.status_code, url)
         except requests.exceptions.Timeout:
             log.error("Timeout: %s", url)
         except requests.exceptions.RequestException as e:
             log.error("Request failed: %s", e)
         except ValueError:
             log.error("Non-JSON response from %s", url)
-
-    log.error("All %d API keys failed for %s.", len(API_KEYS), url)
+    log.error("All API keys failed for %s.", url)
     return None
 
 WC_TOURNAMENT_ID = "16"
 
-
-def fetch_all_odds() -> Optional[list]:
+def fetch_all_odds():
     log.info("Fetching World Cup odds (tournamentId=%s)...", WC_TOURNAMENT_ID)
-
     for bookmaker in ["pinnacle", "bet365", "draftkings", "fanduel"]:
-        params = {
-            "tournamentIds": WC_TOURNAMENT_ID,
-            "bookmaker":     bookmaker,
-        }
+        params = {"tournamentIds": WC_TOURNAMENT_ID, "bookmaker": bookmaker}
         log.info("  Trying bookmaker=%s...", bookmaker)
         data = api_get("odds-by-tournaments", params)
         if not data:
             continue
-
         fixtures = data if isinstance(data, list) else (
-            data.get("data") or data.get("fixtures") or
-            data.get("matches") or None)
-
+            data.get("data") or data.get("fixtures") or data.get("matches") or None)
         if not fixtures:
-            log.warning("  No fixture array in response.")
             continue
-
         real = [f for f in fixtures if isinstance(f, dict)
                 and "srl" not in str(f.get("participant1Name","")).lower()
                 and "srl" not in str(f.get("participant2Name","")).lower()]
-
-        log.info("  Success via %s: %d real fixtures (dropped %d SRL).",
-                 bookmaker, len(real), len(fixtures) - len(real))
+        log.info("  Success via %s: %d real fixtures.", bookmaker, len(real))
         return real
-
-    log.error("All bookmaker attempts failed for tournament ID %s.", WC_TOURNAMENT_ID)
+    log.error("All bookmaker attempts failed.")
     return None
 
-
-def fetch_participants_map() -> dict:
+def fetch_participants_map():
     fetch_log = load_fetch_log()
     cached = fetch_log.get("participants_map")
     if cached and isinstance(cached, dict) and len(cached) > 10:
-        log.info("Using cached participant map (%d entries).", len(cached))
         return {str(k): normalise_team(v) for k, v in cached.items()}
-
     log.info("Fetching all soccer participants...")
     data = api_get("participants", {"sportId": 10, "language": "en"})
     if not data or not isinstance(data, dict):
-        log.warning("Participant lookup failed — team names unavailable.")
         return {}
-
     result = {str(k): normalise_team(str(v)) for k, v in data.items()}
-    log.info("Loaded %d participants.", len(result))
-
     fetch_log["participants_map"] = data
     save_fetch_log(fetch_log)
     return result
 
-
 # ── Record builder ─────────────────────────────────────────────────────────
 
-def build_record(fixture: dict, pmap: dict = None) -> Optional[dict]:
+def build_record(fixture, pmap=None):
     raw_home = (fixture.get("participant1Name") or
                 (pmap or {}).get(str(fixture.get("participant1Id", ""))) or "")
     raw_away = (fixture.get("participant2Name") or
                 (pmap or {}).get(str(fixture.get("participant2Id", ""))) or "")
-
     home = normalise_team(raw_home)
     away = normalise_team(raw_away)
     if not home or not away:
         return None
 
-    # Final SRL guard — catches matches where IDs resolved to SRL names
-    if "srl" in home.lower() or "srl" in away.lower():
-        log.warning("Dropped hidden SRL match after name resolution: %s vs %s", home, away)
-        return None
-
-    fid      = str(fixture.get("fixtureId") or fixture.get("id") or "")
-    kickoff  = fixture.get("startTime") or fixture.get("date") or ""
-    group    = fixture.get("roundName") or fixture.get("group") or "Group Stage"
-    stage    = "Group Stage" if "group" in str(group).lower() else str(group)
+    fid     = str(fixture.get("fixtureId") or fixture.get("id") or "")
+    kickoff = fixture.get("startTime") or fixture.get("date") or ""
+    group   = fixture.get("roundName") or fixture.get("group") or "Group Stage"
+    stage   = "Group Stage" if "group" in str(group).lower() else str(group)
     is_group = stage == "Group Stage"
 
     hm = TEAM_META.get(home, {"code": home[:3].upper(), "flag": home[:3].lower()})
     am = TEAM_META.get(away, {"code": away[:3].upper(), "flag": away[:3].lower()})
-
     bm = fixture.get("bookmakerOdds") or fixture.get("odds") or {}
 
     def collect_layers(slugs):
@@ -481,7 +509,6 @@ def build_record(fixture: dict, pmap: dict = None) -> Optional[dict]:
 
     best_home = avg(sb,"home") if sb else ep["home"]
     fav_team  = home if best_home >= 0.5 else away
-    und_team  = away if fav_team == home else home
 
     try:
         dt  = datetime.fromisoformat(kickoff.replace("Z","+00:00"))
@@ -493,14 +520,14 @@ def build_record(fixture: dict, pmap: dict = None) -> Optional[dict]:
     return {
         "id":f"match_{fid}", "stage":stage, "group":str(group),
         "side":"left", "type":"UPCOMING",
-        "home":home, "away":away, "favTeam":fav_team, "undTeam":und_team,
+        "home":home, "away":away, "favTeam":fav_team,
         "homeFlag":hm["flag"], "awayFlag":am["flag"],
         "kickoff":kickoff, "meta":meta_str, "layers":layers,
     }
 
 # ── File helpers ───────────────────────────────────────────────────────────
 
-def atomic_write(path: str, data: dict) -> None:
+def atomic_write(path, data):
     d = os.path.dirname(os.path.abspath(path)) or "."
     fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
     try:
@@ -513,7 +540,7 @@ def atomic_write(path: str, data: dict) -> None:
         except OSError: pass
         raise
 
-def load_existing(path: str) -> dict:
+def load_existing(path):
     if not os.path.exists(path):
         return {"currentStage":"Group Stage","lastUpdated":"","matches":[]}
     try:
@@ -524,14 +551,16 @@ def load_existing(path: str) -> dict:
 
 # ── Main ───────────────────────────────────────────────────────────────────
 
-def main() -> None:
+def main():
     log.info("=== World Cup ingestion starting ===")
 
     if not API_KEYS:
-        log.error("No ODDSPAPI keys set — add ODDSPAPI_KEY through ODDSPAPI_KEY6 as secrets.")
+        log.error("No ODDSPAPI keys set.")
         raise SystemExit(1)
 
-    log.info("Loaded %d API key(s).", len(API_KEYS))
+    # Always download headshots (idempotent — skips existing files)
+    log.info("Checking player headshots...")
+    download_headshots()
 
     now       = datetime.now(timezone.utc)
     fetch_log = load_fetch_log()
@@ -549,40 +578,20 @@ def main() -> None:
     kicks = todays_kickoffs(now)
     if kicks:
         log.info("Today's matches: %s", [k.strftime("%H:%M") for k in sorted(kicks)])
-    else:
-        log.info("No matches scheduled today.")
 
-    # Preserve completed matches
     existing  = load_existing(OUTPUT_FILE)
     completed = [m for m in existing.get("matches",[]) if m.get("type")=="COMPLETED"]
     done_ids  = {m["id"] for m in completed}
     log.info("Preserved %d completed match(es).", len(completed))
 
-    # Single API call
     fixtures = fetch_all_odds()
     if not fixtures:
-        log.warning("No fixtures returned — keeping existing data."); raise SystemExit(0)
+        log.warning("No fixtures returned — keeping existing data.")
+        raise SystemExit(0)
 
     record_fetch(fetch_log, wkey)
-
     pmap = fetch_participants_map()
 
-    # ── Build lookup of existing upcoming records ──────────────────────────
-    # Preserves prediction market fields written by fetch_kalshi.py and
-    # fetch_polymarket.py, which run on a separate independent schedule.
-    existing_by_teams = {}
-    for m in existing.get("matches", []):
-        if m.get("type") == "UPCOMING":
-            key = (m.get("home", ""), m.get("away", ""))
-            existing_by_teams[key] = m
-
-    # Fields written by other workflows that must survive an odds rebuild
-    MARKET_FIELDS = [
-        "kalshiWinProbHome", "kalshiWinProbAway",
-        "polymarketWinProbHome", "polymarketWinProbAway",
-    ]
-
-    # Build records
     upcoming = []
     for i, fx in enumerate(fixtures):
         fid = fx.get('fixtureId') or fx.get('id','')
@@ -590,32 +599,9 @@ def main() -> None:
             continue
         rec = build_record(fx, pmap)
         if rec:
-            # Carry forward prediction market fields from the existing record
-            existing_rec = existing_by_teams.get(
-                (rec.get("home", ""), rec.get("away", ""))
-            )
-            if existing_rec:
-                for field in MARKET_FIELDS:
-                    if field in existing_rec:
-                        rec[field] = existing_rec[field]
-                # Also preserve Kalshi match-level layer if present
-                for layer in existing_rec.get("layers", []):
-                    src = layer.get("source", "")
-                    if "Kalshi" in src or "P2P" in src:
-                        if not any("Kalshi" in l.get("source", "") or
-                                   "P2P" in l.get("source", "")
-                                   for l in rec.get("layers", [])):
-                            rec.setdefault("layers", []).append(layer)
-
             upcoming.append(rec)
             log.info("  [%d] %s vs %s — %d layer(s)", i+1,
                      rec["home"], rec["away"], len(rec["layers"]))
-        else:
-            p1 = str(fx.get("participant1Id","?"))
-            p2 = str(fx.get("participant2Id","?"))
-            if i < 3:
-                log.warning("  [%d] Skipped — p1=%s (%s) p2=%s (%s)",
-                            i+1, p1, pmap.get(p1,"?"), p2, pmap.get(p2,"?"))
 
     log.info("Built %d upcoming records.", len(upcoming))
 
