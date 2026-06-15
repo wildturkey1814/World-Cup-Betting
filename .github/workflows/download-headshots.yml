@@ -39,18 +39,4 @@ jobs:
             sleep 0.2
           }
 
-          get_espn "k-mbappe.jpg"      "231388"
-          get_espn "j-bellingham.jpg"  "291281"
-          get_espn "vinicius-jr.jpg"   "252107"
-          get_espn "v-van-dijk.jpg"    "193819"
-          get_espn "j-musiala.jpg"     "282331"
-          get_espn "a-hakimi.jpg"      "217836"
-          get_espn "c-pulisic.jpg"     "225607"
-          get_espn "h-lozano.jpg"      "206563"
-          get_espn "a-davies.jpg"      "262277"
-          get_espn "l-diaz.jpg"        "275014"
-          get_espn "l-modric.jpg"      "78006"
-          get_espn "g-xhaka.jpg"       "178603"
-          get_espn "s-mane.jpg"        "156080"
-          get_espn "son-heung-min.jpg" "149945"
-          get_espn "e-haaland.jpg"     "253989
+          get_espn "k-mbappe.jpg"      "231
