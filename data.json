@@ -1,35 +1,7 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 3:52 PM UTC",
+  "lastUpdated": "June 15, 2026 · 4:04 PM UTC",
   "matches": [
-    {
-      "id": "match_id1000001666456994",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
-      "type": "UPCOMING",
-      "home": "Spain",
-      "away": "Cape Verde",
-      "favTeam": "Spain",
-      "homeFlag": "esp",
-      "awayFlag": "cpv",
-      "kickoff": "2026-06-15T16:00:00.000Z",
-      "meta": "June 15 · 12:00 PM EDT · Group Stage",
-      "layers": [
-        {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "72.7%",
-          "draw": "21.3%",
-          "und": "6.0%"
-        },
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "79.4%",
-          "draw": "15.2%",
-          "und": "5.3%"
-        }
-      ]
-    },
     {
       "id": "match_id1000001666456982",
       "stage": "Group Stage",
@@ -75,8 +47,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "11.2%",
-          "draw": "39.6%",
-          "und": "49.2%"
+          "draw": "21.2%",
+          "und": "67.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -298,9 +270,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "43.4%",
-          "draw": "28.1%",
-          "und": "28.5%"
+          "fav": "32.5%",
+          "draw": "45.0%",
+          "und": "22.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -327,8 +299,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "10.7%",
-          "draw": "38.1%",
-          "und": "51.2%"
+          "draw": "38.0%",
+          "und": "51.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -438,9 +410,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "48.6%",
-          "draw": "28.4%",
-          "und": "23.0%"
+          "fav": "34.4%",
+          "draw": "45.8%",
+          "und": "19.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -494,9 +466,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "16.6%",
-          "draw": "43.9%",
-          "und": "39.5%"
+          "fav": "18.8%",
+          "draw": "26.4%",
+          "und": "54.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -662,9 +634,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.2%",
-          "draw": "23.1%",
-          "und": "62.7%"
+          "fav": "12.8%",
+          "draw": "40.5%",
+          "und": "46.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -718,9 +690,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "51.0%",
-          "draw": "37.2%",
-          "und": "11.8%"
+          "fav": "68.5%",
+          "draw": "19.8%",
+          "und": "11.7%"
         },
         {
           "source": "ELO/Poisson Model",
