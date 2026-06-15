@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 4:56 PM UTC",
+  "lastUpdated": "June 15, 2026 · 5:04 PM UTC",
   "matches": [
     {
       "id": "match_id1000001666456982",
@@ -10,7 +10,7 @@
       "type": "UPCOMING",
       "home": "Belgium",
       "away": "Egypt",
-      "favTeam": "Belgium",
+      "favTeam": "Egypt",
       "homeFlag": "bel",
       "awayFlag": "egy",
       "kickoff": "2026-06-15T19:00:00.000Z",
@@ -18,9 +18,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "60.1%",
-          "draw": "23.6%",
-          "und": "16.2%"
+          "fav": "44.5%",
+          "draw": "40.4%",
+          "und": "15.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -234,7 +234,7 @@
       "type": "UPCOMING",
       "home": "England",
       "away": "Croatia",
-      "favTeam": "Croatia",
+      "favTeam": "England",
       "homeFlag": "eng",
       "awayFlag": "cro",
       "kickoff": "2026-06-17T20:00:00.000Z",
@@ -242,9 +242,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "40.0%",
-          "draw": "42.7%",
-          "und": "17.2%"
+          "fav": "55.6%",
+          "draw": "24.9%",
+          "und": "19.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -662,9 +662,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "86.2%",
-          "draw": "9.3%",
-          "und": "4.5%"
+          "fav": "86.7%",
+          "draw": "9.0%",
+          "und": "4.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -766,7 +766,7 @@
       "type": "UPCOMING",
       "home": "Argentina",
       "away": "Austria",
-      "favTeam": "Austria",
+      "favTeam": "Argentina",
       "homeFlag": "arg",
       "awayFlag": "aut",
       "kickoff": "2026-06-22T17:00:00.000Z",
@@ -774,9 +774,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "44.5%",
-          "draw": "40.1%",
-          "und": "15.4%"
+          "fav": "58.8%",
+          "draw": "24.8%",
+          "und": "16.4%"
         },
         {
           "source": "ELO/Poisson Model",
