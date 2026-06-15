@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 4:48 PM UTC",
+  "lastUpdated": "June 15, 2026 · 4:56 PM UTC",
   "matches": [
     {
       "id": "match_id1000001666456982",
@@ -46,9 +46,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "11.2%",
-          "draw": "21.2%",
-          "und": "67.6%"
+          "fav": "11.3%",
+          "draw": "39.8%",
+          "und": "49.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -66,7 +66,7 @@
       "type": "UPCOMING",
       "home": "Iran",
       "away": "New Zealand",
-      "favTeam": "Iran",
+      "favTeam": "New Zealand",
       "homeFlag": "irn",
       "awayFlag": "nzl",
       "kickoff": "2026-06-16T01:00:00.000Z",
@@ -74,9 +74,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "54.0%",
-          "draw": "27.0%",
-          "und": "18.9%"
+          "fav": "38.5%",
+          "draw": "45.2%",
+          "und": "16.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -234,7 +234,7 @@
       "type": "UPCOMING",
       "home": "England",
       "away": "Croatia",
-      "favTeam": "England",
+      "favTeam": "Croatia",
       "homeFlag": "eng",
       "awayFlag": "cro",
       "kickoff": "2026-06-17T20:00:00.000Z",
@@ -242,9 +242,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "55.6%",
-          "draw": "24.9%",
-          "und": "19.5%"
+          "fav": "40.0%",
+          "draw": "42.7%",
+          "und": "17.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -270,9 +270,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "32.5%",
-          "draw": "45.0%",
-          "und": "22.5%"
+          "fav": "43.4%",
+          "draw": "28.1%",
+          "und": "28.5%"
         },
         {
           "source": "ELO/Poisson Model",
