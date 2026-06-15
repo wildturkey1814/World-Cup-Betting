@@ -1,26 +1,58 @@
+name: Download Player Headshots
+
+on:
+  workflow_dispatch: # Allows you to trigger this manually from the Actions tab
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Network Dependencies
+        run: pip install requests
+
+      - name: Download headshots via Python
+        run: |
+          python3 << 'PYEOF'
+          import os
+          import requests
+
+          os.makedirs("assets/headshots", exist_ok=True)
+          BASE = "https://a.espncdn.com/i/headshots/soccer/players/full/"
+          
+          # Star player registry mapping filenames to active ESPN player IDs
           players = {
+              "l-messi.jpg": "11119.png",
+              "c-ronaldo.jpg": "5226.png",
               "k-mbappe.jpg": "231388.png",
               "j-bellingham.jpg": "291281.png",
               "vinicius-jr.jpg": "252107.png",
               "v-van-dijk.jpg": "157892.png",
-              "j-musiala.jpg": "4397459.png",      # Updated Active ID
-              "a-hakimi.jpg": "406612.png",        # Updated Active ID
+              "j-musiala.jpg": "4397459.png",
+              "a-hakimi.jpg": "406612.png",
               "c-pulisic.jpg": "225607.png",
               "l-lozano.jpg": "206563.png",
-              "a-davies.jpg": "406653.png",        # Updated Active ID
+              "a-davies.jpg": "406653.png",
               "l-diaz.jpg": "275014.png",
               "l-modric.jpg": "45843.png",
               "g-xhaka.jpg": "149981.png",
               "s-mane.jpg": "156080.png",
               "son-heung-min.jpg": "149945.png",
-              "e-haaland.jpg": "3910604.png",      # Updated Active ID
+              "e-haaland.jpg": "3910604.png",
               "h-calhanoglu.jpg": "194513.png",
               "k-de-bruyne.jpg": "134947.png",
               "d-alaba.jpg": "149303.png",
               "a-robertson.jpg": "193571.png",
-              "t-mitoma.jpg": "4430841.png",       # Updated Active ID
-              "d-nunez.jpg": "4231682.png",        # Updated Active ID
-              "e-valencia.jpg": "74895.png",
-              "l-yamal.jpg": "5174092.png",        # Updated Active ID
-              "pedri.jpg": "4329241.png"           # Updated Active ID
-          }
+              "t-mitoma.jpg": "4430841.png",
+              "d-nunez.jpg": "4231682.png",
+              "e-valencia
