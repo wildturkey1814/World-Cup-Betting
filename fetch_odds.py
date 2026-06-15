@@ -20,7 +20,6 @@ import re
 from datetime import datetime, timezone, timedelta
 
 import requests
-from requests import Session
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -56,98 +55,79 @@ MATCH_DURATION_MIN  = 110
 COOLDOWN_MIN        = 90
 
 # ── Player headshot registry ───────────────────────────────────────────────
-# URLs are complete, pre-encoded Wikimedia thumb URLs.
-# We use Session.send(prepared) to bypass requests' URL re-encoding.
+# Direct Wikimedia thumb URLs — single-encoded, no processing needed.
+# Key = local filename slug, Value = full URL
 
-HEADSHOT_REGISTRY = {
-    "Argentina":    ("L. Messi",       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg"),
-    "France":       ("K. Mbappe",      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kylian_Mbapp%C3%A9_2019.jpg/400px-Kylian_Mbapp%C3%A9_2019.jpg"),
-    "England":      ("J. Bellingham",  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jude_Bellingham_2022_%28cropped%29.jpg/400px-Jude_Bellingham_2022_%28cropped%29.jpg"),
-    "Brazil":       ("Vinicius Jr.",   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vinicius_Junior_2022_FIFA_World_Cup.jpg/400px-Vinicius_Junior_2022_FIFA_World_Cup.jpg"),
-    "Spain":        ("Pedri",          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pedri_2021_%28cropped%29.jpg/400px-Pedri_2021_%28cropped%29.jpg"),
-    "Portugal":     ("C. Ronaldo",     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/400px-Cristiano_Ronaldo_2018.jpg"),
-    "Netherlands":  ("V. van Dijk",    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Germany":      ("J. Musiala",     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Morocco":      ("A. Hakimi",      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Achraf_Hakimi_2022_FIFA_World_Cup.jpg/400px-Achraf_Hakimi_2022_FIFA_World_Cup.jpg"),
-    "Japan":        ("T. Mitoma",      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "United States":("C. Pulisic",     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Christian_Pulisic_2019_%28cropped%29.jpg/400px-Christian_Pulisic_2019_%28cropped%29.jpg"),
-    "Mexico":       ("H. Lozano",      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hirving_Lozano_2018.jpg/400px-Hirving_Lozano_2018.jpg"),
-    "Canada":       ("A. Davies",      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Uruguay":      ("D. Nunez",       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Colombia":     ("L. Diaz",        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Croatia":      ("L. Modric",      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Switzerland":  ("G. Xhaka",       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Senegal":      ("S. Mane",        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sadio_Man%C3%A9_2019_%28cropped%29.jpg/400px-Sadio_Man%C3%A9_2019_%28cropped%29.jpg"),
-    "South Korea":  ("Son Heung-min",  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Norway":       ("E. Haaland",     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Erling_Haaland_2023.jpg/400px-Erling_Haaland_2023.jpg"),
-    "Australia":    ("M. Leckie",      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Ecuador":      ("E. Valencia",    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Turkey":       ("H. Calhanoglu",  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hakan_Calhanoglu_2021.jpg/400px-Hakan_Calhanoglu_2021.jpg"),
-    "Belgium":      ("K. De Bruyne",   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg"),
-    "Austria":      ("D. Alaba",       "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/David_Alaba_2021.jpg/400px-David_Alaba_2021.jpg"),
-    "Scotland":     ("A. Robertson",   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Andrew_Robertson_2022_%28cropped%29.jpg/400px-Andrew_Robertson_2022_%28cropped%29.jpg"),
+PLAYER_DOWNLOAD_REGISTRY = {
+    "l-messi":       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+    "k-mbappe":      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kylian_Mbapp%C3%A9_2022.jpg/400px-Kylian_Mbapp%C3%A9_2022.jpg",
+    "j-bellingham":  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jude_Bellingham_2022_%28cropped%29.jpg/400px-Jude_Bellingham_2022_%28cropped%29.jpg",
+    "vinicius-jr":   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vinicius_Junior_2022_FIFA_World_Cup.jpg/400px-Vinicius_Junior_2022_FIFA_World_Cup.jpg",
+    "pedri":         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pedri_2021_%28cropped%29.jpg/400px-Pedri_2021_%28cropped%29.jpg",
+    "c-ronaldo":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/400px-Cristiano_Ronaldo_2018.jpg",
+    "v-van-dijk":    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "j-musiala":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "a-hakimi":      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Achraf_Hakimi_2022_FIFA_World_Cup.jpg/400px-Achraf_Hakimi_2022_FIFA_World_Cup.jpg",
+    "t-mitoma":      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "c-pulisic":     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Christian_Pulisic_2019_%28cropped%29.jpg/400px-Christian_Pulisic_2019_%28cropped%29.jpg",
+    "h-lozano":      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hirving_Lozano_2018.jpg/400px-Hirving_Lozano_2018.jpg",
+    "a-davies":      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "d-nunez":       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "l-diaz":        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "l-modric":      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "g-xhaka":       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "s-mane":        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sadio_Man%C3%A9_2019_%28cropped%29.jpg/400px-Sadio_Man%C3%A9_2019_%28cropped%29.jpg",
+    "son-heung-min": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "e-haaland":     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Erling_Haaland_2023.jpg/400px-Erling_Haaland_2023.jpg",
+    "m-leckie":      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "e-valencia":    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "h-calhanoglu":  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hakan_Calhanoglu_2021.jpg/400px-Hakan_Calhanoglu_2021.jpg",
+    "k-de-bruyne":   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg",
+    "d-alaba":       "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/David_Alaba_2021.jpg/400px-David_Alaba_2021.jpg",
+    "a-robertson":   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Andrew_Robertson_2022_%28cropped%29.jpg/400px-Andrew_Robertson_2022_%28cropped%29.jpg",
 }
-
-def slugify(text):
-    """Convert player name to safe filename: 'L. Messi' -> 'l-messi'"""
-    text = text.lower()
-    text = re.sub(r'[^a-z0-9]+', '-', text).strip('-')
-    return text
-
-def fetch_url_exact(url, headers, timeout=15):
-    """
-    Fetch a URL without letting requests re-encode it.
-    Uses PreparedRequest so the URL is sent exactly as provided.
-    """
-    session = Session()
-    req = requests.Request('GET', url, headers=headers)
-    prepared = req.prepare()
-    prepared.url = url  # override — prevents requests encoding % sequences again
-    return session.send(prepared, timeout=timeout, allow_redirects=True)
 
 def download_headshots():
     """
-    Download all player headshots from Wikimedia Commons to assets/headshots/.
+    Download all player headshots to assets/headshots/.
+    Uses slug as filename directly — no slugify needed.
     Skips files that already exist (idempotent).
-    Uses PreparedRequest to preserve pre-encoded % sequences in URLs.
     """
     target_dir = "assets/headshots"
     os.makedirs(target_dir, exist_ok=True)
 
     headers = {
-        'User-Agent': 'WorldCupDashboard/1.0 (https://github.com/wildturkey1814/World-Cup-Betting; educational non-commercial use) python-requests/2.31'
+        'User-Agent': 'WorldCupPredictionTracker/1.0 (educational dashboard; contact: wildturkey1814@github)'
     }
 
     downloaded = 0
     skipped = 0
     failed = 0
 
-    for country, (player_name, url) in HEADSHOT_REGISTRY.items():
-        filename = slugify(player_name) + ".jpg"
-        filepath = os.path.join(target_dir, filename)
+    for slug, url in PLAYER_DOWNLOAD_REGISTRY.items():
+        filepath = os.path.join(target_dir, slug + ".jpg")
 
         if os.path.exists(filepath) and os.path.getsize(filepath) > 1000:
             skipped += 1
             continue
 
         try:
-            resp = fetch_url_exact(url, headers=headers)
+            resp = requests.get(url, headers=headers, timeout=15)
             if resp.status_code == 200 and len(resp.content) > 1000:
                 with open(filepath, 'wb') as f:
                     f.write(resp.content)
-                log.info("Downloaded: %s (%s)", player_name, country)
+                log.info("Downloaded: %s", slug)
                 downloaded += 1
             else:
-                log.warning("Failed %s: HTTP %d — %s", player_name, resp.status_code, url)
+                log.warning("Failed %s: HTTP %d", slug, resp.status_code)
                 failed += 1
         except Exception as e:
-            log.warning("Error downloading %s: %s", player_name, e)
+            log.warning("Error %s: %s", slug, e)
             failed += 1
 
         time.sleep(0.5)
 
-    log.info("Headshots: %d downloaded, %d skipped (cached), %d failed.",
-             downloaded, skipped, failed)
+    log.info("Headshots: %d downloaded, %d skipped, %d failed.", downloaded, skipped, failed)
 
 
 # ── Schedule ───────────────────────────────────────────────────────────────
