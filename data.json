@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 3:05 AM UTC",
+  "lastUpdated": "June 15, 2026 · 3:52 PM UTC",
   "matches": [
     {
       "id": "match_id1000001666456994",
@@ -11,7 +11,6 @@
       "home": "Spain",
       "away": "Cape Verde",
       "favTeam": "Spain",
-      "undTeam": "Cape Verde",
       "homeFlag": "esp",
       "awayFlag": "cpv",
       "kickoff": "2026-06-15T16:00:00.000Z",
@@ -19,9 +18,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "88.3%",
-          "draw": "7.7%",
-          "und": "4.0%"
+          "fav": "72.7%",
+          "draw": "21.3%",
+          "und": "6.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -40,7 +39,6 @@
       "home": "Belgium",
       "away": "Egypt",
       "favTeam": "Egypt",
-      "undTeam": "Belgium",
       "homeFlag": "bel",
       "awayFlag": "egy",
       "kickoff": "2026-06-15T19:00:00.000Z",
@@ -48,9 +46,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "44.3%",
-          "draw": "40.4%",
-          "und": "15.3%"
+          "fav": "44.4%",
+          "draw": "40.5%",
+          "und": "15.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -69,7 +67,6 @@
       "home": "Saudi Arabia",
       "away": "Uruguay",
       "favTeam": "Uruguay",
-      "undTeam": "Saudi Arabia",
       "homeFlag": "ksa",
       "awayFlag": "uru",
       "kickoff": "2026-06-15T22:00:00.000Z",
@@ -77,9 +74,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "12.7%",
-          "draw": "22.3%",
-          "und": "64.9%"
+          "fav": "11.2%",
+          "draw": "39.6%",
+          "und": "49.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -98,7 +95,6 @@
       "home": "Iran",
       "away": "New Zealand",
       "favTeam": "New Zealand",
-      "undTeam": "Iran",
       "homeFlag": "irn",
       "awayFlag": "nzl",
       "kickoff": "2026-06-16T01:00:00.000Z",
@@ -106,9 +102,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "49.5%",
-          "draw": "28.3%",
-          "und": "22.1%"
+          "fav": "38.9%",
+          "draw": "45.1%",
+          "und": "16.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -126,8 +122,7 @@
       "type": "UPCOMING",
       "home": "France",
       "away": "Senegal",
-      "favTeam": "Senegal",
-      "undTeam": "France",
+      "favTeam": "France",
       "homeFlag": "fra",
       "awayFlag": "sen",
       "kickoff": "2026-06-16T19:00:00.000Z",
@@ -135,8 +130,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "47.9%",
-          "draw": "38.9%",
+          "fav": "65.5%",
+          "draw": "21.3%",
           "und": "13.2%"
         },
         {
@@ -156,7 +151,6 @@
       "home": "Iraq",
       "away": "Norway",
       "favTeam": "Norway",
-      "undTeam": "Iraq",
       "homeFlag": "irq",
       "awayFlag": "nor",
       "kickoff": "2026-06-16T22:00:00.000Z",
@@ -164,9 +158,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "8.0%",
-          "draw": "31.7%",
-          "und": "60.4%"
+          "fav": "7.9%",
+          "draw": "31.5%",
+          "und": "60.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -185,7 +179,6 @@
       "home": "Argentina",
       "away": "Algeria",
       "favTeam": "Argentina",
-      "undTeam": "Algeria",
       "homeFlag": "arg",
       "awayFlag": "alg",
       "kickoff": "2026-06-17T01:00:00.000Z",
@@ -193,9 +186,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "68.6%",
-          "draw": "21.1%",
-          "und": "10.3%"
+          "fav": "68.2%",
+          "draw": "21.3%",
+          "und": "10.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -214,7 +207,6 @@
       "home": "Austria",
       "away": "Jordan",
       "favTeam": "Austria",
-      "undTeam": "Jordan",
       "homeFlag": "aut",
       "awayFlag": "jor",
       "kickoff": "2026-06-17T04:00:00.000Z",
@@ -222,9 +214,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "71.9%",
-          "draw": "17.7%",
-          "und": "10.5%"
+          "fav": "71.0%",
+          "draw": "17.9%",
+          "und": "11.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -243,7 +235,6 @@
       "home": "Portugal",
       "away": "DR Congo",
       "favTeam": "Portugal",
-      "undTeam": "DR Congo",
       "homeFlag": "por",
       "awayFlag": "cod",
       "kickoff": "2026-06-17T17:00:00.000Z",
@@ -251,9 +242,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "74.8%",
-          "draw": "16.7%",
-          "und": "8.5%"
+          "fav": "56.1%",
+          "draw": "34.4%",
+          "und": "9.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -271,8 +262,7 @@
       "type": "UPCOMING",
       "home": "England",
       "away": "Croatia",
-      "favTeam": "England",
-      "undTeam": "Croatia",
+      "favTeam": "Croatia",
       "homeFlag": "eng",
       "awayFlag": "cro",
       "kickoff": "2026-06-17T20:00:00.000Z",
@@ -280,9 +270,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "55.8%",
-          "draw": "24.8%",
-          "und": "19.4%"
+          "fav": "39.4%",
+          "draw": "43.6%",
+          "und": "17.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -301,7 +291,6 @@
       "home": "Ghana",
       "away": "Panama",
       "favTeam": "Panama",
-      "undTeam": "Ghana",
       "homeFlag": "gha",
       "awayFlag": "pan",
       "kickoff": "2026-06-17T23:00:00.000Z",
@@ -309,9 +298,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "44.0%",
-          "draw": "27.9%",
-          "und": "28.2%"
+          "fav": "43.4%",
+          "draw": "28.1%",
+          "und": "28.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -330,7 +319,6 @@
       "home": "Uzbekistan",
       "away": "Colombia",
       "favTeam": "Colombia",
-      "undTeam": "Uzbekistan",
       "homeFlag": "uzb",
       "awayFlag": "col",
       "kickoff": "2026-06-18T02:00:00.000Z",
@@ -338,9 +326,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "10.4%",
-          "draw": "20.2%",
-          "und": "69.4%"
+          "fav": "10.7%",
+          "draw": "38.1%",
+          "und": "51.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -359,7 +347,6 @@
       "home": "Czechia",
       "away": "South Africa",
       "favTeam": "Czechia",
-      "undTeam": "South Africa",
       "homeFlag": "cze",
       "awayFlag": "rsa",
       "kickoff": "2026-06-18T16:00:00.000Z",
@@ -367,9 +354,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "54.0%",
-          "draw": "25.1%",
-          "und": "20.9%"
+          "fav": "54.4%",
+          "draw": "24.9%",
+          "und": "20.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -387,8 +374,7 @@
       "type": "UPCOMING",
       "home": "Switzerland",
       "away": "Bosnia & Herzegovina",
-      "favTeam": "Switzerland",
-      "undTeam": "Bosnia & Herzegovina",
+      "favTeam": "Bosnia & Herzegovina",
       "homeFlag": "sui",
       "awayFlag": "bih",
       "kickoff": "2026-06-18T19:00:00.000Z",
@@ -396,9 +382,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "60.3%",
-          "draw": "23.0%",
-          "und": "16.8%"
+          "fav": "44.4%",
+          "draw": "41.2%",
+          "und": "14.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -417,7 +403,6 @@
       "home": "Canada",
       "away": "Qatar",
       "favTeam": "Canada",
-      "undTeam": "Qatar",
       "homeFlag": "can",
       "awayFlag": "qat",
       "kickoff": "2026-06-18T22:00:00.000Z",
@@ -425,9 +410,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "55.6%",
-          "draw": "35.5%",
-          "und": "8.9%"
+          "fav": "56.4%",
+          "draw": "34.8%",
+          "und": "8.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -446,7 +431,6 @@
       "home": "Mexico",
       "away": "South Korea",
       "favTeam": "South Korea",
-      "undTeam": "Mexico",
       "homeFlag": "mex",
       "awayFlag": "kor",
       "kickoff": "2026-06-19T01:00:00.000Z",
@@ -454,9 +438,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "34.7%",
-          "draw": "46.2%",
-          "und": "19.1%"
+          "fav": "48.6%",
+          "draw": "28.4%",
+          "und": "23.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -475,7 +459,6 @@
       "home": "United States",
       "away": "Australia",
       "favTeam": "Australia",
-      "undTeam": "United States",
       "homeFlag": "usa",
       "awayFlag": "aus",
       "kickoff": "2026-06-19T19:00:00.000Z",
@@ -483,9 +466,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "43.3%",
-          "draw": "40.9%",
-          "und": "15.9%"
+          "fav": "44.2%",
+          "draw": "40.5%",
+          "und": "15.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -504,7 +487,6 @@
       "home": "Scotland",
       "away": "Morocco",
       "favTeam": "Morocco",
-      "undTeam": "Scotland",
       "homeFlag": "sco",
       "awayFlag": "mar",
       "kickoff": "2026-06-19T22:00:00.000Z",
@@ -512,9 +494,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "16.7%",
-          "draw": "43.6%",
-          "und": "39.6%"
+          "fav": "16.6%",
+          "draw": "43.9%",
+          "und": "39.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -533,7 +515,6 @@
       "home": "Brazil",
       "away": "Haiti",
       "favTeam": "Brazil",
-      "undTeam": "Haiti",
       "homeFlag": "bra",
       "awayFlag": "hai",
       "kickoff": "2026-06-20T00:30:00.000Z",
@@ -541,9 +522,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "87.5%",
-          "draw": "8.1%",
-          "und": "4.4%"
+          "fav": "68.5%",
+          "draw": "25.4%",
+          "und": "6.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -562,7 +543,6 @@
       "home": "Turkey",
       "away": "Paraguay",
       "favTeam": "Paraguay",
-      "undTeam": "Turkey",
       "homeFlag": "tur",
       "awayFlag": "pry",
       "kickoff": "2026-06-20T03:00:00.000Z",
@@ -570,9 +550,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.0%",
-          "draw": "43.9%",
-          "und": "21.1%"
+          "fav": "47.6%",
+          "draw": "28.1%",
+          "und": "24.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -591,7 +571,6 @@
       "home": "Netherlands",
       "away": "Sweden",
       "favTeam": "Netherlands",
-      "undTeam": "Sweden",
       "homeFlag": "ned",
       "awayFlag": "swe",
       "kickoff": "2026-06-20T17:00:00.000Z",
@@ -599,9 +578,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "57.4%",
-          "draw": "23.4%",
-          "und": "19.2%"
+          "fav": "56.3%",
+          "draw": "23.5%",
+          "und": "20.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -619,8 +598,7 @@
       "type": "UPCOMING",
       "home": "Germany",
       "away": "Ivory Coast",
-      "favTeam": "Ivory Coast",
-      "undTeam": "Germany",
+      "favTeam": "Germany",
       "homeFlag": "ger",
       "awayFlag": "civ",
       "kickoff": "2026-06-20T20:00:00.000Z",
@@ -628,9 +606,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "45.0%",
-          "draw": "38.1%",
-          "und": "16.9%"
+          "fav": "62.7%",
+          "draw": "20.5%",
+          "und": "16.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -649,7 +627,6 @@
       "home": "Ecuador",
       "away": "Curacao",
       "favTeam": "Ecuador",
-      "undTeam": "Curacao",
       "homeFlag": "ecu",
       "awayFlag": "cuw",
       "kickoff": "2026-06-21T00:00:00.000Z",
@@ -657,9 +634,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "65.8%",
-          "draw": "28.1%",
-          "und": "6.0%"
+          "fav": "87.3%",
+          "draw": "8.9%",
+          "und": "3.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -678,7 +655,6 @@
       "home": "Tunisia",
       "away": "Japan",
       "favTeam": "Japan",
-      "undTeam": "Tunisia",
       "homeFlag": "tun",
       "awayFlag": "jpn",
       "kickoff": "2026-06-21T04:00:00.000Z",
@@ -686,9 +662,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "15.8%",
-          "draw": "24.8%",
-          "und": "59.4%"
+          "fav": "14.2%",
+          "draw": "23.1%",
+          "und": "62.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -707,7 +683,6 @@
       "home": "Spain",
       "away": "Saudi Arabia",
       "favTeam": "Spain",
-      "undTeam": "Saudi Arabia",
       "homeFlag": "esp",
       "awayFlag": "ksa",
       "kickoff": "2026-06-21T16:00:00.000Z",
@@ -715,9 +690,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "86.2%",
-          "draw": "9.3%",
-          "und": "4.5%"
+          "fav": "86.4%",
+          "draw": "9.1%",
+          "und": "4.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -736,7 +711,6 @@
       "home": "Belgium",
       "away": "Iran",
       "favTeam": "Belgium",
-      "undTeam": "Iran",
       "homeFlag": "bel",
       "awayFlag": "irn",
       "kickoff": "2026-06-21T19:00:00.000Z",
@@ -744,7 +718,7 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "50.9%",
+          "fav": "51.0%",
           "draw": "37.2%",
           "und": "11.8%"
         },
@@ -764,8 +738,7 @@
       "type": "UPCOMING",
       "home": "Uruguay",
       "away": "Cape Verde",
-      "favTeam": "Cape Verde",
-      "undTeam": "Uruguay",
+      "favTeam": "Uruguay",
       "homeFlag": "uru",
       "awayFlag": "cpv",
       "kickoff": "2026-06-21T22:00:00.000Z",
@@ -773,9 +746,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "48.6%",
-          "draw": "38.5%",
-          "und": "12.9%"
+          "fav": "66.6%",
+          "draw": "20.8%",
+          "und": "12.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -794,7 +767,6 @@
       "home": "New Zealand",
       "away": "Egypt",
       "favTeam": "Egypt",
-      "undTeam": "New Zealand",
       "homeFlag": "nzl",
       "awayFlag": "egy",
       "kickoff": "2026-06-22T01:00:00.000Z",
@@ -823,7 +795,6 @@
       "home": "Argentina",
       "away": "Austria",
       "favTeam": "Austria",
-      "undTeam": "Argentina",
       "homeFlag": "arg",
       "awayFlag": "aut",
       "kickoff": "2026-06-22T17:00:00.000Z",
@@ -852,7 +823,6 @@
       "home": "France",
       "away": "Iraq",
       "favTeam": "France",
-      "undTeam": "Iraq",
       "homeFlag": "fra",
       "awayFlag": "irq",
       "kickoff": "2026-06-22T21:00:00.000Z",
@@ -860,9 +830,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "68.7%",
-          "draw": "26.1%",
-          "und": "5.2%"
+          "fav": "84.8%",
+          "draw": "11.4%",
+          "und": "3.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -881,7 +851,6 @@
       "home": "Norway",
       "away": "Senegal",
       "favTeam": "Senegal",
-      "undTeam": "Norway",
       "homeFlag": "nor",
       "awayFlag": "sen",
       "kickoff": "2026-06-23T00:00:00.000Z",
@@ -889,8 +858,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "45.7%",
-          "draw": "26.5%",
+          "fav": "45.5%",
+          "draw": "26.6%",
           "und": "27.9%"
         },
         {
@@ -910,7 +879,6 @@
       "home": "Jordan",
       "away": "Algeria",
       "favTeam": "Algeria",
-      "undTeam": "Jordan",
       "homeFlag": "jor",
       "awayFlag": "alg",
       "kickoff": "2026-06-23T03:00:00.000Z",
@@ -939,7 +907,6 @@
       "home": "Portugal",
       "away": "Uzbekistan",
       "favTeam": "Portugal",
-      "undTeam": "Uzbekistan",
       "homeFlag": "por",
       "awayFlag": "uzb",
       "kickoff": "2026-06-23T17:00:00.000Z",
@@ -947,9 +914,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "59.4%",
-          "draw": "32.1%",
-          "und": "8.5%"
+          "fav": "77.2%",
+          "draw": "14.7%",
+          "und": "8.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -968,7 +935,6 @@
       "home": "England",
       "away": "Ghana",
       "favTeam": "England",
-      "undTeam": "Ghana",
       "homeFlag": "eng",
       "awayFlag": "gha",
       "kickoff": "2026-06-23T20:00:00.000Z",
@@ -976,9 +942,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "52.4%",
-          "draw": "36.2%",
-          "und": "11.4%"
+          "fav": "72.1%",
+          "draw": "17.5%",
+          "und": "10.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -997,7 +963,6 @@
       "home": "Panama",
       "away": "Croatia",
       "favTeam": "Croatia",
-      "undTeam": "Panama",
       "homeFlag": "pan",
       "awayFlag": "cro",
       "kickoff": "2026-06-23T23:00:00.000Z",
@@ -1005,9 +970,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.6%",
-          "draw": "25.0%",
-          "und": "60.4%"
+          "fav": "15.2%",
+          "draw": "25.5%",
+          "und": "59.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1026,7 +991,6 @@
       "home": "Colombia",
       "away": "DR Congo",
       "favTeam": "DR Congo",
-      "undTeam": "Colombia",
       "homeFlag": "col",
       "awayFlag": "cod",
       "kickoff": "2026-06-24T02:00:00.000Z",
@@ -1055,7 +1019,6 @@
       "home": "Switzerland",
       "away": "Canada",
       "favTeam": "Canada",
-      "undTeam": "Switzerland",
       "homeFlag": "sui",
       "awayFlag": "can",
       "kickoff": "2026-06-24T19:00:00.000Z",
@@ -1084,7 +1047,6 @@
       "home": "Bosnia & Herzegovina",
       "away": "Qatar",
       "favTeam": "Qatar",
-      "undTeam": "Bosnia & Herzegovina",
       "homeFlag": "bih",
       "awayFlag": "qat",
       "kickoff": "2026-06-24T19:00:00.000Z",
@@ -1113,7 +1075,6 @@
       "home": "Morocco",
       "away": "Haiti",
       "favTeam": "Morocco",
-      "undTeam": "Haiti",
       "homeFlag": "mar",
       "awayFlag": "hai",
       "kickoff": "2026-06-24T22:00:00.000Z",
@@ -1121,9 +1082,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "71.8%",
-          "draw": "18.0%",
-          "und": "10.2%"
+          "fav": "73.0%",
+          "draw": "17.3%",
+          "und": "9.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1142,7 +1103,6 @@
       "home": "Scotland",
       "away": "Brazil",
       "favTeam": "Brazil",
-      "undTeam": "Scotland",
       "homeFlag": "sco",
       "awayFlag": "bra",
       "kickoff": "2026-06-24T22:00:00.000Z",
@@ -1150,9 +1110,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "13.3%",
-          "draw": "38.2%",
-          "und": "48.4%"
+          "fav": "16.3%",
+          "draw": "18.9%",
+          "und": "64.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1171,7 +1131,6 @@
       "home": "South Africa",
       "away": "South Korea",
       "favTeam": "South Korea",
-      "undTeam": "South Africa",
       "homeFlag": "rsa",
       "awayFlag": "kor",
       "kickoff": "2026-06-25T01:00:00.000Z",
@@ -1179,9 +1138,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "15.7%",
-          "draw": "41.2%",
-          "und": "43.1%"
+          "fav": "15.2%",
+          "draw": "40.9%",
+          "und": "43.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1200,7 +1159,6 @@
       "home": "Czechia",
       "away": "Mexico",
       "favTeam": "Mexico",
-      "undTeam": "Czechia",
       "homeFlag": "cze",
       "awayFlag": "mex",
       "kickoff": "2026-06-25T01:00:00.000Z",
@@ -1229,7 +1187,6 @@
       "home": "Ecuador",
       "away": "Germany",
       "favTeam": "Germany",
-      "undTeam": "Ecuador",
       "homeFlag": "ecu",
       "awayFlag": "ger",
       "kickoff": "2026-06-25T20:00:00.000Z",
@@ -1237,9 +1194,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "20.8%",
-          "draw": "25.4%",
-          "und": "53.8%"
+          "fav": "20.9%",
+          "draw": "25.6%",
+          "und": "53.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1258,7 +1215,6 @@
       "home": "Curacao",
       "away": "Ivory Coast",
       "favTeam": "Ivory Coast",
-      "undTeam": "Curacao",
       "homeFlag": "cuw",
       "awayFlag": "civ",
       "kickoff": "2026-06-25T20:00:00.000Z",
@@ -1266,9 +1222,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.2%",
-          "draw": "30.9%",
-          "und": "61.9%"
+          "fav": "7.0%",
+          "draw": "29.8%",
+          "und": "63.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1287,7 +1243,6 @@
       "home": "Tunisia",
       "away": "Netherlands",
       "favTeam": "Netherlands",
-      "undTeam": "Tunisia",
       "homeFlag": "tun",
       "awayFlag": "ned",
       "kickoff": "2026-06-25T23:00:00.000Z",
@@ -1295,9 +1250,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "13.5%",
-          "draw": "37.9%",
-          "und": "48.6%"
+          "fav": "11.3%",
+          "draw": "34.6%",
+          "und": "54.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1316,7 +1271,6 @@
       "home": "Japan",
       "away": "Sweden",
       "favTeam": "Sweden",
-      "undTeam": "Japan",
       "homeFlag": "jpn",
       "awayFlag": "swe",
       "kickoff": "2026-06-25T23:00:00.000Z",
@@ -1324,9 +1278,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "33.5%",
+          "fav": "32.1%",
           "draw": "43.0%",
-          "und": "23.5%"
+          "und": "24.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1345,7 +1299,6 @@
       "home": "Paraguay",
       "away": "Australia",
       "favTeam": "Australia",
-      "undTeam": "Paraguay",
       "homeFlag": "pry",
       "awayFlag": "aus",
       "kickoff": "2026-06-26T02:00:00.000Z",
@@ -1353,9 +1306,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "45.3%",
-          "draw": "28.1%",
-          "und": "26.6%"
+          "fav": "33.2%",
+          "draw": "44.8%",
+          "und": "22.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1374,7 +1327,6 @@
       "home": "Turkey",
       "away": "United States",
       "favTeam": "United States",
-      "undTeam": "Turkey",
       "homeFlag": "tur",
       "awayFlag": "usa",
       "kickoff": "2026-06-26T02:00:00.000Z",
@@ -1403,7 +1355,6 @@
       "home": "Norway",
       "away": "France",
       "favTeam": "France",
-      "undTeam": "Norway",
       "homeFlag": "nor",
       "awayFlag": "fra",
       "kickoff": "2026-06-26T19:00:00.000Z",
@@ -1432,7 +1383,6 @@
       "home": "Senegal",
       "away": "Iraq",
       "favTeam": "Senegal",
-      "undTeam": "Iraq",
       "homeFlag": "sen",
       "awayFlag": "irq",
       "kickoff": "2026-06-26T19:00:00.000Z",
@@ -1461,7 +1411,6 @@
       "home": "Cape Verde",
       "away": "Saudi Arabia",
       "favTeam": "Saudi Arabia",
-      "undTeam": "Cape Verde",
       "homeFlag": "cpv",
       "awayFlag": "ksa",
       "kickoff": "2026-06-27T00:00:00.000Z",
@@ -1469,9 +1418,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "39.1%",
-          "draw": "24.4%",
-          "und": "36.5%"
+          "fav": "28.4%",
+          "draw": "43.2%",
+          "und": "28.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1490,7 +1439,6 @@
       "home": "Uruguay",
       "away": "Spain",
       "favTeam": "Spain",
-      "undTeam": "Uruguay",
       "homeFlag": "uru",
       "awayFlag": "esp",
       "kickoff": "2026-06-27T00:00:00.000Z",
@@ -1519,7 +1467,6 @@
       "home": "Egypt",
       "away": "Iran",
       "favTeam": "Iran",
-      "undTeam": "Egypt",
       "homeFlag": "egy",
       "awayFlag": "irn",
       "kickoff": "2026-06-27T03:00:00.000Z",
@@ -1527,9 +1474,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "31.2%",
+          "fav": "31.4%",
           "draw": "47.5%",
-          "und": "21.3%"
+          "und": "21.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1548,7 +1495,6 @@
       "home": "New Zealand",
       "away": "Belgium",
       "favTeam": "Belgium",
-      "undTeam": "New Zealand",
       "homeFlag": "nzl",
       "awayFlag": "bel",
       "kickoff": "2026-06-27T03:00:00.000Z",
@@ -1577,7 +1523,6 @@
       "home": "Panama",
       "away": "England",
       "favTeam": "England",
-      "undTeam": "Panama",
       "homeFlag": "pan",
       "awayFlag": "eng",
       "kickoff": "2026-06-27T21:00:00.000Z",
@@ -1606,7 +1551,6 @@
       "home": "Croatia",
       "away": "Ghana",
       "favTeam": "Croatia",
-      "undTeam": "Ghana",
       "homeFlag": "cro",
       "awayFlag": "gha",
       "kickoff": "2026-06-27T21:00:00.000Z",
@@ -1635,7 +1579,6 @@
       "home": "Colombia",
       "away": "Portugal",
       "favTeam": "Portugal",
-      "undTeam": "Colombia",
       "homeFlag": "col",
       "awayFlag": "por",
       "kickoff": "2026-06-27T23:30:00.000Z",
@@ -1664,7 +1607,6 @@
       "home": "DR Congo",
       "away": "Uzbekistan",
       "favTeam": "Uzbekistan",
-      "undTeam": "DR Congo",
       "homeFlag": "cod",
       "awayFlag": "uzb",
       "kickoff": "2026-06-27T23:30:00.000Z",
@@ -1693,7 +1635,6 @@
       "home": "Algeria",
       "away": "Austria",
       "favTeam": "Austria",
-      "undTeam": "Algeria",
       "homeFlag": "alg",
       "awayFlag": "aut",
       "kickoff": "2026-06-28T02:00:00.000Z",
@@ -1722,7 +1663,6 @@
       "home": "Jordan",
       "away": "Argentina",
       "favTeam": "Argentina",
-      "undTeam": "Jordan",
       "homeFlag": "jor",
       "awayFlag": "arg",
       "kickoff": "2026-06-28T02:00:00.000Z",
