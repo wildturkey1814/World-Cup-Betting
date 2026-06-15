@@ -28,6 +28,9 @@ jobs:
      - name: Install dependencies
        run: pip install requests
 
+     - name: Repair corrupted data.json
+       run: python repair_data.py
+
      - name: Fetch live odds and update data.json
        env:
          ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
