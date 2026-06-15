@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 4:04 PM UTC",
+  "lastUpdated": "June 15, 2026 · 4:10 PM UTC",
   "matches": [
     {
       "id": "match_id1000001666456982",
@@ -10,7 +10,7 @@
       "type": "UPCOMING",
       "home": "Belgium",
       "away": "Egypt",
-      "favTeam": "Egypt",
+      "favTeam": "Belgium",
       "homeFlag": "bel",
       "awayFlag": "egy",
       "kickoff": "2026-06-15T19:00:00.000Z",
@@ -18,9 +18,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "44.4%",
-          "draw": "40.5%",
-          "und": "15.2%"
+          "fav": "60.3%",
+          "draw": "23.6%",
+          "und": "16.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -46,9 +46,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "11.2%",
-          "draw": "21.2%",
-          "und": "67.6%"
+          "fav": "11.3%",
+          "draw": "39.7%",
+          "und": "49.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -270,9 +270,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "32.5%",
-          "draw": "45.0%",
-          "und": "22.5%"
+          "fav": "43.4%",
+          "draw": "28.1%",
+          "und": "28.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -298,9 +298,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "10.7%",
-          "draw": "38.0%",
-          "und": "51.3%"
+          "fav": "10.1%",
+          "draw": "19.9%",
+          "und": "70.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -410,9 +410,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "34.4%",
-          "draw": "45.8%",
-          "und": "19.8%"
+          "fav": "47.9%",
+          "draw": "28.5%",
+          "und": "23.6%"
         },
         {
           "source": "ELO/Poisson Model",
