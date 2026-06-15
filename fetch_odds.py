@@ -58,6 +58,10 @@ COOLDOWN_MIN        = 90
 # Direct Wikimedia thumb URLs — single-encoded, no processing needed.
 # Key = local filename slug, Value = full URL
 
+# ── Player headshot registry ───────────────────────────────────────────────
+# Direct Wikimedia thumb URLs — single-encoded, clean paths.
+# Key = local filename slug, Value = full URL
+
 PLAYER_DOWNLOAD_REGISTRY = {
     "l-messi":       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
     "k-mbappe":      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kylian_Mbapp%C3%A9_2022.jpg/400px-Kylian_Mbapp%C3%A9_2022.jpg",
