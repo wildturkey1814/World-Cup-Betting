@@ -17,11 +17,10 @@ import logging
 import tempfile
 import shutil
 import re
-from urllib.parse import unquote
 from datetime import datetime, timezone, timedelta
-from typing import Optional
 
 import requests
+from requests import Session
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -57,37 +56,36 @@ MATCH_DURATION_MIN  = 110
 COOLDOWN_MIN        = 90
 
 # ── Player headshot registry ───────────────────────────────────────────────
-# Maps country → (display name, Wikimedia Commons thumb path)
-# Path is the portion after /wikipedia/commons/thumb/
-# Keep paths as plain strings — unquote() is applied before fetching.
+# URLs are complete, pre-encoded Wikimedia thumb URLs.
+# We use Session.send(prepared) to bypass requests' URL re-encoding.
 
 HEADSHOT_REGISTRY = {
-    "Argentina":    ("L. Messi",       "b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_(cropped).jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_(cropped).jpg"),
-    "France":       ("K. Mbappe",      "5/5f/Kylian_Mbappe_2019.jpg/400px-Kylian_Mbappe_2019.jpg"),
-    "England":      ("J. Bellingham",  "7/7d/Jude_Bellingham_2022_(cropped).jpg/400px-Jude_Bellingham_2022_(cropped).jpg"),
-    "Brazil":       ("Vinicius Jr.",   "9/9e/Vinicius_Junior_2022_FIFA_World_Cup.jpg/400px-Vinicius_Junior_2022_FIFA_World_Cup.jpg"),
-    "Spain":        ("Pedri",          "9/91/Pedri_2021_(cropped).jpg/400px-Pedri_2021_(cropped).jpg"),
-    "Portugal":     ("C. Ronaldo",     "8/8c/Cristiano_Ronaldo_2018.jpg/400px-Cristiano_Ronaldo_2018.jpg"),
-    "Netherlands":  ("V. van Dijk",    "a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_(cropped).jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Germany":      ("J. Musiala",     "8/86/Jamal_Musiala_2022_FIFA_World_Cup_(cropped).jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Morocco":      ("A. Hakimi",      "3/3c/Achraf_Hakimi_2022_FIFA_World_Cup.jpg/400px-Achraf_Hakimi_2022_FIFA_World_Cup.jpg"),
-    "Japan":        ("T. Mitoma",      "c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_(cropped).jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_(cropped).jpg"),
-    "United States":("C. Pulisic",     "e/e6/Christian_Pulisic_2019_(cropped).jpg/400px-Christian_Pulisic_2019_(cropped).jpg"),
-    "Mexico":       ("H. Lozano",      "0/0e/Hirving_Lozano_2018.jpg/400px-Hirving_Lozano_2018.jpg"),
-    "Canada":       ("A. Davies",      "3/3e/Alphonso_Davies_2022_FIFA_World_Cup_(cropped).jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Uruguay":      ("D. Nunez",       "2/2b/Darwin_Nunez_2022_FIFA_World_Cup_(cropped).jpg/400px-Darwin_Nunez_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Colombia":     ("L. Diaz",        "a/ac/Luis_Diaz_2022_FIFA_World_Cup_(cropped).jpg/400px-Luis_Diaz_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Croatia":      ("L. Modric",      "9/9e/Luka_Modric_2022_FIFA_World_Cup_(cropped).jpg/400px-Luka_Modric_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Switzerland":  ("G. Xhaka",       "c/c5/Granit_Xhaka_2022_FIFA_World_Cup_(cropped).jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Senegal":      ("S. Mane",        "a/a0/Sadio_Mane_2019_(cropped).jpg/400px-Sadio_Mane_2019_(cropped).jpg"),
-    "South Korea":  ("Son Heung-min",  "b/bf/Son_Heung-min_2022_FIFA_World_Cup_(cropped).jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Norway":       ("E. Haaland",     "1/17/Erling_Haaland_2023.jpg/400px-Erling_Haaland_2023.jpg"),
-    "Australia":    ("M. Leckie",      "0/0a/Mathew_Leckie_2022_FIFA_World_Cup_(cropped).jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Ecuador":      ("E. Valencia",    "d/d9/Enner_Valencia_2022_FIFA_World_Cup_(cropped).jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Turkey":       ("H. Calhanoglu",  "7/7e/Hakan_Calhanoglu_2021.jpg/400px-Hakan_Calhanoglu_2021.jpg"),
-    "Belgium":      ("K. De Bruyne",   "1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_(cropped).jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_(cropped).jpg"),
-    "Austria":      ("D. Alaba",       "5/5d/David_Alaba_2021.jpg/400px-David_Alaba_2021.jpg"),
-    "Scotland":     ("A. Robertson",   "3/38/Andrew_Robertson_2022_(cropped).jpg/400px-Andrew_Robertson_2022_(cropped).jpg"),
+    "Argentina":    ("L. Messi",       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/400px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg"),
+    "France":       ("K. Mbappe",      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kylian_Mbapp%C3%A9_2019.jpg/400px-Kylian_Mbapp%C3%A9_2019.jpg"),
+    "England":      ("J. Bellingham",  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jude_Bellingham_2022_%28cropped%29.jpg/400px-Jude_Bellingham_2022_%28cropped%29.jpg"),
+    "Brazil":       ("Vinicius Jr.",   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Vinicius_Junior_2022_FIFA_World_Cup.jpg/400px-Vinicius_Junior_2022_FIFA_World_Cup.jpg"),
+    "Spain":        ("Pedri",          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pedri_2021_%28cropped%29.jpg/400px-Pedri_2021_%28cropped%29.jpg"),
+    "Portugal":     ("C. Ronaldo",     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/400px-Cristiano_Ronaldo_2018.jpg"),
+    "Netherlands":  ("V. van Dijk",    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Virgil_van_Dijk_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Germany":      ("J. Musiala",     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Jamal_Musiala_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Morocco":      ("A. Hakimi",      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Achraf_Hakimi_2022_FIFA_World_Cup.jpg/400px-Achraf_Hakimi_2022_FIFA_World_Cup.jpg"),
+    "Japan":        ("T. Mitoma",      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kaoru_Mitoma_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "United States":("C. Pulisic",     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Christian_Pulisic_2019_%28cropped%29.jpg/400px-Christian_Pulisic_2019_%28cropped%29.jpg"),
+    "Mexico":       ("H. Lozano",      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hirving_Lozano_2018.jpg/400px-Hirving_Lozano_2018.jpg"),
+    "Canada":       ("A. Davies",      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Alphonso_Davies_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Uruguay":      ("D. Nunez",       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Darwin_N%C3%BA%C3%B1ez_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Colombia":     ("L. Diaz",        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luis_D%C3%ADaz_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Croatia":      ("L. Modric",      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Luka_Modric_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Switzerland":  ("G. Xhaka",       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Granit_Xhaka_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Senegal":      ("S. Mane",        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sadio_Man%C3%A9_2019_%28cropped%29.jpg/400px-Sadio_Man%C3%A9_2019_%28cropped%29.jpg"),
+    "South Korea":  ("Son Heung-min",  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Son_Heung-min_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Norway":       ("E. Haaland",     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Erling_Haaland_2023.jpg/400px-Erling_Haaland_2023.jpg"),
+    "Australia":    ("M. Leckie",      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Mathew_Leckie_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Ecuador":      ("E. Valencia",    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Enner_Valencia_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Turkey":       ("H. Calhanoglu",  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hakan_Calhanoglu_2021.jpg/400px-Hakan_Calhanoglu_2021.jpg"),
+    "Belgium":      ("K. De Bruyne",   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg/400px-Kevin_De_Bruyne_2022_FIFA_World_Cup_%28cropped%29.jpg"),
+    "Austria":      ("D. Alaba",       "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/David_Alaba_2021.jpg/400px-David_Alaba_2021.jpg"),
+    "Scotland":     ("A. Robertson",   "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Andrew_Robertson_2022_%28cropped%29.jpg/400px-Andrew_Robertson_2022_%28cropped%29.jpg"),
 }
 
 def slugify(text):
@@ -96,25 +94,35 @@ def slugify(text):
     text = re.sub(r'[^a-z0-9]+', '-', text).strip('-')
     return text
 
+def fetch_url_exact(url, headers, timeout=15):
+    """
+    Fetch a URL without letting requests re-encode it.
+    Uses PreparedRequest so the URL is sent exactly as provided.
+    """
+    session = Session()
+    req = requests.Request('GET', url, headers=headers)
+    prepared = req.prepare()
+    prepared.url = url  # override — prevents requests encoding % sequences again
+    return session.send(prepared, timeout=timeout, allow_redirects=True)
+
 def download_headshots():
     """
     Download all player headshots from Wikimedia Commons to assets/headshots/.
     Skips files that already exist (idempotent).
-    Uses unquote() on paths so %XX sequences don't get double-encoded by requests.
+    Uses PreparedRequest to preserve pre-encoded % sequences in URLs.
     """
     target_dir = "assets/headshots"
     os.makedirs(target_dir, exist_ok=True)
 
-    # Wikimedia requires a descriptive User-Agent with contact info
     headers = {
-        'User-Agent': 'WorldCupDashboard/1.0 (https://github.com/wildturkey1814/World-Cup-Betting; educational use) python-requests'
+        'User-Agent': 'WorldCupDashboard/1.0 (https://github.com/wildturkey1814/World-Cup-Betting; educational non-commercial use) python-requests/2.31'
     }
 
     downloaded = 0
     skipped = 0
     failed = 0
 
-    for country, (player_name, wiki_path) in HEADSHOT_REGISTRY.items():
+    for country, (player_name, url) in HEADSHOT_REGISTRY.items():
         filename = slugify(player_name) + ".jpg"
         filepath = os.path.join(target_dir, filename)
 
@@ -122,12 +130,8 @@ def download_headshots():
             skipped += 1
             continue
 
-        # unquote first so requests doesn't double-encode
-        clean_path = unquote(wiki_path)
-        url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{clean_path}"
-
         try:
-            resp = requests.get(url, headers=headers, timeout=15, allow_redirects=True)
+            resp = fetch_url_exact(url, headers=headers)
             if resp.status_code == 200 and len(resp.content) > 1000:
                 with open(filepath, 'wb') as f:
                     f.write(resp.content)
@@ -558,7 +562,6 @@ def main():
         log.error("No ODDSPAPI keys set.")
         raise SystemExit(1)
 
-    # Always attempt headshot downloads (skips existing files)
     log.info("Checking player headshots...")
     download_headshots()
 
