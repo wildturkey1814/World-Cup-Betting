@@ -1,54 +1,67 @@
-name: Update World Cup Odds
+name: Master World Cup Data Sync
 
 on:
- schedule:
-   - cron: "0 */6 * * *"
- workflow_dispatch:
-   inputs:
-     force_fetch:
-       description: "Force fetch regardless of schedule"
-       required: false
-       default: "0"
+  schedule:
+    # Triggers every 30 minutes to update Scores and Prediction Markets frequently
+    - cron: '*/30 10-23 * * *'
+    - cron: '*/30 0-2 * * *'
+  workflow_dispatch:
+    inputs:
+      pull_expensive_odds:
+        description: 'Set to 1 to force a live premium OddsPapi API call'
+        required: false
+        default: '0'
 
 jobs:
- fetch-and-commit:
-   runs-on: ubuntu-latest
-   concurrency:
-     group: update-odds
-     cancel-in-progress: false
-   steps:
-     - name: Check out repository
-       uses: actions/checkout@v4
+  sync-all-layers:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-     - name: Set up Python 3.11
-       uses: actions/setup-python@v5
-       with:
-         python-version: "3.11"
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
-     - name: Install dependencies
-       run: pip install requests
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-     - name: Repair corrupted data.json
-       run: python repair_data.py
+      - name: Install Network Dependencies
+        run: pip install requests cryptography
 
-     - name: Fetch live odds and update data.json
-       env:
-         ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
-         ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
-         ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
-         ODDSPAPI_KEY4: ${{ secrets.ODDSPAPI_KEY4 }}
-         ODDSPAPI_KEY5: ${{ secrets.ODDSPAPI_KEY5 }}
-         ODDSPAPI_KEY6: ${{ secrets.ODDSPAPI_KEY6 }}
-         FORCE_FETCH:   ${{ github.event.inputs.force_fetch || '0' }}
-       run: python fetch_odds.py
+      # ── LAYER 1: BASE SPORTSBOOK ODDS ──
+      # Uses your input flag or internal logic to skip premium calls unless necessary
+      - name: Process Sportsbook Base Odds
+        env:
+          FORCE_FETCH: ${{ github.event.inputs.pull_expensive_odds }}
+        run: python fetch_odds.py
 
-     - name: Clean SRL matches
-       run: python clean_data.py
+      # ── LAYER 2: REAL-TIME SCORES & RECOS ──
+      # Moves cards dynamically to completed states & handles Box Score flips
+      - name: Process Live Scores
+        run: python fetch_scores.py
 
-     - name: Commit updated data.json
-       run: |
-         git config user.name  "github-actions[bot]"
-         git config user.email "github-actions[bot]@users.noreply.github.com"
-         git add data.json assets/headshots/
-         git diff --staged --quiet || git commit -m "odds: update [$(date -u '+%Y-%m-%d %H:%M UTC')]"
-         git push
+      # ── LAYER 3: PREDICTION MARKETS ──
+      # Appends P2P market weights below consensus layers
+      - name: Process Kalshi Orderbooks
+        env:
+          KALSHI_API_KEY_ID:  ${{ secrets.KALSHI_API_KEY_ID }}
+          KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
+        run: python fetch_kalshi.py
+
+      - name: Process Polymarket Outrights
+        run: python fetch_polymarket.py
+
+      # ── ATOMIC WRITE COMMIT ──
+      - name: Commit Unified Dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No data adjustments found. Skipping push."
+          else
+            git commit -m "chore: automated master data sync update [skip ci]"
+            git push
+          fi
