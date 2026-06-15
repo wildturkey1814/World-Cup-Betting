@@ -16,27 +16,29 @@ jobs:
       - name: Download headshots from ESPN CDN
         run: |
           mkdir -p assets/headshots
+          BASE="https://a.espncdn.com/i/headshots/soccer/players/full"
 
-          get_espn() {
-            local filename="$1"
-            local espn_id="$2"
-            local filepath="assets/headshots/${filename}"
-
-            if [ -f "$filepath" ] && [ $(wc -c < "$filepath") -gt 5000 ]; then
-              echo "SKIP: $filename"
-              return
-            fi
-
-            local url="https://a.espncdn.com/i/headshots/soccer/players/full/${espn_id}.png"
-            curl -s -L -o "$filepath" "$url"
-            local size=$(wc -c < "$filepath")
-            if [ "$size" -gt 5000 ]; then
-              echo "OK: $filename ($size bytes)"
-            else
-              rm -f "$filepath"
-              echo "FAIL: $filename (ESPN id $espn_id)"
-            fi
-            sleep 0.2
-          }
-
-          get_espn "k-mbappe.jpg"      "231
+          curl -s -L -o assets/headshots/k-mbappe.jpg      "$BASE/231388.png"
+          curl -s -L -o assets/headshots/j-bellingham.jpg  "$BASE/291281.png"
+          curl -s -L -o assets/headshots/vinicius-jr.jpg   "$BASE/252107.png"
+          curl -s -L -o assets/headshots/v-van-dijk.jpg    "$BASE/157892.png"
+          curl -s -L -o assets/headshots/j-musiala.jpg     "$BASE/303821.png"
+          curl -s -L -o assets/headshots/a-hakimi.jpg      "$BASE/240233.png"
+          curl -s -L -o assets/headshots/c-pulisic.jpg     "$BASE/225607.png"
+          curl -s -L -o assets/headshots/h-lozano.jpg      "$BASE/206563.png"
+          curl -s -L -o assets/headshots/a-davies.jpg      "$BASE/284167.png"
+          curl -s -L -o assets/headshots/l-diaz.jpg        "$BASE/275014.png"
+          curl -s -L -o assets/headshots/l-modric.jpg      "$BASE/45843.png"
+          curl -s -L -o assets/headshots/g-xhaka.jpg       "$BASE/149981.png"
+          curl -s -L -o assets/headshots/s-mane.jpg        "$BASE/156080.png"
+          curl -s -L -o assets/headshots/son-heung-min.jpg "$BASE/149945.png"
+          curl -s -L -o assets/headshots/e-haaland.jpg     "$BASE/253989.png"
+          curl -s -L -o assets/headshots/h-calhanoglu.jpg  "$BASE/194513.png"
+          curl -s -L -o assets/headshots/k-de-bruyne.jpg   "$BASE/134947.png"
+          curl -s -L -o assets/headshots/d-alaba.jpg       "$BASE/149303.png"
+          curl -s -L -o assets/headshots/a-robertson.jpg   "$BASE/195371.png"
+          curl -s -L -o assets/headshots/t-mitoma.jpg      "$BASE/280006.png"
+          curl -s -L -o assets/headshots/d-nunez.jpg       "$BASE/272381.png"
+          curl -s -L -o assets/headshots/e-valencia.jpg    "$BASE/74895.png"
+          curl -s -L -o assets/headshots/l-yamal.jpg       "$BASE/362682.png"
+          curl -s -L -o assets/headshots
