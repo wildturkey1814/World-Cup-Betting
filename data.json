@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 15, 2026 · 4:46 PM UTC",
+  "lastUpdated": "June 15, 2026 · 4:48 PM UTC",
   "matches": [
     {
       "id": "match_id1000001666456982",
@@ -47,8 +47,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "11.2%",
-          "draw": "39.8%",
-          "und": "49.0%"
+          "draw": "21.2%",
+          "und": "67.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -66,7 +66,7 @@
       "type": "UPCOMING",
       "home": "Iran",
       "away": "New Zealand",
-      "favTeam": "New Zealand",
+      "favTeam": "Iran",
       "homeFlag": "irn",
       "awayFlag": "nzl",
       "kickoff": "2026-06-16T01:00:00.000Z",
@@ -74,9 +74,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "38.5%",
-          "draw": "45.2%",
-          "und": "16.3%"
+          "fav": "54.0%",
+          "draw": "27.0%",
+          "und": "18.9%"
         },
         {
           "source": "ELO/Poisson Model",
