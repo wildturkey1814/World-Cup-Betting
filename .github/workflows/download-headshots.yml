@@ -1,79 +1,26 @@
-name: Download Player Headshots
-
-on:
-  workflow_dispatch:
-
-jobs:
-  download:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - name: Install requests
-        run: pip install requests
-
-      - name: Download headshots via Python
-        run: |
-          python3 << 'PYEOF'
-          import os, requests
-
-          os.makedirs("assets/headshots", exist_ok=True)
-          BASE = "https://a.espncdn.com/i/headshots/soccer/players/full/"
-
           players = {
-              "l-messi.jpg":       "11119.png",
-              "c-ronaldo.jpg":     "5226.png",
-              "k-mbappe.jpg":      "231388.png",
-              "j-bellingham.jpg":  "291281.png",
-              "vinicius-jr.jpg":   "252107.png",
-              "v-van-dijk.jpg":    "157892.png",
-              "j-musiala.jpg":     "303821.png",
-              "a-hakimi.jpg":      "240233.png",
-              "c-pulisic.jpg":     "225607.png",
-              "h-lozano.jpg":      "206563.png",
-              "a-davies.jpg":      "284167.png",
-              "l-diaz.jpg":        "275014.png",
-              "l-modric.jpg":      "45843.png",
-              "g-xhaka.jpg":       "149981.png",
-              "s-mane.jpg":        "156080.png",
+              "k-mbappe.jpg": "231388.png",
+              "j-bellingham.jpg": "291281.png",
+              "vinicius-jr.jpg": "252107.png",
+              "v-van-dijk.jpg": "157892.png",
+              "j-musiala.jpg": "4397459.png",      # Updated Active ID
+              "a-hakimi.jpg": "406612.png",        # Updated Active ID
+              "c-pulisic.jpg": "225607.png",
+              "l-lozano.jpg": "206563.png",
+              "a-davies.jpg": "406653.png",        # Updated Active ID
+              "l-diaz.jpg": "275014.png",
+              "l-modric.jpg": "45843.png",
+              "g-xhaka.jpg": "149981.png",
+              "s-mane.jpg": "156080.png",
               "son-heung-min.jpg": "149945.png",
-              "e-haaland.jpg":     "253989.png",
-              "h-calhanoglu.jpg":  "194513.png",
-              "k-de-bruyne.jpg":   "134947.png",
-              "d-alaba.jpg":       "149303.png",
-              "a-robertson.jpg":   "195371.png",
-              "t-mitoma.jpg":      "280006.png",
-              "d-nunez.jpg":       "272381.png",
-              "e-valencia.jpg":    "74895.png",
-              "l-yamal.jpg":       "362682.png",
-              "pedri.jpg":         "275698.png",
+              "e-haaland.jpg": "3910604.png",      # Updated Active ID
+              "h-calhanoglu.jpg": "194513.png",
+              "k-de-bruyne.jpg": "134947.png",
+              "d-alaba.jpg": "149303.png",
+              "a-robertson.jpg": "193571.png",
+              "t-mitoma.jpg": "4430841.png",       # Updated Active ID
+              "d-nunez.jpg": "4231682.png",        # Updated Active ID
+              "e-valencia.jpg": "74895.png",
+              "l-yamal.jpg": "5174092.png",        # Updated Active ID
+              "pedri.jpg": "4329241.png"           # Updated Active ID
           }
-
-          for filename, espn_id in players.items():
-              path = os.path.join("assets/headshots", filename)
-              if os.path.exists(path) and os.path.getsize(path) > 5000:
-                  print(f"SKIP: {filename}")
-                  continue
-              url = BASE + espn_id
-              try:
-                  r = requests.get(url, timeout=15)
-                  if r.status_code == 200 and len(r.content) > 5000:
-                      with open(path, "wb") as f:
-                          f.write(r.content)
-                      print(f"OK: {filename} ({len(r.content)} bytes)")
-                  else:
-                      print(f"FAIL: {filename} HTTP {r.status_code}")
-              except Exception as e:
-                  print(f"ERROR: {filename} {e}")
-          PYEOF
-
-      - name: Commit headshots
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/headshots/
-          git diff --staged --quiet || git commit -m "feat: add player headshots from ESPN CDN" && git push
