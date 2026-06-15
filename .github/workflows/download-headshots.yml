@@ -1,0 +1,101 @@
+name: Download Player Headshots
+
+on:
+ workflow_dispatch:
+
+jobs:
+ download:
+   runs-on: ubuntu-latest
+   permissions:
+     contents: write
+
+   steps:
+     - name: Checkout Repo
+       uses: actions/checkout@v4
+
+     - name: Download headshots via Wikipedia REST API
+       run: |
+         mkdir -p assets/headshots
+
+         download_player() {
+           local filename="$1"
+           local wiki_title="$2"
+           local filepath="assets/headshots/${filename}"
+
+           if [ -f "$filepath" ] && [ $(wc -c < "$filepath") -gt 5000 ]; then
+             echo "SKIP: $filename already exists"
+             return
+           fi
+
+           local api_url="https://en.wikipedia.org/api/rest_v1/page/summary/${wiki_title}"
+           local img_url=$(curl -s -A "WorldCupDashboard/1.0 (educational; github.com/wildturkey1814/World-Cup-Betting)" \
+             "$api_url" | python3 -c "
+         import sys,json
+         try:
+           d=json.load(sys.stdin)
+           t=d.get('thumbnail',{})
+           print(t.get('source',''))
+         except:
+           print('')
+         ")
+
+           if [ -z "$img_url" ]; then
+             echo "FAIL: No thumbnail for $wiki_title"
+             return
+           fi
+
+           echo "GET: $filename <- $img_url"
+           curl -s -L -A "WorldCupDashboard/1.0 (educational)" \
+             -o "$filepath" "$img_url"
+
+           local size=$(wc -c < "$filepath")
+           if [ "$size" -gt 5000 ]; then
+             echo "OK: $filename ($size bytes)"
+           else
+             echo "FAIL: $filename too small ($size bytes)"
+             rm -f "$filepath"
+           fi
+
+           sleep 0.5
+         }
+
+         download_player "k-mbappe.jpg"       "Kylian_Mbapp%C3%A9"
+         download_player "j-bellingham.jpg"   "Jude_Bellingham"
+         download_player "vinicius-jr.jpg"    "Vin%C3%ADcius_J%C3%BAnior"
+         download_player "pedri.jpg"          "Pedri"
+         download_player "l-yamal.jpg"        "Lamine_Yamal"
+         download_player "v-van-dijk.jpg"     "Virgil_van_Dijk"
+         download_player "j-musiala.jpg"      "Jamal_Musiala"
+         download_player "a-hakimi.jpg"       "Achraf_Hakimi"
+         download_player "t-mitoma.jpg"       "Kaoru_Mitoma"
+         download_player "c-pulisic.jpg"      "Christian_Pulisic"
+         download_player "h-lozano.jpg"       "Hirving_Lozano"
+         download_player "a-davies.jpg"       "Alphonso_Davies"
+         download_player "d-nunez.jpg"        "Darwin_N%C3%BA%C3%B1ez"
+         download_player "l-diaz.jpg"         "Luis_D%C3%ADaz_(footballer,_born_1997)"
+         download_player "l-modric.jpg"       "Luka_Modri%C4%87"
+         download_player "g-xhaka.jpg"        "Granit_Xhaka"
+         download_player "s-mane.jpg"         "Sadio_Man%C3%A9"
+         download_player "son-heung-min.jpg"  "Son_Heung-min"
+         download_player "e-haaland.jpg"      "Erling_Haaland"
+         download_player "m-leckie.jpg"       "Mat_Leckie"
+         download_player "e-valencia.jpg"     "Enner_Valencia"
+         download_player "h-calhanoglu.jpg"   "Hakan_%C3%87alhano%C4%9Flu"
+         download_player "k-de-bruyne.jpg"    "Kevin_De_Bruyne"
+         download_player "d-alaba.jpg"        "David_Alaba"
+         download_player "a-robertson.jpg"    "Andrew_Robertson"
+
+         echo "--- Done ---"
+         ls -la assets/headshots/
+
+     - name: Commit headshots
+       run: |
+         git config user.name "github-actions[bot]"
+         git config user.email "github-actions[bot]@users.noreply.github.com"
+         git add assets/headshots/
+         if git diff --staged --quiet; then
+           echo "No new headshots to commit."
+         else
+           git commit -m "feat: add player headshots via Wikipedia REST API"
+           git push
+         fi
