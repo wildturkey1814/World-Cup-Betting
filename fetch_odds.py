@@ -137,7 +137,7 @@ def download_headshots():
             log.warning("Error %s: %s", slug, e)
             failed += 1
 
-        time.sleep(0.5)
+        time.sleep(2.5)
 
     log.info("Headshots: %d downloaded, %d skipped, %d failed.", downloaded, skipped, failed)
 
