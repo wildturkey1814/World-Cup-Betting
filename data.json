@@ -1,7 +1,419 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 16, 2026 · 10:24 PM UTC",
+  "lastUpdated": "June 16, 2026 · 10:32 PM UTC",
   "matches": [
+    {
+      "id": "537327",
+      "home": "Mexico",
+      "away": "South Africa",
+      "group": "GROUP_A",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-11T19:00:00Z",
+      "favTeam": "Mexico",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 2,
+      "awayScore": 0,
+      "score": "MEXICO 2 - 0 SOUTH AFRICA",
+      "kalshiWinProbHome": "1.8%",
+      "polymarketWinProbHome": "1.5%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537328",
+      "home": "South Korea",
+      "away": "Czechia",
+      "group": "GROUP_A",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-12T02:00:00Z",
+      "favTeam": "South Korea",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "SOUTH KOREA 2 - 1 CZECHIA",
+      "kalshiWinProbHome": "0.4%",
+      "polymarketWinProbHome": "0.4%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537333",
+      "home": "Canada",
+      "away": "Bosnia-Herzegovina",
+      "group": "GROUP_B",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-12T19:00:00Z",
+      "favTeam": "Canada",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "CANADA 1 - 1 BOSNIA-HERZEGOVINA",
+      "kalshiWinProbHome": "0.2%",
+      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537345",
+      "home": "United States",
+      "away": "Paraguay",
+      "group": "GROUP_D",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-13T01:00:00Z",
+      "favTeam": "United States",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 4,
+      "awayScore": 1,
+      "score": "UNITED STATES 4 - 1 PARAGUAY",
+      "kalshiWinProbHome": "3.3%",
+      "polymarketWinProbHome": "2.1%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537334",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "group": "GROUP_B",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-13T19:00:00Z",
+      "favTeam": "Qatar",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "QATAR 1 - 1 SWITZERLAND",
+      "kalshiWinProbAway": "0.7%",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.9%"
+    },
+    {
+      "id": "537339",
+      "home": "Brazil",
+      "away": "Morocco",
+      "group": "GROUP_C",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-13T22:00:00Z",
+      "favTeam": "Brazil",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "BRAZIL 1 - 1 MOROCCO",
+      "kalshiWinProbHome": "6.6%",
+      "kalshiWinProbAway": "2.2%",
+      "polymarketWinProbHome": "6.7%",
+      "polymarketWinProbAway": "2.2%"
+    },
+    {
+      "id": "537340",
+      "home": "Haiti",
+      "away": "Scotland",
+      "group": "GROUP_C",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-14T01:00:00Z",
+      "favTeam": "Haiti",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 0,
+      "awayScore": 1,
+      "score": "HAITI 0 - 1 SCOTLAND",
+      "kalshiWinProbAway": "0.2%",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.2%"
+    },
+    {
+      "id": "537346",
+      "home": "Australia",
+      "away": "Turkey",
+      "group": "GROUP_D",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-14T04:00:00Z",
+      "favTeam": "Australia",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 2,
+      "awayScore": 0,
+      "score": "AUSTRALIA 2 - 0 TURKEY",
+      "kalshiWinProbHome": "0.2%",
+      "kalshiWinProbAway": "0.4%",
+      "polymarketWinProbHome": "0.4%",
+      "polymarketWinProbAway": "0.4%"
+    },
+    {
+      "id": "537351",
+      "home": "Germany",
+      "away": "Curaçao",
+      "group": "GROUP_E",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-14T17:00:00Z",
+      "favTeam": "Germany",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 7,
+      "awayScore": 1,
+      "score": "GERMANY 7 - 1 CURAÇAO",
+      "kalshiWinProbHome": "6.1%",
+      "polymarketWinProbHome": "5.9%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537357",
+      "home": "Netherlands",
+      "away": "Japan",
+      "group": "GROUP_F",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-14T20:00:00Z",
+      "favTeam": "Netherlands",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 2,
+      "awayScore": 2,
+      "score": "NETHERLANDS 2 - 2 JAPAN",
+      "kalshiWinProbHome": "4.6%",
+      "kalshiWinProbAway": "1.5%",
+      "polymarketWinProbHome": "4.5%",
+      "polymarketWinProbAway": "1.8%"
+    },
+    {
+      "id": "537352",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "group": "GROUP_E",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-14T23:00:00Z",
+      "favTeam": "Ivory Coast",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 1,
+      "awayScore": 0,
+      "score": "IVORY COAST 1 - 0 ECUADOR",
+      "kalshiWinProbHome": "0.5%",
+      "kalshiWinProbAway": "0.3%",
+      "polymarketWinProbHome": "0.5%",
+      "polymarketWinProbAway": "0.4%"
+    },
+    {
+      "id": "537358",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "group": "GROUP_F",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-15T02:00:00Z",
+      "favTeam": "Sweden",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 5,
+      "awayScore": 1,
+      "score": "SWEDEN 5 - 1 TUNISIA",
+      "kalshiWinProbHome": "0.4%",
+      "polymarketWinProbHome": "0.5%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537369",
+      "home": "Spain",
+      "away": "Cape Verde Islands",
+      "group": "GROUP_H",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-15T16:00:00Z",
+      "favTeam": "Spain",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 0,
+      "awayScore": 0,
+      "score": "SPAIN 0 - 0 CAPE VERDE ISLANDS",
+      "kalshiWinProbHome": "14.3%",
+      "polymarketWinProbHome": "13.6%"
+    },
+    {
+      "id": "537363",
+      "home": "Belgium",
+      "away": "Egypt",
+      "group": "GROUP_G",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-15T19:00:00Z",
+      "favTeam": "Belgium",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "BELGIUM 1 - 1 EGYPT",
+      "kalshiWinProbHome": "1.7%",
+      "kalshiWinProbAway": "0.2%",
+      "polymarketWinProbHome": "1.8%",
+      "polymarketWinProbAway": "0.2%"
+    },
+    {
+      "id": "537370",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "group": "GROUP_H",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-15T22:00:00Z",
+      "favTeam": "Saudi Arabia",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "SAUDI ARABIA 1 - 1 URUGUAY",
+      "kalshiWinProbAway": "0.7%",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.7%"
+    },
+    {
+      "id": "537364",
+      "home": "Iran",
+      "away": "New Zealand",
+      "group": "GROUP_G",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-16T01:00:00Z",
+      "favTeam": "Iran",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 2,
+      "awayScore": 2,
+      "score": "IRAN 2 - 2 NEW ZEALAND",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%"
+    },
+    {
+      "id": "537391",
+      "home": "France",
+      "away": "Senegal",
+      "group": "GROUP_I",
+      "stage": "Group Stage",
+      "kickoff": "2026-06-16T19:00:00Z",
+      "favTeam": "France",
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "34.0%",
+          "draw": "33.0%",
+          "und": "33.0%"
+        }
+      ],
+      "type": "COMPLETED",
+      "homeScore": 3,
+      "awayScore": 1,
+      "score": "FRANCE 3 - 1 SENEGAL",
+      "kalshiWinProbHome": "18.6%",
+      "kalshiWinProbAway": "0.6%",
+      "polymarketWinProbHome": "18.1%",
+      "polymarketWinProbAway": "0.7%"
+    },
     {
       "id": "match_id1000001666457018",
       "stage": "Group Stage",
@@ -30,9 +442,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "68.7%",
-          "draw": "20.2%",
-          "und": "11.1%"
+          "fav": "68.4%",
+          "draw": "20.4%",
+          "und": "11.2%"
         }
       ],
       "kalshiWinProbHome": "9.0%",
@@ -56,9 +468,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "51.6%",
-          "draw": "37.7%",
-          "und": "10.7%"
+          "fav": "71.2%",
+          "draw": "18.5%",
+          "und": "10.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -110,7 +522,7 @@
           "und": "8.0%"
         }
       ],
-      "kalshiWinProbHome": "11.6%",
+      "kalshiWinProbHome": "11.5%",
       "polymarketWinProbHome": "10.1%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -368,7 +780,7 @@
           "und": "23.2%"
         }
       ],
-      "kalshiWinProbHome": "1.7%",
+      "kalshiWinProbHome": "1.8%",
       "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "0.4%"
@@ -556,7 +968,7 @@
           "und": "19.2%"
         }
       ],
-      "kalshiWinProbHome": "4.4%",
+      "kalshiWinProbHome": "4.6%",
       "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "4.5%",
       "polymarketWinProbAway": "0.5%"
@@ -705,7 +1117,7 @@
           "und": "4.0%"
         }
       ],
-      "kalshiWinProbHome": "14.5%",
+      "kalshiWinProbHome": "14.3%",
       "polymarketWinProbHome": "13.6%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -1003,7 +1415,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "11.6%",
+      "kalshiWinProbHome": "11.5%",
       "polymarketWinProbHome": "10.1%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -1337,7 +1749,7 @@
           "und": "54.6%"
         }
       ],
-      "kalshiWinProbAway": "1.7%",
+      "kalshiWinProbAway": "1.8%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.5%"
     },
@@ -1448,7 +1860,7 @@
           "und": "75.5%"
         }
       ],
-      "kalshiWinProbAway": "4.4%",
+      "kalshiWinProbAway": "4.6%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "4.5%"
     },
@@ -1555,9 +1967,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "33.7%",
-          "draw": "23.8%",
-          "und": "42.6%"
+          "fav": "34.0%",
+          "draw": "24.0%",
+          "und": "42.0%"
         }
       ],
       "kalshiWinProbHome": "0.4%",
@@ -1619,9 +2031,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "52.1%",
-          "draw": "36.8%",
-          "und": "11.1%"
+          "fav": "50.8%",
+          "draw": "38.2%",
+          "und": "11.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1710,7 +2122,7 @@
         }
       ],
       "kalshiWinProbHome": "0.7%",
-      "kalshiWinProbAway": "14.5%",
+      "kalshiWinProbAway": "14.3%",
       "polymarketWinProbHome": "0.7%",
       "polymarketWinProbAway": "13.6%"
     },
@@ -1897,7 +2309,7 @@
         }
       ],
       "kalshiWinProbHome": "1.6%",
-      "kalshiWinProbAway": "11.6%",
+      "kalshiWinProbAway": "11.5%",
       "polymarketWinProbHome": "1.6%",
       "polymarketWinProbAway": "10.1%"
     },
@@ -2011,1933 +2423,8 @@
       "kalshiWinProbAway": "9.0%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "10.2%"
-    },
-    {
-      "id": "537327",
-      "home": "Mexico",
-      "away": "South Africa",
-      "group": "GROUP_A",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-11T19:00:00Z",
-      "favTeam": "Mexico",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 2,
-      "awayScore": 0,
-      "score": "MEXICO 2 - 0 SOUTH AFRICA"
-    },
-    {
-      "id": "537328",
-      "home": "South Korea",
-      "away": "Czechia",
-      "group": "GROUP_A",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-12T02:00:00Z",
-      "favTeam": "South Korea",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 2,
-      "awayScore": 1,
-      "score": "SOUTH KOREA 2 - 1 CZECHIA"
-    },
-    {
-      "id": "537333",
-      "home": "Canada",
-      "away": "Bosnia-Herzegovina",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-12T19:00:00Z",
-      "favTeam": "Canada",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 1,
-      "score": "CANADA 1 - 1 BOSNIA-HERZEGOVINA"
-    },
-    {
-      "id": "537345",
-      "home": "United States",
-      "away": "Paraguay",
-      "group": "GROUP_D",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-13T01:00:00Z",
-      "favTeam": "United States",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 4,
-      "awayScore": 1,
-      "score": "UNITED STATES 4 - 1 PARAGUAY"
-    },
-    {
-      "id": "537334",
-      "home": "Qatar",
-      "away": "Switzerland",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-13T19:00:00Z",
-      "favTeam": "Qatar",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 1,
-      "score": "QATAR 1 - 1 SWITZERLAND"
-    },
-    {
-      "id": "537339",
-      "home": "Brazil",
-      "away": "Morocco",
-      "group": "GROUP_C",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-13T22:00:00Z",
-      "favTeam": "Brazil",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 1,
-      "score": "BRAZIL 1 - 1 MOROCCO"
-    },
-    {
-      "id": "537340",
-      "home": "Haiti",
-      "away": "Scotland",
-      "group": "GROUP_C",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-14T01:00:00Z",
-      "favTeam": "Haiti",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 0,
-      "awayScore": 1,
-      "score": "HAITI 0 - 1 SCOTLAND"
-    },
-    {
-      "id": "537346",
-      "home": "Australia",
-      "away": "Turkey",
-      "group": "GROUP_D",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-14T04:00:00Z",
-      "favTeam": "Australia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 2,
-      "awayScore": 0,
-      "score": "AUSTRALIA 2 - 0 TURKEY"
-    },
-    {
-      "id": "537351",
-      "home": "Germany",
-      "away": "Curaçao",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-14T17:00:00Z",
-      "favTeam": "Germany",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 7,
-      "awayScore": 1,
-      "score": "GERMANY 7 - 1 CURAÇAO"
-    },
-    {
-      "id": "537357",
-      "home": "Netherlands",
-      "away": "Japan",
-      "group": "GROUP_F",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-14T20:00:00Z",
-      "favTeam": "Netherlands",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 2,
-      "awayScore": 2,
-      "score": "NETHERLANDS 2 - 2 JAPAN"
-    },
-    {
-      "id": "537352",
-      "home": "Ivory Coast",
-      "away": "Ecuador",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-14T23:00:00Z",
-      "favTeam": "Ivory Coast",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 0,
-      "score": "IVORY COAST 1 - 0 ECUADOR"
-    },
-    {
-      "id": "537358",
-      "home": "Sweden",
-      "away": "Tunisia",
-      "group": "GROUP_F",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-15T02:00:00Z",
-      "favTeam": "Sweden",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 5,
-      "awayScore": 1,
-      "score": "SWEDEN 5 - 1 TUNISIA"
-    },
-    {
-      "id": "537369",
-      "home": "Spain",
-      "away": "Cape Verde Islands",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-15T16:00:00Z",
-      "favTeam": "Spain",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 0,
-      "awayScore": 0,
-      "score": "SPAIN 0 - 0 CAPE VERDE ISLANDS"
-    },
-    {
-      "id": "537363",
-      "home": "Belgium",
-      "away": "Egypt",
-      "group": "GROUP_G",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-15T19:00:00Z",
-      "favTeam": "Belgium",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 1,
-      "score": "BELGIUM 1 - 1 EGYPT"
-    },
-    {
-      "id": "537370",
-      "home": "Saudi Arabia",
-      "away": "Uruguay",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-15T22:00:00Z",
-      "favTeam": "Saudi Arabia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 1,
-      "score": "SAUDI ARABIA 1 - 1 URUGUAY"
-    },
-    {
-      "id": "537364",
-      "home": "Iran",
-      "away": "New Zealand",
-      "group": "GROUP_G",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-16T01:00:00Z",
-      "favTeam": "Iran",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 2,
-      "awayScore": 2,
-      "score": "IRAN 2 - 2 NEW ZEALAND"
-    },
-    {
-      "id": "537391",
-      "home": "France",
-      "away": "Senegal",
-      "group": "GROUP_I",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-16T19:00:00Z",
-      "favTeam": "France",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 3,
-      "awayScore": 1,
-      "score": "FRANCE 3 - 1 SENEGAL"
-    },
-    {
-      "id": "537392",
-      "home": "Iraq",
-      "away": "Norway",
-      "group": "GROUP_I",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-16T22:00:00Z",
-      "favTeam": "Iraq",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "IN_PLAY",
-      "homeScore": 0,
-      "awayScore": 0
-    },
-    {
-      "id": "537397",
-      "home": "Argentina",
-      "away": "Algeria",
-      "group": "GROUP_J",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-17T01:00:00Z",
-      "favTeam": "Argentina",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537398",
-      "home": "Austria",
-      "away": "Jordan",
-      "group": "GROUP_J",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-17T04:00:00Z",
-      "favTeam": "Austria",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537403",
-      "home": "Portugal",
-      "away": "Congo DR",
-      "group": "GROUP_K",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-17T17:00:00Z",
-      "favTeam": "Portugal",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537409",
-      "home": "England",
-      "away": "Croatia",
-      "group": "GROUP_L",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-17T20:00:00Z",
-      "favTeam": "England",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537410",
-      "home": "Ghana",
-      "away": "Panama",
-      "group": "GROUP_L",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-17T23:00:00Z",
-      "favTeam": "Ghana",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537404",
-      "home": "Uzbekistan",
-      "away": "Colombia",
-      "group": "GROUP_K",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-18T02:00:00Z",
-      "favTeam": "Uzbekistan",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537329",
-      "home": "Czechia",
-      "away": "South Africa",
-      "group": "GROUP_A",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-18T16:00:00Z",
-      "favTeam": "Czechia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537335",
-      "home": "Switzerland",
-      "away": "Bosnia-Herzegovina",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-18T19:00:00Z",
-      "favTeam": "Switzerland",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537336",
-      "home": "Canada",
-      "away": "Qatar",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-18T22:00:00Z",
-      "favTeam": "Canada",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537330",
-      "home": "Mexico",
-      "away": "South Korea",
-      "group": "GROUP_A",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-19T01:00:00Z",
-      "favTeam": "Mexico",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537348",
-      "home": "United States",
-      "away": "Australia",
-      "group": "GROUP_D",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-19T19:00:00Z",
-      "favTeam": "United States",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537342",
-      "home": "Scotland",
-      "away": "Morocco",
-      "group": "GROUP_C",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-19T22:00:00Z",
-      "favTeam": "Scotland",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537341",
-      "home": "Brazil",
-      "away": "Haiti",
-      "group": "GROUP_C",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-20T00:30:00Z",
-      "favTeam": "Brazil",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537347",
-      "home": "Turkey",
-      "away": "Paraguay",
-      "group": "GROUP_D",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-20T03:00:00Z",
-      "favTeam": "Turkey",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537359",
-      "home": "Netherlands",
-      "away": "Sweden",
-      "group": "GROUP_F",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-20T17:00:00Z",
-      "favTeam": "Netherlands",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537353",
-      "home": "Germany",
-      "away": "Ivory Coast",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-20T20:00:00Z",
-      "favTeam": "Germany",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537354",
-      "home": "Ecuador",
-      "away": "Curaçao",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-21T00:00:00Z",
-      "favTeam": "Ecuador",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537360",
-      "home": "Tunisia",
-      "away": "Japan",
-      "group": "GROUP_F",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-21T04:00:00Z",
-      "favTeam": "Tunisia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537371",
-      "home": "Spain",
-      "away": "Saudi Arabia",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-21T16:00:00Z",
-      "favTeam": "Spain",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537365",
-      "home": "Belgium",
-      "away": "Iran",
-      "group": "GROUP_G",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-21T19:00:00Z",
-      "favTeam": "Belgium",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537372",
-      "home": "Uruguay",
-      "away": "Cape Verde Islands",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-21T22:00:00Z",
-      "favTeam": "Uruguay",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537366",
-      "home": "New Zealand",
-      "away": "Egypt",
-      "group": "GROUP_G",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-22T01:00:00Z",
-      "favTeam": "New Zealand",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537399",
-      "home": "Argentina",
-      "away": "Austria",
-      "group": "GROUP_J",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-22T17:00:00Z",
-      "favTeam": "Argentina",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537393",
-      "home": "France",
-      "away": "Iraq",
-      "group": "GROUP_I",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-22T21:00:00Z",
-      "favTeam": "France",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537394",
-      "home": "Norway",
-      "away": "Senegal",
-      "group": "GROUP_I",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-23T00:00:00Z",
-      "favTeam": "Norway",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537400",
-      "home": "Jordan",
-      "away": "Algeria",
-      "group": "GROUP_J",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-23T03:00:00Z",
-      "favTeam": "Jordan",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537405",
-      "home": "Portugal",
-      "away": "Uzbekistan",
-      "group": "GROUP_K",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-23T17:00:00Z",
-      "favTeam": "Portugal",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537411",
-      "home": "England",
-      "away": "Ghana",
-      "group": "GROUP_L",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-23T20:00:00Z",
-      "favTeam": "England",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537412",
-      "home": "Panama",
-      "away": "Croatia",
-      "group": "GROUP_L",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-23T23:00:00Z",
-      "favTeam": "Panama",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537406",
-      "home": "Colombia",
-      "away": "Congo DR",
-      "group": "GROUP_K",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-24T02:00:00Z",
-      "favTeam": "Colombia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537337",
-      "home": "Switzerland",
-      "away": "Canada",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-24T19:00:00Z",
-      "favTeam": "Switzerland",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537338",
-      "home": "Bosnia-Herzegovina",
-      "away": "Qatar",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-24T19:00:00Z",
-      "favTeam": "Bosnia-Herzegovina",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537344",
-      "home": "Morocco",
-      "away": "Haiti",
-      "group": "GROUP_C",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-24T22:00:00Z",
-      "favTeam": "Morocco",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537343",
-      "home": "Scotland",
-      "away": "Brazil",
-      "group": "GROUP_C",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-24T22:00:00Z",
-      "favTeam": "Scotland",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537331",
-      "home": "Czechia",
-      "away": "Mexico",
-      "group": "GROUP_A",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-25T01:00:00Z",
-      "favTeam": "Czechia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537332",
-      "home": "South Africa",
-      "away": "South Korea",
-      "group": "GROUP_A",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-25T01:00:00Z",
-      "favTeam": "South Africa",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537355",
-      "home": "Ecuador",
-      "away": "Germany",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-25T20:00:00Z",
-      "favTeam": "Ecuador",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537356",
-      "home": "Curaçao",
-      "away": "Ivory Coast",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-25T20:00:00Z",
-      "favTeam": "Curaçao",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537361",
-      "home": "Tunisia",
-      "away": "Netherlands",
-      "group": "GROUP_F",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-25T23:00:00Z",
-      "favTeam": "Tunisia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537362",
-      "home": "Japan",
-      "away": "Sweden",
-      "group": "GROUP_F",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-25T23:00:00Z",
-      "favTeam": "Japan",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537349",
-      "home": "Turkey",
-      "away": "United States",
-      "group": "GROUP_D",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-26T02:00:00Z",
-      "favTeam": "Turkey",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537350",
-      "home": "Paraguay",
-      "away": "Australia",
-      "group": "GROUP_D",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-26T02:00:00Z",
-      "favTeam": "Paraguay",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537395",
-      "home": "Norway",
-      "away": "France",
-      "group": "GROUP_I",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-26T19:00:00Z",
-      "favTeam": "Norway",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537396",
-      "home": "Senegal",
-      "away": "Iraq",
-      "group": "GROUP_I",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-26T19:00:00Z",
-      "favTeam": "Senegal",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537373",
-      "home": "Uruguay",
-      "away": "Spain",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T00:00:00Z",
-      "favTeam": "Uruguay",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537374",
-      "home": "Cape Verde Islands",
-      "away": "Saudi Arabia",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T00:00:00Z",
-      "favTeam": "Cape Verde Islands",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537367",
-      "home": "New Zealand",
-      "away": "Belgium",
-      "group": "GROUP_G",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T03:00:00Z",
-      "favTeam": "New Zealand",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537368",
-      "home": "Egypt",
-      "away": "Iran",
-      "group": "GROUP_G",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T03:00:00Z",
-      "favTeam": "Egypt",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537413",
-      "home": "Panama",
-      "away": "England",
-      "group": "GROUP_L",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T21:00:00Z",
-      "favTeam": "Panama",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537414",
-      "home": "Croatia",
-      "away": "Ghana",
-      "group": "GROUP_L",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T21:00:00Z",
-      "favTeam": "Croatia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537407",
-      "home": "Colombia",
-      "away": "Portugal",
-      "group": "GROUP_K",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T23:30:00Z",
-      "favTeam": "Colombia",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537408",
-      "home": "Congo DR",
-      "away": "Uzbekistan",
-      "group": "GROUP_K",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-27T23:30:00Z",
-      "favTeam": "Congo DR",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537401",
-      "home": "Jordan",
-      "away": "Argentina",
-      "group": "GROUP_J",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-28T02:00:00Z",
-      "favTeam": "Jordan",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537402",
-      "home": "Algeria",
-      "away": "Austria",
-      "group": "GROUP_J",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-28T02:00:00Z",
-      "favTeam": "Algeria",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537417",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-06-28T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537423",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-06-29T17:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537415",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-06-29T20:30:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537418",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-06-30T01:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537424",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-06-30T17:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537416",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-06-30T21:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537425",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-01T01:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537426",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-01T16:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537422",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-01T20:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537421",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-02T00:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537420",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-02T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537419",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-02T23:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537429",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-03T03:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537428",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-03T18:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537427",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-03T22:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537430",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-04T01:30:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537376",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-04T17:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537375",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-04T21:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537377",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-05T20:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537378",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-06T00:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537379",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-06T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537380",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-07T00:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537381",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-07T16:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537382",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-07T20:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537383",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-09T20:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537384",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-10T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537385",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-11T21:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537386",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-12T01:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537387",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-14T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537388",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-15T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537389",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-18T21:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
-    },
-    {
-      "id": "537390",
-      "home": null,
-      "away": null,
-      "group": null,
-      "stage": "Group Stage",
-      "kickoff": "2026-07-19T19:00:00Z",
-      "favTeam": null,
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "UPCOMING"
     }
   ],
-  "kalshiUpdated": "June 16, 2026 · 10:24 PM UTC",
-  "polymarketUpdated": "June 16, 2026 · 10:24 PM UTC"
+  "kalshiUpdated": "June 16, 2026 · 10:32 PM UTC",
+  "polymarketUpdated": "June 16, 2026 · 10:32 PM UTC"
 }
