@@ -1,4 +1,4 @@
-name: Update Live Scores
+name: Update Live Scoring Polling 
 
 on:
   schedule:
