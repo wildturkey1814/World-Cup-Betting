@@ -1,4 +1,4 @@
-import os
+\import os
 import json
 import logging
 from datetime import datetime
@@ -27,6 +27,8 @@ TEAM_NAME_ALIASES = {
 
 def normalize_team_name(name):
     """Normalize a team name using the alias table."""
+    if not name:
+        return ""
     return TEAM_NAME_ALIASES.get(name, name)
 
 def fetch_api_matches():
@@ -132,8 +134,8 @@ def build_name_index(existing_matches):
     """
     name_index = {}
     for m in existing_matches:
-        home = m.get("home", "")
-        away = m.get("away", "")
+        home = m.get("home", "") or ""
+        away = m.get("away", "") or ""
         # Skip SRL simulated match records
         if "SRL" in home or "SRL" in away or "Srl" in home or "Srl" in away:
             continue
@@ -157,21 +159,23 @@ def process_and_merge(existing_matches, api_matches):
         api_status = api_match.get("status")
         mapped_type = map_api_status_to_schema(api_status)
 
-        home_team_raw = api_match.get("homeTeam", {}).get("name", "")
-        away_team_raw = api_match.get("awayTeam", {}).get("name", "")
+        # Safely extract team names — guard against None
+        home_team_raw = (api_match.get("homeTeam") or {}).get("name") or ""
+        away_team_raw = (api_match.get("awayTeam") or {}).get("name") or ""
         home_team = normalize_team_name(home_team_raw)
         away_team = normalize_team_name(away_team_raw)
 
-        score_data = api_match.get("score", {})
-        home_score = score_data.get("fullTime", {}).get("home")
-        away_score = score_data.get("fullTime", {}).get("away")
+        score_data = api_match.get("score") or {}
+        full_time = score_data.get("fullTime") or {}
+        home_score = full_time.get("home")
+        away_score = full_time.get("away")
 
         # --- Find the record to update ---
         # 1. Try direct ID match first
         record = db_map.get(match_id)
 
-        # 2. Fall back to name-based match if no ID match
-        if record is None:
+        # 2. Fall back to name-based match if no ID match and we have team names
+        if record is None and home_team and away_team:
             name_key = (home_team.strip().lower(), away_team.strip().lower())
             record = name_index.get(name_key)
             if record:
@@ -181,7 +185,7 @@ def process_and_merge(existing_matches, api_matches):
         # 3. If still no match, skip — don't create orphan records
         if record is None:
             log.info("No matching DB record for API match: %s vs %s (id=%s) — skipping",
-                     home_team, away_team, match_id)
+                     home_team or "?", away_team or "?", match_id)
             continue
 
         # LOCK: If already COMPLETED with a score, never overwrite
@@ -199,8 +203,8 @@ def process_and_merge(existing_matches, api_matches):
 
         # When a match finishes, write the human-readable score string and lock it
         if mapped_type == "COMPLETED" and home_score is not None and away_score is not None:
-            home_name = record.get("home", "Home").upper()
-            away_name = record.get("away", "Away").upper()
+            home_name = (record.get("home") or "Home").upper()
+            away_name = (record.get("away") or "Away").upper()
             record["score"] = f"{home_name} {home_score} - {away_score} {away_name}"
             log.info("Match completed and locked: %s", record["score"])
 
