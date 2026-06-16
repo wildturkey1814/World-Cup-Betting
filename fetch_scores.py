@@ -18,14 +18,13 @@ def fetch_api_matches():
     Fetches matches directly from the sports API client.
     """
     headers = {"X-Auth-Token": API_TOKEN}
-    
-    # ONE-TIME CATCH-UP WINDOW: Set back to 2026-06-11 to grab all missed results.
-    # Change dateTo to a future date or remove filters later for regular live tracking.
+
+    # Covers full 2026 World Cup: June 11 group stage through July 19 final
     params = {
         "dateFrom": "2026-06-11",
-        "dateTo": "2026-06-20"
+        "dateTo": "2026-07-20"
     }
-    
+
     try:
         log.info("Querying sports API client for match updates...")
         response = requests.get(API_URL, headers=headers, params=params, timeout=15)
@@ -63,7 +62,7 @@ def recalculate_fav(record):
     for layer in layers:
         fav_val = parse_percentage(layer.get("fav"))
         und_val = parse_percentage(layer.get("und"))
-        
+
         # Map values back to their true geography regardless of mutable column headers
         if fav_is_home:
             home_prob = fav_val
@@ -71,7 +70,7 @@ def recalculate_fav(record):
         else:
             home_prob = und_val
             away_prob = fav_val
-            
+
         home_probs_sum += home_prob
         away_probs_sum += away_prob
         valid_layers_count += 1
@@ -96,7 +95,7 @@ def recalculate_fav(record):
         record["favTeam"] = consensus_fav
         for layer in layers:
             layer["fav"], layer["und"] = layer["und"], layer["fav"]
-            
+
         log.info("Consensus correction applied for %s vs %s: updated favorite to %s (Home Avg: %.1f%%, Away Avg: %.1f%%)",
                  record.get("home"), record.get("away"), consensus_fav, avg_home, avg_away)
 
@@ -122,26 +121,28 @@ def process_and_merge(existing_matches, api_matches):
     """
     # Map current database using unique match identifiers
     db_map = {str(m["id"]): m for m in existing_matches}
-    
+
     log.info("Processing updates against %d existing records...", len(existing_matches))
-    
+
     for api_match in api_matches:
         match_id = str(api_match.get("id"))
         api_status = api_match.get("status")
         mapped_type = map_api_status_to_schema(api_status)
-        
-        # RULE: If the match is already marked as COMPLETED in your DB, lock it down.
-        if match_id in db_map and db_map[match_id].get("type") == "COMPLETED":
-            continue  # Protect existing data from disappearing or getting overwritten
-            
+
+        # LOCK: If match is already COMPLETED in our DB with a score, never overwrite it.
+        existing = db_map.get(match_id)
+        if existing and existing.get("type") == "COMPLETED" and existing.get("score"):
+            log.info("Skipping locked COMPLETED match: %s vs %s", existing.get("home"), existing.get("away"))
+            continue
+
         # Extract operational values from API payload
         home_team = api_match.get("homeTeam", {}).get("name")
         away_team = api_match.get("awayTeam", {}).get("name")
         score_data = api_match.get("score", {})
-        
+
         home_score = score_data.get("fullTime", {}).get("home")
         away_score = score_data.get("fullTime", {}).get("away")
-        
+
         # Build or update the structural record
         if match_id in db_map:
             record = db_map[match_id]
@@ -154,22 +155,30 @@ def process_and_merge(existing_matches, api_matches):
                 "group": api_match.get("group", "Group Stage"),
                 "stage": "Group Stage",
                 "kickoff": api_match.get("utcDate"),
-                "favTeam": home_team, 
+                "favTeam": home_team,
                 "layers": [
                     {"source": "ELO/Poisson Model", "fav": "34.0%", "draw": "33.0%", "und": "33.0%"}
                 ]
             }
-        
-        # Update mutable fields safely (only for UPCOMING or IN_PLAY states)
+
+        # Update type and scores
         record["type"] = mapped_type
+
         if home_score is not None:
             record["homeScore"] = home_score
         if away_score is not None:
             record["awayScore"] = away_score
-            
+
+        # When a match finishes, write the human-readable score string and lock it
+        if mapped_type == "COMPLETED" and home_score is not None and away_score is not None:
+            home_name = record.get("home", "Home").upper()
+            away_name = record.get("away", "Away").upper()
+            record["score"] = f"{home_name} {home_score} - {away_score} {away_name}"
+            log.info("Match completed and locked: %s", record["score"])
+
         # Recalculate favorite dynamically based on layer consensus strings
         recalculate_fav(record)
-        
+
         # Update map target
         db_map[match_id] = record
 
