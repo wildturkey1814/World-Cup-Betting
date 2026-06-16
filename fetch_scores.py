@@ -49,7 +49,9 @@ REQUEST_TIMEOUT = 15
 
 WINDOW_BEFORE_MIN = 30
 WINDOW_AFTER_MIN  = 130
-CATCHUP_HOURS     = 48
+
+# Extended catchup: look back to tournament start (June 11)
+TOURNAMENT_START  = datetime(2026, 6, 11, 0, 0, 0, tzinfo=timezone.utc)
 
 # ── Team name normalisation ────────────────────────────────────────────────
 FD_TEAM_MAP = {
@@ -73,7 +75,7 @@ FD_TEAM_MAP = {
     "Tunisia":"Tunisia","Egypt":"Egypt","Algeria":"Algeria","Nigeria":"Nigeria",
     "Panama":"Panama","Costa Rica":"Costa Rica","Wales":"Wales",
     "Uzbekistan":"Uzbekistan","Iraq":"Iraq","Jordan":"Jordan","Qatar":"Qatar",
-    "New Zealand":"New Zealand","Cape Verde":"Cape Verde",
+    "New Zealand":"New Zealand","Cape Verde":"Cape Verde","Cabo Verde":"Cape Verde",
     "Curaçao":"Curacao","Curacao":"Curacao","Haiti":"Haiti",
     "Belgium":"Belgium","Scotland":"Scotland","Austria":"Austria",
     "Sweden":"Sweden",
@@ -141,10 +143,6 @@ def _zafronix_find_match(home: str, away: str, year: int = 2026) -> Optional[str
     return None
 
 def fetch_zafronix_box_score(home: str, away: str) -> Optional[dict]:
-    """
-    Fetch full post-match box score from Zafronix as a fallback.
-    Returns a boxScore dict matching our data.json schema, or None.
-    """
     if not ZAFRONIX_KEYS:
         log.info("  Zafronix: no keys configured — skipping fallback.")
         return None
@@ -158,7 +156,6 @@ def fetch_zafronix_box_score(home: str, away: str) -> Optional[dict]:
     if not data:
         return None
 
-    # Zafronix may nest stats under different keys
     stats  = data.get("stats") or data.get("statistics") or {}
     home_s = stats.get("home") or stats.get(home) or {}
     away_s = stats.get("away") or stats.get(away) or {}
@@ -168,7 +165,6 @@ def fetch_zafronix_box_score(home: str, away: str) -> Optional[dict]:
     if isinstance(ht, dict):
         home_team_id = str(ht.get("id",""))
 
-    # Parse goal events
     events = data.get("events") or data.get("goals") or []
     goals  = []
     for ev in events:
@@ -210,7 +206,6 @@ def fetch_zafronix_box_score(home: str, away: str) -> Optional[dict]:
         "goals": goals,
     }
 
-    # Remove stat categories where both home and away are None
     box = {k: v for k, v in box.items()
            if k == "goals" or any(x is not None for x in v.values())}
 
@@ -224,7 +219,7 @@ def fetch_zafronix_box_score(home: str, away: str) -> Optional[dict]:
 
 
 # ════════════════════════════════════════════════════════════════════════════
-#  FOOTBALL-DATA.ORG CLIENT (unchanged from original)
+#  FOOTBALL-DATA.ORG CLIENT
 # ════════════════════════════════════════════════════════════════════════════
 
 def fd_get(path: str, params: dict = None) -> Optional[dict]:
@@ -259,12 +254,15 @@ def fetch_match_detail(fd_match_id: int) -> Optional[dict]:
     return fd_get(f"matches/{fd_match_id}")
 
 
-def fetch_today_matches() -> Optional[list]:
-    now            = datetime.now(timezone.utc)
-    three_days_ago = (now - timedelta(days=3)).date()
-    tomorrow       = (now + timedelta(days=1)).date()
+def fetch_all_tournament_matches() -> Optional[list]:
+    """
+    Fetch ALL World Cup matches from tournament start to tomorrow.
+    This ensures we catch every completed match regardless of age.
+    """
+    now      = datetime.now(timezone.utc)
+    tomorrow = (now + timedelta(days=1)).date()
     data = fd_get(f"competitions/{FD_WC_ID}/matches", {
-        "dateFrom": str(three_days_ago),
+        "dateFrom": str(TOURNAMENT_START.date()),
         "dateTo":   str(tomorrow),
     })
     if not data:
@@ -272,7 +270,7 @@ def fetch_today_matches() -> Optional[list]:
     return data.get("matches", [])
 
 
-# ── Box score builder (football-data.org) ─────────────────────────────────
+# ── Box score builder ──────────────────────────────────────────────────────
 
 def build_box_score(fd_match: dict) -> Optional[dict]:
     stats  = fd_match.get("statistics") or {}
@@ -346,22 +344,43 @@ def match_fd_to_record(record: dict, fd_matches: list) -> Optional[dict]:
 
 
 def is_in_active_window(record: dict, now: datetime) -> bool:
+    """
+    A record is active if:
+    - It's UPCOMING and the match hasn't been resolved yet
+    - It's IN_PLAY
+    - It's within the live window
+    - It started since tournament began (catchup for all missed matches)
+    """
+    # Always process IN_PLAY matches
+    if record.get("type") == "IN_PLAY":
+        return True
+
     ko_str = record.get("kickoff") or ""
     if not ko_str or ko_str == "null":
         return record.get("type") == "UPCOMING"
+
     try:
         ko = datetime.fromisoformat(str(ko_str).replace("Z","+00:00"))
         mins = (now - ko).total_seconds() / 60
-        if -WINDOW_BEFORE_MIN <= mins <= 0:       return True
-        if 0 < mins <= WINDOW_AFTER_MIN:           return True
-        if record.get("type") == "UPCOMING" and \
-           0 < mins <= CATCHUP_HOURS * 60:         return True
+
+        # Pre-match window
+        if -WINDOW_BEFORE_MIN <= mins <= 0:
+            return True
+
+        # Live window
+        if 0 < mins <= WINDOW_AFTER_MIN:
+            return True
+
+        # Catchup: any UPCOMING match that kicked off since tournament start
+        if record.get("type") == "UPCOMING" and ko >= TOURNAMENT_START and mins > 0:
+            return True
+
         return False
     except (ValueError, TypeError):
         return record.get("type") == "UPCOMING"
 
 
-# ── File helpers ──────────────────────────────────────────────────────────────
+# ── File helpers ───────────────────────────────────────────────────────────
 
 def atomic_write(path: str, data: dict) -> None:
     d = os.path.dirname(os.path.abspath(path)) or "."
@@ -389,7 +408,7 @@ def load_data(path: str) -> dict:
         return {"currentStage":"Group Stage","lastUpdated":"","matches":[]}
 
 
-# ── Source accuracy audit ─────────────────────────────────────────────────────
+# ── Source accuracy audit ──────────────────────────────────────────────────
 
 def calculate_source_accuracy(record: dict,
                                home_won: bool, is_draw: bool) -> dict:
@@ -410,7 +429,7 @@ def calculate_source_accuracy(record: dict,
     return accuracy
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# ── Main ───────────────────────────────────────────────────────────────────
 
 def main() -> None:
     log.info("=== Score fetcher starting ===")
@@ -428,29 +447,31 @@ def main() -> None:
     data    = load_data(OUTPUT_FILE)
     matches = data.get("matches", [])
 
+    # Active = any UPCOMING or IN_PLAY match since tournament started
     active = [m for m in matches
               if m.get("type") in ("UPCOMING","IN_PLAY")
               and is_in_active_window(m, now)]
 
+    log.info("%d match(es) in active window (including catchup).", len(active))
+
     if not active:
-        log.info("No matches in active window — nothing to do.")
+        log.info("No matches to process.")
         raise SystemExit(0)
 
-    log.info("%d match(es) in active window.", len(active))
-
-    fd_matches = fetch_today_matches()
+    # Fetch ALL tournament matches so we can match against any date
+    fd_matches = fetch_all_tournament_matches()
     if fd_matches is None:
         log.warning("Could not fetch from football-data.org — keeping existing data.")
         raise SystemExit(0)
 
-    log.info("football-data.org returned %d match(es).", len(fd_matches))
+    log.info("football-data.org returned %d match(es) total.", len(fd_matches))
 
     changed = False
 
     for record in active:
         fd_m = match_fd_to_record(record, fd_matches)
         if not fd_m:
-            log.info("  %s vs %s — no FD match found yet.",
+            log.info("  %s vs %s — no FD match found.",
                      record.get("home"), record.get("away"))
             continue
 
@@ -465,6 +486,7 @@ def main() -> None:
             hg   = curr.get("home", 0) or 0
             ag   = curr.get("away", 0) or 0
             record["status"]    = "IN_PLAY"
+            record["type"]      = "IN_PLAY"
             record["liveScore"] = f"{hg} - {ag}"
             changed = True
             log.info("    LIVE: %s %d - %d %s", home, hg, ag, away)
@@ -486,49 +508,47 @@ def main() -> None:
             record["sourceAccuracy"] = calculate_source_accuracy(
                 record, home_won, is_draw)
 
-            # ── Box score: football-data.org first, Zafronix fallback ──────
-            box = build_box_score(fd_full)
-
-            if box:
-                record["boxScore"] = box
-                log.info("    FINISHED: %s — FD box score captured.",
-                         record["score"])
-            else:
-                log.info("    FINISHED: %s — FD has no stats yet, "
-                         "trying Zafronix...", record["score"])
-                zaf_box = fetch_zafronix_box_score(home, away)
-                if zaf_box:
-                    record["boxScore"] = zaf_box
-                    record["boxScoreSource"] = "Zafronix"
-                    log.info("    Zafronix box score applied for %s vs %s.",
-                             home, away)
+            # Box score: FD first, Zafronix fallback
+            if not record.get("boxScore"):
+                box = build_box_score(fd_full)
+                if box:
+                    record["boxScore"] = box
+                    log.info("    FINISHED: %s — FD box score captured.",
+                             record["score"])
                 else:
-                    log.info("    No box score available from either source "
-                             "for %s vs %s — will retry next run.", home, away)
+                    log.info("    FINISHED: %s — no FD stats, trying Zafronix...",
+                             record["score"])
+                    zaf_box = fetch_zafronix_box_score(home, away)
+                    if zaf_box:
+                        record["boxScore"] = zaf_box
+                        record["boxScoreSource"] = "Zafronix"
+                        log.info("    Zafronix box score applied for %s vs %s.",
+                                 home, away)
+                    else:
+                        log.info("    No box score yet for %s vs %s.", home, away)
 
             # Generate insight
             if not record.get("insight"):
-                layers      = record.get("layers",[])
-                fav_is_home = record.get("favTeam") == home
-                fav_name    = record.get("favTeam","")
-                und_name    = record.get("undTeam","")
+                fav_name = record.get("favTeam","")
+                und_name = away if record.get("favTeam") == home else home
                 if is_draw:
                     record["insight"] = \
                         f"The match ended level at {hg}-{hg}. " \
-                        f"A draw was {'expected' if True else 'unexpected'} — " \
-                        f"check the model divergence for context."
-                elif (home_won and fav_is_home) or \
-                     (not home_won and not fav_is_home):
+                        f"Check the model divergence for context."
+                elif (home_won and record.get("favTeam") == home) or \
+                     (not home_won and record.get("favTeam") == away):
                     record["insight"] = \
                         f"{fav_name} won {max(hg,ag)}-{min(hg,ag)} " \
                         f"as expected by the majority of sources."
                 else:
+                    winner = home if home_won else away
                     record["insight"] = \
-                        f"Upset! {und_name} won {max(hg,ag)}-{min(hg,ag)}, " \
+                        f"Upset! {winner} won {max(hg,ag)}-{min(hg,ag)}, " \
                         f"defying the pre-match consensus."
 
             record.pop("liveScore", None)
             changed = True
+            log.info("    Marked COMPLETED: %s", record["score"])
 
     if not changed:
         log.info("No status changes — data.json unchanged.")
