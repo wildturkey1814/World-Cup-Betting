@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 17, 2026 · 1:04 PM UTC",
+  "lastUpdated": "June 17, 2026 · 8:37 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -574,7 +574,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Portugal",
       "away": "DR Congo",
       "favTeam": "Portugal",
@@ -604,14 +604,54 @@
       ],
       "kalshiWinProbHome": "10.9%",
       "polymarketWinProbHome": "10.2%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "score": "PORTUGAL 1 - 1 DR CONGO",
+      "homeScore": 1,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "The match ended level at 1-1."
     },
     {
       "id": "match_id1000001666457042",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "England",
       "away": "Croatia",
       "favTeam": "England",
@@ -642,7 +682,8 @@
       "kalshiWinProbHome": "10.3%",
       "kalshiWinProbAway": "0.7%",
       "polymarketWinProbHome": "10.4%",
-      "polymarketWinProbAway": "0.8%"
+      "polymarketWinProbAway": "0.8%",
+      "liveScore": "1 - 0"
     },
     {
       "id": "match_id1000001666457044",
