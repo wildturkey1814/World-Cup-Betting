@@ -1,40 +1,28 @@
 """
-Removes SRL simulator matches and bad flag codes from data.json.
+One-time cleanup: removes SRL simulator/ghost matches from data.json.
+Only removes records where home or away team name contains 'SRL' or 'Srl'.
+Does not touch any other fields or real match records.
 """
 import json, tempfile, shutil, os
-
-VALID_FLAGS = {
-    "mex","rsa","kor","cze","can","bih","usa","pry","ger","arg","eng","ita",
-    "fra","bra","esp","por","ned","mar","jpn","aus","cro","sui","uru","col",
-    "sen","den","ecu","nor","tur","srb","pol","irn","ksa","gha","cmr","civ",
-    "tun","egy","alg","nga","pan","crc","wal","uzb","irq","jor","qat","nzl",
-    "cpv","cuw","hai","bel","sco","cod","aut","swe","pry"
-}
 
 with open("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 before = len(data["matches"])
 
-def is_bad(m):
-    # Check for SRL in any name field
-    for field in ["home", "away", "favTeam", "undTeam", "id"]:
-        v = str(m.get(field, "")).lower()
-        if "srl" in v:
-            return True
-    # Check for invalid flag codes
-    for field in ["homeFlag", "awayFlag"]:
-        v = str(m.get(field, "")).lower()
-        if v and v not in VALID_FLAGS:
+def is_srl(m):
+    for field in ["home", "away"]:
+        v = str(m.get(field, ""))
+        if "SRL" in v or "Srl" in v:
             return True
     return False
 
-removed = [m for m in data["matches"] if is_bad(m)]
-data["matches"] = [m for m in data["matches"] if not is_bad(m)]
+removed = [m for m in data["matches"] if is_srl(m)]
+data["matches"] = [m for m in data["matches"] if not is_srl(m)]
 after = len(data["matches"])
 
 for m in removed:
-    print(f"  Removed: {m.get('home')} vs {m.get('away')} (flags: {m.get('homeFlag')}/{m.get('awayFlag')})")
+    print(f"  Removed: {m.get('home')} vs {m.get('away')}")
 
 fd, tmp = tempfile.mkstemp(suffix=".tmp")
 with os.fdopen(fd, "w", encoding="utf-8") as f:
@@ -42,4 +30,4 @@ with os.fdopen(fd, "w", encoding="utf-8") as f:
     f.write("\n")
 shutil.move(tmp, "data.json")
 
-print(f"Removed {before - after} bad matches. {after} remain.")
+print(f"Removed {before - after} SRL ghost matches. {after} remain.")
