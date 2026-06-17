@@ -363,8 +363,14 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
       <span class="controls-label" id="lbl-stage">Stage</span>
       <div class="stage-tabs" id="stage-tabs"></div>
     </div>
+    <!-- NEW: State Management Toggle Filter Bar -->
+    <div class="controls-row" id="state-filter-row">
+      <span class="controls-label" style="color:var(--gold)">Status</span>
+      <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
+      <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
+    </div>
     <div class="controls-row">
-      <div class="sort-row">
+      <div class="sort-row" id="sort-control-container">
         <span class="sort-label" id="lbl-sort">Sort</span>
         <button class="btn active" id="btn-sort-time" onclick="switchSort('time')"></button>
         <button class="btn" id="btn-sort-group" onclick="switchSort('group')"></button>
@@ -387,7 +393,7 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 
   <div id="view-grid" class="view-panel">
 
-    <div class="signal-legend">
+    <div class="signal-legend" id="signal-legend-box">
       <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>BET — strong consensus</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--neon)"></div>LEAN — sources agree, slim margin</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>DRAW — draw probability high</div>
@@ -400,19 +406,14 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
       <div id="live-list" class="card-grid"></div>
     </div>
 
-    <div class="section-head">
-      <span class="section-head-label" id="lbl-upcoming"></span>
+    <!-- Layout Segment Container Heads -->
+    <div class="section-head" id="grid-header-bar">
+      <span class="section-head-label" id="lbl-grid-state-title">Upcoming Matches</span>
       <div class="section-head-line"></div>
-      <span class="section-head-count" id="count-upcoming"></span>
+      <span class="section-head-count" id="count-grid-state-total">0</span>
     </div>
-    <div id="upcoming-list"></div>
-
-    <div class="section-head" style="margin-top:8px;">
-      <span class="section-head-label" id="lbl-completed"></span>
-      <div class="section-head-line"></div>
-      <span class="section-head-count" id="count-completed"></span>
-    </div>
-    <div id="completed-list" class="card-grid"></div>
+    
+    <div id="dynamic-grid-content"></div>
   </div>
 
   <div id="view-bracket" class="view-panel">
@@ -482,11 +483,12 @@ const DICT={
   ko:{eyebrow:"2026 FIFA 월드컵",meta:"스포츠북 · ELO/포아송 모델 · 예측 시장",view:"보기",stage:"단계",grid:"경기 목록",bracket:"대진표",upcoming:"예정 경기",completed:"종료 경기",colFav:"승리 확률",colDraw:"무승부",colUnd:"역배 확률",source:"출처",updated:"업데이트",groupStage:"조별 리그",r32:"32강",r16:"16강",quarters:"8강",semis:"4강",final:"결승",noUpcoming:"예정된 경기가 없습니다.",noCompleted:"아직 종료된 경기가 없습니다.",insight:"경기 분석",recoTitle:"모델 분석 결과",recoBack:"베팅",recoLean:"우세",recoDraw:"무승부 가능",recoUpset:"이변 주의",recoValue:"모델 추천",tipBack:"모든 출처가 동일한 팀을 예측합니다.",tipLean:"출처들이 동의하지만 격차가 좁습니다.",tipDraw:"평균 무승부 확률이 30%를 초과합니다.",tipUpset:"ELO가 시장보다 언더독에 더 높은 확률을 부여합니다.",tipValue:"ELO가 시장보다 정배에 더 높은 확률을 예측합니다.",zoneLabel:"구역",zoneMex:"멕시코 구역",zoneCen:"중부 구역",zoneEast:"동부 구역",zoneWest:"서부 구역",bracketR32:"32강",bracketR16:"16강",bracketQF:"8강",bracketSF:"4강",bracketF:"결승",waitingFor:"상대팀 대기 중",sortTime:"시간순",sortGroup:"그룹별",searchPlaceholder:"팀 검색…",favBadge:"정배",undBadge:"역배",winOddsTitle:"토너먼트 우승 확률",scTooltip:"조별 리그 이후 실제 결과를 기반으로 ELO 모델이 재보정됩니다.",
   teams:{"Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국","Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아","United States":"미국","Paraguay":"파라과이","Germany":"독일","Argentina":"아르헨티나","England":"잉글랜드","Italy":"이탈리아","France":"프랑스","Brazil":"브라질","Spain":"스페인","Portugal":"포르투갈","Netherlands":"네덜란드","Morocco":"모로코","Japan":"일본","Australia":"호주","Croatia":"크로아티아","Switzerland":"스위스","Uruguay":"우루과이","Colombia":"콜롬비아","Senegal":"세네갈","Ecuador":"에콰도르","Norway":"노르웨이","Turkey":"튀르키예","Iran":"이란","Saudi Arabia":"사우디아라비아","Ghana":"가나","Ivory Coast":"코트디부아르","Tunisia":"튀니지","Egypt":"이집트","Algeria":"알제리","Panama":"파나마","Qatar":"카타르","New Zealand":"뉴질랜드","Cape Verde":"카보베르데","Curacao":"퀴라소","Haiti":"아이티","Belgium":"벨기에","Scotland":"스코틀랜드","DR Congo":"콩고","Austria":"오스트리아","Sweden":"스웨덴","Iraq":"이라크","Jordan":"요르단","Uzbekistan":"우즈베키스탄"}},
   ja:{eyebrow:"2026 FIFAワールドカップ",meta:"スポーツブック · ELO/ポアソンモデル · 予測市場",view:"表示",stage:"ステージ",grid:"試合一覧",bracket:"トーナメント表",upcoming:"予定試合",completed:"終了試合",colFav:"本命勝率",colDraw:"引分",colUnd:"大穴勝率",source:"出典",updated:"更新",groupStage:"グループステージ",r32:"ラウンド32",r16:"ラウンド16",quarters:"準々決勝",semis:"準決勝",final:"決勝",noUpcoming:"予定試合はありません。",noCompleted:"まだ終了した試合はありません。",insight:"試合インサイト",recoTitle:"モデル分析結果",recoBack:"ベット",recoLean:"優勢",recoDraw:"引き分け有力",recoUpset:"番狂わせ注意",recoValue:"モデル推奨",tipBack:"すべての情報源が同じチームを予測しています。",tipLean:"情報源はおおむね一致していますが差は僅差です。",tipDraw:"平均引き分け確率が30%を超えています。",tipUpset:"ELOがアンダードッグに市場より高い確率を与えています。",tipValue:"ELOが市場より高い勝利確率を予測しています。",zoneLabel:"ゾーン",zoneMex:"メキシコゾーン",zoneCen:"中部ゾーン",zoneEast:"東部ゾーン",zoneWest:"西部ゾーン",bracketR32:"ラウンド32",bracketR16:"ラウンド16",bracketQF:"準々決勝",bracketSF:"準決勝",bracketF:"決勝",waitingFor:"対戦相手待ち",sortTime:"時間順",sortGroup:"グループ別",searchPlaceholder:"チームを検索…",favBadge:"本命",undBadge:"大穴",winOddsTitle:"トーナメント優勝確率",scTooltip:"グループステージ後、実際の試合結果を使用してELOモデルが再調整されます。",
-  teams:{"Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国","Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア","United States":"アメリカ","Paraguay":"パラグアイ","Germany":"ドイツ","Argentina":"アルゼンチン","England":"イングランド","Italy":"イタリア","France":"フランス","Brazil":"ブラジル","Spain":"スペイン","Portugal":"ポルトガル","Netherlands":"オランダ","Morocco":"モロッコ","Japan":"日本","Australia":"オーストラリア","Croatia":"クロアチア","Switzerland":"スイス","Uruguay":"ウルグアイ","Colombia":"コロンビア","Senegal":"セネガル","Ecuador":"エクアドル","Norway":"ノルウェー","Turkey":"トルコ","Iran":"イラン","Saudi Arabia":"サウジアラビア","Ghana":"ガーナ","Ivory Coast":"コートジボワール","Tunisia":"チュニジア","Egypt":"エジプト","Algeria":"アルジェリア","Panama":"パナマ","Qatar":"カタール","New Zealand":"ニュージーランド","Cape Verde":"カーボベルデ","Curacao":"キュラソー","Haiti":"ハイチ","Belgium":"ベルギー","Scotland":"スコットランド","DR Congo":"コンゴ","Austria":"オーストリア","Sweden":"スウェーデン","Iraq":"イラク","Jordan":"요르단","Uzbekistan":"ウズベキスタン"}}
+  teams:{"Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国","Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア","United States":"アメリカ","Paraguay":"パラグアイ","Germany":"ドイツ","Argentina":"アルゼンチン","England":"イングランド","Italy":"イタリア","France":"フランス","Brazil":"ブラジル","Spain":"スペイン","Portugal":"ポルトガル","Netherlands":"オランダ","Morocco":"モロッコ","Japan":"日本","Australia":"オーストラリア","Croatia":"クロアチア","Switzerland":"スイス","Uruguay":"ウルグアイ","Colombia":"コロンビア","Senegal":"セネガル","Ecuador":"エクアドル","Norway":"ノルウェー","Turkey":"トルコ","Iran":"イラン","Saudi Arabia":"サウジアラビア","Ghana":"ガーナ","Ivory Coast":"コートジボワール","Tunisia":"チュニジア","Egypt":"エジプト","Algeria":"アルジェリア","Panama":"パナマ","Qatar":"カタール","New Zealand":"ニュージーランド","Cape Verde":"カーボベルデ","Curacao":"キュラソー","Haiti":"ハイチ","Belgium":"ベルギー","Scotland":"スコットランド","DR Congo":"コンゴ","Austria":"オーストリア","Sweden":"スウェーデン","Iraq":"イラク","Jordan":"ヨルダン","Uzbekistan":"Uzbekistan"}}
 };
 
 /* ── MANAGEMENT VARIABLES ── */
 let lang='en',currentView='grid',currentStage='Group Stage',currentSort='time',searchQuery='',allMatches=[],meta={};
+let currentMatchState='upcoming'; // NEW Global Management Filter Node Value ('upcoming' vs 'completed')
 const STAGES=['Group Stage','Round of 32','Round of 16','Quarter-Finals','Semi-Finals','Final'];
 const STAGE_KEYS={'Group Stage':'groupStage','Round of 32':'r32','Round of 16':'r16','Quarter-Finals':'quarters','Semi-Finals':'semis','Final':'final'};
 
@@ -586,6 +588,18 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
 function tn(r){return DICT[lang].teams[r]||r;}
 function fmtKO(iso){if(!iso)return'';try{const dt=new Date(iso),edt=new Date(dt.getTime()-4*60*60*1000);return edt.toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',hour12:true}).replace(',','')+' EDT';}catch(e){return iso;}}
 
+// Extractor string compiler to isolate clean local calendar days
+function formatCalendarDay(iso){
+  if(!iso) return 'Unknown Date';
+  try {
+    const dt = new Date(iso);
+    const edt = new Date(dt.getTime() - 4*60*60*1000); // EDT Offset
+    return edt.toLocaleDateString(lang === 'en' ? 'en-US' : lang === 'ko' ? 'ko-KR' : 'ja-JP', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+  } catch(e) { return 'Unknown Date'; }
+}
+
 /* ── WIN ODDS PANEL ── */
 function winOddsHTML(match){
   const d=DICT[lang];
@@ -675,7 +689,7 @@ function renderLive(match){
   </div>`;
 }
 
-/* ── RENDER COMPLETED (COMPRESSED DUAL-COLUMN RE-ENGINEERED) ── */
+/* ── RENDER COMPLETED ── */
 let completedArchive=[];
 function mergeArchiveData(match){
   const arc=completedArchive.find(a=>a.id===match.id||(a.home===match.home&&a.away===match.away));
@@ -690,7 +704,6 @@ function mergeArchiveData(match){
   });
 }
 
-// Rebuilt to fit side-by-side in double columns by turning off the large charts on the right.
 function renderCompleted(rawMatch){
   const match=mergeArchiveData(rawMatch);
   const home=tn(match.home),away=tn(match.away);
@@ -746,6 +759,7 @@ function renderCompleted(rawMatch){
   // ── FRONT VIEW DATA FRAME (COMPRESSED TO 2 COLUMNS) ──
   const front=`<div class="flip-face flip-face-front pc-front-layout" style="backface-visibility: hidden; -webkit-backface-visibility: hidden; position: relative; width: 100%; z-index: 2;">
     
+    <!-- LEFT PANEL: Scoreboard & Player of Match Matrix -->
     <div style="display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid rgba(255,255,255,0.05); padding-right:12px;">
       <div>
         <div style="font-size:9px; font-weight:800; letter-spacing:1.5px; color:var(--gold); margin-bottom:8px;">🏆 WORLD CUP 2026 · ${esc(match.group||'STAGE')}</div>
@@ -781,6 +795,7 @@ function renderCompleted(rawMatch){
       <div style="text-align: left; font-size: 10px; font-weight: 700; color: var(--gold); margin-top:12px;">➔ tap card for strategic analysis</div>
     </div>
 
+    <!-- RIGHT PANEL: Core Stats Engine -->
     <div style="display:flex; flex-direction:column; justify-content:center; padding:0 4px;">
       <div style="font-size:9px; font-weight:800; text-align:center; color:var(--gold); letter-spacing:1.5px; margin-bottom:10px;">MATCH STATS</div>
       ${statRows}
@@ -859,12 +874,27 @@ function buildStageTabs(){
 const expandedGroups=new Set();
 function toggleGroup(k){if(expandedGroups.has(k))expandedGroups.delete(k);else expandedGroups.add(k);renderGrid();}
 
+/* ── NEW: STATE SWITCH NODE (UPCOMING VS COMPLETED) ── */
+function switchMatchState(state){
+  currentMatchState = state;
+  document.getElementById('btn-state-upcoming').classList.toggle('active', state==='upcoming');
+  document.getElementById('btn-state-completed').classList.toggle('active', state==='completed');
+  
+  // Show sort control only on upcoming view or when group configuration matches
+  document.getElementById('sort-control-container').style.display = 'flex';
+  document.getElementById('signal-legend-box').style.display = state==='upcoming' ? 'flex' : 'none';
+  
+  expandedGroups.clear();
+  renderGrid();
+}
+
 /* ── RENDER GRID ── */
 function renderGrid(){
   const d=DICT[lang];
   const seen=new Map();allMatches.forEach(m=>seen.set(m.id,m));
   const all=[...seen.values()];
   const stageM=all.filter(m=>(m.stage||'Group Stage')===currentStage).filter(matchesSearch);
+  
   const live=stageM.filter(m=>m.type==='IN_PLAY'||isLiveWindow(m));
   const upcoming=stageM.filter(m=>m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0));
   const completed=stageM.filter(m=>m.type==='COMPLETED').sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
@@ -874,39 +904,77 @@ function renderGrid(){
   if(live.length){liveSection.style.display='';liveList.innerHTML=live.map(renderLive).join('');}
   else{liveSection.style.display='none';}
 
-  document.getElementById('lbl-upcoming').textContent=d.upcoming;
-  document.getElementById('lbl-completed').textContent=d.completed;
-  document.getElementById('count-upcoming').textContent=upcoming.length;
-  document.getElementById('count-completed').textContent=completed.length;
+  // Update Section Header Labels Dynamically
+  const titleEl = document.getElementById('lbl-grid-state-title');
+  const totalEl = document.getElementById('count-grid-state-total');
+  const targetGrid = document.getElementById('dynamic-grid-content');
 
-  const upEl=document.getElementById('upcoming-list'),coEl=document.getElementById('completed-list');
-
-  if(searchQuery||currentSort==='time'){
-    upEl.innerHTML=upcoming.length?`<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>`:`<div class="empty">${esc(d.noUpcoming)}</div>`;
-    coEl.innerHTML=completed.length?`<div class="card-grid">${completed.map(renderCompleted).join('')}</div>`:`<div class="empty">${esc(d.noCompleted)}</div>`;
-    return;
-  }
-
-  const byGroup={};
-  upcoming.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
-  if(expandedGroups.size===0){
-    const now=Date.now(),h48=now+48*60*60*1000;let auto=false;
-    Object.entries(byGroup).forEach(([g,ms])=>{if(!auto&&ms.some(m=>{const t=new Date(m.kickoff||0).getTime();return t>=now&&t<=h48;})){expandedGroups.add('up-'+g);auto=true;}});
-    if(!auto&&Object.keys(byGroup).length>0)expandedGroups.add('up-'+Object.keys(byGroup)[0]);
-  }
-  upEl.innerHTML=upcoming.length===0?`<div class="empty">${esc(d.noUpcoming)}</div>`:
-    Object.entries(byGroup).map(([group,matches])=>{
-      const key='up-'+group,isOpen=expandedGroups.has(key),nk=matches[0]?fmtKO(matches[0].kickoff):'';
-      return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${esc(nk)} · ${matches.length} match${matches.length!==1?'es':''}</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderUpcoming).join('')}</div></div>`:''}</div>`;
-    }).join('');
+  if(currentMatchState === 'upcoming') {
+    titleEl.textContent = d.upcoming;
+    totalEl.textContent = upcoming.length;
     
-  const byGroupC={};
-  completed.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroupC[g])byGroupC[g]=[];byGroupC[g].push(m);});
-  coEl.innerHTML=completed.length===0?`<div class="empty">${esc(d.noCompleted)}</div>`:
-    Object.entries(byGroupC).map(([group,matches])=>{
-      const key='co-'+group,isOpen=expandedGroups.has(key);
-      return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${matches.length} match${matches.length!==1?'es':''} played</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`:''}</div>`;
-    }).join('');
+    if(searchQuery || currentSort === 'time') {
+      targetGrid.innerHTML = upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`;
+    } else {
+      // Grouping by Group Pool Configuration
+      const byGroup={};
+      upcoming.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
+      if(expandedGroups.size===0){
+        const now=Date.now(),h48=now+48*60*60*1000;let auto=false;
+        Object.entries(byGroup).forEach(([g,ms])=>{if(!auto&&ms.some(m=>{const t=new Date(m.kickoff||0).getTime();return t>=now&&t<=h48;})){expandedGroups.add('up-'+g);auto=true;}});
+        if(!auto&&Object.keys(byGroup).length>0)expandedGroups.add('up-'+Object.keys(byGroup)[0]);
+      }
+      targetGrid.innerHTML = upcoming.length === 0 ? `<div class="empty">${esc(d.noUpcoming)}</div>` :
+        Object.entries(byGroup).map(([group,matches])=>{
+          const key='up-'+group,isOpen=expandedGroups.has(key),nk=matches[0]?fmtKO(matches[0].kickoff): '';
+          return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${esc(nk)} · ${matches.length} match${matches.length!==1?'es':''}</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderUpcoming).join('')}</div></div>`:''}</div>`;
+        }).join('');
+    }
+  } else {
+    // COMPLETED MATCHES ROUTING PATHWAY
+    titleEl.textContent = d.completed;
+    totalEl.textContent = completed.length;
+    
+    if(searchQuery || currentSort === 'time') {
+      // Sort Chronologically by exact Calendar Day played
+      const byDate = {};
+      completed.forEach(m => {
+        const day = formatCalendarDay(m.kickoff);
+        if(!byDate[day]) byDate[day] = [];
+        byDate[day].push(m);
+      });
+      
+      // Auto-expand the newest day if nothing is open
+      if(expandedGroups.size === 0 && Object.keys(byDate).length > 0) {
+        expandedGroups.add('date-' + Object.keys(byDate)[0]);
+      }
+      
+      targetGrid.innerHTML = completed.length === 0 ? `<div class="empty">${esc(d.noCompleted)}</div>` :
+        Object.entries(byDate).map(([dayString, matches]) => {
+          const key = 'date-' + dayString, isOpen = expandedGroups.has(key);
+          return `<div class="group-section" style="margin-bottom:12px;">
+            <button class="group-header" style="background:var(--surface3); border-color:rgba(232,160,32,0.2);" onclick="toggleGroup('${esc(key)}')">
+              <span class="group-header-label" style="color:var(--gold-hi)">📅 ${esc(dayString)}</span>
+              <span class="group-header-meta" style="text-align:right; padding-right:10px;">${matches.length} Match${matches.length!==1?'es':''} Settled</span>
+              <span class="group-header-chevron">${isOpen?'▲':'▼'}</span>
+            </button>
+            ${isOpen ? `<div class="group-body" style="padding-top:10px;"><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>` : ''}
+          </div>`;
+        }).join('');
+    } else {
+      // Grouping by Pool Group Identification
+      const byGroupC={};
+      completed.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroupC[g])byGroupC[g]=[];byGroupC[g].push(m);});
+      if(expandedGroups.size === 0 && Object.keys(byGroupC).length > 0) {
+        expandedGroups.add('co-' + Object.keys(byGroupC)[0]);
+      }
+      targetGrid.innerHTML = completed.length===0 ? `<div class="empty">${esc(d.noCompleted)}</div>` :
+        Object.entries(byGroupC).map(([group,matches])=>{
+          const key='co-'+group,isOpen=expandedGroups.has(key);
+          return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${matches.length} match${matches.length!==1?'es':''} played</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`:''}</div>`;
+        }).join('');
+    }
+  }
 }
 
 /* ── BRACKET ── */
@@ -960,6 +1028,11 @@ function applyLabels(){
   document.getElementById('btn-bracket').textContent=d.bracket;
   document.getElementById('btn-sort-time').textContent=d.sortTime||'By Time';
   document.getElementById('btn-sort-group').textContent=d.sortGroup||'By Group';
+  
+  // Dynamic internal translations for the state toggles
+  document.getElementById('btn-state-upcoming').textContent = d.upcoming;
+  document.getElementById('btn-state-completed').textContent = d.completed;
+  
   const si=document.getElementById('search-input');if(si)si.placeholder=d.searchPlaceholder||'Search teams…';
   if(meta.lastUpdated)document.getElementById('lbl-updated').textContent=`${d.updated}: ${meta.lastUpdated}`;
   ['en','ko','ja'].forEach(l=>{document.getElementById('lang-'+l).className='btn'+(l===lang?' lang-active':'');});
@@ -972,6 +1045,10 @@ function switchView(v){
   document.getElementById('view-bracket').classList.toggle('active',v==='bracket');
   document.getElementById('btn-grid').classList.toggle('active',v==='grid');
   document.getElementById('btn-bracket').classList.toggle('active',v==='bracket');
+  
+  // Hide internal status secondary row filters when working inside Bracket layout nodes
+  document.getElementById('state-filter-row').style.display = v==='grid' ? 'flex' : 'none';
+  
   const sw=document.getElementById('search-wrap');if(sw)sw.style.display=v==='grid'?'':'none';
   if(v==='bracket')renderBracket();else renderGrid();
 }
