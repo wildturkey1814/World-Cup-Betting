@@ -371,60 +371,87 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 }
 
 /* ── PREMIUM COMPLETED CARD ─────────────────────────────────────────── */
-.pc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;box-shadow:inset 3px 0 0 var(--text-lo);}
-.pc-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 14px 10px 17px;border-bottom:1px solid var(--border);gap:8px;}
-.pc-team-block{display:flex;flex-direction:column;gap:5px;}
-.pc-team-row{display:flex;align-items:center;gap:7px;}
-.pc-team-name{font-size:14px;font-weight:700;color:var(--text-hi);}
-.pc-team-winner{color:var(--green);}
-.pc-score-center{text-align:center;}
-.pc-score-big{font-size:28px;font-weight:900;color:var(--gold);letter-spacing:3px;line-height:1;}
-.pc-result-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-lo);margin-top:3px;}
-.pc-meta-col{text-align:right;display:flex;flex-direction:column;gap:3px;align-items:flex-end;}
-.pc-body{padding:10px 17px 0;}
-.pc-stats-row{display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03);}
-.pc-stats-row:last-child{border-bottom:none;}
-.pc-stat-home{font-size:13px;font-weight:700;color:var(--neon);text-align:left;}
-.pc-stat-away{font-size:13px;font-weight:700;color:var(--text-mid);text-align:right;}
-.pc-stat-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-lo);text-align:center;}
-.pc-poss-wrap{padding:8px 0 4px;}
-.pc-poss-bar{height:4px;border-radius:2px;background:rgba(255,255,255,0.06);overflow:hidden;margin:4px 0;}
-.pc-poss-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--neon),var(--green));}
-.pc-poss-labels{display:flex;justify-content:space-between;font-size:10px;font-weight:700;}
-.pc-poss-home{color:var(--neon);}
-.pc-poss-away{color:var(--text-mid);}
-.pc-poss-mid{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--text-lo);}
-.pc-adv{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px 0;}
-.pc-adv-pill{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:6px;padding:6px 8px;text-align:center;}
-.pc-adv-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-lo);display:block;margin-bottom:3px;}
-.pc-adv-vals{display:flex;justify-content:space-between;align-items:center;gap:4px;}
-.pc-adv-home{font-size:12px;font-weight:800;color:var(--neon);}
-.pc-adv-away{font-size:12px;font-weight:700;color:var(--text-mid);}
-.pc-adv-sep{font-size:9px;color:var(--text-lo);}
-.pc-goals{padding:6px 0 8px;}
-.pc-goals-title{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--text-lo);margin-bottom:5px;}
-.pc-goal-row{display:flex;align-items:center;gap:6px;padding:2px 0;font-size:11px;font-weight:600;}
-.pc-goal-row.home{color:var(--text-hi);}
-.pc-goal-row.away{flex-direction:row-reverse;color:var(--text-mid);}
-.pc-goal-min{font-size:9px;font-weight:800;color:var(--neon);background:rgba(56,189,248,0.1);border-radius:3px;padding:1px 4px;min-width:28px;text-align:center;}
-/* back face */
-.pc-back{padding:14px 16px;height:100%;display:flex;flex-direction:column;gap:10px;}
-.pc-back-header{display:flex;justify-content:space-between;align-items:center;}
-.pc-back-title{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);}
+.pc-card{background:#06080f;border:1px solid rgba(255,255,255,0.09);border-radius:14px;margin-bottom:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5);}
+/* FRONT */
+.pc-front{display:flex;flex-direction:column;}
+/* Hero header — dark panel with teams + big score */
+.pc-hero{background:linear-gradient(135deg,#0d1220 0%,#111827 100%);padding:14px 16px 12px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.pc-hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.pc-tournament{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.pc-matchday{font-size:9px;font-weight:700;letter-spacing:1px;color:var(--text-lo);}
+.pc-teams-score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;}
+.pc-team-left,.pc-team-right{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.pc-team-right{align-items:center;}
+.pc-flag-lg{width:36px;height:24px;border-radius:3px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.5);flex-shrink:0;}
+.pc-flag-lg svg{width:100%;height:100%;display:block;}
+.pc-tname{font-size:13px;font-weight:800;color:var(--text-hi);text-align:center;letter-spacing:0.3px;margin-top:2px;}
+.pc-tname.winner{color:var(--green);}
+.pc-winner-badge{font-size:8px;font-weight:800;letter-spacing:1px;color:var(--green);background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3);padding:1px 5px;border-radius:3px;margin-top:2px;}
+.pc-score-block{text-align:center;}
+.pc-score-num{font-size:44px;font-weight:900;color:#fff;letter-spacing:6px;line-height:1;font-variant-numeric:tabular-nums;}
+.pc-score-sep{color:rgba(255,255,255,0.3);font-weight:300;}
+.pc-ft-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-lo);margin-top:4px;}
+/* Goals timeline below teams */
+.pc-goals-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);}
+.pc-goals-home,.pc-goals-away{display:flex;flex-direction:column;gap:3px;}
+.pc-goals-away{align-items:flex-end;}
+.pc-goal-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-mid);}
+.pc-goals-away .pc-goal-item{flex-direction:row-reverse;}
+.pc-goal-min-badge{font-size:9px;font-weight:800;color:var(--neon);background:rgba(56,189,248,0.1);border-radius:3px;padding:1px 4px;min-width:26px;text-align:center;}
+.pc-goal-scorer{font-size:11px;font-weight:600;color:var(--text-hi);}
+/* Stats section */
+.pc-stats-section{padding:10px 16px 4px;}
+.pc-poss-wrap{margin-bottom:8px;}
+.pc-poss-labels{display:flex;justify-content:space-between;font-size:10px;font-weight:700;margin-bottom:3px;}
+.pc-poss-home-val{color:var(--neon);}
+.pc-poss-lbl{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--text-lo);}
+.pc-poss-away-val{color:rgba(248,113,113,0.8);}
+.pc-poss-bar{height:4px;border-radius:2px;background:rgba(255,255,255,0.06);overflow:hidden;position:relative;}
+.pc-poss-fill-h{position:absolute;left:0;top:0;height:100%;border-radius:2px;background:linear-gradient(90deg,var(--neon),var(--green));}
+.pc-poss-fill-a{position:absolute;right:0;top:0;height:100%;border-radius:2px;background:rgba(248,113,113,0.5);}
+.pc-stat-table{width:100%;border-collapse:collapse;}
+.pc-stat-tr{border-bottom:1px solid rgba(255,255,255,0.03);}
+.pc-stat-tr:last-child{border-bottom:none;}
+.pc-stat-td-h{font-size:13px;font-weight:700;color:var(--neon);padding:5px 0;text-align:left;width:40px;}
+.pc-stat-td-l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-lo);text-align:center;}
+.pc-stat-td-a{font-size:13px;font-weight:700;color:rgba(248,113,113,0.8);padding:5px 0;text-align:right;width:40px;}
+/* Advanced pills */
+.pc-adv-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px 16px 10px;}
+.pc-adv-pill{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:7px 8px;text-align:center;}
+.pc-adv-lbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-lo);display:block;margin-bottom:4px;}
+.pc-adv-vals{display:flex;justify-content:space-between;align-items:center;}
+.pc-adv-h{font-size:12px;font-weight:800;color:var(--neon);}
+.pc-adv-a{font-size:12px;font-weight:700;color:rgba(248,113,113,0.8);}
+.pc-adv-dot{font-size:8px;color:var(--text-lo);}
+/* Flip hint */
+.pc-flip-hint{text-align:center;padding:6px 0 10px;font-size:10px;font-weight:600;color:var(--text-lo);letter-spacing:0.5px;border-top:1px solid rgba(255,255,255,0.04);margin:0 16px;}
+/* BACK */
+.pc-back{padding:16px;height:100%;display:flex;flex-direction:column;gap:12px;background:#06080f;}
+.pc-back-hdr{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.pc-back-title{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.pc-back-score{font-size:12px;font-weight:800;color:var(--text-hi);letter-spacing:1px;}
 .pc-back-close{font-size:10px;font-weight:700;color:var(--text-lo);}
-.pc-insight-block{display:flex;flex-direction:column;gap:7px;}
-.pc-insight{padding:8px 10px;border-radius:6px;background:rgba(255,255,255,0.02);border-left:2px solid var(--neon);}
-.pc-insight:nth-child(2){border-left-color:var(--gold);}
-.pc-insight:nth-child(3){border-left-color:var(--green);}
-.pc-insight-title{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--neon);margin-bottom:3px;}
-.pc-insight:nth-child(2) .pc-insight-title{color:var(--gold);}
-.pc-insight:nth-child(3) .pc-insight-title{color:var(--green);}
-.pc-insight-body{font-size:11px;color:var(--text-mid);line-height:1.5;}
-.pc-accuracy{margin-top:auto;padding:8px 10px;background:rgba(240,180,41,0.05);border:1px solid rgba(240,180,41,0.15);border-radius:6px;}
-.pc-accuracy-title{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:5px;}
-.pc-accuracy-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px;}
-.pc-accuracy-src{color:var(--text-mid);}
-.pc-accuracy-mark{font-size:13px;font-weight:800;}
+.pc-insights{display:flex;flex-direction:column;gap:8px;}
+.pc-insight-item{padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.02);border-left:2px solid var(--neon);}
+.pc-insight-item:nth-child(2){border-left-color:var(--gold);}
+.pc-insight-item:nth-child(3){border-left-color:var(--green);}
+.pc-insight-ttl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--neon);margin-bottom:4px;}
+.pc-insight-item:nth-child(2) .pc-insight-ttl{color:var(--gold);}
+.pc-insight-item:nth-child(3) .pc-insight-ttl{color:var(--green);}
+.pc-insight-txt{font-size:11px;color:var(--text-mid);line-height:1.55;}
+.pc-result-box{margin-top:auto;padding:12px;background:rgba(240,180,41,0.06);border:1px solid rgba(240,180,41,0.2);border-radius:8px;display:flex;align-items:center;gap:10px;}
+.pc-result-trophy{font-size:22px;}
+.pc-result-text{}
+.pc-result-winner{font-size:12px;font-weight:800;text-transform:uppercase;color:var(--gold);letter-spacing:1px;}
+.pc-result-summary{font-size:11px;color:var(--text-mid);line-height:1.4;margin-top:2px;}
+.pc-pred-accuracy{padding:8px 12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;}
+.pc-pred-title{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-lo);margin-bottom:6px;}
+.pc-pred-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px;}
+.pc-pred-src{color:var(--text-mid);}
+.pc-pred-mark{font-size:14px;font-weight:800;}
+.pc-pred-correct{color:var(--green);}
+.pc-pred-wrong{color:var(--red);}
+
 </style>
 </head>
 <body>
@@ -772,19 +799,14 @@ function renderLive(match){
 /* ── RENDER COMPLETED (premium) ── */
 let completedArchive=[];
 function mergeArchiveData(match){
-  // Enrich match record with data from completed_matches.json archive
   const arc=completedArchive.find(a=>a.id===match.id||(a.home===match.home&&a.away===match.away));
   if(!arc)return match;
   return Object.assign({},match,{
-    homeFlag:arc.homeFlag||match.homeFlag,
-    awayFlag:arc.awayFlag||match.awayFlag,
-    boxScore:arc.boxScore||match.boxScore,
-    advancedMetrics:arc.advancedMetrics,
-    insights:arc.insights,
-    insight:arc.insight||match.insight,
+    homeFlag:arc.homeFlag||match.homeFlag,awayFlag:arc.awayFlag||match.awayFlag,
+    boxScore:arc.boxScore||match.boxScore,advancedMetrics:arc.advancedMetrics,
+    insights:arc.insights,insight:arc.insight||match.insight,
     sourceAccuracy:arc.sourceAccuracy||match.sourceAccuracy,
-    homeScore:arc.homeScore??match.homeScore,
-    awayScore:arc.awayScore??match.awayScore,
+    homeScore:arc.homeScore??match.homeScore,awayScore:arc.awayScore??match.awayScore,
     score:arc.score||match.score,
   });
 }
@@ -793,95 +815,110 @@ function renderCompleted(rawMatch){
   const home=tn(match.home),away=tn(match.away);
   const bs=match.boxScore,adv=match.advancedMetrics;
   const hScore=match.homeScore??0,aScore=match.awayScore??0;
-  const homeWon=hScore>aScore,isDraw=hScore===aScore;
-  const scoreStr=(()=>{const r=match.score||'';const m=r.match(/(\d+)\s*[-–]\s*(\d+)/);return m?`${m[1]} – ${m[2]}`:r;})();
+  const homeWon=hScore>aScore,isDraw=hScore===aScore,awayWon=aScore>hScore;
+  const winner=homeWon?home:awayWon?away:null;
 
   // ── FRONT ──
+  // Goals split into home/away columns
+  const goals=(bs?.goals||[]).sort((a,b)=>(a.minute||0)-(b.minute||0));
+  const hGoals=goals.filter(g=>g.team==='home');
+  const aGoals=goals.filter(g=>g.team==='away');
+  const maxGoalRows=Math.max(hGoals.length,aGoals.length,1);
+  let goalsHTML='';
+  if(goals.length){
+    const hRows=hGoals.map(g=>`<div class="pc-goal-item"><span class="pc-goal-min-badge">${g.minute}'</span><span class="pc-goal-scorer">${esc(g.scorer||'')}</span></div>`).join('');
+    const aRows=aGoals.map(g=>`<div class="pc-goal-item"><span class="pc-goal-scorer">${esc(g.scorer||'')}</span><span class="pc-goal-min-badge">${g.minute}'</span></div>`).join('');
+    goalsHTML=`<div class="pc-goals-row"><div class="pc-goals-home">${hRows}</div><div class="pc-goals-away">${aRows}</div></div>`;
+  }
+
   // Possession bar
-  const hp=bs?.possession?.home??50,ap=bs?.possession?.away??50;
+  const hp=bs?.possession?.home??50,ap=100-hp;
   const possHTML=`<div class="pc-poss-wrap">
-    <div class="pc-poss-labels"><span class="pc-poss-home">${hp}%</span><span class="pc-poss-mid">Possession</span><span class="pc-poss-away">${ap}%</span></div>
-    <div class="pc-poss-bar"><div class="pc-poss-fill" style="width:${hp}%"></div></div>
+    <div class="pc-poss-labels"><span class="pc-poss-home-val">${hp}%</span><span class="pc-poss-lbl">Possession</span><span class="pc-poss-away-val">${ap}%</span></div>
+    <div class="pc-poss-bar"><div class="pc-poss-fill-h" style="width:${hp}%"></div><div class="pc-poss-fill-a" style="width:${ap}%"></div></div>
   </div>`;
 
-  // Core stats
-  const coreStats=[
-    {label:'Shots',h:bs?.shots?.home,a:bs?.shots?.away},
-    {label:'On Target',h:bs?.shotsOnTarget?.home,a:bs?.shotsOnTarget?.away},
-    {label:'Corners',h:bs?.corners?.home,a:bs?.corners?.away},
-    {label:'Fouls',h:bs?.fouls?.home,a:bs?.fouls?.away},
-    {label:'🟨',h:bs?.yellowCards?.home,a:bs?.yellowCards?.away},
-  ].filter(s=>s.h!=null||s.a!=null);
-  const coreHTML=coreStats.map(s=>`<div class="pc-stats-row">
-    <span class="pc-stat-home">${s.h??'—'}</span>
-    <span class="pc-stat-label">${s.label}</span>
-    <span class="pc-stat-away">${s.a??'—'}</span>
-  </div>`).join('');
+  // Stats table
+  const rows=[
+    {l:'Shots',h:bs?.shots?.home,a:bs?.shots?.away},
+    {l:'On Target',h:bs?.shotsOnTarget?.home,a:bs?.shotsOnTarget?.away},
+    {l:'Corners',h:bs?.corners?.home,a:bs?.corners?.away},
+    {l:'Fouls',h:bs?.fouls?.home,a:bs?.fouls?.away},
+    {l:'🟨 Yellow',h:bs?.yellowCards?.home,a:bs?.yellowCards?.away},
+  ].filter(r=>r.h!=null||r.a!=null);
+  const statsHTML=rows.map(r=>`<tr class="pc-stat-tr"><td class="pc-stat-td-h">${r.h??'—'}</td><td class="pc-stat-td-l">${r.l}</td><td class="pc-stat-td-a">${r.a??'—'}</td></tr>`).join('');
 
   // Advanced pills
-  const advPills=adv?[
-    {label:'xG',h:adv.xg?.home,a:adv.xg?.away},
-    {label:'Field Tilt',h:adv.fieldTilt?.home!=null?adv.fieldTilt.home+'%':null,a:adv.fieldTilt?.away!=null?adv.fieldTilt.away+'%':null},
-    {label:'Big Chances',h:adv.bigChances?.home,a:adv.bigChances?.away},
-  ].map(p=>`<div class="pc-adv-pill">
-    <span class="pc-adv-label">${p.label}</span>
-    <div class="pc-adv-vals"><span class="pc-adv-home">${p.h??'—'}</span><span class="pc-adv-sep">·</span><span class="pc-adv-away">${p.a??'—'}</span></div>
-  </div>`).join(''):'';
-
-  // Goals
-  const goals=(bs?.goals||[]).sort((a,b)=>(a.minute||0)-(b.minute||0));
-  const goalsHTML=goals.length?`<div class="pc-goals">
-    <div class="pc-goals-title">⚽ Goals</div>
-    ${goals.map(g=>`<div class="pc-goal-row ${g.team}">
-      <span class="pc-goal-min">${g.minute}'</span>
-      <span>${esc(g.scorer||'')}</span>
-    </div>`).join('')}
+  const advHTML=adv?`<div class="pc-adv-row">
+    <div class="pc-adv-pill"><span class="pc-adv-lbl">xG</span><div class="pc-adv-vals"><span class="pc-adv-h">${adv.xg?.home??'—'}</span><span class="pc-adv-dot">·</span><span class="pc-adv-a">${adv.xg?.away??'—'}</span></div></div>
+    <div class="pc-adv-pill"><span class="pc-adv-lbl">Field Tilt</span><div class="pc-adv-vals"><span class="pc-adv-h">${adv.fieldTilt?.home!=null?adv.fieldTilt.home+'%':'—'}</span><span class="pc-adv-dot">·</span><span class="pc-adv-a">${adv.fieldTilt?.away!=null?adv.fieldTilt.away+'%':'—'}</span></div></div>
+    <div class="pc-adv-pill"><span class="pc-adv-lbl">Big Chances</span><div class="pc-adv-vals"><span class="pc-adv-h">${adv.bigChances?.home??'—'}</span><span class="pc-adv-dot">·</span><span class="pc-adv-a">${adv.bigChances?.away??'—'}</span></div></div>
   </div>`:'';
 
-  const front=`<div class="flip-face flip-face-front">
-    <div class="pc-header">
-      <div class="pc-team-block">
-        <div class="pc-team-row"><div class="flag">${flagHTML(match.homeFlag)}</div><span class="pc-team-name${homeWon?' pc-team-winner':''}">${esc(home)}</span>${homeWon?'<span class="team-badge badge-fav">W</span>':isDraw?'':'<span class="team-badge badge-und">L</span>'}</div>
-        <div class="pc-team-row"><div class="flag">${flagHTML(match.awayFlag)}</div><span class="pc-team-name${!homeWon&&!isDraw?' pc-team-winner':''}">${esc(away)}</span>${!homeWon&&!isDraw?'<span class="team-badge badge-fav">W</span>':isDraw?'':'<span class="team-badge badge-und">L</span>'}</div>
+  const front=`<div class="flip-face flip-face-front pc-front">
+    <div class="pc-hero">
+      <div class="pc-hero-top">
+        <span class="pc-tournament">⚽ World Cup 2026</span>
+        <span class="pc-matchday">${esc(match.group||match.stage||'Group Stage')} · ${fmtKO(match.kickoff)}</span>
       </div>
-      <div class="pc-score-center">
-        <div class="pc-score-big">${esc(scoreStr)}</div>
-        <div class="pc-result-label">Full Time</div>
+      <div class="pc-teams-score">
+        <div class="pc-team-left">
+          <div class="pc-flag-lg">${flagHTML(match.homeFlag)}</div>
+          <div class="pc-tname${homeWon?' winner':''}">${esc(home)}</div>
+          ${homeWon?'<div class="pc-winner-badge">WINNER</div>':''}
+        </div>
+        <div class="pc-score-block">
+          <div class="pc-score-num">${hScore}<span class="pc-score-sep"> – </span>${aScore}</div>
+          <div class="pc-ft-label">Full Time</div>
+        </div>
+        <div class="pc-team-right">
+          <div class="pc-flag-lg">${flagHTML(match.awayFlag)}</div>
+          <div class="pc-tname${awayWon?' winner':''}">${esc(away)}</div>
+          ${awayWon?'<div class="pc-winner-badge">WINNER</div>':''}
+        </div>
       </div>
-      <div class="pc-meta-col">
-        <span class="match-group-tag">${esc(match.group||match.stage||'')}</span>
-        <span class="match-kickoff">${fmtKO(match.kickoff)}</span>
-      </div>
-    </div>
-    <div class="pc-body">
-      ${possHTML}
-      ${coreHTML}
-      ${adv?`<div class="pc-adv">${advPills}</div>`:''}
       ${goalsHTML}
     </div>
-    <div class="flip-hint"><span>tap for insights ↩</span></div>
+    <div class="pc-stats-section">
+      ${possHTML}
+      <table class="pc-stat-table">${statsHTML}</table>
+    </div>
+    ${advHTML}
+    <div class="pc-flip-hint">tap for match insights ↩</div>
   </div>`;
 
   // ── BACK ──
   const insights=match.insights||[];
-  const insightHTML=insights.map(ins=>`<div class="pc-insight">
-    <div class="pc-insight-title">${esc(ins.title)}</div>
-    <div class="pc-insight-body">${esc(ins.body)}</div>
+  const insightsHTML=insights.map(ins=>`<div class="pc-insight-item">
+    <div class="pc-insight-ttl">${esc(ins.title)}</div>
+    <div class="pc-insight-txt">${esc(ins.body)}</div>
   </div>`).join('');
 
-  let auditHTML='';
-  Object.entries(match.sourceAccuracy||{}).forEach(([src,ok])=>{
-    auditHTML+=`<div class="pc-accuracy-row"><span class="pc-accuracy-src">${esc(src)}</span><span class="pc-accuracy-mark ${ok?'audit-correct':'audit-incorrect'}">${ok?'✓':'✗'}</span></div>`;
-  });
+  let accuracyHTML='';
+  const acc=match.sourceAccuracy||{};
+  if(Object.keys(acc).length){
+    const rows=Object.entries(acc).map(([src,ok])=>`<div class="pc-pred-row"><span class="pc-pred-src">${esc(src)}</span><span class="pc-pred-mark ${ok?'pc-pred-correct':'pc-pred-wrong'}">${ok?'✓':'✗'}</span></div>`).join('');
+    accuracyHTML=`<div class="pc-pred-accuracy"><div class="pc-pred-title">Prediction Accuracy</div>${rows}</div>`;
+  }
+
+  const resultSummary=match.insight||`${winner?winner+' won '+hScore+'-'+aScore+'.':'Match ended '+hScore+'-'+aScore+'.'}`;
+  const resultBox=`<div class="pc-result-box">
+    <div class="pc-result-trophy">${isDraw?'🤝':'🏆'}</div>
+    <div class="pc-result-text">
+      <div class="pc-result-winner">${isDraw?'Draw — '+hScore+' – '+aScore:(winner||'')+(homeWon?' Win':' Win')}</div>
+      <div class="pc-result-summary">${esc(resultSummary)}</div>
+    </div>
+  </div>`;
 
   const back=`<div class="flip-face flip-face-back">
     <div class="pc-back">
-      <div class="pc-back-header">
+      <div class="pc-back-hdr">
         <span class="pc-back-title">Match Insights</span>
         <span class="pc-back-close">tap to flip back ↩</span>
       </div>
-      <div class="pc-insight-block">${insightHTML||`<div class="pc-insight"><div class="pc-insight-body">${esc(match.insight||'No insights available.')}</div></div>`}</div>
-      ${auditHTML?`<div class="pc-accuracy"><div class="pc-accuracy-title">Prediction Accuracy</div>${auditHTML}</div>`:''}
+      <div class="pc-insights">${insightsHTML||`<div class="pc-insight-item"><div class="pc-insight-txt">${esc(match.insight||'No insights available.')}</div></div>`}</div>
+      ${resultBox}
+      ${accuracyHTML}
     </div>
   </div>`;
 
