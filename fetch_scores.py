@@ -1,253 +1,468 @@
+"""
+2026 World Cup — Live Scores & Box Score Fetcher
+=================================================
+Polls football-data.org (free tier, 10 calls/min) for:
+  - Match status changes (UPCOMING → IN_PLAY → FINISHED)
+  - Live scores during matches
+  - Final scores + box score stats when complete
+
+This script ONLY touches match status, scores, and boxScore fields.
+It NEVER overwrites prediction layers (odds data stays untouched).
+
+Triggers:
+  - Runs every 5 minutes via GitHub Action
+  - Exits immediately if no matches are live or recently finished
+  - On quiet days with no upcoming matches, exits immediately
+
+Run manually:   python fetch_scores.py
+Requirements:   pip install requests
+Environment:    FOOTBALL_DATA_KEY must be set
+                (free at football-data.org — no call limit concerns)
+"""
+
 import os
 import json
 import logging
-from datetime import datetime
+import tempfile
+import shutil
+import time
+from datetime import datetime, timezone, timedelta
+from typing import Optional
+
 import requests
 
-# Setup logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+# ── Logging ────────────────────────────────────────────────────────────────
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 log = logging.getLogger(__name__)
 
-# Configuration
-DATA_FILE = "data.json"
-API_URL = "https://api.football-data.org/v4/competitions/WC/matches"
-API_TOKEN = os.environ.get("FOOTBALL_DATA_API_TOKEN", "YOUR_API_TOKEN_HERE")
+# ── Config ─────────────────────────────────────────────────────────────────
+# Accept either env var name — FOOTBALL_DATA_API_TOKEN (new workflows) or FOOTBALL_DATA_KEY (old)
+FD_KEY          = os.environ.get("FOOTBALL_DATA_API_TOKEN", "") or os.environ.get("FOOTBALL_DATA_KEY", "")
+FD_BASE         = "https://api.football-data.org/v4"
+FD_WC_ID        = 2000        # football-data.org competition ID for FIFA World Cup
+OUTPUT_FILE     = "data.json"
+REQUEST_TIMEOUT = 15
 
-# Team name aliases: maps football-data.org names to the names used in data.json
-TEAM_NAME_ALIASES = {
-    "IR Iran": "Iran",
-    "Korea Republic": "South Korea",
-    "USA": "United States",
-    "Türkiye": "Turkiye",
-    "Côte d'Ivoire": "Ivory Coast",
-    "DR Congo": "Congo DR",
-    "Bosnia and Herzegovina": "Bosnia & Herzegovina",
-    "Congo DR": "Congo DR",
+# Match window: how long before/after kickoff to consider a match "active"
+WINDOW_BEFORE_MIN = 30     # start watching 30 min before kickoff
+WINDOW_AFTER_MIN  = 130    # live window ends 130 min after kickoff
+CATCHUP_HOURS     = 48     # also check any UPCOMING match whose kickoff
+                           # was within the past 48 hours (catches missed matches)
+
+# Team name normalisation — football-data.org uses full official names
+FD_TEAM_MAP = {
+    "Mexico":                       "Mexico",
+    "South Africa":                 "South Africa",
+    "Republic of Korea":            "South Korea",
+    "Korea Republic":               "South Korea",
+    "Czechia":                      "Czechia",
+    "Czech Republic":               "Czechia",
+    "Canada":                       "Canada",
+    "Bosnia and Herzegovina":       "Bosnia & Herzegovina",
+    "Bosnia & Herzegovina":         "Bosnia & Herzegovina",
+    "USA":                          "United States",
+    "United States":                "United States",
+    "Paraguay":                     "Paraguay",
+    "Germany":                      "Germany",
+    "Argentina":                    "Argentina",
+    "England":                      "England",
+    "Italy":                        "Italy",
+    "France":                       "France",
+    "Brazil":                       "Brazil",
+    "Spain":                        "Spain",
+    "Portugal":                     "Portugal",
+    "Netherlands":                  "Netherlands",
+    "Morocco":                      "Morocco",
+    "Japan":                        "Japan",
+    "Australia":                    "Australia",
+    "Croatia":                      "Croatia",
+    "Switzerland":                  "Switzerland",
+    "Uruguay":                      "Uruguay",
+    "Colombia":                     "Colombia",
+    "Senegal":                      "Senegal",
+    "Denmark":                      "Denmark",
+    "Ecuador":                      "Ecuador",
+    "Norway":                       "Norway",
+    "Turkey":                       "Turkey",
+    "Türkiye":                      "Turkey",
+    "Serbia":                       "Serbia",
+    "Poland":                       "Poland",
+    "IR Iran":                      "Iran",
+    "Iran":                         "Iran",
+    "Saudi Arabia":                 "Saudi Arabia",
+    "Ghana":                        "Ghana",
+    "Cameroon":                     "Cameroon",
+    "Ivory Coast":                  "Ivory Coast",
+    "Côte d'Ivoire":                "Ivory Coast",
+    "DR Congo":                     "DR Congo",
+    "Congo DR":                     "DR Congo",
+    "Tunisia":                      "Tunisia",
+    "Egypt":                        "Egypt",
+    "Algeria":                      "Algeria",
+    "Nigeria":                      "Nigeria",
+    "Panama":                       "Panama",
+    "Costa Rica":                   "Costa Rica",
+    "Wales":                        "Wales",
+    "Uzbekistan":                   "Uzbekistan",
+    "Iraq":                         "Iraq",
+    "Jordan":                       "Jordan",
+    "Qatar":                        "Qatar",
+    "New Zealand":                  "New Zealand",
+    "Cape Verde":                   "Cape Verde",
+    "Curaçao":                      "Curacao",
+    "Curacao":                      "Curacao",
+    "Haiti":                        "Haiti",
+    "Belgium":                      "Belgium",
+    "Scotland":                     "Scotland",
+    "Austria":                      "Austria",
+    "Sweden":                       "Sweden",
 }
 
-def normalize_team_name(name):
-    """Normalize a team name using the alias table."""
-    if not name:
-        return ""
-    return TEAM_NAME_ALIASES.get(name, name)
+def normalise_fd(name: str) -> str:
+    return FD_TEAM_MAP.get(name, name)
 
-def fetch_api_matches():
-    """
-    Fetches matches directly from the sports API client.
-    """
-    headers = {"X-Auth-Token": API_TOKEN}
 
-    # Covers full 2026 World Cup: June 11 group stage through July 19 final
-    params = {
-        "dateFrom": "2026-06-11",
-        "dateTo": "2026-07-20"
+# ── API helpers ─────────────────────────────────────────────────────────────
+
+def fd_get(path: str, params: dict = None) -> Optional[dict]:
+    """GET from football-data.org with error isolation."""
+    if not FD_KEY:
+        log.error("FOOTBALL_DATA_KEY not set.")
+        return None
+    url = f"{FD_BASE}/{path}"
+    headers = {"X-Auth-Token": FD_KEY}
+    try:
+        resp = requests.get(url, headers=headers, params=params or {},
+                            timeout=REQUEST_TIMEOUT)
+        if resp.status_code == 429:
+            log.warning("Rate limited — sleeping 12s.")
+            time.sleep(12)
+            resp = requests.get(url, headers=headers, params=params or {},
+                                timeout=REQUEST_TIMEOUT)
+        resp.raise_for_status()
+        return resp.json()
+    except requests.exceptions.HTTPError as e:
+        log.error("HTTP %s: %s", e.response.status_code, url)
+    except requests.exceptions.Timeout:
+        log.error("Timeout: %s", url)
+    except requests.exceptions.RequestException as e:
+        log.error("Request error: %s", e)
+    except ValueError:
+        log.error("Non-JSON from %s", url)
+    return None
+
+
+def fetch_match_detail(fd_match_id: int) -> Optional[dict]:
+    """Fetch full match detail including stats."""
+    time.sleep(0.5)   # stay within 10 calls/min free tier
+    return fd_get(f"matches/{fd_match_id}")
+
+
+def fetch_today_matches() -> Optional[list]:
+    """Fetch all World Cup matches from the past 3 days to catch any missed completions."""
+    now   = datetime.now(timezone.utc)
+    three_days_ago = (now - timedelta(days=3)).date()
+    tomorrow = (now + timedelta(days=1)).date()
+    data  = fd_get(f"competitions/{FD_WC_ID}/matches", {
+        "dateFrom": str(three_days_ago),
+        "dateTo":   str(tomorrow),
+    })
+    if not data:
+        return None
+    return data.get("matches", [])
+
+
+# ── Box score builder ────────────────────────────────────────────────────────
+
+def build_box_score(fd_match: dict) -> Optional[dict]:
+    """
+    Extract box score from a football-data.org match detail response.
+    Returns None if stats aren't available yet.
+    """
+    stats  = fd_match.get("statistics") or {}
+    home_s = stats.get("home") or {}
+    away_s = stats.get("away") or {}
+
+    goals_raw = fd_match.get("goals") or []
+    goals = []
+    home_name = normalise_fd(
+        (fd_match.get("homeTeam") or {}).get("name", ""))
+    for g in goals_raw:
+        team_name = normalise_fd(
+            (g.get("team") or {}).get("name", ""))
+        side = "home" if team_name == home_name else "away"
+        scorer = ""
+        scorer_obj = g.get("scorer") or {}
+        if scorer_obj.get("name"):
+            # Shorten to last name for display
+            parts = scorer_obj["name"].split()
+            scorer = parts[-1] if parts else scorer_obj["name"]
+        goals.append({
+            "minute": g.get("minute"),
+            "team":   side,
+            "scorer": scorer,
+        })
+
+    score = fd_match.get("score", {})
+    full  = score.get("fullTime", {})
+    h_goals = full.get("home", 0) or 0
+    a_goals = full.get("away", 0) or 0
+
+    box = {
+        "possession": {
+            "home": home_s.get("ball_possession") or home_s.get("possession") or 50,
+            "away": away_s.get("ball_possession") or away_s.get("possession") or 50,
+        },
+        "shots": {
+            "home": home_s.get("total_shots") or home_s.get("shots_total"),
+            "away": away_s.get("total_shots") or away_s.get("shots_total"),
+        },
+        "shotsOnTarget": {
+            "home": home_s.get("shots_on_goal") or home_s.get("shots_on_target"),
+            "away": away_s.get("shots_on_goal") or away_s.get("shots_on_target"),
+        },
+        "corners": {
+            "home": home_s.get("corner_kicks") or home_s.get("corners"),
+            "away": away_s.get("corner_kicks") or away_s.get("corners"),
+        },
+        "fouls": {
+            "home": home_s.get("fouls") or home_s.get("fouls_committed"),
+            "away": away_s.get("fouls") or away_s.get("fouls_committed"),
+        },
+        "yellowCards": {
+            "home": home_s.get("yellow_cards"),
+            "away": away_s.get("yellow_cards"),
+        },
+        "redCards": {
+            "home": home_s.get("red_cards"),
+            "away": away_s.get("red_cards"),
+        },
+        "goals": goals,
     }
 
+    # Only return if we have at least some real data
+    has_data = any([
+        box["shots"]["home"] is not None,
+        box["goals"],
+        h_goals > 0 or a_goals > 0,
+    ])
+    return box if has_data else None
+
+
+def score_string(home: str, away: str, fd_match: dict) -> str:
+    """Build the score string in our format: 'MEXICO 2 - 1 SOUTH AFRICA'."""
+    full = fd_match.get("score", {}).get("fullTime", {})
+    hg   = full.get("home", 0) or 0
+    ag   = full.get("away", 0) or 0
+    return f"{home.upper()} {hg} - {ag} {away.upper()}"
+
+
+# ── Match the data.json record to a football-data match ─────────────────────
+
+def match_fd_to_record(record: dict, fd_matches: list) -> Optional[dict]:
+    """
+    Find the football-data.org match entry corresponding to our data.json record.
+    Matches by home/away team name normalisation.
+    """
+    our_home = record.get("home", "")
+    our_away = record.get("away", "")
+    for m in fd_matches:
+        fd_home = normalise_fd((m.get("homeTeam") or {}).get("name", ""))
+        fd_away = normalise_fd((m.get("awayTeam") or {}).get("name", ""))
+        if fd_home == our_home and fd_away == our_away:
+            return m
+        # Also match reversed (rare but possible with neutral venues)
+        if fd_home == our_away and fd_away == our_home:
+            return m
+    return None
+
+
+# ── Active window check ──────────────────────────────────────────────────────
+
+def is_in_active_window(record: dict, now: datetime) -> bool:
+    """
+    True if this match should be checked for score updates.
+    """
+    ko_str = record.get("kickoff") or ""
+    if not ko_str or ko_str == "null":
+        return record.get("type") == "UPCOMING"
+
     try:
-        log.info("Querying sports API client for match updates...")
-        response = requests.get(API_URL, headers=headers, params=params, timeout=15)
-        if response.status_code == 200:
-            return response.json().get("matches", [])
-        else:
-            log.error("API returned status code %d: %s", response.status_code, response.text)
-            return []
-    except Exception as e:
-        log.error("Failed to fetch matches from sports API: %s", str(e))
-        return []
+        ko = datetime.fromisoformat(str(ko_str).replace("Z", "+00:00"))
+        mins_since_ko = (now - ko).total_seconds() / 60
 
-def recalculate_fav(record):
+        if -WINDOW_BEFORE_MIN <= mins_since_ko <= 0:
+            return True
+        if 0 < mins_since_ko <= WINDOW_AFTER_MIN:
+            return True
+        if record.get("type") == "UPCOMING" and 0 < mins_since_ko <= CATCHUP_HOURS * 60:
+            return True
+        return False
+    except (ValueError, TypeError):
+        return record.get("type") == "UPCOMING"
+
+
+# ── File helpers ──────────────────────────────────────────────────────────────
+
+def atomic_write(path: str, data: dict) -> None:
+    d  = os.path.dirname(os.path.abspath(path)) or "."
+    fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+        shutil.move(tmp, path)
+        log.info("Wrote %s.", path)
+    except Exception:
+        try: os.unlink(tmp)
+        except OSError: pass
+        raise
+
+
+def load_data(path: str) -> dict:
+    if not os.path.exists(path):
+        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        log.warning("Could not read %s: %s", path, e)
+        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
+
+
+# ── Source accuracy audit ─────────────────────────────────────────────────────
+
+def calculate_source_accuracy(record: dict, home_won: bool, is_draw: bool) -> dict:
     """
-    Dynamically averages all available data layers to select the consensus favorite.
-    Prevents infinite inversion loops by anchoring calculations to absolute team names.
+    For each prediction layer, check if the source's favourite call was correct.
     """
-    layers = record.get("layers", [])
-    if not layers:
-        return
-
-    def parse_percentage(val):
-        try:
-            return float(str(val).replace("%", ""))
-        except (ValueError, TypeError):
-            return 0.0
-
-    home_probs_sum = 0.0
-    away_probs_sum = 0.0
-    valid_layers_count = 0
-
+    accuracy = {}
     fav_is_home = record.get("favTeam") == record.get("home")
 
-    for layer in layers:
-        fav_val = parse_percentage(layer.get("fav"))
-        und_val = parse_percentage(layer.get("und"))
-
-        if fav_is_home:
-            home_prob = fav_val
-            away_prob = und_val
+    for layer in record.get("layers", []):
+        source = layer.get("source", "")
+        if not source:
+            continue
+        if is_draw:
+            accuracy[source] = False
         else:
-            home_prob = und_val
-            away_prob = fav_val
+            fav_prob  = float(str(layer.get("fav",  "0")).replace("%","") or 0)
+            und_prob  = float(str(layer.get("und",  "0")).replace("%","") or 0)
+            source_picks_home = (fav_is_home and fav_prob > und_prob) or \
+                                (not fav_is_home and und_prob > fav_prob)
+            accuracy[source] = (source_picks_home == home_won)
 
-        home_probs_sum += home_prob
-        away_probs_sum += away_prob
-        valid_layers_count += 1
+    return accuracy
 
-    if valid_layers_count == 0:
-        return
 
-    avg_home = home_probs_sum / valid_layers_count
-    avg_away = away_probs_sum / valid_layers_count
+# ── Main ──────────────────────────────────────────────────────────────────────
 
-    if avg_home >= avg_away:
-        consensus_fav = record.get("home")
-        should_be_home = True
-    else:
-        consensus_fav = record.get("away")
-        should_be_home = False
+def main() -> None:
+    log.info("=== Score fetcher starting ===")
 
-    if should_be_home != fav_is_home:
-        record["favTeam"] = consensus_fav
-        for layer in layers:
-            layer["fav"], layer["und"] = layer["und"], layer["fav"]
+    if not FD_KEY:
+        log.error("FOOTBALL_DATA_KEY / FOOTBALL_DATA_API_TOKEN is not set.")
+        raise SystemExit(1)
 
-        log.info("Consensus correction applied for %s vs %s: updated favorite to %s (Home Avg: %.1f%%, Away Avg: %.1f%%)",
-                 record.get("home"), record.get("away"), consensus_fav, avg_home, avg_away)
+    now  = datetime.now(timezone.utc)
+    data = load_data(OUTPUT_FILE)
+    matches = data.get("matches", [])
 
-def map_api_status_to_schema(api_status):
-    """
-    Normalizes external API match states to the application's internal enum tracking.
-    """
-    mapping = {
-        "TIMED": "UPCOMING",
-        "SCHEDULED": "UPCOMING",
-        "LIVE": "IN_PLAY",
-        "IN_PLAY": "IN_PLAY",
-        "PAUSED": "IN_PLAY",
-        "FINISHED": "COMPLETED",
-        "AWARDED": "COMPLETED"
-    }
-    return mapping.get(api_status, "UPCOMING")
+    # Find records that are in the active watch window
+    active = [m for m in matches
+              if m.get("type") in ("UPCOMING", "IN_PLAY")
+              and is_in_active_window(m, now)]
 
-def build_name_index(existing_matches):
-    """
-    Build a secondary lookup index by (home_name, away_name) for fallback matching.
-    Only indexes real matches (not SRL simulated ones).
-    """
-    name_index = {}
-    for m in existing_matches:
-        home = m.get("home", "") or ""
-        away = m.get("away", "") or ""
-        # Skip SRL simulated match records
-        if "SRL" in home or "SRL" in away or "Srl" in home or "Srl" in away:
-            continue
-        key = (home.strip().lower(), away.strip().lower())
-        name_index[key] = m
-    return name_index
+    if not active:
+        log.info("No matches in active window — nothing to do.")
+        raise SystemExit(0)
 
-def process_and_merge(existing_matches, api_matches):
-    """
-    Merges newly polled API payloads into the local data array.
-    Uses ID matching first, then falls back to team name matching.
-    Locks down COMPLETED matches permanently so they can never be dropped or overwritten.
-    """
-    db_map = {str(m["id"]): m for m in existing_matches}
-    name_index = build_name_index(existing_matches)
+    log.info("%d match(es) in active window.", len(active))
 
-    log.info("Processing updates against %d existing records...", len(existing_matches))
+    # Fetch today's World Cup matches from football-data.org
+    fd_matches = fetch_today_matches()
+    if fd_matches is None:
+        log.warning("Could not fetch from football-data.org — keeping existing data.")
+        raise SystemExit(0)
 
-    for api_match in api_matches:
-        match_id = str(api_match.get("id"))
-        api_status = api_match.get("status")
-        mapped_type = map_api_status_to_schema(api_status)
+    log.info("football-data.org returned %d match(es).", len(fd_matches))
 
-        # Safely extract team names — guard against None
-        home_team_raw = (api_match.get("homeTeam") or {}).get("name") or ""
-        away_team_raw = (api_match.get("awayTeam") or {}).get("name") or ""
-        home_team = normalize_team_name(home_team_raw)
-        away_team = normalize_team_name(away_team_raw)
+    changed = False
 
-        score_data = api_match.get("score") or {}
-        full_time = score_data.get("fullTime") or {}
-        home_score = full_time.get("home")
-        away_score = full_time.get("away")
-
-        # --- Find the record to update ---
-        # 1. Try direct ID match first
-        record = db_map.get(match_id)
-
-        # 2. Fall back to name-based match if no ID match and we have team names
-        if record is None and home_team and away_team:
-            name_key = (home_team.strip().lower(), away_team.strip().lower())
-            record = name_index.get(name_key)
-            if record:
-                log.info("Name-matched %s vs %s (API id=%s -> DB id=%s)",
-                         home_team, away_team, match_id, record.get("id"))
-
-        # 3. If still no match, skip — don't create orphan records
-        if record is None:
-            log.info("No matching DB record for API match: %s vs %s (id=%s) — skipping",
-                     home_team or "?", away_team or "?", match_id)
+    for record in active:
+        fd_m = match_fd_to_record(record, fd_matches)
+        if not fd_m:
+            log.info("  %s vs %s — no FD match found yet.",
+                     record.get("home"), record.get("away"))
             continue
 
-        # LOCK: If already COMPLETED with a score, never overwrite
-        if record.get("type") == "COMPLETED" and record.get("score"):
-            log.info("Skipping locked COMPLETED match: %s vs %s", record.get("home"), record.get("away"))
-            continue
+        fd_status = fd_m.get("status", "")
+        home      = record.get("home", "")
+        away      = record.get("away", "")
 
-        # Update type and scores
-        record["type"] = mapped_type
+        log.info("  %s vs %s — FD status: %s", home, away, fd_status)
 
-        if home_score is not None:
-            record["homeScore"] = home_score
-        if away_score is not None:
-            record["awayScore"] = away_score
+        if fd_status in ("IN_PLAY", "PAUSED"):
+            curr = fd_m.get("score", {}).get("fullTime", {})
+            hg   = curr.get("home", 0) or 0
+            ag   = curr.get("away", 0) or 0
+            record["type"]      = "IN_PLAY"
+            record["liveScore"] = f"{hg} - {ag}"
+            changed = True
+            log.info("    LIVE: %s %d - %d %s", home, hg, ag, away)
 
-        # When a match finishes, write the human-readable score string and lock it
-        if mapped_type == "COMPLETED" and home_score is not None and away_score is not None:
-            home_name = (record.get("home") or "Home").upper()
-            away_name = (record.get("away") or "Away").upper()
-            record["score"] = f"{home_name} {home_score} - {away_score} {away_name}"
-            log.info("Match completed and locked: %s", record["score"])
+        elif fd_status == "FINISHED":
+            # LOCK: if already completed with score, skip
+            if record.get("type") == "COMPLETED" and record.get("score"):
+                log.info("    Already locked: %s", record.get("score"))
+                continue
 
-        # Recalculate favorite dynamically based on layer consensus
-        recalculate_fav(record)
+            fd_id  = fd_m.get("id")
+            detail = fetch_match_detail(fd_id) if fd_id else fd_m
+            fd_match_full = detail.get("match", detail) if detail else fd_m
 
-        # Ensure updated record is in db_map under its original ID
-        db_map[str(record["id"])] = record
+            full   = fd_match_full.get("score", {}).get("fullTime", {})
+            hg     = full.get("home", 0) or 0
+            ag     = full.get("away", 0) or 0
+            is_draw  = (hg == ag)
+            home_won = hg > ag
 
-    return list(db_map.values())
+            record["type"]           = "COMPLETED"
+            record["score"]          = score_string(home, away, fd_match_full)
+            record["homeScore"]      = hg
+            record["awayScore"]      = ag
+            record["sourceAccuracy"] = calculate_source_accuracy(record, home_won, is_draw)
 
-def main():
-    # 1. Load your central database file
-    if os.path.exists(DATA_FILE):
-        try:
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                database = json.load(f)
-        except Exception as e:
-            log.error("Failed to read %s: %s. Initializing empty database structure.", DATA_FILE, str(e))
-            database = {"matches": []}
-    else:
-        database = {"matches": []}
+            box = build_box_score(fd_match_full)
+            if box:
+                record["boxScore"] = box
+                log.info("    FINISHED: %s — box score captured.", record["score"])
+            else:
+                log.info("    FINISHED: %s — no stats available yet.", record["score"])
 
-    # 2. Extract matches array from schema root
-    existing_matches = database.get("matches", [])
+            if not record.get("insight"):
+                if is_draw:
+                    record["insight"] = f"The match ended level at {hg}-{ag}."
+                elif home_won:
+                    record["insight"] = f"{home} won {hg}-{ag}."
+                else:
+                    record["insight"] = f"{away} won {ag}-{hg}."
 
-    # 3. Pull fresh payloads from external API client
-    api_matches = fetch_api_matches()
-    if not api_matches:
-        log.warning("No matches returned from external API. Database write skipped to protect state integrity.")
-        return
+            record.pop("liveScore", None)
+            changed = True
 
-    # 4. Filter, process, and merge under the mutation rules
-    updated_matches = process_and_merge(existing_matches, api_matches)
-    database["matches"] = updated_matches
+    if not changed:
+        log.info("No status changes — data.json unchanged.")
+        raise SystemExit(0)
 
-    # 5. Flush state changes permanently back to storage disk
-    try:
-        with open(DATA_FILE, "w", encoding="utf-8") as f:
-            json.dump(database, f, indent=2, ensure_ascii=False)
-        log.info("Database file successfully synchronized and saved. Processing cycle complete.")
-    except Exception as e:
-        log.critical("Failed to write updated structural array back to %s: %s", DATA_FILE, str(e))
+    data["lastUpdated"] = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
+    atomic_write(OUTPUT_FILE, data)
+    log.info("=== Done ===")
+
 
 if __name__ == "__main__":
     main()
