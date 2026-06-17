@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 17, 2026 · 12:11 AM UTC",
+  "lastUpdated": "June 17, 2026 · 12:57 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -419,7 +419,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Argentina",
       "away": "Algeria",
       "favTeam": "Argentina",
@@ -450,14 +450,54 @@
       "kalshiWinProbHome": "9.0%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "10.2%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "score": "ARGENTINA 3 - 0 ALGERIA",
+      "homeScore": 3,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "Argentina won 3-0."
     },
     {
       "id": "match_id1000001666457020",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Austria",
       "away": "Jordan",
       "favTeam": "Austria",
@@ -487,7 +527,47 @@
       ],
       "kalshiWinProbHome": "0.3%",
       "polymarketWinProbHome": "0.4%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "score": "AUSTRIA 3 - 1 JORDAN",
+      "homeScore": 3,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "Austria won 3-1."
     },
     {
       "id": "match_id1000001666457030",
