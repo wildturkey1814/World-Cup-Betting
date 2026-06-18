@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 18, 2026 · 12:33 PM UTC",
+  "lastUpdated": "June 18, 2026 · 12:34 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -602,7 +602,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "8.2%",
+      "kalshiWinProbHome": "8.6%",
       "polymarketWinProbHome": "8.1%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
@@ -1423,7 +1423,7 @@
           "und": "5.1%"
         }
       ],
-      "kalshiWinProbHome": "8.2%",
+      "kalshiWinProbHome": "8.6%",
       "polymarketWinProbHome": "8.1%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -2317,7 +2317,7 @@
         }
       ],
       "kalshiWinProbHome": "1.6%",
-      "kalshiWinProbAway": "8.2%",
+      "kalshiWinProbAway": "8.6%",
       "polymarketWinProbHome": "1.7%",
       "polymarketWinProbAway": "8.1%"
     },
@@ -2434,5 +2434,5 @@
     }
   ],
   "kalshiUpdated": "June 18, 2026 · 12:33 PM UTC",
-  "polymarketUpdated": "June 18, 2026 · 12:33 PM UTC"
+  "polymarketUpdated": "June 18, 2026 · 12:34 PM UTC"
 }
