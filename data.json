@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 19, 2026 · 1:01 PM UTC",
+  "lastUpdated": "June 19, 2026 · 6:25 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -22,7 +22,7 @@
       "homeScore": 2,
       "awayScore": 0,
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
-      "kalshiWinProbHome": "1.8%",
+      "kalshiWinProbHome": "1.6%",
       "polymarketWinProbHome": "1.6%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -70,7 +70,7 @@
       "homeScore": 1,
       "awayScore": 1,
       "score": "CANADA 1 - 1 BOSNIA-HERZEGOVINA",
-      "kalshiWinProbHome": "0.3%",
+      "kalshiWinProbHome": "0.4%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -94,8 +94,8 @@
       "homeScore": 4,
       "awayScore": 1,
       "score": "UNITED STATES 4 - 1 PARAGUAY",
-      "kalshiWinProbHome": "3.6%",
-      "polymarketWinProbHome": "2.5%",
+      "kalshiWinProbHome": "3.7%",
+      "polymarketWinProbHome": "2.8%",
       "polymarketWinProbAway": "0.1%"
     },
     {
@@ -145,7 +145,7 @@
       "kalshiWinProbHome": "6.7%",
       "kalshiWinProbAway": "1.9%",
       "polymarketWinProbHome": "6.7%",
-      "polymarketWinProbAway": "2.6%"
+      "polymarketWinProbAway": "2.9%"
     },
     {
       "id": "537340",
@@ -192,7 +192,7 @@
       "awayScore": 0,
       "score": "AUSTRALIA 2 - 0 TURKEY",
       "kalshiWinProbHome": "0.3%",
-      "kalshiWinProbAway": "0.3%",
+      "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.4%"
     },
@@ -240,10 +240,10 @@
       "homeScore": 2,
       "awayScore": 2,
       "score": "NETHERLANDS 2 - 2 JAPAN",
-      "kalshiWinProbHome": "4.1%",
+      "kalshiWinProbHome": "4.2%",
       "kalshiWinProbAway": "1.5%",
       "polymarketWinProbHome": "4.0%",
-      "polymarketWinProbAway": "1.6%"
+      "polymarketWinProbAway": "1.5%"
     },
     {
       "id": "537352",
@@ -266,7 +266,7 @@
       "awayScore": 0,
       "score": "IVORY COAST 1 - 0 ECUADOR",
       "kalshiWinProbHome": "0.4%",
-      "kalshiWinProbAway": "0.5%",
+      "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.4%"
     },
@@ -314,7 +314,7 @@
       "homeScore": 0,
       "awayScore": 0,
       "score": "SPAIN 0 - 0 CAPE VERDE ISLANDS",
-      "kalshiWinProbHome": "13.2%",
+      "kalshiWinProbHome": "13.3%",
       "polymarketWinProbHome": "13.7%"
     },
     {
@@ -409,7 +409,7 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "18.3%",
+      "kalshiWinProbHome": "18.4%",
       "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "18.4%",
       "polymarketWinProbAway": "0.5%"
@@ -602,7 +602,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "7.7%",
+      "kalshiWinProbHome": "7.5%",
       "polymarketWinProbHome": "7.3%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
@@ -674,14 +674,14 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "61.6%",
+          "fav": "60.6%",
           "draw": "21.2%",
-          "und": "17.2%"
+          "und": "18.2%"
         }
       ],
-      "kalshiWinProbHome": "3.6%",
+      "kalshiWinProbHome": "3.7%",
       "kalshiWinProbAway": "0.3%",
-      "polymarketWinProbHome": "2.5%",
+      "polymarketWinProbHome": "2.8%",
       "polymarketWinProbAway": "0.4%"
     },
     {
@@ -712,15 +712,15 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "16.3%",
-          "draw": "26.5%",
-          "und": "57.1%"
+          "fav": "15.2%",
+          "draw": "26.3%",
+          "und": "58.6%"
         }
       ],
       "kalshiWinProbHome": "0.1%",
       "kalshiWinProbAway": "1.9%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.6%"
+      "polymarketWinProbAway": "2.9%"
     },
     {
       "id": "match_id1000001666456932",
@@ -792,7 +792,7 @@
           "und": "24.2%"
         }
       ],
-      "kalshiWinProbHome": "0.3%",
+      "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -829,7 +829,7 @@
           "und": "20.2%"
         }
       ],
-      "kalshiWinProbHome": "4.1%",
+      "kalshiWinProbHome": "4.2%",
       "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "4.0%",
       "polymarketWinProbAway": "0.5%"
@@ -900,12 +900,12 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "88.9%",
-          "draw": "8.1%",
-          "und": "3.0%"
+          "fav": "88.8%",
+          "draw": "8.2%",
+          "und": "3.1%"
         }
       ],
-      "kalshiWinProbHome": "0.5%",
+      "kalshiWinProbHome": "0.4%",
       "polymarketWinProbHome": "0.4%"
     },
     {
@@ -943,7 +943,7 @@
       ],
       "kalshiWinProbAway": "1.5%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "1.6%"
+      "polymarketWinProbAway": "1.5%"
     },
     {
       "id": "match_id1000001666456998",
@@ -978,7 +978,7 @@
           "und": "3.0%"
         }
       ],
-      "kalshiWinProbHome": "13.2%",
+      "kalshiWinProbHome": "13.3%",
       "polymarketWinProbHome": "13.7%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -1164,7 +1164,7 @@
           "und": "3.0%"
         }
       ],
-      "kalshiWinProbHome": "18.3%",
+      "kalshiWinProbHome": "18.4%",
       "polymarketWinProbHome": "18.4%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -1201,7 +1201,7 @@
           "und": "31.6%"
         }
       ],
-      "kalshiWinProbHome": "2.5%",
+      "kalshiWinProbHome": "2.6%",
       "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "2.5%",
       "polymarketWinProbAway": "0.5%"
@@ -1275,7 +1275,7 @@
           "und": "5.1%"
         }
       ],
-      "kalshiWinProbHome": "7.7%",
+      "kalshiWinProbHome": "7.5%",
       "polymarketWinProbHome": "7.3%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -1425,7 +1425,7 @@
         }
       ],
       "kalshiWinProbHome": "0.9%",
-      "kalshiWinProbAway": "0.3%",
+      "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "0.9%",
       "polymarketWinProbAway": "0.4%"
     },
@@ -1457,9 +1457,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "69.4%",
-          "draw": "18.4%",
-          "und": "12.2%"
+          "fav": "67.7%",
+          "draw": "19.2%",
+          "und": "13.1%"
         }
       ],
       "polymarketWinProbAway": "0.1%"
@@ -1492,13 +1492,13 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "76.0%",
-          "draw": "16.0%",
-          "und": "8.0%"
+          "fav": "76.8%",
+          "draw": "15.2%",
+          "und": "8.1%"
         }
       ],
       "kalshiWinProbHome": "1.9%",
-      "polymarketWinProbHome": "2.6%",
+      "polymarketWinProbHome": "2.9%",
       "polymarketWinProbAway": "0.1%"
     },
     {
@@ -1604,12 +1604,12 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "28.3%",
+          "fav": "29.3%",
           "draw": "24.2%",
-          "und": "47.5%"
+          "und": "46.5%"
         }
       ],
-      "kalshiWinProbAway": "1.8%",
+      "kalshiWinProbAway": "1.6%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.6%"
     },
@@ -1641,12 +1641,12 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "18.2%",
-          "draw": "23.2%",
-          "und": "58.6%"
+          "fav": "18.4%",
+          "draw": "23.5%",
+          "und": "58.2%"
         }
       ],
-      "kalshiWinProbHome": "0.5%",
+      "kalshiWinProbHome": "0.4%",
       "kalshiWinProbAway": "6.0%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "5.9%"
@@ -1679,9 +1679,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "5.1%",
+          "fav": "4.0%",
           "draw": "9.1%",
-          "und": "85.9%"
+          "und": "86.9%"
         }
       ],
       "kalshiWinProbAway": "0.4%",
@@ -1720,7 +1720,7 @@
           "und": "75.5%"
         }
       ],
-      "kalshiWinProbAway": "4.1%",
+      "kalshiWinProbAway": "4.2%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "4.0%"
     },
@@ -1759,7 +1759,7 @@
       ],
       "kalshiWinProbHome": "1.5%",
       "kalshiWinProbAway": "0.4%",
-      "polymarketWinProbHome": "1.6%",
+      "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "0.5%"
     },
     {
@@ -1827,15 +1827,15 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "34.0%",
-          "draw": "24.0%",
-          "und": "42.0%"
+          "fav": "34.3%",
+          "draw": "23.2%",
+          "und": "42.4%"
         }
       ],
-      "kalshiWinProbHome": "0.3%",
-      "kalshiWinProbAway": "3.6%",
+      "kalshiWinProbHome": "0.2%",
+      "kalshiWinProbAway": "3.7%",
       "polymarketWinProbHome": "0.4%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.8%"
     },
     {
       "id": "match_id1000001666457014",
@@ -1865,13 +1865,13 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "21.4%",
-          "draw": "23.5%",
-          "und": "55.1%"
+          "fav": "21.2%",
+          "draw": "24.2%",
+          "und": "54.5%"
         }
       ],
-      "kalshiWinProbHome": "2.5%",
-      "kalshiWinProbAway": "18.3%",
+      "kalshiWinProbHome": "2.6%",
+      "kalshiWinProbAway": "18.4%",
       "polymarketWinProbHome": "2.5%",
       "polymarketWinProbAway": "18.4%"
     },
@@ -1903,9 +1903,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "73.7%",
-          "draw": "17.2%",
-          "und": "9.1%"
+          "fav": "74.0%",
+          "draw": "17.0%",
+          "und": "9.0%"
         }
       ],
       "kalshiWinProbHome": "0.4%",
@@ -1940,9 +1940,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "33.3%",
-          "draw": "25.2%",
-          "und": "41.4%"
+          "fav": "33.0%",
+          "draw": "26.0%",
+          "und": "41.0%"
         }
       ],
       "polymarketWinProbHome": "0.1%",
@@ -1982,7 +1982,7 @@
         }
       ],
       "kalshiWinProbHome": "0.5%",
-      "kalshiWinProbAway": "13.2%",
+      "kalshiWinProbAway": "13.3%",
       "polymarketWinProbHome": "0.5%",
       "polymarketWinProbAway": "13.7%"
     },
@@ -2014,9 +2014,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "46.4%",
-          "draw": "28.9%",
-          "und": "24.7%"
+          "fav": "46.9%",
+          "draw": "28.6%",
+          "und": "24.5%"
         }
       ],
       "kalshiWinProbHome": "0.2%",
@@ -2052,8 +2052,8 @@
         {
           "source": "Prediction Markets (Kalshi)",
           "fav": "7.1%",
-          "draw": "14.3%",
-          "und": "78.6%"
+          "draw": "14.1%",
+          "und": "78.8%"
         }
       ],
       "kalshiWinProbAway": "1.6%",
@@ -2088,9 +2088,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "8.2%",
-          "draw": "12.2%",
-          "und": "79.6%"
+          "fav": "9.1%",
+          "draw": "11.1%",
+          "und": "79.8%"
         }
       ],
       "kalshiWinProbAway": "12.8%",
@@ -2125,9 +2125,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "61.2%",
-          "draw": "23.5%",
-          "und": "15.3%"
+          "fav": "60.8%",
+          "draw": "23.7%",
+          "und": "15.5%"
         }
       ],
       "kalshiWinProbHome": "0.6%",
@@ -2163,13 +2163,13 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "27.6%",
+          "fav": "26.5%",
           "draw": "25.5%",
-          "und": "46.9%"
+          "und": "48.0%"
         }
       ],
       "kalshiWinProbHome": "1.8%",
-      "kalshiWinProbAway": "7.7%",
+      "kalshiWinProbAway": "7.5%",
       "polymarketWinProbHome": "1.7%",
       "polymarketWinProbAway": "7.3%"
     },
@@ -2237,9 +2237,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "31.3%",
-          "draw": "31.3%",
-          "und": "37.4%"
+          "fav": "31.0%",
+          "draw": "31.0%",
+          "und": "38.0%"
         }
       ],
       "kalshiWinProbAway": "0.3%",
@@ -2284,6 +2284,6 @@
       "polymarketWinProbAway": "11.8%"
     }
   ],
-  "kalshiUpdated": "June 19, 2026 · 1:01 PM UTC",
-  "polymarketUpdated": "June 19, 2026 · 1:01 PM UTC"
+  "kalshiUpdated": "June 19, 2026 · 6:25 PM UTC",
+  "polymarketUpdated": "June 19, 2026 · 6:25 PM UTC"
 }
