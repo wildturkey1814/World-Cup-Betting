@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 20, 2026 · 10:15 AM UTC",
+  "lastUpdated": "June 20, 2026 · 10:19 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -241,7 +241,7 @@
       "homeScore": 2,
       "awayScore": 2,
       "score": "NETHERLANDS 2 - 2 JAPAN",
-      "kalshiWinProbHome": "4.0%",
+      "kalshiWinProbHome": "4.1%",
       "kalshiWinProbAway": "1.3%",
       "polymarketWinProbHome": "4.0%",
       "polymarketWinProbAway": "1.4%"
@@ -410,7 +410,7 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "19.0%",
+      "kalshiWinProbHome": "19.2%",
       "kalshiWinProbAway": "0.4%",
       "polymarketWinProbHome": "18.9%",
       "polymarketWinProbAway": "0.5%"
@@ -835,7 +835,7 @@
           "und": "20.2%"
         }
       ],
-      "kalshiWinProbHome": "4.0%",
+      "kalshiWinProbHome": "4.1%",
       "kalshiWinProbAway": "0.3%",
       "polymarketWinProbHome": "4.0%",
       "polymarketWinProbAway": "0.4%"
@@ -856,9 +856,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "63.9%",
-          "draw": "20.4%",
-          "und": "15.7%"
+          "fav": "48.5%",
+          "draw": "36.0%",
+          "und": "15.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -930,9 +930,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "13.5%",
-          "draw": "41.8%",
-          "und": "44.7%"
+          "fav": "14.8%",
+          "draw": "23.6%",
+          "und": "61.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1153,9 +1153,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "69.4%",
-          "draw": "25.4%",
-          "und": "5.2%"
+          "fav": "88.3%",
+          "draw": "8.4%",
+          "und": "3.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1170,7 +1170,7 @@
           "und": "3.0%"
         }
       ],
-      "kalshiWinProbHome": "19.0%",
+      "kalshiWinProbHome": "19.2%",
       "polymarketWinProbHome": "18.9%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -1725,7 +1725,7 @@
           "und": "75.8%"
         }
       ],
-      "kalshiWinProbAway": "4.0%",
+      "kalshiWinProbAway": "4.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "4.0%"
     },
@@ -1795,9 +1795,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "35.4%",
-          "draw": "41.4%",
-          "und": "23.2%"
+          "fav": "35.0%",
+          "draw": "42.0%",
+          "und": "23.0%"
         }
       ],
       "kalshiWinProbHome": "0.1%",
@@ -1821,9 +1821,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "32.1%",
-          "draw": "23.2%",
-          "und": "44.6%"
+          "fav": "32.6%",
+          "draw": "23.4%",
+          "und": "44.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -1875,7 +1875,7 @@
         }
       ],
       "kalshiWinProbHome": "2.6%",
-      "kalshiWinProbAway": "19.0%",
+      "kalshiWinProbAway": "19.2%",
       "polymarketWinProbHome": "2.5%",
       "polymarketWinProbAway": "18.9%"
     },
@@ -2288,6 +2288,6 @@
       "polymarketWinProbAway": "11.8%"
     }
   ],
-  "kalshiUpdated": "June 20, 2026 · 10:15 AM UTC",
-  "polymarketUpdated": "June 20, 2026 · 10:15 AM UTC"
+  "kalshiUpdated": "June 20, 2026 · 10:19 AM UTC",
+  "polymarketUpdated": "June 20, 2026 · 10:19 AM UTC"
 }
