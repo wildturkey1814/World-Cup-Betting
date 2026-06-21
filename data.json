@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 20, 2026 · 8:55 PM UTC",
+  "lastUpdated": "June 21, 2026 · 10:28 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -885,7 +885,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Ecuador",
       "away": "Curacao",
       "favTeam": "Ecuador",
@@ -914,14 +914,23 @@
         }
       ],
       "kalshiWinProbHome": "0.3%",
-      "polymarketWinProbHome": "0.4%"
+      "polymarketWinProbHome": "0.4%",
+      "score": "ECUADOR 0 - 0 CURACAO",
+      "homeScore": 0,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "insight": "The match ended level at 0-0."
     },
     {
       "id": "match_id1000001666456974",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Tunisia",
       "away": "Japan",
       "favTeam": "Japan",
@@ -951,7 +960,47 @@
       ],
       "kalshiWinProbAway": "1.3%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "1.4%"
+      "polymarketWinProbAway": "1.4%",
+      "score": "TUNISIA 0 - 4 JAPAN",
+      "homeScore": 0,
+      "awayScore": 4,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 50,
+          "away": 50
+        },
+        "shots": {
+          "home": null,
+          "away": null
+        },
+        "shotsOnTarget": {
+          "home": null,
+          "away": null
+        },
+        "corners": {
+          "home": null,
+          "away": null
+        },
+        "fouls": {
+          "home": null,
+          "away": null
+        },
+        "yellowCards": {
+          "home": null,
+          "away": null
+        },
+        "redCards": {
+          "home": null,
+          "away": null
+        },
+        "goals": []
+      },
+      "insight": "Japan won 4-0."
     },
     {
       "id": "match_id1000001666456998",
