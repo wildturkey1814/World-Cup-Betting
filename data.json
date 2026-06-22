@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 22, 2026 · 5:58 PM UTC",
+  "lastUpdated": "June 22, 2026 · 10:25 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1084,7 +1084,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "France",
       "away": "Iraq",
       "favTeam": "France",
@@ -1114,7 +1114,8 @@
       ],
       "kalshiWinProbHome": "19.7%",
       "polymarketWinProbHome": "19.8%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "liveScore": "1 - 0"
     },
     {
       "id": "match_id1000001666457012",
