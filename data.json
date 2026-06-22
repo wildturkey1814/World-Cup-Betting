@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 22, 2026 · 5:57 PM UTC",
+  "lastUpdated": "June 22, 2026 · 5:58 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -94,7 +94,7 @@
       "homeScore": 4,
       "awayScore": 1,
       "score": "UNITED STATES 4 - 1 PARAGUAY",
-      "kalshiWinProbHome": "5.1%",
+      "kalshiWinProbHome": "5.0%",
       "polymarketWinProbHome": "3.5%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbAway": "0.1%"
@@ -1740,7 +1740,7 @@
           "und": "51.0%"
         }
       ],
-      "kalshiWinProbAway": "5.1%",
+      "kalshiWinProbAway": "5.0%",
       "polymarketWinProbAway": "3.5%"
     },
     {
@@ -2227,6 +2227,6 @@
       "polymarketWinProbAway": "13.6%"
     }
   ],
-  "kalshiUpdated": "June 22, 2026 · 5:57 PM UTC",
-  "polymarketUpdated": "June 22, 2026 · 5:57 PM UTC"
+  "kalshiUpdated": "June 22, 2026 · 5:58 PM UTC",
+  "polymarketUpdated": "June 22, 2026 · 5:58 PM UTC"
 }
