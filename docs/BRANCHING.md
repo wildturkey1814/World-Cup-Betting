@@ -20,18 +20,19 @@ Do not push automated data updates to `dev`. Scheduled GitHub Actions that commi
 | **Dev preview** | `dev` | https://wildturkey1814.github.io/World-Cup-Betting/dev/ |
 | **Live** | `main` | https://wildturkey1814.github.io/World-Cup-Betting/ |
 
-Deployments are handled by GitHub Actions (`.github/workflows/deploy-dev-preview.yml` and `deploy-main-live.yml`), which publish static files to the `gh-pages` branch.
+Deployments are handled by GitHub Actions (`.github/workflows/deploy-dev-preview.yml` and `deploy-main-live.yml`).
 
-### One-time GitHub Pages setting
+- **Dev preview** — on every push to `dev`, the workflow copies static files into **`main` → `dev/`**, which GitHub Pages serves at `/dev/`. No gh-pages branch switch is required.
+- **Live** — served from the **`main`** branch root (or from `gh-pages` root if you switch Pages source later).
 
-If the site still deploys directly from `main`, switch it once:
+### One-time GitHub Pages setting (if the site does not load at all)
 
 1. Open **Settings → Pages** on the repo.
 2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-3. Choose branch **`gh-pages`**, folder **`/ (root)`**.
+3. Choose branch **`main`**, folder **`/ (root)`**.
 4. Save.
 
-After the first workflow run, both `/` (live) and `/dev/` (preview) are served from `gh-pages`.
+The dev preview URL is **`/dev/`** under that same site — e.g. `https://wildturkey1814.github.io/World-Cup-Betting/dev/`.
 
 ## Git commands
 
