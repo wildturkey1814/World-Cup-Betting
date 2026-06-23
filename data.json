@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 23, 2026 · 11:44 AM UTC",
+  "lastUpdated": "June 23, 2026 · 5:30 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1238,7 +1238,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Portugal",
       "away": "Uzbekistan",
       "favTeam": "Portugal",
@@ -1268,7 +1268,8 @@
       ],
       "kalshiWinProbHome": "7.1%",
       "polymarketWinProbHome": "6.8%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "liveScore": "2 - 0"
     },
     {
       "id": "match_id1000001666457046",
