@@ -205,12 +205,18 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 .col-draw-label{color:var(--neon)!important;}
 .col-und-label{color:var(--red)!important;}
 
-/* ── SUPERCHARGER ROW ── */
-.supercharger-row{
-  display:grid;grid-template-columns:1fr 68px 68px 68px;
-  padding:7px 0 6px;
+.supercharger-block{
   border-top:1px solid rgba(232,160,32,0.15);
   margin-top:2px;
+  padding-bottom:4px;
+}
+.supercharger-row{
+  display:grid;grid-template-columns:1fr 68px 68px 68px;
+  padding:7px 0 2px;
+}
+.supercharger-footnote{
+  font-size:9px;line-height:1.35;color:var(--text-lo);
+  font-style:italic;opacity:0.88;padding:0 0 2px;
 }
 .supercharger-label{
   display:flex;align-items:center;gap:5px;
@@ -442,6 +448,7 @@ const DICT = {
     updated: 'Last Database Sync', searchPlaceholder: 'Search teams or groups…',
     winOddsTitle: 'Tournament Winner Futures Tracking Node',
     scTooltip: 'Tournament Momentum Factor (χ): rolling average of result divergence vs ELO expectations and xG efficiency. Positive χ means a team is outperforming baseline form in the tournament.',
+    scFootnote: 'Enhanced prediction model based on group-stage momentum.',
     zoneMex: 'Mexico Base Zone', zoneCen: 'Central Base Zone', zoneEast: 'East Base Zone', zoneWest: 'West Base Zone',
     waitingFor: 'Awaiting Match Settlement', groupStage: 'Group Stage Tier', bracketR32: 'Round of 32 Grid', bracketR16: 'Round of 16 Bracket', bracketQF: 'Quarter-Finals Grid',
     teams: {}
@@ -462,6 +469,7 @@ const DICT = {
     updated: '데이터베이스 동기화', searchPlaceholder: '팀명 또는 그룹 검색…',
     winOddsTitle: '월드컵 최종 우승 선물 시장 배당 로그',
     scTooltip: '슈퍼차저 연산은 정적 데이터에 동적 ELO 변수를 적용해 시장의 왜곡을 제거한 참값 확률을 도출합니다.',
+    scFootnote: '조별리그 모멘텀을 반영한 향상된 예측 모델.',
     zoneMex: '멕시코 기지 권역', zoneCen: '센트럴 기지 권역', zoneEast: '이스트 기지 권역', zoneWest: '웨스트 기지 권역',
     waitingFor: '이전 매치 결과 대기 중', groupStage: '조별 예선 라운드', bracketR32: '32강 토너먼트 보드', bracketR16: '16강 토너먼트 브래킷', bracketQF: '8강 대진표',
     teams: {
@@ -487,6 +495,7 @@ const DICT = {
     updated: '最終同期', searchPlaceholder: 'チーム名またはグループで検索…',
     winOddsTitle: 'ワールドカップ優勝予測市場トラッキング',
     scTooltip: 'スーパーチャージャーは、動的ELOベクトルを用いた多変量ポアソンシミュレーションにより、市場のバイアスを排除します。',
+    scFootnote: 'グループステージの勢いを反映した強化予測モデル。',
     zoneMex: 'メキシコ・ゾーン', zoneCen: '中央ゾーン', zoneEast: '東部ゾーン', zoneWest: '西部ゾーン',
     waitingFor: '対戦カード確定待ち', groupStage: 'グループステージ', bracketR32: '32強ラウンド', bracketR16: '16強ブラケット', bracketQF: '準々決勝大進表',
     teams: {
@@ -684,9 +693,10 @@ function winOddsHTML(match){
 function superchargerHTML(match){
   const tipId='sc-tip-'+match.id;
   const d=DICT[lang];
+  const footnote=`<div class="supercharger-footnote">${esc(d.scFootnote||'')}</div>`;
   const isGroupStage=(match.stage||'Group Stage')==='Group Stage';
   if(isGroupStage){
-    return`<div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger+</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger+</div>${esc(d.scTooltip||'')}</div></div>`;
+    return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger+</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger+</div>${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
   }
   const favIsHome=match.favTeam===match.home;
   const homeChi=match.homeMomentumFactor||'+0.000';
@@ -698,7 +708,7 @@ function superchargerHTML(match){
     const cls=!isNaN(n)&&n>0?'hi':'null-val';
     return`<div class="prob-cell ${cls}">${esc(v)}</div>`;
   }
-  return`<div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger+</div>${chiCell(favChi)}<div class="prob-cell null-val">--</div>${chiCell(undChi)}<div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger+ (χ)</div>${esc(d.scTooltip||'')}</div></div>`;
+  return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger+</div>${chiCell(favChi)}<div class="prob-cell null-val">--</div>${chiCell(undChi)}<div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger+ (χ)</div>${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
 }
 
 /* ── RENDER UPCOMING ── */
