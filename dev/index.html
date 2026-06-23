@@ -558,7 +558,7 @@ const SRC_CANONICAL={
 function canonSrc(s){return SRC_CANONICAL[s]||s;}
 
 /* ── MANAGEMENT VARIABLES ── */
-let lang='en',currentView='grid',currentStage='Group Stage',currentSort='time',searchQuery='',allMatches=[],meta={};
+let lang='en',currentView='grid',currentStage='Group Stage',currentSort='time',searchQuery='',allMatches=[],completedArchive=[],meta={},knockoutEliminated=new Set();
 let currentMatchState='upcoming'; 
 const STAGES=['Group Stage','Round of 32','Round of 16','Quarter-Finals','Semi-Finals','Final'];
 const STAGE_KEYS={'Group Stage':'groupStage','Round of 32':'r32','Round of 16':'r16','Quarter-Finals':'quarters','Semi-Finals':'semis','Final':'final'};
@@ -643,11 +643,22 @@ function calcReco(match){
   layers.forEach(l=>{const fp=favIsHome?p(l.fav):p(l.und),up=favIsHome?p(l.und):p(l.fav),dp=p(l.draw);if(fp!=null)fv.push(fp);if(dp!=null)dv.push(dp);if(up!=null)uv.push(up);});
   if(!fv.length)return null;
   const af=fv.reduce((a,b)=>a+b,0)/fv.length,ad=dv.length?dv.reduce((a,b)=>a+b,0)/dv.length:0,au=uv.length?uv.reduce((a,b)=>a+b,0)/uv.length:0;
+  const nonFav=ad+au;
   const eloL=layers.find(l=>l.source.includes('ELO')),mktL=layers.find(l=>l.source.includes('Sportsbook')||l.source.includes('P2P'));
   const ef=eloL?(favIsHome?p(eloL.fav):p(eloL.und)):null,mf=mktL?(favIsHome?p(mktL.fav):p(mktL.und)):null;
   const gap=(ef!=null&&mf!=null)?Math.abs(ef-mf):0;
   const d=DICT[lang];
-  if(af>=65)return{type:'back',cls:'reco-back',call:d.recoBack,tipKey:'tipBack',sub:`${af.toFixed(1)}% avg — ${fv.length}/2 sources aligned`};
+
+  // Dominant favourite: never call a draw when fav win % exceeds draw + underdog combined.
+  if(af>nonFav){
+    if(af>=65)return{type:'back',cls:'reco-back',call:d.recoBack,tipKey:'tipBack',sub:`${af.toFixed(1)}% avg — ${fv.length} sources aligned`};
+    if(gap>=15&&ef!=null&&mf!=null){
+      if(ef<mf)return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`ELO: ${(100-ef).toFixed(1)}% underdog vs market ${(100-mf).toFixed(1)}% — ${gap.toFixed(1)}pt gap`};
+      return{type:'value',cls:'reco-value',call:d.recoValue,tipKey:'tipValue',sub:`ELO sees ${ef.toFixed(1)}% vs market ${mf.toFixed(1)}% — ${gap.toFixed(1)}pt divergence`};
+    }
+    return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% avg — beats draw+und (${nonFav.toFixed(1)}%)`};
+  }
+
   if(gap>=15&&ef!=null&&mf!=null){if(ef<mf)return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`ELO: ${(100-ef).toFixed(1)}% underdog vs market ${(100-mf).toFixed(1)}% — ${gap.toFixed(1)}pt gap`};return{type:'value',cls:'reco-value',call:d.recoValue,tipKey:'tipValue',sub:`ELO sees ${ef.toFixed(1)}% vs market ${mf.toFixed(1)}% — ${gap.toFixed(1)}pt divergence`};}
   if(ad>=30&&af<52)return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% avg draw — no clear favourite`};
   if(af>=50)return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% avg — sources agree, slim margin`};
@@ -671,20 +682,32 @@ function formatCalendarDay(iso){
 }
 
 /* ── WIN ODDS PANEL ── */
+const TEAM_NAME_ALIASES={'Bosnia-Herzegovina':'Bosnia & Herzegovina','Bosnia and Herzegovina':'Bosnia & Herzegovina'};
+function normalizeTeamName(name){return TEAM_NAME_ALIASES[name]||name||'';}
+function isKnockoutEliminated(team){return knockoutEliminated.has(normalizeTeamName(team));}
+function effectiveTournamentWin(team,raw){
+  if(isKnockoutEliminated(team))return '0.0%';
+  return raw||'';
+}
 function winOddsHTML(match){
   const d=DICT[lang];
   const favIsHome=match.favTeam===match.home;
-  const kFav=favIsHome?match.kalshiWinProbHome:match.kalshiWinProbAway;
-  const kUnd=favIsHome?match.kalshiWinProbAway:match.kalshiWinProbHome;
-  const pFav=favIsHome?match.polymarketWinProbHome:match.polymarketWinProbAway;
-  const pUnd=favIsHome?match.polymarketWinProbAway:match.polymarketWinProbHome;
-  if(!kFav&&!kUnd&&!pFav&&!pUnd)return'';
+  const favTeam=match.favTeam,undTeam=favIsHome?match.away:match.home;
+  const kFav=effectiveTournamentWin(favTeam,favIsHome?match.kalshiWinProbHome:match.kalshiWinProbAway);
+  const kUnd=effectiveTournamentWin(undTeam,favIsHome?match.kalshiWinProbAway:match.kalshiWinProbHome);
+  const pFav=effectiveTournamentWin(favTeam,favIsHome?match.polymarketWinProbHome:match.polymarketWinProbAway);
+  const pUnd=effectiveTournamentWin(undTeam,favIsHome?match.polymarketWinProbAway:match.polymarketWinProbHome);
+  const hasData=kFav||kUnd||pFav||pUnd||isKnockoutEliminated(favTeam)||isKnockoutEliminated(undTeam);
+  if(!hasData)return'';
   const favName=tn(match.favTeam).split(' ')[0];
   const undName=tn(favIsHome?match.away:match.home).split(' ')[0];
-  function cell(v){return v?`<div class="win-odds-val hi">${esc(v)}</div>`:`<div class="win-odds-val null">--</div>`;}
+  function cell(v){
+    if(v==='0.0%')return`<div class="win-odds-val null">0.0%</div>`;
+    return v?`<div class="win-odds-val hi">${esc(v)}</div>`:`<div class="win-odds-val null">--</div>`;
+  }
   let rows='';
-  if(kFav||kUnd)rows+=`<div class="win-odds-row"><div class="win-odds-source"><div class="win-odds-dot" style="background:var(--purple)"></div>Kalshi</div>${cell(kFav)}${cell(kUnd)}</div>`;
-  if(pFav||pUnd)rows+=`<div class="win-odds-row"><div class="win-odds-source"><div class="win-odds-dot" style="background:var(--blue)"></div>Polymarket</div>${cell(pFav)}${cell(pUnd)}</div>`;
+  if(kFav||kUnd||isKnockoutEliminated(favTeam)||isKnockoutEliminated(undTeam))rows+=`<div class="win-odds-row"><div class="win-odds-source"><div class="win-odds-dot" style="background:var(--purple)"></div>Kalshi</div>${cell(kFav)}${cell(kUnd)}</div>`;
+  if(pFav||pUnd||isKnockoutEliminated(favTeam)||isKnockoutEliminated(undTeam))rows+=`<div class="win-odds-row"><div class="win-odds-source"><div class="win-odds-dot" style="background:var(--blue)"></div>Polymarket</div>${cell(pFav)}${cell(pUnd)}</div>`;
   if(!rows)return'';
   return`<div class="win-odds-panel"><div class="win-odds-header">🏆 ${esc(d.winOddsTitle||'Tournament Winner Odds')}</div><div class="win-odds-grid"><div class="win-odds-row"><div class="win-odds-source" style="font-size:9px;color:var(--text-lo);font-weight:700;text-transform:uppercase;letter-spacing:1px">Source</div><div class="win-odds-val" style="color:var(--green);font-size:10px;font-weight:800">${esc(favName)}</div><div class="win-odds-val" style="color:var(--red);font-size:10px;font-weight:800">${esc(undName)}</div></div>${rows}</div></div>`;
 }
@@ -773,7 +796,6 @@ function renderLive(match){
 }
 
 /* ── RENDER COMPLETED ── */
-let completedArchive=[];
 function archivePairKey(m){
   const h=(m.home||'').toLowerCase(),a=(m.away||'').toLowerCase();
   return h<=a?`${h}|${a}`:`${a}|${h}`;
@@ -1155,6 +1177,8 @@ async function loadData(){
     const json=await fetchJson('data.json?v='+Date.now());
     if(!Array.isArray(json.matches))throw new Error('data.json missing "matches" array');
     allMatches=sanitizeMatches(json.matches);
+    if(Array.isArray(json.knockoutEliminated))knockoutEliminated=new Set(json.knockoutEliminated.map(normalizeTeamName));
+    else knockoutEliminated=new Set();
     try{const cj=await fetchJson('completed_matches.json?v='+Date.now());if(Array.isArray(cj))completedArchive=cj;}catch(e){}
     meta={lastUpdated:json.lastUpdated,currentStage:json.currentStage};
     if(meta.currentStage)currentStage=meta.currentStage;
@@ -1168,6 +1192,7 @@ async function loadData(){
         const j=await fetchJson('data.json?v='+Date.now());
         if(Array.isArray(j.matches)){
           allMatches=sanitizeMatches(j.matches);meta.lastUpdated=j.lastUpdated;
+          if(Array.isArray(j.knockoutEliminated))knockoutEliminated=new Set(j.knockoutEliminated.map(normalizeTeamName));
           applyLabels();
           try{if(currentView==='bracket')renderBracket();else renderGrid();}catch(e){console.error(e);}
           startLivePolling();
