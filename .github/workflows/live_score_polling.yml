@@ -32,6 +32,9 @@ jobs:
           FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_KEY }}
         run: python fetch_scores.py
 
+      - name: Enrich Completed Match Stats
+        run: python sync_completed_archive.py
+
       - name: Sanitize Dataset
         run: python clean_data.py
 
@@ -39,9 +42,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
+          git add data.json completed_matches.json
           if git diff --staged --quiet; then
-            echo "No score changes found."
+            echo "No score or archive changes found."
           else
             git commit -m "data: live score & stats flash updates [skip ci]"
             git push

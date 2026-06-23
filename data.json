@@ -24,7 +24,92 @@
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
       "kalshiWinProbHome": "1.8%",
       "polymarketWinProbHome": "1.2%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 50.0,
+          "away": 50.0
+        },
+        "shots": {
+          "home": 11,
+          "away": 8
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 3
+        },
+        "corners": {
+          "home": 2,
+          "away": 2
+        },
+        "fouls": {
+          "home": 10,
+          "away": 14
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 28,
+            "scorer": "Lozano"
+          },
+          {
+            "team": "home",
+            "minute": 74,
+            "scorer": "Jiménez"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.95,
+          "away": 1.19
+        },
+        "fieldTilt": {
+          "home": 59.7,
+          "away": 40.3
+        },
+        "ppda": {
+          "home": 10.1,
+          "away": 14.2
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 378,
+          "away": 426
+        },
+        "finalThirdEntries": {
+          "home": 46,
+          "away": 31
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Mexico created the clearer chances, generating 1.95 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Mexico (PPDA 10.1) disrupted South Africa's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Mexico's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ],
+      "insight": "Mexico won 2-0.",
+      "homeFlag": "mex",
+      "awayFlag": "rsa"
     },
     {
       "id": "537328",
@@ -48,7 +133,97 @@
       "score": "SOUTH KOREA 2 - 1 CZECHIA",
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 58.1,
+          "away": 41.9
+        },
+        "shots": {
+          "home": 11,
+          "away": 5
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 2
+        },
+        "corners": {
+          "home": 9,
+          "away": 2
+        },
+        "fouls": {
+          "home": 9,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 35,
+            "scorer": "Son"
+          },
+          {
+            "team": "home",
+            "minute": 61,
+            "scorer": "Hwang"
+          },
+          {
+            "team": "away",
+            "minute": 49,
+            "scorer": "Schick"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.97,
+          "away": 0.92
+        },
+        "fieldTilt": {
+          "home": 61.7,
+          "away": 38.3
+        },
+        "ppda": {
+          "home": 8.9,
+          "away": 14.0
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 445,
+          "away": 362
+        },
+        "finalThirdEntries": {
+          "home": 49,
+          "away": 34
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "South Korea created the clearer chances, generating 1.97 xG and putting 4 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from South Korea (PPDA 8.9) disrupted Czechia's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but South Korea's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ],
+      "insight": "South Korea won 2-1.",
+      "homeFlag": "kor",
+      "awayFlag": "cze"
     },
     {
       "id": "537345",
@@ -73,7 +248,107 @@
       "kalshiWinProbHome": "5.0%",
       "polymarketWinProbHome": "3.5%",
       "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbAway": "0.1%"
+      "kalshiWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 62.7,
+          "away": 37.3
+        },
+        "shots": {
+          "home": 17,
+          "away": 3
+        },
+        "shotsOnTarget": {
+          "home": 8,
+          "away": 1
+        },
+        "corners": {
+          "home": 2,
+          "away": 1
+        },
+        "fouls": {
+          "home": 16,
+          "away": 14
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 12,
+            "scorer": "Pulisic"
+          },
+          {
+            "team": "home",
+            "minute": 29,
+            "scorer": "Reyna"
+          },
+          {
+            "team": "home",
+            "minute": 55,
+            "scorer": "Weah"
+          },
+          {
+            "team": "home",
+            "minute": 78,
+            "scorer": "Ferreira"
+          },
+          {
+            "team": "away",
+            "minute": 34,
+            "scorer": "Sanabria"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.9,
+          "away": 0.58
+        },
+        "fieldTilt": {
+          "home": 68.8,
+          "away": 31.2
+        },
+        "ppda": {
+          "home": 7.7,
+          "away": 23.5
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 478,
+          "away": 281
+        },
+        "finalThirdEntries": {
+          "home": 60,
+          "away": 23
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "United States generated 2.9 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (62.7%) and high pressing intensity (PPDA 7.7) cut off Paraguay's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — United States turned pressure into goals while Paraguay struggled to create clear openings."
+        }
+      ],
+      "insight": "United States won 4-1.",
+      "homeFlag": "usa",
+      "awayFlag": "pry"
     },
     {
       "id": "537334",
@@ -97,7 +372,92 @@
       "score": "QATAR 1 - 1 SWITZERLAND",
       "kalshiWinProbAway": "0.5%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.7%"
+      "polymarketWinProbAway": "0.7%",
+      "boxScore": {
+        "possession": {
+          "home": 49.0,
+          "away": 51.0
+        },
+        "shots": {
+          "home": 9,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 5
+        },
+        "corners": {
+          "home": 7,
+          "away": 4
+        },
+        "fouls": {
+          "home": 16,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 64,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 81,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.41,
+          "away": 1.69
+        },
+        "fieldTilt": {
+          "home": 46.1,
+          "away": 53.9
+        },
+        "ppda": {
+          "home": 12.8,
+          "away": 13.3
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 442,
+          "away": 383
+        },
+        "finalThirdEntries": {
+          "home": 36,
+          "away": 44
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.1), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "insight": "The match ended 1-1.",
+      "homeFlag": "qat",
+      "awayFlag": "sui"
     },
     {
       "id": "537339",
@@ -122,7 +482,92 @@
       "kalshiWinProbHome": "4.9%",
       "kalshiWinProbAway": "2.0%",
       "polymarketWinProbHome": "5.2%",
-      "polymarketWinProbAway": "1.7%"
+      "polymarketWinProbAway": "1.7%",
+      "boxScore": {
+        "possession": {
+          "home": 47.7,
+          "away": 52.3
+        },
+        "shots": {
+          "home": 6,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 8,
+          "away": 4
+        },
+        "fouls": {
+          "home": 8,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 8,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 16,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.12,
+          "away": 1.22
+        },
+        "fieldTilt": {
+          "home": 53.3,
+          "away": 46.7
+        },
+        "ppda": {
+          "home": 10.1,
+          "away": 11.2
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 403,
+          "away": 450
+        },
+        "finalThirdEntries": {
+          "home": 45,
+          "away": 40
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.34), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "insight": "The match ended 1-1.",
+      "homeFlag": "bra",
+      "awayFlag": "mar"
     },
     {
       "id": "537340",
@@ -146,7 +591,87 @@
       "score": "HAITI 0 - 1 SCOTLAND",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 58.5,
+          "away": 41.5
+        },
+        "shots": {
+          "home": 10,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 6,
+          "away": 4
+        },
+        "fouls": {
+          "home": 10,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 43,
+            "scorer": "McTominay"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.73,
+          "away": 1.33
+        },
+        "fieldTilt": {
+          "home": 56.0,
+          "away": 44.0
+        },
+        "ppda": {
+          "home": 8.0,
+          "away": 17.4
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 476,
+          "away": 352
+        },
+        "finalThirdEntries": {
+          "home": 44,
+          "away": 35
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Scotland absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Scotland converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Scotland generating danger from corners and free-kicks throughout."
+        }
+      ],
+      "insight": "Scotland won 0-1.",
+      "homeFlag": "hai",
+      "awayFlag": "sco"
     },
     {
       "id": "537346",
@@ -171,7 +696,92 @@
       "kalshiWinProbHome": "0.1%",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.4%"
+      "polymarketWinProbAway": "0.4%",
+      "boxScore": {
+        "possession": {
+          "home": 53.7,
+          "away": 46.3
+        },
+        "shots": {
+          "home": 12,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 2
+        },
+        "corners": {
+          "home": 5,
+          "away": 6
+        },
+        "fouls": {
+          "home": 15,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 22,
+            "scorer": "Leckie"
+          },
+          {
+            "team": "home",
+            "minute": 67,
+            "scorer": "Irvine"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.86,
+          "away": 0.94
+        },
+        "fieldTilt": {
+          "home": 53.3,
+          "away": 46.7
+        },
+        "ppda": {
+          "home": 9.0,
+          "away": 13.2
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 450,
+          "away": 399
+        },
+        "finalThirdEntries": {
+          "home": 47,
+          "away": 39
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Australia created the clearer chances, generating 1.86 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Australia (PPDA 9.0) disrupted Turkey's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Australia's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ],
+      "insight": "Australia won 2-0.",
+      "homeFlag": "aus",
+      "awayFlag": "tur"
     },
     {
       "id": "537357",
@@ -196,7 +806,102 @@
       "kalshiWinProbHome": "6.5%",
       "kalshiWinProbAway": "1.8%",
       "polymarketWinProbHome": "5.0%",
-      "polymarketWinProbAway": "1.9%"
+      "polymarketWinProbAway": "1.9%",
+      "boxScore": {
+        "possession": {
+          "home": 50.3,
+          "away": 49.7
+        },
+        "shots": {
+          "home": 7,
+          "away": 9
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 6,
+          "away": 7
+        },
+        "fouls": {
+          "home": 9,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 47,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 54,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 64,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 72,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.23,
+          "away": 1.65
+        },
+        "fieldTilt": {
+          "home": 53.9,
+          "away": 46.1
+        },
+        "ppda": {
+          "home": 10.9,
+          "away": 13.9
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 392,
+          "away": 392
+        },
+        "finalThirdEntries": {
+          "home": 40,
+          "away": 38
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.88), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "insight": "The match ended 2-2.",
+      "homeFlag": "ned",
+      "awayFlag": "jpn"
     },
     {
       "id": "537352",
@@ -221,7 +926,87 @@
       "kalshiWinProbHome": "0.3%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.4%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 45.8,
+          "away": 54.2
+        },
+        "shots": {
+          "home": 5,
+          "away": 12
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 5
+        },
+        "corners": {
+          "home": 9,
+          "away": 1
+        },
+        "fouls": {
+          "home": 9,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 58,
+            "scorer": "Haller"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.03,
+          "away": 2.0
+        },
+        "fieldTilt": {
+          "home": 41.2,
+          "away": 58.8
+        },
+        "ppda": {
+          "home": 14.3,
+          "away": 10.8
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 402,
+          "away": 460
+        },
+        "finalThirdEntries": {
+          "home": 35,
+          "away": 50
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Ivory Coast absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Ivory Coast converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Ivory Coast generating danger from corners and free-kicks throughout."
+        }
+      ],
+      "insight": "Ivory Coast won 1-0.",
+      "homeFlag": "civ",
+      "awayFlag": "ecu"
     },
     {
       "id": "537358",
@@ -245,7 +1030,112 @@
       "score": "SWEDEN 5 - 1 TUNISIA",
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 67.7,
+          "away": 32.3
+        },
+        "shots": {
+          "home": 20,
+          "away": 3
+        },
+        "shotsOnTarget": {
+          "home": 8,
+          "away": 1
+        },
+        "corners": {
+          "home": 7,
+          "away": 4
+        },
+        "fouls": {
+          "home": 16,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 15,
+            "scorer": "Isak"
+          },
+          {
+            "team": "home",
+            "minute": 33,
+            "scorer": "Kulusevski"
+          },
+          {
+            "team": "home",
+            "minute": 51,
+            "scorer": "Isak"
+          },
+          {
+            "team": "home",
+            "minute": 62,
+            "scorer": "Forsberg"
+          },
+          {
+            "team": "home",
+            "minute": 79,
+            "scorer": "Gyökeres"
+          },
+          {
+            "team": "away",
+            "minute": 44,
+            "scorer": "Msakni"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.24,
+          "away": 0.34
+        },
+        "fieldTilt": {
+          "home": 74.3,
+          "away": 25.7
+        },
+        "ppda": {
+          "home": 7.8,
+          "away": 19.1
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 516,
+          "away": 276
+        },
+        "finalThirdEntries": {
+          "home": 57,
+          "away": 21
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Sweden generated 3.24 xG, creating 5 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (67.7%) and high pressing intensity (PPDA 7.8) cut off Tunisia's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Sweden turned pressure into goals while Tunisia struggled to create clear openings."
+        }
+      ],
+      "insight": "Sweden won 5-1.",
+      "homeFlag": "swe",
+      "awayFlag": "tun"
     },
     {
       "id": "537363",
@@ -270,7 +1160,92 @@
       "kalshiWinProbHome": "1.1%",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "1.1%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.2%",
+      "boxScore": {
+        "possession": {
+          "home": 53.6,
+          "away": 46.4
+        },
+        "shots": {
+          "home": 9,
+          "away": 8
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 4,
+          "away": 7
+        },
+        "fouls": {
+          "home": 14,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 47,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.59,
+          "away": 1.49
+        },
+        "fieldTilt": {
+          "home": 54.5,
+          "away": 45.5
+        },
+        "ppda": {
+          "home": 11.3,
+          "away": 11.7
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 472,
+          "away": 417
+        },
+        "finalThirdEntries": {
+          "home": 47,
+          "away": 39
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.08), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "insight": "The match ended 1-1.",
+      "homeFlag": "bel",
+      "awayFlag": "egy"
     },
     {
       "id": "537370",
@@ -294,7 +1269,92 @@
       "score": "SAUDI ARABIA 1 - 1 URUGUAY",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 49.5,
+          "away": 50.5
+        },
+        "shots": {
+          "home": 8,
+          "away": 11
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 4
+        },
+        "corners": {
+          "home": 5,
+          "away": 7
+        },
+        "fouls": {
+          "home": 9,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 28,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 35,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.23,
+          "away": 1.66
+        },
+        "fieldTilt": {
+          "home": 49.8,
+          "away": 50.2
+        },
+        "ppda": {
+          "home": 13.8,
+          "away": 13.0
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 448,
+          "away": 408
+        },
+        "finalThirdEntries": {
+          "home": 37,
+          "away": 39
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.89), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "insight": "The match ended 1-1.",
+      "homeFlag": "ksa",
+      "awayFlag": "uru"
     },
     {
       "id": "537364",
@@ -317,7 +1377,102 @@
       "awayScore": 2,
       "score": "IRAN 2 - 2 NEW ZEALAND",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "boxScore": {
+        "possession": {
+          "home": 51.0,
+          "away": 49.0
+        },
+        "shots": {
+          "home": 6,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 5
+        },
+        "corners": {
+          "home": 3,
+          "away": 3
+        },
+        "fouls": {
+          "home": 10,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 17,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 32,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 44,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 76,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.15,
+          "away": 1.62
+        },
+        "fieldTilt": {
+          "home": 50.3,
+          "away": 49.7
+        },
+        "ppda": {
+          "home": 10.8,
+          "away": 12.8
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 430,
+          "away": 460
+        },
+        "finalThirdEntries": {
+          "home": 37,
+          "away": 42
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.77), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "insight": "The match ended 2-2.",
+      "homeFlag": "irn",
+      "awayFlag": "nzl"
     },
     {
       "id": "537391",
@@ -342,7 +1497,102 @@
       "kalshiWinProbHome": "18.8%",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "19.2%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.2%",
+      "boxScore": {
+        "possession": {
+          "home": 51.3,
+          "away": 48.7
+        },
+        "shots": {
+          "home": 12,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 3
+        },
+        "corners": {
+          "home": 6,
+          "away": 4
+        },
+        "fouls": {
+          "home": 10,
+          "away": 10
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 18,
+            "scorer": "Mbappé"
+          },
+          {
+            "team": "home",
+            "minute": 44,
+            "scorer": "Giroud"
+          },
+          {
+            "team": "home",
+            "minute": 71,
+            "scorer": "Dembélé"
+          },
+          {
+            "team": "away",
+            "minute": 63,
+            "scorer": "Diatta"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.3,
+          "away": 1.25
+        },
+        "fieldTilt": {
+          "home": 59.4,
+          "away": 40.6
+        },
+        "ppda": {
+          "home": 9.9,
+          "away": 13.2
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 474,
+          "away": 459
+        },
+        "finalThirdEntries": {
+          "home": 49,
+          "away": 32
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "France created the clearer chances, generating 2.3 xG and putting 4 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from France (PPDA 9.9) disrupted Senegal's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but France's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ],
+      "insight": "France won 3-1.",
+      "homeFlag": "fra",
+      "awayFlag": "sen"
     },
     {
       "id": "match_id1000001666457018",
@@ -391,36 +1641,92 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 60.8,
+          "away": 39.2
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 18,
+          "away": 2
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 8,
+          "away": 1
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 5,
+          "away": 2
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 10,
+          "away": 8
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "home",
+            "minute": 40,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 44,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 83,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Argentina won 3-0."
+      "insight": "Argentina won 3-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.25,
+          "away": 0.48
+        },
+        "fieldTilt": {
+          "home": 71.7,
+          "away": 28.3
+        },
+        "ppda": {
+          "home": 7.2,
+          "away": 18.5
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 572,
+          "away": 356
+        },
+        "finalThirdEntries": {
+          "home": 58,
+          "away": 22
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Argentina generated 3.25 xG, creating 3 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (60.8%) and high pressing intensity (PPDA 7.2) cut off Algeria's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Argentina turned pressure into goals while Algeria struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457020",
@@ -468,36 +1774,97 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 58.2,
+          "away": 41.8
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 11,
+          "away": 7
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 3
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 7
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 11,
+          "away": 11
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 3
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "home",
+            "minute": 30,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 41,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 49,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 74,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Austria won 3-1."
+      "insight": "Austria won 3-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.76,
+          "away": 1.17
+        },
+        "fieldTilt": {
+          "home": 53.7,
+          "away": 46.3
+        },
+        "ppda": {
+          "home": 11.0,
+          "away": 16.3
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 466,
+          "away": 363
+        },
+        "finalThirdEntries": {
+          "home": 43,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Austria created the clearer chances, generating 1.76 xG and putting 4 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Austria (PPDA 11.0) disrupted Jordan's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Austria's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457030",
@@ -545,36 +1912,87 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 51.8,
+          "away": 48.2
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 9,
+          "away": 7
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 3
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 6
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 9,
+          "away": 12
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 1
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "away",
+            "minute": 12,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 87,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "The match ended level at 1-1."
+      "insight": "The match ended level at 1-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.71,
+          "away": 1.04
+        },
+        "fieldTilt": {
+          "home": 49.6,
+          "away": 50.4
+        },
+        "ppda": {
+          "home": 10.4,
+          "away": 12.6
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 480,
+          "away": 417
+        },
+        "finalThirdEntries": {
+          "home": 41,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.75), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
     },
     {
       "id": "match_id1000001666456932",
@@ -622,36 +2040,92 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 63.0,
+          "away": 37.0
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 20,
+          "away": 3
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 9,
+          "away": 1
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 5,
+          "away": 6
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 8,
+          "away": 8
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "home",
+            "minute": 31,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 48,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 56,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Brazil won 3-0."
+      "insight": "Brazil won 3-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.53,
+          "away": 0.54
+        },
+        "fieldTilt": {
+          "home": 67.8,
+          "away": 32.2
+        },
+        "ppda": {
+          "home": 8.5,
+          "away": 19.1
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 585,
+          "away": 324
+        },
+        "finalThirdEntries": {
+          "home": 58,
+          "away": 26
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Brazil generated 3.53 xG, creating 5 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (63.0%) and high pressing intensity (PPDA 8.5) cut off Haiti's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Brazil turned pressure into goals while Haiti struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "match_id1000001666456946",
@@ -699,37 +2173,83 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 61.2,
+          "away": 38.8
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 11,
+          "away": 9
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 5,
+          "away": 4
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 6,
+          "away": 3
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 15,
+          "away": 9
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 3
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "away",
+            "minute": 16,
+            "scorer": ""
+          }
+        ]
       },
       "insight": "Paraguay won 1-0.",
-      "kalshiWinProbAway": "0.1%"
+      "kalshiWinProbAway": "0.1%",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.96,
+          "away": 1.46
+        },
+        "fieldTilt": {
+          "home": 61.3,
+          "away": 38.7
+        },
+        "ppda": {
+          "home": 9.3,
+          "away": 14.6
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 518,
+          "away": 318
+        },
+        "finalThirdEntries": {
+          "home": 51,
+          "away": 32
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Paraguay absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Paraguay converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Paraguay generating danger from corners and free-kicks throughout."
+        }
+      ]
     },
     {
       "id": "match_id1000001666456972",
@@ -778,36 +2298,107 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 61.4,
+          "away": 38.6
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 23,
+          "away": 4
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 9,
+          "away": 1
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 6,
+          "away": 6
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 13,
+          "away": 10
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "home",
+            "minute": 22,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 29,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 41,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 53,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 58,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 81,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Netherlands won 5-1."
+      "insight": "Netherlands won 5-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.62,
+          "away": 0.79
+        },
+        "fieldTilt": {
+          "home": 66.2,
+          "away": 33.8
+        },
+        "ppda": {
+          "home": 7.7,
+          "away": 23.2
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 579,
+          "away": 347
+        },
+        "finalThirdEntries": {
+          "home": 55,
+          "away": 28
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Netherlands generated 3.62 xG, creating 5 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (61.4%) and high pressing intensity (PPDA 7.7) cut off Sweden's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Netherlands turned pressure into goals while Sweden struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457076",
@@ -852,7 +2443,78 @@
         "ELO/Poisson Model": false,
         "Prediction Markets (Kalshi)": false
       },
-      "insight": "The match ended level at 0-0."
+      "insight": "The match ended level at 0-0.",
+      "boxScore": {
+        "possession": {
+          "home": 49.3,
+          "away": 50.7
+        },
+        "shots": {
+          "home": 8,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 5,
+          "away": 5
+        },
+        "fouls": {
+          "home": 8,
+          "away": 11
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": []
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.31,
+          "away": 1.16
+        },
+        "fieldTilt": {
+          "home": 53.6,
+          "away": 46.4
+        },
+        "ppda": {
+          "home": 11.0,
+          "away": 10.6
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 412,
+          "away": 389
+        },
+        "finalThirdEntries": {
+          "home": 47,
+          "away": 38
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.47), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
     },
     {
       "id": "match_id1000001666456974",
@@ -900,36 +2562,97 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 38.1,
+          "away": 61.9
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 5,
+          "away": 15
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 7
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 6,
+          "away": 4
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 13,
+          "away": 13
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "away",
+            "minute": 12,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 17,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 48,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 86,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Japan won 4-0."
+      "insight": "Japan won 4-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 0.81,
+          "away": 2.48
+        },
+        "fieldTilt": {
+          "home": 33.0,
+          "away": 67.0
+        },
+        "ppda": {
+          "home": 21.2,
+          "away": 8.5
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 4
+        },
+        "progressivePasses": {
+          "home": 344,
+          "away": 523
+        },
+        "finalThirdEntries": {
+          "home": 27,
+          "away": 51
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Japan generated 2.48 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (61.9%) and high pressing intensity (PPDA 8.5) cut off Tunisia's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Japan turned pressure into goals while Tunisia struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "match_id1000001666456988",
@@ -977,36 +2700,97 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 47.9,
+          "away": 52.1
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 7,
+          "away": 14
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 7
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 6,
+          "away": 4
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 11,
+          "away": 16
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 4
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "away",
+            "minute": 13,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 17,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 31,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 50,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Egypt won 3-1."
+      "insight": "Egypt won 3-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.35,
+          "away": 2.26
+        },
+        "fieldTilt": {
+          "home": 47.3,
+          "away": 52.7
+        },
+        "ppda": {
+          "home": 16.5,
+          "away": 9.2
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 421,
+          "away": 421
+        },
+        "finalThirdEntries": {
+          "home": 38,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Egypt created the clearer chances, generating 2.26 xG and putting 7 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Egypt (PPDA 9.2) disrupted New Zealand's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Egypt's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457012",
@@ -1055,36 +2839,102 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 58.7,
+          "away": 41.3
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 23,
+          "away": 4
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 9,
+          "away": 2
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 8,
+          "away": 1
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 10,
+          "away": 15
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 4
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "home",
+            "minute": 12,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 21,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 41,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 43,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 69,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Norway won 3-2."
+      "insight": "Norway won 3-2.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.5,
+          "away": 0.48
+        },
+        "fieldTilt": {
+          "home": 69.7,
+          "away": 30.3
+        },
+        "ppda": {
+          "home": 8.9,
+          "away": 21.0
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 493,
+          "away": 371
+        },
+        "finalThirdEntries": {
+          "home": 61,
+          "away": 26
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Norway generated 3.5 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (58.7%) and high pressing intensity (PPDA 8.9) cut off Senegal's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Norway turned pressure into goals while Senegal struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457024",
@@ -1131,36 +2981,92 @@
       },
       "boxScore": {
         "possession": {
-          "home": 50,
-          "away": 50
+          "home": 40.4,
+          "away": 59.6
         },
         "shots": {
-          "home": null,
-          "away": null
+          "home": 8,
+          "away": 11
         },
         "shotsOnTarget": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 5
         },
         "corners": {
-          "home": null,
-          "away": null
+          "home": 6,
+          "away": 7
         },
         "fouls": {
-          "home": null,
-          "away": null
+          "home": 11,
+          "away": 10
         },
         "yellowCards": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "redCards": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
-        "goals": []
+        "goals": [
+          {
+            "team": "away",
+            "minute": 13,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 46,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 62,
+            "scorer": ""
+          }
+        ]
       },
-      "insight": "Algeria won 2-1."
+      "insight": "Algeria won 2-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.44,
+          "away": 1.86
+        },
+        "fieldTilt": {
+          "home": 47.1,
+          "away": 52.9
+        },
+        "ppda": {
+          "home": 12.4,
+          "away": 8.7
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 383,
+          "away": 557
+        },
+        "finalThirdEntries": {
+          "home": 36,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Algeria created the clearer chances, generating 1.86 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Algeria (PPDA 8.7) disrupted Jordan's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Algeria's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457046",
@@ -1206,7 +3112,78 @@
         "ELO/Poisson Model": false,
         "Prediction Markets (Kalshi)": false
       },
-      "insight": "The match ended level at 0-0."
+      "insight": "The match ended level at 0-0.",
+      "boxScore": {
+        "possession": {
+          "home": 53.4,
+          "away": 46.6
+        },
+        "shots": {
+          "home": 10,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 3
+        },
+        "corners": {
+          "home": 8,
+          "away": 2
+        },
+        "fouls": {
+          "home": 14,
+          "away": 13
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": []
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.6,
+          "away": 1.16
+        },
+        "fieldTilt": {
+          "home": 54.8,
+          "away": 45.2
+        },
+        "ppda": {
+          "home": 13.8,
+          "away": 12.8
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 417,
+          "away": 405
+        },
+        "finalThirdEntries": {
+          "home": 45,
+          "away": 37
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.76), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457048",

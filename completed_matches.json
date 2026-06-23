@@ -15,51 +15,51 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 2.11,
-        "away": 0.82
+        "home": 1.95,
+        "away": 1.19
       },
       "possession": {
-        "home": 52.8,
-        "away": 47.2
+        "home": 50.0,
+        "away": 50.0
       },
       "fieldTilt": {
-        "home": 54.5,
-        "away": 45.5
+        "home": 59.7,
+        "away": 40.3
       },
       "ppda": {
-        "home": 11.1,
-        "away": 15.4
+        "home": 10.1,
+        "away": 14.2
       },
       "shots": {
-        "home": 14,
-        "away": 4
+        "home": 11,
+        "away": 8
       },
       "shotsOnTarget": {
-        "home": 6,
-        "away": 1
+        "home": 5,
+        "away": 3
       },
       "bigChances": {
         "home": 2,
-        "away": 1
+        "away": 2
       },
       "progressivePasses": {
-        "home": 449,
-        "away": 356
+        "home": 378,
+        "away": 426
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 38
+        "home": 46,
+        "away": 31
       },
       "corners": {
-        "home": 8,
+        "home": 2,
         "away": 2
       },
       "fouls": {
-        "home": 15,
-        "away": 17
+        "home": 10,
+        "away": 14
       },
       "yellowCards": {
-        "home": 2,
+        "home": 1,
         "away": 0
       },
       "redCards": {
@@ -70,27 +70,27 @@
     },
     "boxScore": {
       "possession": {
-        "home": 52.8,
-        "away": 47.2
+        "home": 50.0,
+        "away": 50.0
       },
       "shots": {
-        "home": 14,
-        "away": 4
+        "home": 11,
+        "away": 8
       },
       "shotsOnTarget": {
-        "home": 6,
-        "away": 1
+        "home": 5,
+        "away": 3
       },
       "corners": {
-        "home": 8,
+        "home": 2,
         "away": 2
       },
       "fouls": {
-        "home": 15,
-        "away": 17
+        "home": 10,
+        "away": 14
       },
       "yellowCards": {
-        "home": 2,
+        "home": 1,
         "away": 0
       },
       "redCards": {
@@ -112,154 +112,38 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 2.11,
-        "away": 0.82
+        "home": 1.95,
+        "away": 1.19
       },
       "fieldTilt": {
-        "home": 54.5,
-        "away": 45.5
+        "home": 59.7,
+        "away": 40.3
       },
       "ppda": {
-        "home": 11.1,
-        "away": 15.4
+        "home": 10.1,
+        "away": 14.2
       },
       "bigChances": {
         "home": 2,
-        "away": 1
+        "away": 2
       },
       "progressivePasses": {
-        "home": 449,
-        "away": 356
+        "home": 378,
+        "away": 426
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 38
+        "home": 46,
+        "away": 31
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 53,
-        "winProbHome": 53.7,
-        "winProbAway": 46.3
-      },
-      {
-        "minute": 5,
-        "momentum": 49,
-        "winProbHome": 51.0,
-        "winProbAway": 49.0
-      },
-      {
-        "minute": 10,
-        "momentum": 22,
-        "winProbHome": 49.8,
-        "winProbAway": 50.2
-      },
-      {
-        "minute": 15,
-        "momentum": 53,
-        "winProbHome": 53.9,
-        "winProbAway": 46.1
-      },
-      {
-        "minute": 20,
-        "momentum": 10,
-        "winProbHome": 56.3,
-        "winProbAway": 43.7
-      },
-      {
-        "minute": 25,
-        "momentum": 27,
-        "winProbHome": 63.9,
-        "winProbAway": 36.1
-      },
-      {
-        "minute": 30,
-        "momentum": 43,
-        "winProbHome": 58.8,
-        "winProbAway": 41.2
-      },
-      {
-        "minute": 35,
-        "momentum": 7,
-        "winProbHome": 66.4,
-        "winProbAway": 33.6
-      },
-      {
-        "minute": 40,
-        "momentum": 39,
-        "winProbHome": 61.1,
-        "winProbAway": 38.9
-      },
-      {
-        "minute": 45,
-        "momentum": 29,
-        "winProbHome": 62.4,
-        "winProbAway": 37.6
-      },
-      {
-        "minute": 50,
-        "momentum": 29,
-        "winProbHome": 70.9,
-        "winProbAway": 29.1
-      },
-      {
-        "minute": 55,
-        "momentum": 32,
-        "winProbHome": 73.8,
-        "winProbAway": 26.2
-      },
-      {
-        "minute": 60,
-        "momentum": 8,
-        "winProbHome": 76.6,
-        "winProbAway": 23.4
-      },
-      {
-        "minute": 65,
-        "momentum": 13,
-        "winProbHome": 79.7,
-        "winProbAway": 20.3
-      },
-      {
-        "minute": 70,
-        "momentum": 28,
-        "winProbHome": 78.9,
-        "winProbAway": 21.1
-      },
-      {
-        "minute": 75,
-        "momentum": 25,
-        "winProbHome": 77.4,
-        "winProbAway": 22.6
-      },
-      {
-        "minute": 80,
-        "momentum": 45,
-        "winProbHome": 86.4,
-        "winProbAway": 13.6
-      },
-      {
-        "minute": 85,
-        "momentum": 38,
-        "winProbHome": 84.7,
-        "winProbAway": 15.3
-      },
-      {
-        "minute": 90,
-        "momentum": 48,
-        "winProbHome": 81.0,
-        "winProbAway": 19.0
-      }
-    ],
     "insights": [
       {
         "title": "Attacking Intent",
-        "body": "Mexico created the clearer chances, generating 2.11 xG and putting 6 shots on target."
+        "body": "Mexico created the clearer chances, generating 1.95 xG and putting 5 shots on target."
       },
       {
         "title": "Pressing Intensity",
-        "body": "Higher pressing intensity from Mexico (PPDA 11.1) disrupted South Africa's rhythm and forced errors in dangerous areas."
+        "body": "Higher pressing intensity from Mexico (PPDA 10.1) disrupted South Africa's rhythm and forced errors in dangerous areas."
       },
       {
         "title": "Decisive Moments",
@@ -293,51 +177,51 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 1.9,
-        "away": 1.49
+        "home": 1.97,
+        "away": 0.92
       },
       "possession": {
-        "home": 56.4,
-        "away": 43.6
-      },
-      "fieldTilt": {
         "home": 58.1,
         "away": 41.9
       },
+      "fieldTilt": {
+        "home": 61.7,
+        "away": 38.3
+      },
       "ppda": {
-        "home": 10.9,
-        "away": 16.2
+        "home": 8.9,
+        "away": 14.0
       },
       "shots": {
-        "home": 12,
-        "away": 8
+        "home": 11,
+        "away": 5
       },
       "shotsOnTarget": {
         "home": 4,
-        "away": 3
+        "away": 2
       },
       "bigChances": {
-        "home": 3,
-        "away": 1
+        "home": 2,
+        "away": 2
       },
       "progressivePasses": {
-        "home": 446,
-        "away": 409
+        "home": 445,
+        "away": 362
       },
       "finalThirdEntries": {
-        "home": 51,
-        "away": 33
+        "home": 49,
+        "away": 34
       },
       "corners": {
         "home": 9,
-        "away": 4
+        "away": 2
       },
       "fouls": {
-        "home": 15,
-        "away": 10
+        "home": 9,
+        "away": 18
       },
       "yellowCards": {
-        "home": 2,
+        "home": 1,
         "away": 1
       },
       "redCards": {
@@ -348,27 +232,27 @@
     },
     "boxScore": {
       "possession": {
-        "home": 56.4,
-        "away": 43.6
+        "home": 58.1,
+        "away": 41.9
       },
       "shots": {
-        "home": 12,
-        "away": 8
+        "home": 11,
+        "away": 5
       },
       "shotsOnTarget": {
         "home": 4,
-        "away": 3
+        "away": 2
       },
       "corners": {
         "home": 9,
-        "away": 4
+        "away": 2
       },
       "fouls": {
-        "home": 15,
-        "away": 10
+        "home": 9,
+        "away": 18
       },
       "yellowCards": {
-        "home": 2,
+        "home": 1,
         "away": 1
       },
       "redCards": {
@@ -395,154 +279,38 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.9,
-        "away": 1.49
+        "home": 1.97,
+        "away": 0.92
       },
       "fieldTilt": {
-        "home": 58.1,
-        "away": 41.9
+        "home": 61.7,
+        "away": 38.3
       },
       "ppda": {
-        "home": 10.9,
-        "away": 16.2
+        "home": 8.9,
+        "away": 14.0
       },
       "bigChances": {
-        "home": 3,
-        "away": 1
+        "home": 2,
+        "away": 2
       },
       "progressivePasses": {
-        "home": 446,
-        "away": 409
+        "home": 445,
+        "away": 362
       },
       "finalThirdEntries": {
-        "home": 51,
-        "away": 33
+        "home": 49,
+        "away": 34
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 20,
-        "winProbHome": 52.9,
-        "winProbAway": 47.1
-      },
-      {
-        "minute": 5,
-        "momentum": 39,
-        "winProbHome": 49.1,
-        "winProbAway": 50.9
-      },
-      {
-        "minute": 10,
-        "momentum": 42,
-        "winProbHome": 53.0,
-        "winProbAway": 47.0
-      },
-      {
-        "minute": 15,
-        "momentum": 42,
-        "winProbHome": 54.6,
-        "winProbAway": 45.4
-      },
-      {
-        "minute": 20,
-        "momentum": 19,
-        "winProbHome": 63.7,
-        "winProbAway": 36.3
-      },
-      {
-        "minute": 25,
-        "momentum": 13,
-        "winProbHome": 59.8,
-        "winProbAway": 40.2
-      },
-      {
-        "minute": 30,
-        "momentum": 10,
-        "winProbHome": 64.7,
-        "winProbAway": 35.3
-      },
-      {
-        "minute": 35,
-        "momentum": 12,
-        "winProbHome": 59.4,
-        "winProbAway": 40.6
-      },
-      {
-        "minute": 40,
-        "momentum": 15,
-        "winProbHome": 69.1,
-        "winProbAway": 30.9
-      },
-      {
-        "minute": 45,
-        "momentum": 32,
-        "winProbHome": 68.7,
-        "winProbAway": 31.3
-      },
-      {
-        "minute": 50,
-        "momentum": 29,
-        "winProbHome": 75.4,
-        "winProbAway": 24.6
-      },
-      {
-        "minute": 55,
-        "momentum": 36,
-        "winProbHome": 72.0,
-        "winProbAway": 28.0
-      },
-      {
-        "minute": 60,
-        "momentum": 6,
-        "winProbHome": 68.7,
-        "winProbAway": 31.3
-      },
-      {
-        "minute": 65,
-        "momentum": 48,
-        "winProbHome": 78.5,
-        "winProbAway": 21.5
-      },
-      {
-        "minute": 70,
-        "momentum": 22,
-        "winProbHome": 76.4,
-        "winProbAway": 23.6
-      },
-      {
-        "minute": 75,
-        "momentum": 27,
-        "winProbHome": 81.8,
-        "winProbAway": 18.2
-      },
-      {
-        "minute": 80,
-        "momentum": 48,
-        "winProbHome": 81.1,
-        "winProbAway": 18.9
-      },
-      {
-        "minute": 85,
-        "momentum": 17,
-        "winProbHome": 78.3,
-        "winProbAway": 21.7
-      },
-      {
-        "minute": 90,
-        "momentum": 44,
-        "winProbHome": 86.7,
-        "winProbAway": 13.3
-      }
-    ],
     "insights": [
       {
         "title": "Attacking Intent",
-        "body": "South Korea created the clearer chances, generating 1.9 xG and putting 4 shots on target."
+        "body": "South Korea created the clearer chances, generating 1.97 xG and putting 4 shots on target."
       },
       {
         "title": "Pressing Intensity",
-        "body": "Higher pressing intensity from South Korea (PPDA 10.9) disrupted Czechia's rhythm and forced errors in dangerous areas."
+        "body": "Higher pressing intensity from South Korea (PPDA 8.9) disrupted Czechia's rhythm and forced errors in dangerous areas."
       },
       {
         "title": "Decisive Moments",
@@ -843,7 +611,7 @@
     "home": "United States",
     "away": "Paraguay",
     "homeFlag": "usa",
-    "awayFlag": "par",
+    "awayFlag": "pry",
     "group": "GROUP_D",
     "stage": "Group Stage",
     "kickoff": "2026-06-13T01:00:00Z",
@@ -854,52 +622,52 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 3.34,
-        "away": 0.89
+        "home": 2.9,
+        "away": 0.58
       },
       "possession": {
-        "home": 59.2,
-        "away": 40.8
+        "home": 62.7,
+        "away": 37.3
       },
       "fieldTilt": {
         "home": 68.8,
         "away": 31.2
       },
       "ppda": {
-        "home": 7.0,
-        "away": 22.9
+        "home": 7.7,
+        "away": 23.5
       },
       "shots": {
-        "home": 19,
-        "away": 5
+        "home": 17,
+        "away": 3
       },
       "shotsOnTarget": {
         "home": 8,
-        "away": 2
+        "away": 1
       },
       "bigChances": {
         "home": 4,
-        "away": 3
+        "away": 2
       },
       "progressivePasses": {
-        "home": 473,
-        "away": 381
+        "home": 478,
+        "away": 281
       },
       "finalThirdEntries": {
-        "home": 56,
-        "away": 27
+        "home": 60,
+        "away": 23
       },
       "corners": {
-        "home": 3,
+        "home": 2,
         "away": 1
       },
       "fouls": {
         "home": 16,
-        "away": 8
+        "away": 14
       },
       "yellowCards": {
-        "home": 0,
-        "away": 1
+        "home": 3,
+        "away": 0
       },
       "redCards": {
         "home": 0,
@@ -909,28 +677,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 59.2,
-        "away": 40.8
+        "home": 62.7,
+        "away": 37.3
       },
       "shots": {
-        "home": 19,
-        "away": 5
+        "home": 17,
+        "away": 3
       },
       "shotsOnTarget": {
         "home": 8,
-        "away": 2
+        "away": 1
       },
       "corners": {
-        "home": 3,
+        "home": 2,
         "away": 1
       },
       "fouls": {
         "home": 16,
-        "away": 8
+        "away": 14
       },
       "yellowCards": {
-        "home": 0,
-        "away": 1
+        "home": 3,
+        "away": 0
       },
       "redCards": {
         "home": 0,
@@ -966,154 +734,38 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 3.34,
-        "away": 0.89
+        "home": 2.9,
+        "away": 0.58
       },
       "fieldTilt": {
         "home": 68.8,
         "away": 31.2
       },
       "ppda": {
-        "home": 7.0,
-        "away": 22.9
+        "home": 7.7,
+        "away": 23.5
       },
       "bigChances": {
         "home": 4,
-        "away": 3
+        "away": 2
       },
       "progressivePasses": {
-        "home": 473,
-        "away": 381
+        "home": 478,
+        "away": 281
       },
       "finalThirdEntries": {
-        "home": 56,
-        "away": 27
+        "home": 60,
+        "away": 23
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 15,
-        "winProbHome": 48.9,
-        "winProbAway": 51.1
-      },
-      {
-        "minute": 5,
-        "momentum": 35,
-        "winProbHome": 48.5,
-        "winProbAway": 51.5
-      },
-      {
-        "minute": 10,
-        "momentum": 30,
-        "winProbHome": 58.7,
-        "winProbAway": 41.3
-      },
-      {
-        "minute": 15,
-        "momentum": 15,
-        "winProbHome": 54.4,
-        "winProbAway": 45.6
-      },
-      {
-        "minute": 20,
-        "momentum": 29,
-        "winProbHome": 55.0,
-        "winProbAway": 45.0
-      },
-      {
-        "minute": 25,
-        "momentum": 55,
-        "winProbHome": 63.1,
-        "winProbAway": 36.9
-      },
-      {
-        "minute": 30,
-        "momentum": 23,
-        "winProbHome": 60.7,
-        "winProbAway": 39.3
-      },
-      {
-        "minute": 35,
-        "momentum": 51,
-        "winProbHome": 69.6,
-        "winProbAway": 30.4
-      },
-      {
-        "minute": 40,
-        "momentum": 40,
-        "winProbHome": 67.5,
-        "winProbAway": 32.5
-      },
-      {
-        "minute": 45,
-        "momentum": 36,
-        "winProbHome": 63.4,
-        "winProbAway": 36.6
-      },
-      {
-        "minute": 50,
-        "momentum": 21,
-        "winProbHome": 64.1,
-        "winProbAway": 35.9
-      },
-      {
-        "minute": 55,
-        "momentum": 58,
-        "winProbHome": 74.4,
-        "winProbAway": 25.6
-      },
-      {
-        "minute": 60,
-        "momentum": 6,
-        "winProbHome": 73.1,
-        "winProbAway": 26.9
-      },
-      {
-        "minute": 65,
-        "momentum": 33,
-        "winProbHome": 80.8,
-        "winProbAway": 19.2
-      },
-      {
-        "minute": 70,
-        "momentum": 13,
-        "winProbHome": 72.0,
-        "winProbAway": 28.0
-      },
-      {
-        "minute": 75,
-        "momentum": 10,
-        "winProbHome": 76.0,
-        "winProbAway": 24.0
-      },
-      {
-        "minute": 80,
-        "momentum": 16,
-        "winProbHome": 81.9,
-        "winProbAway": 18.1
-      },
-      {
-        "minute": 85,
-        "momentum": 48,
-        "winProbHome": 84.5,
-        "winProbAway": 15.5
-      },
-      {
-        "minute": 90,
-        "momentum": 37,
-        "winProbHome": 85.8,
-        "winProbAway": 14.2
-      }
-    ],
     "insights": [
       {
         "title": "Superior Attacking Output",
-        "body": "United States generated 3.34 xG, creating 4 big chances and consistently overloading the defensive line."
+        "body": "United States generated 2.9 xG, creating 4 big chances and consistently overloading the defensive line."
       },
       {
         "title": "Territorial Control",
-        "body": "Dominant possession (59.2%) and high pressing intensity (PPDA 7.0) cut off Paraguay's build-up at source."
+        "body": "Dominant possession (62.7%) and high pressing intensity (PPDA 7.7) cut off Paraguay's build-up at source."
       },
       {
         "title": "Clinical Finishing",
@@ -1147,52 +799,52 @@
     "isDraw": true,
     "metrics": {
       "xg": {
-        "home": 1.32,
-        "away": 1.18
+        "home": 1.41,
+        "away": 1.69
       },
       "possession": {
-        "home": 51.7,
-        "away": 48.3
+        "home": 49.0,
+        "away": 51.0
       },
       "fieldTilt": {
-        "home": 48.8,
-        "away": 51.2
+        "home": 46.1,
+        "away": 53.9
       },
       "ppda": {
-        "home": 11.1,
-        "away": 10.5
+        "home": 12.8,
+        "away": 13.3
       },
       "shots": {
-        "home": 8,
-        "away": 8
+        "home": 9,
+        "away": 10
       },
       "shotsOnTarget": {
         "home": 4,
-        "away": 3
+        "away": 5
       },
       "bigChances": {
-        "home": 5,
-        "away": 1
-      },
-      "progressivePasses": {
-        "home": 395,
-        "away": 382
-      },
-      "finalThirdEntries": {
-        "home": 38,
-        "away": 45
-      },
-      "corners": {
-        "home": 3,
-        "away": 2
-      },
-      "fouls": {
-        "home": 13,
-        "away": 12
-      },
-      "yellowCards": {
         "home": 1,
         "away": 3
+      },
+      "progressivePasses": {
+        "home": 442,
+        "away": 383
+      },
+      "finalThirdEntries": {
+        "home": 36,
+        "away": 44
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "fouls": {
+        "home": 16,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -1202,28 +854,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 51.7,
-        "away": 48.3
+        "home": 49.0,
+        "away": 51.0
       },
       "shots": {
-        "home": 8,
-        "away": 8
+        "home": 9,
+        "away": 10
       },
       "shotsOnTarget": {
         "home": 4,
-        "away": 3
+        "away": 5
       },
       "corners": {
-        "home": 3,
-        "away": 2
+        "home": 7,
+        "away": 4
       },
       "fouls": {
-        "home": 13,
-        "away": 12
+        "home": 16,
+        "away": 8
       },
       "yellowCards": {
-        "home": 1,
-        "away": 3
+        "home": 3,
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -1231,159 +883,43 @@
       },
       "goals": [
         {
-          "team": "away",
-          "minute": 43,
+          "team": "home",
+          "minute": 64,
           "scorer": ""
         },
         {
-          "team": "home",
-          "minute": 74,
+          "team": "away",
+          "minute": 81,
           "scorer": ""
         }
       ]
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.32,
-        "away": 1.18
+        "home": 1.41,
+        "away": 1.69
       },
       "fieldTilt": {
-        "home": 48.8,
-        "away": 51.2
+        "home": 46.1,
+        "away": 53.9
       },
       "ppda": {
-        "home": 11.1,
-        "away": 10.5
+        "home": 12.8,
+        "away": 13.3
       },
       "bigChances": {
-        "home": 5,
-        "away": 1
+        "home": 1,
+        "away": 3
       },
       "progressivePasses": {
-        "home": 395,
-        "away": 382
+        "home": 442,
+        "away": 383
       },
       "finalThirdEntries": {
-        "home": 38,
-        "away": 45
+        "home": 36,
+        "away": 44
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 19,
-        "winProbHome": 55.8,
-        "winProbAway": 44.2
-      },
-      {
-        "minute": 5,
-        "momentum": 13,
-        "winProbHome": 44.1,
-        "winProbAway": 55.9
-      },
-      {
-        "minute": 10,
-        "momentum": 15,
-        "winProbHome": 47.6,
-        "winProbAway": 52.4
-      },
-      {
-        "minute": 15,
-        "momentum": -14,
-        "winProbHome": 55.3,
-        "winProbAway": 44.7
-      },
-      {
-        "minute": 20,
-        "momentum": -12,
-        "winProbHome": 47.2,
-        "winProbAway": 52.8
-      },
-      {
-        "minute": 25,
-        "momentum": -14,
-        "winProbHome": 52.9,
-        "winProbAway": 47.1
-      },
-      {
-        "minute": 30,
-        "momentum": -11,
-        "winProbHome": 47.3,
-        "winProbAway": 52.7
-      },
-      {
-        "minute": 35,
-        "momentum": 18,
-        "winProbHome": 46.5,
-        "winProbAway": 53.5
-      },
-      {
-        "minute": 40,
-        "momentum": 1,
-        "winProbHome": 46.4,
-        "winProbAway": 53.6
-      },
-      {
-        "minute": 45,
-        "momentum": 20,
-        "winProbHome": 54.2,
-        "winProbAway": 45.8
-      },
-      {
-        "minute": 50,
-        "momentum": 13,
-        "winProbHome": 54.9,
-        "winProbAway": 45.1
-      },
-      {
-        "minute": 55,
-        "momentum": -14,
-        "winProbHome": 49.1,
-        "winProbAway": 50.9
-      },
-      {
-        "minute": 60,
-        "momentum": -2,
-        "winProbHome": 48.0,
-        "winProbAway": 52.0
-      },
-      {
-        "minute": 65,
-        "momentum": -14,
-        "winProbHome": 47.1,
-        "winProbAway": 52.9
-      },
-      {
-        "minute": 70,
-        "momentum": 9,
-        "winProbHome": 49.1,
-        "winProbAway": 50.9
-      },
-      {
-        "minute": 75,
-        "momentum": -17,
-        "winProbHome": 55.3,
-        "winProbAway": 44.7
-      },
-      {
-        "minute": 80,
-        "momentum": -12,
-        "winProbHome": 54.0,
-        "winProbAway": 46.0
-      },
-      {
-        "minute": 85,
-        "momentum": 19,
-        "winProbHome": 49.2,
-        "winProbAway": 50.8
-      },
-      {
-        "minute": 90,
-        "momentum": -17,
-        "winProbHome": 54.8,
-        "winProbAway": 45.2
-      }
-    ],
     "insights": [
       {
         "title": "Evenly Matched Midfield Battle",
@@ -1391,7 +927,7 @@
       },
       {
         "title": "Lack of Clinical Edge",
-        "body": "Despite creating chances (combined xG 2.5), both teams were wasteful in front of goal when it mattered most."
+        "body": "Despite creating chances (combined xG 3.1), both teams were wasteful in front of goal when it mattered most."
       },
       {
         "title": "Tactical Discipline",
@@ -1425,52 +961,52 @@
     "isDraw": true,
     "metrics": {
       "xg": {
-        "home": 1.66,
-        "away": 1.6
+        "home": 1.12,
+        "away": 1.22
       },
       "possession": {
+        "home": 47.7,
+        "away": 52.3
+      },
+      "fieldTilt": {
         "home": 53.3,
         "away": 46.7
       },
-      "fieldTilt": {
-        "home": 47.9,
-        "away": 52.1
-      },
       "ppda": {
-        "home": 11.0,
-        "away": 10.4
+        "home": 10.1,
+        "away": 11.2
       },
       "shots": {
-        "home": 11,
-        "away": 9
+        "home": 6,
+        "away": 7
       },
       "shotsOnTarget": {
-        "home": 5,
+        "home": 3,
         "away": 3
       },
       "bigChances": {
-        "home": 2,
-        "away": 1
+        "home": 3,
+        "away": 3
       },
       "progressivePasses": {
-        "home": 503,
-        "away": 425
+        "home": 403,
+        "away": 450
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 39
+        "home": 45,
+        "away": 40
       },
       "corners": {
-        "home": 7,
-        "away": 7
+        "home": 8,
+        "away": 4
       },
       "fouls": {
-        "home": 14,
+        "home": 8,
         "away": 18
       },
       "yellowCards": {
-        "home": 1,
-        "away": 2
+        "home": 0,
+        "away": 1
       },
       "redCards": {
         "home": 0,
@@ -1480,28 +1016,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 53.3,
-        "away": 46.7
+        "home": 47.7,
+        "away": 52.3
       },
       "shots": {
-        "home": 11,
-        "away": 9
+        "home": 6,
+        "away": 7
       },
       "shotsOnTarget": {
-        "home": 5,
+        "home": 3,
         "away": 3
       },
       "corners": {
-        "home": 7,
-        "away": 7
+        "home": 8,
+        "away": 4
       },
       "fouls": {
-        "home": 14,
+        "home": 8,
         "away": 18
       },
       "yellowCards": {
-        "home": 1,
-        "away": 2
+        "home": 0,
+        "away": 1
       },
       "redCards": {
         "home": 0,
@@ -1509,159 +1045,43 @@
       },
       "goals": [
         {
-          "team": "away",
-          "minute": 18,
+          "team": "home",
+          "minute": 8,
           "scorer": ""
         },
         {
-          "team": "home",
-          "minute": 25,
+          "team": "away",
+          "minute": 16,
           "scorer": ""
         }
       ]
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.66,
-        "away": 1.6
+        "home": 1.12,
+        "away": 1.22
       },
       "fieldTilt": {
-        "home": 47.9,
-        "away": 52.1
+        "home": 53.3,
+        "away": 46.7
       },
       "ppda": {
-        "home": 11.0,
-        "away": 10.4
+        "home": 10.1,
+        "away": 11.2
       },
       "bigChances": {
-        "home": 2,
-        "away": 1
+        "home": 3,
+        "away": 3
       },
       "progressivePasses": {
-        "home": 503,
-        "away": 425
+        "home": 403,
+        "away": 450
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 39
+        "home": 45,
+        "away": 40
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 4,
-        "winProbHome": 54.5,
-        "winProbAway": 45.5
-      },
-      {
-        "minute": 5,
-        "momentum": 10,
-        "winProbHome": 46.7,
-        "winProbAway": 53.3
-      },
-      {
-        "minute": 10,
-        "momentum": 9,
-        "winProbHome": 48.2,
-        "winProbAway": 51.8
-      },
-      {
-        "minute": 15,
-        "momentum": -6,
-        "winProbHome": 46.7,
-        "winProbAway": 53.3
-      },
-      {
-        "minute": 20,
-        "momentum": -8,
-        "winProbHome": 48.8,
-        "winProbAway": 51.2
-      },
-      {
-        "minute": 25,
-        "momentum": -3,
-        "winProbHome": 54.4,
-        "winProbAway": 45.6
-      },
-      {
-        "minute": 30,
-        "momentum": -3,
-        "winProbHome": 48.2,
-        "winProbAway": 51.8
-      },
-      {
-        "minute": 35,
-        "momentum": 12,
-        "winProbHome": 48.8,
-        "winProbAway": 51.2
-      },
-      {
-        "minute": 40,
-        "momentum": 14,
-        "winProbHome": 48.0,
-        "winProbAway": 52.0
-      },
-      {
-        "minute": 45,
-        "momentum": -19,
-        "winProbHome": 45.4,
-        "winProbAway": 54.6
-      },
-      {
-        "minute": 50,
-        "momentum": -3,
-        "winProbHome": 55.6,
-        "winProbAway": 44.4
-      },
-      {
-        "minute": 55,
-        "momentum": -3,
-        "winProbHome": 51.2,
-        "winProbAway": 48.8
-      },
-      {
-        "minute": 60,
-        "momentum": 2,
-        "winProbHome": 47.8,
-        "winProbAway": 52.2
-      },
-      {
-        "minute": 65,
-        "momentum": 25,
-        "winProbHome": 45.4,
-        "winProbAway": 54.6
-      },
-      {
-        "minute": 70,
-        "momentum": 14,
-        "winProbHome": 44.5,
-        "winProbAway": 55.5
-      },
-      {
-        "minute": 75,
-        "momentum": 5,
-        "winProbHome": 55.1,
-        "winProbAway": 44.9
-      },
-      {
-        "minute": 80,
-        "momentum": 16,
-        "winProbHome": 55.3,
-        "winProbAway": 44.7
-      },
-      {
-        "minute": 85,
-        "momentum": -8,
-        "winProbHome": 44.8,
-        "winProbAway": 55.2
-      },
-      {
-        "minute": 90,
-        "momentum": 1,
-        "winProbHome": 52.0,
-        "winProbAway": 48.0
-      }
-    ],
     "insights": [
       {
         "title": "Evenly Matched Midfield Battle",
@@ -1669,7 +1089,7 @@
       },
       {
         "title": "Lack of Clinical Edge",
-        "body": "Despite creating chances (combined xG 3.26), both teams were wasteful in front of goal when it mattered most."
+        "body": "Despite creating chances (combined xG 2.34), both teams were wasteful in front of goal when it mattered most."
       },
       {
         "title": "Tactical Discipline",
@@ -1703,52 +1123,52 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 2.12,
-        "away": 0.99
+        "home": 1.73,
+        "away": 1.33
       },
       "possession": {
-        "home": 57.4,
-        "away": 42.6
+        "home": 58.5,
+        "away": 41.5
       },
       "fieldTilt": {
-        "home": 58.0,
-        "away": 42.0
+        "home": 56.0,
+        "away": 44.0
       },
       "ppda": {
-        "home": 10.8,
-        "away": 14.6
+        "home": 8.0,
+        "away": 17.4
       },
       "shots": {
-        "home": 13,
-        "away": 5
+        "home": 10,
+        "away": 7
       },
       "shotsOnTarget": {
-        "home": 6,
-        "away": 2
+        "home": 3,
+        "away": 3
       },
       "bigChances": {
         "home": 2,
-        "away": 2
+        "away": 1
       },
       "progressivePasses": {
-        "home": 477,
-        "away": 390
+        "home": 476,
+        "away": 352
       },
       "finalThirdEntries": {
-        "home": 46,
-        "away": 32
+        "home": 44,
+        "away": 35
       },
       "corners": {
-        "home": 7,
+        "home": 6,
         "away": 4
       },
       "fouls": {
-        "home": 15,
-        "away": 15
+        "home": 10,
+        "away": 8
       },
       "yellowCards": {
         "home": 1,
-        "away": 4
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -1758,28 +1178,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 57.4,
-        "away": 42.6
+        "home": 58.5,
+        "away": 41.5
       },
       "shots": {
-        "home": 13,
-        "away": 5
+        "home": 10,
+        "away": 7
       },
       "shotsOnTarget": {
-        "home": 6,
-        "away": 2
+        "home": 3,
+        "away": 3
       },
       "corners": {
-        "home": 7,
+        "home": 6,
         "away": 4
       },
       "fouls": {
-        "home": 15,
-        "away": 15
+        "home": 10,
+        "away": 8
       },
       "yellowCards": {
         "home": 1,
-        "away": 4
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -1795,146 +1215,30 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 2.12,
-        "away": 0.99
+        "home": 1.73,
+        "away": 1.33
       },
       "fieldTilt": {
-        "home": 58.0,
-        "away": 42.0
+        "home": 56.0,
+        "away": 44.0
       },
       "ppda": {
-        "home": 10.8,
-        "away": 14.6
+        "home": 8.0,
+        "away": 17.4
       },
       "bigChances": {
         "home": 2,
-        "away": 2
+        "away": 1
       },
       "progressivePasses": {
-        "home": 477,
-        "away": 390
+        "home": 476,
+        "away": 352
       },
       "finalThirdEntries": {
-        "home": 46,
-        "away": 32
+        "home": 44,
+        "away": 35
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": -25,
-        "winProbHome": 53.5,
-        "winProbAway": 46.5
-      },
-      {
-        "minute": 5,
-        "momentum": -5,
-        "winProbHome": 50.9,
-        "winProbAway": 49.1
-      },
-      {
-        "minute": 10,
-        "momentum": -13,
-        "winProbHome": 41.1,
-        "winProbAway": 58.9
-      },
-      {
-        "minute": 15,
-        "momentum": -23,
-        "winProbHome": 46.1,
-        "winProbAway": 53.9
-      },
-      {
-        "minute": 20,
-        "momentum": -16,
-        "winProbHome": 40.2,
-        "winProbAway": 59.8
-      },
-      {
-        "minute": 25,
-        "momentum": -7,
-        "winProbHome": 37.1,
-        "winProbAway": 62.9
-      },
-      {
-        "minute": 30,
-        "momentum": -36,
-        "winProbHome": 35.0,
-        "winProbAway": 65.0
-      },
-      {
-        "minute": 35,
-        "momentum": -43,
-        "winProbHome": 32.2,
-        "winProbAway": 67.8
-      },
-      {
-        "minute": 40,
-        "momentum": -53,
-        "winProbHome": 31.4,
-        "winProbAway": 68.6
-      },
-      {
-        "minute": 45,
-        "momentum": -25,
-        "winProbHome": 33.8,
-        "winProbAway": 66.2
-      },
-      {
-        "minute": 50,
-        "momentum": -5,
-        "winProbHome": 29.5,
-        "winProbAway": 70.5
-      },
-      {
-        "minute": 55,
-        "momentum": -17,
-        "winProbHome": 31.2,
-        "winProbAway": 68.8
-      },
-      {
-        "minute": 60,
-        "momentum": -33,
-        "winProbHome": 23.6,
-        "winProbAway": 76.4
-      },
-      {
-        "minute": 65,
-        "momentum": -16,
-        "winProbHome": 29.4,
-        "winProbAway": 70.6
-      },
-      {
-        "minute": 70,
-        "momentum": -7,
-        "winProbHome": 26.1,
-        "winProbAway": 73.9
-      },
-      {
-        "minute": 75,
-        "momentum": -37,
-        "winProbHome": 26.3,
-        "winProbAway": 73.7
-      },
-      {
-        "minute": 80,
-        "momentum": -23,
-        "winProbHome": 19.6,
-        "winProbAway": 80.4
-      },
-      {
-        "minute": 85,
-        "momentum": -51,
-        "winProbHome": 20.6,
-        "winProbAway": 79.4
-      },
-      {
-        "minute": 90,
-        "momentum": -14,
-        "winProbHome": 15.7,
-        "winProbAway": 84.3
-      }
-    ],
     "insights": [
       {
         "title": "Defensive Resilience",
@@ -1942,7 +1246,7 @@
       },
       {
         "title": "Counter-Attack Efficiency",
-        "body": "Despite lower possession, Scotland converted their limited chances with clinical precision on the break."
+        "body": "Despite lower possession, Scotland converted limited chances with clinical precision on the break."
       },
       {
         "title": "Set-Piece Threat",
@@ -1976,52 +1280,52 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 1.85,
-        "away": 1.33
+        "home": 1.86,
+        "away": 0.94
       },
       "possession": {
-        "home": 54.4,
-        "away": 45.6
+        "home": 53.7,
+        "away": 46.3
       },
       "fieldTilt": {
-        "home": 61.0,
-        "away": 39.0
+        "home": 53.3,
+        "away": 46.7
       },
       "ppda": {
-        "home": 11.6,
-        "away": 14.1
+        "home": 9.0,
+        "away": 13.2
       },
       "shots": {
         "home": 12,
-        "away": 8
+        "away": 6
       },
       "shotsOnTarget": {
-        "home": 4,
-        "away": 4
+        "home": 5,
+        "away": 2
       },
       "bigChances": {
-        "home": 4,
+        "home": 2,
         "away": 2
       },
       "progressivePasses": {
-        "home": 489,
-        "away": 418
+        "home": 450,
+        "away": 399
       },
       "finalThirdEntries": {
-        "home": 48,
-        "away": 33
+        "home": 47,
+        "away": 39
       },
       "corners": {
-        "home": 9,
+        "home": 5,
         "away": 6
       },
       "fouls": {
-        "home": 11,
-        "away": 12
+        "home": 15,
+        "away": 18
       },
       "yellowCards": {
-        "home": 3,
-        "away": 0
+        "home": 0,
+        "away": 3
       },
       "redCards": {
         "home": 0,
@@ -2031,28 +1335,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 54.4,
-        "away": 45.6
+        "home": 53.7,
+        "away": 46.3
       },
       "shots": {
         "home": 12,
-        "away": 8
+        "away": 6
       },
       "shotsOnTarget": {
-        "home": 4,
-        "away": 4
+        "home": 5,
+        "away": 2
       },
       "corners": {
-        "home": 9,
+        "home": 5,
         "away": 6
       },
       "fouls": {
-        "home": 11,
-        "away": 12
+        "home": 15,
+        "away": 18
       },
       "yellowCards": {
-        "home": 3,
-        "away": 0
+        "home": 0,
+        "away": 3
       },
       "redCards": {
         "home": 0,
@@ -2073,154 +1377,38 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.85,
-        "away": 1.33
+        "home": 1.86,
+        "away": 0.94
       },
       "fieldTilt": {
-        "home": 61.0,
-        "away": 39.0
+        "home": 53.3,
+        "away": 46.7
       },
       "ppda": {
-        "home": 11.6,
-        "away": 14.1
+        "home": 9.0,
+        "away": 13.2
       },
       "bigChances": {
-        "home": 4,
+        "home": 2,
         "away": 2
       },
       "progressivePasses": {
-        "home": 489,
-        "away": 418
+        "home": 450,
+        "away": 399
       },
       "finalThirdEntries": {
-        "home": 48,
-        "away": 33
+        "home": 47,
+        "away": 39
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 50,
-        "winProbHome": 47.4,
-        "winProbAway": 52.6
-      },
-      {
-        "minute": 5,
-        "momentum": 22,
-        "winProbHome": 50.0,
-        "winProbAway": 50.0
-      },
-      {
-        "minute": 10,
-        "momentum": 39,
-        "winProbHome": 48.9,
-        "winProbAway": 51.1
-      },
-      {
-        "minute": 15,
-        "momentum": 14,
-        "winProbHome": 52.6,
-        "winProbAway": 47.4
-      },
-      {
-        "minute": 20,
-        "momentum": 49,
-        "winProbHome": 53.6,
-        "winProbAway": 46.4
-      },
-      {
-        "minute": 25,
-        "momentum": 18,
-        "winProbHome": 54.5,
-        "winProbAway": 45.5
-      },
-      {
-        "minute": 30,
-        "momentum": 31,
-        "winProbHome": 59.6,
-        "winProbAway": 40.4
-      },
-      {
-        "minute": 35,
-        "momentum": 34,
-        "winProbHome": 62.6,
-        "winProbAway": 37.4
-      },
-      {
-        "minute": 40,
-        "momentum": 18,
-        "winProbHome": 69.6,
-        "winProbAway": 30.4
-      },
-      {
-        "minute": 45,
-        "momentum": 29,
-        "winProbHome": 72.4,
-        "winProbAway": 27.6
-      },
-      {
-        "minute": 50,
-        "momentum": 57,
-        "winProbHome": 63.7,
-        "winProbAway": 36.3
-      },
-      {
-        "minute": 55,
-        "momentum": 60,
-        "winProbHome": 71.1,
-        "winProbAway": 28.9
-      },
-      {
-        "minute": 60,
-        "momentum": 26,
-        "winProbHome": 72.0,
-        "winProbAway": 28.0
-      },
-      {
-        "minute": 65,
-        "momentum": 34,
-        "winProbHome": 78.1,
-        "winProbAway": 21.9
-      },
-      {
-        "minute": 70,
-        "momentum": 57,
-        "winProbHome": 77.1,
-        "winProbAway": 22.9
-      },
-      {
-        "minute": 75,
-        "momentum": 23,
-        "winProbHome": 73.5,
-        "winProbAway": 26.5
-      },
-      {
-        "minute": 80,
-        "momentum": 31,
-        "winProbHome": 84.7,
-        "winProbAway": 15.3
-      },
-      {
-        "minute": 85,
-        "momentum": 45,
-        "winProbHome": 82.7,
-        "winProbAway": 17.3
-      },
-      {
-        "minute": 90,
-        "momentum": 18,
-        "winProbHome": 85.4,
-        "winProbAway": 14.6
-      }
-    ],
     "insights": [
       {
         "title": "Attacking Intent",
-        "body": "Australia created the clearer chances, generating 1.85 xG and putting 4 shots on target."
+        "body": "Australia created the clearer chances, generating 1.86 xG and putting 5 shots on target."
       },
       {
         "title": "Pressing Intensity",
-        "body": "Higher pressing intensity from Australia (PPDA 11.6) disrupted Turkey's rhythm and forced errors in dangerous areas."
+        "body": "Higher pressing intensity from Australia (PPDA 9.0) disrupted Turkey's rhythm and forced errors in dangerous areas."
       },
       {
         "title": "Decisive Moments",
@@ -2562,52 +1750,52 @@
     "isDraw": true,
     "metrics": {
       "xg": {
-        "home": 1.55,
-        "away": 1.01
+        "home": 1.23,
+        "away": 1.65
       },
       "possession": {
-        "home": 49.9,
-        "away": 50.1
+        "home": 50.3,
+        "away": 49.7
       },
       "fieldTilt": {
-        "home": 50.4,
-        "away": 49.6
+        "home": 53.9,
+        "away": 46.1
       },
       "ppda": {
-        "home": 11.7,
-        "away": 11.4
+        "home": 10.9,
+        "away": 13.9
       },
       "shots": {
-        "home": 9,
-        "away": 5
+        "home": 7,
+        "away": 9
       },
       "shotsOnTarget": {
         "home": 3,
-        "away": 2
+        "away": 4
       },
       "bigChances": {
-        "home": 3,
-        "away": 3
+        "home": 4,
+        "away": 2
       },
       "progressivePasses": {
-        "home": 420,
-        "away": 458
+        "home": 392,
+        "away": 392
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 39
+        "home": 40,
+        "away": 38
       },
       "corners": {
-        "home": 5,
+        "home": 6,
         "away": 7
       },
       "fouls": {
         "home": 9,
-        "away": 12
+        "away": 15
       },
       "yellowCards": {
-        "home": 3,
-        "away": 1
+        "home": 0,
+        "away": 0
       },
       "redCards": {
         "home": 0,
@@ -2617,28 +1805,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 49.9,
-        "away": 50.1
+        "home": 50.3,
+        "away": 49.7
       },
       "shots": {
-        "home": 9,
-        "away": 5
+        "home": 7,
+        "away": 9
       },
       "shotsOnTarget": {
         "home": 3,
-        "away": 2
+        "away": 4
       },
       "corners": {
-        "home": 5,
+        "home": 6,
         "away": 7
       },
       "fouls": {
         "home": 9,
-        "away": 12
+        "away": 15
       },
       "yellowCards": {
-        "home": 3,
-        "away": 1
+        "home": 0,
+        "away": 0
       },
       "redCards": {
         "home": 0,
@@ -2646,169 +1834,53 @@
       },
       "goals": [
         {
-          "team": "away",
-          "minute": 53,
+          "team": "home",
+          "minute": 47,
           "scorer": ""
         },
         {
-          "team": "home",
+          "team": "away",
+          "minute": 54,
+          "scorer": ""
+        },
+        {
+          "team": "away",
           "minute": 64,
           "scorer": ""
         },
         {
           "team": "home",
-          "minute": 77,
-          "scorer": ""
-        },
-        {
-          "team": "away",
-          "minute": 85,
+          "minute": 72,
           "scorer": ""
         }
       ]
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.55,
-        "away": 1.01
+        "home": 1.23,
+        "away": 1.65
       },
       "fieldTilt": {
-        "home": 50.4,
-        "away": 49.6
+        "home": 53.9,
+        "away": 46.1
       },
       "ppda": {
-        "home": 11.7,
-        "away": 11.4
+        "home": 10.9,
+        "away": 13.9
       },
       "bigChances": {
-        "home": 3,
-        "away": 3
+        "home": 4,
+        "away": 2
       },
       "progressivePasses": {
-        "home": 420,
-        "away": 458
+        "home": 392,
+        "away": 392
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 39
+        "home": 40,
+        "away": 38
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 1,
-        "winProbHome": 44.3,
-        "winProbAway": 55.7
-      },
-      {
-        "minute": 5,
-        "momentum": 0,
-        "winProbHome": 46.2,
-        "winProbAway": 53.8
-      },
-      {
-        "minute": 10,
-        "momentum": -7,
-        "winProbHome": 48.3,
-        "winProbAway": 51.7
-      },
-      {
-        "minute": 15,
-        "momentum": -4,
-        "winProbHome": 48.1,
-        "winProbAway": 51.9
-      },
-      {
-        "minute": 20,
-        "momentum": 18,
-        "winProbHome": 52.4,
-        "winProbAway": 47.6
-      },
-      {
-        "minute": 25,
-        "momentum": -3,
-        "winProbHome": 50.7,
-        "winProbAway": 49.3
-      },
-      {
-        "minute": 30,
-        "momentum": 13,
-        "winProbHome": 55.4,
-        "winProbAway": 44.6
-      },
-      {
-        "minute": 35,
-        "momentum": -15,
-        "winProbHome": 46.9,
-        "winProbAway": 53.1
-      },
-      {
-        "minute": 40,
-        "momentum": 6,
-        "winProbHome": 49.9,
-        "winProbAway": 50.1
-      },
-      {
-        "minute": 45,
-        "momentum": -5,
-        "winProbHome": 52.3,
-        "winProbAway": 47.7
-      },
-      {
-        "minute": 50,
-        "momentum": 11,
-        "winProbHome": 44.2,
-        "winProbAway": 55.8
-      },
-      {
-        "minute": 55,
-        "momentum": -1,
-        "winProbHome": 52.3,
-        "winProbAway": 47.7
-      },
-      {
-        "minute": 60,
-        "momentum": -1,
-        "winProbHome": 48.4,
-        "winProbAway": 51.6
-      },
-      {
-        "minute": 65,
-        "momentum": 16,
-        "winProbHome": 49.1,
-        "winProbAway": 50.9
-      },
-      {
-        "minute": 70,
-        "momentum": 14,
-        "winProbHome": 52.4,
-        "winProbAway": 47.6
-      },
-      {
-        "minute": 75,
-        "momentum": -2,
-        "winProbHome": 46.8,
-        "winProbAway": 53.2
-      },
-      {
-        "minute": 80,
-        "momentum": -7,
-        "winProbHome": 52.9,
-        "winProbAway": 47.1
-      },
-      {
-        "minute": 85,
-        "momentum": -8,
-        "winProbHome": 52.9,
-        "winProbAway": 47.1
-      },
-      {
-        "minute": 90,
-        "momentum": -3,
-        "winProbHome": 55.7,
-        "winProbAway": 44.3
-      }
-    ],
     "insights": [
       {
         "title": "Evenly Matched Midfield Battle",
@@ -2816,7 +1888,7 @@
       },
       {
         "title": "Lack of Clinical Edge",
-        "body": "Despite creating chances (combined xG 2.56), both teams were wasteful in front of goal when it mattered most."
+        "body": "Despite creating chances (combined xG 2.88), both teams were wasteful in front of goal when it mattered most."
       },
       {
         "title": "Tactical Discipline",
@@ -2850,52 +1922,52 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 1.27,
-        "away": 1.63
+        "home": 1.03,
+        "away": 2.0
       },
       "possession": {
-        "home": 38.9,
-        "away": 61.1
+        "home": 45.8,
+        "away": 54.2
       },
       "fieldTilt": {
-        "home": 36.3,
-        "away": 63.7
+        "home": 41.2,
+        "away": 58.8
       },
       "ppda": {
-        "home": 14.1,
-        "away": 8.7
+        "home": 14.3,
+        "away": 10.8
       },
       "shots": {
-        "home": 7,
-        "away": 10
+        "home": 5,
+        "away": 12
       },
       "shotsOnTarget": {
         "home": 2,
         "away": 5
       },
       "bigChances": {
-        "home": 5,
-        "away": 2
+        "home": 2,
+        "away": 1
       },
       "progressivePasses": {
-        "home": 346,
-        "away": 473
+        "home": 402,
+        "away": 460
       },
       "finalThirdEntries": {
-        "home": 31,
-        "away": 52
+        "home": 35,
+        "away": 50
       },
       "corners": {
-        "home": 2,
-        "away": 5
+        "home": 9,
+        "away": 1
       },
       "fouls": {
-        "home": 12,
-        "away": 15
+        "home": 9,
+        "away": 8
       },
       "yellowCards": {
-        "home": 3,
-        "away": 3
+        "home": 1,
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -2905,28 +1977,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 38.9,
-        "away": 61.1
+        "home": 45.8,
+        "away": 54.2
       },
       "shots": {
-        "home": 7,
-        "away": 10
+        "home": 5,
+        "away": 12
       },
       "shotsOnTarget": {
         "home": 2,
         "away": 5
       },
       "corners": {
-        "home": 2,
-        "away": 5
+        "home": 9,
+        "away": 1
       },
       "fouls": {
-        "home": 12,
-        "away": 15
+        "home": 9,
+        "away": 8
       },
       "yellowCards": {
-        "home": 3,
-        "away": 3
+        "home": 1,
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -2942,146 +2014,30 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.27,
-        "away": 1.63
+        "home": 1.03,
+        "away": 2.0
       },
       "fieldTilt": {
-        "home": 36.3,
-        "away": 63.7
+        "home": 41.2,
+        "away": 58.8
       },
       "ppda": {
-        "home": 14.1,
-        "away": 8.7
+        "home": 14.3,
+        "away": 10.8
       },
       "bigChances": {
-        "home": 5,
-        "away": 2
+        "home": 2,
+        "away": 1
       },
       "progressivePasses": {
-        "home": 346,
-        "away": 473
+        "home": 402,
+        "away": 460
       },
       "finalThirdEntries": {
-        "home": 31,
-        "away": 52
+        "home": 35,
+        "away": 50
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 26,
-        "winProbHome": 46.2,
-        "winProbAway": 53.8
-      },
-      {
-        "minute": 5,
-        "momentum": 8,
-        "winProbHome": 49.0,
-        "winProbAway": 51.0
-      },
-      {
-        "minute": 10,
-        "momentum": 35,
-        "winProbHome": 49.3,
-        "winProbAway": 50.7
-      },
-      {
-        "minute": 15,
-        "momentum": 9,
-        "winProbHome": 54.6,
-        "winProbAway": 45.4
-      },
-      {
-        "minute": 20,
-        "momentum": 9,
-        "winProbHome": 58.7,
-        "winProbAway": 41.3
-      },
-      {
-        "minute": 25,
-        "momentum": 48,
-        "winProbHome": 54.4,
-        "winProbAway": 45.6
-      },
-      {
-        "minute": 30,
-        "momentum": 14,
-        "winProbHome": 65.4,
-        "winProbAway": 34.6
-      },
-      {
-        "minute": 35,
-        "momentum": 24,
-        "winProbHome": 58.6,
-        "winProbAway": 41.4
-      },
-      {
-        "minute": 40,
-        "momentum": 20,
-        "winProbHome": 61.0,
-        "winProbAway": 39.0
-      },
-      {
-        "minute": 45,
-        "momentum": 53,
-        "winProbHome": 66.5,
-        "winProbAway": 33.5
-      },
-      {
-        "minute": 50,
-        "momentum": 54,
-        "winProbHome": 66.2,
-        "winProbAway": 33.8
-      },
-      {
-        "minute": 55,
-        "momentum": 39,
-        "winProbHome": 76.3,
-        "winProbAway": 23.7
-      },
-      {
-        "minute": 60,
-        "momentum": 31,
-        "winProbHome": 79.2,
-        "winProbAway": 20.8
-      },
-      {
-        "minute": 65,
-        "momentum": 27,
-        "winProbHome": 70.0,
-        "winProbAway": 30.0
-      },
-      {
-        "minute": 70,
-        "momentum": 44,
-        "winProbHome": 80.4,
-        "winProbAway": 19.6
-      },
-      {
-        "minute": 75,
-        "momentum": 41,
-        "winProbHome": 81.1,
-        "winProbAway": 18.9
-      },
-      {
-        "minute": 80,
-        "momentum": 14,
-        "winProbHome": 81.7,
-        "winProbAway": 18.3
-      },
-      {
-        "minute": 85,
-        "momentum": 12,
-        "winProbHome": 82.5,
-        "winProbAway": 17.5
-      },
-      {
-        "minute": 90,
-        "momentum": 46,
-        "winProbHome": 79.4,
-        "winProbAway": 20.6
-      }
-    ],
     "insights": [
       {
         "title": "Defensive Resilience",
@@ -3089,7 +2045,7 @@
       },
       {
         "title": "Counter-Attack Efficiency",
-        "body": "Despite lower possession, Ivory Coast converted their limited chances with clinical precision on the break."
+        "body": "Despite lower possession, Ivory Coast converted limited chances with clinical precision on the break."
       },
       {
         "title": "Set-Piece Threat",
@@ -3123,52 +2079,52 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 2.8,
-        "away": 0.47
+        "home": 3.24,
+        "away": 0.34
       },
       "possession": {
-        "home": 68.3,
-        "away": 31.7
+        "home": 67.7,
+        "away": 32.3
       },
       "fieldTilt": {
-        "home": 64.9,
-        "away": 35.1
+        "home": 74.3,
+        "away": 25.7
       },
       "ppda": {
-        "home": 6.7,
-        "away": 18.1
+        "home": 7.8,
+        "away": 19.1
       },
       "shots": {
-        "home": 18,
+        "home": 20,
         "away": 3
       },
       "shotsOnTarget": {
-        "home": 9,
+        "home": 8,
         "away": 1
       },
       "bigChances": {
         "home": 5,
-        "away": 1
+        "away": 2
       },
       "progressivePasses": {
-        "home": 600,
-        "away": 295
+        "home": 516,
+        "away": 276
       },
       "finalThirdEntries": {
-        "home": 56,
-        "away": 26
+        "home": 57,
+        "away": 21
       },
       "corners": {
-        "home": 4,
-        "away": 7
+        "home": 7,
+        "away": 4
       },
       "fouls": {
-        "home": 12,
-        "away": 17
+        "home": 16,
+        "away": 16
       },
       "yellowCards": {
-        "home": 2,
-        "away": 3
+        "home": 3,
+        "away": 1
       },
       "redCards": {
         "home": 0,
@@ -3178,28 +2134,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 68.3,
-        "away": 31.7
+        "home": 67.7,
+        "away": 32.3
       },
       "shots": {
-        "home": 18,
+        "home": 20,
         "away": 3
       },
       "shotsOnTarget": {
-        "home": 9,
+        "home": 8,
         "away": 1
       },
       "corners": {
-        "home": 4,
-        "away": 7
+        "home": 7,
+        "away": 4
       },
       "fouls": {
-        "home": 12,
-        "away": 17
+        "home": 16,
+        "away": 16
       },
       "yellowCards": {
-        "home": 2,
-        "away": 3
+        "home": 3,
+        "away": 1
       },
       "redCards": {
         "home": 0,
@@ -3240,154 +2196,38 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 2.8,
-        "away": 0.47
+        "home": 3.24,
+        "away": 0.34
       },
       "fieldTilt": {
-        "home": 64.9,
-        "away": 35.1
+        "home": 74.3,
+        "away": 25.7
       },
       "ppda": {
-        "home": 6.7,
-        "away": 18.1
+        "home": 7.8,
+        "away": 19.1
       },
       "bigChances": {
         "home": 5,
-        "away": 1
+        "away": 2
       },
       "progressivePasses": {
-        "home": 600,
-        "away": 295
+        "home": 516,
+        "away": 276
       },
       "finalThirdEntries": {
-        "home": 56,
-        "away": 26
+        "home": 57,
+        "away": 21
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 12,
-        "winProbHome": 49.6,
-        "winProbAway": 50.4
-      },
-      {
-        "minute": 5,
-        "momentum": 24,
-        "winProbHome": 54.3,
-        "winProbAway": 45.7
-      },
-      {
-        "minute": 10,
-        "momentum": 22,
-        "winProbHome": 53.9,
-        "winProbAway": 46.1
-      },
-      {
-        "minute": 15,
-        "momentum": 36,
-        "winProbHome": 55.1,
-        "winProbAway": 44.9
-      },
-      {
-        "minute": 20,
-        "momentum": 43,
-        "winProbHome": 52.3,
-        "winProbAway": 47.7
-      },
-      {
-        "minute": 25,
-        "momentum": 32,
-        "winProbHome": 62.5,
-        "winProbAway": 37.5
-      },
-      {
-        "minute": 30,
-        "momentum": 43,
-        "winProbHome": 58.7,
-        "winProbAway": 41.3
-      },
-      {
-        "minute": 35,
-        "momentum": 10,
-        "winProbHome": 60.4,
-        "winProbAway": 39.6
-      },
-      {
-        "minute": 40,
-        "momentum": 48,
-        "winProbHome": 69.6,
-        "winProbAway": 30.4
-      },
-      {
-        "minute": 45,
-        "momentum": 41,
-        "winProbHome": 68.5,
-        "winProbAway": 31.5
-      },
-      {
-        "minute": 50,
-        "momentum": 8,
-        "winProbHome": 71.5,
-        "winProbAway": 28.5
-      },
-      {
-        "minute": 55,
-        "momentum": 25,
-        "winProbHome": 74.5,
-        "winProbAway": 25.5
-      },
-      {
-        "minute": 60,
-        "momentum": 17,
-        "winProbHome": 75.2,
-        "winProbAway": 24.8
-      },
-      {
-        "minute": 65,
-        "momentum": 19,
-        "winProbHome": 76.3,
-        "winProbAway": 23.7
-      },
-      {
-        "minute": 70,
-        "momentum": 57,
-        "winProbHome": 82.9,
-        "winProbAway": 17.1
-      },
-      {
-        "minute": 75,
-        "momentum": 35,
-        "winProbHome": 77.2,
-        "winProbAway": 22.8
-      },
-      {
-        "minute": 80,
-        "momentum": 40,
-        "winProbHome": 77.0,
-        "winProbAway": 23.0
-      },
-      {
-        "minute": 85,
-        "momentum": 37,
-        "winProbHome": 80.5,
-        "winProbAway": 19.5
-      },
-      {
-        "minute": 90,
-        "momentum": 38,
-        "winProbHome": 85.6,
-        "winProbAway": 14.4
-      }
-    ],
     "insights": [
       {
         "title": "Superior Attacking Output",
-        "body": "Sweden generated 2.8 xG, creating 5 big chances and consistently overloading the defensive line."
+        "body": "Sweden generated 3.24 xG, creating 5 big chances and consistently overloading the defensive line."
       },
       {
         "title": "Territorial Control",
-        "body": "Dominant possession (68.3%) and high pressing intensity (PPDA 6.7) cut off Tunisia's build-up at source."
+        "body": "Dominant possession (67.7%) and high pressing intensity (PPDA 7.8) cut off Tunisia's build-up at source."
       },
       {
         "title": "Clinical Finishing",
@@ -3688,52 +2528,52 @@
     "isDraw": true,
     "metrics": {
       "xg": {
-        "home": 1.69,
-        "away": 1.71
+        "home": 1.59,
+        "away": 1.49
       },
       "possession": {
-        "home": 51.3,
-        "away": 48.7
+        "home": 53.6,
+        "away": 46.4
       },
       "fieldTilt": {
-        "home": 50.6,
-        "away": 49.4
+        "home": 54.5,
+        "away": 45.5
       },
       "ppda": {
-        "home": 11.6,
-        "away": 13.4
+        "home": 11.3,
+        "away": 11.7
       },
       "shots": {
-        "home": 10,
-        "away": 11
+        "home": 9,
+        "away": 8
       },
       "shotsOnTarget": {
-        "home": 4,
-        "away": 6
-      },
-      "bigChances": {
-        "home": 2,
+        "home": 3,
         "away": 3
       },
+      "bigChances": {
+        "home": 1,
+        "away": 2
+      },
       "progressivePasses": {
-        "home": 483,
-        "away": 377
+        "home": 472,
+        "away": 417
       },
       "finalThirdEntries": {
-        "home": 45,
+        "home": 47,
         "away": 39
       },
       "corners": {
-        "home": 3,
+        "home": 4,
         "away": 7
       },
       "fouls": {
-        "home": 15,
-        "away": 9
+        "home": 14,
+        "away": 16
       },
       "yellowCards": {
-        "home": 3,
-        "away": 0
+        "home": 1,
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -3743,28 +2583,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 51.3,
-        "away": 48.7
+        "home": 53.6,
+        "away": 46.4
       },
       "shots": {
-        "home": 10,
-        "away": 11
+        "home": 9,
+        "away": 8
       },
       "shotsOnTarget": {
-        "home": 4,
-        "away": 6
+        "home": 3,
+        "away": 3
       },
       "corners": {
-        "home": 3,
+        "home": 4,
         "away": 7
       },
       "fouls": {
-        "home": 15,
-        "away": 9
+        "home": 14,
+        "away": 16
       },
       "yellowCards": {
-        "home": 3,
-        "away": 0
+        "home": 1,
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -3772,159 +2612,43 @@
       },
       "goals": [
         {
-          "team": "home",
-          "minute": 23,
+          "team": "away",
+          "minute": 47,
           "scorer": ""
         },
         {
-          "team": "away",
-          "minute": 58,
+          "team": "home",
+          "minute": 89,
           "scorer": ""
         }
       ]
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.69,
-        "away": 1.71
+        "home": 1.59,
+        "away": 1.49
       },
       "fieldTilt": {
-        "home": 50.6,
-        "away": 49.4
+        "home": 54.5,
+        "away": 45.5
       },
       "ppda": {
-        "home": 11.6,
-        "away": 13.4
+        "home": 11.3,
+        "away": 11.7
       },
       "bigChances": {
-        "home": 2,
-        "away": 3
+        "home": 1,
+        "away": 2
       },
       "progressivePasses": {
-        "home": 483,
-        "away": 377
+        "home": 472,
+        "away": 417
       },
       "finalThirdEntries": {
-        "home": 45,
+        "home": 47,
         "away": 39
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": -11,
-        "winProbHome": 44.9,
-        "winProbAway": 55.1
-      },
-      {
-        "minute": 5,
-        "momentum": -4,
-        "winProbHome": 48.1,
-        "winProbAway": 51.9
-      },
-      {
-        "minute": 10,
-        "momentum": 5,
-        "winProbHome": 51.8,
-        "winProbAway": 48.2
-      },
-      {
-        "minute": 15,
-        "momentum": 1,
-        "winProbHome": 54.2,
-        "winProbAway": 45.8
-      },
-      {
-        "minute": 20,
-        "momentum": 14,
-        "winProbHome": 48.6,
-        "winProbAway": 51.4
-      },
-      {
-        "minute": 25,
-        "momentum": 0,
-        "winProbHome": 51.5,
-        "winProbAway": 48.5
-      },
-      {
-        "minute": 30,
-        "momentum": 11,
-        "winProbHome": 54.5,
-        "winProbAway": 45.5
-      },
-      {
-        "minute": 35,
-        "momentum": -18,
-        "winProbHome": 51.4,
-        "winProbAway": 48.6
-      },
-      {
-        "minute": 40,
-        "momentum": -5,
-        "winProbHome": 51.6,
-        "winProbAway": 48.4
-      },
-      {
-        "minute": 45,
-        "momentum": -2,
-        "winProbHome": 56.0,
-        "winProbAway": 44.0
-      },
-      {
-        "minute": 50,
-        "momentum": -15,
-        "winProbHome": 45.2,
-        "winProbAway": 54.8
-      },
-      {
-        "minute": 55,
-        "momentum": 24,
-        "winProbHome": 45.2,
-        "winProbAway": 54.8
-      },
-      {
-        "minute": 60,
-        "momentum": -12,
-        "winProbHome": 54.8,
-        "winProbAway": 45.2
-      },
-      {
-        "minute": 65,
-        "momentum": -17,
-        "winProbHome": 44.7,
-        "winProbAway": 55.3
-      },
-      {
-        "minute": 70,
-        "momentum": 2,
-        "winProbHome": 45.7,
-        "winProbAway": 54.3
-      },
-      {
-        "minute": 75,
-        "momentum": 13,
-        "winProbHome": 52.2,
-        "winProbAway": 47.8
-      },
-      {
-        "minute": 80,
-        "momentum": -8,
-        "winProbHome": 44.9,
-        "winProbAway": 55.1
-      },
-      {
-        "minute": 85,
-        "momentum": 4,
-        "winProbHome": 46.9,
-        "winProbAway": 53.1
-      },
-      {
-        "minute": 90,
-        "momentum": 15,
-        "winProbHome": 49.5,
-        "winProbAway": 50.5
-      }
-    ],
     "insights": [
       {
         "title": "Evenly Matched Midfield Battle",
@@ -3932,7 +2656,7 @@
       },
       {
         "title": "Lack of Clinical Edge",
-        "body": "Despite creating chances (combined xG 3.4), both teams were wasteful in front of goal when it mattered most."
+        "body": "Despite creating chances (combined xG 3.08), both teams were wasteful in front of goal when it mattered most."
       },
       {
         "title": "Tactical Discipline",
@@ -3966,52 +2690,52 @@
     "isDraw": true,
     "metrics": {
       "xg": {
-        "home": 1.18,
-        "away": 1.28
+        "home": 1.23,
+        "away": 1.66
       },
       "possession": {
-        "home": 52.9,
-        "away": 47.1
+        "home": 49.5,
+        "away": 50.5
       },
       "fieldTilt": {
-        "home": 46.8,
-        "away": 53.2
+        "home": 49.8,
+        "away": 50.2
       },
       "ppda": {
-        "home": 12.7,
-        "away": 13.6
+        "home": 13.8,
+        "away": 13.0
       },
       "shots": {
-        "home": 7,
-        "away": 7
+        "home": 8,
+        "away": 11
       },
       "shotsOnTarget": {
-        "home": 3,
-        "away": 3
+        "home": 4,
+        "away": 4
       },
       "bigChances": {
-        "home": 4,
-        "away": 2
+        "home": 2,
+        "away": 3
       },
       "progressivePasses": {
-        "home": 445,
-        "away": 381
+        "home": 448,
+        "away": 408
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 46
+        "home": 37,
+        "away": 39
       },
       "corners": {
-        "home": 3,
-        "away": 2
+        "home": 5,
+        "away": 7
       },
       "fouls": {
-        "home": 14,
-        "away": 17
+        "home": 9,
+        "away": 8
       },
       "yellowCards": {
         "home": 2,
-        "away": 4
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -4021,28 +2745,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 52.9,
-        "away": 47.1
+        "home": 49.5,
+        "away": 50.5
       },
       "shots": {
-        "home": 7,
-        "away": 7
+        "home": 8,
+        "away": 11
       },
       "shotsOnTarget": {
-        "home": 3,
-        "away": 3
+        "home": 4,
+        "away": 4
       },
       "corners": {
-        "home": 3,
-        "away": 2
+        "home": 5,
+        "away": 7
       },
       "fouls": {
-        "home": 14,
-        "away": 17
+        "home": 9,
+        "away": 8
       },
       "yellowCards": {
         "home": 2,
-        "away": 4
+        "away": 2
       },
       "redCards": {
         "home": 0,
@@ -4051,158 +2775,42 @@
       "goals": [
         {
           "team": "home",
-          "minute": 42,
+          "minute": 28,
           "scorer": ""
         },
         {
           "team": "away",
-          "minute": 43,
+          "minute": 35,
           "scorer": ""
         }
       ]
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.18,
-        "away": 1.28
+        "home": 1.23,
+        "away": 1.66
       },
       "fieldTilt": {
-        "home": 46.8,
-        "away": 53.2
+        "home": 49.8,
+        "away": 50.2
       },
       "ppda": {
-        "home": 12.7,
-        "away": 13.6
+        "home": 13.8,
+        "away": 13.0
       },
       "bigChances": {
-        "home": 4,
-        "away": 2
+        "home": 2,
+        "away": 3
       },
       "progressivePasses": {
-        "home": 445,
-        "away": 381
+        "home": 448,
+        "away": 408
       },
       "finalThirdEntries": {
-        "home": 42,
-        "away": 46
+        "home": 37,
+        "away": 39
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": -19,
-        "winProbHome": 55.7,
-        "winProbAway": 44.3
-      },
-      {
-        "minute": 5,
-        "momentum": 5,
-        "winProbHome": 47.3,
-        "winProbAway": 52.7
-      },
-      {
-        "minute": 10,
-        "momentum": 16,
-        "winProbHome": 54.4,
-        "winProbAway": 45.6
-      },
-      {
-        "minute": 15,
-        "momentum": -17,
-        "winProbHome": 54.9,
-        "winProbAway": 45.1
-      },
-      {
-        "minute": 20,
-        "momentum": 11,
-        "winProbHome": 54.0,
-        "winProbAway": 46.0
-      },
-      {
-        "minute": 25,
-        "momentum": -2,
-        "winProbHome": 53.3,
-        "winProbAway": 46.7
-      },
-      {
-        "minute": 30,
-        "momentum": -6,
-        "winProbHome": 51.3,
-        "winProbAway": 48.7
-      },
-      {
-        "minute": 35,
-        "momentum": 2,
-        "winProbHome": 46.6,
-        "winProbAway": 53.4
-      },
-      {
-        "minute": 40,
-        "momentum": -8,
-        "winProbHome": 51.5,
-        "winProbAway": 48.5
-      },
-      {
-        "minute": 45,
-        "momentum": -12,
-        "winProbHome": 51.5,
-        "winProbAway": 48.5
-      },
-      {
-        "minute": 50,
-        "momentum": 23,
-        "winProbHome": 47.7,
-        "winProbAway": 52.3
-      },
-      {
-        "minute": 55,
-        "momentum": 6,
-        "winProbHome": 48.4,
-        "winProbAway": 51.6
-      },
-      {
-        "minute": 60,
-        "momentum": -10,
-        "winProbHome": 47.5,
-        "winProbAway": 52.5
-      },
-      {
-        "minute": 65,
-        "momentum": 5,
-        "winProbHome": 45.6,
-        "winProbAway": 54.4
-      },
-      {
-        "minute": 70,
-        "momentum": 18,
-        "winProbHome": 48.4,
-        "winProbAway": 51.6
-      },
-      {
-        "minute": 75,
-        "momentum": 16,
-        "winProbHome": 54.0,
-        "winProbAway": 46.0
-      },
-      {
-        "minute": 80,
-        "momentum": -5,
-        "winProbHome": 55.3,
-        "winProbAway": 44.7
-      },
-      {
-        "minute": 85,
-        "momentum": -2,
-        "winProbHome": 48.1,
-        "winProbAway": 51.9
-      },
-      {
-        "minute": 90,
-        "momentum": -14,
-        "winProbHome": 44.9,
-        "winProbAway": 55.1
-      }
-    ],
     "insights": [
       {
         "title": "Evenly Matched Midfield Battle",
@@ -4210,7 +2818,7 @@
       },
       {
         "title": "Lack of Clinical Edge",
-        "body": "Despite creating chances (combined xG 2.46), both teams were wasteful in front of goal when it mattered most."
+        "body": "Despite creating chances (combined xG 2.89), both teams were wasteful in front of goal when it mattered most."
       },
       {
         "title": "Tactical Discipline",
@@ -4244,52 +2852,52 @@
     "isDraw": true,
     "metrics": {
       "xg": {
-        "home": 1.63,
-        "away": 1.16
+        "home": 1.15,
+        "away": 1.62
       },
       "possession": {
-        "home": 51.7,
-        "away": 48.3
+        "home": 51.0,
+        "away": 49.0
       },
       "fieldTilt": {
-        "home": 52.1,
-        "away": 47.9
+        "home": 50.3,
+        "away": 49.7
       },
       "ppda": {
-        "home": 11.6,
-        "away": 13.4
+        "home": 10.8,
+        "away": 12.8
       },
       "shots": {
-        "home": 9,
-        "away": 7
+        "home": 6,
+        "away": 10
       },
       "shotsOnTarget": {
-        "home": 3,
-        "away": 2
+        "home": 2,
+        "away": 5
       },
       "bigChances": {
         "home": 3,
         "away": 2
       },
       "progressivePasses": {
-        "home": 448,
-        "away": 441
+        "home": 430,
+        "away": 460
       },
       "finalThirdEntries": {
-        "home": 46,
-        "away": 36
+        "home": 37,
+        "away": 42
       },
       "corners": {
-        "home": 5,
-        "away": 4
+        "home": 3,
+        "away": 3
       },
       "fouls": {
-        "home": 8,
-        "away": 17
+        "home": 10,
+        "away": 16
       },
       "yellowCards": {
         "home": 2,
-        "away": 4
+        "away": 1
       },
       "redCards": {
         "home": 0,
@@ -4299,28 +2907,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 51.7,
-        "away": 48.3
+        "home": 51.0,
+        "away": 49.0
       },
       "shots": {
-        "home": 9,
-        "away": 7
+        "home": 6,
+        "away": 10
       },
       "shotsOnTarget": {
-        "home": 3,
-        "away": 2
+        "home": 2,
+        "away": 5
       },
       "corners": {
-        "home": 5,
-        "away": 4
+        "home": 3,
+        "away": 3
       },
       "fouls": {
-        "home": 8,
-        "away": 17
+        "home": 10,
+        "away": 16
       },
       "yellowCards": {
         "home": 2,
-        "away": 4
+        "away": 1
       },
       "redCards": {
         "home": 0,
@@ -4328,169 +2936,53 @@
       },
       "goals": [
         {
-          "team": "away",
-          "minute": 13,
+          "team": "home",
+          "minute": 17,
           "scorer": ""
         },
         {
           "team": "home",
-          "minute": 33,
-          "scorer": ""
-        },
-        {
-          "team": "home",
-          "minute": 87,
+          "minute": 32,
           "scorer": ""
         },
         {
           "team": "away",
-          "minute": 88,
+          "minute": 44,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 76,
           "scorer": ""
         }
       ]
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.63,
-        "away": 1.16
+        "home": 1.15,
+        "away": 1.62
       },
       "fieldTilt": {
-        "home": 52.1,
-        "away": 47.9
+        "home": 50.3,
+        "away": 49.7
       },
       "ppda": {
-        "home": 11.6,
-        "away": 13.4
+        "home": 10.8,
+        "away": 12.8
       },
       "bigChances": {
         "home": 3,
         "away": 2
       },
       "progressivePasses": {
-        "home": 448,
-        "away": 441
+        "home": 430,
+        "away": 460
       },
       "finalThirdEntries": {
-        "home": 46,
-        "away": 36
+        "home": 37,
+        "away": 42
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 9,
-        "winProbHome": 54.9,
-        "winProbAway": 45.1
-      },
-      {
-        "minute": 5,
-        "momentum": -1,
-        "winProbHome": 51.8,
-        "winProbAway": 48.2
-      },
-      {
-        "minute": 10,
-        "momentum": -13,
-        "winProbHome": 45.7,
-        "winProbAway": 54.3
-      },
-      {
-        "minute": 15,
-        "momentum": -18,
-        "winProbHome": 47.7,
-        "winProbAway": 52.3
-      },
-      {
-        "minute": 20,
-        "momentum": 11,
-        "winProbHome": 45.4,
-        "winProbAway": 54.6
-      },
-      {
-        "minute": 25,
-        "momentum": -5,
-        "winProbHome": 54.6,
-        "winProbAway": 45.4
-      },
-      {
-        "minute": 30,
-        "momentum": -12,
-        "winProbHome": 48.7,
-        "winProbAway": 51.3
-      },
-      {
-        "minute": 35,
-        "momentum": 3,
-        "winProbHome": 52.0,
-        "winProbAway": 48.0
-      },
-      {
-        "minute": 40,
-        "momentum": 14,
-        "winProbHome": 49.0,
-        "winProbAway": 51.0
-      },
-      {
-        "minute": 45,
-        "momentum": -11,
-        "winProbHome": 54.6,
-        "winProbAway": 45.4
-      },
-      {
-        "minute": 50,
-        "momentum": -18,
-        "winProbHome": 51.4,
-        "winProbAway": 48.6
-      },
-      {
-        "minute": 55,
-        "momentum": -2,
-        "winProbHome": 48.4,
-        "winProbAway": 51.6
-      },
-      {
-        "minute": 60,
-        "momentum": 8,
-        "winProbHome": 46.8,
-        "winProbAway": 53.2
-      },
-      {
-        "minute": 65,
-        "momentum": 2,
-        "winProbHome": 52.2,
-        "winProbAway": 47.8
-      },
-      {
-        "minute": 70,
-        "momentum": 18,
-        "winProbHome": 51.7,
-        "winProbAway": 48.3
-      },
-      {
-        "minute": 75,
-        "momentum": -17,
-        "winProbHome": 46.3,
-        "winProbAway": 53.7
-      },
-      {
-        "minute": 80,
-        "momentum": -17,
-        "winProbHome": 53.9,
-        "winProbAway": 46.1
-      },
-      {
-        "minute": 85,
-        "momentum": -17,
-        "winProbHome": 51.7,
-        "winProbAway": 48.3
-      },
-      {
-        "minute": 90,
-        "momentum": 24,
-        "winProbHome": 44.6,
-        "winProbAway": 55.4
-      }
-    ],
     "insights": [
       {
         "title": "Evenly Matched Midfield Battle",
@@ -4498,7 +2990,7 @@
       },
       {
         "title": "Lack of Clinical Edge",
-        "body": "Despite creating chances (combined xG 2.79), both teams were wasteful in front of goal when it mattered most."
+        "body": "Despite creating chances (combined xG 2.77), both teams were wasteful in front of goal when it mattered most."
       },
       {
         "title": "Tactical Discipline",
@@ -4532,52 +3024,52 @@
     "isDraw": false,
     "metrics": {
       "xg": {
-        "home": 1.87,
-        "away": 1.49
+        "home": 2.3,
+        "away": 1.25
       },
       "possession": {
-        "home": 57.9,
-        "away": 42.1
+        "home": 51.3,
+        "away": 48.7
       },
       "fieldTilt": {
-        "home": 54.3,
-        "away": 45.7
+        "home": 59.4,
+        "away": 40.6
       },
       "ppda": {
-        "home": 11.4,
-        "away": 14.8
+        "home": 9.9,
+        "away": 13.2
       },
       "shots": {
-        "home": 11,
-        "away": 10
+        "home": 12,
+        "away": 7
       },
       "shotsOnTarget": {
         "home": 4,
-        "away": 5
+        "away": 3
       },
       "bigChances": {
-        "home": 5,
+        "home": 3,
         "away": 1
       },
       "progressivePasses": {
-        "home": 466,
-        "away": 398
+        "home": 474,
+        "away": 459
       },
       "finalThirdEntries": {
-        "home": 48,
-        "away": 37
+        "home": 49,
+        "away": 32
       },
       "corners": {
-        "home": 4,
-        "away": 1
+        "home": 6,
+        "away": 4
       },
       "fouls": {
-        "home": 8,
+        "home": 10,
         "away": 10
       },
       "yellowCards": {
-        "home": 0,
-        "away": 2
+        "home": 2,
+        "away": 0
       },
       "redCards": {
         "home": 0,
@@ -4587,28 +3079,28 @@
     },
     "boxScore": {
       "possession": {
-        "home": 57.9,
-        "away": 42.1
+        "home": 51.3,
+        "away": 48.7
       },
       "shots": {
-        "home": 11,
-        "away": 10
+        "home": 12,
+        "away": 7
       },
       "shotsOnTarget": {
         "home": 4,
-        "away": 5
+        "away": 3
       },
       "corners": {
-        "home": 4,
-        "away": 1
+        "home": 6,
+        "away": 4
       },
       "fouls": {
-        "home": 8,
+        "home": 10,
         "away": 10
       },
       "yellowCards": {
-        "home": 0,
-        "away": 2
+        "home": 2,
+        "away": 0
       },
       "redCards": {
         "home": 0,
@@ -4639,154 +3131,38 @@
     },
     "advancedMetrics": {
       "xg": {
-        "home": 1.87,
-        "away": 1.49
+        "home": 2.3,
+        "away": 1.25
       },
       "fieldTilt": {
-        "home": 54.3,
-        "away": 45.7
+        "home": 59.4,
+        "away": 40.6
       },
       "ppda": {
-        "home": 11.4,
-        "away": 14.8
+        "home": 9.9,
+        "away": 13.2
       },
       "bigChances": {
-        "home": 5,
+        "home": 3,
         "away": 1
       },
       "progressivePasses": {
-        "home": 466,
-        "away": 398
+        "home": 474,
+        "away": 459
       },
       "finalThirdEntries": {
-        "home": 48,
-        "away": 37
+        "home": 49,
+        "away": 32
       }
     },
-    "momentum": [
-      {
-        "minute": 0,
-        "momentum": 55,
-        "winProbHome": 53.5,
-        "winProbAway": 46.5
-      },
-      {
-        "minute": 5,
-        "momentum": 42,
-        "winProbHome": 49.8,
-        "winProbAway": 50.2
-      },
-      {
-        "minute": 10,
-        "momentum": 16,
-        "winProbHome": 51.1,
-        "winProbAway": 48.9
-      },
-      {
-        "minute": 15,
-        "momentum": 13,
-        "winProbHome": 58.7,
-        "winProbAway": 41.3
-      },
-      {
-        "minute": 20,
-        "momentum": 38,
-        "winProbHome": 53.1,
-        "winProbAway": 46.9
-      },
-      {
-        "minute": 25,
-        "momentum": 9,
-        "winProbHome": 59.4,
-        "winProbAway": 40.6
-      },
-      {
-        "minute": 30,
-        "momentum": 54,
-        "winProbHome": 60.0,
-        "winProbAway": 40.0
-      },
-      {
-        "minute": 35,
-        "momentum": 42,
-        "winProbHome": 58.9,
-        "winProbAway": 41.1
-      },
-      {
-        "minute": 40,
-        "momentum": 37,
-        "winProbHome": 62.2,
-        "winProbAway": 37.8
-      },
-      {
-        "minute": 45,
-        "momentum": 44,
-        "winProbHome": 62.0,
-        "winProbAway": 38.0
-      },
-      {
-        "minute": 50,
-        "momentum": 73,
-        "winProbHome": 71.4,
-        "winProbAway": 28.6
-      },
-      {
-        "minute": 55,
-        "momentum": 25,
-        "winProbHome": 77.0,
-        "winProbAway": 23.0
-      },
-      {
-        "minute": 60,
-        "momentum": 11,
-        "winProbHome": 77.5,
-        "winProbAway": 22.5
-      },
-      {
-        "minute": 65,
-        "momentum": 38,
-        "winProbHome": 75.2,
-        "winProbAway": 24.8
-      },
-      {
-        "minute": 70,
-        "momentum": 27,
-        "winProbHome": 72.2,
-        "winProbAway": 27.8
-      },
-      {
-        "minute": 75,
-        "momentum": 38,
-        "winProbHome": 74.7,
-        "winProbAway": 25.3
-      },
-      {
-        "minute": 80,
-        "momentum": 51,
-        "winProbHome": 81.7,
-        "winProbAway": 18.3
-      },
-      {
-        "minute": 85,
-        "momentum": 25,
-        "winProbHome": 84.2,
-        "winProbAway": 15.8
-      },
-      {
-        "minute": 90,
-        "momentum": 24,
-        "winProbHome": 86.3,
-        "winProbAway": 13.7
-      }
-    ],
     "insights": [
       {
         "title": "Attacking Intent",
-        "body": "France created the clearer chances, generating 1.87 xG and putting 4 shots on target."
+        "body": "France created the clearer chances, generating 2.3 xG and putting 4 shots on target."
       },
       {
         "title": "Pressing Intensity",
-        "body": "Higher pressing intensity from France (PPDA 11.4) disrupted Senegal's rhythm and forced errors in dangerous areas."
+        "body": "Higher pressing intensity from France (PPDA 9.9) disrupted Senegal's rhythm and forced errors in dangerous areas."
       },
       {
         "title": "Decisive Moments",
@@ -4801,6 +3177,2195 @@
         "fav": "34.0%",
         "draw": "33.0%",
         "und": "33.0%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457018",
+    "home": "Argentina",
+    "away": "Algeria",
+    "homeFlag": "arg",
+    "awayFlag": "alg",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-17T01:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 0,
+    "score": "ARGENTINA 3 - 0 ALGERIA",
+    "winner": "Argentina",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.25,
+        "away": 0.48
+      },
+      "possession": {
+        "home": 60.8,
+        "away": 39.2
+      },
+      "fieldTilt": {
+        "home": 71.7,
+        "away": 28.3
+      },
+      "ppda": {
+        "home": 7.2,
+        "away": 18.5
+      },
+      "shots": {
+        "home": 18,
+        "away": 2
+      },
+      "shotsOnTarget": {
+        "home": 8,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 572,
+        "away": 356
+      },
+      "finalThirdEntries": {
+        "home": 58,
+        "away": 22
+      },
+      "corners": {
+        "home": 5,
+        "away": 2
+      },
+      "fouls": {
+        "home": 10,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 60.8,
+        "away": 39.2
+      },
+      "shots": {
+        "home": 18,
+        "away": 2
+      },
+      "shotsOnTarget": {
+        "home": 8,
+        "away": 1
+      },
+      "corners": {
+        "home": 5,
+        "away": 2
+      },
+      "fouls": {
+        "home": 10,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 40,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 44,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 83,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.25,
+        "away": 0.48
+      },
+      "fieldTilt": {
+        "home": 71.7,
+        "away": 28.3
+      },
+      "ppda": {
+        "home": 7.2,
+        "away": 18.5
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 572,
+        "away": 356
+      },
+      "finalThirdEntries": {
+        "home": 58,
+        "away": 22
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Argentina generated 3.25 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (60.8%) and high pressing intensity (PPDA 7.2) cut off Algeria's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Argentina turned pressure into goals while Algeria struggled to create clear openings."
+      }
+    ],
+    "insight": "Argentina won 3-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "67.2%",
+        "draw": "21.3%",
+        "und": "11.5%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "78.6%",
+        "draw": "15.6%",
+        "und": "5.7%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "65.3%",
+        "draw": "22.4%",
+        "und": "12.2%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457020",
+    "home": "Austria",
+    "away": "Jordan",
+    "homeFlag": "aut",
+    "awayFlag": "jor",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-17T04:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 1,
+    "score": "AUSTRIA 3 - 1 JORDAN",
+    "winner": "Austria",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.76,
+        "away": 1.17
+      },
+      "possession": {
+        "home": 58.2,
+        "away": 41.8
+      },
+      "fieldTilt": {
+        "home": 53.7,
+        "away": 46.3
+      },
+      "ppda": {
+        "home": 11.0,
+        "away": 16.3
+      },
+      "shots": {
+        "home": 11,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 466,
+        "away": 363
+      },
+      "finalThirdEntries": {
+        "home": 43,
+        "away": 41
+      },
+      "corners": {
+        "home": 2,
+        "away": 7
+      },
+      "fouls": {
+        "home": 11,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 58.2,
+        "away": 41.8
+      },
+      "shots": {
+        "home": 11,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 3
+      },
+      "corners": {
+        "home": 2,
+        "away": 7
+      },
+      "fouls": {
+        "home": 11,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 30,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 41,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 49,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 74,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.76,
+        "away": 1.17
+      },
+      "fieldTilt": {
+        "home": 53.7,
+        "away": 46.3
+      },
+      "ppda": {
+        "home": 11.0,
+        "away": 16.3
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 466,
+        "away": 363
+      },
+      "finalThirdEntries": {
+        "home": 43,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Austria created the clearer chances, generating 1.76 xG and putting 4 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Austria (PPDA 11.0) disrupted Jordan's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Austria's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Austria won 3-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "71.2%",
+        "draw": "18.5%",
+        "und": "10.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "69.1%",
+        "draw": "19.2%",
+        "und": "11.6%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "71.4%",
+        "draw": "18.4%",
+        "und": "10.2%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457030",
+    "home": "Portugal",
+    "away": "DR Congo",
+    "homeFlag": "por",
+    "awayFlag": "cod",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-17T17:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 1,
+    "score": "PORTUGAL 1 - 1 DR CONGO",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.71,
+        "away": 1.04
+      },
+      "possession": {
+        "home": 51.8,
+        "away": 48.2
+      },
+      "fieldTilt": {
+        "home": 49.6,
+        "away": 50.4
+      },
+      "ppda": {
+        "home": 10.4,
+        "away": 12.6
+      },
+      "shots": {
+        "home": 9,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 480,
+        "away": 417
+      },
+      "finalThirdEntries": {
+        "home": 41,
+        "away": 41
+      },
+      "corners": {
+        "home": 3,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 51.8,
+        "away": 48.2
+      },
+      "shots": {
+        "home": 9,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "corners": {
+        "home": 3,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 12,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 87,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.71,
+        "away": 1.04
+      },
+      "fieldTilt": {
+        "home": 49.6,
+        "away": 50.4
+      },
+      "ppda": {
+        "home": 10.4,
+        "away": 12.6
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 480,
+        "away": 417
+      },
+      "finalThirdEntries": {
+        "home": 41,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.75), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 1-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "76.2%",
+        "draw": "16.6%",
+        "und": "7.2%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "69.9%",
+        "draw": "19.0%",
+        "und": "11.1%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "76.8%",
+        "draw": "16.2%",
+        "und": "7.1%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666456932",
+    "home": "Brazil",
+    "away": "Haiti",
+    "homeFlag": "bra",
+    "awayFlag": "hai",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-20T00:30:00.000Z",
+    "homeScore": 3,
+    "awayScore": 0,
+    "score": "BRAZIL 3 - 0 HAITI",
+    "winner": "Brazil",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.53,
+        "away": 0.54
+      },
+      "possession": {
+        "home": 63.0,
+        "away": 37.0
+      },
+      "fieldTilt": {
+        "home": 67.8,
+        "away": 32.2
+      },
+      "ppda": {
+        "home": 8.5,
+        "away": 19.1
+      },
+      "shots": {
+        "home": 20,
+        "away": 3
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 585,
+        "away": 324
+      },
+      "finalThirdEntries": {
+        "home": 58,
+        "away": 26
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "fouls": {
+        "home": 8,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 63.0,
+        "away": 37.0
+      },
+      "shots": {
+        "home": 20,
+        "away": 3
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 1
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "fouls": {
+        "home": 8,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 31,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 48,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 56,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.53,
+        "away": 0.54
+      },
+      "fieldTilt": {
+        "home": 67.8,
+        "away": 32.2
+      },
+      "ppda": {
+        "home": 8.5,
+        "away": 19.1
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 585,
+        "away": 324
+      },
+      "finalThirdEntries": {
+        "home": 58,
+        "away": 26
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Brazil generated 3.53 xG, creating 5 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (63.0%) and high pressing intensity (PPDA 8.5) cut off Haiti's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Brazil turned pressure into goals while Haiti struggled to create clear openings."
+      }
+    ],
+    "insight": "Brazil won 3-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "68.6%",
+        "draw": "25.1%",
+        "und": "6.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "80.8%",
+        "draw": "15.0%",
+        "und": "4.2%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "88.9%",
+        "draw": "7.1%",
+        "und": "4.0%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666456946",
+    "home": "Turkey",
+    "away": "Paraguay",
+    "homeFlag": "tur",
+    "awayFlag": "pry",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-20T03:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 1,
+    "score": "TURKEY 0 - 1 PARAGUAY",
+    "winner": "Paraguay",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.96,
+        "away": 1.46
+      },
+      "possession": {
+        "home": 61.2,
+        "away": 38.8
+      },
+      "fieldTilt": {
+        "home": 61.3,
+        "away": 38.7
+      },
+      "ppda": {
+        "home": 9.3,
+        "away": 14.6
+      },
+      "shots": {
+        "home": 11,
+        "away": 9
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 4
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 518,
+        "away": 318
+      },
+      "finalThirdEntries": {
+        "home": 51,
+        "away": 32
+      },
+      "corners": {
+        "home": 6,
+        "away": 3
+      },
+      "fouls": {
+        "home": 15,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 61.2,
+        "away": 38.8
+      },
+      "shots": {
+        "home": 11,
+        "away": 9
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 4
+      },
+      "corners": {
+        "home": 6,
+        "away": 3
+      },
+      "fouls": {
+        "home": 15,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 16,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.96,
+        "away": 1.46
+      },
+      "fieldTilt": {
+        "home": 61.3,
+        "away": 38.7
+      },
+      "ppda": {
+        "home": 9.3,
+        "away": 14.6
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 518,
+        "away": 318
+      },
+      "finalThirdEntries": {
+        "home": 51,
+        "away": 32
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Paraguay absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Paraguay converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Paraguay generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Paraguay won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "46.4%",
+        "draw": "28.7%",
+        "und": "24.9%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "38.3%",
+        "draw": "26.6%",
+        "und": "35.1%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "47.5%",
+        "draw": "28.3%",
+        "und": "24.2%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666456972",
+    "home": "Netherlands",
+    "away": "Sweden",
+    "homeFlag": "ned",
+    "awayFlag": "swe",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-20T17:00:00.000Z",
+    "homeScore": 5,
+    "awayScore": 1,
+    "score": "NETHERLANDS 5 - 1 SWEDEN",
+    "winner": "Netherlands",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.62,
+        "away": 0.79
+      },
+      "possession": {
+        "home": 61.4,
+        "away": 38.6
+      },
+      "fieldTilt": {
+        "home": 66.2,
+        "away": 33.8
+      },
+      "ppda": {
+        "home": 7.7,
+        "away": 23.2
+      },
+      "shots": {
+        "home": 23,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 579,
+        "away": 347
+      },
+      "finalThirdEntries": {
+        "home": 55,
+        "away": 28
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "fouls": {
+        "home": 13,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 61.4,
+        "away": 38.6
+      },
+      "shots": {
+        "home": 23,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 1
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "fouls": {
+        "home": 13,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 22,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 29,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 41,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 53,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 58,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 81,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.62,
+        "away": 0.79
+      },
+      "fieldTilt": {
+        "home": 66.2,
+        "away": 33.8
+      },
+      "ppda": {
+        "home": 7.7,
+        "away": 23.2
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 579,
+        "away": 347
+      },
+      "finalThirdEntries": {
+        "home": 55,
+        "away": 28
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Netherlands generated 3.62 xG, creating 5 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (61.4%) and high pressing intensity (PPDA 7.7) cut off Sweden's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Netherlands turned pressure into goals while Sweden struggled to create clear openings."
+      }
+    ],
+    "insight": "Netherlands won 5-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "43.2%",
+        "draw": "37.8%",
+        "und": "19.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "53.4%",
+        "draw": "23.4%",
+        "und": "23.2%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "57.0%",
+        "draw": "23.0%",
+        "und": "20.0%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457076",
+    "home": "Ecuador",
+    "away": "Curacao",
+    "homeFlag": "ecu",
+    "awayFlag": "cuw",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-21T00:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 0,
+    "score": "ECUADOR 0 - 0 CURACAO",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.31,
+        "away": 1.16
+      },
+      "possession": {
+        "home": 49.3,
+        "away": 50.7
+      },
+      "fieldTilt": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "ppda": {
+        "home": 11.0,
+        "away": 10.6
+      },
+      "shots": {
+        "home": 8,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 412,
+        "away": 389
+      },
+      "finalThirdEntries": {
+        "home": 47,
+        "away": 38
+      },
+      "corners": {
+        "home": 5,
+        "away": 5
+      },
+      "fouls": {
+        "home": 8,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 49.3,
+        "away": 50.7
+      },
+      "shots": {
+        "home": 8,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "corners": {
+        "home": 5,
+        "away": 5
+      },
+      "fouls": {
+        "home": 8,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.31,
+        "away": 1.16
+      },
+      "fieldTilt": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "ppda": {
+        "home": 11.0,
+        "away": 10.6
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 412,
+        "away": 389
+      },
+      "finalThirdEntries": {
+        "home": 47,
+        "away": 38
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.47), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 0-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "61.9%",
+        "draw": "31.2%",
+        "und": "6.9%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "65.8%",
+        "draw": "20.2%",
+        "und": "13.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "84.9%",
+        "draw": "10.1%",
+        "und": "5.1%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666456974",
+    "home": "Tunisia",
+    "away": "Japan",
+    "homeFlag": "tun",
+    "awayFlag": "jpn",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-21T04:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 4,
+    "score": "TUNISIA 0 - 4 JAPAN",
+    "winner": "Japan",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.81,
+        "away": 2.48
+      },
+      "possession": {
+        "home": 38.1,
+        "away": 61.9
+      },
+      "fieldTilt": {
+        "home": 33.0,
+        "away": 67.0
+      },
+      "ppda": {
+        "home": 21.2,
+        "away": 8.5
+      },
+      "shots": {
+        "home": 5,
+        "away": 15
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 7
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 4
+      },
+      "progressivePasses": {
+        "home": 344,
+        "away": 523
+      },
+      "finalThirdEntries": {
+        "home": 27,
+        "away": 51
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 13,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 38.1,
+        "away": 61.9
+      },
+      "shots": {
+        "home": 5,
+        "away": 15
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 13,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 12,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 17,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 48,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 86,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.81,
+        "away": 2.48
+      },
+      "fieldTilt": {
+        "home": 33.0,
+        "away": 67.0
+      },
+      "ppda": {
+        "home": 21.2,
+        "away": 8.5
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 4
+      },
+      "progressivePasses": {
+        "home": 344,
+        "away": 523
+      },
+      "finalThirdEntries": {
+        "home": 27,
+        "away": 51
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Japan generated 2.48 xG, creating 4 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (61.9%) and high pressing intensity (PPDA 8.5) cut off Tunisia's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Japan turned pressure into goals while Tunisia struggled to create clear openings."
+      }
+    ],
+    "insight": "Japan won 4-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "12.2%",
+        "draw": "21.7%",
+        "und": "66.1%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "19.1%",
+        "draw": "22.1%",
+        "und": "58.8%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "11.9%",
+        "draw": "22.8%",
+        "und": "65.3%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666456988",
+    "home": "New Zealand",
+    "away": "Egypt",
+    "homeFlag": "nzl",
+    "awayFlag": "egy",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-22T01:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 3,
+    "score": "NEW ZEALAND 1 - 3 EGYPT",
+    "winner": "Egypt",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.35,
+        "away": 2.26
+      },
+      "possession": {
+        "home": 47.9,
+        "away": 52.1
+      },
+      "fieldTilt": {
+        "home": 47.3,
+        "away": 52.7
+      },
+      "ppda": {
+        "home": 16.5,
+        "away": 9.2
+      },
+      "shots": {
+        "home": 7,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 7
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 421,
+        "away": 421
+      },
+      "finalThirdEntries": {
+        "home": 38,
+        "away": 41
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 11,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 47.9,
+        "away": 52.1
+      },
+      "shots": {
+        "home": 7,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 11,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 13,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 17,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 31,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 50,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.35,
+        "away": 2.26
+      },
+      "fieldTilt": {
+        "home": 47.3,
+        "away": 52.7
+      },
+      "ppda": {
+        "home": 16.5,
+        "away": 9.2
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 421,
+        "away": 421
+      },
+      "finalThirdEntries": {
+        "home": 38,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Egypt created the clearer chances, generating 2.26 xG and putting 7 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Egypt (PPDA 9.2) disrupted New Zealand's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Egypt's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Egypt won 3-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "16.2%",
+        "draw": "23.5%",
+        "und": "60.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "27.2%",
+        "draw": "24.5%",
+        "und": "48.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "16.0%",
+        "draw": "23.0%",
+        "und": "61.0%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457012",
+    "home": "Norway",
+    "away": "Senegal",
+    "homeFlag": "nor",
+    "awayFlag": "sen",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-23T00:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 2,
+    "score": "NORWAY 3 - 2 SENEGAL",
+    "winner": "Norway",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.5,
+        "away": 0.48
+      },
+      "possession": {
+        "home": 58.7,
+        "away": 41.3
+      },
+      "fieldTilt": {
+        "home": 69.7,
+        "away": 30.3
+      },
+      "ppda": {
+        "home": 8.9,
+        "away": 21.0
+      },
+      "shots": {
+        "home": 23,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 493,
+        "away": 371
+      },
+      "finalThirdEntries": {
+        "home": 61,
+        "away": 26
+      },
+      "corners": {
+        "home": 8,
+        "away": 1
+      },
+      "fouls": {
+        "home": 10,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 58.7,
+        "away": 41.3
+      },
+      "shots": {
+        "home": 23,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 2
+      },
+      "corners": {
+        "home": 8,
+        "away": 1
+      },
+      "fouls": {
+        "home": 10,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 12,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 21,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 41,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 43,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 69,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.5,
+        "away": 0.48
+      },
+      "fieldTilt": {
+        "home": 69.7,
+        "away": 30.3
+      },
+      "ppda": {
+        "home": 8.9,
+        "away": 21.0
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 493,
+        "away": 371
+      },
+      "finalThirdEntries": {
+        "home": 61,
+        "away": 26
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Norway generated 3.5 xG, creating 4 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (58.7%) and high pressing intensity (PPDA 8.9) cut off Senegal's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Norway turned pressure into goals while Senegal struggled to create clear openings."
+      }
+    ],
+    "insight": "Norway won 3-2.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "30.2%",
+        "draw": "43.6%",
+        "und": "26.2%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "30.9%",
+        "draw": "25.5%",
+        "und": "43.6%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "42.0%",
+        "draw": "28.0%",
+        "und": "30.0%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457024",
+    "home": "Jordan",
+    "away": "Algeria",
+    "homeFlag": "jor",
+    "awayFlag": "alg",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-23T03:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 2,
+    "score": "JORDAN 1 - 2 ALGERIA",
+    "winner": "Algeria",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.44,
+        "away": 1.86
+      },
+      "possession": {
+        "home": 40.4,
+        "away": 59.6
+      },
+      "fieldTilt": {
+        "home": 47.1,
+        "away": 52.9
+      },
+      "ppda": {
+        "home": 12.4,
+        "away": 8.7
+      },
+      "shots": {
+        "home": 8,
+        "away": 11
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 5
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 383,
+        "away": 557
+      },
+      "finalThirdEntries": {
+        "home": 36,
+        "away": 41
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "fouls": {
+        "home": 11,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 40.4,
+        "away": 59.6
+      },
+      "shots": {
+        "home": 8,
+        "away": 11
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 5
+      },
+      "corners": {
+        "home": 6,
+        "away": 7
+      },
+      "fouls": {
+        "home": 11,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 13,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 46,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 62,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.44,
+        "away": 1.86
+      },
+      "fieldTilt": {
+        "home": 47.1,
+        "away": 52.9
+      },
+      "ppda": {
+        "home": 12.4,
+        "away": 8.7
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 383,
+        "away": 557
+      },
+      "finalThirdEntries": {
+        "home": 36,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Algeria created the clearer chances, generating 1.86 xG and putting 5 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Algeria (PPDA 8.7) disrupted Jordan's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Algeria's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Algeria won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "14.7%",
+        "draw": "22.3%",
+        "und": "63.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "30.4%",
+        "draw": "25.4%",
+        "und": "44.2%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "14.1%",
+        "draw": "22.2%",
+        "und": "63.6%"
+      }
+    ]
+  },
+  {
+    "id": "match_id1000001666457046",
+    "home": "England",
+    "away": "Ghana",
+    "homeFlag": "eng",
+    "awayFlag": "gha",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-23T20:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 0,
+    "score": "ENGLAND 0 - 0 GHANA",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.6,
+        "away": 1.16
+      },
+      "possession": {
+        "home": 53.4,
+        "away": 46.6
+      },
+      "fieldTilt": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "ppda": {
+        "home": 13.8,
+        "away": 12.8
+      },
+      "shots": {
+        "home": 10,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 417,
+        "away": 405
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 37
+      },
+      "corners": {
+        "home": 8,
+        "away": 2
+      },
+      "fouls": {
+        "home": 14,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.4,
+        "away": 46.6
+      },
+      "shots": {
+        "home": 10,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 2
+      },
+      "fouls": {
+        "home": 14,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.6,
+        "away": 1.16
+      },
+      "fieldTilt": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "ppda": {
+        "home": 13.8,
+        "away": 12.8
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 417,
+        "away": 405
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 37
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.76), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 0-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "61.9%",
+        "draw": "30.7%",
+        "und": "7.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "68.8%",
+        "draw": "19.4%",
+        "und": "11.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "83.8%",
+        "draw": "11.1%",
+        "und": "5.1%"
       }
     ]
   }

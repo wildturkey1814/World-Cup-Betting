@@ -30,6 +30,7 @@ from typing import Optional
 import requests
 
 from data_utils import atomic_write, format_utc_display, load_data
+from match_stats import enrich_completed_match
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -427,6 +428,7 @@ def main() -> None:
                     record["insight"] = f"{away} won {ag}-{hg}."
 
             record.pop("liveScore", None)
+            record = enrich_completed_match(record)
             changed = True
 
     if not changed:

@@ -752,17 +752,35 @@ function renderLive(match){
 
 /* ── RENDER COMPLETED ── */
 let completedArchive=[];
+function archivePairKey(m){
+  const h=(m.home||'').toLowerCase(),a=(m.away||'').toLowerCase();
+  return h<=a?`${h}|${a}`:`${a}|${h}`;
+}
+function isRichBoxScore(bs){
+  if(!bs)return false;
+  if(Array.isArray(bs.goals)&&bs.goals.length>0)return true;
+  const sh=bs.shots?.home;
+  return sh!=null&&sh!==0;
+}
 function mergeArchiveData(match){
-  const arc=completedArchive.find(a=>a.id===match.id||(a.home===match.home&&a.away===match.away));
-  if(!arc)return match;
-  return Object.assign({},match,{
-    homeFlag:arc.homeFlag||match.homeFlag,awayFlag:arc.awayFlag||match.awayFlag,
-    boxScore:arc.boxScore||match.boxScore,advancedMetrics:arc.advancedMetrics,
-    insights:arc.insights,insight:arc.insight||match.insight,
-    sourceAccuracy:arc.sourceAccuracy||match.sourceAccuracy,
-    homeScore:arc.homeScore??match.homeScore,awayScore:arc.awayScore??match.awayScore,
-    score:arc.score||match.score,
-  });
+  const arc=completedArchive.find(a=>String(a.id)===String(match.id)||archivePairKey(a)===archivePairKey(match));
+  let merged={...match};
+  if(arc){
+    const boxScore=isRichBoxScore(arc.boxScore)?arc.boxScore:(isRichBoxScore(merged.boxScore)?merged.boxScore:arc.boxScore||merged.boxScore);
+    merged={
+      ...merged,
+      homeFlag:arc.homeFlag||merged.homeFlag,
+      awayFlag:arc.awayFlag||merged.awayFlag,
+      homeScore:arc.homeScore??merged.homeScore,
+      awayScore:arc.awayScore??merged.awayScore,
+      score:arc.score||merged.score,
+      boxScore,
+      advancedMetrics:arc.advancedMetrics||merged.advancedMetrics,
+      insights:(arc.insights&&arc.insights.length)?arc.insights:(merged.insights||[]),
+      insight:merged.insight||arc.insight,
+    };
+  }
+  return merged;
 }
 
 function renderCompleted(rawMatch){
@@ -773,8 +791,8 @@ function renderCompleted(rawMatch){
   const homeWon=hScore>aScore,isDraw=hScore===aScore,awayWon=aScore>hScore;
   const winner=homeWon?home:awayWon?away:null;
 
-  const hp=bs?.possession?.home??50,ap=100-hp;
-  const hXg=adv?.xg?.home??'0.0',aXg=adv?.xg?.away??'0.0';
+  const hp=bs?.possession?.home??50,ap=bs?.possession?.away??(100-hp);
+  const hXg=adv?.xg?.home??null,aXg=adv?.xg?.away??null;
 
   const goals=(bs?.goals||[]).sort((a,b)=>(a.minute||0)-(b.minute||0));
   let momentsHTML='';
@@ -801,7 +819,7 @@ function renderCompleted(rawMatch){
 
   const statRows=[
     {lbl:'POSSESSION', h:`${hp}%`, a:`${ap}%`},
-    {lbl:'xG (EXPECTED GOALS)', h:hXg, a:aXg},
+    {lbl:'xG (EXPECTED GOALS)', h:hXg!=null?Number(hXg).toFixed(2):'—', a:aXg!=null?Number(aXg).toFixed(2):'—'},
     {lbl:'SHOTS', h:bs?.shots?.home??0, a:bs?.shots?.away??0},
     {lbl:'SHOTS ON TARGET', h:bs?.shotsOnTarget?.home??0, a:bs?.shotsOnTarget?.away??0},
     {lbl:'BIG CHANCES', h:adv?.bigChances?.home??0, a:adv?.bigChances?.away??0},
@@ -862,21 +880,6 @@ function renderCompleted(rawMatch){
     </div>
   `).join('');
 
-  let accuracyHTML='';
-  const acc=match.sourceAccuracy||{};
-  if(Object.keys(acc).length){
-    const rows=Object.entries(acc).map(([src,ok])=>`
-      <div style="display:flex; justify-content:space-between; align-items:center; padding:3px 0; font-size:11px; border-bottom:1px solid rgba(255,255,255,0.02);">
-        <span style="color:var(--text-mid);">${esc(src)}</span>
-        <span style="font-weight:900; ${ok?'color:var(--green);':'color:var(--red);'}">${ok?'✓ CORRECT':'✗ MISALIGNMENT'}</span>
-      </div>
-    `).join('');
-    accuracyHTML=`<div style="background:rgba(255,255,255,0.01); border:1px solid rgba(255,255,255,0.05); padding:8px; border-radius:6px; margin-top:8px;">
-      <div style="font-size:8px; font-weight:800; text-transform:uppercase; color:var(--text-lo); letter-spacing:1px; margin-bottom:4px;">MODEL PREDICTION VALIDATION LOG</div>
-      ${rows}
-    </div>`;
-  }
-
   const resultSummary=match.insight||`${winner?winner+' secured victory '+hScore+'-'+aScore+'.':'The tactical setup ended in a '+hScore+'-'+aScore+' draw.'}`;
   const resultBox=`<div style="display:flex; align-items:center; gap:12px; padding:10px; background:rgba(232,160,32,0.05); border:1px solid rgba(232,160,32,0.15); border-radius:6px; margin-top:auto;">
     <div style="font-size:24px;">${isDraw?'🤝':'🏆'}</div>
@@ -889,15 +892,14 @@ function renderCompleted(rawMatch){
   const back=`<div class="flip-face flip-face-back" style="position: absolute; inset: 0; transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; width: 100%; height: 100%; background:#070a0f; border-radius: var(--radius); padding:14px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden;">
     <div>
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px; margin-bottom:10px;">
-        <span style="font-size:10px; font-weight:800; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase;">ADVANCED ANALYSIS & INSIGHTS</span>
+        <span style="font-size:10px; font-weight:800; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase;">MATCH INSIGHTS · KEY FACTORS</span>
         <span style="font-size:9px; font-weight:700; color:var(--text-lo);">tap to view front ↩</span>
       </div>
-      <div class="pc-insights" style="max-height:160px; overflow-y:auto; padding-right:4px;">
-        ${insightsHTML||`<div style="padding:8px 10px; border-radius:6px; background:rgba(255,255,255,0.02); border-left:3px solid var(--gold);"><div style="font-size:9px; font-weight:800; text-transform:uppercase; color:var(--gold); margin-bottom:2px;">MATCH SUMMARY</div><div style="font-size:11px; color:var(--text-mid); line-height:1.4;">${esc(match.insight||'No deep data logs updated for this selection.')}</div></div>`}
+      <div class="pc-insights" style="max-height:220px; overflow-y:auto; padding-right:4px;">
+        ${insightsHTML||`<div style="padding:8px 10px; border-radius:6px; background:rgba(255,255,255,0.02); border-left:3px solid var(--gold);"><div style="font-size:9px; font-weight:800; text-transform:uppercase; color:var(--gold); margin-bottom:2px;">MATCH SUMMARY</div><div style="font-size:11px; color:var(--text-mid); line-height:1.4;">${esc(resultSummary)}</div></div>`}
       </div>
     </div>
     <div style="display:flex; flex-direction:column; gap:6px;">
-      ${accuracyHTML}
       ${resultBox}
     </div>
   </div>`;
