@@ -5,16 +5,15 @@ Pulls World Cup tournament winner probabilities from Polymarket's
 public Gamma API (no API key required).
 """
 
-import os
 import json
 import logging
-import tempfile
-import shutil
 import re
 from datetime import datetime, timezone
 from typing import Optional
 
 import requests
+
+from data_utils import atomic_write, format_utc_display, load_data
 
 logging.basicConfig(
     level=logging.INFO,
@@ -150,29 +149,7 @@ def fetch_tournament_winner_probs() -> dict:
 
 
 def load_existing(path: str) -> dict:
-    if not os.path.exists(path):
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (json.JSONDecodeError, OSError) as e:
-        log.warning("Could not read %s (%s)", path, e)
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
-
-
-def atomic_write(path: str, data: dict) -> None:
-    d = os.path.dirname(os.path.abspath(path)) or "."
-    fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-            f.write("\n")
-        shutil.move(tmp, path)
-        log.info("Wrote %s.", path)
-    except Exception:
-        try: os.unlink(tmp)
-        except OSError: pass
-        raise
+    return load_data(path)
 
 
 def pct(v: float) -> str:
@@ -208,8 +185,8 @@ def main() -> None:
             updated += 1
 
     now = datetime.now(timezone.utc)
-    existing["lastUpdated"]       = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
-    existing["polymarketUpdated"] = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
+    existing["lastUpdated"]       = format_utc_display(now)
+    existing["polymarketUpdated"] = format_utc_display(now)
 
     atomic_write(OUTPUT_FILE, existing)
     log.info("=== Done. Updated %d match records. ===", updated)

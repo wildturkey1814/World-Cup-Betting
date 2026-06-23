@@ -1098,35 +1098,59 @@ function clearSearch(){searchQuery='';const i=document.getElementById('search-in
 function matchesSearch(m){if(!searchQuery)return true;const he=(m.home||'').toLowerCase(),ae=(m.away||'').toLowerCase(),ht=tn(m.home).toLowerCase(),at=tn(m.away).toLowerCase(),g=(m.group||'').toLowerCase();return he.includes(searchQuery)||ae.includes(searchQuery)||ht.includes(searchQuery)||at.includes(searchQuery)||g.includes(searchQuery);}
 
 /* ── DATA LOAD ── */
+const KNOWN_WC_TEAMS=new Set(["Mexico","South Africa","South Korea","Czechia","Canada","Bosnia & Herzegovina","United States","Paraguay","Qatar","Switzerland","Brazil","Morocco","Haiti","Scotland","Australia","Turkey","Germany","Curacao","Netherlands","Japan","Ivory Coast","Ecuador","Sweden","Tunisia","Spain","Cape Verde","Belgium","Egypt","Saudi Arabia","Uruguay","Iran","New Zealand","France","Senegal","Austria","Jordan","DR Congo","England","Croatia","Ghana","Panama","Uzbekistan","Colombia","Italy","Argentina","Portugal","Denmark","Norway","Serbia","Poland","Nigeria","Cameroon","Algeria","Costa Rica","Wales","Iraq"]);
+function isGhostMatch(m){
+  if(!m||typeof m!=='object')return true;
+  const srl=/\bsrl\b|simulator|simulated|sim league/i;
+  for(const k of ['home','away','favTeam','undTeam','id']){if(srl.test(String(m[k]||'')))return true;}
+  if(m.home&&!KNOWN_WC_TEAMS.has(m.home))return true;
+  if(m.away&&!KNOWN_WC_TEAMS.has(m.away))return true;
+  return false;
+}
+function sanitizeMatches(raw){
+  const seen=new Map();
+  for(const m of (raw||[])){
+    if(isGhostMatch(m))continue;
+    const id=String(m.id||`${m.home}|${m.away}`);
+    if(!seen.has(id))seen.set(id,m);
+  }
+  return [...seen.values()];
+}
+async function fetchJson(url,timeoutMs=15000){
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),timeoutMs);
+  try{
+    const res=await fetch(url,{cache:'no-store',signal:ctrl.signal});
+    if(!res.ok)throw new Error('Could not load data (HTTP '+res.status+')');
+    return await res.json();
+  }finally{clearTimeout(timer);}
+}
 function showError(msg){const p=document.getElementById('status-pane');p.className='status-pane error';p.innerHTML='⚠ '+esc(msg);}
 async function loadData(){
   try{
-    const res=await fetch('data.json?v='+Date.now(),{cache:'no-store'});
-    if(!res.ok)throw new Error('Could not load data.json (HTTP '+res.status+')');
-    const json=await res.json();
+    const json=await fetchJson('data.json?v='+Date.now());
     if(!Array.isArray(json.matches))throw new Error('data.json missing "matches" array');
-    allMatches=json.matches;
-    try{const cr=await fetch('completed_matches.json?v='+Date.now(),{cache:'no-store'});if(cr.ok){const cj=await cr.json();if(Array.isArray(cj))completedArchive=cj;}}catch(e){}
+    allMatches=sanitizeMatches(json.matches);
+    try{const cj=await fetchJson('completed_matches.json?v='+Date.now());if(Array.isArray(cj))completedArchive=cj;}catch(e){}
     meta={lastUpdated:json.lastUpdated,currentStage:json.currentStage};
     if(meta.currentStage)currentStage=meta.currentStage;
     document.getElementById('status-pane').style.display='none';
     document.getElementById('view-grid').classList.add('active');
-    applyLabels();buildStageTabs();renderGrid();
+    applyLabels();buildStageTabs();
+    try{renderGrid();}catch(renderErr){console.error(renderErr);showError('Could not render match grid.');return;}
     startLivePolling();
     setInterval(async()=>{
       try{
-        const r=await fetch('data.json?v='+Date.now(),{cache:'no-store'});
-        if(!r.ok)return;
-        const j=await r.json();
+        const j=await fetchJson('data.json?v='+Date.now());
         if(Array.isArray(j.matches)){
-          allMatches=j.matches;meta.lastUpdated=j.lastUpdated;
+          allMatches=sanitizeMatches(j.matches);meta.lastUpdated=j.lastUpdated;
           applyLabels();
-          if(currentView==='bracket')renderBracket();else renderGrid();
+          try{if(currentView==='bracket')renderBracket();else renderGrid();}catch(e){console.error(e);}
           startLivePolling();
         }
       }catch(e){}
     },60000);
-  }catch(e){console.error(e);showError(e.message);}
+  }catch(e){console.error(e);showError(e.name==='AbortError'?'Timed out loading data.json.':e.message);}
 }
 applyLabels();loadData();
 </script>

@@ -21,8 +21,6 @@ import os
 import json
 import time
 import logging
-import tempfile
-import shutil
 import base64
 import re
 from datetime import datetime, timezone
@@ -31,6 +29,8 @@ from typing import Optional
 import requests
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
+
+from data_utils import atomic_write, format_utc_display, load_data
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -311,29 +311,7 @@ def fetch_match_odds() -> dict:
 # ── File helpers ───────────────────────────────────────────────────────────
 
 def load_existing(path: str) -> dict:
-    if not os.path.exists(path):
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (json.JSONDecodeError, OSError) as e:
-        log.warning("Could not read %s (%s)", path, e)
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
-
-
-def atomic_write(path: str, data: dict) -> None:
-    d = os.path.dirname(os.path.abspath(path)) or "."
-    fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-            f.write("\n")
-        shutil.move(tmp, path)
-        log.info("Wrote %s.", path)
-    except Exception:
-        try: os.unlink(tmp)
-        except OSError: pass
-        raise
+    return load_data(path)
 
 
 def pct(v) -> str:
@@ -395,8 +373,7 @@ def main() -> None:
             layers = match.get("layers", [])
             replaced = False
             for i, layer in enumerate(layers):
-                src = layer.get("source", "")
-                if "Kalshi" in src or "P2P" in src or "Prediction" in src:
+                if "Kalshi" in layer.get("source", ""):
                     layers[i] = kalshi_layer
                     replaced = True
                     break
@@ -409,8 +386,8 @@ def main() -> None:
             updated += 1
 
     now = datetime.now(timezone.utc)
-    existing["lastUpdated"]    = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
-    existing["kalshiUpdated"]  = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
+    existing["lastUpdated"]   = format_utc_display(now)
+    existing["kalshiUpdated"] = format_utc_display(now)
 
     atomic_write(OUTPUT_FILE, existing)
     log.info("=== Done. Updated %d match records. ===", updated)

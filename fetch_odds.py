@@ -14,11 +14,22 @@ import json
 import math
 import time
 import logging
-import tempfile
-import shutil
 from datetime import datetime, timezone, timedelta
 
 import requests
+
+from data_utils import (
+    KNOWN_WC_TEAMS,
+    atomic_write,
+    filter_participants_map,
+    format_edt_meta,
+    format_utc_display,
+    is_ghost_match,
+    is_real_fixture,
+    load_data,
+    merge_odds_fetch,
+    normalize_match_id,
+)
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -343,9 +354,7 @@ def fetch_all_odds():
             data.get("data") or data.get("fixtures") or data.get("matches") or None)
         if not fixtures:
             continue
-        real = [f for f in fixtures if isinstance(f, dict)
-                and "srl" not in str(f.get("participant1Name","")).lower()
-                and "srl" not in str(f.get("participant2Name","")).lower()]
+        real = [f for f in fixtures if isinstance(f, dict) and is_real_fixture(f)]
         log.info("  Success via %s: %d real fixtures.", bookmaker, len(real))
         return real
     log.error("All bookmaker attempts failed.")
@@ -355,13 +364,17 @@ def fetch_participants_map():
     fetch_log = load_fetch_log()
     cached = fetch_log.get("participants_map")
     if cached and isinstance(cached, dict) and len(cached) > 10:
-        return {str(k): normalise_team(v) for k, v in cached.items()}
+        return filter_participants_map(
+            {str(k): normalise_team(v) for k, v in cached.items()}
+        )
     log.info("Fetching all soccer participants...")
     data = api_get("participants", {"sportId": 10, "language": "en"})
     if not data or not isinstance(data, dict):
         return {}
-    result = {str(k): normalise_team(str(v)) for k, v in data.items()}
-    fetch_log["participants_map"] = data
+    result = filter_participants_map(
+        {str(k): normalise_team(str(v)) for k, v in data.items()}
+    )
+    fetch_log["participants_map"] = result
     save_fetch_log(fetch_log)
     return result
 
@@ -376,8 +389,12 @@ def build_record(fixture, pmap=None):
     away = normalise_team(raw_away)
     if not home or not away:
         return None
+    if home not in KNOWN_WC_TEAMS or away not in KNOWN_WC_TEAMS:
+        return None
+    if is_ghost_match({"home": home, "away": away}):
+        return None
 
-    fid     = str(fixture.get("fixtureId") or fixture.get("id") or "")
+    fid     = normalize_match_id(fixture.get("fixtureId") or fixture.get("id") or "")
     kickoff = fixture.get("startTime") or fixture.get("date") or ""
     group   = fixture.get("roundName") or fixture.get("group") or "Group Stage"
     stage   = "Group Stage" if "group" in str(group).lower() else str(group)
@@ -419,43 +436,18 @@ def build_record(fixture, pmap=None):
     fav_team  = home if best_home >= best_away else away
 
     try:
-        dt  = datetime.fromisoformat(kickoff.replace("Z","+00:00"))
-        edt = dt - timedelta(hours=4)
-        meta_str = edt.strftime("%B %-d · %-I:%M %p") + " EDT · " + str(group)
+        dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+        meta_str = format_edt_meta(dt, str(group))
     except Exception:
         meta_str = f"{kickoff} · {group}" if kickoff else str(group)
 
     return {
-        "id":f"match_{fid}", "stage":stage, "group":str(group),
+        "id": fid, "stage": stage, "group": str(group),
         "side":"left", "type":"UPCOMING",
         "home":home, "away":away, "favTeam":fav_team,
         "homeFlag":hm["flag"], "awayFlag":am["flag"],
         "kickoff":kickoff, "meta":meta_str, "layers":layers,
     }
-
-# ── File helpers ───────────────────────────────────────────────────────────
-
-def atomic_write(path, data):
-    d = os.path.dirname(os.path.abspath(path)) or "."
-    fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
-    try:
-        with os.fdopen(fd,"w",encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False); f.write("\n")
-        shutil.move(tmp, path)
-        log.info("Wrote %s.", path)
-    except Exception:
-        try: os.unlink(tmp)
-        except OSError: pass
-        raise
-
-def load_existing(path):
-    if not os.path.exists(path):
-        return {"currentStage":"Group Stage","lastUpdated":"","matches":[]}
-    try:
-        with open(path,"r",encoding="utf-8") as f: return json.load(f)
-    except (json.JSONDecodeError, OSError) as e:
-        log.warning("Could not read %s (%s) — starting fresh.", path, e)
-        return {"currentStage":"Group Stage","lastUpdated":"","matches":[]}
 
 # ── Main ───────────────────────────────────────────────────────────────────
 
@@ -483,10 +475,9 @@ def main():
     if kicks:
         log.info("Today's matches: %s", [k.strftime("%H:%M") for k in sorted(kicks)])
 
-    existing  = load_existing(OUTPUT_FILE)
-    completed = [m for m in existing.get("matches",[]) if m.get("type")=="COMPLETED"]
-    done_ids  = {m["id"] for m in completed}
-    log.info("Preserved %d completed match(es).", len(completed))
+    existing = load_data(OUTPUT_FILE)
+    completed_count = sum(1 for m in existing.get("matches", []) if m.get("type") == "COMPLETED")
+    log.info("Loaded %d match(es) (%d completed).", len(existing.get("matches", [])), completed_count)
 
     fixtures = fetch_all_odds()
     if not fixtures:
@@ -498,21 +489,20 @@ def main():
 
     upcoming = []
     for i, fx in enumerate(fixtures):
-        fid = fx.get('fixtureId') or fx.get('id','')
-        if f"match_{fid}" in done_ids:
+        if not is_real_fixture(fx, pmap, normalise_team):
             continue
         rec = build_record(fx, pmap)
-        if rec:
+        if rec and not is_ghost_match(rec):
             upcoming.append(rec)
-            log.info("  [%d] %s vs %s — %d layer(s)", i+1,
+            log.info("  [%d] %s vs %s — %d layer(s)", i + 1,
                      rec["home"], rec["away"], len(rec["layers"]))
 
-    log.info("Built %d upcoming records.", len(upcoming))
+    log.info("Built %d upcoming records from API.", len(upcoming))
 
     output = {
-        "currentStage": existing.get("currentStage","Group Stage"),
-        "lastUpdated":  now.strftime("%B %-d, %Y · %-I:%M %p UTC"),
-        "matches":      completed + upcoming,
+        "currentStage": existing.get("currentStage", "Group Stage"),
+        "lastUpdated": format_utc_display(now),
+        "matches": merge_odds_fetch(existing, upcoming),
     }
     atomic_write(OUTPUT_FILE, output)
     log.info("=== Done. %d total matches ===", len(output["matches"]))

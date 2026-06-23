@@ -1,33 +1,28 @@
 """
-One-time cleanup: removes SRL simulator/ghost matches from data.json.
-Only removes records where home or away team name contains 'SRL' or 'Srl'.
-Does not touch any other fields or real match records.
+Removes SRL simulator/ghost matches from data.json.
+Safe to run after every sync — idempotent.
 """
-import json, tempfile, shutil, os
+import json
+import logging
 
-with open("data.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+from data_utils import OUTPUT_FILE, atomic_write, filter_ghost_matches, repair_raw_json
 
-before = len(data["matches"])
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+log = logging.getLogger(__name__)
 
-def is_srl(m):
-    for field in ["home", "away"]:
-        v = str(m.get(field, ""))
-        if "SRL" in v or "Srl" in v:
-            return True
-    return False
 
-removed = [m for m in data["matches"] if is_srl(m)]
-data["matches"] = [m for m in data["matches"] if not is_srl(m)]
-after = len(data["matches"])
+def main() -> None:
+    with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+        raw = f.read()
+    raw = repair_raw_json(raw)
+    data = json.loads(raw)
+    before = len(data.get("matches", []))
+    data["matches"] = filter_ghost_matches(data.get("matches", []))
+    after = len(data["matches"])
 
-for m in removed:
-    print(f"  Removed: {m.get('home')} vs {m.get('away')}")
+    atomic_write(OUTPUT_FILE, data)
+    log.info("Sanitized data.json: %d ghost match(es) removed, %d remain.", before - after, after)
 
-fd, tmp = tempfile.mkstemp(suffix=".tmp")
-with os.fdopen(fd, "w", encoding="utf-8") as f:
-    json.dump(data, f, indent=2, ensure_ascii=False)
-    f.write("\n")
-shutil.move(tmp, "data.json")
 
-print(f"Removed {before - after} SRL ghost matches. {after} remain.")
+if __name__ == "__main__":
+    main()

@@ -23,13 +23,13 @@ Environment:    FOOTBALL_DATA_KEY must be set
 import os
 import json
 import logging
-import tempfile
-import shutil
 import time
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
 import requests
+
+from data_utils import atomic_write, format_utc_display, load_data
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -307,34 +307,7 @@ def is_in_active_window(record: dict, now: datetime) -> bool:
 
 
 # ── File helpers ──────────────────────────────────────────────────────────────
-
-def atomic_write(path: str, data: dict) -> None:
-    d  = os.path.dirname(os.path.abspath(path)) or "."
-    fd, tmp = tempfile.mkstemp(dir=d, suffix=".tmp")
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-            f.write("\n")
-        shutil.move(tmp, path)
-        log.info("Wrote %s.", path)
-    except Exception:
-        try: os.unlink(tmp)
-        except OSError: pass
-        raise
-
-
-def load_data(path: str) -> dict:
-    if not os.path.exists(path):
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (json.JSONDecodeError, OSError) as e:
-        log.warning("Could not read %s: %s", path, e)
-        return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
-
-
-# ── Source accuracy audit ─────────────────────────────────────────────────────
+# (load_data / atomic_write live in data_utils.py)
 
 def calculate_source_accuracy(record: dict, home_won: bool, is_draw: bool) -> dict:
     """
@@ -370,6 +343,7 @@ def main() -> None:
 
     now  = datetime.now(timezone.utc)
     data = load_data(OUTPUT_FILE)
+
     matches = data.get("matches", [])
 
     # Find records that are in the active watch window
@@ -459,7 +433,7 @@ def main() -> None:
         log.info("No status changes — data.json unchanged.")
         raise SystemExit(0)
 
-    data["lastUpdated"] = now.strftime("%B %-d, %Y · %-I:%M %p UTC")
+    data["lastUpdated"] = format_utc_display(now)
     atomic_write(OUTPUT_FILE, data)
     log.info("=== Done ===")
 

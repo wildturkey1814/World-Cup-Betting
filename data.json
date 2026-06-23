@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 23, 2026 · 10:05 PM UTC",
+  "lastUpdated": "June 23, 2026 · 10:19 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -48,30 +48,6 @@
       "score": "SOUTH KOREA 2 - 1 CZECHIA",
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.1%"
-    },
-    {
-      "id": "537333",
-      "home": "Canada",
-      "away": "Bosnia-Herzegovina",
-      "group": "GROUP_B",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-12T19:00:00Z",
-      "favTeam": "Canada",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 1,
-      "awayScore": 1,
-      "score": "CANADA 1 - 1 BOSNIA-HERZEGOVINA",
-      "kalshiWinProbHome": "0.3%",
-      "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.1%"
     },
     {
@@ -145,7 +121,7 @@
       "score": "BRAZIL 1 - 1 MOROCCO",
       "kalshiWinProbHome": "4.9%",
       "kalshiWinProbAway": "2.0%",
-      "polymarketWinProbHome": "4.5%",
+      "polymarketWinProbHome": "5.2%",
       "polymarketWinProbAway": "1.7%"
     },
     {
@@ -198,30 +174,6 @@
       "polymarketWinProbAway": "0.4%"
     },
     {
-      "id": "537351",
-      "home": "Germany",
-      "away": "Curaçao",
-      "group": "GROUP_E",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-14T17:00:00Z",
-      "favTeam": "Germany",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 7,
-      "awayScore": 1,
-      "score": "GERMANY 7 - 1 CURAÇAO",
-      "kalshiWinProbHome": "5.1%",
-      "polymarketWinProbHome": "5.5%",
-      "polymarketWinProbAway": "0.1%"
-    },
-    {
       "id": "537357",
       "home": "Netherlands",
       "away": "Japan",
@@ -243,7 +195,7 @@
       "score": "NETHERLANDS 2 - 2 JAPAN",
       "kalshiWinProbHome": "6.5%",
       "kalshiWinProbAway": "1.8%",
-      "polymarketWinProbHome": "5.1%",
+      "polymarketWinProbHome": "5.0%",
       "polymarketWinProbAway": "1.9%"
     },
     {
@@ -294,29 +246,6 @@
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
       "polymarketWinProbAway": "0.1%"
-    },
-    {
-      "id": "537369",
-      "home": "Spain",
-      "away": "Cape Verde Islands",
-      "group": "GROUP_H",
-      "stage": "Group Stage",
-      "kickoff": "2026-06-15T16:00:00Z",
-      "favTeam": "Spain",
-      "layers": [
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "34.0%",
-          "draw": "33.0%",
-          "und": "33.0%"
-        }
-      ],
-      "type": "COMPLETED",
-      "homeScore": 0,
-      "awayScore": 0,
-      "score": "SPAIN 0 - 0 CAPE VERDE ISLANDS",
-      "kalshiWinProbHome": "13.3%",
-      "polymarketWinProbHome": "13.9%"
     },
     {
       "id": "537363",
@@ -604,7 +533,7 @@
         }
       ],
       "kalshiWinProbHome": "9.9%",
-      "polymarketWinProbHome": "8.2%",
+      "polymarketWinProbHome": "8.0%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
       "homeScore": 1,
@@ -681,7 +610,7 @@
         }
       ],
       "kalshiWinProbHome": "4.9%",
-      "polymarketWinProbHome": "4.5%",
+      "polymarketWinProbHome": "5.2%",
       "polymarketWinProbAway": "0.1%",
       "score": "BRAZIL 3 - 0 HAITI",
       "homeScore": 3,
@@ -837,7 +766,7 @@
       ],
       "kalshiWinProbHome": "6.5%",
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbHome": "5.1%",
+      "polymarketWinProbHome": "5.0%",
       "polymarketWinProbAway": "0.2%",
       "score": "NETHERLANDS 5 - 1 SWEDEN",
       "homeScore": 5,
@@ -1267,7 +1196,7 @@
         }
       ],
       "kalshiWinProbHome": "11.5%",
-      "polymarketWinProbHome": "12.3%",
+      "polymarketWinProbHome": "11.1%",
       "polymarketWinProbAway": "0.1%",
       "score": "ENGLAND 0 - 0 GHANA",
       "homeScore": 0,
@@ -1462,7 +1391,7 @@
       "kalshiWinProbHome": "0.1%",
       "kalshiWinProbAway": "4.9%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "4.5%"
+      "polymarketWinProbAway": "5.2%"
     },
     {
       "id": "match_id1000001666456938",
@@ -1720,7 +1649,7 @@
         }
       ],
       "kalshiWinProbAway": "6.5%",
-      "polymarketWinProbAway": "5.1%"
+      "polymarketWinProbAway": "5.0%"
     },
     {
       "id": "match_id1000001666456948",
@@ -2054,7 +1983,7 @@
       ],
       "kalshiWinProbAway": "11.5%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "12.3%"
+      "polymarketWinProbAway": "11.1%"
     },
     {
       "id": "match_id1000001666457052",
@@ -2129,7 +2058,7 @@
       "kalshiWinProbHome": "1.5%",
       "kalshiWinProbAway": "9.9%",
       "polymarketWinProbHome": "1.5%",
-      "polymarketWinProbAway": "8.2%"
+      "polymarketWinProbAway": "8.0%"
     },
     {
       "id": "match_id1000001666457040",
@@ -2242,5 +2171,5 @@
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 6:17 PM UTC",
-  "polymarketUpdated": "June 23, 2026 · 6:17 PM UTC"
+  "polymarketUpdated": "June 23, 2026 · 10:19 PM UTC"
 }

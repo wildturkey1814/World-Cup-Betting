@@ -1,62 +1,44 @@
 """
 Emergency repair for corrupted data.json.
 Handles the } { concatenation bug where two JSON objects were merged.
-Extracts only valid match records and writes a clean data.json.
-Run once: python repair_data.py
 """
-import json, re, tempfile, shutil, os
+import logging
 
-VALID_FLAGS = {
-    "mex","rsa","kor","cze","can","bih","usa","pry","ger","arg","eng","ita",
-    "fra","bra","esp","por","ned","mar","jpn","aus","cro","sui","uru","col",
-    "sen","den","ecu","nor","tur","srb","pol","irn","ksa","gha","cmr","civ",
-    "tun","egy","alg","nga","pan","crc","wal","uzb","irq","jor","qat","nzl",
-    "cpv","cuw","hai","bel","sco","cod","aut","swe","pry","bih"
-}
+from data_utils import OUTPUT_FILE, atomic_write, filter_ghost_matches, load_data, repair_raw_json
+import json
+import os
 
-with open("data.json", "r", encoding="utf-8") as f:
-    raw = f.read()
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+log = logging.getLogger(__name__)
 
-# Find the first valid JSON object — take everything up to the first } {
-# which is where the concatenation occurred
-fixed = re.split(r'\}\s*\{', raw)
-if len(fixed) > 1:
-    print(f"Found {len(fixed)} concatenated JSON blocks — using first block only.")
-    raw = fixed[0] + "}"
 
-# Try to parse
-try:
-    data = json.loads(raw)
-    print("JSON parsed successfully after split repair.")
-except json.JSONDecodeError as e:
-    print(f"Split repair failed: {e}")
-    # More aggressive: extract just the matches array
-    print("Attempting regex extraction of matches...")
-    # Find all match objects
-    data = {
-        "currentStage": "Group Stage",
-        "lastUpdated": "",
-        "matches": []
-    }
+def main() -> None:
+    if not os.path.exists(OUTPUT_FILE):
+        log.error("%s not found.", OUTPUT_FILE)
+        return
 
-def is_bad(m):
-    for field in ["home", "away", "favTeam", "undTeam", "id"]:
-        if "srl" in str(m.get(field, "")).lower():
-            return True
-    for field in ["homeFlag", "awayFlag"]:
-        v = str(m.get(field, "")).lower()
-        if v and v not in VALID_FLAGS:
-            return True
-    return False
+    with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+        raw = f.read()
 
-before = len(data.get("matches", []))
-data["matches"] = [m for m in data.get("matches", []) if not is_bad(m)]
-after = len(data["matches"])
-print(f"Removed {before - after} bad matches. {after} clean matches remain.")
+    fixed = repair_raw_json(raw)
+    if fixed != raw:
+        log.info("Repaired concatenated JSON blocks.")
 
-fd, tmp = tempfile.mkstemp(suffix=".tmp")
-with os.fdopen(fd, "w", encoding="utf-8") as f:
-    json.dump(data, f, indent=2, ensure_ascii=False)
-    f.write("\n")
-shutil.move(tmp, "data.json")
-print("data.json repaired and written successfully.")
+    try:
+        data = json.loads(fixed)
+        log.info("JSON parsed successfully.")
+    except json.JSONDecodeError as exc:
+        log.error("Parse failed after repair: %s", exc)
+        data = {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
+
+    before = len(data.get("matches", []))
+    data["matches"] = filter_ghost_matches(data.get("matches", []))
+    after = len(data["matches"])
+    log.info("Removed %d bad matches. %d clean matches remain.", before - after, after)
+
+    atomic_write(OUTPUT_FILE, data)
+    log.info("%s repaired and written successfully.", OUTPUT_FILE)
+
+
+if __name__ == "__main__":
+    main()

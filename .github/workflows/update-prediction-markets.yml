@@ -1,5 +1,9 @@
 name: Update Prediction Markets
 
+concurrency:
+  group: world-cup-data-json
+  cancel-in-progress: false
+
 on:
   schedule:
     # Triggers every 15 minutes to stay responsive to trading action
@@ -33,6 +37,9 @@ jobs:
 
       - name: Run Polymarket Ingestion
         run: python fetch_polymarket.py
+
+      - name: Sanitize Dataset
+        run: python clean_data.py
 
       - name: Push Prediction Updates
         run: |

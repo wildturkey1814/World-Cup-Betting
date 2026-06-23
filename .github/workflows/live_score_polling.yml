@@ -1,5 +1,9 @@
 name: Update Live Scoring Polling 
 
+concurrency:
+  group: world-cup-data-json
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: '*/5 * * * *'
@@ -27,6 +31,9 @@ jobs:
         env:
           FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_KEY }}
         run: python fetch_scores.py
+
+      - name: Sanitize Dataset
+        run: python clean_data.py
 
       - name: Push Live Match Updates
         run: |
