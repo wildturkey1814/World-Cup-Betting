@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 23, 2026 · 6:17 PM UTC",
+  "lastUpdated": "June 23, 2026 · 10:05 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1238,7 +1238,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "England",
       "away": "Ghana",
       "favTeam": "England",
@@ -1268,7 +1268,16 @@
       ],
       "kalshiWinProbHome": "11.5%",
       "polymarketWinProbHome": "12.3%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "score": "ENGLAND 0 - 0 GHANA",
+      "homeScore": 0,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "insight": "The match ended level at 0-0."
     },
     {
       "id": "match_id1000001666457048",
