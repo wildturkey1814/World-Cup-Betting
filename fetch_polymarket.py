@@ -188,6 +188,27 @@ def main() -> None:
     existing["lastUpdated"]       = format_utc_display(now)
     existing["polymarketUpdated"] = format_utc_display(now)
 
+    from standings import apply_eliminated_tournament_odds, compute_knockout_eliminated
+
+    def _standings_input() -> list[dict]:
+        seen = {str(m.get("id")) for m in matches if m.get("id")}
+        merged = list(matches)
+        try:
+            with open("completed_matches.json", "r", encoding="utf-8") as f:
+                archive = json.load(f)
+            if isinstance(archive, list):
+                for entry in archive:
+                    mid = str(entry.get("id") or "")
+                    if mid and mid not in seen:
+                        merged.append(entry)
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+        return merged
+
+    eliminated = compute_knockout_eliminated(_standings_input())
+    apply_eliminated_tournament_odds(matches, eliminated)
+    existing["knockoutEliminated"] = sorted(eliminated)
+
     atomic_write(OUTPUT_FILE, existing)
     log.info("=== Done. Updated %d match records. ===", updated)
 

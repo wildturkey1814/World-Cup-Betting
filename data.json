@@ -24,7 +24,7 @@
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
       "kalshiWinProbHome": "1.8%",
       "polymarketWinProbHome": "1.2%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 50.0,
@@ -109,7 +109,8 @@
       ],
       "insight": "Mexico won 2-0.",
       "homeFlag": "mex",
-      "awayFlag": "rsa"
+      "awayFlag": "rsa",
+      "kalshiWinProbAway": "0.0%"
     },
     {
       "id": "537328",
@@ -133,7 +134,7 @@
       "score": "SOUTH KOREA 2 - 1 CZECHIA",
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 58.1,
@@ -223,7 +224,8 @@
       ],
       "insight": "South Korea won 2-1.",
       "homeFlag": "kor",
-      "awayFlag": "cze"
+      "awayFlag": "cze",
+      "kalshiWinProbAway": "0.0%"
     },
     {
       "id": "537345",
@@ -590,7 +592,7 @@
       "awayScore": 1,
       "score": "HAITI 0 - 1 SCOTLAND",
       "kalshiWinProbAway": "0.1%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.1%",
       "boxScore": {
         "possession": {
@@ -671,7 +673,8 @@
       ],
       "insight": "Scotland won 0-1.",
       "homeFlag": "hai",
-      "awayFlag": "sco"
+      "awayFlag": "sco",
+      "kalshiWinProbHome": "0.0%"
     },
     {
       "id": "537346",
@@ -694,9 +697,9 @@
       "awayScore": 0,
       "score": "AUSTRALIA 2 - 0 TURKEY",
       "kalshiWinProbHome": "0.1%",
-      "kalshiWinProbAway": "0.2%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.4%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 53.7,
@@ -1030,7 +1033,7 @@
       "score": "SWEDEN 5 - 1 TUNISIA",
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 67.7,
@@ -1135,7 +1138,8 @@
       ],
       "insight": "Sweden won 5-1.",
       "homeFlag": "swe",
-      "awayFlag": "tun"
+      "awayFlag": "tun",
+      "kalshiWinProbAway": "0.0%"
     },
     {
       "id": "537363",
@@ -1495,9 +1499,9 @@
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
       "kalshiWinProbHome": "20.1%",
-      "kalshiWinProbAway": "0.2%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "19.2%",
-      "polymarketWinProbAway": "0.2%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 51.3,
@@ -2029,7 +2033,7 @@
       ],
       "kalshiWinProbHome": "4.9%",
       "polymarketWinProbHome": "5.2%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "0.0%",
       "score": "BRAZIL 3 - 0 HAITI",
       "homeScore": 3,
       "awayScore": 0,
@@ -2125,7 +2129,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Brazil turned pressure into goals while Haiti struggled to create clear openings."
         }
-      ]
+      ],
+      "kalshiWinProbAway": "0.0%"
     },
     {
       "id": "match_id1000001666456946",
@@ -2160,8 +2165,8 @@
           "und": "24.2%"
         }
       ],
-      "kalshiWinProbHome": "0.2%",
-      "polymarketWinProbHome": "0.4%",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.1%",
       "score": "TURKEY 0 - 1 PARAGUAY",
       "homeScore": 0,
@@ -2550,7 +2555,7 @@
         }
       ],
       "kalshiWinProbAway": "1.8%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "1.9%",
       "score": "TUNISIA 0 - 4 JAPAN",
       "homeScore": 0,
@@ -2652,7 +2657,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Japan turned pressure into goals while Tunisia struggled to create clear openings."
         }
-      ]
+      ],
+      "kalshiWinProbHome": "0.0%"
     },
     {
       "id": "match_id1000001666456988",
@@ -2826,9 +2832,9 @@
         }
       ],
       "kalshiWinProbHome": "2.8%",
-      "kalshiWinProbAway": "0.2%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "3.0%",
-      "polymarketWinProbAway": "0.2%",
+      "polymarketWinProbAway": "0.0%",
       "score": "NORWAY 3 - 2 SENEGAL",
       "homeScore": 3,
       "awayScore": 2,
@@ -3416,7 +3422,9 @@
       "kalshiWinProbHome": "1.9%",
       "polymarketWinProbHome": "1.7%",
       "homeMomentumFactor": "+0.208",
-      "awayMomentumFactor": "+0.230"
+      "awayMomentumFactor": "+0.230",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "match_id1000001666456912",
@@ -3452,10 +3460,11 @@
         }
       ],
       "kalshiWinProbAway": "1.8%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "1.2%",
       "homeMomentumFactor": "-0.225",
-      "awayMomentumFactor": "-0.311"
+      "awayMomentumFactor": "-0.311",
+      "kalshiWinProbHome": "0.0%"
     },
     {
       "id": "match_id1000001666456914",
@@ -3491,10 +3500,11 @@
         }
       ],
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.426",
-      "awayMomentumFactor": "+0.383"
+      "awayMomentumFactor": "+0.383",
+      "kalshiWinProbHome": "0.0%"
     },
     {
       "id": "match_id1000001666457078",
@@ -3650,7 +3660,9 @@
       "kalshiWinProbAway": "6.5%",
       "polymarketWinProbAway": "5.0%",
       "homeMomentumFactor": "+0.569",
-      "awayMomentumFactor": "-0.185"
+      "awayMomentumFactor": "-0.185",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "match_id1000001666456948",
@@ -3688,7 +3700,9 @@
       "kalshiWinProbAway": "4.6%",
       "polymarketWinProbAway": "3.5%",
       "homeMomentumFactor": "+0.306",
-      "awayMomentumFactor": "-0.051"
+      "awayMomentumFactor": "-0.051",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "match_id1000001666456950",
@@ -3802,8 +3816,8 @@
           "und": "6.1%"
         }
       ],
-      "kalshiWinProbHome": "0.2%",
-      "polymarketWinProbHome": "0.2%",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.397",
       "awayMomentumFactor": "+0.000"
@@ -4200,5 +4214,13 @@
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",
-  "polymarketUpdated": "June 23, 2026 · 10:20 PM UTC"
+  "polymarketUpdated": "June 23, 2026 · 10:20 PM UTC",
+  "knockoutEliminated": [
+    "Czechia",
+    "Haiti",
+    "Senegal",
+    "South Africa",
+    "Tunisia",
+    "Turkey"
+  ]
 }
