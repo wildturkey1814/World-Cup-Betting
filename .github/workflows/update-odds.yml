@@ -17,6 +17,7 @@ on:
 
 jobs:
   sync-all-layers:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
