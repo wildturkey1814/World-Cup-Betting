@@ -1,0 +1,35 @@
+name: Deploy Dev Preview
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-dev-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v4
+
+      - name: Prepare static site
+        run: |
+          mkdir -p _site
+          cp index.html data.json completed_matches.json _site/
+          if [ -d assets ]; then cp -r assets _site/; fi
+
+      - name: Publish to gh-pages/dev
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          destination_dir: dev
+          keep_files: true
+          commit_message: "deploy: dev preview from ${{ github.sha }}"
