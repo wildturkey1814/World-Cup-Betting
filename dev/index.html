@@ -441,7 +441,7 @@ const DICT = {
     noCompleted: 'No complete match files populated inside this tier.',
     updated: 'Last Database Sync', searchPlaceholder: 'Search teams or groups…',
     winOddsTitle: 'Tournament Winner Futures Tracking Node',
-    scTooltip: 'Supercharger calculations apply multi-variant Poisson simulations using dynamic ELO vectors to isolate true neutral probability models.',
+    scTooltip: 'Tournament Momentum Factor (χ): rolling average of result divergence vs ELO expectations and xG efficiency. Positive χ means a team is outperforming baseline form in the tournament.',
     zoneMex: 'Mexico Base Zone', zoneCen: 'Central Base Zone', zoneEast: 'East Base Zone', zoneWest: 'West Base Zone',
     waitingFor: 'Awaiting Match Settlement', groupStage: 'Group Stage Tier', bracketR32: 'Round of 32 Grid', bracketR16: 'Round of 16 Bracket', bracketQF: 'Quarter-Finals Grid',
     teams: {}
@@ -680,13 +680,25 @@ function winOddsHTML(match){
   return`<div class="win-odds-panel"><div class="win-odds-header">🏆 ${esc(d.winOddsTitle||'Tournament Winner Odds')}</div><div class="win-odds-grid"><div class="win-odds-row"><div class="win-odds-source" style="font-size:9px;color:var(--text-lo);font-weight:700;text-transform:uppercase;letter-spacing:1px">Source</div><div class="win-odds-val" style="color:var(--green);font-size:10px;font-weight:800">${esc(favName)}</div><div class="win-odds-val" style="color:var(--red);font-size:10px;font-weight:800">${esc(undName)}</div></div>${rows}</div></div>`;
 }
 
-/* ── SUPERCHARGER ROW ── */
+/* ── SUPERCHARGER+ ROW (Tournament Momentum χ) ── */
 function superchargerHTML(match){
   const tipId='sc-tip-'+match.id;
   const d=DICT[lang];
   const isGroupStage=(match.stage||'Group Stage')==='Group Stage';
-  const val=isGroupStage?'--':'Recalibrated';
-  return`<div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger (ELO+)</div><div class="prob-cell null-val">${esc(val)}</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger (ELO+)</div>${esc(d.scTooltip||'')}</div></div>`;
+  if(isGroupStage){
+    return`<div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger+</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger+</div>${esc(d.scTooltip||'')}</div></div>`;
+  }
+  const favIsHome=match.favTeam===match.home;
+  const homeChi=match.homeMomentumFactor||'+0.000';
+  const awayChi=match.awayMomentumFactor||'+0.000';
+  const favChi=favIsHome?homeChi:awayChi;
+  const undChi=favIsHome?awayChi:homeChi;
+  function chiCell(v){
+    const n=parseFloat(String(v).replace('+',''));
+    const cls=!isNaN(n)&&n>0?'hi':'null-val';
+    return`<div class="prob-cell ${cls}">${esc(v)}</div>`;
+  }
+  return`<div class="supercharger-row"><div class="supercharger-label"><button class="sc-info-btn" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button>⚡ Supercharger+</div>${chiCell(favChi)}<div class="prob-cell null-val">--</div>${chiCell(undChi)}<div class="reco-tooltip" id="${tipId}"><div class="reco-tooltip-title">⚡ Supercharger+ (χ)</div>${esc(d.scTooltip||'')}</div></div>`;
 }
 
 /* ── RENDER UPCOMING ── */
