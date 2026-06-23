@@ -62,6 +62,9 @@ def main() -> None:
     log.info("Enriched %d completed match(es) in data.json.", updated_data)
     log.info("Archive now holds %d match(es) in %s.", len(merged_archive), ARCHIVE_FILE)
 
+    from momentum_engine import run as apply_momentum
+    apply_momentum(OUTPUT_FILE, ARCHIVE_FILE)
+
 
 if __name__ == "__main__":
     main()

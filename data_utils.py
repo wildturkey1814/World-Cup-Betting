@@ -47,6 +47,7 @@ PRESERVE_FIELDS = (
     "advancedMetrics", "insights", "sourceAccuracy", "insight",
     "kalshiWinProbHome", "kalshiWinProbAway",
     "polymarketWinProbHome", "polymarketWinProbAway",
+    "homeMomentumFactor", "awayMomentumFactor",
 )
 
 SRL_PATTERN = re.compile(r"\bsrl\b|(?:^|\s)srl(?:\s|$)|simulator|simulated", re.IGNORECASE)
