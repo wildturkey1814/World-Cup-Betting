@@ -463,8 +463,11 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .pc-analytics-panel{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);}
 .pc-analytics-label{font-size:7px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
 .pc-model-rows{display:flex;flex-direction:column;gap:4px;}
-.pc-model-row{display:grid;grid-template-columns:1fr 38px 38px 38px;gap:4px;align-items:center;font-size:9px;color:var(--text-lo);}
-.pc-model-row.head{font-weight:800;color:var(--text-lo);font-size:8px;letter-spacing:0.3px;}
+.pc-model-row{display:grid;grid-template-columns:minmax(0,1fr) 46px 46px 46px;gap:3px;align-items:center;font-size:9px;color:var(--text-lo);}
+.pc-model-row.head{font-weight:800;color:var(--text-lo);font-size:7px;letter-spacing:0.2px;line-height:1.25;}
+.pc-model-row.head .pc-model-pct{white-space:normal;}
+.pc-model-pct.fav{color:var(--green);}
+.pc-model-pct.und{color:var(--text-mid);}
 .pc-model-src{font-weight:700;color:var(--text-mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .pc-model-pct{font-weight:800;text-align:center;font-variant-numeric:tabular-nums;color:var(--text-hi);}
 .pc-model-pct.draw{color:var(--neon);}
@@ -664,9 +667,9 @@ const DICT = {
     pcConversion: 'Goal conversion',
     pcPostMortem: 'Post-match analytics',
     pcTapFlip: 'tap card for strategic analysis',
-    pcColHome: 'H',
-    pcColDraw: 'D',
-    pcColAway: 'A',
+    pcColFav: 'Fav',
+    pcColDraw: 'Draw/Tie',
+    pcColUnd: 'Und',
     pcBeatFav: 'Model beat · Favorite',
     pcBeatUpset: 'Model beat · Upset',
     pcBeatDraw: 'Model beat · Draw',
@@ -1784,7 +1787,6 @@ function assessModelBeat(match,d){
   return null;
 }
 function buildClosingLineHTML(match,d){
-  const favIsHome=match.favTeam===match.home;
   const norm={};
   (match.layers||[]).forEach(l=>{const k=canonSrc(l.source);if(!norm[k])norm[k]=l;});
   const sources=['Sportsbooks (Consensus)','ELO/Poisson Model'];
@@ -1792,14 +1794,14 @@ function buildClosingLineHTML(match,d){
     'Sportsbooks (Consensus)':'Sportsbooks',
     'ELO/Poisson Model':'ELO/Poisson',
   };
-  const head=`<div class="pc-model-row head"><span class="pc-model-src">&nbsp;</span><span class="pc-model-pct">${esc(d.pcColHome)}</span><span class="pc-model-pct draw">${esc(d.pcColDraw)}</span><span class="pc-model-pct">${esc(d.pcColAway)}</span></div>`;
+  const head=`<div class="pc-model-row head"><span class="pc-model-src">&nbsp;</span><span class="pc-model-pct fav" title="${esc(d.favBadge||'FAV')}">${esc(d.pcColFav)}</span><span class="pc-model-pct draw" title="${esc(d.colDraw)}">${esc(d.pcColDraw)}</span><span class="pc-model-pct und" title="${esc(d.undBadge||'UND')}">${esc(d.pcColUnd)}</span></div>`;
   const rows=sources.map(s=>{
     const l=norm[s];
-    const hp=l?(favIsHome?parsePctStr(l.fav):parsePctStr(l.und)):null;
-    const ap=l?(favIsHome?parsePctStr(l.und):parsePctStr(l.fav)):null;
+    const fp=l?parsePctStr(l.fav):null;
     const dp=l?parsePctStr(l.draw):null;
+    const up=l?parsePctStr(l.und):null;
     const fmt=v=>v!=null?`${v.toFixed(1)}%`:'—';
-    return`<div class="pc-model-row"><span class="pc-model-src">${esc(srcShort[s]||s)}</span><span class="pc-model-pct">${fmt(hp)}</span><span class="pc-model-pct draw">${fmt(dp)}</span><span class="pc-model-pct">${fmt(ap)}</span></div>`;
+    return`<div class="pc-model-row"><span class="pc-model-src">${esc(srcShort[s]||s)}</span><span class="pc-model-pct fav">${fmt(fp)}</span><span class="pc-model-pct draw">${fmt(dp)}</span><span class="pc-model-pct und">${fmt(up)}</span></div>`;
   }).join('');
   const beat=assessModelBeat(match,d);
   const beatHTML=beat?`<span class="pc-beat-badge ${beat.type}">${esc(beat.text)}</span>`:'';
