@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 24, 2026 · 1:28 AM UTC",
+  "lastUpdated": "June 24, 2026 · 10:28 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -3349,7 +3349,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Colombia",
       "away": "DR Congo",
       "favTeam": "Colombia",
@@ -3382,7 +3382,93 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.306",
       "awayMomentumFactor": "-0.035",
-      "matchday": 2
+      "matchday": 2,
+      "score": "COLOMBIA 1 - 0 DR CONGO",
+      "homeScore": 1,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 41.5,
+          "away": 58.5
+        },
+        "shots": {
+          "home": 6,
+          "away": 12
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 5
+        },
+        "corners": {
+          "home": 2,
+          "away": 5
+        },
+        "fouls": {
+          "home": 11,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 8,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Colombia won 1-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 0.92,
+          "away": 2.12
+        },
+        "fieldTilt": {
+          "home": 37.5,
+          "away": 62.5
+        },
+        "ppda": {
+          "home": 17.9,
+          "away": 11.1
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 362,
+          "away": 547
+        },
+        "finalThirdEntries": {
+          "home": 29,
+          "away": 48
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Colombia absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Colombia converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Colombia generating danger from corners and free-kicks throughout."
+        }
+      ]
     },
     {
       "id": "match_id1000001666456926",
@@ -3463,7 +3549,7 @@
       "polymarketWinProbHome": "0.7%",
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.010",
-      "awayMomentumFactor": "-0.556",
+      "awayMomentumFactor": "-0.733",
       "matchday": 3
     },
     {
@@ -3668,7 +3754,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.5%",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "-0.694",
+      "awayMomentumFactor": "-0.557",
       "matchday": 3
     },
     {
@@ -4033,7 +4119,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "13.9%",
       "homeMomentumFactor": "-0.121",
-      "awayMomentumFactor": "-0.215",
+      "awayMomentumFactor": "-0.320",
       "matchday": 3
     },
     {
@@ -4233,7 +4319,7 @@
       "kalshiWinProbAway": "9.0%",
       "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "8.0%",
-      "homeMomentumFactor": "-0.306",
+      "homeMomentumFactor": "-0.478",
       "awayMomentumFactor": "-0.305",
       "matchday": 3
     },
@@ -4272,7 +4358,7 @@
       ],
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "-0.035",
+      "homeMomentumFactor": "+0.372",
       "awayMomentumFactor": "+0.637",
       "matchday": 3
     },
@@ -6498,15 +6584,15 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 47,
-    "upcomingGroupMatches": 25,
+    "completedGroupMatches": 48,
+    "upcomingGroupMatches": 24,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
-      "2": 23,
+      "2": 24,
       "3": 0
     },
-    "currentMatchday": 2,
+    "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   }
 }

@@ -7906,5 +7906,178 @@
         "und": "68.4%"
       }
     ]
+  },
+  {
+    "id": "match_id1000001666457036",
+    "home": "Colombia",
+    "away": "DR Congo",
+    "homeFlag": "col",
+    "awayFlag": "cod",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-24T02:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 0,
+    "score": "COLOMBIA 1 - 0 DR CONGO",
+    "winner": "Colombia",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.92,
+        "away": 2.12
+      },
+      "possession": {
+        "home": 41.5,
+        "away": 58.5
+      },
+      "fieldTilt": {
+        "home": 37.5,
+        "away": 62.5
+      },
+      "ppda": {
+        "home": 17.9,
+        "away": 11.1
+      },
+      "shots": {
+        "home": 6,
+        "away": 12
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 5
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 362,
+        "away": 547
+      },
+      "finalThirdEntries": {
+        "home": 29,
+        "away": 48
+      },
+      "corners": {
+        "home": 2,
+        "away": 5
+      },
+      "fouls": {
+        "home": 11,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 41.5,
+        "away": 58.5
+      },
+      "shots": {
+        "home": 6,
+        "away": 12
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 5
+      },
+      "corners": {
+        "home": 2,
+        "away": 5
+      },
+      "fouls": {
+        "home": 11,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 8,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.92,
+        "away": 2.12
+      },
+      "fieldTilt": {
+        "home": 37.5,
+        "away": 62.5
+      },
+      "ppda": {
+        "home": 17.9,
+        "away": 11.1
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 362,
+        "away": 547
+      },
+      "finalThirdEntries": {
+        "home": 29,
+        "away": 48
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Colombia absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Colombia converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Colombia generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Colombia won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "62.4%",
+        "draw": "23.6%",
+        "und": "14.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "61.7%",
+        "draw": "21.4%",
+        "und": "16.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "63.6%",
+        "draw": "23.2%",
+        "und": "13.1%"
+      }
+    ]
   }
 ]
