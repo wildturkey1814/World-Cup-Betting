@@ -133,6 +133,11 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 }
 .btn:hover{color:var(--text-hi);border-color:rgba(255,255,255,0.25);}
 .btn.active{color:var(--gold);border-color:var(--gold);background:rgba(232,160,32,0.08);}
+
+/* Completed view: force-hide live/upcoming chrome even if JS hiccups */
+body[data-match-state="completed"] #live-section,
+body[data-match-state="completed"] #signal-legend-box,
+body[data-match-state="completed"] #tournament-summary-section{display:none!important;}
 .btn.lang-active{border-color:var(--neon);color:var(--neon);background:rgba(56,189,248,0.08);}
 .stage-tabs{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:1px;flex:1;min-width:0;}
 .stage-tabs::-webkit-scrollbar{display:none;}
@@ -460,7 +465,7 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 
 </style>
 </head>
-<body>
+<body data-match-state="upcoming">
 
 <div class="hero">
   <div class="hero-text">
@@ -1740,6 +1745,25 @@ function syncMatchStateUI(){
   if(up)up.classList.toggle('active',currentMatchState==='upcoming');
   if(done)done.classList.toggle('active',currentMatchState==='completed');
   if(legend)legend.style.display=currentMatchState==='upcoming'?'flex':'none';
+  document.body.dataset.matchState=currentMatchState;
+}
+function applyViewChrome(mode){
+  const d=DICT[lang];
+  const titleEl=document.getElementById('lbl-grid-state-title');
+  const liveSection=document.getElementById('live-section');
+  const liveList=document.getElementById('live-list');
+  const pulse=document.getElementById('tournament-summary-section');
+  document.body.dataset.matchState=mode;
+  if(mode==='completed'){
+    if(liveSection)liveSection.style.display='none';
+    if(liveList)liveList.innerHTML='';
+    if(pulse)pulse.style.display='none';
+    if(titleEl)titleEl.textContent=d.completed;
+  }else{
+    if(pulse)pulse.style.display='';
+    if(titleEl)titleEl.textContent=d.upcoming;
+  }
+  syncMatchStateUI();
 }
 function bindFilterControls(){
   if(window.__wcFiltersBound)return;
@@ -1756,21 +1780,34 @@ function switchMatchState(state){
   if(state!=='upcoming'&&state!=='completed')return;
   currentMatchState=state;
   try{sessionStorage.setItem('wcMatchState',state);}catch(e){}
-  syncMatchStateUI();
+  applyViewChrome(state);
   expandedGroups.clear();
   renderTournamentSummary();
-  try{renderGrid();}catch(err){console.error(err);showError('Could not refresh match list.');}
+  renderMatchGrid();
+}
+function renderMatchGrid(){
+  try{renderGrid();}
+  catch(err){
+    console.error('renderGrid failed',err);
+    showError('Could not refresh match list.');
+    const targetGrid=document.getElementById('dynamic-grid-content');
+    if(currentMatchState==='completed'&&targetGrid){
+      targetGrid.innerHTML=`<div class="empty">Could not load completed matches. Try refreshing the page.</div>`;
+    }
+  }
 }
 
 /* ── RENDER GRID ── */
 function renderGrid(){
   const d=DICT[lang];
+  const showUpcoming=currentMatchState==='upcoming';
+  applyViewChrome(currentMatchState);
+
   const finishedKeys=buildFinishedPairKeys();
   const seen=new Map();allMatches.forEach(m=>seen.set(m.id,m));
   const all=[...seen.values()];
   const stageM=all.filter(m=>(m.stage||'Group Stage')===currentStage).filter(matchesSearch);
 
-  const showUpcoming=currentMatchState==='upcoming';
   const live=showUpcoming
     ?stageM.filter(m=>!isFinishedMatch(m,finishedKeys)&&(m.type==='IN_PLAY'||(m.type==='UPCOMING'&&isLiveWindow(m))))
     :[];
@@ -1781,17 +1818,18 @@ function renderGrid(){
 
   const liveSection=document.getElementById('live-section');
   const liveList=document.getElementById('live-list');
-  if(showUpcoming&&live.length){
-    liveSection.style.display='';
-    liveList.innerHTML=live.map(renderLive).join('');
-  }else{
-    liveSection.style.display='none';
-    if(liveList)liveList.innerHTML='';
-  }
-
   const titleEl=document.getElementById('lbl-grid-state-title');
   const totalEl=document.getElementById('count-grid-state-total');
   const targetGrid=document.getElementById('dynamic-grid-content');
+  if(!titleEl||!totalEl||!targetGrid) return;
+
+  if(showUpcoming&&live.length&&liveSection){
+    liveSection.style.display='';
+    if(liveList)liveList.innerHTML=live.map(renderLive).join('');
+  }else if(liveSection){
+    liveSection.style.display='none';
+    if(liveList)liveList.innerHTML='';
+  }
 
   if(showUpcoming){
     titleEl.textContent=d.upcoming;
@@ -1816,6 +1854,7 @@ function renderGrid(){
   }else{
     titleEl.textContent=d.completed;
     totalEl.textContent=completed.length;
+    targetGrid.innerHTML=`<div class="empty">Loading completed matches…</div>`;
 
     const byMatchday={};
     completed.forEach(m=>{
@@ -1957,7 +1996,13 @@ async function fetchJson(url,timeoutMs=15000){
     return await res.json();
   }finally{clearTimeout(timer);}
 }
-function showError(msg){const p=document.getElementById('status-pane');p.className='status-pane error';p.innerHTML='⚠ '+esc(msg);}
+function showError(msg){
+  const p=document.getElementById('status-pane');
+  if(!p)return;
+  p.style.display='';
+  p.className='status-pane error';
+  p.innerHTML='⚠ '+esc(msg);
+}
 async function loadData(){
   try{
     const json=await fetchJson('data.json?v='+Date.now());
@@ -1970,7 +2015,7 @@ async function loadData(){
     if(meta.currentStage)currentStage=meta.currentStage;
     document.getElementById('status-pane').style.display='none';
     document.getElementById('view-grid').classList.add('active');
-    applyLabels();buildStageTabs();bindFilterControls();syncMatchStateUI();
+    applyLabels();buildStageTabs();bindFilterControls();applyViewChrome(currentMatchState);
     try{renderGrid();}catch(renderErr){console.error(renderErr);showError('Could not render match grid.');return;}
     renderTournamentSummary();
     startLivePolling();
@@ -1992,7 +2037,7 @@ async function loadData(){
     },60000);
   }catch(e){console.error(e);showError(e.name==='AbortError'?'Timed out loading data.json.':e.message);}
 }
-bindFilterControls();syncMatchStateUI();applyLabels();loadData();
+bindFilterControls();applyViewChrome(currentMatchState);applyLabels();loadData();
 </script>
 </body>
 </html>
