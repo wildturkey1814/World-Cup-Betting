@@ -292,6 +292,15 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
   font-size:12px;font-weight:800;color:var(--gold-hi);letter-spacing:0.3px;
   padding:8px 0 10px;border-bottom:1px solid rgba(232,160,32,0.2);margin-bottom:10px;
 }
+.matchday-section{margin-bottom:22px;}
+.matchday-header{
+  font-size:13px;font-weight:800;color:var(--text-hi);letter-spacing:0.4px;
+  padding:10px 0 8px;border-bottom:1px solid var(--border-hi);margin-bottom:12px;
+}
+.matchday-header span{color:var(--gold-hi);}
+.group-stage-progress{
+  font-size:11px;color:var(--text-mid);padding:8px 0 12px;line-height:1.5;
+}
 .win-odds-footnote{font-size:9px;line-height:1.35;color:var(--text-lo);font-style:italic;margin-top:6px;opacity:0.88;}
 .empty{text-align:center;padding:40px 20px;color:var(--text-lo);font-size:13px;}
 
@@ -458,6 +467,9 @@ const DICT = {
     scFootnote: 'Enhanced prediction model based on group-stage momentum.',
     zoneMex: 'Mexico Base Zone', zoneCen: 'Central Base Zone', zoneEast: 'East Base Zone', zoneWest: 'West Base Zone',
     waitingFor: 'Awaiting Match Settlement', groupStage: 'Group Stage Tier', bracketR32: 'Round of 32 Grid', bracketR16: 'Round of 16 Bracket', bracketQF: 'Quarter-Finals Grid',
+    matchday1: 'Matchday 1', matchday2: 'Matchday 2', matchday3: 'Matchday 3',
+    matchdayProgress: 'Group stage progress',
+    matchdayComplete: 'complete',
     teams: {}
   },
   ko: {
@@ -480,6 +492,8 @@ const DICT = {
     scFootnote: '조별리그 모멘텀을 반영한 향상된 예측 모델.',
     zoneMex: '멕시코 기지 권역', zoneCen: '센트럴 기지 권역', zoneEast: '이스트 기지 권역', zoneWest: '웨스트 기지 권역',
     waitingFor: '이전 매치 결과 대기 중', groupStage: '조별 예선 라운드', bracketR32: '32강 토너먼트 보드', bracketR16: '16강 토너먼트 브래킷', bracketQF: '8강 대진표',
+    matchday1: '1차전', matchday2: '2차전', matchday3: '3차전',
+    matchdayProgress: '조별리그 진행', matchdayComplete: '완료',
     teams: {
       "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국","Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아 헤르체고비나","United States":"미국","Paraguay":"파라과이",
       "Qatar":"카타르","Switzerland":"스위스","Brazil":"브라질","Morocco":"모로코","Haiti":"아이티","Scotland":"스코틀랜드","Australia":"호주","Turkey":"터키","Germany":"독일","Curaçao":"퀴라소",
@@ -507,6 +521,8 @@ const DICT = {
     scFootnote: 'グループステージの勢いを反映した強化予測モデル。',
     zoneMex: 'メキシコ・ゾーン', zoneCen: '中央ゾーン', zoneEast: '東部ゾーン', zoneWest: '西部ゾーン',
     waitingFor: '対戦カード確定待ち', groupStage: 'グループステージ', bracketR32: '32強ラウンド', bracketR16: '16強ブラケット', bracketQF: '準々決勝大進表',
+    matchday1: '第1節', matchday2: '第2節', matchday3: '第3節',
+    matchdayProgress: 'グループステージ進捗', matchdayComplete: '完了',
     teams: {
       "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国","Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア・ヘルツェゴビナ","United States":"アメリカ","Paraguay":"パラグアイ",
       "Qatar":"カタール","Switzerland":"スイス","Brazil":"ブラジル","Morocco":"モロッコ","Haiti":"ハイチ","Scotland":"スコットランド","Australia":"オーストラリア","Turkey":"トルコ","Germany":"ドイツ","Curaçao":"キュラソー",
@@ -976,7 +992,27 @@ function buildStageTabs(){
   }).join('');
 }
 
-const expandedGroups=new Set();
+function assignMatchday(kickoff){
+  if(!kickoff)return null;
+  const dt=new Date(kickoff);
+  const d=dt.getUTCFullYear()+'-'+String(dt.getUTCMonth()+1).padStart(2,'0')+'-'+String(dt.getUTCDate()).padStart(2,'0');
+  const h=dt.getUTCHours();
+  if(d<='2026-06-17')return 1;
+  if(d==='2026-06-18'&&h<6)return 1;
+  if(d<='2026-06-23')return 2;
+  if(d==='2026-06-24'&&h<6)return 2;
+  return 3;
+}
+function matchdayLabel(md){
+  const d=DICT[lang];
+  return md===1?d.matchday1:md===2?d.matchday2:md===3?d.matchday3:`Matchday ${md}`;
+}
+function groupStageProgressHTML(){
+  const g=meta.groupStageProgress;if(!g)return'';
+  const d=DICT[lang];
+  const md1=g.matchdayCompleted?.[1]??0,md2=g.matchdayCompleted?.[2]??0;
+  return`<div class="group-stage-progress">${esc(d.matchdayProgress)}: <strong>${g.completedGroupMatches||0}</strong> / ${g.totalGroupMatches||72} · ${esc(matchdayLabel(1))} ${md1}/24 · ${esc(matchdayLabel(2))} ${md2}/24 · ${esc(matchdayLabel(3))} ${g.currentMatchday===3?'→':''} ${g.currentMatchday>=3?esc(d.matchday3)+' (Jun 24+)':''}</div>`;
+}
 function toggleGroup(k){if(expandedGroups.has(k))expandedGroups.delete(k);else expandedGroups.add(k);renderGrid();}
 
 /* ── STATE SWITCH TOGGLE NODE ── */
@@ -1014,7 +1050,7 @@ function renderGrid(){
     totalEl.textContent = upcoming.length;
     
     if(searchQuery || currentSort === 'time') {
-      targetGrid.innerHTML = upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`;
+      targetGrid.innerHTML = (groupStageProgressHTML() || '') + (upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`);
     } else {
       const byGroup={};
       upcoming.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
@@ -1033,27 +1069,31 @@ function renderGrid(){
     titleEl.textContent = d.completed;
     totalEl.textContent = completed.length;
 
-    const byDate = {};
-    completed.forEach(m => {
-      const day = formatCalendarDay(m.kickoff);
-      if(!byDate[day]) byDate[day] = [];
-      byDate[day].push(m);
+    const byMatchday={};
+    completed.forEach(m=>{
+      const md=m.matchday||assignMatchday(m.kickoff)||0;
+      if(!byMatchday[md])byMatchday[md]={};
+      const day=formatCalendarDay(m.kickoff);
+      if(!byMatchday[md][day])byMatchday[md][day]=[];
+      byMatchday[md][day].push(m);
     });
 
-    const dayKeys = Object.keys(byDate).sort((a, b) => {
-      const ta = new Date(byDate[a][0]?.kickoff || 0).getTime();
-      const tb = new Date(byDate[b][0]?.kickoff || 0).getTime();
-      return tb - ta;
+    const mdOrder=[3,2,1].filter(md=>byMatchday[md]);
+    let html=groupStageProgressHTML();
+    if(!completed.length)html+=`<div class="empty">${esc(d.noCompleted)}</div>`;
+    mdOrder.forEach(md=>{
+      const days=byMatchday[md];
+      const count=Object.values(days).reduce((n,ms)=>n+ms.length,0);
+      const done=count>=24?` · ${esc(d.matchdayComplete)}`:'';
+      html+=`<div class="matchday-section"><div class="matchday-header"><span>${esc(matchdayLabel(md))}</span> — ${count} / 24${done}</div>`;
+      const dayKeys=Object.keys(days).sort((a,b)=>new Date(days[b][0]?.kickoff||0)-new Date(days[a][0]?.kickoff||0));
+      dayKeys.forEach(dayString=>{
+        const matches=days[dayString].sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
+        html+=`<div class="completed-day-block"><div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length!==1?'es':''}</div><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`;
+      });
+      html+=`</div>`;
     });
-
-    targetGrid.innerHTML = completed.length === 0 ? `<div class="empty">${esc(d.noCompleted)}</div>` :
-      dayKeys.map(dayString => {
-        const matches = byDate[dayString].sort((a, b) => new Date(b.kickoff || 0) - new Date(a.kickoff || 0));
-        return `<div class="completed-day-block">
-          <div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length !== 1 ? 'es' : ''}</div>
-          <div class="card-grid">${matches.map(renderCompleted).join('')}</div>
-        </div>`;
-      }).join('');
+    targetGrid.innerHTML=html;
   }
 }
 
@@ -1174,7 +1214,7 @@ async function loadData(){
     if(Array.isArray(json.knockoutEliminated))knockoutEliminated=new Set(json.knockoutEliminated.map(normalizeTeamName));
     else knockoutEliminated=new Set();
     try{const cj=await fetchJson('completed_matches.json?v='+Date.now());if(Array.isArray(cj))completedArchive=cj;}catch(e){}
-    meta={lastUpdated:json.lastUpdated,currentStage:json.currentStage};
+    meta={lastUpdated:json.lastUpdated,currentStage:json.currentStage,groupStageProgress:json.groupStageProgress};
     if(meta.currentStage)currentStage=meta.currentStage;
     document.getElementById('status-pane').style.display='none';
     document.getElementById('view-grid').classList.add('active');
@@ -1185,7 +1225,7 @@ async function loadData(){
       try{
         const j=await fetchJson('data.json?v='+Date.now());
         if(Array.isArray(j.matches)){
-          allMatches=sanitizeMatches(j.matches);meta.lastUpdated=j.lastUpdated;
+          allMatches=sanitizeMatches(j.matches);meta.lastUpdated=j.lastUpdated;meta.groupStageProgress=j.groupStageProgress;
           if(Array.isArray(j.knockoutEliminated))knockoutEliminated=new Set(j.knockoutEliminated.map(normalizeTeamName));
           applyLabels();
           try{if(currentView==='bracket')renderBracket();else renderGrid();}catch(e){console.error(e);}

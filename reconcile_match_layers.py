@@ -31,6 +31,7 @@ from datetime import datetime, timezone
 
 from data_utils import OUTPUT_FILE, atomic_write, format_utc_display, load_data
 from match_stats import FLAG_CODES, enrich_completed_match
+from matchday_utils import group_stage_progress, tag_matchdays
 from public_scores import (
     TOURNAMENT_END,
     TOURNAMENT_START,
@@ -224,11 +225,10 @@ def main() -> int:
             imported,
             stats["skipped"],
         )
-        if not args.dry_run and (
-            any(stats[k] for k in ("promoted_live", "promoted_completed", "score_fixes"))
-            or imported
-        ):
+        if not args.dry_run:
             data["matches"] = matches
+            tag_matchdays(matches)
+            data["groupStageProgress"] = group_stage_progress(matches)
             data["lastUpdated"] = format_utc_display(datetime.now(timezone.utc))
             atomic_write(OUTPUT_FILE, data)
             log.info("Wrote %s", OUTPUT_FILE)

@@ -52,6 +52,10 @@ def main() -> None:
             log.info("Zeroed tournament winner odds on %d field(s).", n)
     data["knockoutEliminated"] = sorted(eliminated)
 
+    from matchday_utils import group_stage_progress, tag_matchdays
+    tag_matchdays(matches)
+    data["groupStageProgress"] = group_stage_progress(matches)
+
     atomic_write(OUTPUT_FILE, data)
     log.info("Sanitized data.json: %d ghost match(es) removed, %d remain.", before - after, after)
 
