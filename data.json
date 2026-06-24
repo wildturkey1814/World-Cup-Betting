@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 24, 2026 · 10:34 AM UTC",
+  "lastUpdated": "June 24, 2026 · 10:36 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -249,7 +249,7 @@
       "homeScore": 4,
       "awayScore": 1,
       "score": "UNITED STATES 4 - 1 PARAGUAY",
-      "kalshiWinProbHome": "4.6%",
+      "kalshiWinProbHome": "4.5%",
       "polymarketWinProbHome": "3.5%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbAway": "0.1%",
@@ -3610,9 +3610,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "62.6%",
-          "draw": "30.0%",
-          "und": "7.3%"
+          "fav": "81.3%",
+          "draw": "13.0%",
+          "und": "5.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3775,8 +3775,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "6.2%",
-          "draw": "29.1%",
-          "und": "64.7%"
+          "draw": "29.3%",
+          "und": "64.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3913,7 +3913,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "4.6%",
+      "kalshiWinProbAway": "4.5%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "3.5%",
       "homeMomentumFactor": "+0.306",
@@ -5767,7 +5767,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "4.6%",
+      "kalshiWinProbHome": "4.5%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "3.5%",
       "polymarketWinProbAway": "0.2%"
@@ -6644,7 +6644,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 24, 2026 · 10:34 AM UTC",
+  "kalshiUpdated": "June 24, 2026 · 10:36 AM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Haiti",
@@ -6654,5 +6654,5 @@
     "Tunisia",
     "Turkey"
   ],
-  "polymarketUpdated": "June 24, 2026 · 10:34 AM UTC"
+  "polymarketUpdated": "June 24, 2026 · 10:36 AM UTC"
 }
