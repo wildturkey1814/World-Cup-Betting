@@ -466,8 +466,10 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .pc-model-row{display:grid;grid-template-columns:minmax(0,1fr) 46px 46px 46px;gap:3px;align-items:center;font-size:9px;color:var(--text-lo);}
 .pc-model-row.head{font-weight:800;color:var(--text-lo);font-size:7px;letter-spacing:0.2px;line-height:1.25;}
 .pc-model-row.head .pc-model-pct{white-space:normal;}
-.pc-model-pct.fav{color:var(--green);}
-.pc-model-pct.und{color:var(--text-mid);}
+.pc-model-footnote{font-size:8px;color:var(--text-lo);margin-top:6px;line-height:1.35;}
+.pc-model-pct.home{color:var(--neon);}
+.pc-model-pct.away{color:rgba(248,113,113,0.85);}
+.pc-model-pct.fav-pick{font-weight:900;text-decoration:underline;text-underline-offset:2px;}
 .pc-model-src{font-weight:700;color:var(--text-mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .pc-model-pct{font-weight:800;text-align:center;font-variant-numeric:tabular-nums;color:var(--text-hi);}
 .pc-model-pct.draw{color:var(--neon);}
@@ -659,11 +661,16 @@ const DICT = {
     pcVerdictDeserved: 'Deserved result',
     pcVerdictVariance: 'High variance',
     pcVerdictMargins: 'Fine margins',
-    pcClosingLine: 'Model closing line',
+    pcClosingLine: 'Pre-match win %',
+    pcPreMatchFav: 'Pre-match favorite',
+    pcPreMatchHint: 'Win probability before kickoff (home · draw · away).',
     pcEffDelta: 'Supercharger+ efficiency Δ',
     pcEffCaption: 'Goal conversion vs xG, adjusted for pitch control (χ shift estimate).',
     pcFieldTilt: 'Field tilt',
     pcPossession: 'Possession',
+    pcShots: 'Shots',
+    pcShotsOnTarget: 'Shots on target',
+    pcGoalsMinusXg: 'Goals − xG',
     pcConversion: 'Goal conversion',
     pcPostMortem: 'Post-match analytics',
     pcTapFlip: 'tap card for strategic analysis',
@@ -1787,6 +1794,11 @@ function assessModelBeat(match,d){
   return null;
 }
 function buildClosingLineHTML(match,d){
+  const homeLbl=teamColHeader(match.home);
+  const awayLbl=teamColHeader(match.away);
+  const favIsHome=match.favTeam===match.home;
+  const homeHdrCls=`home${favIsHome?' fav-pick':''}`;
+  const awayHdrCls=`away${!favIsHome&&match.favTeam?' fav-pick':''}`;
   const norm={};
   (match.layers||[]).forEach(l=>{const k=canonSrc(l.source);if(!norm[k])norm[k]=l;});
   const sources=['Sportsbooks (Consensus)','ELO/Poisson Model'];
@@ -1794,18 +1806,27 @@ function buildClosingLineHTML(match,d){
     'Sportsbooks (Consensus)':'Sportsbooks',
     'ELO/Poisson Model':'ELO/Poisson',
   };
-  const head=`<div class="pc-model-row head"><span class="pc-model-src">&nbsp;</span><span class="pc-model-pct fav" title="${esc(d.favBadge||'FAV')}">${esc(d.pcColFav)}</span><span class="pc-model-pct draw" title="${esc(d.colDraw)}">${esc(d.pcColDraw)}</span><span class="pc-model-pct und" title="${esc(d.undBadge||'UND')}">${esc(d.pcColUnd)}</span></div>`;
+  const head=`<div class="pc-model-row head"><span class="pc-model-src">&nbsp;</span><span class="pc-model-pct ${homeHdrCls}">${esc(homeLbl)}</span><span class="pc-model-pct draw">${esc(d.pcColDraw)}</span><span class="pc-model-pct ${awayHdrCls}">${esc(awayLbl)}</span></div>`;
   const rows=sources.map(s=>{
-    const l=norm[s];
-    const fp=l?parsePctStr(l.fav):null;
-    const dp=l?parsePctStr(l.draw):null;
-    const up=l?parsePctStr(l.und):null;
+    const p=layerHomeAwayProbs(norm[s]);
     const fmt=v=>v!=null?`${v.toFixed(1)}%`:'—';
-    return`<div class="pc-model-row"><span class="pc-model-src">${esc(srcShort[s]||s)}</span><span class="pc-model-pct fav">${fmt(fp)}</span><span class="pc-model-pct draw">${fmt(dp)}</span><span class="pc-model-pct und">${fmt(up)}</span></div>`;
+    return`<div class="pc-model-row"><span class="pc-model-src">${esc(srcShort[s]||s)}</span><span class="pc-model-pct home">${fmt(p.home)}</span><span class="pc-model-pct draw">${fmt(p.draw)}</span><span class="pc-model-pct away">${fmt(p.away)}</span></div>`;
   }).join('');
   const beat=assessModelBeat(match,d);
   const beatHTML=beat?`<span class="pc-beat-badge ${beat.type}">${esc(beat.text)}</span>`:'';
-  return`<div class="pc-analytics-panel"><div class="pc-analytics-label">${esc(d.pcClosingLine)}</div><div class="pc-model-rows">${head}${rows}</div><div class="pc-beat-slot">${beatHTML}</div></div>`;
+  const favNote=match.favTeam?`<div class="pc-model-footnote">${esc(d.pcPreMatchFav)}: <strong>${esc(tn(match.favTeam))}</strong> · ${esc(d.pcPreMatchHint)}</div>`:`<div class="pc-model-footnote">${esc(d.pcPreMatchHint)}</div>`;
+  return`<div class="pc-analytics-panel"><div class="pc-analytics-label">${esc(d.pcClosingLine)}</div><div class="pc-model-rows">${head}${rows}</div><div class="pc-beat-slot">${beatHTML}</div>${favNote}</div>`;
+}
+function teamColHeader(name){
+  const n=tn(name).trim();
+  if(!n)return'—';
+  const w=n.split(/\s+/).pop()||n;
+  return w.length>6?w.slice(0,5):w;
+}
+/** Pipeline stores home win % in layer.fav and away win % in layer.und. */
+function layerHomeAwayProbs(l){
+  if(!l)return{home:null,draw:null,away:null};
+  return{home:parsePctStr(l.fav),draw:parsePctStr(l.draw),away:parsePctStr(l.und)};
 }
 function computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs){
   const hTilt=adv?.fieldTilt?.home??match.metrics?.fieldTilt?.home??null;
@@ -1825,7 +1846,10 @@ function computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs){
   const chiEst=ped!=null?+(ped*0.35+tiltBias).toFixed(3):null;
   return{hOver,aOver,hConv,aConv,hTilt,aTilt,hp,ap,ped,pedTeam,chiEst};
 }
-function buildEfficiencyPanelHTML(match,eff,d){
+function buildEfficiencyPanelHTML(match,eff,d,bs){
+  const homeLbl=teamColHeader(match.home);
+  const awayLbl=teamColHeader(match.away);
+  const pairLbl=`${esc(homeLbl)} · ${esc(awayLbl)}`;
   const sign=eff.ped!=null&&eff.ped>0?'+':'';
   const deltaCls=eff.ped==null?'':eff.ped>0?'pos':eff.ped<0?'neg':'';
   const deltaTxt=eff.ped!=null?`${sign}${eff.ped.toFixed(2)}`:'—';
@@ -1833,16 +1857,21 @@ function buildEfficiencyPanelHTML(match,eff,d){
   const teamNote=eff.pedTeam?`${tn(eff.pedTeam)} · `:'';
   const fmtPct=v=>v!=null?`${Number(v).toFixed(1)}%`:'—';
   const fmtNum=v=>v!=null?Number(v).toFixed(2):'—';
+  const fmtInt=v=>v!=null?String(v):'—';
+  const sh=bs?.shots?.home??match.metrics?.shots?.home;
+  const sa=bs?.shots?.away??match.metrics?.shots?.away;
+  const sotH=bs?.shotsOnTarget?.home??match.metrics?.shotsOnTarget?.home;
+  const sotA=bs?.shotsOnTarget?.away??match.metrics?.shotsOnTarget?.away;
   return`<div class="pc-analytics-label">${esc(d.pcPostMortem)}</div>
     <div class="pc-eff-block">
       <div style="font-size:8px;font-weight:800;color:var(--text-lo);letter-spacing:0.5px;text-transform:uppercase;">${esc(d.pcEffDelta)}</div>
       <div class="pc-eff-delta ${deltaCls}">${esc(deltaTxt)}</div>
       <div class="pc-eff-caption">${esc(teamNote)}${esc(d.pcEffCaption)}${chiTxt?` · ${esc(chiTxt)}`:''}</div>
       <div class="pc-eff-grid">
-        <div class="pc-eff-stat">${esc(d.pcFieldTilt)}<strong>${fmtPct(eff.hTilt)} · ${fmtPct(eff.aTilt)}</strong></div>
         <div class="pc-eff-stat">${esc(d.pcPossession)}<strong>${fmtPct(eff.hp)} · ${fmtPct(eff.ap)}</strong></div>
-        <div class="pc-eff-stat">${esc(d.pcOverXg)} (H/A)<strong>${fmtNum(eff.hOver)} · ${fmtNum(eff.aOver)}</strong></div>
-        <div class="pc-eff-stat">${esc(d.pcConversion)} (H/A)<strong>${fmtNum(eff.hConv)} · ${fmtNum(eff.aConv)}</strong></div>
+        <div class="pc-eff-stat">${esc(d.pcShots)}<strong>${fmtInt(sh)} · ${fmtInt(sa)}</strong></div>
+        <div class="pc-eff-stat">${esc(d.pcShotsOnTarget)}<strong>${fmtInt(sotH)} · ${fmtInt(sotA)}</strong></div>
+        <div class="pc-eff-stat">${esc(d.pcGoalsMinusXg)} (${pairLbl})<strong>${fmtNum(eff.hOver)} · ${fmtNum(eff.aOver)}</strong></div>
       </div>
     </div>`;
 }
@@ -1865,7 +1894,7 @@ function renderCompleted(rawMatch){
   </div>`;
   const closingHTML=buildClosingLineHTML(match,d);
   const eff=computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs);
-  const analyticsRight=buildEfficiencyPanelHTML(match,eff,d);
+  const analyticsRight=buildEfficiencyPanelHTML(match,eff,d,bs);
 
   const front=`<div class="flip-face flip-face-front pc-front-layout">
     <div class="pc-col pc-col-left">
