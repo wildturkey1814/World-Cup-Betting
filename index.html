@@ -397,6 +397,7 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .group-header-meta{font-size:11px;color:var(--text-mid);flex:1;}
 .group-header-chevron{font-size:10px;color:var(--text-lo);}
 .group-body{padding-top:6px;}
+#live-section{margin-bottom:10px;}
 .completed-day-block{margin-bottom:18px;}
 .completed-day-header{
   font-size:12px;font-weight:800;color:var(--gold-hi);letter-spacing:0.3px;
@@ -448,6 +449,25 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .flip-card-inner{position:relative; transform-style:preserve-3d; -webkit-transform-style:preserve-3d; transition:transform 0.6s cubic-bezier(0.4,0.2,0.2,1); width:100%; height:100%;}
 .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
 .flip-face{backface-visibility:hidden; -webkit-backface-visibility:hidden;}
+.pc-scorer-sheet{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05);font-size:10px;line-height:1.55;}
+.pc-scorer-col{display:flex;flex-direction:column;gap:2px;color:var(--text-mid);}
+.pc-scorer-col.home{text-align:left;}
+.pc-scorer-col.away{text-align:right;}
+.pc-scorer-line{font-weight:600;color:var(--text-hi);}
+.pc-scorer-line .pc-scorer-min{color:var(--text-lo);font-weight:700;margin-right:4px;}
+.pc-scorer-line .pc-scorer-min.right{margin-right:0;margin-left:4px;}
+.pc-moments-list{display:flex;flex-direction:column;gap:5px;}
+.pc-moment-row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:6px;font-size:10px;padding:4px 6px;border-radius:4px;background:rgba(255,255,255,0.02);}
+.pc-moment-row.home{border-left:2px solid var(--neon);}
+.pc-moment-row.away{border-left:2px solid rgba(248,113,113,0.75);}
+.pc-moment-min{font-weight:800;color:var(--text-lo);font-variant-numeric:tabular-nums;}
+.pc-moment-name{font-weight:700;color:var(--text-hi);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pc-moment-team{font-weight:600;color:var(--text-lo);font-size:9px;}
+.pc-moment-score{font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;font-size:11px;}
+.pc-potm-box{background:rgba(232,160,32,0.02);border:1px solid rgba(232,160,32,0.08);padding:8px 6px;border-radius:6px;text-align:center;}
+.pc-potm-name{font-size:11px;font-weight:800;color:#fff;margin-top:4px;line-height:1.3;}
+.pc-potm-team{font-size:9px;font-weight:600;color:var(--text-lo);margin-top:2px;}
+.pc-potm-note{font-size:8px;color:var(--text-lo);margin-top:4px;line-height:1.35;}
 
 /* ── CARD GRID ── */
 .sort-row{display:flex;gap:6px;align-items:center;}
@@ -504,11 +524,6 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
     </div>
   </div>
 
-  <div id="live-section" style="display:none">
-    <div class="live-now-banner"><div class="live-pulse"></div>LIVE NOW</div>
-    <div id="live-list" class="card-grid"></div>
-  </div>
-
   <div class="tournament-summary-section" id="tournament-summary-section">
     <div class="tournament-summary-wrap" id="tournament-summary-wrap">
       <div class="tournament-summary" id="tournament-summary-panel"></div>
@@ -532,6 +547,11 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
       <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>DRAW — draw probability high</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>UPSET — ELO backs underdog</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>VALUE — ELO backs favourite</div>
+    </div>
+
+    <div id="live-section" style="display:none">
+      <div class="live-now-banner"><div class="live-pulse"></div>LIVE NOW</div>
+      <div id="live-list" class="card-grid"></div>
     </div>
 
     <div class="section-head" id="grid-header-bar">
@@ -1648,9 +1668,95 @@ function mergeArchiveData(match){
       advancedMetrics:arc.advancedMetrics||merged.advancedMetrics,
       insights:(arc.insights&&arc.insights.length)?arc.insights:(merged.insights||[]),
       insight:merged.insight||arc.insight,
+      potm:arc.potm||merged.potm||arc.playerOfMatch||merged.playerOfMatch,
     };
   }
   return merged;
+}
+
+function teamShortName(name){
+  const n=String(name||'').trim();
+  if(!n)return'';
+  const parts=n.split(/\s+/);
+  return parts.length>1&&parts[0].length<=3?parts.join(' '):parts[parts.length-1];
+}
+function goalScorerLabel(g,homeName,awayName){
+  const s=String(g.scorer||'').trim();
+  if(s)return s;
+  return g.team==='home'?homeName:awayName;
+}
+function runningScoreAfterGoal(goals,idx){
+  const h=goals.slice(0,idx+1).filter(x=>x.team==='home').length;
+  const a=goals.slice(0,idx+1).filter(x=>x.team==='away').length;
+  return`${h}–${a}`;
+}
+function buildCompletedScorerSheet(goals,home,away){
+  if(!goals.length)return'';
+  const homeLines=goals.filter(g=>g.team==='home').map(g=>{
+    const min=g.minute!=null?`${g.minute}'`:'';
+    const name=goalScorerLabel(g,home,away);
+    return`<div class="pc-scorer-line"><span class="pc-scorer-min">${esc(min)}</span>${esc(name)}</div>`;
+  }).join('');
+  const awayLines=goals.filter(g=>g.team==='away').map(g=>{
+    const min=g.minute!=null?`${g.minute}'`:'';
+    const name=goalScorerLabel(g,home,away);
+    return`<div class="pc-scorer-line">${esc(name)}<span class="pc-scorer-min right">${esc(min)}</span></div>`;
+  }).join('');
+  return`<div class="pc-scorer-sheet"><div class="pc-scorer-col home">${homeLines||'<span style="color:var(--text-lo);font-style:italic;">—</span>'}</div><div class="pc-scorer-col away">${awayLines||'<span style="color:var(--text-lo);font-style:italic;">—</span>'}</div></div>`;
+}
+function buildCompletedMomentsHTML(goals,home,away){
+  if(!goals.length)return'<div style="color:var(--text-lo);font-style:italic;font-size:11px;">No goals scored.</div>';
+  return`<div class="pc-moments-list">${goals.map((g,idx)=>{
+    const side=g.team==='home'?'home':'away';
+    const teamName=g.team==='home'?home:away;
+    const scorer=String(g.scorer||'').trim();
+    const min=g.minute!=null?`${g.minute}'`:'—';
+    const score=runningScoreAfterGoal(goals,idx);
+    const nameLine=scorer
+      ?`<span class="pc-moment-name">${esc(scorer)}</span> <span class="pc-moment-team">${esc(teamShortName(teamName))}</span>`
+      :`<span class="pc-moment-name">${esc(teamName)}</span> <span class="pc-moment-team">goal</span>`;
+    return`<div class="pc-moment-row ${side}"><span class="pc-moment-min">${esc(min)}</span><div>${nameLine}</div><span class="pc-moment-score">${esc(score)}</span></div>`;
+  }).join('')}</div>`;
+}
+function resolvePlayerOfMatch(match,goals,home,away,homeWon,awayWon){
+  const bs=match.boxScore,adv=match.advancedMetrics;
+  const raw=match.potm||match.playerOfMatch||bs?.playerOfMatch||adv?.potm;
+  if(raw){
+    if(typeof raw==='string')return{name:raw,team:null,note:null};
+    if(typeof raw==='object'){
+      const name=raw.name||raw.player||raw.displayName;
+      if(name)return{name,team:raw.team||null,note:raw.note||null};
+    }
+  }
+  const winSide=homeWon?'home':awayWon?'away':null;
+  const named=goals.filter(g=>String(g.scorer||'').trim());
+  let pool=winSide?named.filter(g=>g.team===winSide):named;
+  if(!pool.length&&named.length)pool=named;
+  if(!pool.length)return null;
+  const counts={};
+  pool.forEach(g=>{const n=String(g.scorer).trim();counts[n]=(counts[n]||0)+1;});
+  const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]||0)[0];
+  const pick=pool.find(g=>String(g.scorer).trim()===top[0]);
+  const team=pick?.team==='home'?home:(pick?.team==='away'?away:(winSide==='home'?home:winSide==='away'?away:null));
+  const note=top[1]>1?`${top[1]} goals`:null;
+  return{name:top[0],team,note};
+}
+function renderPotmHTML(potm){
+  if(!potm){
+    return`<div class="pc-potm-box">
+      <div style="font-size:7px;font-weight:800;color:var(--gold);letter-spacing:0.5px;">PLAYER OF THE MATCH</div>
+      <div class="pc-potm-name" style="color:var(--text-lo);font-weight:600;">Not available</div>
+      <div class="pc-potm-note">Named scorers not in feed for this match.</div>
+    </div>`;
+  }
+  const teamLine=potm.team?`<div class="pc-potm-team">${esc(potm.team)}</div>`:'';
+  const noteLine=potm.note?`<div class="pc-potm-note">${esc(potm.note)}</div>`:'';
+  return`<div class="pc-potm-box">
+    <div style="font-size:7px;font-weight:800;color:var(--gold);letter-spacing:0.5px;">PLAYER OF THE MATCH</div>
+    <div class="pc-potm-name">${esc(potm.name)}</div>
+    ${teamLine}
+    ${noteLine}
+  </div>`;
 }
 
 function renderCompleted(rawMatch){
@@ -1665,27 +1771,10 @@ function renderCompleted(rawMatch){
   const hXg=adv?.xg?.home??null,aXg=adv?.xg?.away??null;
 
   const goals=(bs?.goals||[]).sort((a,b)=>(a.minute||0)-(b.minute||0));
-  let momentsHTML='';
-  let scorecardGoalsHTML='';
-  
-  if(goals.length){
-    momentsHTML=goals.map((g, idx)=>{
-      const runningScore = `${goals.filter((x,i)=>i<=idx&&x.team==='home').length} - ${goals.filter((x,i)=>i<=idx&&x.team==='away').length}`;
-      return `<div class="pc-goal-item" style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:4px;">
-        <span>⚽ ${g.minute}' ${esc(g.scorer)}</span>
-        <span style="color:var(--gold); font-weight:700;">${runningScore}</span>
-      </div>`;
-    }).join('');
-
-    const hGoals=goals.filter(g=>g.team==='home').map(g=>`<div>${g.minute}' ${esc(g.scorer)} ⚽</div>`).join('');
-    const aGoals=goals.filter(g=>g.team==='away').map(g=>`<div>⚽ ${esc(g.scorer)} ${g.minute}'</div>`).join('');
-    scorecardGoalsHTML=`<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:11px; color:var(--text-mid); margin-top:10px; border-top:1px solid rgba(255,255,255,0.05); padding-top:8px;">
-      <div style="text-align:left;">${hGoals}</div>
-      <div style="text-align:right;">${aGoals}</div>
-    </div>`;
-  } else {
-    momentsHTML=`<div style="color:var(--text-lo); font-style:italic; font-size:11px;">No goals scored.</div>`;
-  }
+  const scorerSheetHTML=buildCompletedScorerSheet(goals,home,away);
+  const momentsHTML=buildCompletedMomentsHTML(goals,home,away);
+  const potm=resolvePlayerOfMatch(match,goals,home,away,homeWon,awayWon);
+  const potmHTML=renderPotmHTML(potm);
 
   const statRows=[
     {lbl:'POSSESSION', h:`${hp}%`, a:`${ap}%`},
@@ -1721,19 +1810,14 @@ function renderCompleted(rawMatch){
             <span style="font-size:12px; font-weight:900; letter-spacing:0.5px; ${awayWon?'color:var(--green);':''}">${esc(away.toUpperCase())}</span>
           </div>
         </div>
-        ${scorecardGoalsHTML}
+        ${scorerSheetHTML}
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.05);">
         <div>
           <div style="font-size:8px; font-weight:800; color:var(--gold); letter-spacing:1px; margin-bottom:4px;">KEY MOMENTS</div>
           ${momentsHTML}
         </div>
-        <div style="background:rgba(232,160,32,0.02); border:1px solid rgba(232,160,32,0.08); padding:6px; border-radius:6px; text-align:center;">
-          <div style="font-size:7px; font-weight:800; color:var(--gold); letter-spacing:0.5px;">PLAYER OF THE MATCH</div>
-          <div style="font-size:11px; font-weight:800; color:#fff; margin-top:4px;">${homeWon ? esc(home) : esc(away)} MVP</div>
-          <div style="font-size:18px; font-weight:900; color:var(--gold); margin-top:2px;">9.4</div>
-          <div style="font-size:7px; color:var(--text-lo); font-weight:600;">MATCH RATING</div>
-        </div>
+        ${potmHTML}
       </div>
       <div style="text-align: left; font-size: 10px; font-weight: 700; color: var(--gold); margin-top:12px;">➔ tap card for strategic analysis</div>
     </div>
