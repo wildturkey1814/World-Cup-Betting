@@ -744,7 +744,8 @@ function canonSrc(s){return SRC_CANONICAL[s]||s;}
 
 /* ── MANAGEMENT VARIABLES ── */
 let lang='en',currentView='grid',currentStage='Group Stage',currentSort='time',searchQuery='',allMatches=[],completedArchive=[],meta={},knockoutEliminated=new Set();
-let currentMatchState='upcoming'; 
+let currentMatchState='upcoming';
+const expandedGroups=new Set();
 const STAGES=['Group Stage','Round of 32','Round of 16','Quarter-Finals','Semi-Finals','Final'];
 const STAGE_KEYS={'Group Stage':'groupStage','Round of 32':'r32','Round of 16':'r16','Quarter-Finals':'quarters','Semi-Finals':'semis','Final':'final'};
 
@@ -1730,13 +1731,13 @@ function toggleGroup(k){if(expandedGroups.has(k))expandedGroups.delete(k);else e
 
 /* ── STATE SWITCH TOGGLE NODE ── */
 function switchMatchState(state){
-  currentMatchState = state;
-  document.getElementById('btn-state-upcoming').classList.toggle('active', state==='upcoming');
-  document.getElementById('btn-state-completed').classList.toggle('active', state==='completed');
-  document.getElementById('signal-legend-box').style.display = state==='upcoming' ? 'flex' : 'none';
+  currentMatchState=state;
+  document.getElementById('btn-state-upcoming').classList.toggle('active',state==='upcoming');
+  document.getElementById('btn-state-completed').classList.toggle('active',state==='completed');
+  document.getElementById('signal-legend-box').style.display=state==='upcoming'?'flex':'none';
   expandedGroups.clear();
   renderTournamentSummary();
-  renderGrid();
+  try{renderGrid();}catch(err){console.error(err);showError('Could not refresh match list.');}
 }
 
 /* ── RENDER GRID ── */
