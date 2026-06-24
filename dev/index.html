@@ -1992,7 +1992,7 @@ async function loadData(){
     },60000);
   }catch(e){console.error(e);showError(e.name==='AbortError'?'Timed out loading data.json.':e.message);}
 }
-applyLabels();loadData();
+bindFilterControls();syncMatchStateUI();applyLabels();loadData();
 </script>
 </body>
 </html>
