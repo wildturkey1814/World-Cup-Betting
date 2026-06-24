@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 23, 2026 · 10:20 PM UTC",
+  "lastUpdated": "June 24, 2026 · 1:28 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -373,7 +373,7 @@
       "awayScore": 1,
       "score": "QATAR 1 - 1 SWITZERLAND",
       "kalshiWinProbAway": "0.5%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.7%",
       "boxScore": {
         "possession": {
@@ -459,7 +459,8 @@
       ],
       "insight": "The match ended 1-1.",
       "homeFlag": "qat",
-      "awayFlag": "sui"
+      "awayFlag": "sui",
+      "kalshiWinProbHome": "0.0%"
     },
     {
       "id": "537339",
@@ -3196,7 +3197,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Panama",
       "away": "Croatia",
       "favTeam": "Croatia",
@@ -3228,7 +3229,93 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.5%",
       "homeMomentumFactor": "+0.000",
-      "awayMomentumFactor": "+0.000"
+      "awayMomentumFactor": "+0.000",
+      "homeScore": 0,
+      "awayScore": 1,
+      "score": "PANAMA 0 - 1 CROATIA",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "insight": "Croatia won 1-0.",
+      "boxScore": {
+        "possession": {
+          "home": 57.4,
+          "away": 42.6
+        },
+        "shots": {
+          "home": 13,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 2
+        },
+        "corners": {
+          "home": 4,
+          "away": 4
+        },
+        "fouls": {
+          "home": 8,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 22,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.16,
+          "away": 1.0
+        },
+        "fieldTilt": {
+          "home": 59.6,
+          "away": 40.4
+        },
+        "ppda": {
+          "home": 11.2,
+          "away": 13.5
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 536,
+          "away": 353
+        },
+        "finalThirdEntries": {
+          "home": 47,
+          "away": 33
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Croatia absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Croatia converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Croatia generating danger from corners and free-kicks throughout."
+        }
+      ]
     },
     {
       "id": "match_id1000001666457036",
@@ -3266,7 +3353,7 @@
       "kalshiWinProbHome": "1.6%",
       "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.000",
+      "homeMomentumFactor": "-0.306",
       "awayMomentumFactor": "-0.035"
     },
     {
@@ -3302,9 +3389,10 @@
           "und": "12.1%"
         }
       ],
-      "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.000",
-      "awayMomentumFactor": "+0.120"
+      "polymarketWinProbAway": "0.0%",
+      "homeMomentumFactor": "+0.202",
+      "awayMomentumFactor": "+0.767",
+      "kalshiWinProbAway": "0.0%"
     },
     {
       "id": "match_id1000001666456924",
@@ -3343,8 +3431,8 @@
       "kalshiWinProbAway": "0.3%",
       "polymarketWinProbHome": "0.7%",
       "polymarketWinProbAway": "0.4%",
-      "homeMomentumFactor": "-0.005",
-      "awayMomentumFactor": "-0.202"
+      "homeMomentumFactor": "+0.010",
+      "awayMomentumFactor": "-0.556"
     },
     {
       "id": "match_id1000001666456936",
@@ -3383,7 +3471,7 @@
       "kalshiWinProbAway": "4.9%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.2%",
-      "homeMomentumFactor": "-0.360",
+      "homeMomentumFactor": "+0.024",
       "awayMomentumFactor": "+0.020"
     },
     {
@@ -3421,7 +3509,7 @@
       ],
       "kalshiWinProbHome": "1.9%",
       "polymarketWinProbHome": "1.7%",
-      "homeMomentumFactor": "+0.208",
+      "homeMomentumFactor": "-0.024",
       "awayMomentumFactor": "+0.230",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%"
@@ -3462,8 +3550,8 @@
       "kalshiWinProbAway": "1.8%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "1.2%",
-      "homeMomentumFactor": "-0.225",
-      "awayMomentumFactor": "-0.311",
+      "homeMomentumFactor": "-0.109",
+      "awayMomentumFactor": "-0.335",
       "kalshiWinProbHome": "0.0%"
     },
     {
@@ -3502,8 +3590,8 @@
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "+0.426",
-      "awayMomentumFactor": "+0.383",
+      "homeMomentumFactor": "+0.283",
+      "awayMomentumFactor": "+0.439",
       "kalshiWinProbHome": "0.0%"
     },
     {
@@ -3544,7 +3632,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.5%",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "-0.969"
+      "awayMomentumFactor": "-0.694"
     },
     {
       "id": "match_id1000001666457080",
@@ -3581,8 +3669,8 @@
       ],
       "kalshiWinProbAway": "0.3%",
       "polymarketWinProbAway": "0.4%",
-      "homeMomentumFactor": "+0.157",
-      "awayMomentumFactor": "-0.356"
+      "homeMomentumFactor": "+0.718",
+      "awayMomentumFactor": "-0.156"
     },
     {
       "id": "match_id1000001666456978",
@@ -3700,7 +3788,7 @@
       "kalshiWinProbAway": "4.6%",
       "polymarketWinProbAway": "3.5%",
       "homeMomentumFactor": "+0.306",
-      "awayMomentumFactor": "-0.051",
+      "awayMomentumFactor": "-0.235",
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%"
     },
@@ -3741,7 +3829,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "-0.017",
-      "awayMomentumFactor": "-0.087"
+      "awayMomentumFactor": "+0.235"
     },
     {
       "id": "match_id1000001666457014",
@@ -3780,8 +3868,8 @@
       "kalshiWinProbAway": "20.1%",
       "polymarketWinProbHome": "3.0%",
       "polymarketWinProbAway": "19.2%",
-      "homeMomentumFactor": "+1.223",
-      "awayMomentumFactor": "-0.147"
+      "homeMomentumFactor": "+0.647",
+      "awayMomentumFactor": "+0.007"
     },
     {
       "id": "match_id1000001666457016",
@@ -3818,9 +3906,10 @@
       ],
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.397",
-      "awayMomentumFactor": "+0.000"
+      "awayMomentumFactor": "-0.005",
+      "kalshiWinProbAway": "0.0%"
     },
     {
       "id": "match_id1000001666457004",
@@ -3858,8 +3947,8 @@
       "kalshiWinProbHome": "0.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.000",
-      "awayMomentumFactor": "+0.043"
+      "homeMomentumFactor": "+0.403",
+      "awayMomentumFactor": "+0.251"
     },
     {
       "id": "match_id1000001666457002",
@@ -3898,8 +3987,8 @@
       "kalshiWinProbAway": "13.3%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "13.9%",
-      "homeMomentumFactor": "+0.080",
-      "awayMomentumFactor": "-0.004"
+      "homeMomentumFactor": "-0.121",
+      "awayMomentumFactor": "-0.215"
     },
     {
       "id": "match_id1000001666456992",
@@ -3938,7 +4027,7 @@
       "polymarketWinProbHome": "0.2%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.028",
-      "awayMomentumFactor": "-0.185"
+      "awayMomentumFactor": "-0.041"
     },
     {
       "id": "match_id1000001666456990",
@@ -3977,7 +4066,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.1%",
       "homeMomentumFactor": "+0.302",
-      "awayMomentumFactor": "-0.063"
+      "awayMomentumFactor": "-0.022"
     },
     {
       "id": "match_id1000001666457050",
@@ -4015,8 +4104,8 @@
       "kalshiWinProbAway": "10.3%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "11.1%",
-      "homeMomentumFactor": "+0.000",
-      "awayMomentumFactor": "+0.063"
+      "homeMomentumFactor": "+0.638",
+      "awayMomentumFactor": "+0.254"
     },
     {
       "id": "match_id1000001666457052",
@@ -4054,8 +4143,8 @@
       "kalshiWinProbHome": "0.4%",
       "polymarketWinProbHome": "0.5%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.000",
-      "awayMomentumFactor": "+0.053"
+      "homeMomentumFactor": "-0.492",
+      "awayMomentumFactor": "-0.138"
     },
     {
       "id": "match_id1000001666457038",
@@ -4094,8 +4183,8 @@
       "kalshiWinProbAway": "9.0%",
       "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "8.0%",
-      "homeMomentumFactor": "+0.000",
-      "awayMomentumFactor": "+0.149"
+      "homeMomentumFactor": "-0.306",
+      "awayMomentumFactor": "-0.305"
     },
     {
       "id": "match_id1000001666457040",
@@ -4133,7 +4222,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.035",
-      "awayMomentumFactor": "+0.000"
+      "awayMomentumFactor": "+0.637"
     },
     {
       "id": "match_id1000001666457028",
@@ -4172,7 +4261,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.080",
-      "awayMomentumFactor": "-0.379"
+      "awayMomentumFactor": "-0.069"
     },
     {
       "id": "match_id1000001666457026",
@@ -4210,16 +4299,2120 @@
       "kalshiWinProbAway": "13.9%",
       "polymarketWinProbAway": "14.6%",
       "homeMomentumFactor": "+0.272",
-      "awayMomentumFactor": "+0.036"
+      "awayMomentumFactor": "-0.037"
+    },
+    {
+      "id": "espn-760416",
+      "type": "COMPLETED",
+      "home": "Canada",
+      "away": "Bosnia & Herzegovina",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-12T19:00Z",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "CANADA 1 - 1 BOSNIA & HERZEGOVINA",
+      "homeFlag": "can",
+      "awayFlag": "bih",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "The match ended level at 1-1.",
+      "boxScore": {
+        "possession": {
+          "home": 49.0,
+          "away": 51.0
+        },
+        "shots": {
+          "home": 8,
+          "away": 9
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 4,
+          "away": 1
+        },
+        "fouls": {
+          "home": 14,
+          "away": 14
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 72,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 77,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.39,
+          "away": 1.64
+        },
+        "fieldTilt": {
+          "home": 50.8,
+          "away": 49.2
+        },
+        "ppda": {
+          "home": 12.6,
+          "away": 13.3
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 458,
+          "away": 391
+        },
+        "finalThirdEntries": {
+          "home": 39,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.03), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760422",
+      "type": "COMPLETED",
+      "home": "Germany",
+      "away": "Curacao",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-14T17:00Z",
+      "homeScore": 7,
+      "awayScore": 1,
+      "score": "GERMANY 7 - 1 CURACAO",
+      "homeFlag": "ger",
+      "awayFlag": "cuw",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Germany won 7-1.",
+      "boxScore": {
+        "possession": {
+          "home": 68.4,
+          "away": 31.6
+        },
+        "shots": {
+          "home": 20,
+          "away": 3
+        },
+        "shotsOnTarget": {
+          "home": 9,
+          "away": 1
+        },
+        "corners": {
+          "home": 4,
+          "away": 2
+        },
+        "fouls": {
+          "home": 14,
+          "away": 9
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 8,
+            "scorer": "Havertz"
+          },
+          {
+            "team": "home",
+            "minute": 23,
+            "scorer": "Musiala"
+          },
+          {
+            "team": "home",
+            "minute": 31,
+            "scorer": "Gnabry"
+          },
+          {
+            "team": "home",
+            "minute": 47,
+            "scorer": "Havertz"
+          },
+          {
+            "team": "home",
+            "minute": 58,
+            "scorer": "Füllkrug"
+          },
+          {
+            "team": "home",
+            "minute": 66,
+            "scorer": "Wirtz"
+          },
+          {
+            "team": "home",
+            "minute": 82,
+            "scorer": "Adeyemi"
+          },
+          {
+            "team": "away",
+            "minute": 71,
+            "scorer": "Dos Santos"
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.09,
+          "away": 0.37
+        },
+        "fieldTilt": {
+          "home": 68.0,
+          "away": 32.0
+        },
+        "ppda": {
+          "home": 6.9,
+          "away": 16.8
+        },
+        "bigChances": {
+          "home": 7,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 527,
+          "away": 237
+        },
+        "finalThirdEntries": {
+          "home": 54,
+          "away": 28
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Germany generated 3.09 xG, creating 7 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (68.4%) and high pressing intensity (PPDA 6.9) cut off Curacao's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Germany turned pressure into goals while Curacao struggled to create clear openings."
+        }
+      ]
+    },
+    {
+      "id": "espn-760428",
+      "type": "COMPLETED",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-15T16:00Z",
+      "homeScore": 0,
+      "awayScore": 0,
+      "score": "SPAIN 0 - 0 CAPE VERDE",
+      "homeFlag": "esp",
+      "awayFlag": "cpv",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "The match ended level at 0-0.",
+      "boxScore": {
+        "possession": {
+          "home": 48.4,
+          "away": 51.6
+        },
+        "shots": {
+          "home": 8,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 5
+        },
+        "corners": {
+          "home": 7,
+          "away": 4
+        },
+        "fouls": {
+          "home": 11,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": []
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.32,
+          "away": 1.6
+        },
+        "fieldTilt": {
+          "home": 46.8,
+          "away": 53.2
+        },
+        "ppda": {
+          "home": 11.4,
+          "away": 11.1
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 407,
+          "away": 422
+        },
+        "finalThirdEntries": {
+          "home": 39,
+          "away": 47
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.92), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760430",
+      "type": "COMPLETED",
+      "home": "Iraq",
+      "away": "Norway",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-16T22:00Z",
+      "homeScore": 1,
+      "awayScore": 4,
+      "score": "IRAQ 1 - 4 NORWAY",
+      "homeFlag": "irq",
+      "awayFlag": "nor",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Norway won 4-1.",
+      "boxScore": {
+        "possession": {
+          "home": 34.9,
+          "away": 65.1
+        },
+        "shots": {
+          "home": 5,
+          "away": 24
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 12
+        },
+        "corners": {
+          "home": 8,
+          "away": 7
+        },
+        "fouls": {
+          "home": 16,
+          "away": 10
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 43,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 52,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 61,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 63,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 81,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 0.9,
+          "away": 3.46
+        },
+        "fieldTilt": {
+          "home": 25.0,
+          "away": 75.0
+        },
+        "ppda": {
+          "home": 21.9,
+          "away": 8.7
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 4
+        },
+        "progressivePasses": {
+          "home": 315,
+          "away": 591
+        },
+        "finalThirdEntries": {
+          "home": 18,
+          "away": 64
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Norway generated 3.46 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (65.1%) and high pressing intensity (PPDA 8.7) cut off Iraq's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Norway turned pressure into goals while Iraq struggled to create clear openings."
+        }
+      ],
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%"
+    },
+    {
+      "id": "espn-760437",
+      "type": "COMPLETED",
+      "home": "England",
+      "away": "Croatia",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-17T20:00Z",
+      "homeScore": 4,
+      "awayScore": 2,
+      "score": "ENGLAND 4 - 2 CROATIA",
+      "homeFlag": "eng",
+      "awayFlag": "cro",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "England won 4-2.",
+      "boxScore": {
+        "possession": {
+          "home": 67.5,
+          "away": 32.5
+        },
+        "shots": {
+          "home": 18,
+          "away": 4
+        },
+        "shotsOnTarget": {
+          "home": 7,
+          "away": 2
+        },
+        "corners": {
+          "home": 2,
+          "away": 2
+        },
+        "fouls": {
+          "home": 16,
+          "away": 12
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 19,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 42,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 46,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 50,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 61,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 85,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.86,
+          "away": 0.56
+        },
+        "fieldTilt": {
+          "home": 74.9,
+          "away": 25.1
+        },
+        "ppda": {
+          "home": 6.3,
+          "away": 16.9
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 632,
+          "away": 284
+        },
+        "finalThirdEntries": {
+          "home": 61,
+          "away": 21
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "England generated 2.86 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (67.5%) and high pressing intensity (PPDA 6.3) cut off Croatia's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — England turned pressure into goals while Croatia struggled to create clear openings."
+        }
+      ]
+    },
+    {
+      "id": "espn-760434",
+      "type": "COMPLETED",
+      "home": "Ghana",
+      "away": "Panama",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-17T23:00Z",
+      "homeScore": 1,
+      "awayScore": 0,
+      "score": "GHANA 1 - 0 PANAMA",
+      "homeFlag": "gha",
+      "awayFlag": "pan",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Ghana won 1-0.",
+      "boxScore": {
+        "possession": {
+          "home": 41.5,
+          "away": 58.5
+        },
+        "shots": {
+          "home": 7,
+          "away": 11
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 4
+        },
+        "corners": {
+          "home": 9,
+          "away": 1
+        },
+        "fouls": {
+          "home": 13,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 64,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.22,
+          "away": 1.8
+        },
+        "fieldTilt": {
+          "home": 35.3,
+          "away": 64.7
+        },
+        "ppda": {
+          "home": 15.1,
+          "away": 9.0
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 331,
+          "away": 444
+        },
+        "finalThirdEntries": {
+          "home": 26,
+          "away": 54
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Ghana absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Ghana converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Ghana generating danger from corners and free-kicks throughout."
+        }
+      ]
+    },
+    {
+      "id": "espn-760436",
+      "type": "COMPLETED",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-18T02:00Z",
+      "homeScore": 1,
+      "awayScore": 3,
+      "score": "UZBEKISTAN 1 - 3 COLOMBIA",
+      "homeFlag": "uzb",
+      "awayFlag": "col",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Colombia won 3-1.",
+      "boxScore": {
+        "possession": {
+          "home": 41.7,
+          "away": 58.3
+        },
+        "shots": {
+          "home": 8,
+          "away": 12
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 6
+        },
+        "corners": {
+          "home": 6,
+          "away": 6
+        },
+        "fouls": {
+          "home": 13,
+          "away": 9
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 13,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 30,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 54,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 61,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.33,
+          "away": 2.13
+        },
+        "fieldTilt": {
+          "home": 37.8,
+          "away": 62.2
+        },
+        "ppda": {
+          "home": 14.0,
+          "away": 8.7
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 364,
+          "away": 459
+        },
+        "finalThirdEntries": {
+          "home": 32,
+          "away": 48
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Colombia created the clearer chances, generating 2.13 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Colombia (PPDA 8.7) disrupted Uzbekistan's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Colombia's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
+    },
+    {
+      "id": "espn-760438",
+      "type": "COMPLETED",
+      "home": "Czechia",
+      "away": "South Africa",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-18T16:00Z",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "CZECHIA 1 - 1 SOUTH AFRICA",
+      "homeFlag": "cze",
+      "awayFlag": "rsa",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "The match ended level at 1-1.",
+      "boxScore": {
+        "possession": {
+          "home": 48.8,
+          "away": 51.2
+        },
+        "shots": {
+          "home": 8,
+          "away": 9
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 2,
+          "away": 7
+        },
+        "fouls": {
+          "home": 14,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 52,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.56,
+          "away": 1.56
+        },
+        "fieldTilt": {
+          "home": 48.7,
+          "away": 51.3
+        },
+        "ppda": {
+          "home": 10.4,
+          "away": 12.6
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 416,
+          "away": 398
+        },
+        "finalThirdEntries": {
+          "home": 36,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.12), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760439",
+      "type": "COMPLETED",
+      "home": "Switzerland",
+      "away": "Bosnia & Herzegovina",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-18T19:00Z",
+      "homeScore": 4,
+      "awayScore": 1,
+      "score": "SWITZERLAND 4 - 1 BOSNIA & HERZEGOVINA",
+      "homeFlag": "sui",
+      "awayFlag": "bih",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Switzerland won 4-1.",
+      "boxScore": {
+        "possession": {
+          "home": 68.4,
+          "away": 31.6
+        },
+        "shots": {
+          "home": 16,
+          "away": 3
+        },
+        "shotsOnTarget": {
+          "home": 6,
+          "away": 1
+        },
+        "corners": {
+          "home": 6,
+          "away": 6
+        },
+        "fouls": {
+          "home": 8,
+          "away": 17
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 29,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 43,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 58,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 72,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 88,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.99,
+          "away": 0.61
+        },
+        "fieldTilt": {
+          "home": 71.4,
+          "away": 28.6
+        },
+        "ppda": {
+          "home": 7.1,
+          "away": 23.7
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 607,
+          "away": 257
+        },
+        "finalThirdEntries": {
+          "home": 54,
+          "away": 22
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Switzerland generated 2.99 xG, creating 5 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (68.4%) and high pressing intensity (PPDA 7.1) cut off Bosnia & Herzegovina's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Switzerland turned pressure into goals while Bosnia & Herzegovina struggled to create clear openings."
+        }
+      ]
+    },
+    {
+      "id": "espn-760440",
+      "type": "COMPLETED",
+      "home": "Canada",
+      "away": "Qatar",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-18T22:00Z",
+      "homeScore": 6,
+      "awayScore": 0,
+      "score": "CANADA 6 - 0 QATAR",
+      "homeFlag": "can",
+      "awayFlag": "qat",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Canada won 6-0.",
+      "boxScore": {
+        "possession": {
+          "home": 58.7,
+          "away": 41.3
+        },
+        "shots": {
+          "home": 15,
+          "away": 2
+        },
+        "shotsOnTarget": {
+          "home": 6,
+          "away": 0
+        },
+        "corners": {
+          "home": 5,
+          "away": 1
+        },
+        "fouls": {
+          "home": 10,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 12,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 23,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 24,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 33,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 40,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 47,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.71,
+          "away": 0.38
+        },
+        "fieldTilt": {
+          "home": 69.3,
+          "away": 30.7
+        },
+        "ppda": {
+          "home": 6.7,
+          "away": 16.8
+        },
+        "bigChances": {
+          "home": 6,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 555,
+          "away": 313
+        },
+        "finalThirdEntries": {
+          "home": 53,
+          "away": 24
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Canada generated 2.71 xG, creating 6 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (58.7%) and high pressing intensity (PPDA 6.7) cut off Qatar's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Canada turned pressure into goals while Qatar struggled to create clear openings."
+        }
+      ],
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
+    },
+    {
+      "id": "espn-760441",
+      "type": "COMPLETED",
+      "home": "Mexico",
+      "away": "South Korea",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-19T01:00Z",
+      "homeScore": 1,
+      "awayScore": 0,
+      "score": "MEXICO 1 - 0 SOUTH KOREA",
+      "homeFlag": "mex",
+      "awayFlag": "kor",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Mexico won 1-0.",
+      "boxScore": {
+        "possession": {
+          "home": 45.9,
+          "away": 54.1
+        },
+        "shots": {
+          "home": 6,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 8,
+          "away": 2
+        },
+        "fouls": {
+          "home": 8,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 47,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.13,
+          "away": 1.67
+        },
+        "fieldTilt": {
+          "home": 40.8,
+          "away": 59.2
+        },
+        "ppda": {
+          "home": 17.7,
+          "away": 11.2
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 373,
+          "away": 469
+        },
+        "finalThirdEntries": {
+          "home": 32,
+          "away": 47
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Mexico absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Mexico converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Mexico generating danger from corners and free-kicks throughout."
+        }
+      ]
+    },
+    {
+      "id": "espn-760442",
+      "type": "COMPLETED",
+      "home": "United States",
+      "away": "Australia",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-19T19:00Z",
+      "homeScore": 2,
+      "awayScore": 0,
+      "score": "UNITED STATES 2 - 0 AUSTRALIA",
+      "homeFlag": "usa",
+      "awayFlag": "aus",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "United States won 2-0.",
+      "boxScore": {
+        "possession": {
+          "home": 57.6,
+          "away": 42.4
+        },
+        "shots": {
+          "home": 9,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 5
+        },
+        "corners": {
+          "home": 2,
+          "away": 2
+        },
+        "fouls": {
+          "home": 8,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 26,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 33,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.78,
+          "away": 1.48
+        },
+        "fieldTilt": {
+          "home": 54.9,
+          "away": 45.1
+        },
+        "ppda": {
+          "home": 10.4,
+          "away": 13.4
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 494,
+          "away": 340
+        },
+        "finalThirdEntries": {
+          "home": 48,
+          "away": 36
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "United States created the clearer chances, generating 1.78 xG and putting 3 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from United States (PPDA 10.4) disrupted Australia's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but United States's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
+    },
+    {
+      "id": "espn-760445",
+      "type": "COMPLETED",
+      "home": "Scotland",
+      "away": "Morocco",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-19T22:00Z",
+      "homeScore": 0,
+      "awayScore": 1,
+      "score": "SCOTLAND 0 - 1 MOROCCO",
+      "homeFlag": "sco",
+      "awayFlag": "mar",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Morocco won 1-0.",
+      "boxScore": {
+        "possession": {
+          "home": 55.7,
+          "away": 44.3
+        },
+        "shots": {
+          "home": 9,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 2
+        },
+        "corners": {
+          "home": 6,
+          "away": 2
+        },
+        "fouls": {
+          "home": 14,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 16,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.42,
+          "away": 0.96
+        },
+        "fieldTilt": {
+          "home": 65.4,
+          "away": 34.6
+        },
+        "ppda": {
+          "home": 8.5,
+          "away": 15.6
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 471,
+          "away": 416
+        },
+        "finalThirdEntries": {
+          "home": 58,
+          "away": 27
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Morocco absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Morocco converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Morocco generating danger from corners and free-kicks throughout."
+        }
+      ]
+    },
+    {
+      "id": "espn-760448",
+      "type": "COMPLETED",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-20T20:00Z",
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "GERMANY 2 - 1 IVORY COAST",
+      "homeFlag": "ger",
+      "awayFlag": "civ",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Germany won 2-1.",
+      "boxScore": {
+        "possession": {
+          "home": 55.3,
+          "away": 44.7
+        },
+        "shots": {
+          "home": 13,
+          "away": 9
+        },
+        "shotsOnTarget": {
+          "home": 6,
+          "away": 3
+        },
+        "corners": {
+          "home": 5,
+          "away": 7
+        },
+        "fouls": {
+          "home": 11,
+          "away": 10
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 27,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 84,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.1,
+          "away": 1.4
+        },
+        "fieldTilt": {
+          "home": 57.3,
+          "away": 42.7
+        },
+        "ppda": {
+          "home": 9.2,
+          "away": 12.2
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 525,
+          "away": 370
+        },
+        "finalThirdEntries": {
+          "home": 46,
+          "away": 33
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Germany created the clearer chances, generating 2.1 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Germany (PPDA 9.2) disrupted Ivory Coast's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Germany's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
+    },
+    {
+      "id": "espn-760453",
+      "type": "COMPLETED",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-21T16:00Z",
+      "homeScore": 4,
+      "awayScore": 0,
+      "score": "SPAIN 4 - 0 SAUDI ARABIA",
+      "homeFlag": "esp",
+      "awayFlag": "ksa",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Spain won 4-0.",
+      "boxScore": {
+        "possession": {
+          "home": 68.2,
+          "away": 31.8
+        },
+        "shots": {
+          "home": 23,
+          "away": 4
+        },
+        "shotsOnTarget": {
+          "home": 12,
+          "away": 1
+        },
+        "corners": {
+          "home": 3,
+          "away": 5
+        },
+        "fouls": {
+          "home": 10,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 45,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 69,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 80,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 81,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.42,
+          "away": 0.71
+        },
+        "fieldTilt": {
+          "home": 70.9,
+          "away": 29.1
+        },
+        "ppda": {
+          "home": 6.5,
+          "away": 17.3
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 559,
+          "away": 290
+        },
+        "finalThirdEntries": {
+          "home": 55,
+          "away": 23
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Spain generated 3.42 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (68.2%) and high pressing intensity (PPDA 6.5) cut off Saudi Arabia's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Spain turned pressure into goals while Saudi Arabia struggled to create clear openings."
+        }
+      ]
+    },
+    {
+      "id": "espn-760451",
+      "type": "COMPLETED",
+      "home": "Belgium",
+      "away": "Iran",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-21T19:00Z",
+      "homeScore": 0,
+      "awayScore": 0,
+      "score": "BELGIUM 0 - 0 IRAN",
+      "homeFlag": "bel",
+      "awayFlag": "irn",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "The match ended level at 0-0.",
+      "boxScore": {
+        "possession": {
+          "home": 50.3,
+          "away": 49.7
+        },
+        "shots": {
+          "home": 10,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 4
+        },
+        "corners": {
+          "home": 2,
+          "away": 3
+        },
+        "fouls": {
+          "home": 15,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": []
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.74,
+          "away": 1.45
+        },
+        "fieldTilt": {
+          "home": 51.8,
+          "away": 48.2
+        },
+        "ppda": {
+          "home": 10.0,
+          "away": 10.2
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 457,
+          "away": 404
+        },
+        "finalThirdEntries": {
+          "home": 43,
+          "away": 39
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.19), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760450",
+      "type": "COMPLETED",
+      "home": "Uruguay",
+      "away": "Cape Verde",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-21T22:00Z",
+      "homeScore": 2,
+      "awayScore": 2,
+      "score": "URUGUAY 2 - 2 CAPE VERDE",
+      "homeFlag": "uru",
+      "awayFlag": "cpv",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "The match ended level at 2-2.",
+      "boxScore": {
+        "possession": {
+          "home": 48.5,
+          "away": 51.5
+        },
+        "shots": {
+          "home": 7,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 2,
+          "away": 3
+        },
+        "fouls": {
+          "home": 16,
+          "away": 9
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 29,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 63,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 68,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 79,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.13,
+          "away": 1.57
+        },
+        "fieldTilt": {
+          "home": 47.4,
+          "away": 52.6
+        },
+        "ppda": {
+          "home": 13.7,
+          "away": 10.6
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 423,
+          "away": 395
+        },
+        "finalThirdEntries": {
+          "home": 41,
+          "away": 39
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.7), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760456",
+      "type": "COMPLETED",
+      "home": "Argentina",
+      "away": "Austria",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-22T17:00Z",
+      "homeScore": 2,
+      "awayScore": 0,
+      "score": "ARGENTINA 2 - 0 AUSTRIA",
+      "homeFlag": "arg",
+      "awayFlag": "aut",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Argentina won 2-0.",
+      "boxScore": {
+        "possession": {
+          "home": 50.9,
+          "away": 49.1
+        },
+        "shots": {
+          "home": 12,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 6,
+          "away": 2
+        },
+        "corners": {
+          "home": 4,
+          "away": 1
+        },
+        "fouls": {
+          "home": 15,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 34,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 83,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.09,
+          "away": 0.96
+        },
+        "fieldTilt": {
+          "home": 56.7,
+          "away": 43.3
+        },
+        "ppda": {
+          "home": 11.6,
+          "away": 16.2
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 416,
+          "away": 408
+        },
+        "finalThirdEntries": {
+          "home": 46,
+          "away": 33
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Argentina created the clearer chances, generating 2.09 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Argentina (PPDA 11.6) disrupted Austria's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
+    },
+    {
+      "id": "espn-760457",
+      "type": "COMPLETED",
+      "home": "France",
+      "away": "Iraq",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-22T21:00Z",
+      "homeScore": 3,
+      "awayScore": 0,
+      "score": "FRANCE 3 - 0 IRAQ",
+      "homeFlag": "fra",
+      "awayFlag": "irq",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "France won 3-0.",
+      "boxScore": {
+        "possession": {
+          "home": 60.1,
+          "away": 39.9
+        },
+        "shots": {
+          "home": 19,
+          "away": 2
+        },
+        "shotsOnTarget": {
+          "home": 8,
+          "away": 0
+        },
+        "corners": {
+          "home": 6,
+          "away": 6
+        },
+        "fouls": {
+          "home": 13,
+          "away": 13
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 5,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 43,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 50,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.4,
+          "away": 0.3
+        },
+        "fieldTilt": {
+          "home": 73.8,
+          "away": 26.2
+        },
+        "ppda": {
+          "home": 6.2,
+          "away": 17.4
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 476,
+          "away": 350
+        },
+        "finalThirdEntries": {
+          "home": 64,
+          "away": 22
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "France generated 3.4 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (60.1%) and high pressing intensity (PPDA 6.2) cut off Iraq's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — France turned pressure into goals while Iraq struggled to create clear openings."
+        }
+      ],
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
+    },
+    {
+      "id": "espn-760461",
+      "type": "COMPLETED",
+      "home": "Portugal",
+      "away": "Uzbekistan",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "kickoff": "2026-06-23T17:00Z",
+      "homeScore": 5,
+      "awayScore": 0,
+      "score": "PORTUGAL 5 - 0 UZBEKISTAN",
+      "homeFlag": "por",
+      "awayFlag": "uzb",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "insight": "Portugal won 5-0.",
+      "boxScore": {
+        "possession": {
+          "home": 61.3,
+          "away": 38.7
+        },
+        "shots": {
+          "home": 19,
+          "away": 2
+        },
+        "shotsOnTarget": {
+          "home": 10,
+          "away": 0
+        },
+        "corners": {
+          "home": 7,
+          "away": 1
+        },
+        "fouls": {
+          "home": 16,
+          "away": 12
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 28,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 40,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 41,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 75,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 86,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.17,
+          "away": 0.41
+        },
+        "fieldTilt": {
+          "home": 64.1,
+          "away": 35.9
+        },
+        "ppda": {
+          "home": 7.8,
+          "away": 21.7
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 466,
+          "away": 347
+        },
+        "finalThirdEntries": {
+          "home": 55,
+          "away": 30
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Portugal generated 3.17 xG, creating 5 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (61.3%) and high pressing intensity (PPDA 7.8) cut off Uzbekistan's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Portugal turned pressure into goals while Uzbekistan struggled to create clear openings."
+        }
+      ]
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",
   "polymarketUpdated": "June 23, 2026 · 10:20 PM UTC",
   "knockoutEliminated": [
-    "Czechia",
     "Haiti",
+    "Iraq",
+    "Qatar",
     "Senegal",
-    "South Africa",
     "Tunisia",
     "Turkey"
   ]

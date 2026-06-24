@@ -53,6 +53,9 @@ jobs:
           ZAFRONIX_API_KEY2: ${{ secrets.ZAFRONIX_API_KEY2 }}
         run: python fetch_scores.py
 
+      - name: Reconcile layers vs ESPN public scoreboard
+        run: python reconcile_match_layers.py
+
       - name: Process Kalshi Orderbooks
         env:
           KALSHI_API_KEY_ID:  ${{ secrets.KALSHI_API_KEY_ID }}
