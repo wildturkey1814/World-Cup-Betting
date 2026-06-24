@@ -2,7 +2,7 @@ name: Deploy Live Site
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   workflow_dispatch:
 
 permissions:
@@ -16,7 +16,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: Checkout branch
         uses: actions/checkout@v4
 
       - name: Prepare static site
@@ -31,4 +31,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _site
           keep_files: true
-          commit_message: "deploy: live site from ${{ github.sha }}"
+          commit_message: "deploy: live site from ${{ github.ref_name }} @ ${{ github.sha }}"
