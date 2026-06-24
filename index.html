@@ -785,6 +785,11 @@ function isLiveWindow(match){
   const ko=new Date(match.kickoff).getTime(),now=Date.now();
   return now>=ko-5*60*1000&&now<=ko+130*60*1000;
 }
+function isActiveLive(m){
+  if(!m||m.type==='COMPLETED'||m.liveFinal)return false;
+  if(m.type==='IN_PLAY')return true;
+  return m.type==='UPCOMING'&&isLiveWindow(m);
+}
 function parseLivePhase(statusObj,statusType){
   const detail=String(statusType?.detail||statusType?.shortDetail||'').toUpperCase();
   const name=String(statusType?.name||'').toUpperCase();
@@ -1062,11 +1067,11 @@ function applyLiveTelemetry(match,payload){
 }
 function startLivePolling(){
   Object.keys(liveTrackers).forEach(id=>{
-    if(!allMatches.some(m=>m.id===id&&(m.type==='IN_PLAY'||isLiveWindow(m)))){
+    if(!allMatches.some(m=>m.id===id&&isActiveLive(m))){
       clearInterval(liveTrackers[id]);delete liveTrackers[id];delete liveTelemetryCache[id];
     }
   });
-  allMatches.filter(m=>m.type==='IN_PLAY'||isLiveWindow(m)).forEach(m=>{
+  allMatches.filter(m=>isActiveLive(m)).forEach(m=>{
     if(!liveTrackers[m.id]){
       liveTrackers[m.id]=setInterval(()=>pollLiveScore(m),60000);
       pollLiveScore(m);
@@ -1127,6 +1132,7 @@ async function pollLiveScore(match){
     if(status==='STATUS_FINAL'){
       clearInterval(liveTrackers[match.id]);
       delete liveTrackers[match.id];
+      if(idx>=0)allMatches[idx].liveFinal=true;
     }
   }catch(e){}
 }
@@ -1517,6 +1523,7 @@ function buildFinishedPairKeys(){
   const keys=new Set();
   const note=m=>{
     if(isGhostMatch(m))return;
+    if(isActiveLive(m))return;
     if(m.type==='COMPLETED'||hasFinalScore(m))keys.add(archivePairKey(m));
   };
   allMatches.forEach(note);
@@ -1524,6 +1531,7 @@ function buildFinishedPairKeys(){
   return keys;
 }
 function isFinishedMatch(m,finishedKeys){
+  if(isActiveLive(m))return false;
   if(m.type==='COMPLETED')return true;
   return finishedKeys.has(archivePairKey(m));
 }
@@ -1808,11 +1816,9 @@ function renderGrid(){
   const all=[...seen.values()];
   const stageM=all.filter(m=>(m.stage||'Group Stage')===currentStage).filter(matchesSearch);
 
-  const live=showUpcoming
-    ?stageM.filter(m=>!isFinishedMatch(m,finishedKeys)&&(m.type==='IN_PLAY'||(m.type==='UPCOMING'&&isLiveWindow(m))))
-    :[];
+  const live=showUpcoming?stageM.filter(m=>isActiveLive(m)):[];
   const upcoming=showUpcoming
-    ?stageM.filter(m=>!isFinishedMatch(m,finishedKeys)&&m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0))
+    ?stageM.filter(m=>!isActiveLive(m)&&!isFinishedMatch(m,finishedKeys)&&m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0))
     :[];
   const completed=showUpcoming?[]:gatherStageCompleted(currentStage).filter(matchesSearch);
 
