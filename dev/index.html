@@ -287,6 +287,12 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 .group-header-meta{font-size:11px;color:var(--text-mid);flex:1;}
 .group-header-chevron{font-size:10px;color:var(--text-lo);}
 .group-body{padding-top:6px;}
+.completed-day-block{margin-bottom:18px;}
+.completed-day-header{
+  font-size:12px;font-weight:800;color:var(--gold-hi);letter-spacing:0.3px;
+  padding:8px 0 10px;border-bottom:1px solid rgba(232,160,32,0.2);margin-bottom:10px;
+}
+.win-odds-footnote{font-size:9px;line-height:1.35;color:var(--text-lo);font-style:italic;margin-top:6px;opacity:0.88;}
 .empty{text-align:center;padding:40px 20px;color:var(--text-lo);font-size:13px;}
 
 /* ── BRACKET ── */
@@ -447,6 +453,7 @@ const DICT = {
     noCompleted: 'No complete match files populated inside this tier.',
     updated: 'Last Database Sync', searchPlaceholder: 'Search teams or groups…',
     winOddsTitle: 'Tournament Winner Futures Tracking Node',
+    winOddsFootnote: '— = no futures market listed · 0.0% = eliminated from knockout stage',
     scTooltip: 'Tournament Momentum Factor (χ): rolling average of result divergence vs ELO expectations and xG efficiency. Positive χ means a team is outperforming baseline form in the tournament.',
     scFootnote: 'Enhanced prediction model based on group-stage momentum.',
     zoneMex: 'Mexico Base Zone', zoneCen: 'Central Base Zone', zoneEast: 'East Base Zone', zoneWest: 'West Base Zone',
@@ -468,6 +475,7 @@ const DICT = {
     noCompleted: '이 섹션에 기록된 완료된 경기 파일이 없습니다.',
     updated: '데이터베이스 동기화', searchPlaceholder: '팀명 또는 그룹 검색…',
     winOddsTitle: '월드컵 최종 우승 선물 시장 배당 로그',
+    winOddsFootnote: '— = 선물 시장 미등록 · 0.0% = 토너먼트 탈락',
     scTooltip: '슈퍼차저 연산은 정적 데이터에 동적 ELO 변수를 적용해 시장의 왜곡을 제거한 참값 확률을 도출합니다.',
     scFootnote: '조별리그 모멘텀을 반영한 향상된 예측 모델.',
     zoneMex: '멕시코 기지 권역', zoneCen: '센트럴 기지 권역', zoneEast: '이스트 기지 권역', zoneWest: '웨스트 기지 권역',
@@ -494,6 +502,7 @@ const DICT = {
     noCompleted: 'このアーカイブに記録された完了マッチはありません。',
     updated: '最終同期', searchPlaceholder: 'チーム名またはグループで検索…',
     winOddsTitle: 'ワールドカップ優勝予測市場トラッキング',
+    winOddsFootnote: '— = 先物市場なし · 0.0% = ノックアウト敗退',
     scTooltip: 'スーパーチャージャーは、動的ELOベクトルを用いた多変量ポアソンシミュレーションにより、市場のバイアスを排除します。',
     scFootnote: 'グループステージの勢いを反映した強化予測モデル。',
     zoneMex: 'メキシコ・ゾーン', zoneCen: '中央ゾーン', zoneEast: '東部ゾーン', zoneWest: '西部ゾーン',
@@ -709,7 +718,7 @@ function winOddsHTML(match){
   if(kFav||kUnd||isKnockoutEliminated(favTeam)||isKnockoutEliminated(undTeam))rows+=`<div class="win-odds-row"><div class="win-odds-source"><div class="win-odds-dot" style="background:var(--purple)"></div>Kalshi</div>${cell(kFav)}${cell(kUnd)}</div>`;
   if(pFav||pUnd||isKnockoutEliminated(favTeam)||isKnockoutEliminated(undTeam))rows+=`<div class="win-odds-row"><div class="win-odds-source"><div class="win-odds-dot" style="background:var(--blue)"></div>Polymarket</div>${cell(pFav)}${cell(pUnd)}</div>`;
   if(!rows)return'';
-  return`<div class="win-odds-panel"><div class="win-odds-header">🏆 ${esc(d.winOddsTitle||'Tournament Winner Odds')}</div><div class="win-odds-grid"><div class="win-odds-row"><div class="win-odds-source" style="font-size:9px;color:var(--text-lo);font-weight:700;text-transform:uppercase;letter-spacing:1px">Source</div><div class="win-odds-val" style="color:var(--green);font-size:10px;font-weight:800">${esc(favName)}</div><div class="win-odds-val" style="color:var(--red);font-size:10px;font-weight:800">${esc(undName)}</div></div>${rows}</div></div>`;
+  return`<div class="win-odds-panel"><div class="win-odds-header">🏆 ${esc(d.winOddsTitle||'Tournament Winner Odds')}</div><div class="win-odds-grid"><div class="win-odds-row"><div class="win-odds-source" style="font-size:9px;color:var(--text-lo);font-weight:700;text-transform:uppercase;letter-spacing:1px">Source</div><div class="win-odds-val" style="color:var(--green);font-size:10px;font-weight:800">${esc(favName)}</div><div class="win-odds-val" style="color:var(--red);font-size:10px;font-weight:800">${esc(undName)}</div></div>${rows}</div><div class="win-odds-footnote">${esc(d.winOddsFootnote||'')}</div></div>`;
 }
 
 /* ── SUPERCHARGER+ ROW (Tournament Momentum χ) ── */
@@ -1023,43 +1032,28 @@ function renderGrid(){
   } else {
     titleEl.textContent = d.completed;
     totalEl.textContent = completed.length;
-    
-    if(searchQuery || currentSort === 'time') {
-      const byDate = {};
-      completed.forEach(m => {
-        const day = formatCalendarDay(m.kickoff);
-        if(!byDate[day]) byDate[day] = [];
-        byDate[day].push(m);
-      });
-      
-      if(expandedGroups.size === 0 && Object.keys(byDate).length > 0) {
-        expandedGroups.add('date-' + Object.keys(byDate)[0]);
-      }
-      
-      targetGrid.innerHTML = completed.length === 0 ? `<div class="empty">${esc(d.noCompleted)}</div>` :
-        Object.entries(byDate).map(([dayString, matches]) => {
-          const key = 'date-' + dayString, isOpen = expandedGroups.has(key);
-          return `<div class="group-section" style="margin-bottom:12px;">
-            <button class="group-header" style="background:var(--surface3); border-color:rgba(232,160,32,0.2);" onclick="toggleGroup('${esc(key)}')">
-              <span class="group-header-label" style="color:var(--gold-hi)">📅 ${esc(dayString)}</span>
-              <span class="group-header-meta" style="text-align:right; padding-right:10px;">${matches.length} Match${matches.length!==1?'es':''} Settled</span>
-              <span class="group-header-chevron">${isOpen?'▲':'▼'}</span>
-            </button>
-            ${isOpen ? `<div class="group-body" style="padding-top:10px;"><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>` : ''}
-          </div>`;
-        }).join('');
-    } else {
-      const byGroupC={};
-      completed.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroupC[g])byGroupC[g]=[];byGroupC[g].push(m);});
-      if(expandedGroups.size === 0 && Object.keys(byGroupC).length > 0) {
-        expandedGroups.add('co-' + Object.keys(byGroupC)[0]);
-      }
-      targetGrid.innerHTML = completed.length===0 ? `<div class="empty">${esc(d.noCompleted)}</div>` :
-        Object.entries(byGroupC).map(([group,matches])=>{
-          const key='co-'+group,isOpen=expandedGroups.has(key);
-          return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${matches.length} match${matches.length!==1?'es':''} played</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`:''}</div>`;
-        }).join('');
-    }
+
+    const byDate = {};
+    completed.forEach(m => {
+      const day = formatCalendarDay(m.kickoff);
+      if(!byDate[day]) byDate[day] = [];
+      byDate[day].push(m);
+    });
+
+    const dayKeys = Object.keys(byDate).sort((a, b) => {
+      const ta = new Date(byDate[a][0]?.kickoff || 0).getTime();
+      const tb = new Date(byDate[b][0]?.kickoff || 0).getTime();
+      return tb - ta;
+    });
+
+    targetGrid.innerHTML = completed.length === 0 ? `<div class="empty">${esc(d.noCompleted)}</div>` :
+      dayKeys.map(dayString => {
+        const matches = byDate[dayString].sort((a, b) => new Date(b.kickoff || 0) - new Date(a.kickoff || 0));
+        return `<div class="completed-day-block">
+          <div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length !== 1 ? 'es' : ''}</div>
+          <div class="card-grid">${matches.map(renderCompleted).join('')}</div>
+        </div>`;
+      }).join('');
   }
 }
 
