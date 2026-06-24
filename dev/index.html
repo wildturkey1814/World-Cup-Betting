@@ -449,26 +449,7 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .flip-card-inner{position:relative; transform-style:preserve-3d; -webkit-transform-style:preserve-3d; transition:transform 0.6s cubic-bezier(0.4,0.2,0.2,1); width:100%; height:100%;}
 .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
 .flip-face{backface-visibility:hidden; -webkit-backface-visibility:hidden;}
-.pc-scorer-sheet{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05);font-size:10px;line-height:1.55;}
-.pc-scorer-col{display:flex;flex-direction:column;gap:2px;color:var(--text-mid);}
-.pc-scorer-col.home{text-align:left;}
-.pc-scorer-col.away{text-align:right;}
-.pc-scorer-line{font-weight:600;color:var(--text-hi);}
-.pc-scorer-line .pc-scorer-min{color:var(--text-lo);font-weight:700;margin-right:4px;}
-.pc-scorer-line .pc-scorer-min.right{margin-right:0;margin-left:4px;}
-.pc-moments-list{display:flex;flex-direction:column;gap:5px;}
-.pc-moment-row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:6px;font-size:10px;padding:4px 6px;border-radius:4px;background:rgba(255,255,255,0.02);}
-.pc-moment-row.home{border-left:2px solid var(--neon);}
-.pc-moment-row.away{border-left:2px solid rgba(248,113,113,0.75);}
-.pc-moment-min{font-weight:800;color:var(--text-lo);font-variant-numeric:tabular-nums;}
-.pc-moment-name{font-weight:700;color:var(--text-hi);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.pc-moment-team{font-weight:600;color:var(--text-lo);font-size:9px;}
-.pc-moment-score{font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;font-size:11px;}
-.pc-potm-box{background:rgba(232,160,32,0.02);border:1px solid rgba(232,160,32,0.08);padding:8px 6px;border-radius:6px;text-align:center;}
-.pc-potm-name{font-size:11px;font-weight:800;color:#fff;margin-top:4px;line-height:1.3;}
-.pc-potm-team{font-size:9px;font-weight:600;color:var(--text-lo);margin-top:2px;}
-.pc-potm-note{font-size:8px;color:var(--text-lo);margin-top:4px;line-height:1.35;}
-.pc-xg-strip{margin-top:8px;padding:8px 10px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);}
+.pc-xg-strip{margin-top:8px;padding:8px 10px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);min-height:52px;}
 .pc-xg-main{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px;color:var(--text-mid);}
 .pc-xg-val{font-weight:800;color:var(--text-hi);font-variant-numeric:tabular-nums;}
 .pc-xg-actual{font-size:9px;color:var(--text-lo);margin-top:4px;}
@@ -476,6 +457,7 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .pc-verdict-pill.deserved{background:rgba(60,172,59,0.12);color:var(--green);border:1px solid rgba(60,172,59,0.25);}
 .pc-verdict-pill.variance{background:rgba(230,29,37,0.1);color:var(--red);border:1px solid rgba(230,29,37,0.22);}
 .pc-verdict-pill.margins{background:rgba(232,160,32,0.1);color:var(--gold);border:1px solid rgba(232,160,32,0.2);}
+.pc-verdict-slot{min-height:20px;margin-top:6px;}
 .pc-analytics-panel{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);}
 .pc-analytics-label{font-size:7px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
 .pc-model-rows{display:flex;flex-direction:column;gap:4px;}
@@ -484,11 +466,11 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .pc-model-src{font-weight:700;color:var(--text-mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .pc-model-pct{font-weight:800;text-align:center;font-variant-numeric:tabular-nums;color:var(--text-hi);}
 .pc-model-pct.draw{color:var(--neon);}
-.pc-beat-badge{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:4px;font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;}
+.pc-beat-badge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;}
 .pc-beat-badge.beat{background:rgba(60,172,59,0.12);color:var(--green);border:1px solid rgba(60,172,59,0.22);}
 .pc-beat-badge.miss{background:rgba(230,29,37,0.08);color:rgba(248,113,113,0.95);border:1px solid rgba(230,29,37,0.18);}
 .pc-beat-badge.partial{background:rgba(232,160,32,0.08);color:var(--gold);border:1px solid rgba(232,160,32,0.18);}
-.pc-eff-block{padding:8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);}
+.pc-eff-block{padding:8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);min-height:168px;box-sizing:border-box;}
 .pc-eff-delta{font-size:22px;font-weight:900;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1;}
 .pc-eff-delta.pos{color:var(--green);}
 .pc-eff-delta.neg{color:rgba(248,113,113,0.9);}
@@ -496,6 +478,22 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .pc-eff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;}
 .pc-eff-stat{padding:5px 6px;border-radius:4px;background:rgba(0,0,0,0.15);font-size:8px;color:var(--text-lo);}
 .pc-eff-stat strong{display:block;font-size:10px;color:var(--text-hi);font-weight:800;margin-top:2px;}
+.pc-container.flip-card{height:300px;}
+.pc-container .flip-face-front{z-index:2;}
+.pc-container .flip-face-back{z-index:1;}
+.pc-container .flip-face-front,
+.pc-container .flip-face-back{position:absolute;inset:0;height:100%;box-sizing:border-box;}
+.pc-front-layout{height:100%;min-height:300px;align-items:stretch;}
+.pc-col{display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden;}
+.pc-col-left{border-right:1px solid rgba(255,255,255,0.05);padding-right:12px;}
+.pc-col-right{padding:0 4px;justify-content:center;}
+.pc-col-body{flex:1;min-height:0;overflow:hidden;}
+.pc-score-block{margin-top:10px;}
+.pc-flip-hint{flex-shrink:0;margin-top:auto;padding-top:10px;font-size:10px;font-weight:700;color:var(--gold);}
+.pc-analytics-panel{min-height:108px;}
+.pc-beat-slot{min-height:22px;margin-top:6px;}
+.pc-eff-caption{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-height:2.7em;}
+.pc-insights-scroll{flex:1;min-height:0;overflow-y:auto;padding-right:4px;}
 
 /* ── CARD GRID ── */
 .sort-row{display:flex;gap:6px;align-items:center;}
@@ -506,6 +504,7 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 /* ── COMPONENT MODIFIERS ── */
 .pc-container{background:#070a0f; border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden;}
 .pc-front-layout{display:grid; grid-template-columns:1.2fr 1fr; gap:16px; padding:16px; background:linear-gradient(180deg, #0e121a 0%, #07090d 100%); border-bottom:2px solid var(--gold);}
+.card-grid:has(.pc-container){align-items:start;}
 @media(max-width:480px){
   .sources-header,.source-row,.supercharger-row{grid-template-columns:1fr 60px 60px 60px;}
   .prob-cell{font-size:12px;}.team-name{font-size:14px;}
@@ -1794,17 +1793,15 @@ function buildClosingLineHTML(match,d){
   const head=`<div class="pc-model-row head"><span class="pc-model-src">&nbsp;</span><span class="pc-model-pct">${esc(d.pcColHome)}</span><span class="pc-model-pct draw">${esc(d.pcColDraw)}</span><span class="pc-model-pct">${esc(d.pcColAway)}</span></div>`;
   const rows=sources.map(s=>{
     const l=norm[s];
-    if(!l)return'';
-    const hp=favIsHome?parsePctStr(l.fav):parsePctStr(l.und);
-    const ap=favIsHome?parsePctStr(l.und):parsePctStr(l.fav);
-    const dp=parsePctStr(l.draw);
+    const hp=l?(favIsHome?parsePctStr(l.fav):parsePctStr(l.und)):null;
+    const ap=l?(favIsHome?parsePctStr(l.und):parsePctStr(l.fav)):null;
+    const dp=l?parsePctStr(l.draw):null;
     const fmt=v=>v!=null?`${v.toFixed(1)}%`:'—';
     return`<div class="pc-model-row"><span class="pc-model-src">${esc(srcShort[s]||s)}</span><span class="pc-model-pct">${fmt(hp)}</span><span class="pc-model-pct draw">${fmt(dp)}</span><span class="pc-model-pct">${fmt(ap)}</span></div>`;
-  }).filter(Boolean).join('');
-  if(!rows)return'';
+  }).join('');
   const beat=assessModelBeat(match,d);
   const beatHTML=beat?`<span class="pc-beat-badge ${beat.type}">${esc(beat.text)}</span>`:'';
-  return`<div class="pc-analytics-panel"><div class="pc-analytics-label">${esc(d.pcClosingLine)}</div><div class="pc-model-rows">${head}${rows}</div>${beatHTML}</div>`;
+  return`<div class="pc-analytics-panel"><div class="pc-analytics-label">${esc(d.pcClosingLine)}</div><div class="pc-model-rows">${head}${rows}</div><div class="pc-beat-slot">${beatHTML}</div></div>`;
 }
 function computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs){
   const hTilt=adv?.fieldTilt?.home??match.metrics?.fieldTilt?.home??null;
@@ -1856,43 +1853,40 @@ function renderCompleted(rawMatch){
   const winner=homeWon?home:awayWon?away:null;
   const {home:hXg,away:aXg}=resolveCompletedXg(match,adv,bs);
   const verdict=xgOutcomeVerdict(hScore,aScore,hXg,aXg,homeWon,awayWon,isDraw,d);
-  const xgStrip=hXg!=null&&aXg!=null
-    ?`<div class="pc-xg-strip">
-        <div class="pc-xg-main"><span>${esc(d.pcXgLabel)}</span><span class="pc-xg-val">${Number(hXg).toFixed(2)} – ${Number(aXg).toFixed(2)}</span></div>
-        <div class="pc-xg-actual">${esc(d.pcActualGoals)}: ${hScore} – ${aScore}</div>
-        ${verdict?`<span class="pc-verdict-pill ${verdict.cls}">${esc(verdict.text)}</span>`:''}
-      </div>`
-    :'';
+  const xgVal=hXg!=null&&aXg!=null?`${Number(hXg).toFixed(2)} – ${Number(aXg).toFixed(2)}`:'— – —';
+  const xgStrip=`<div class="pc-xg-strip">
+    <div class="pc-xg-main"><span>${esc(d.pcXgLabel)}</span><span class="pc-xg-val">${esc(xgVal)}</span></div>
+    <div class="pc-xg-actual">${esc(d.pcActualGoals)}: ${hScore} – ${aScore}</div>
+    ${verdict?`<div class="pc-verdict-slot"><span class="pc-verdict-pill ${verdict.cls}">${esc(verdict.text)}</span></div>`:'<div class="pc-verdict-slot"></div>'}
+  </div>`;
   const closingHTML=buildClosingLineHTML(match,d);
   const eff=computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs);
   const analyticsRight=buildEfficiencyPanelHTML(match,eff,d);
 
-  const front=`<div class="flip-face flip-face-front pc-front-layout" style="backface-visibility: hidden; -webkit-backface-visibility: hidden; position: relative; width: 100%; z-index: 2;">
-    <div style="display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid rgba(255,255,255,0.05); padding-right:12px;">
-      <div>
-        <div style="font-size:9px; font-weight:800; letter-spacing:1.5px; color:var(--gold); margin-bottom:8px;">🏆 WORLD CUP 2026 · ${esc(match.group||'STAGE')}</div>
-        <div style="display:flex; align-items:center; gap:12px; margin-top:10px;">
-          <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-            <div style="width:36px; height:24px; border-radius:3px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.4);">${flagHTML(match.homeFlag)}</div>
-            <span style="font-size:12px; font-weight:900; letter-spacing:0.5px; ${homeWon?'color:var(--green);':''}">${esc(home.toUpperCase())}</span>
+  const front=`<div class="flip-face flip-face-front pc-front-layout">
+    <div class="pc-col pc-col-left">
+      <div class="pc-col-body">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:var(--gold);margin-bottom:8px;">🏆 WORLD CUP 2026 · ${esc(match.group||'STAGE')}</div>
+        <div class="pc-score-block" style="display:flex;align-items:center;gap:12px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;flex:1;">
+            <div style="width:36px;height:24px;border-radius:3px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.4);">${flagHTML(match.homeFlag)}</div>
+            <span style="font-size:11px;font-weight:900;letter-spacing:0.5px;text-align:center;${homeWon?'color:var(--green);':''}">${esc(home.toUpperCase())}</span>
           </div>
-          <div style="flex:1; text-align:center;">
-            <span style="font-size:36px; font-weight:900; letter-spacing:4px; color:#fff;">${hScore}<span style="color:rgba(255,255,255,0.2); font-weight:300;">-</span>${aScore}</span>
-            <div style="font-size:8px; font-weight:700; letter-spacing:1px; color:var(--text-lo); margin-top:-2px;">FULL TIME</div>
+          <div style="flex:0 0 auto;text-align:center;">
+            <span style="font-size:36px;font-weight:900;letter-spacing:4px;color:#fff;">${hScore}<span style="color:rgba(255,255,255,0.2);font-weight:300;">-</span>${aScore}</span>
+            <div style="font-size:8px;font-weight:700;letter-spacing:1px;color:var(--text-lo);margin-top:-2px;">FULL TIME</div>
           </div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-            <div style="width:36px; height:24px; border-radius:3px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.4);">${flagHTML(match.awayFlag)}</div>
-            <span style="font-size:12px; font-weight:900; letter-spacing:0.5px; ${awayWon?'color:var(--green);':''}">${esc(away.toUpperCase())}</span>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;flex:1;">
+            <div style="width:36px;height:24px;border-radius:3px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.4);">${flagHTML(match.awayFlag)}</div>
+            <span style="font-size:11px;font-weight:900;letter-spacing:0.5px;text-align:center;${awayWon?'color:var(--green);':''}">${esc(away.toUpperCase())}</span>
           </div>
         </div>
         ${xgStrip}
         ${closingHTML}
       </div>
-      <div style="text-align:left; font-size:10px; font-weight:700; color:var(--gold); margin-top:12px;">➔ ${esc(d.pcTapFlip)}</div>
+      <div class="pc-flip-hint">➔ ${esc(d.pcTapFlip)}</div>
     </div>
-    <div style="display:flex; flex-direction:column; justify-content:center; padding:0 4px;">
-      ${analyticsRight}
-    </div>
+    <div class="pc-col pc-col-right">${analyticsRight}</div>
   </div>`;
 
   const insightsHTML=(match.insights||[]).map(ins=>`
@@ -1911,24 +1905,20 @@ function renderCompleted(rawMatch){
     </div>
   </div>`;
 
-  const back=`<div class="flip-face flip-face-back" style="position: absolute; inset: 0; transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; width: 100%; height: 100%; background:#070a0f; border-radius: var(--radius); padding:14px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden;">
-    <div>
-      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:6px; margin-bottom:10px;">
-        <span style="font-size:10px; font-weight:800; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase;">MATCH INSIGHTS · KEY FACTORS</span>
-        <span style="font-size:9px; font-weight:700; color:var(--text-lo);">tap to view front ↩</span>
-      </div>
-      <div class="pc-insights" style="max-height:220px; overflow-y:auto; padding-right:4px;">
-        ${insightsHTML||`<div style="padding:8px 10px; border-radius:6px; background:rgba(255,255,255,0.02); border-left:3px solid var(--gold);"><div style="font-size:9px; font-weight:800; text-transform:uppercase; color:var(--gold); margin-bottom:2px;">MATCH SUMMARY</div><div style="font-size:11px; color:var(--text-mid); line-height:1.4;">${esc(resultSummary)}</div></div>`}
-      </div>
+  const back=`<div class="flip-face flip-face-back" style="transform:rotateY(180deg);background:#070a0f;border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;overflow:hidden;">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:6px;margin-bottom:10px;flex-shrink:0;">
+      <span style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;">MATCH INSIGHTS · KEY FACTORS</span>
+      <span style="font-size:9px;font-weight:700;color:var(--text-lo);">tap to view front ↩</span>
     </div>
-    <div style="display:flex; flex-direction:column; gap:6px;">
-      ${resultBox}
+    <div class="pc-insights-scroll">
+      ${insightsHTML||`<div style="padding:8px 10px;border-radius:6px;background:rgba(255,255,255,0.02);border-left:3px solid var(--gold);"><div style="font-size:9px;font-weight:800;text-transform:uppercase;color:var(--gold);margin-bottom:2px;">MATCH SUMMARY</div><div style="font-size:11px;color:var(--text-mid);line-height:1.4;">${esc(resultSummary)}</div></div>`}
     </div>
+    <div style="flex-shrink:0;margin-top:8px;">${resultBox}</div>
   </div>`;
 
   const cid=`fc-${esc(match.id)}`;
-  return `<div class="pc-container flip-card" id="${cid}" onclick="flipCard('${cid}')" style="width:100%; margin-bottom:14px;">
-    <div class="flip-card-inner" style="position: relative; width: 100%; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;">
+  return `<div class="pc-container flip-card" id="${cid}" onclick="flipCard('${cid}')">
+    <div class="flip-card-inner">
       ${front}
       ${back}
     </div>
