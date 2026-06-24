@@ -416,7 +416,9 @@ class ESPNClient:
                 "homeScore": _safe_int(home.get("score")),
                 "awayScore": _safe_int(away.get("score")),
                 "minute":    status_obj.get("displayClock", ""),
+                "period":    status_obj.get("period"),
                 "status":    status_type.get("name", ""),
+                "statusDetail": status_type.get("detail", ""),
                 "state":     status_type.get("state", ""),
             })
         return results

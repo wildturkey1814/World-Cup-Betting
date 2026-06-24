@@ -43,7 +43,8 @@ VALID_FLAGS = frozenset({
 
 # Fields preserved when merging API odds into an existing match record
 PRESERVE_FIELDS = (
-    "type", "score", "homeScore", "awayScore", "liveScore", "boxScore",
+    "type", "score", "homeScore", "awayScore", "liveScore", "liveMinute",
+    "livePhase", "liveMetrics", "liveEvents", "boxScore",
     "advancedMetrics", "insights", "sourceAccuracy", "insight",
     "kalshiWinProbHome", "kalshiWinProbAway",
     "polymarketWinProbHome", "polymarketWinProbAway",

@@ -67,6 +67,16 @@ def _source_accuracy(record: dict, home_won: bool, is_draw: bool) -> dict:
     return accuracy
 
 
+def _espn_live_phase(espn: dict) -> str:
+    detail = str(espn.get("statusDetail") or espn.get("status") or "").upper()
+    period = espn.get("period") or 1
+    if "HALF" in detail or detail.strip() in ("HT", "HALFTIME"):
+        return "HALFTIME"
+    if int(period or 1) >= 2 or "2ND" in detail or "SECOND" in detail:
+        return "SECOND HALF"
+    return "FIRST HALF"
+
+
 def reconcile_layers(matches: list[dict], espn_by_pair: dict[str, dict], dry_run: bool = False) -> dict:
     stats = {"promoted_live": 0, "promoted_completed": 0, "score_fixes": 0, "skipped": 0}
 
@@ -89,6 +99,10 @@ def reconcile_layers(matches: list[dict], espn_by_pair: dict[str, dict], dry_run
             if not dry_run:
                 record["type"] = "IN_PLAY"
                 record["liveScore"] = f"{hg} - {ag}"
+                record["homeScore"] = hg
+                record["awayScore"] = ag
+                record["liveMinute"] = espn.get("minute") or record.get("liveMinute") or ""
+                record["livePhase"] = _espn_live_phase(espn)
             stats["promoted_live"] += 1
             log.info("  LIVE  %s vs %s → %d-%d", home, away, hg, ag)
             continue
@@ -125,6 +139,8 @@ def reconcile_layers(matches: list[dict], espn_by_pair: dict[str, dict], dry_run
                 record["score"] = _score_line(home, away, hg, ag)
                 record["sourceAccuracy"] = _source_accuracy(record, home_won, is_draw)
                 record.pop("liveScore", None)
+                for k in ("liveMinute", "livePhase", "liveMetrics", "liveEvents"):
+                    record.pop(k, None)
                 if is_draw:
                     record["insight"] = f"The match ended level at {hg}-{ag}."
                 elif home_won:
