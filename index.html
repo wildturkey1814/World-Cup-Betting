@@ -1500,6 +1500,44 @@ function archivePairKey(m){
   const h=(m.home||'').toLowerCase(),a=(m.away||'').toLowerCase();
   return h<=a?`${h}|${a}`:`${a}|${h}`;
 }
+function hasFinalScore(m){
+  return m.homeScore!=null&&m.awayScore!=null;
+}
+function buildFinishedPairKeys(){
+  const keys=new Set();
+  const note=m=>{
+    if(isGhostMatch(m))return;
+    if(m.type==='COMPLETED'||hasFinalScore(m))keys.add(archivePairKey(m));
+  };
+  allMatches.forEach(note);
+  completedArchive.forEach(note);
+  return keys;
+}
+function isFinishedMatch(m,finishedKeys){
+  if(m.type==='COMPLETED')return true;
+  return finishedKeys.has(archivePairKey(m));
+}
+function gatherStageCompleted(stageName){
+  const seen=new Map();
+  const ingest=raw=>{
+    if(isGhostMatch(raw))return;
+    if(!hasFinalScore(raw))return;
+    const k=archivePairKey(raw);
+    const row={
+      ...raw,
+      type:'COMPLETED',
+      matchday:raw.matchday||assignMatchday(raw.kickoff)||null,
+    };
+    seen.set(k,seen.has(k)?{...seen.get(k),...row}:row);
+  };
+  allMatches
+    .filter(m=>(m.stage||'Group Stage')===stageName&&m.type==='COMPLETED')
+    .forEach(ingest);
+  completedArchive
+    .filter(m=>(m.stage||'Group Stage')===stageName)
+    .forEach(ingest);
+  return [...seen.values()].sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
+}
 function isRichBoxScore(bs){
   if(!bs)return false;
   if(Array.isArray(bs.goals)&&bs.goals.length>0)return true;
@@ -1628,7 +1666,7 @@ function renderCompleted(rawMatch){
   const resultBox=`<div style="display:flex; align-items:center; gap:12px; padding:10px; background:rgba(232,160,32,0.05); border:1px solid rgba(232,160,32,0.15); border-radius:6px; margin-top:auto;">
     <div style="font-size:24px;">${isDraw?'🤝':'🏆'}</div>
     <div>
-      <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--gold); letter-spacing:0.5px;">${isDraw?'MATCH STATUS: TACTICAL DRAW':winner.toUpperCase()+' VICTORY'}</div>
+      <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:var(--gold); letter-spacing:0.5px;">${isDraw?'MATCH STATUS: TACTICAL DRAW':esc((winner||home).toUpperCase()+' VICTORY')}</div>
       <div style="font-size:11px; color:var(--text-mid); line-height:1.4; margin-top:2px;">${esc(resultSummary)}</div>
     </div>
   </div>`;
@@ -1704,30 +1742,41 @@ function switchMatchState(state){
 /* ── RENDER GRID ── */
 function renderGrid(){
   const d=DICT[lang];
+  const finishedKeys=buildFinishedPairKeys();
   const seen=new Map();allMatches.forEach(m=>seen.set(m.id,m));
   const all=[...seen.values()];
   const stageM=all.filter(m=>(m.stage||'Group Stage')===currentStage).filter(matchesSearch);
-  
-  const live=stageM.filter(m=>m.type==='IN_PLAY'||isLiveWindow(m));
-  const upcoming=stageM.filter(m=>m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0));
-  const completed=stageM.filter(m=>m.type==='COMPLETED').sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
+
+  const showUpcoming=currentMatchState==='upcoming';
+  const live=showUpcoming
+    ?stageM.filter(m=>!isFinishedMatch(m,finishedKeys)&&(m.type==='IN_PLAY'||(m.type==='UPCOMING'&&isLiveWindow(m))))
+    :[];
+  const upcoming=showUpcoming
+    ?stageM.filter(m=>!isFinishedMatch(m,finishedKeys)&&m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0))
+    :[];
+  const completed=showUpcoming?[]:gatherStageCompleted(currentStage).filter(matchesSearch);
 
   const liveSection=document.getElementById('live-section');
   const liveList=document.getElementById('live-list');
-  if(live.length){liveSection.style.display='';liveList.innerHTML=live.map(renderLive).join('');}
-  else{liveSection.style.display='none';}
+  if(showUpcoming&&live.length){
+    liveSection.style.display='';
+    liveList.innerHTML=live.map(renderLive).join('');
+  }else{
+    liveSection.style.display='none';
+    if(liveList)liveList.innerHTML='';
+  }
 
-  const titleEl = document.getElementById('lbl-grid-state-title');
-  const totalEl = document.getElementById('count-grid-state-total');
-  const targetGrid = document.getElementById('dynamic-grid-content');
+  const titleEl=document.getElementById('lbl-grid-state-title');
+  const totalEl=document.getElementById('count-grid-state-total');
+  const targetGrid=document.getElementById('dynamic-grid-content');
 
-  if(currentMatchState === 'upcoming') {
-    titleEl.textContent = d.upcoming;
-    totalEl.textContent = upcoming.length;
+  if(showUpcoming){
+    titleEl.textContent=d.upcoming;
+    totalEl.textContent=upcoming.length;
 
-    if(searchQuery || currentSort === 'time') {
-      targetGrid.innerHTML = upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`;
-    } else {
+    if(searchQuery||currentSort==='time'){
+      targetGrid.innerHTML=upcoming.length?`<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>`:`<div class="empty">${esc(d.noUpcoming)}</div>`;
+    }else{
       const byGroup={};
       upcoming.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
       if(expandedGroups.size===0){
@@ -1735,15 +1784,15 @@ function renderGrid(){
         Object.entries(byGroup).forEach(([g,ms])=>{if(!auto&&ms.some(m=>{const t=new Date(m.kickoff||0).getTime();return t>=now&&t<=h48;})){expandedGroups.add('up-'+g);auto=true;}});
         if(!auto&&Object.keys(byGroup).length>0)expandedGroups.add('up-'+Object.keys(byGroup)[0]);
       }
-      targetGrid.innerHTML = upcoming.length === 0 ? `<div class="empty">${esc(d.noUpcoming)}</div>` :
+      targetGrid.innerHTML=upcoming.length===0?`<div class="empty">${esc(d.noUpcoming)}</div>`:
         Object.entries(byGroup).map(([group,matches])=>{
-          const key='up-'+group,isOpen=expandedGroups.has(key),nk=matches[0]?fmtKO(matches[0].kickoff): '';
+          const key='up-'+group,isOpen=expandedGroups.has(key),nk=matches[0]?fmtKO(matches[0].kickoff):'';
           return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${esc(nk)} · ${matches.length} match${matches.length!==1?'es':''}</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderUpcoming).join('')}</div></div>`:''}</div>`;
         }).join('');
     }
-  } else {
-    titleEl.textContent = d.completed;
-    totalEl.textContent = completed.length;
+  }else{
+    titleEl.textContent=d.completed;
+    totalEl.textContent=completed.length;
 
     const byMatchday={};
     completed.forEach(m=>{
@@ -1754,21 +1803,26 @@ function renderGrid(){
       byMatchday[md][day].push(m);
     });
 
-    const mdOrder=[3,2,1].filter(md=>byMatchday[md]);
+    const mdOrder=Object.keys(byMatchday).map(Number).filter(n=>!isNaN(n)).sort((a,b)=>b-a);
     let html=groupStageProgressHTML();
-    if(!completed.length)html+=`<div class="empty">${esc(d.noCompleted)}</div>`;
-    mdOrder.forEach(md=>{
-      const days=byMatchday[md];
-      const count=Object.values(days).reduce((n,ms)=>n+ms.length,0);
-      const done=count>=24?` · ${esc(d.matchdayComplete)}`:'';
-      html+=`<div class="matchday-section"><div class="matchday-header"><span>${esc(matchdayLabel(md))}</span> — ${count} / 24${done}</div>`;
-      const dayKeys=Object.keys(days).sort((a,b)=>new Date(days[b][0]?.kickoff||0)-new Date(days[a][0]?.kickoff||0));
-      dayKeys.forEach(dayString=>{
-        const matches=days[dayString].sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
-        html+=`<div class="completed-day-block"><div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length!==1?'es':''}</div><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`;
+    if(!completed.length){
+      html+=`<div class="empty">${esc(d.noCompleted)}</div>`;
+    }else if(!mdOrder.length){
+      html+=`<div class="card-grid">${completed.map(renderCompleted).join('')}</div>`;
+    }else{
+      mdOrder.forEach(md=>{
+        const days=byMatchday[md];
+        const count=Object.values(days).reduce((n,ms)=>n+ms.length,0);
+        const done=count>=24?` · ${esc(d.matchdayComplete)}`:'';
+        html+=`<div class="matchday-section"><div class="matchday-header"><span>${esc(matchdayLabel(md))}</span> — ${count} / 24${done}</div>`;
+        const dayKeys=Object.keys(days).sort((a,b)=>new Date(days[b][0]?.kickoff||0)-new Date(days[a][0]?.kickoff||0));
+        dayKeys.forEach(dayString=>{
+          const matches=days[dayString].sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
+          html+=`<div class="completed-day-block"><div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length!==1?'es':''}</div><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`;
+        });
+        html+=`</div>`;
       });
-      html+=`</div>`;
-    });
+    }
     targetGrid.innerHTML=html;
   }
   renderTournamentSummary();
@@ -1902,10 +1956,14 @@ async function loadData(){
         if(Array.isArray(j.matches)){
           allMatches=sanitizeMatches(j.matches);meta.lastUpdated=j.lastUpdated;meta.groupStageProgress=j.groupStageProgress;
           if(Array.isArray(j.knockoutEliminated))knockoutEliminated=new Set(j.knockoutEliminated.map(normalizeTeamName));
-          applyLabels();
-          try{if(currentView==='bracket')renderBracket();else renderGrid();}catch(e){console.error(e);}
-          startLivePolling();
         }
+        try{
+          const cj=await fetchJson('completed_matches.json?v='+Date.now());
+          if(Array.isArray(cj))completedArchive=cj;
+        }catch(e){}
+        applyLabels();
+        try{if(currentView==='bracket')renderBracket();else renderGrid();}catch(e){console.error(e);}
+        startLivePolling();
       }catch(e){}
     },60000);
   }catch(e){console.error(e);showError(e.name==='AbortError'?'Timed out loading data.json.':e.message);}
