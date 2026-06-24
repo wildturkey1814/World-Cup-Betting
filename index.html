@@ -398,15 +398,17 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .group-header-chevron{font-size:10px;color:var(--text-lo);}
 .group-body{padding-top:6px;}
 #live-section{margin-bottom:10px;}
-.completed-day-block{margin-bottom:18px;}
+.completed-day-block{margin-bottom:32px;padding-bottom:4px;}
+.completed-day-block+.completed-day-block{margin-top:12px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);}
 .completed-day-header{
   font-size:12px;font-weight:800;color:var(--gold-hi);letter-spacing:0.3px;
-  padding:8px 0 10px;border-bottom:1px solid rgba(232,160,32,0.2);margin-bottom:10px;
+  padding:10px 0 14px;border-bottom:1px solid rgba(232,160,32,0.2);margin-bottom:14px;
 }
-.matchday-section{margin-bottom:22px;}
+.matchday-section{margin-bottom:40px;padding-bottom:8px;}
+.matchday-section+.matchday-section{margin-top:16px;padding-top:28px;border-top:1px solid rgba(232,160,32,0.14);}
 .matchday-header{
   font-size:13px;font-weight:800;color:var(--text-hi);letter-spacing:0.4px;
-  padding:10px 0 8px;border-bottom:1px solid var(--border-hi);margin-bottom:12px;
+  padding:10px 0 12px;border-bottom:1px solid var(--border-hi);margin-bottom:16px;
 }
 .matchday-header span{color:var(--gold-hi);}
 .group-stage-progress{
