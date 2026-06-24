@@ -71,6 +71,30 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
   position:sticky;top:0;z-index:100;
 }
 .controls-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.state-filter-row{align-items:flex-start;justify-content:space-between;gap:12px;}
+.state-filter-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.tournament-summary-wrap{flex:1 1 320px;display:flex;justify-content:flex-end;min-width:0;}
+.tournament-summary{
+  font-size:10px;border:1px solid rgba(232,160,32,0.22);border-radius:var(--radius-sm);
+  background:var(--surface2);padding:8px 10px;width:100%;max-width:540px;
+}
+.tournament-summary-title{
+  font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;
+}
+.tournament-summary table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+.tournament-summary th,.tournament-summary td{padding:3px 6px;text-align:right;border-top:1px solid rgba(255,255,255,0.04);}
+.tournament-summary tr:first-child th,.tournament-summary tr:first-child td{border-top:none;}
+.tournament-summary th{font-weight:700;color:var(--text-lo);font-size:9px;text-transform:uppercase;letter-spacing:0.5px;}
+.tournament-summary td:first-child,.tournament-summary th:first-child{text-align:left;color:var(--text-mid);}
+.tournament-summary .sum-val{color:var(--text-hi);font-weight:700;}
+.tournament-summary .sum-hit{color:var(--green);}
+.tournament-summary .sum-miss{color:var(--red);}
+.tournament-summary .sum-na{color:var(--text-lo);}
+@media(max-width:720px){
+  .tournament-summary-wrap{flex-basis:100%;justify-content:stretch;}
+  .tournament-summary{max-width:none;}
+}
 .controls-label{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);min-width:50px;}
 .btn{
   font-size:11px;font-weight:700;padding:6px 14px;
@@ -384,10 +408,15 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
       <span class="controls-label" id="lbl-stage">Stage</span>
       <div class="stage-tabs" id="stage-tabs"></div>
     </div>
-    <div class="controls-row" id="state-filter-row">
-      <span class="controls-label" style="color:var(--gold)">Status</span>
-      <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
-      <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
+    <div class="controls-row state-filter-row" id="state-filter-row">
+      <div class="state-filter-group">
+        <span class="controls-label" style="color:var(--gold)">Status</span>
+        <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
+        <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
+      </div>
+      <div class="tournament-summary-wrap" id="tournament-summary-wrap">
+        <div class="tournament-summary" id="tournament-summary-panel"></div>
+      </div>
     </div>
     <div class="controls-row">
       <div class="sort-row" id="sort-control-container">
@@ -470,6 +499,15 @@ const DICT = {
     matchday1: 'Matchday 1', matchday2: 'Matchday 2', matchday3: 'Matchday 3',
     matchdayProgress: 'Group stage progress',
     matchdayComplete: 'complete',
+    summaryTitle: 'Tournament snapshot',
+    summaryPlayed: 'Matches played',
+    summaryGoals: 'Goals / avg',
+    summaryFavWin: 'Favorites won',
+    summaryDraws: 'Draws',
+    summaryUpsets: 'Underdog wins',
+    summaryReco: 'Recommendation hit rate',
+    summaryOverall: 'Overall',
+    summarySample: 'n',
     teams: {}
   },
   ko: {
@@ -494,6 +532,9 @@ const DICT = {
     waitingFor: '이전 매치 결과 대기 중', groupStage: '조별 예선 라운드', bracketR32: '32강 토너먼트 보드', bracketR16: '16강 토너먼트 브래킷', bracketQF: '8강 대진표',
     matchday1: '1차전', matchday2: '2차전', matchday3: '3차전',
     matchdayProgress: '조별리그 진행', matchdayComplete: '완료',
+    summaryTitle: '토너먼트 요약', summaryPlayed: '경기 수', summaryGoals: '골 / 평균',
+    summaryFavWin: '우세팀 승', summaryDraws: '무승부', summaryUpsets: '약팀 승',
+    summaryReco: '추천 적중률', summaryOverall: '전체', summarySample: '표본',
     teams: {
       "Mexico":"멕시코","South Africa":"남아공","South Korea":"대한민국","Czechia":"체코","Canada":"캐나다","Bosnia & Herzegovina":"보스니아 헤르체고비나","United States":"미국","Paraguay":"파라과이",
       "Qatar":"카타르","Switzerland":"스위스","Brazil":"브라질","Morocco":"모로코","Haiti":"아이티","Scotland":"스코틀랜드","Australia":"호주","Turkey":"터키","Germany":"독일","Curaçao":"퀴라소",
@@ -523,6 +564,9 @@ const DICT = {
     waitingFor: '対戦カード確定待ち', groupStage: 'グループステージ', bracketR32: '32強ラウンド', bracketR16: '16強ブラケット', bracketQF: '準々決勝大進表',
     matchday1: '第1節', matchday2: '第2節', matchday3: '第3節',
     matchdayProgress: 'グループステージ進捗', matchdayComplete: '完了',
+    summaryTitle: '大会スナップショット', summaryPlayed: '試合数', summaryGoals: '得点 / 平均',
+    summaryFavWin: '本命勝利', summaryDraws: 'ドロー', summaryUpsets: '穴勝利',
+    summaryReco: '推奨的中率', summaryOverall: '全体', summarySample: 'n',
     teams: {
       "Mexico":"メキシコ","South Africa":"南アフリカ","South Korea":"韓国","Czechia":"チェコ","Canada":"カナダ","Bosnia & Herzegovina":"ボスニア・ヘルツェゴビナ","United States":"アメリカ","Paraguay":"パラグアイ",
       "Qatar":"カタール","Switzerland":"スイス","Brazil":"ブラジル","Morocco":"モロッコ","Haiti":"ハイチ","Scotland":"スコットランド","Australia":"オーストラリア","Turkey":"トルコ","Germany":"ドイツ","Curaçao":"キュラソー",
@@ -659,8 +703,7 @@ function flipCard(id){
 }
 
 /* ── RECO ENGINE ── */
-function calcReco(match){
-  if(match.type==='COMPLETED'||match.type==='IN_PLAY')return null;
+function calcRecoForMatch(match){
   const layers=match.layers||[];if(!layers.length)return null;
   function p(s){return(!s||s==='--')?null:parseFloat(s);}
   const favIsHome=match.favTeam===match.home;
@@ -674,7 +717,6 @@ function calcReco(match){
   const gap=(ef!=null&&mf!=null)?Math.abs(ef-mf):0;
   const d=DICT[lang];
 
-  // Dominant favourite: never call a draw when fav win % exceeds draw + underdog combined.
   if(af>nonFav){
     if(af>=65)return{type:'back',cls:'reco-back',call:d.recoBack,tipKey:'tipBack',sub:`${af.toFixed(1)}% avg — ${fv.length} sources aligned`};
     if(gap>=15&&ef!=null&&mf!=null){
@@ -688,6 +730,113 @@ function calcReco(match){
   if(ad>=30&&af<52)return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% avg draw — no clear favourite`};
   if(af>=50)return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% avg — sources agree, slim margin`};
   return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${af.toFixed(1)}% vs ${au.toFixed(1)}% — too close to call`};
+}
+function calcReco(match){
+  if(match.type==='COMPLETED'||match.type==='IN_PLAY')return null;
+  return calcRecoForMatch(match);
+}
+function matchOutcomeSide(match){
+  const hg=match.homeScore,ag=match.awayScore;
+  if(hg==null||ag==null)return null;
+  if(hg===ag)return 'draw';
+  if(!match.favTeam)return null;
+  const favIsHome=match.favTeam===match.home;
+  const favWon=favIsHome?hg>ag:ag>hg;
+  return favWon?'fav':'und';
+}
+function recoWasCorrect(match,reco){
+  const side=matchOutcomeSide(match);
+  if(!side||!reco)return null;
+  if(reco.type==='draw')return side==='draw';
+  if(reco.type==='upset')return side==='und';
+  if(reco.type==='back'||reco.type==='lean'||reco.type==='value')return side==='fav';
+  return null;
+}
+function gatherCompletedPool(){
+  const seen=new Map();
+  const ingest=m=>{
+    if(isGhostMatch(m))return;
+    if(m.homeScore==null&&m.awayScore==null&&m.type!=='COMPLETED')return;
+    if(m.type&&m.type!=='COMPLETED')return;
+    if(m.homeScore==null||m.awayScore==null)return;
+    const k=archivePairKey(m);
+    if(!seen.has(k))seen.set(k,m);
+  };
+  allMatches.filter(m=>m.type==='COMPLETED').forEach(ingest);
+  completedArchive.forEach(ingest);
+  return [...seen.values()];
+}
+function pctHit(correct,total){
+  if(!total)return null;
+  return Math.round((correct/total)*100);
+}
+function fmtAcc(correct,total){
+  if(!total)return '<span class="sum-na">—</span>';
+  const p=pctHit(correct,total);
+  const cls=p>=55?'sum-hit':p<45?'sum-miss':'sum-val';
+  return `<span class="${cls}">${p}%</span> <span class="sum-na">(${correct}/${total})</span>`;
+}
+function buildTournamentSummary(){
+  const pool=gatherCompletedPool();
+  const g=meta.groupStageProgress||{};
+  const total=g.totalGroupMatches||72;
+  let goals=0,favW=0,draws=0,upsets=0,decided=0;
+  const recoStats={back:{c:0,t:0},lean:{c:0,t:0},draw:{c:0,t:0},upset:{c:0,t:0},value:{c:0,t:0},all:{c:0,t:0}};
+  pool.forEach(m=>{
+    const hg=+m.homeScore||0,ag=+m.awayScore||0;
+    goals+=hg+ag;
+    const side=matchOutcomeSide(m);
+    if(side==='draw')draws++;
+    else if(side==='fav'){favW++;decided++;}
+    else if(side==='und'){upsets++;decided++;}
+    const reco=calcRecoForMatch(m);
+    if(!reco)return;
+    const ok=recoWasCorrect(m,reco);
+    if(ok==null)return;
+    recoStats[reco.type].t++;
+    recoStats.all.t++;
+    if(ok){recoStats[reco.type].c++;recoStats.all.c++;}
+  });
+  return {
+    played:pool.length,total,goals,
+    avgGoals:pool.length?(goals/pool.length).toFixed(1):'0.0',
+    favWinPct:decided?Math.round((favW/decided)*100):null,
+    drawPct:pool.length?Math.round((draws/pool.length)*100):0,
+    upsetPct:decided?Math.round((upsets/decided)*100):null,
+    recoStats,
+    md1:g.matchdayCompleted?.[1]??0,
+    md2:g.matchdayCompleted?.[2]??0,
+  };
+}
+function renderTournamentSummary(){
+  const wrap=document.getElementById('tournament-summary-wrap');
+  const panel=document.getElementById('tournament-summary-panel');
+  if(!wrap||!panel)return;
+  const show=currentView==='grid'&&currentMatchState==='upcoming';
+  wrap.style.display=show?'flex':'none';
+  if(!show)return;
+  const d=DICT[lang];
+  const s=buildTournamentSummary();
+  const rs=s.recoStats;
+  const recoRows=[
+    ['back',d.recoBack||'BET'],
+    ['lean',d.recoLean||'LEAN'],
+    ['draw',d.recoDraw||'DRAW'],
+    ['upset',d.recoUpset||'UPSET'],
+    ['value',d.recoValue||'VALUE'],
+  ].map(([k,label])=>`<tr><td>${esc(label)}</td><td>${fmtAcc(rs[k].c,rs[k].t)}</td></tr>`).join('');
+  panel.innerHTML=`<div class="tournament-summary-title">${esc(d.summaryTitle)}</div>
+    <table>
+      <tr><th>${esc(d.summaryPlayed)}</th><td class="sum-val">${s.played} / ${s.total}</td></tr>
+      <tr><th>${esc(d.matchdayProgress)}</th><td class="sum-val">MD1 ${s.md1}/24 · MD2 ${s.md2}/24</td></tr>
+      <tr><th>${esc(d.summaryGoals)}</th><td class="sum-val">${s.goals} · ${s.avgGoals}</td></tr>
+      <tr><th>${esc(d.summaryFavWin)}</th><td class="sum-val">${s.favWinPct==null?'—':s.favWinPct+'%'}</td></tr>
+      <tr><th>${esc(d.summaryDraws)}</th><td class="sum-val">${s.drawPct}%</td></tr>
+      <tr><th>${esc(d.summaryUpsets)}</th><td class="sum-val">${s.upsetPct==null?'—':s.upsetPct+'%'}</td></tr>
+      <tr><th colspan="2" style="padding-top:6px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-size:9px;">${esc(d.summaryReco)}</th></tr>
+      <tr><td>${esc(d.summaryOverall)}</td><td>${fmtAcc(rs.all.c,rs.all.t)}</td></tr>
+      ${recoRows}
+    </table>`;
 }
 
 /* ── HELPERS ── */
@@ -1022,6 +1171,7 @@ function switchMatchState(state){
   document.getElementById('btn-state-completed').classList.toggle('active', state==='completed');
   document.getElementById('signal-legend-box').style.display = state==='upcoming' ? 'flex' : 'none';
   expandedGroups.clear();
+  renderTournamentSummary();
   renderGrid();
 }
 
@@ -1048,9 +1198,9 @@ function renderGrid(){
   if(currentMatchState === 'upcoming') {
     titleEl.textContent = d.upcoming;
     totalEl.textContent = upcoming.length;
-    
+
     if(searchQuery || currentSort === 'time') {
-      targetGrid.innerHTML = (groupStageProgressHTML() || '') + (upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`);
+      targetGrid.innerHTML = upcoming.length ? `<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>` : `<div class="empty">${esc(d.noUpcoming)}</div>`;
     } else {
       const byGroup={};
       upcoming.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
@@ -1095,6 +1245,7 @@ function renderGrid(){
     });
     targetGrid.innerHTML=html;
   }
+  renderTournamentSummary();
 }
 
 /* ── BRACKET ── */
@@ -1157,6 +1308,7 @@ function applyLabels(){
   ['en','ko','ja'].forEach(l=>{document.getElementById('lang-'+l).className='btn'+(l===lang?' lang-active':'');});
   document.getElementById('btn-sort-time').classList.toggle('active',currentSort==='time');
   document.getElementById('btn-sort-group').classList.toggle('active',currentSort==='group');
+  renderTournamentSummary();
 }
 function switchView(v){
   currentView=v;
@@ -1168,7 +1320,7 @@ function switchView(v){
   document.getElementById('state-filter-row').style.display = v==='grid' ? 'flex' : 'none';
   
   const sw=document.getElementById('search-wrap');if(sw)sw.style.display=v==='grid'?'':'none';
-  if(v==='bracket')renderBracket();else renderGrid();
+  if(v==='bracket')renderBracket();else{renderTournamentSummary();renderGrid();}
 }
 function switchStage(s){currentStage=s;buildStageTabs();if(currentView==='bracket')renderBracket();else renderGrid();}
 function switchLang(l){lang=l;applyLabels();buildStageTabs();if(currentView==='bracket')renderBracket();else renderGrid();}
@@ -1220,6 +1372,7 @@ async function loadData(){
     document.getElementById('view-grid').classList.add('active');
     applyLabels();buildStageTabs();
     try{renderGrid();}catch(renderErr){console.error(renderErr);showError('Could not render match grid.');return;}
+    renderTournamentSummary();
     startLivePolling();
     setInterval(async()=>{
       try{
