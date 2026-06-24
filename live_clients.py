@@ -28,11 +28,12 @@ TEAM_NORM = {
     "Bosnia & Herzegovina": "Bosnia & Herzegovina",
     "Bosnia and Herzegovina": "Bosnia & Herzegovina",
     "Bosnia-Herzegovina": "Bosnia & Herzegovina",
+    "Cape Verde Islands": "Cape Verde",
     "Ivory Coast": "Ivory Coast", "Côte d'Ivoire": "Ivory Coast",
     "DR Congo": "DR Congo", "Congo DR": "DR Congo",
     "Czechia": "Czechia", "Czech Republic": "Czechia",
     "Turkey": "Turkey", "Türkiye": "Turkey",
-    "Cape Verde Islands": "Cape Verde", "Cape Verde": "Cape Verde",
+    "Cape Verde": "Cape Verde",
     "Curacao": "Curacao", "Curaçao": "Curacao", "Cura\u00e7ao": "Curacao",
 }
 

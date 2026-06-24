@@ -165,23 +165,52 @@ def load_data(path: str = OUTPUT_FILE) -> dict:
         return {"currentStage": "Group Stage", "lastUpdated": "", "matches": []}
 
 
-def atomic_write(path: str, data: dict) -> None:
-    data = dict(data)
-    data["matches"] = filter_ghost_matches(data.get("matches") or [])
+def _atomic_write_json(path: str, payload: Any) -> None:
     directory = os.path.dirname(os.path.abspath(path)) or "."
     fd, tmp = tempfile.mkstemp(dir=directory, suffix=".tmp")
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+            json.dump(payload, f, indent=2, ensure_ascii=False)
             f.write("\n")
         shutil.move(tmp, path)
-        log.info("Wrote %s (%d matches).", path, len(data["matches"]))
     except Exception:
         try:
             os.unlink(tmp)
         except OSError:
             pass
         raise
+
+
+def atomic_write(path: str, data: dict) -> None:
+    data = dict(data)
+    data["matches"] = filter_ghost_matches(data.get("matches") or [])
+    _atomic_write_json(path, data)
+    log.info("Wrote %s (%d matches).", path, len(data["matches"]))
+
+
+def sanitize_match_archive(path: str = "completed_matches.json") -> tuple[int, int]:
+    """Drop SRL / ghost rows from completed_matches.json. Returns (before, after)."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            archive = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return 0, 0
+    if not isinstance(archive, list):
+        return 0, 0
+    before = len(archive)
+    clean = filter_ghost_matches(archive)
+    after = len(clean)
+    if after != before:
+        _atomic_write_json(path, clean)
+        log.info("Sanitized %s: %d ghost match(es) removed, %d remain.", path, before - after, after)
+    return before, after
+
+
+def atomic_write_match_list(path: str, matches: list[dict]) -> None:
+    """Write a match list JSON file after ghost filtering."""
+    clean = filter_ghost_matches(matches)
+    _atomic_write_json(path, clean)
+    log.info("Wrote %s (%d matches).", path, len(clean))
 
 
 def merge_odds_record(existing: dict, incoming: dict) -> dict:

@@ -6,7 +6,7 @@ Run after fetch_scores or manually: python sync_completed_archive.py
 import json
 import logging
 
-from data_utils import OUTPUT_FILE, atomic_write, load_data
+from data_utils import OUTPUT_FILE, atomic_write, atomic_write_match_list, filter_ghost_matches, load_data
 from match_stats import build_archive_entry, enrich_completed_match, pair_key
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -19,7 +19,8 @@ def load_archive() -> list[dict]:
     try:
         with open(ARCHIVE_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
-        return data if isinstance(data, list) else []
+        rows = data if isinstance(data, list) else []
+        return filter_ghost_matches(rows)
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
@@ -54,10 +55,7 @@ def main() -> None:
     atomic_write(OUTPUT_FILE, data)
 
     merged_archive = sorted(archive_by_pair.values(), key=lambda m: m.get("kickoff") or "")
-
-    with open(ARCHIVE_FILE, "w", encoding="utf-8") as f:
-        json.dump(merged_archive, f, indent=2, ensure_ascii=False)
-        f.write("\n")
+    atomic_write_match_list(ARCHIVE_FILE, merged_archive)
 
     log.info("Enriched %d completed match(es) in data.json.", updated_data)
     log.info("Archive now holds %d match(es) in %s.", len(merged_archive), ARCHIVE_FILE)

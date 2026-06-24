@@ -1,11 +1,18 @@
 """
-Removes SRL simulator/ghost matches from data.json.
+Removes SRL simulator/ghost matches from data.json and completed_matches.json.
 Safe to run after every sync — idempotent.
 """
 import json
 import logging
 
-from data_utils import OUTPUT_FILE, atomic_write, filter_ghost_matches, repair_raw_json
+from data_utils import (
+    OUTPUT_FILE,
+    atomic_write,
+    filter_ghost_matches,
+    is_ghost_match,
+    repair_raw_json,
+    sanitize_match_archive,
+)
 from standings import apply_eliminated_tournament_odds, compute_knockout_eliminated
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -22,6 +29,8 @@ def _matches_for_standings(data: dict) -> list[dict]:
             archive = json.load(f)
         if isinstance(archive, list):
             for entry in archive:
+                if is_ghost_match(entry):
+                    continue
                 mid = str(entry.get("id") or "")
                 if mid and mid not in seen:
                     matches.append(entry)
@@ -31,6 +40,10 @@ def _matches_for_standings(data: dict) -> list[dict]:
 
 
 def main() -> None:
+    arch_before, arch_after = sanitize_match_archive(ARCHIVE_FILE)
+    if arch_before == arch_after and arch_before:
+        log.info("Archive already clean (%d records).", arch_after)
+
     with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
         raw = f.read()
     raw = repair_raw_json(raw)
