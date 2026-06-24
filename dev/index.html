@@ -992,8 +992,8 @@ function buildLiveEventsHtml(match,events){
 function applyLiveTelemetry(match,payload){
   liveTelemetryCache[match.id]={...(liveTelemetryCache[match.id]||{}),...payload};
   const m=mergeLiveDisplayState(match);
-  const hg=m.homeScore??parseInt(String(m.liveScore||'0-0').split('-')[0],10)||0;
-  const ag=m.awayScore??parseInt(String(m.liveScore||'0-0').split('-')[1],10)||0;
+  const hg=m.homeScore??(parseInt(String(m.liveScore||'0-0').split('-')[0],10)||0);
+  const ag=m.awayScore??(parseInt(String(m.liveScore||'0-0').split('-')[1],10)||0);
   updateLiveCardDOM(match.id,{
     ...payload,
     probs:true,
