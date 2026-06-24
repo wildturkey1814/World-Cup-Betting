@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 24, 2026 · 5:31 PM UTC",
+  "lastUpdated": "June 24, 2026 · 6:13 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -22,7 +22,7 @@
       "homeScore": 2,
       "awayScore": 0,
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
-      "kalshiWinProbHome": "1.9%",
+      "kalshiWinProbHome": "2.0%",
       "polymarketWinProbHome": "1.2%",
       "polymarketWinProbAway": "0.1%",
       "boxScore": {
@@ -488,7 +488,7 @@
       "score": "BRAZIL 1 - 1 MOROCCO",
       "kalshiWinProbHome": "4.9%",
       "kalshiWinProbAway": "1.9%",
-      "polymarketWinProbHome": "5.1%",
+      "polymarketWinProbHome": "4.9%",
       "polymarketWinProbAway": "1.9%",
       "boxScore": {
         "possession": {
@@ -1512,7 +1512,7 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "20.1%",
+      "kalshiWinProbHome": "19.5%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "19.4%",
       "polymarketWinProbAway": "0.0%",
@@ -1646,7 +1646,7 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "14.4%",
+      "kalshiWinProbHome": "14.7%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "15.2%",
       "polymarketWinProbAway": "0.1%",
@@ -1920,7 +1920,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "8.5%",
+      "kalshiWinProbHome": "8.4%",
       "polymarketWinProbHome": "7.7%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
@@ -2050,7 +2050,7 @@
         }
       ],
       "kalshiWinProbHome": "4.9%",
-      "polymarketWinProbHome": "5.1%",
+      "polymarketWinProbHome": "4.9%",
       "polymarketWinProbAway": "0.0%",
       "score": "BRAZIL 3 - 0 HAITI",
       "homeScore": 3,
@@ -2855,7 +2855,7 @@
           "und": "30.0%"
         }
       ],
-      "kalshiWinProbHome": "2.6%",
+      "kalshiWinProbHome": "2.8%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "0.0%",
@@ -3487,9 +3487,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "51.7%",
-          "draw": "34.8%",
-          "und": "13.6%"
+          "fav": "69.3%",
+          "draw": "17.6%",
+          "und": "13.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3528,9 +3528,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "40.3%",
-          "draw": "31.2%",
-          "und": "28.5%"
+          "fav": "38.4%",
+          "draw": "32.1%",
+          "und": "29.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3569,9 +3569,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "9.4%",
-          "draw": "35.6%",
-          "und": "55.0%"
+          "fav": "9.2%",
+          "draw": "35.3%",
+          "und": "55.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3581,15 +3581,15 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "8.9%",
-          "draw": "16.8%",
-          "und": "74.3%"
+          "fav": "9.0%",
+          "draw": "17.0%",
+          "und": "74.0%"
         }
       ],
       "kalshiWinProbHome": "0.1%",
       "kalshiWinProbAway": "4.9%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "5.1%",
+      "polymarketWinProbAway": "4.9%",
       "homeMomentumFactor": "+0.024",
       "awayMomentumFactor": "+0.020",
       "matchday": 3
@@ -3610,9 +3610,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "81.3%",
-          "draw": "13.0%",
-          "und": "5.7%"
+          "fav": "81.9%",
+          "draw": "12.6%",
+          "und": "5.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3651,9 +3651,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "26.1%",
-          "draw": "24.3%",
-          "und": "49.6%"
+          "fav": "26.0%",
+          "draw": "24.9%",
+          "und": "49.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3669,7 +3669,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "1.9%",
+      "kalshiWinProbAway": "2.0%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.2%",
       "homeMomentumFactor": "-0.109",
@@ -3692,9 +3692,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "15.7%",
-          "draw": "41.5%",
-          "und": "42.8%"
+          "fav": "14.3%",
+          "draw": "41.1%",
+          "und": "44.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3704,9 +3704,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "15.2%",
-          "draw": "24.2%",
-          "und": "60.6%"
+          "fav": "15.3%",
+          "draw": "23.5%",
+          "und": "61.2%"
         }
       ],
       "kalshiWinProbHome": "0.0%",
@@ -3733,9 +3733,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "25.4%",
-          "draw": "22.7%",
-          "und": "51.9%"
+          "fav": "21.7%",
+          "draw": "39.6%",
+          "und": "38.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3751,7 +3751,7 @@
         }
       ],
       "kalshiWinProbHome": "0.1%",
-      "kalshiWinProbAway": "5.2%",
+      "kalshiWinProbAway": "5.3%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.3%",
       "homeMomentumFactor": "+0.235",
@@ -3774,9 +3774,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.2%",
-          "draw": "29.3%",
-          "und": "64.5%"
+          "fav": "6.3%",
+          "draw": "29.6%",
+          "und": "64.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3854,9 +3854,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "4.8%",
-          "draw": "11.1%",
-          "und": "84.2%"
+          "fav": "5.7%",
+          "draw": "27.2%",
+          "und": "67.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3896,8 +3896,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "22.4%",
-          "draw": "39.9%",
-          "und": "37.8%"
+          "draw": "39.7%",
+          "und": "37.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3936,9 +3936,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "25.4%",
-          "draw": "53.6%",
-          "und": "20.9%"
+          "fav": "26.4%",
+          "draw": "52.9%",
+          "und": "20.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3976,9 +3976,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "19.2%",
-          "draw": "39.0%",
-          "und": "41.8%"
+          "fav": "20.4%",
+          "draw": "22.2%",
+          "und": "57.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3993,8 +3993,8 @@
           "und": "59.0%"
         }
       ],
-      "kalshiWinProbHome": "2.6%",
-      "kalshiWinProbAway": "20.1%",
+      "kalshiWinProbHome": "2.8%",
+      "kalshiWinProbAway": "19.5%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "19.4%",
       "homeMomentumFactor": "+0.647",
@@ -4017,9 +4017,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "59.6%",
-          "draw": "31.4%",
-          "und": "9.0%"
+          "fav": "78.4%",
+          "draw": "14.0%",
+          "und": "7.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4139,9 +4139,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "38.7%",
-          "draw": "36.5%",
-          "und": "24.8%"
+          "fav": "29.5%",
+          "draw": "48.9%",
+          "und": "21.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4179,9 +4179,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.6%",
-          "draw": "13.3%",
-          "und": "80.1%"
+          "fav": "5.4%",
+          "draw": "11.6%",
+          "und": "83.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4219,9 +4219,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.3%",
-          "draw": "29.3%",
-          "und": "63.3%"
+          "fav": "6.2%",
+          "draw": "11.7%",
+          "und": "82.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4232,8 +4232,8 @@
         {
           "source": "Prediction Markets (Kalshi)",
           "fav": "5.1%",
-          "draw": "11.2%",
-          "und": "83.7%"
+          "draw": "11.1%",
+          "und": "83.8%"
         }
       ],
       "kalshiWinProbAway": "10.4%",
@@ -4259,9 +4259,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "38.7%",
-          "draw": "44.2%",
-          "und": "17.1%"
+          "fav": "39.3%",
+          "draw": "44.0%",
+          "und": "16.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4300,9 +4300,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "20.8%",
-          "draw": "42.5%",
-          "und": "36.7%"
+          "fav": "23.9%",
+          "draw": "25.3%",
+          "und": "50.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4318,7 +4318,7 @@
         }
       ],
       "kalshiWinProbHome": "1.8%",
-      "kalshiWinProbAway": "8.5%",
+      "kalshiWinProbAway": "8.4%",
       "polymarketWinProbHome": "1.8%",
       "polymarketWinProbAway": "7.7%",
       "homeMomentumFactor": "-0.478",
@@ -4341,8 +4341,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "54.1%",
-          "draw": "22.4%",
+          "fav": "53.9%",
+          "draw": "22.7%",
           "und": "23.4%"
         },
         {
@@ -4381,8 +4381,8 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "22.7%",
-          "draw": "48.5%",
-          "und": "28.8%"
+          "draw": "48.9%",
+          "und": "28.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4420,9 +4420,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.1%",
-          "draw": "13.1%",
-          "und": "79.8%"
+          "fav": "6.9%",
+          "draw": "12.9%",
+          "und": "80.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4437,7 +4437,7 @@
           "und": "83.8%"
         }
       ],
-      "kalshiWinProbAway": "14.4%",
+      "kalshiWinProbAway": "14.7%",
       "polymarketWinProbAway": "15.2%",
       "homeMomentumFactor": "+0.272",
       "awayMomentumFactor": "-0.037",
@@ -4676,7 +4676,7 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "5.2%",
+      "kalshiWinProbHome": "5.3%",
       "polymarketWinProbHome": "5.3%"
     },
     {
@@ -4887,7 +4887,7 @@
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "matchday": 1,
-      "kalshiWinProbAway": "2.6%",
+      "kalshiWinProbAway": "2.8%",
       "polymarketWinProbAway": "3.1%"
     },
     {
@@ -5663,7 +5663,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "1.9%",
+      "kalshiWinProbHome": "2.0%",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "1.2%",
       "polymarketWinProbAway": "0.2%"
@@ -5975,7 +5975,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "5.2%",
+      "kalshiWinProbHome": "5.3%",
       "kalshiWinProbAway": "0.3%",
       "polymarketWinProbHome": "5.3%",
       "polymarketWinProbAway": "0.4%"
@@ -6397,7 +6397,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "14.4%",
+      "kalshiWinProbHome": "14.7%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "15.2%",
       "polymarketWinProbAway": "0.2%"
@@ -6508,7 +6508,7 @@
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "matchday": 2,
-      "kalshiWinProbHome": "20.1%",
+      "kalshiWinProbHome": "19.5%",
       "polymarketWinProbHome": "19.4%"
     },
     {
@@ -6625,7 +6625,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "8.5%",
+      "kalshiWinProbHome": "8.4%",
       "polymarketWinProbHome": "7.7%",
       "polymarketWinProbAway": "0.1%"
     }
@@ -6644,7 +6644,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 24, 2026 · 5:31 PM UTC",
+  "kalshiUpdated": "June 24, 2026 · 6:13 PM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Haiti",
@@ -6654,5 +6654,5 @@
     "Tunisia",
     "Turkey"
   ],
-  "polymarketUpdated": "June 24, 2026 · 5:31 PM UTC"
+  "polymarketUpdated": "June 24, 2026 · 6:13 PM UTC"
 }
