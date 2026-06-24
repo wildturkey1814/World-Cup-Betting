@@ -66,67 +66,67 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 /* ── CONTROLS ── */
 .controls{
   background:var(--surface);border-radius:var(--radius);
-  border:1px solid var(--border);padding:12px 14px;
-  margin-bottom:10px;display:flex;flex-direction:column;gap:8px;
+  border:1px solid var(--border);padding:6px 10px;
+  margin-bottom:6px;display:flex;flex-direction:column;gap:3px;
   position:sticky;top:0;z-index:100;
 }
-.controls-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
-.state-filter-row{align-items:center;gap:12px;}
-.state-filter-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
-.tournament-summary-section{margin-bottom:12px;}
-.tournament-summary-wrap{width:100%;}
+.controls-row{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+.controls-row.compact{gap:3px;}
+.state-filter-row{align-items:center;justify-content:space-between;gap:8px;}
+.lang-group{display:flex;gap:4px;margin-left:auto;}
+.tournament-summary-section{margin-bottom:8px;}
+.tournament-summary-wrap{width:100%;max-width:680px;margin:0 auto;}
 .snap-card{
   position:relative;overflow:hidden;width:100%;
   background:linear-gradient(135deg,#0a0c10 0%,#0f1520 52%,#1a1208 100%);
   border:1px solid rgba(232,160,32,0.32);border-radius:var(--radius);
-  padding:14px 16px 12px;
-  box-shadow:0 8px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+  padding:10px 12px 9px;
+  box-shadow:0 6px 22px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 .snap-card::before{
-  content:'';position:absolute;top:0;right:0;width:48%;height:100%;
-  background:radial-gradient(ellipse at 88% 42%,rgba(232,160,32,0.16) 0%,transparent 68%);
+  content:'';position:absolute;top:0;right:0;width:42%;height:100%;
+  background:radial-gradient(ellipse at 88% 42%,rgba(232,160,32,0.14) 0%,transparent 68%);
   pointer-events:none;
 }
 .snap-card::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(232,160,32,0.45),transparent);
+  background:linear-gradient(90deg,transparent,rgba(232,160,32,0.4),transparent);
   pointer-events:none;
 }
-.snap-header{position:relative;z-index:1;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(232,160,32,0.18);}
-.snap-eyebrow{font-size:8px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+.snap-header{position:relative;z-index:1;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(232,160,32,0.16);}
+.snap-eyebrow{font-size:8px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:4px;margin-bottom:2px;}
 .snap-eyebrow::before{content:'⚡';}
-.snap-title{font-size:clamp(16px,3vw,20px);font-weight:900;letter-spacing:1px;color:var(--text-hi);line-height:1;}
-.snap-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;gap:0 16px;align-items:stretch;}
-.snap-col{padding:2px 0;}
+.snap-title{font-size:clamp(14px,2.5vw,17px);font-weight:900;letter-spacing:0.8px;color:var(--text-hi);line-height:1.1;}
+.snap-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,0.95fr) auto minmax(0,1.05fr);gap:0 12px;align-items:start;}
+.snap-col{padding:0;}
 .snap-col-label{
-  font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:8px;opacity:0.92;
+  font-size:9px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:5px;opacity:0.92;
 }
-.snap-stat{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.snap-stat{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
 .snap-stat:last-child{border-bottom:none;}
-.snap-stat-lbl{font-size:9px;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.4px;}
-.snap-stat-val{font-size:11px;font-weight:800;color:var(--text-hi);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+.snap-stat-lbl{font-size:10px;font-weight:600;color:rgba(255,255,255,0.58);letter-spacing:0.2px;line-height:1.25;flex:1;min-width:0;}
+.snap-stat-val{font-size:12px;font-weight:800;color:var(--text-hi);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
 .snap-stat-val.gold{color:var(--gold);}
-.snap-stat-val.hit{color:var(--green);}
-.snap-stat-val.miss{color:var(--red);}
-.snap-stat-sub{font-size:9px;font-weight:600;color:var(--text-lo);margin-left:4px;}
-.snap-divider{width:1px;background:linear-gradient(180deg,transparent,rgba(232,160,32,0.35),transparent);margin:0 2px;}
-.snap-insight{
-  margin-top:10px;padding:8px 10px;border-radius:var(--radius-sm);
-  background:rgba(0,0,0,0.28);border:1px solid rgba(232,160,32,0.15);
-  font-size:9px;line-height:1.5;color:rgba(255,255,255,0.72);
+.snap-divider{width:1px;align-self:stretch;background:linear-gradient(180deg,transparent,rgba(232,160,32,0.32),transparent);margin:0 1px;}
+.snap-bullets{list-style:none;margin:0;padding:0;}
+.snap-bullets li{
+  position:relative;padding:0 0 0 11px;margin:0 0 5px;
+  font-size:10.5px;line-height:1.35;color:rgba(255,255,255,0.78);
 }
-.snap-insight strong{color:var(--gold);font-weight:800;}
-.snap-insight-line{margin-top:4px;}
-.snap-insight-line:first-child{margin-top:0;}
-@media(max-width:640px){
-  .snap-grid{grid-template-columns:1fr;gap:14px;}
+.snap-bullets li:last-child{margin-bottom:0;}
+.snap-bullets li::before{
+  content:'';position:absolute;left:0;top:0.55em;width:4px;height:4px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 4px rgba(232,160,32,0.5);
+}
+@media(max-width:580px){
+  .snap-grid{grid-template-columns:1fr;gap:10px;}
   .snap-divider{display:none;}
-  .snap-col+.snap-col{padding-top:12px;border-top:1px solid rgba(232,160,32,0.15);}
+  .snap-col+.snap-col{padding-top:8px;border-top:1px solid rgba(232,160,32,0.14);}
 }
-.controls-label{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);min-width:50px;}
+.controls-label{font-size:8px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--text-mid);min-width:42px;}
 .btn{
-  font-size:11px;font-weight:700;padding:6px 14px;
+  font-size:10px;font-weight:700;padding:4px 11px;
   border-radius:20px;border:1px solid var(--border-hi);
   color:var(--text-mid);background:rgba(255,255,255,0.03);
   transition:all 0.15s;white-space:nowrap;
@@ -134,7 +134,7 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 .btn:hover{color:var(--text-hi);border-color:rgba(255,255,255,0.25);}
 .btn.active{color:var(--gold);border-color:var(--gold);background:rgba(232,160,32,0.08);}
 .btn.lang-active{border-color:var(--neon);color:var(--neon);background:rgba(56,189,248,0.08);}
-.stage-tabs{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;}
+.stage-tabs{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:1px;flex:1;min-width:0;}
 .stage-tabs::-webkit-scrollbar{display:none;}
 
 /* ── SEARCH ── */
@@ -488,30 +488,22 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 <div class="shell">
 
   <div class="controls">
-    <div class="controls-row">
+    <div class="controls-row compact">
       <span class="controls-label" id="lbl-view">View</span>
       <button class="btn active" id="btn-grid" onclick="switchView('grid')"></button>
       <button class="btn" id="btn-bracket" onclick="switchView('bracket')"></button>
-    </div>
-    <div class="controls-row">
-      <span class="controls-label" id="lbl-stage">Stage</span>
+      <span class="controls-label" id="lbl-stage" style="margin-left:6px">Stage</span>
       <div class="stage-tabs" id="stage-tabs"></div>
     </div>
-    <div class="controls-row state-filter-row" id="state-filter-row">
+    <div class="controls-row compact state-filter-row" id="state-filter-row">
       <span class="controls-label" style="color:var(--gold)">Status</span>
       <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
       <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
-    </div>
-    <div class="controls-row">
-      <div class="sort-row" id="sort-control-container">
-        <span class="sort-label" id="lbl-sort">Sort</span>
-        <button class="btn active" id="btn-sort-time" onclick="switchSort('time')"></button>
-        <button class="btn" id="btn-sort-group" onclick="switchSort('group')"></button>
+      <div class="lang-group">
+        <button class="btn lang-active" id="lang-en" onclick="switchLang('en')">EN</button>
+        <button class="btn" id="lang-ko" onclick="switchLang('ko')">KO</button>
+        <button class="btn" id="lang-ja" onclick="switchLang('ja')">JA</button>
       </div>
-      <div style="flex:1"></div>
-      <button class="btn lang-active" id="lang-en" onclick="switchLang('en')">EN</button>
-      <button class="btn" id="lang-ko" onclick="switchLang('ko')">KO</button>
-      <button class="btn" id="lang-ja" onclick="switchLang('ja')">JA</button>
     </div>
   </div>
 
@@ -591,22 +583,19 @@ const DICT = {
     matchdayComplete: 'complete',
     summaryTitle: 'Tournament snapshot',
     summaryColProgress: 'Progress & results',
-    summaryColPicks: 'Pick performance',
+    summaryColInsights: 'World Cup moments',
     summaryPlayed: 'Matches played',
-    summaryGoals: 'Goals / avg',
-    summaryFavWin: 'Favorites won',
-    summaryDraws: 'Draws',
-    summaryUpsets: 'Underdog wins',
-    summaryBetLean: 'BET + LEAN',
-    summaryDrawPick: 'DRAW pick',
-    summaryUpsetPick: 'UPSET pick',
-    summaryDrawIntel: 'Draw intelligence',
-    summaryDrawFlagged: 'Actual draws we flagged',
-    summaryBetLeanFootnote: 'Hit = favorite win · miss = draw or upset',
-    summaryDrawBandLow: 'Draw+und ≤ 40% → draws',
-    summaryDrawBandHigh: 'Draw+und > 40% → draws',
-    summaryDrawRule: 'When draw + underdog ≤ 40%, only {draws} of {total} finished level ({pct}%).',
-    summaryDrawRuleNone: 'No draws occurred when draw + underdog ≤ 40% ({total} matches).',
+    summaryGoals: 'Goals · avg per match',
+    summaryFavWin: 'Favorite wins (non-draws)',
+    summaryDraws: 'Draws (all matches)',
+    summaryUpsets: 'Upset wins (non-draws)',
+    insightRonaldo: 'Cristiano Ronaldo scored twice in Portugal\'s 5–0 win over Uzbekistan — extending his World Cup scoring record.',
+    insightMessi: 'Lionel Messi\'s hat trick in Argentina\'s 3–0 opener moved him past Pelé on the all-time World Cup goals list.',
+    insightCanada: 'Canada posted a historic 6–0 win over Qatar — their first World Cup victory in this tournament.',
+    insightCuracaoGoal: 'Curaçao scored the first World Cup goal in their nation\'s history in a 7–1 loss to Germany.',
+    insightBiggestWin: '{home}\'s {margin}-goal margin ({hs}–{as} vs {away}) is the largest so far.',
+    insightHighScoring: 'Highest-scoring match so far: {home} {hs}–{as} {away} ({total} goals).',
+    insightGoalsPace: '{goals} goals across {played} matches — averaging {avg} per game.',
     livePhaseFirst: 'First Half',
     livePhaseHalf: 'Halftime',
     livePhaseSecond: 'Second Half',
@@ -643,14 +632,16 @@ const DICT = {
     matchday1: '1차전', matchday2: '2차전', matchday3: '3차전',
     matchdayProgress: '조별리그 진행', matchdayComplete: '완료',
     summaryTitle: '토너먼트 요약',
-    summaryColProgress: '진행 & 결과', summaryColPicks: '픽 성과',
-    summaryPlayed: '경기 수', summaryGoals: '골 / 평균', summaryFavWin: '우세팀 승',
-    summaryDraws: '무승부', summaryUpsets: '약팀 승', summaryBetLean: 'BET + LEAN',
-    summaryDrawPick: 'DRAW 픽', summaryUpsetPick: 'UPSET 픽', summaryDrawIntel: '무승부 분석',
-    summaryDrawFlagged: '실제 무승부 중 플래그', summaryBetLeanFootnote: '적중 = 우세팀 승 · 미적중 = 무 또는 약팀 승',
-    summaryDrawBandLow: '무+약 ≤40% → 무승부', summaryDrawBandHigh: '무+약 >40% → 무승부',
-    summaryDrawRule: '무+약 ≤40%일 때 {total}경기 중 {draws}경기만 무승부 ({pct}%).',
-    summaryDrawRuleNone: '무+약 ≤40% 구간에서 무승부 없음 ({total}경기).',
+    summaryColProgress: '진행 & 결과', summaryColInsights: '월드컵 하이라이트',
+    summaryPlayed: '경기 수', summaryGoals: '골 · 경기당 평균',
+    summaryFavWin: '우세팀 승 (무 제외)', summaryDraws: '무승부 (전체)', summaryUpsets: '약팀 승 (무 제외)',
+    insightRonaldo: '크리스티아누 호날두, 포르투갈 5–0 우즈베키스탄 승에서 2골 — 월드컵 득점 기록 경신.',
+    insightMessi: '리오넬 메시, 아르헨티나 3–0 개막전 해트트릭 — 월드컵 통산 득점 펠레 추월.',
+    insightCanada: '캐나다, 카타르 6–0 대승 — 이번 대회 첫 월드컵 승리.',
+    insightCuracaoGoal: '퀴라소, 독일전 7–1 패배 속 국가 사상 첫 월드컵 골.',
+    insightBiggestWin: '{home} {hs}–{as} {away} — 현재 최대 골 차 ({margin}골).',
+    insightHighScoring: '최다 득점 경기: {home} {hs}–{as} {away} (총 {total}골).',
+    insightGoalsPace: '{played}경기 {goals}골 — 경기당 평균 {avg}골.',
     livePhaseFirst: '전반', livePhaseHalf: '하프타임', livePhaseSecond: '후반',
     liveTelXg: '기대득점 (xG)', liveTelTilt: '필드 틸트 · L10', liveTelModel: '실시간 모델 변동',
     liveEventFeed: '경기 이벤트', liveNoEvents: '이벤트 대기 중…',
@@ -685,14 +676,16 @@ const DICT = {
     matchday1: '第1節', matchday2: '第2節', matchday3: '第3節',
     matchdayProgress: 'グループステージ進捗', matchdayComplete: '完了',
     summaryTitle: '大会スナップショット',
-    summaryColProgress: '進捗 & 結果', summaryColPicks: 'ピック成績',
-    summaryPlayed: '試合数', summaryGoals: '得点 / 平均', summaryFavWin: '本命勝利',
-    summaryDraws: 'ドロー', summaryUpsets: '穴勝利', summaryBetLean: 'BET + LEAN',
-    summaryDrawPick: 'DRAWピック', summaryUpsetPick: 'UPSETピック', summaryDrawIntel: 'ドロー分析',
-    summaryDrawFlagged: '実際のドローでフラグ', summaryBetLeanFootnote: '的中 = 本命勝利 · 外 = ドローか穴',
-    summaryDrawBandLow: 'ドロー+穴 ≤40% → ドロー', summaryDrawBandHigh: 'ドロー+穴 >40% → ドロー',
-    summaryDrawRule: 'ドロー+穴 ≤40% の {total} 試合中 {draws} 試合がドロー ({pct}%).',
-    summaryDrawRuleNone: 'ドロー+穴 ≤40% の試合ではドローなし ({total} 試合).',
+    summaryColProgress: '進捗 & 結果', summaryColInsights: 'ワールドカップの話題',
+    summaryPlayed: '試合数', summaryGoals: '得点 · 試合平均',
+    summaryFavWin: '本命勝利 (ドロー除く)', summaryDraws: 'ドロー (全試合)', summaryUpsets: '穴勝利 (ドロー除く)',
+    insightRonaldo: 'クリスティアーノ・ロナウド、ポルトガル5–0ウズベキスタンで2得点 — WC得点記録更新。',
+    insightMessi: 'リオネル・メッシ、アルゼンチン3–0開幕戦ハットトリック — WC通算得点でペレを抜く。',
+    insightCanada: 'カナダ、カタール6–0大勝 — 今大会初のワールドカップ勝利。',
+    insightCuracaoGoal: 'キュラソー、ドイツ7–1敗戦で国史上初のWC得点。',
+    insightBiggestWin: '{home} {hs}–{as} {away} — 現在最大の得失点差 ({margin}点)。',
+    insightHighScoring: '最多得点試合: {home} {hs}–{as} {away} (合計{total}点)。',
+    insightGoalsPace: '{played}試合 {goals}得点 — 試合平均 {avg}点。',
     livePhaseFirst: '前半', livePhaseHalf: 'ハーフタイム', livePhaseSecond: '後半',
     liveTelXg: '期待得点 (xG)', liveTelTilt: 'フィールド・ティルト · L10', liveTelModel: 'ライブモデル変動',
     liveEventFeed: '試合イベント', liveNoEvents: 'イベント待機中…',
@@ -1208,7 +1201,6 @@ function gatherCompletedPool(){
   completedArchive.forEach(ingest);
   return [...seen.values()];
 }
-const DRAW_INTEL_THRESHOLD=40;
 const DRAW_POSSIBILITY_PCT=30;
 function pctHit(correct,total){
   if(!total)return null;
@@ -1234,61 +1226,71 @@ function suggestedDrawPossible(match){
   const nf=layerAvgNonFav(match);
   return nf&&nf.draw>=DRAW_POSSIBILITY_PCT;
 }
-function fmtSnapAcc(correct,total){
-  if(!total)return'<span class="snap-stat-sub">—</span>';
-  const p=pctHit(correct,total);
-  const cls=p>=55?'hit':p<45?'miss':'gold';
-  return`<span class="snap-stat-val ${cls}">${p}%</span><span class="snap-stat-sub">(${correct}/${total})</span>`;
+function snapStat(lbl,valHtml){return`<div class="snap-stat"><span class="snap-stat-lbl">${lbl}</span>${valHtml}</div>`;}
+function fmtStatTriple(count,total,pct){
+  if(!total)return'<span class="snap-stat-val">—</span>';
+  const p=pct!=null?pct:Math.round((count/total)*100);
+  return`<span class="snap-stat-val">${count} / ${total} <span style="opacity:0.62;font-weight:600;font-size:10px">(${p}%)</span></span>`;
 }
-function snapStat(lbl,valHtml){return`<div class="snap-stat"><span class="snap-stat-lbl">${lbl}</span><span>${valHtml}</span></div>`;}
+function fmtInsightText(d,item){
+  const key='insight'+item.id.charAt(0).toUpperCase()+item.id.slice(1);
+  let t=d[key]||DICT.en[key]||'';
+  Object.entries(item.params||{}).forEach(([k,v])=>{t=t.replace(new RegExp('\\{'+k+'\\}','g'),v);});
+  return t;
+}
+function buildWorldCupInsights(pool,s){
+  const items=[];
+  const find=fn=>pool.find(fn);
+  const kick=m=>new Date(m.kickoff||0).getTime()||0;
+  const isCuracao=a=>a==='Curacao'||a==='Curaçao';
+  const porRout=find(m=>m.home==='Portugal'&&m.away==='Uzbekistan'&&+(m.homeScore||0)===5);
+  if(porRout)items.push({id:'ronaldo',kick:kick(porRout),prio:100});
+  const argOpener=find(m=>m.home==='Argentina'&&m.away==='Algeria'&&+(m.homeScore||0)===3);
+  if(argOpener)items.push({id:'messi',kick:kick(argOpener),prio:95});
+  const canadaWin=find(m=>m.home==='Canada'&&m.away==='Qatar'&&+(m.homeScore||0)===6);
+  if(canadaWin)items.push({id:'canada',kick:kick(canadaWin),prio:90});
+  const gerCur=find(m=>m.home==='Germany'&&isCuracao(m.away)&&+(m.awayScore||0)>=1);
+  if(gerCur)items.push({id:'curacaoGoal',kick:kick(gerCur),prio:85});
+  let best=null,bestMargin=0;
+  pool.forEach(m=>{
+    const hg=+(m.homeScore||0),ag=+(m.awayScore||0),margin=Math.abs(hg-ag);
+    if(margin>bestMargin){bestMargin=margin;best={m,hg,ag};}
+  });
+  if(best&&bestMargin>=4&&!isCuracao(best.m.away)&&best.m.home!=='Canada'){
+    items.push({id:'biggestWin',kick:kick(best.m),prio:45,params:{home:tn(best.m.home),away:tn(best.m.away),hs:best.hg,as:best.ag,margin:bestMargin}});
+  }
+  let top=null,topG=0;
+  pool.forEach(m=>{const t=+(m.homeScore||0)+ +(m.awayScore||0);if(t>topG){topG=t;top=m;}});
+  if(top&&topG>=6)items.push({id:'highScoring',kick:kick(top),prio:40,params:{home:tn(top.home),away:tn(top.away),hs:top.homeScore,as:top.awayScore,total:topG}});
+  if(pool.length)items.push({id:'goalsPace',kick:0,prio:5,params:{goals:s.goals,played:s.played,avg:s.avgGoals}});
+  const seen=new Set();
+  return items.filter(i=>{if(seen.has(i.id))return false;seen.add(i.id);return true;})
+    .sort((a,b)=>(b.kick-a.kick)||(b.prio-a.prio)).slice(0,5);
+}
 function buildTournamentSummary(){
   const pool=gatherCompletedPool();
   const g=meta.groupStageProgress||{};
   const total=g.totalGroupMatches||72;
   let goals=0,favW=0,draws=0,upsets=0,decided=0;
-  const betLean={c:0,t:0,missDraw:0,missUnd:0};
-  const drawPick={c:0,t:0};
-  const upsetPick={c:0,t:0};
-  let actualDraws=0,drawsFlagged=0,lowBand={total:0,draws:0},highBand={total:0,draws:0};
   pool.forEach(m=>{
     const hg=+m.homeScore||0,ag=+m.awayScore||0;
     goals+=hg+ag;
     const side=matchOutcomeSide(m);
-    if(side==='draw'){draws++;actualDraws++;}
+    if(side==='draw')draws++;
     else if(side==='fav'){favW++;decided++;}
     else if(side==='und'){upsets++;decided++;}
-    const nf=layerAvgNonFav(m);
-    if(nf){
-      const band=nf.combined<=DRAW_INTEL_THRESHOLD?lowBand:highBand;
-      band.total++;
-      if(side==='draw')band.draws++;
-    }
-    if(side==='draw'&&suggestedDrawPossible(m))drawsFlagged++;
-    const reco=calcRecoForMatch(m);
-    if(!reco)return;
-    if(reco.type==='back'||reco.type==='lean'){
-      betLean.t++;
-      if(side==='fav')betLean.c++;
-      else if(side==='draw')betLean.missDraw++;
-      else if(side==='und')betLean.missUnd++;
-    }else if(reco.type==='draw'){
-      drawPick.t++;
-      if(side==='draw')drawPick.c++;
-    }else if(reco.type==='upset'){
-      upsetPick.t++;
-      if(side==='und')upsetPick.c++;
-    }
   });
+  const played=pool.length;
   return {
-    played:pool.length,total,goals,
-    avgGoals:pool.length?(goals/pool.length).toFixed(1):'0.0',
+    played,total,goals,
+    avgGoals:played?(goals/played).toFixed(1):'0.0',
+    favW,draws,upsets,decided,
     favWinPct:decided?Math.round((favW/decided)*100):null,
-    drawPct:pool.length?Math.round((draws/pool.length)*100):0,
+    drawPct:played?Math.round((draws/played)*100):0,
     upsetPct:decided?Math.round((upsets/decided)*100):null,
-    betLean,drawPick,upsetPick,
-    drawIntel:{actualDraws,drawsFlagged,lowBand,highBand,threshold:DRAW_INTEL_THRESHOLD},
     md1:g.matchdayCompleted?.[1]??0,
     md2:g.matchdayCompleted?.[2]??0,
+    insights:buildWorldCupInsights(pool,{played,goals,avgGoals:played?(goals/played).toFixed(1):'0.0'}),
   };
 }
 function renderTournamentSummary(){
@@ -1300,18 +1302,7 @@ function renderTournamentSummary(){
   if(!show)return;
   const d=DICT[lang];
   const s=buildTournamentSummary();
-  const bl=s.betLean,di=s.drawIntel;
-  const missNote=bl.t?`<span class="snap-stat-sub">${bl.missDraw} ${d.summaryDraws?.toLowerCase()||'draws'}, ${bl.missUnd} ${d.summaryUpsets?.toLowerCase()||'upsets'}</span>`:'';
-  const lowPct=di.lowBand.total?Math.round((di.lowBand.draws/di.lowBand.total)*100):0;
-  const highPct=di.highBand.total?Math.round((di.highBand.draws/di.highBand.total)*100):0;
-  const ruleLine=di.lowBand.total
-    ?(di.lowBand.draws===0
-      ?d.summaryDrawRuleNone.replace('{total}',di.lowBand.total)
-      :d.summaryDrawRule.replace('{draws}',di.lowBand.draws).replace('{total}',di.lowBand.total).replace('{pct}',lowPct))
-    :'';
-  const flaggedLine=di.actualDraws
-    ?`<div class="snap-insight-line"><strong>${esc(d.summaryDrawFlagged)}:</strong> ${di.drawsFlagged} / ${di.actualDraws}</div>`
-    :'';
+  const bullets=s.insights.map(item=>`<li>${esc(fmtInsightText(d,item))}</li>`).join('');
   panel.innerHTML=`<div class="snap-card">
     <div class="snap-header">
       <div class="snap-eyebrow">${esc(d.summaryTitle)}</div>
@@ -1323,23 +1314,14 @@ function renderTournamentSummary(){
         ${snapStat(esc(d.summaryPlayed),`<span class="snap-stat-val gold">${s.played} / ${s.total}</span>`)}
         ${snapStat(esc(d.matchdayProgress),`<span class="snap-stat-val gold">MD1 ${s.md1}/24 · MD2 ${s.md2}/24</span>`)}
         ${snapStat(esc(d.summaryGoals),`<span class="snap-stat-val gold">${s.goals} · ${s.avgGoals}</span>`)}
-        ${snapStat(esc(d.summaryFavWin),`<span class="snap-stat-val">${s.favWinPct==null?'—':s.favWinPct+'%'}</span>`)}
-        ${snapStat(esc(d.summaryDraws),`<span class="snap-stat-val">${s.drawPct}%</span>`)}
-        ${snapStat(esc(d.summaryUpsets),`<span class="snap-stat-val">${s.upsetPct==null?'—':s.upsetPct+'%'}</span>`)}
+        ${snapStat(esc(d.summaryDraws),fmtStatTriple(s.draws,s.played,s.drawPct))}
+        ${snapStat(esc(d.summaryFavWin),s.decided?fmtStatTriple(s.favW,s.decided,s.favWinPct):'<span class="snap-stat-val">—</span>')}
+        ${snapStat(esc(d.summaryUpsets),s.decided?fmtStatTriple(s.upsets,s.decided,s.upsetPct):'<span class="snap-stat-val">—</span>')}
       </div>
       <div class="snap-divider" aria-hidden="true"></div>
       <div class="snap-col">
-        <div class="snap-col-label">${esc(d.summaryColPicks)}</div>
-        ${snapStat(esc(d.summaryBetLean),fmtSnapAcc(bl.c,bl.t)+missNote)}
-        ${snapStat(esc(d.summaryDrawPick),fmtSnapAcc(s.drawPick.c,s.drawPick.t))}
-        ${snapStat(esc(d.summaryUpsetPick),fmtSnapAcc(s.upsetPick.c,s.upsetPick.t))}
-        <div class="snap-insight">
-          <div class="snap-insight-line"><strong>${esc(d.summaryBetLeanFootnote)}</strong></div>
-          ${flaggedLine}
-          ${ruleLine?`<div class="snap-insight-line">${esc(ruleLine)}</div>`:''}
-          <div class="snap-insight-line">${esc(d.summaryDrawBandLow)}: <strong>${di.lowBand.draws}/${di.lowBand.total}</strong> (${lowPct}%)</div>
-          <div class="snap-insight-line">${esc(d.summaryDrawBandHigh)}: <strong>${di.highBand.draws}/${di.highBand.total}</strong> (${highPct}%)</div>
-        </div>
+        <div class="snap-col-label">${esc(d.summaryColInsights)}</div>
+        <ul class="snap-bullets">${bullets||'<li>—</li>'}</ul>
       </div>
     </div>
   </div>`;
@@ -1833,8 +1815,6 @@ function applyLabels(){
   document.getElementById('lbl-stage').textContent=d.stage;
   document.getElementById('btn-grid').textContent=d.grid;
   document.getElementById('btn-bracket').textContent=d.bracket;
-  document.getElementById('btn-sort-time').textContent=d.sortTime||'By Time';
-  document.getElementById('btn-sort-group').textContent=d.sortGroup||'By Group';
   
   document.getElementById('btn-state-upcoming').textContent = d.upcoming;
   document.getElementById('btn-state-completed').textContent = d.completed;
@@ -1842,8 +1822,6 @@ function applyLabels(){
   const si=document.getElementById('search-input');if(si)si.placeholder=d.searchPlaceholder||'Search teams…';
   if(meta.lastUpdated)document.getElementById('lbl-updated').textContent=`${d.updated}: ${meta.lastUpdated}`;
   ['en','ko','ja'].forEach(l=>{document.getElementById('lang-'+l).className='btn'+(l===lang?' lang-active':'');});
-  document.getElementById('btn-sort-time').classList.toggle('active',currentSort==='time');
-  document.getElementById('btn-sort-group').classList.toggle('active',currentSort==='group');
   renderTournamentSummary();
 }
 function switchView(v){
