@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 24, 2026 · 10:29 AM UTC",
+  "lastUpdated": "June 24, 2026 · 10:34 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1920,7 +1920,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "9.3%",
+      "kalshiWinProbHome": "9.4%",
       "polymarketWinProbHome": "8.2%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
@@ -3472,7 +3472,7 @@
       ]
     },
     {
-      "id": "match_id1000001666456926",
+      "id": "id1000001666456926",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3487,9 +3487,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "50.0%",
-          "draw": "35.9%",
-          "und": "14.1%"
+          "fav": "51.7%",
+          "draw": "34.8%",
+          "und": "13.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3504,16 +3504,16 @@
           "und": "11.1%"
         }
       ],
+      "kalshiWinProbHome": "0.0%",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.202",
       "awayMomentumFactor": "+0.767",
-      "kalshiWinProbAway": "0.0%",
-      "matchday": 3,
-      "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "matchday": 3
     },
     {
-      "id": "match_id1000001666456924",
+      "id": "id1000001666456924",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3528,9 +3528,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "32.7%",
-          "draw": "43.1%",
-          "und": "24.2%"
+          "fav": "40.3%",
+          "draw": "31.2%",
+          "und": "28.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3554,7 +3554,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456936",
+      "id": "id1000001666456936",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3569,9 +3569,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "13.3%",
-          "draw": "17.8%",
-          "und": "68.9%"
+          "fav": "9.4%",
+          "draw": "35.6%",
+          "und": "55.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3595,7 +3595,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456938",
+      "id": "id1000001666456938",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3610,9 +3610,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "81.7%",
-          "draw": "12.9%",
-          "und": "5.4%"
+          "fav": "62.6%",
+          "draw": "30.0%",
+          "und": "7.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3628,15 +3628,15 @@
         }
       ],
       "kalshiWinProbHome": "1.8%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "1.8%",
+      "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.024",
       "awayMomentumFactor": "+0.230",
-      "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456912",
+      "id": "id1000001666456912",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3651,9 +3651,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "26.7%",
-          "draw": "24.1%",
-          "und": "49.2%"
+          "fav": "26.1%",
+          "draw": "24.3%",
+          "und": "49.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3668,16 +3668,16 @@
           "und": "52.0%"
         }
       ],
+      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "1.8%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.2%",
       "homeMomentumFactor": "-0.109",
       "awayMomentumFactor": "-0.335",
-      "kalshiWinProbHome": "0.0%",
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456914",
+      "id": "id1000001666456914",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3692,9 +3692,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "16.3%",
-          "draw": "42.1%",
-          "und": "41.6%"
+          "fav": "15.7%",
+          "draw": "41.5%",
+          "und": "42.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3709,16 +3709,16 @@
           "und": "59.2%"
         }
       ],
+      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.283",
       "awayMomentumFactor": "+0.439",
-      "kalshiWinProbHome": "0.0%",
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457078",
+      "id": "id1000001666457078",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3733,9 +3733,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "26.4%",
-          "draw": "23.1%",
-          "und": "50.5%"
+          "fav": "25.4%",
+          "draw": "22.7%",
+          "und": "51.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3759,7 +3759,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457080",
+      "id": "id1000001666457080",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3774,9 +3774,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.5%",
-          "draw": "30.0%",
-          "und": "63.4%"
+          "fav": "6.2%",
+          "draw": "29.1%",
+          "und": "64.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3798,7 +3798,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456978",
+      "id": "id1000001666456978",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3813,9 +3813,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "50.6%",
-          "draw": "28.0%",
-          "und": "21.4%"
+          "fav": "40.1%",
+          "draw": "39.4%",
+          "und": "20.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3839,7 +3839,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456976",
+      "id": "id1000001666456976",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3854,9 +3854,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.2%",
-          "draw": "27.7%",
-          "und": "66.2%"
+          "fav": "4.8%",
+          "draw": "11.1%",
+          "und": "84.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3871,16 +3871,16 @@
           "und": "87.9%"
         }
       ],
+      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "6.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "5.3%",
       "homeMomentumFactor": "+0.569",
       "awayMomentumFactor": "-0.185",
-      "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%",
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456948",
+      "id": "id1000001666456948",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3895,9 +3895,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "27.4%",
-          "draw": "23.2%",
-          "und": "49.5%"
+          "fav": "22.4%",
+          "draw": "39.9%",
+          "und": "37.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3907,21 +3907,21 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "25.2%",
-          "draw": "22.2%",
-          "und": "52.5%"
+          "fav": "25.5%",
+          "draw": "22.4%",
+          "und": "52.0%"
         }
       ],
+      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "4.6%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "3.5%",
       "homeMomentumFactor": "+0.306",
       "awayMomentumFactor": "-0.235",
-      "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%",
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456950",
+      "id": "id1000001666456950",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3936,9 +3936,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "27.3%",
-          "draw": "50.6%",
-          "und": "22.1%"
+          "fav": "25.4%",
+          "draw": "53.6%",
+          "und": "20.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -3961,7 +3961,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457014",
+      "id": "id1000001666457014",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3976,9 +3976,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "18.2%",
-          "draw": "22.2%",
-          "und": "59.6%"
+          "fav": "19.2%",
+          "draw": "39.0%",
+          "und": "41.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4002,7 +4002,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457016",
+      "id": "id1000001666457016",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4017,9 +4017,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "78.0%",
-          "draw": "14.2%",
-          "und": "7.8%"
+          "fav": "59.6%",
+          "draw": "31.4%",
+          "und": "9.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4035,15 +4035,15 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.397",
       "awayMomentumFactor": "-0.005",
-      "kalshiWinProbAway": "0.0%",
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457004",
+      "id": "id1000001666457004",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4058,9 +4058,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "39.5%",
-          "draw": "27.8%",
-          "und": "32.8%"
+          "fav": "29.9%",
+          "draw": "43.3%",
+          "und": "26.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4083,7 +4083,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457002",
+      "id": "id1000001666457002",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4098,9 +4098,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.1%",
-          "draw": "38.7%",
-          "und": "47.3%"
+          "fav": "14.0%",
+          "draw": "38.5%",
+          "und": "47.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4124,7 +4124,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456992",
+      "id": "id1000001666456992",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4139,9 +4139,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "38.6%",
-          "draw": "36.8%",
-          "und": "24.7%"
+          "fav": "38.7%",
+          "draw": "36.5%",
+          "und": "24.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4164,7 +4164,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666456990",
+      "id": "id1000001666456990",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4179,9 +4179,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.9%",
-          "draw": "31.1%",
-          "und": "61.0%"
+          "fav": "6.6%",
+          "draw": "13.3%",
+          "und": "80.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4204,7 +4204,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457050",
+      "id": "id1000001666457050",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4219,9 +4219,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "8.1%",
-          "draw": "29.2%",
-          "und": "62.7%"
+          "fav": "7.3%",
+          "draw": "29.3%",
+          "und": "63.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4244,7 +4244,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457052",
+      "id": "id1000001666457052",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4259,9 +4259,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "55.5%",
-          "draw": "27.8%",
-          "und": "16.7%"
+          "fav": "38.7%",
+          "draw": "44.2%",
+          "und": "17.1%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4277,15 +4277,15 @@
         }
       ],
       "kalshiWinProbHome": "0.4%",
+      "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.492",
       "awayMomentumFactor": "-0.138",
-      "matchday": 3,
-      "kalshiWinProbAway": "0.1%"
+      "matchday": 3
     },
     {
-      "id": "match_id1000001666457038",
+      "id": "id1000001666457038",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4300,9 +4300,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "21.5%",
+          "fav": "20.8%",
           "draw": "42.5%",
-          "und": "36.0%"
+          "und": "36.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4318,7 +4318,7 @@
         }
       ],
       "kalshiWinProbHome": "1.8%",
-      "kalshiWinProbAway": "9.3%",
+      "kalshiWinProbAway": "9.4%",
       "polymarketWinProbHome": "1.7%",
       "polymarketWinProbAway": "8.2%",
       "homeMomentumFactor": "-0.478",
@@ -4326,7 +4326,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457040",
+      "id": "id1000001666457040",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4341,9 +4341,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.7%",
-          "draw": "43.0%",
-          "und": "21.3%"
+          "fav": "54.1%",
+          "draw": "22.4%",
+          "und": "23.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4365,7 +4365,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457028",
+      "id": "id1000001666457028",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4380,9 +4380,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "24.6%",
-          "draw": "42.4%",
-          "und": "33.0%"
+          "fav": "22.7%",
+          "draw": "48.5%",
+          "und": "28.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4405,7 +4405,7 @@
       "matchday": 3
     },
     {
-      "id": "match_id1000001666457026",
+      "id": "id1000001666457026",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4420,9 +4420,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.3%",
-          "draw": "31.8%",
-          "und": "61.0%"
+          "fav": "7.1%",
+          "draw": "13.1%",
+          "und": "79.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -6625,21 +6625,10 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "9.3%",
+      "kalshiWinProbHome": "9.4%",
       "polymarketWinProbHome": "8.2%",
       "polymarketWinProbAway": "0.1%"
     }
-  ],
-  "kalshiUpdated": "June 24, 2026 · 10:29 AM UTC",
-  "polymarketUpdated": "June 24, 2026 · 10:29 AM UTC",
-  "knockoutEliminated": [
-    "Bosnia & Herzegovina",
-    "Haiti",
-    "Iraq",
-    "Qatar",
-    "Senegal",
-    "Tunisia",
-    "Turkey"
   ],
   "groupStageProgress": {
     "totalGroupMatches": 72,
@@ -6654,5 +6643,16 @@
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
-  }
+  },
+  "kalshiUpdated": "June 24, 2026 · 10:34 AM UTC",
+  "knockoutEliminated": [
+    "Bosnia & Herzegovina",
+    "Haiti",
+    "Iraq",
+    "Qatar",
+    "Senegal",
+    "Tunisia",
+    "Turkey"
+  ],
+  "polymarketUpdated": "June 24, 2026 · 10:34 AM UTC"
 }
