@@ -71,9 +71,10 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
   position:sticky;top:0;z-index:100;
 }
 .controls-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
-.state-filter-row{align-items:flex-start;justify-content:space-between;gap:12px;}
+.state-filter-row{align-items:center;gap:12px;}
 .state-filter-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
-.tournament-summary-wrap{flex:1 1 320px;display:flex;justify-content:flex-end;min-width:0;}
+.tournament-summary-section{margin-bottom:10px;}
+.tournament-summary-wrap{display:flex;justify-content:flex-end;width:100%;}
 .tournament-summary{
   font-size:10px;border:1px solid rgba(232,160,32,0.22);border-radius:var(--radius-sm);
   background:var(--surface2);padding:8px 10px;width:100%;max-width:540px;
@@ -91,8 +92,12 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 .tournament-summary .sum-hit{color:var(--green);}
 .tournament-summary .sum-miss{color:var(--red);}
 .tournament-summary .sum-na{color:var(--text-lo);}
+.tournament-summary-footnote{
+  margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.05);
+  font-size:8px;line-height:1.45;color:var(--text-lo);font-style:italic;
+}
 @media(max-width:720px){
-  .tournament-summary-wrap{flex-basis:100%;justify-content:stretch;}
+  .tournament-summary-wrap{justify-content:stretch;}
   .tournament-summary{max-width:none;}
 }
 .controls-label{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);min-width:50px;}
@@ -469,14 +474,9 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
       <div class="stage-tabs" id="stage-tabs"></div>
     </div>
     <div class="controls-row state-filter-row" id="state-filter-row">
-      <div class="state-filter-group">
-        <span class="controls-label" style="color:var(--gold)">Status</span>
-        <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
-        <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
-      </div>
-      <div class="tournament-summary-wrap" id="tournament-summary-wrap">
-        <div class="tournament-summary" id="tournament-summary-panel"></div>
-      </div>
+      <span class="controls-label" style="color:var(--gold)">Status</span>
+      <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
+      <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
     </div>
     <div class="controls-row">
       <div class="sort-row" id="sort-control-container">
@@ -488,6 +488,12 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
       <button class="btn lang-active" id="lang-en" onclick="switchLang('en')">EN</button>
       <button class="btn" id="lang-ko" onclick="switchLang('ko')">KO</button>
       <button class="btn" id="lang-ja" onclick="switchLang('ja')">JA</button>
+    </div>
+  </div>
+
+  <div class="tournament-summary-section" id="tournament-summary-section">
+    <div class="tournament-summary-wrap" id="tournament-summary-wrap">
+      <div class="tournament-summary" id="tournament-summary-panel"></div>
     </div>
   </div>
 
@@ -568,6 +574,8 @@ const DICT = {
     summaryReco: 'Recommendation hit rate',
     summaryOverall: 'Overall',
     summarySample: 'n',
+    summaryRecoFootnote: 'BET / LEAN / VALUE count as hits only when the pre-match favorite wins outright. Draws and underdog wins are misses — not just upsets.',
+    summaryBetMisses: 'BET misses',
     livePhaseFirst: 'First Half',
     livePhaseHalf: 'Halftime',
     livePhaseSecond: 'Second Half',
@@ -606,6 +614,8 @@ const DICT = {
     summaryTitle: '토너먼트 요약', summaryPlayed: '경기 수', summaryGoals: '골 / 평균',
     summaryFavWin: '우세팀 승', summaryDraws: '무승부', summaryUpsets: '약팀 승',
     summaryReco: '추천 적중률', summaryOverall: '전체', summarySample: '표본',
+    summaryRecoFootnote: 'BET/LEAN/VALUE 적중은 프리매치 우세팀 승리만 해당합니다. 무승부와 약팀 승리는 모두 미적중입니다.',
+    summaryBetMisses: 'BET 미적중',
     livePhaseFirst: '전반', livePhaseHalf: '하프타임', livePhaseSecond: '후반',
     liveTelXg: '기대득점 (xG)', liveTelTilt: '필드 틸트 · L10', liveTelModel: '실시간 모델 변동',
     liveEventFeed: '경기 이벤트', liveNoEvents: '이벤트 대기 중…',
@@ -642,6 +652,8 @@ const DICT = {
     summaryTitle: '大会スナップショット', summaryPlayed: '試合数', summaryGoals: '得点 / 平均',
     summaryFavWin: '本命勝利', summaryDraws: 'ドロー', summaryUpsets: '穴勝利',
     summaryReco: '推奨的中率', summaryOverall: '全体', summarySample: 'n',
+    summaryRecoFootnote: 'BET/LEAN/VALUEの的中は、試合前の本命チームの勝利のみです。引き分けと穴勝ちは不的中です。',
+    summaryBetMisses: 'BET不的中',
     livePhaseFirst: '前半', livePhaseHalf: 'ハーフタイム', livePhaseSecond: '後半',
     liveTelXg: '期待得点 (xG)', liveTelTilt: 'フィールド・ティルト · L10', liveTelModel: 'ライブモデル変動',
     liveEventFeed: '試合イベント', liveNoEvents: 'イベント待機中…',
@@ -1172,7 +1184,7 @@ function buildTournamentSummary(){
   const g=meta.groupStageProgress||{};
   const total=g.totalGroupMatches||72;
   let goals=0,favW=0,draws=0,upsets=0,decided=0;
-  const recoStats={back:{c:0,t:0},lean:{c:0,t:0},draw:{c:0,t:0},upset:{c:0,t:0},value:{c:0,t:0},all:{c:0,t:0}};
+  const recoStats={back:{c:0,t:0,missDraw:0,missUnd:0},lean:{c:0,t:0,missDraw:0,missUnd:0},draw:{c:0,t:0},upset:{c:0,t:0},value:{c:0,t:0,missDraw:0,missUnd:0},all:{c:0,t:0}};
   pool.forEach(m=>{
     const hg=+m.homeScore||0,ag=+m.awayScore||0;
     goals+=hg+ag;
@@ -1187,6 +1199,10 @@ function buildTournamentSummary(){
     recoStats[reco.type].t++;
     recoStats.all.t++;
     if(ok){recoStats[reco.type].c++;recoStats.all.c++;}
+    else if(reco.type==='back'||reco.type==='lean'||reco.type==='value'){
+      if(side==='draw')recoStats[reco.type].missDraw++;
+      else if(side==='und')recoStats[reco.type].missUnd++;
+    }
   });
   return {
     played:pool.length,total,goals,
@@ -1200,15 +1216,19 @@ function buildTournamentSummary(){
   };
 }
 function renderTournamentSummary(){
+  const section=document.getElementById('tournament-summary-section');
   const wrap=document.getElementById('tournament-summary-wrap');
   const panel=document.getElementById('tournament-summary-panel');
-  if(!wrap||!panel)return;
+  if(!section||!wrap||!panel)return;
   const show=currentView==='grid'&&currentMatchState==='upcoming';
-  wrap.style.display=show?'flex':'none';
+  section.style.display=show?'':'none';
   if(!show)return;
   const d=DICT[lang];
   const s=buildTournamentSummary();
   const rs=s.recoStats;
+  const betMiss=rs.back.missDraw||rs.back.missUnd
+    ?`${rs.back.missDraw||0} ${d.summaryDraws?.toLowerCase()||'draws'}, ${rs.back.missUnd||0} ${d.summaryUpsets?.toLowerCase()||'upsets'}`
+    :'—';
   const recoRows=[
     ['back',d.recoBack||'BET'],
     ['lean',d.recoLean||'LEAN'],
@@ -1227,7 +1247,9 @@ function renderTournamentSummary(){
       <tr><th colspan="2" style="padding-top:6px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-size:9px;">${esc(d.summaryReco)}</th></tr>
       <tr><td>${esc(d.summaryOverall)}</td><td>${fmtAcc(rs.all.c,rs.all.t)}</td></tr>
       ${recoRows}
-    </table>`;
+      <tr><td>${esc(d.summaryBetMisses||'BET misses')}</td><td class="sum-na">${esc(betMiss)}</td></tr>
+    </table>
+    <div class="tournament-summary-footnote">${esc(d.summaryRecoFootnote)}</div>`;
 }
 
 /* ── HELPERS ── */
