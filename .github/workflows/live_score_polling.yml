@@ -33,6 +33,9 @@ jobs:
           FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_KEY }}
         run: python fetch_scores.py
 
+      - name: Reconcile layers vs ESPN public scoreboard
+        run: python reconcile_match_layers.py
+
       - name: Enrich Completed Match Stats
         run: python sync_completed_archive.py
 

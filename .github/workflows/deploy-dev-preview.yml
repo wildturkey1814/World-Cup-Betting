@@ -1,0 +1,55 @@
+name: Deploy Dev Preview
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-dev-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          path: src
+
+      - name: Build static preview bundle
+        run: |
+          mkdir -p bundle
+          cp src/index.html src/data.json src/completed_matches.json bundle/
+          if [ -d src/assets ]; then cp -r src/assets bundle/; fi
+          touch bundle/.nojekyll
+
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+
+      - name: Install preview under dev/
+        run: |
+          rm -rf main/dev
+          mkdir -p main/dev
+          cp -r bundle/* main/dev/
+
+      - name: Publish preview to main
+        run: |
+          cd main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dev/
+          if git diff --staged --quiet; then
+            echo "No preview changes to publish."
+          else
+            git commit -m "deploy: dev preview from ${{ github.sha }} [skip ci]"
+            git push
+          fi

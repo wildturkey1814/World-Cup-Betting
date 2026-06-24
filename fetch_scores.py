@@ -387,6 +387,11 @@ def main() -> None:
             ag   = curr.get("away", 0) or 0
             record["type"]      = "IN_PLAY"
             record["liveScore"] = f"{hg} - {ag}"
+            record["homeScore"] = hg
+            record["awayScore"] = ag
+            minute = fd_m.get("minute")
+            if minute is not None:
+                record["liveMinute"] = f"{minute}'"
             changed = True
             log.info("    LIVE: %s %d - %d %s", home, hg, ag, away)
 
@@ -428,6 +433,8 @@ def main() -> None:
                     record["insight"] = f"{away} won {ag}-{hg}."
 
             record.pop("liveScore", None)
+            for k in ("liveMinute", "livePhase", "liveMetrics", "liveEvents"):
+                record.pop(k, None)
             record = enrich_completed_match(record)
             changed = True
 
