@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 24, 2026 · 6:13 PM UTC",
+  "lastUpdated": "June 24, 2026 · 10:02 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -3476,7 +3476,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Bosnia & Herzegovina",
       "away": "Qatar",
       "favTeam": "Bosnia & Herzegovina",
@@ -3510,14 +3510,115 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.202",
       "awayMomentumFactor": "+0.767",
-      "matchday": 3
+      "matchday": 3,
+      "homeScore": 3,
+      "awayScore": 1,
+      "score": "BOSNIA & HERZEGOVINA 3 - 1 QATAR",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "insight": "Bosnia & Herzegovina won 3-1.",
+      "boxScore": {
+        "possession": {
+          "home": 59.5,
+          "away": 40.5
+        },
+        "shots": {
+          "home": 11,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 3
+        },
+        "corners": {
+          "home": 7,
+          "away": 5
+        },
+        "fouls": {
+          "home": 9,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 26,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 41,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 42,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 86,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.83,
+          "away": 1.23
+        },
+        "fieldTilt": {
+          "home": 56.0,
+          "away": 44.0
+        },
+        "ppda": {
+          "home": 9.7,
+          "away": 15.1
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 536,
+          "away": 369
+        },
+        "finalThirdEntries": {
+          "home": 49,
+          "away": 35
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Bosnia & Herzegovina created the clearer chances, generating 1.83 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Bosnia & Herzegovina (PPDA 9.7) disrupted Qatar's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Bosnia & Herzegovina's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001666456924",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Switzerland",
       "away": "Canada",
       "favTeam": "Switzerland",
@@ -3551,7 +3652,103 @@
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.010",
       "awayMomentumFactor": "-0.733",
-      "matchday": 3
+      "matchday": 3,
+      "score": "SWITZERLAND 2 - 1 CANADA",
+      "homeScore": 2,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 57.1,
+          "away": 42.9
+        },
+        "shots": {
+          "home": 10,
+          "away": 5
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 2
+        },
+        "corners": {
+          "home": 6,
+          "away": 6
+        },
+        "fouls": {
+          "home": 16,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 16,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 22,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 31,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Switzerland won 2-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.67,
+          "away": 0.94
+        },
+        "fieldTilt": {
+          "home": 60.1,
+          "away": 39.9
+        },
+        "ppda": {
+          "home": 9.8,
+          "away": 12.1
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 485,
+          "away": 366
+        },
+        "finalThirdEntries": {
+          "home": 52,
+          "away": 32
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Switzerland created the clearer chances, generating 1.67 xG and putting 4 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Switzerland (PPDA 9.8) disrupted Canada's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Switzerland's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001666456936",
@@ -3599,7 +3796,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Morocco",
       "away": "Haiti",
       "favTeam": "Morocco",
@@ -3633,7 +3830,12 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.024",
       "awayMomentumFactor": "+0.230",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "1'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001666456912",
@@ -6633,13 +6835,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 48,
-    "upcomingGroupMatches": 24,
-    "liveGroupMatches": 0,
+    "completedGroupMatches": 50,
+    "upcomingGroupMatches": 21,
+    "liveGroupMatches": 1,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 0
+      "3": 2
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
