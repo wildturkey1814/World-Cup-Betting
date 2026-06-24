@@ -489,8 +489,8 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
     </div>
     <div class="controls-row compact state-filter-row" id="state-filter-row">
       <span class="controls-label" style="color:var(--gold)">Status</span>
-      <button class="btn active" id="btn-state-upcoming" onclick="switchMatchState('upcoming')">Upcoming Matches</button>
-      <button class="btn" id="btn-state-completed" onclick="switchMatchState('completed')">Completed Matches</button>
+      <button type="button" class="btn active" id="btn-state-upcoming">Upcoming Matches</button>
+      <button type="button" class="btn" id="btn-state-completed">Completed Matches</button>
       <div class="lang-group">
         <button class="btn lang-active" id="lang-en" onclick="switchLang('en')">EN</button>
         <button class="btn" id="lang-ko" onclick="switchLang('ko')">KO</button>
@@ -745,6 +745,10 @@ function canonSrc(s){return SRC_CANONICAL[s]||s;}
 /* ── MANAGEMENT VARIABLES ── */
 let lang='en',currentView='grid',currentStage='Group Stage',currentSort='time',searchQuery='',allMatches=[],completedArchive=[],meta={},knockoutEliminated=new Set();
 let currentMatchState='upcoming';
+try{
+  const savedState=sessionStorage.getItem('wcMatchState');
+  if(savedState==='completed'||savedState==='upcoming')currentMatchState=savedState;
+}catch(e){}
 const expandedGroups=new Set();
 const STAGES=['Group Stage','Round of 32','Round of 16','Quarter-Finals','Semi-Finals','Final'];
 const STAGE_KEYS={'Group Stage':'groupStage','Round of 32':'r32','Round of 16':'r16','Quarter-Finals':'quarters','Semi-Finals':'semis','Final':'final'};
@@ -1729,12 +1733,30 @@ function groupStageProgressHTML(){
 }
 function toggleGroup(k){if(expandedGroups.has(k))expandedGroups.delete(k);else expandedGroups.add(k);renderGrid();}
 
+function syncMatchStateUI(){
+  const up=document.getElementById('btn-state-upcoming');
+  const done=document.getElementById('btn-state-completed');
+  const legend=document.getElementById('signal-legend-box');
+  if(up)up.classList.toggle('active',currentMatchState==='upcoming');
+  if(done)done.classList.toggle('active',currentMatchState==='completed');
+  if(legend)legend.style.display=currentMatchState==='upcoming'?'flex':'none';
+}
+function bindFilterControls(){
+  if(window.__wcFiltersBound)return;
+  window.__wcFiltersBound=true;
+  document.getElementById('btn-state-upcoming')?.addEventListener('click',()=>switchMatchState('upcoming'));
+  document.getElementById('btn-state-completed')?.addEventListener('click',()=>switchMatchState('completed'));
+}
+function safeCompletedCard(m){
+  try{return renderCompleted(m);}catch(e){console.error('renderCompleted failed',m?.id,e);return'';}
+}
+
 /* ── STATE SWITCH TOGGLE NODE ── */
 function switchMatchState(state){
+  if(state!=='upcoming'&&state!=='completed')return;
   currentMatchState=state;
-  document.getElementById('btn-state-upcoming').classList.toggle('active',state==='upcoming');
-  document.getElementById('btn-state-completed').classList.toggle('active',state==='completed');
-  document.getElementById('signal-legend-box').style.display=state==='upcoming'?'flex':'none';
+  try{sessionStorage.setItem('wcMatchState',state);}catch(e){}
+  syncMatchStateUI();
   expandedGroups.clear();
   renderTournamentSummary();
   try{renderGrid();}catch(err){console.error(err);showError('Could not refresh match list.');}
@@ -1809,7 +1831,7 @@ function renderGrid(){
     if(!completed.length){
       html+=`<div class="empty">${esc(d.noCompleted)}</div>`;
     }else if(!mdOrder.length){
-      html+=`<div class="card-grid">${completed.map(renderCompleted).join('')}</div>`;
+      html+=`<div class="card-grid">${completed.map(safeCompletedCard).join('')}</div>`;
     }else{
       mdOrder.forEach(md=>{
         const days=byMatchday[md];
@@ -1819,7 +1841,7 @@ function renderGrid(){
         const dayKeys=Object.keys(days).sort((a,b)=>new Date(days[b][0]?.kickoff||0)-new Date(days[a][0]?.kickoff||0));
         dayKeys.forEach(dayString=>{
           const matches=days[dayString].sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
-          html+=`<div class="completed-day-block"><div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length!==1?'es':''}</div><div class="card-grid">${matches.map(renderCompleted).join('')}</div></div>`;
+          html+=`<div class="completed-day-block"><div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length!==1?'es':''}</div><div class="card-grid">${matches.map(safeCompletedCard).join('')}</div></div>`;
         });
         html+=`</div>`;
       });
@@ -1885,6 +1907,7 @@ function applyLabels(){
   const si=document.getElementById('search-input');if(si)si.placeholder=d.searchPlaceholder||'Search teams…';
   if(meta.lastUpdated)document.getElementById('lbl-updated').textContent=`${d.updated}: ${meta.lastUpdated}`;
   ['en','ko','ja'].forEach(l=>{document.getElementById('lang-'+l).className='btn'+(l===lang?' lang-active':'');});
+  syncMatchStateUI();
   renderTournamentSummary();
 }
 function switchView(v){
@@ -1947,7 +1970,7 @@ async function loadData(){
     if(meta.currentStage)currentStage=meta.currentStage;
     document.getElementById('status-pane').style.display='none';
     document.getElementById('view-grid').classList.add('active');
-    applyLabels();buildStageTabs();
+    applyLabels();buildStageTabs();bindFilterControls();syncMatchStateUI();
     try{renderGrid();}catch(renderErr){console.error(renderErr);showError('Could not render match grid.');return;}
     renderTournamentSummary();
     startLivePolling();
