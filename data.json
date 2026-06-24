@@ -3463,7 +3463,7 @@
       "polymarketWinProbHome": "0.7%",
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.010",
-      "awayMomentumFactor": "-0.556",
+      "awayMomentumFactor": "-0.733",
       "matchday": 3
     },
     {
@@ -3668,7 +3668,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.5%",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "-0.694",
+      "awayMomentumFactor": "-0.557",
       "matchday": 3
     },
     {
@@ -3747,7 +3747,7 @@
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "-0.180",
+      "homeMomentumFactor": "-0.061",
       "awayMomentumFactor": "+0.071",
       "matchday": 3
     },
@@ -3786,7 +3786,7 @@
       ],
       "kalshiWinProbAway": "6.5%",
       "polymarketWinProbAway": "5.0%",
-      "homeMomentumFactor": "+0.569",
+      "homeMomentumFactor": "+0.450",
       "awayMomentumFactor": "-0.185",
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
@@ -4033,7 +4033,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "13.9%",
       "homeMomentumFactor": "-0.121",
-      "awayMomentumFactor": "-0.215",
+      "awayMomentumFactor": "-0.320",
       "matchday": 3
     },
     {
@@ -4072,7 +4072,7 @@
       "kalshiWinProbHome": "0.2%",
       "polymarketWinProbHome": "0.2%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.028",
+      "homeMomentumFactor": "+0.091",
       "awayMomentumFactor": "-0.041",
       "matchday": 3
     },
@@ -4112,7 +4112,7 @@
       "kalshiWinProbAway": "1.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.1%",
-      "homeMomentumFactor": "+0.302",
+      "homeMomentumFactor": "+0.238",
       "awayMomentumFactor": "-0.022",
       "matchday": 3
     },
@@ -4152,7 +4152,7 @@
       "kalshiWinProbAway": "10.3%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "11.1%",
-      "homeMomentumFactor": "+0.638",
+      "homeMomentumFactor": "+0.456",
       "awayMomentumFactor": "+0.254",
       "matchday": 3
     },
@@ -4192,7 +4192,7 @@
       "kalshiWinProbHome": "0.4%",
       "polymarketWinProbHome": "0.5%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "-0.492",
+      "homeMomentumFactor": "-0.310",
       "awayMomentumFactor": "-0.138",
       "matchday": 3
     },
@@ -4312,7 +4312,7 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "+0.080",
+      "homeMomentumFactor": "+0.122",
       "awayMomentumFactor": "-0.069",
       "matchday": 3
     },
@@ -4351,7 +4351,7 @@
       ],
       "kalshiWinProbAway": "13.9%",
       "polymarketWinProbAway": "14.6%",
-      "homeMomentumFactor": "+0.272",
+      "homeMomentumFactor": "+0.231",
       "awayMomentumFactor": "-0.037",
       "matchday": 3
     },
@@ -4455,7 +4455,8 @@
       ],
       "matchday": 1,
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Canada"
     },
     {
       "id": "espn-760422",
@@ -4585,7 +4586,8 @@
           "body": "Shot conversion rate was decisive — Germany turned pressure into goals while Curacao struggled to create clear openings."
         }
       ],
-      "matchday": 1
+      "matchday": 1,
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760428",
@@ -4674,7 +4676,8 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 1
+      "matchday": 1,
+      "favTeam": "Spain"
     },
     {
       "id": "espn-760430",
@@ -4791,7 +4794,8 @@
       ],
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
-      "matchday": 1
+      "matchday": 1,
+      "favTeam": "Norway"
     },
     {
       "id": "espn-760437",
@@ -4911,7 +4915,8 @@
           "body": "Shot conversion rate was decisive — England turned pressure into goals while Croatia struggled to create clear openings."
         }
       ],
-      "matchday": 1
+      "matchday": 1,
+      "favTeam": "England"
     },
     {
       "id": "espn-760434",
@@ -5006,7 +5011,8 @@
           "body": "Dead-ball situations proved a key differentiator, with Ghana generating danger from corners and free-kicks throughout."
         }
       ],
-      "matchday": 1
+      "matchday": 1,
+      "favTeam": "Ghana"
     },
     {
       "id": "espn-760436",
@@ -5116,7 +5122,8 @@
           "body": "The margin was slim but Colombia's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 1
+      "matchday": 1,
+      "favTeam": "Colombia"
     },
     {
       "id": "espn-760438",
@@ -5216,7 +5223,8 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Czechia"
     },
     {
       "id": "espn-760439",
@@ -5333,7 +5341,8 @@
       ],
       "matchday": 2,
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Switzerland"
     },
     {
       "id": "espn-760440",
@@ -5455,7 +5464,8 @@
       ],
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Canada"
     },
     {
       "id": "espn-760441",
@@ -5550,7 +5560,8 @@
           "body": "Dead-ball situations proved a key differentiator, with Mexico generating danger from corners and free-kicks throughout."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Mexico"
     },
     {
       "id": "espn-760442",
@@ -5650,7 +5661,8 @@
           "body": "The margin was slim but United States's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "United States"
     },
     {
       "id": "espn-760445",
@@ -5745,7 +5757,8 @@
           "body": "Dead-ball situations proved a key differentiator, with Morocco generating danger from corners and free-kicks throughout."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Morocco"
     },
     {
       "id": "espn-760448",
@@ -5850,7 +5863,8 @@
           "body": "The margin was slim but Germany's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760453",
@@ -5960,7 +5974,8 @@
           "body": "Shot conversion rate was decisive — Spain turned pressure into goals while Saudi Arabia struggled to create clear openings."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Spain"
     },
     {
       "id": "espn-760451",
@@ -6049,7 +6064,8 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Belgium"
     },
     {
       "id": "espn-760450",
@@ -6159,7 +6175,8 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Uruguay"
     },
     {
       "id": "espn-760456",
@@ -6259,7 +6276,8 @@
           "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Argentina"
     },
     {
       "id": "espn-760457",
@@ -6366,7 +6384,8 @@
       ],
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "France"
     },
     {
       "id": "espn-760461",
@@ -6481,7 +6500,8 @@
           "body": "Shot conversion rate was decisive — Portugal turned pressure into goals while Uzbekistan struggled to create clear openings."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "favTeam": "Portugal"
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",
