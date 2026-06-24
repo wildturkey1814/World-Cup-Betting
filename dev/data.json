@@ -110,7 +110,8 @@
       "insight": "Mexico won 2-0.",
       "homeFlag": "mex",
       "awayFlag": "rsa",
-      "kalshiWinProbAway": "0.0%"
+      "kalshiWinProbAway": "0.0%",
+      "matchday": 1
     },
     {
       "id": "537328",
@@ -225,7 +226,8 @@
       "insight": "South Korea won 2-1.",
       "homeFlag": "kor",
       "awayFlag": "cze",
-      "kalshiWinProbAway": "0.0%"
+      "kalshiWinProbAway": "0.0%",
+      "matchday": 1
     },
     {
       "id": "537345",
@@ -350,7 +352,8 @@
       ],
       "insight": "United States won 4-1.",
       "homeFlag": "usa",
-      "awayFlag": "pry"
+      "awayFlag": "pry",
+      "matchday": 1
     },
     {
       "id": "537334",
@@ -460,7 +463,8 @@
       "insight": "The match ended 1-1.",
       "homeFlag": "qat",
       "awayFlag": "sui",
-      "kalshiWinProbHome": "0.0%"
+      "kalshiWinProbHome": "0.0%",
+      "matchday": 1
     },
     {
       "id": "537339",
@@ -570,7 +574,8 @@
       ],
       "insight": "The match ended 1-1.",
       "homeFlag": "bra",
-      "awayFlag": "mar"
+      "awayFlag": "mar",
+      "matchday": 1
     },
     {
       "id": "537340",
@@ -675,7 +680,8 @@
       "insight": "Scotland won 0-1.",
       "homeFlag": "hai",
       "awayFlag": "sco",
-      "kalshiWinProbHome": "0.0%"
+      "kalshiWinProbHome": "0.0%",
+      "matchday": 1
     },
     {
       "id": "537346",
@@ -785,7 +791,8 @@
       ],
       "insight": "Australia won 2-0.",
       "homeFlag": "aus",
-      "awayFlag": "tur"
+      "awayFlag": "tur",
+      "matchday": 1
     },
     {
       "id": "537357",
@@ -905,7 +912,8 @@
       ],
       "insight": "The match ended 2-2.",
       "homeFlag": "ned",
-      "awayFlag": "jpn"
+      "awayFlag": "jpn",
+      "matchday": 1
     },
     {
       "id": "537352",
@@ -1010,7 +1018,8 @@
       ],
       "insight": "Ivory Coast won 1-0.",
       "homeFlag": "civ",
-      "awayFlag": "ecu"
+      "awayFlag": "ecu",
+      "matchday": 1
     },
     {
       "id": "537358",
@@ -1140,7 +1149,8 @@
       "insight": "Sweden won 5-1.",
       "homeFlag": "swe",
       "awayFlag": "tun",
-      "kalshiWinProbAway": "0.0%"
+      "kalshiWinProbAway": "0.0%",
+      "matchday": 1
     },
     {
       "id": "537363",
@@ -1250,7 +1260,8 @@
       ],
       "insight": "The match ended 1-1.",
       "homeFlag": "bel",
-      "awayFlag": "egy"
+      "awayFlag": "egy",
+      "matchday": 1
     },
     {
       "id": "537370",
@@ -1359,7 +1370,8 @@
       ],
       "insight": "The match ended 1-1.",
       "homeFlag": "ksa",
-      "awayFlag": "uru"
+      "awayFlag": "uru",
+      "matchday": 1
     },
     {
       "id": "537364",
@@ -1477,7 +1489,8 @@
       ],
       "insight": "The match ended 2-2.",
       "homeFlag": "irn",
-      "awayFlag": "nzl"
+      "awayFlag": "nzl",
+      "matchday": 1
     },
     {
       "id": "537391",
@@ -1597,7 +1610,8 @@
       ],
       "insight": "France won 3-1.",
       "homeFlag": "fra",
-      "awayFlag": "sen"
+      "awayFlag": "sen",
+      "matchday": 1
     },
     {
       "id": "match_id1000001666457018",
@@ -1731,7 +1745,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Argentina turned pressure into goals while Algeria struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "match_id1000001666457020",
@@ -1869,7 +1884,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Austria's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "match_id1000001666457030",
@@ -1997,7 +2013,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "match_id1000001666456932",
@@ -2131,7 +2148,8 @@
           "body": "Shot conversion rate was decisive — Brazil turned pressure into goals while Haiti struggled to create clear openings."
         }
       ],
-      "kalshiWinProbAway": "0.0%"
+      "kalshiWinProbAway": "0.0%",
+      "matchday": 2
     },
     {
       "id": "match_id1000001666456946",
@@ -2255,7 +2273,8 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Paraguay generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666456972",
@@ -2404,7 +2423,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Netherlands turned pressure into goals while Sweden struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457076",
@@ -2520,7 +2540,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666456974",
@@ -2659,7 +2680,8 @@
           "body": "Shot conversion rate was decisive — Japan turned pressure into goals while Tunisia struggled to create clear openings."
         }
       ],
-      "kalshiWinProbHome": "0.0%"
+      "kalshiWinProbHome": "0.0%",
+      "matchday": 2
     },
     {
       "id": "match_id1000001666456988",
@@ -2797,7 +2819,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Egypt's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457012",
@@ -2941,7 +2964,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Norway turned pressure into goals while Senegal struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457024",
@@ -3073,7 +3097,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Algeria's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457046",
@@ -3190,7 +3215,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457048",
@@ -3315,7 +3341,8 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Croatia generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457036",
@@ -3354,7 +3381,8 @@
       "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.306",
-      "awayMomentumFactor": "-0.035"
+      "awayMomentumFactor": "-0.035",
+      "matchday": 2
     },
     {
       "id": "match_id1000001666456926",
@@ -3392,7 +3420,8 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.202",
       "awayMomentumFactor": "+0.767",
-      "kalshiWinProbAway": "0.0%"
+      "kalshiWinProbAway": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456924",
@@ -3432,7 +3461,8 @@
       "polymarketWinProbHome": "0.7%",
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.010",
-      "awayMomentumFactor": "-0.556"
+      "awayMomentumFactor": "-0.556",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456936",
@@ -3472,7 +3502,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.2%",
       "homeMomentumFactor": "+0.024",
-      "awayMomentumFactor": "+0.020"
+      "awayMomentumFactor": "+0.020",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456938",
@@ -3512,7 +3543,8 @@
       "homeMomentumFactor": "-0.024",
       "awayMomentumFactor": "+0.230",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456912",
@@ -3552,7 +3584,8 @@
       "polymarketWinProbAway": "1.2%",
       "homeMomentumFactor": "-0.109",
       "awayMomentumFactor": "-0.335",
-      "kalshiWinProbHome": "0.0%"
+      "kalshiWinProbHome": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456914",
@@ -3592,7 +3625,8 @@
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.283",
       "awayMomentumFactor": "+0.439",
-      "kalshiWinProbHome": "0.0%"
+      "kalshiWinProbHome": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457078",
@@ -3632,7 +3666,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.5%",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "-0.694"
+      "awayMomentumFactor": "-0.694",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457080",
@@ -3670,7 +3705,8 @@
       "kalshiWinProbAway": "0.3%",
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.718",
-      "awayMomentumFactor": "-0.156"
+      "awayMomentumFactor": "-0.156",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456978",
@@ -3710,7 +3746,8 @@
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "-0.180",
-      "awayMomentumFactor": "+0.071"
+      "awayMomentumFactor": "+0.071",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456976",
@@ -3750,7 +3787,8 @@
       "homeMomentumFactor": "+0.569",
       "awayMomentumFactor": "-0.185",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456948",
@@ -3790,7 +3828,8 @@
       "homeMomentumFactor": "+0.306",
       "awayMomentumFactor": "-0.235",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456950",
@@ -3829,7 +3868,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "-0.017",
-      "awayMomentumFactor": "+0.235"
+      "awayMomentumFactor": "+0.235",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457014",
@@ -3869,7 +3909,8 @@
       "polymarketWinProbHome": "3.0%",
       "polymarketWinProbAway": "19.2%",
       "homeMomentumFactor": "+0.647",
-      "awayMomentumFactor": "+0.007"
+      "awayMomentumFactor": "+0.007",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457016",
@@ -3909,7 +3950,8 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.397",
       "awayMomentumFactor": "-0.005",
-      "kalshiWinProbAway": "0.0%"
+      "kalshiWinProbAway": "0.0%",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457004",
@@ -3948,7 +3990,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.403",
-      "awayMomentumFactor": "+0.251"
+      "awayMomentumFactor": "+0.251",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457002",
@@ -3988,7 +4031,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "13.9%",
       "homeMomentumFactor": "-0.121",
-      "awayMomentumFactor": "-0.215"
+      "awayMomentumFactor": "-0.215",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456992",
@@ -4027,7 +4071,8 @@
       "polymarketWinProbHome": "0.2%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.028",
-      "awayMomentumFactor": "-0.041"
+      "awayMomentumFactor": "-0.041",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666456990",
@@ -4066,7 +4111,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "1.1%",
       "homeMomentumFactor": "+0.302",
-      "awayMomentumFactor": "-0.022"
+      "awayMomentumFactor": "-0.022",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457050",
@@ -4105,7 +4151,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "11.1%",
       "homeMomentumFactor": "+0.638",
-      "awayMomentumFactor": "+0.254"
+      "awayMomentumFactor": "+0.254",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457052",
@@ -4144,7 +4191,8 @@
       "polymarketWinProbHome": "0.5%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.492",
-      "awayMomentumFactor": "-0.138"
+      "awayMomentumFactor": "-0.138",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457038",
@@ -4184,7 +4232,8 @@
       "polymarketWinProbHome": "1.5%",
       "polymarketWinProbAway": "8.0%",
       "homeMomentumFactor": "-0.306",
-      "awayMomentumFactor": "-0.305"
+      "awayMomentumFactor": "-0.305",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457040",
@@ -4222,7 +4271,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.035",
-      "awayMomentumFactor": "+0.637"
+      "awayMomentumFactor": "+0.637",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457028",
@@ -4261,7 +4311,8 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.080",
-      "awayMomentumFactor": "-0.069"
+      "awayMomentumFactor": "-0.069",
+      "matchday": 3
     },
     {
       "id": "match_id1000001666457026",
@@ -4299,7 +4350,8 @@
       "kalshiWinProbAway": "13.9%",
       "polymarketWinProbAway": "14.6%",
       "homeMomentumFactor": "+0.272",
-      "awayMomentumFactor": "-0.037"
+      "awayMomentumFactor": "-0.037",
+      "matchday": 3
     },
     {
       "id": "espn-760416",
@@ -4398,7 +4450,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "espn-760422",
@@ -4527,7 +4580,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Germany turned pressure into goals while Curacao struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "espn-760428",
@@ -4615,7 +4669,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "espn-760430",
@@ -4731,7 +4786,8 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "matchday": 1
     },
     {
       "id": "espn-760437",
@@ -4850,7 +4906,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — England turned pressure into goals while Croatia struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "espn-760434",
@@ -4944,7 +5001,8 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Ghana generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "espn-760436",
@@ -5053,7 +5111,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Colombia's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 1
     },
     {
       "id": "espn-760438",
@@ -5152,7 +5211,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760439",
@@ -5266,7 +5326,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Switzerland turned pressure into goals while Bosnia & Herzegovina struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760440",
@@ -5387,7 +5448,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "matchday": 2
     },
     {
       "id": "espn-760441",
@@ -5481,7 +5543,8 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Mexico generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760442",
@@ -5580,7 +5643,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but United States's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760445",
@@ -5674,7 +5738,8 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Morocco generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760448",
@@ -5778,7 +5843,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Germany's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760453",
@@ -5887,7 +5953,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Spain turned pressure into goals while Saudi Arabia struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760451",
@@ -5975,7 +6042,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760450",
@@ -6084,7 +6152,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760456",
@@ -6183,7 +6252,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "matchday": 2
     },
     {
       "id": "espn-760457",
@@ -6289,7 +6359,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "matchday": 2
     },
     {
       "id": "espn-760461",
@@ -6403,7 +6474,8 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Portugal turned pressure into goals while Uzbekistan struggled to create clear openings."
         }
-      ]
+      ],
+      "matchday": 2
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",
@@ -6415,5 +6487,19 @@
     "Senegal",
     "Tunisia",
     "Turkey"
-  ]
+  ],
+  "groupStageProgress": {
+    "totalGroupMatches": 72,
+    "matchesPerMatchday": 24,
+    "completedGroupMatches": 47,
+    "upcomingGroupMatches": 25,
+    "liveGroupMatches": 0,
+    "matchdayCompleted": {
+      "1": 24,
+      "2": 23,
+      "3": 0
+    },
+    "currentMatchday": 2,
+    "matchday3Starts": "2026-06-24"
+  }
 }
