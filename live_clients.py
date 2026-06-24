@@ -27,10 +27,13 @@ TEAM_NORM = {
     "Iran": "Iran", "IR Iran": "Iran",
     "Bosnia & Herzegovina": "Bosnia & Herzegovina",
     "Bosnia and Herzegovina": "Bosnia & Herzegovina",
+    "Bosnia-Herzegovina": "Bosnia & Herzegovina",
     "Ivory Coast": "Ivory Coast", "Côte d'Ivoire": "Ivory Coast",
     "DR Congo": "DR Congo", "Congo DR": "DR Congo",
     "Czechia": "Czechia", "Czech Republic": "Czechia",
     "Turkey": "Turkey", "Türkiye": "Turkey",
+    "Cape Verde Islands": "Cape Verde", "Cape Verde": "Cape Verde",
+    "Curacao": "Curacao", "Curaçao": "Curacao", "Cura\u00e7ao": "Curacao",
 }
 
 def norm(name: str) -> str:
@@ -367,7 +370,30 @@ class ESPNClient:
         Returns list of live/recent matches with score and status.
         Each item: {home, away, homeScore, awayScore, minute, status, espnId}
         """
-        data = self._get("/scoreboard")
+        return self._parse_scoreboard(self._get("/scoreboard"))
+
+    def fetch_finished_matches(
+        self,
+        date_from: str = "20260611",
+        date_to: str = "20260720",
+    ) -> list[dict]:
+        """
+        Fetch completed World Cup matches from ESPN's public scoreboard API.
+        date_from/date_to: YYYYMMDD strings (inclusive range).
+        """
+        data = self._get("/scoreboard", {"dates": f"{date_from}-{date_to}"})
+        if not data:
+            return []
+        finished = []
+        for item in self._parse_scoreboard(data):
+            if item.get("state") != "post":
+                continue
+            if item.get("homeScore") is None or item.get("awayScore") is None:
+                continue
+            finished.append(item)
+        return finished
+
+    def _parse_scoreboard(self, data: Optional[dict]) -> list:
         if not data:
             return []
         results = []
@@ -384,6 +410,7 @@ class ESPNClient:
 
             results.append({
                 "espnId":    event.get("id"),
+                "kickoff":   event.get("date", ""),
                 "home":      norm(home.get("team", {}).get("displayName", "")),
                 "away":      norm(away.get("team", {}).get("displayName", "")),
                 "homeScore": _safe_int(home.get("score")),
@@ -391,7 +418,6 @@ class ESPNClient:
                 "minute":    status_obj.get("displayClock", ""),
                 "status":    status_type.get("name", ""),
                 "state":     status_type.get("state", ""),
-                # state: "pre" | "in" | "post"
             })
         return results
 
