@@ -30,7 +30,7 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 
 from data_utils import OUTPUT_FILE, atomic_write, format_utc_display, load_data
-from match_stats import FLAG_CODES, enrich_completed_match
+from match_stats import FLAG_CODES, enrich_completed_match, infer_fav_team
 from matchday_utils import group_stage_progress, tag_matchdays
 from public_scores import (
     TOURNAMENT_END,
@@ -181,7 +181,11 @@ def _build_record_from_espn(espn: dict) -> dict:
         record["insight"] = f"{home} won {hg}-{ag}."
     else:
         record["insight"] = f"{away} won {ag}-{hg}."
-    return enrich_completed_match(record)
+    record = enrich_completed_match(record)
+    fav = infer_fav_team(record)
+    if fav:
+        record["favTeam"] = fav
+    return record
 
 
 def import_missing_completed(

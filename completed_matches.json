@@ -159,7 +159,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Mexico"
   },
   {
     "id": "537328",
@@ -326,7 +327,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "South Korea"
   },
   {
     "id": "espn-760416",
@@ -481,7 +483,8 @@
     ],
     "insight": "The match ended level at 1-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Canada"
   },
   {
     "id": "537345",
@@ -658,7 +661,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "United States"
   },
   {
     "id": "537334",
@@ -820,7 +824,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Qatar"
   },
   {
     "id": "537339",
@@ -982,7 +987,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Brazil"
   },
   {
     "id": "537340",
@@ -1139,7 +1145,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Haiti"
   },
   {
     "id": "537346",
@@ -1301,7 +1308,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Australia"
   },
   {
     "id": "espn-760422",
@@ -1486,7 +1494,8 @@
     ],
     "insight": "Germany won 7-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Germany"
   },
   {
     "id": "537357",
@@ -1658,7 +1667,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Netherlands"
   },
   {
     "id": "537352",
@@ -1815,7 +1825,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Ivory Coast"
   },
   {
     "id": "537358",
@@ -1997,7 +2008,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Sweden"
   },
   {
     "id": "espn-760428",
@@ -2141,7 +2153,8 @@
     ],
     "insight": "The match ended level at 0-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Spain"
   },
   {
     "id": "537363",
@@ -2303,7 +2316,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Belgium"
   },
   {
     "id": "537370",
@@ -2465,7 +2479,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Saudi Arabia"
   },
   {
     "id": "537364",
@@ -2637,7 +2652,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "Iran"
   },
   {
     "id": "537391",
@@ -2809,7 +2825,8 @@
         "draw": "33.0%",
         "und": "33.0%"
       }
-    ]
+    ],
+    "favTeam": "France"
   },
   {
     "id": "espn-760430",
@@ -2979,7 +2996,8 @@
     ],
     "insight": "Norway won 4-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Norway"
   },
   {
     "id": "match_id1000001666457018",
@@ -3162,7 +3180,8 @@
         "draw": "22.4%",
         "und": "12.2%"
       }
-    ]
+    ],
+    "favTeam": "Argentina"
   },
   {
     "id": "match_id1000001666457020",
@@ -3350,7 +3369,8 @@
         "draw": "18.4%",
         "und": "10.2%"
       }
-    ]
+    ],
+    "favTeam": "Austria"
   },
   {
     "id": "match_id1000001666457030",
@@ -3528,7 +3548,8 @@
         "draw": "16.2%",
         "und": "7.1%"
       }
-    ]
+    ],
+    "favTeam": "Portugal"
   },
   {
     "id": "espn-760437",
@@ -3703,7 +3724,8 @@
     ],
     "insight": "England won 4-2.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "England"
   },
   {
     "id": "espn-760434",
@@ -3853,7 +3875,8 @@
     ],
     "insight": "Ghana won 1-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Ghana"
   },
   {
     "id": "espn-760436",
@@ -4018,7 +4041,8 @@
     ],
     "insight": "Colombia won 3-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Colombia"
   },
   {
     "id": "espn-760438",
@@ -4173,7 +4197,8 @@
     ],
     "insight": "The match ended level at 1-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Czechia"
   },
   {
     "id": "espn-760439",
@@ -4343,7 +4368,8 @@
     ],
     "insight": "Switzerland won 4-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Switzerland"
   },
   {
     "id": "espn-760440",
@@ -4518,7 +4544,8 @@
     ],
     "insight": "Canada won 6-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Canada"
   },
   {
     "id": "espn-760441",
@@ -4668,7 +4695,8 @@
     ],
     "insight": "Mexico won 1-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Mexico"
   },
   {
     "id": "espn-760442",
@@ -4823,7 +4851,8 @@
     ],
     "insight": "United States won 2-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "United States"
   },
   {
     "id": "espn-760445",
@@ -4973,7 +5002,8 @@
     ],
     "insight": "Morocco won 1-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Morocco"
   },
   {
     "id": "match_id1000001666456932",
@@ -5156,7 +5186,8 @@
         "draw": "7.1%",
         "und": "4.0%"
       }
-    ]
+    ],
+    "favTeam": "Brazil"
   },
   {
     "id": "match_id1000001666456946",
@@ -5329,7 +5360,8 @@
         "draw": "28.3%",
         "und": "24.2%"
       }
-    ]
+    ],
+    "favTeam": "Turkey"
   },
   {
     "id": "match_id1000001666456972",
@@ -5527,7 +5559,8 @@
         "draw": "23.0%",
         "und": "20.0%"
       }
-    ]
+    ],
+    "favTeam": "Netherlands"
   },
   {
     "id": "espn-760448",
@@ -5687,7 +5720,8 @@
     ],
     "insight": "Germany won 2-1.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Germany"
   },
   {
     "id": "match_id1000001666457076",
@@ -5854,7 +5888,8 @@
         "draw": "10.1%",
         "und": "5.1%"
       }
-    ]
+    ],
+    "favTeam": "Ecuador"
   },
   {
     "id": "match_id1000001666456974",
@@ -6042,7 +6077,8 @@
         "draw": "22.8%",
         "und": "65.3%"
       }
-    ]
+    ],
+    "favTeam": "Japan"
   },
   {
     "id": "espn-760453",
@@ -6207,7 +6243,8 @@
     ],
     "insight": "Spain won 4-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Spain"
   },
   {
     "id": "espn-760451",
@@ -6351,7 +6388,8 @@
     ],
     "insight": "The match ended level at 0-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Belgium"
   },
   {
     "id": "espn-760450",
@@ -6516,7 +6554,8 @@
     ],
     "insight": "The match ended level at 2-2.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Uruguay"
   },
   {
     "id": "match_id1000001666456988",
@@ -6704,7 +6743,8 @@
         "draw": "23.0%",
         "und": "61.0%"
       }
-    ]
+    ],
+    "favTeam": "Egypt"
   },
   {
     "id": "espn-760456",
@@ -6859,7 +6899,8 @@
     ],
     "insight": "Argentina won 2-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Argentina"
   },
   {
     "id": "espn-760457",
@@ -7019,7 +7060,8 @@
     ],
     "insight": "France won 3-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "France"
   },
   {
     "id": "match_id1000001666457012",
@@ -7212,7 +7254,8 @@
         "draw": "28.0%",
         "und": "30.0%"
       }
-    ]
+    ],
+    "favTeam": "Norway"
   },
   {
     "id": "match_id1000001666457024",
@@ -7395,7 +7438,8 @@
         "draw": "22.2%",
         "und": "63.6%"
       }
-    ]
+    ],
+    "favTeam": "Algeria"
   },
   {
     "id": "espn-760461",
@@ -7565,7 +7609,8 @@
     ],
     "insight": "Portugal won 5-0.",
     "sourceAccuracy": {},
-    "layers": []
+    "layers": [],
+    "favTeam": "Portugal"
   },
   {
     "id": "match_id1000001666457046",
@@ -7732,7 +7777,8 @@
         "draw": "11.1%",
         "und": "5.1%"
       }
-    ]
+    ],
+    "favTeam": "England"
   },
   {
     "id": "match_id1000001666457048",
@@ -7905,6 +7951,7 @@
         "draw": "20.4%",
         "und": "68.4%"
       }
-    ]
+    ],
+    "favTeam": "Croatia"
   }
 ]

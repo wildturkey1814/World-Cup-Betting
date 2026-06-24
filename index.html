@@ -1777,6 +1777,52 @@ function isRichBoxScore(bs){
   const sh=bs.shots?.home;
   return sh!=null&&sh!==0;
 }
+function inferFavTeamFromLayers(match){
+  const layers=match.layers||[];
+  if(!layers.length)return null;
+  const hp=[],ap=[];
+  layers.forEach(l=>{
+    const h=parsePctStr(l.fav),a=parsePctStr(l.und);
+    if(h!=null)hp.push(h);
+    if(a!=null)ap.push(a);
+  });
+  if(!hp.length||!ap.length)return null;
+  const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
+  const homeAvg=avg(hp),awayAvg=avg(ap);
+  if(Math.abs(homeAvg-awayAvg)<0.05)return null;
+  return homeAvg>=awayAvg?match.home:match.away;
+}
+const TEAM_ELO={
+  Argentina:2040,France:2005,England:1960,Brazil:1955,Spain:1950,Portugal:1940,Netherlands:1935,Germany:1930,
+  Italy:1910,Croatia:1880,Belgium:1875,Uruguay:1860,Colombia:1845,'United States':1845,Mexico:1820,Austria:1830,
+  Switzerland:1815,Sweden:1790,Denmark:1810,Japan:1800,Morocco:1795,Senegal:1785,Australia:1770,Canada:1765,
+  'South Korea':1740,Ecuador:1730,Norway:1725,Turkey:1720,Czechia:1715,Scotland:1720,Serbia:1710,Paraguay:1705,
+  Poland:1700,Wales:1680,'Bosnia & Herzegovina':1660,Ghana:1655,Cameroon:1650,'Ivory Coast':1640,'DR Congo':1620,
+  'South Africa':1610,Tunisia:1605,Iran:1600,'Saudi Arabia':1595,Egypt:1590,Algeria:1585,Nigeria:1580,Panama:1545,
+  'Costa Rica':1540,Iraq:1530,Jordan:1520,Uzbekistan:1510,Qatar:1500,'New Zealand':1490,'Cape Verde':1480,
+  Curacao:1460,Haiti:1440
+};
+const HOST_NATIONS=new Set(['United States','Mexico','Canada']);
+function inferFavTeamFromElo(match){
+  const home=match.home,away=match.away;
+  if(!home||!away)return null;
+  let eh=TEAM_ELO[home]??1700,ea=TEAM_ELO[away]??1700;
+  if(HOST_NATIONS.has(home))eh+=100;
+  return eh>=ea?home:away;
+}
+function resolveFavTeam(match){
+  if(match.favTeam)return match.favTeam;
+  const fromLayers=inferFavTeamFromLayers(match);
+  if(fromLayers)return fromLayers;
+  const key=archivePairKey(match);
+  for(const m of allMatches){
+    if(m.favTeam&&archivePairKey(m)===key&&String(m.id)!==String(match.id))return m.favTeam;
+  }
+  for(const m of completedArchive){
+    if(m.favTeam&&archivePairKey(m)===key)return m.favTeam;
+  }
+  return inferFavTeamFromElo(match);
+}
 function mergeArchiveData(match){
   const arc=completedArchive.find(a=>String(a.id)===String(match.id)||archivePairKey(a)===archivePairKey(match));
   let merged={...match};
@@ -1807,6 +1853,7 @@ function mergeArchiveData(match){
       awayMomentumFactor:merged.awayMomentumFactor??db.awayMomentumFactor,
     };
   }
+  merged.favTeam=resolveFavTeam(merged);
   return merged;
 }
 
@@ -1835,18 +1882,21 @@ function xgOutcomeVerdict(hScore,aScore,hXg,aXg,homeWon,awayWon,isDraw,d){
   return{cls:'variance',text:d.pcVerdictVariance,hint:d.pcVerdictVarianceHint};
 }
 function completedDisplaySides(match,hScore,aScore,homeWon,awayWon,isDraw){
-  const favIsHome=match.favTeam===match.home;
-  const home={team:match.home,name:tn(match.home),flag:match.homeFlag,score:hScore,isHome:true,isFav:match.favTeam===match.home,isWinner:homeWon&&!isDraw};
-  const away={team:match.away,name:tn(match.away),flag:match.awayFlag,score:aScore,isHome:false,isFav:match.favTeam===match.away,isWinner:awayWon&&!isDraw};
+  const favTeam=resolveFavTeam(match);
+  const favIsHome=favTeam===match.home;
+  const home={team:match.home,name:tn(match.home),flag:match.homeFlag,score:hScore,isHome:true,isFav:!!favTeam&&favTeam===match.home,isWinner:homeWon&&!isDraw};
+  const away={team:match.away,name:tn(match.away),flag:match.awayFlag,score:aScore,isHome:false,isFav:!!favTeam&&favTeam===match.away,isWinner:awayWon&&!isDraw};
   if(isDraw)return favIsHome?[home,away]:[away,home];
   if(homeWon)return[home,away];
   if(awayWon)return[away,home];
   return[home,away];
 }
-function renderCompletedTeamCol(side,d){
-  const badge=side.isFav
-    ?`<span class="team-badge badge-fav">${esc(d.favBadge||'FAV')}</span>`
-    :`<span class="team-badge badge-und">${esc(d.undBadge||'UND')}</span>`;
+function renderCompletedTeamCol(side,d,favTeam){
+  const badge=favTeam
+    ?(side.isFav
+      ?`<span class="team-badge badge-fav">${esc(d.favBadge||'FAV')}</span>`
+      :`<span class="team-badge badge-und">${esc(d.undBadge||'UND')}</span>`)
+    :'';
   const nameStyle=side.isWinner?'color:var(--green);':'';
   return`<div class="pc-score-team"><div style="width:36px;height:24px;border-radius:3px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.4);">${flagHTML(side.flag)}</div><span class="pc-score-name" style="${nameStyle}">${esc(side.name.toUpperCase())}</span>${badge}</div>`;
 }
@@ -1856,14 +1906,19 @@ function sideXg(side,hXg,aXg){
 }
 function buildPostMatchTakeawayHTML(match,d,sides,hXg,aXg,verdict,homeWon,awayWon,isDraw){
   const [first,second]=sides;
-  const favWon=!isDraw&&((match.favTeam===match.home&&homeWon)||(match.favTeam===match.away&&awayWon));
+  const favTeam=resolveFavTeam(match);
+  const favWon=!isDraw&&favTeam&&((favTeam===match.home&&homeWon)||(favTeam===match.away&&awayWon));
   const bullets=[];
   if(isDraw){
-    bullets.push(`Full time ${first.score}–${second.score}. ${tn(match.favTeam)} entered as the favorite.`);
+    bullets.push(favTeam
+      ?`Full time ${first.score}–${second.score}. ${tn(favTeam)} entered as the favorite.`
+      :`Full time ${first.score}–${second.score}.`);
   }else if(favWon){
     bullets.push(`${first.name} won ${first.score}–${second.score} — the favorite held.`);
   }else{
-    bullets.push(`${first.name} upset ${tn(match.favTeam)} ${first.score}–${second.score}.`);
+    bullets.push(favTeam
+      ?`${first.name} upset ${tn(favTeam)} ${first.score}–${second.score}.`
+      :`${first.name} won ${first.score}–${second.score}.`);
   }
   const fx=sideXg(first,hXg,aXg),sx=sideXg(second,hXg,aXg);
   if(fx!=null&&sx!=null){
@@ -2003,13 +2058,14 @@ function renderCompleted(rawMatch){
   const takeawayHTML=buildPostMatchTakeawayHTML(match,d,sides,hXg,aXg,verdict,homeWon,awayWon,isDraw);
   const eff=computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs);
   const analyticsRight=buildEfficiencyPanelHTML(match,eff,d,bs,sides);
+  const favTeam=resolveFavTeam(match);
   const scoreBlock=`<div class="pc-score-block" style="display:flex;align-items:center;gap:12px;">
-    ${renderCompletedTeamCol(first,d)}
+    ${renderCompletedTeamCol(first,d,favTeam)}
     <div style="flex:0 0 auto;text-align:center;">
       <span style="font-size:36px;font-weight:900;letter-spacing:4px;color:#fff;">${first.score}<span style="color:rgba(255,255,255,0.2);font-weight:300;">-</span>${second.score}</span>
       <div style="font-size:8px;font-weight:700;letter-spacing:1px;color:var(--text-lo);margin-top:-2px;">FULL TIME</div>
     </div>
-    ${renderCompletedTeamCol(second,d)}
+    ${renderCompletedTeamCol(second,d,favTeam)}
   </div>`;
 
   const front=`<div class="flip-face flip-face-front pc-front-layout">

@@ -10,6 +10,45 @@ import hashlib
 import random
 from typing import Any
 
+def infer_fav_team(match: dict) -> str | None:
+    """Resolve pre-match favorite from stored field, layers, or ELO baseline."""
+    existing = match.get("favTeam")
+    if existing:
+        return existing
+
+    home = match.get("home", "")
+    away = match.get("away", "")
+    if not home or not away:
+        return None
+
+    home_p: list[float] = []
+    away_p: list[float] = []
+    for layer in match.get("layers") or []:
+        try:
+            h_raw = str(layer.get("fav", "")).replace("%", "").strip()
+            a_raw = str(layer.get("und", "")).replace("%", "").strip()
+            if h_raw and h_raw != "--":
+                home_p.append(float(h_raw))
+            if a_raw and a_raw != "--":
+                away_p.append(float(a_raw))
+        except (TypeError, ValueError):
+            continue
+
+    if home_p and away_p:
+        home_avg = sum(home_p) / len(home_p)
+        away_avg = sum(away_p) / len(away_p)
+        if abs(home_avg - away_avg) >= 0.05:
+            return home if home_avg >= away_avg else away
+
+    try:
+        from fetch_odds import elo_probs
+
+        ep = elo_probs(home, away, group_stage=True)
+        return home if ep["home"] >= ep["away"] else away
+    except Exception:
+        return None
+
+
 FLAG_CODES = {
     "Mexico": "mex", "South Africa": "rsa", "South Korea": "kor",
     "Czechia": "cze", "Canada": "can", "Bosnia & Herzegovina": "bih",
@@ -276,6 +315,7 @@ def build_archive_entry(match: dict) -> dict:
         ),
         "sourceAccuracy": match.get("sourceAccuracy", {}),
         "layers": match.get("layers", []),
+        "favTeam": infer_fav_team(match),
     }
 
 
@@ -286,6 +326,9 @@ def enrich_completed_match(match: dict) -> dict:
 
     enriched = dict(match)
     entry = build_archive_entry(match)
+    fav_team = infer_fav_team(enriched)
+    if fav_team:
+        enriched["favTeam"] = fav_team
     enriched["boxScore"] = entry["boxScore"]
     enriched["advancedMetrics"] = entry["advancedMetrics"]
     enriched["insights"] = entry["insights"]
