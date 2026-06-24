@@ -468,6 +468,34 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .pc-potm-name{font-size:11px;font-weight:800;color:#fff;margin-top:4px;line-height:1.3;}
 .pc-potm-team{font-size:9px;font-weight:600;color:var(--text-lo);margin-top:2px;}
 .pc-potm-note{font-size:8px;color:var(--text-lo);margin-top:4px;line-height:1.35;}
+.pc-xg-strip{margin-top:8px;padding:8px 10px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);}
+.pc-xg-main{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px;color:var(--text-mid);}
+.pc-xg-val{font-weight:800;color:var(--text-hi);font-variant-numeric:tabular-nums;}
+.pc-xg-actual{font-size:9px;color:var(--text-lo);margin-top:4px;}
+.pc-verdict-pill{display:inline-block;margin-top:6px;padding:2px 8px;border-radius:999px;font-size:8px;font-weight:800;letter-spacing:0.4px;text-transform:uppercase;}
+.pc-verdict-pill.deserved{background:rgba(60,172,59,0.12);color:var(--green);border:1px solid rgba(60,172,59,0.25);}
+.pc-verdict-pill.variance{background:rgba(230,29,37,0.1);color:var(--red);border:1px solid rgba(230,29,37,0.22);}
+.pc-verdict-pill.margins{background:rgba(232,160,32,0.1);color:var(--gold);border:1px solid rgba(232,160,32,0.2);}
+.pc-analytics-panel{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);}
+.pc-analytics-label{font-size:7px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.pc-model-rows{display:flex;flex-direction:column;gap:4px;}
+.pc-model-row{display:grid;grid-template-columns:1fr 38px 38px 38px;gap:4px;align-items:center;font-size:9px;color:var(--text-lo);}
+.pc-model-row.head{font-weight:800;color:var(--text-lo);font-size:8px;letter-spacing:0.3px;}
+.pc-model-src{font-weight:700;color:var(--text-mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pc-model-pct{font-weight:800;text-align:center;font-variant-numeric:tabular-nums;color:var(--text-hi);}
+.pc-model-pct.draw{color:var(--neon);}
+.pc-beat-badge{display:inline-block;margin-top:8px;padding:3px 8px;border-radius:4px;font-size:8px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;}
+.pc-beat-badge.beat{background:rgba(60,172,59,0.12);color:var(--green);border:1px solid rgba(60,172,59,0.22);}
+.pc-beat-badge.miss{background:rgba(230,29,37,0.08);color:rgba(248,113,113,0.95);border:1px solid rgba(230,29,37,0.18);}
+.pc-beat-badge.partial{background:rgba(232,160,32,0.08);color:var(--gold);border:1px solid rgba(232,160,32,0.18);}
+.pc-eff-block{padding:8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);}
+.pc-eff-delta{font-size:22px;font-weight:900;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1;}
+.pc-eff-delta.pos{color:var(--green);}
+.pc-eff-delta.neg{color:rgba(248,113,113,0.9);}
+.pc-eff-caption{font-size:8px;color:var(--text-lo);margin-top:4px;line-height:1.35;}
+.pc-eff-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;}
+.pc-eff-stat{padding:5px 6px;border-radius:4px;background:rgba(0,0,0,0.15);font-size:8px;color:var(--text-lo);}
+.pc-eff-stat strong{display:block;font-size:10px;color:var(--text-hi);font-weight:800;margin-top:2px;}
 
 /* ── CARD GRID ── */
 .sort-row{display:flex;gap:6px;align-items:center;}
@@ -622,6 +650,29 @@ const DICT = {
     liveProbHint: 'Home · Draw · Away (sums to 100%)',
     liveEventFeed: 'Match Events',
     liveNoEvents: 'Awaiting match events…',
+    pcXgLabel: 'Expected goals (xG)',
+    pcActualGoals: 'Actual',
+    pcVerdictDeserved: 'Deserved result',
+    pcVerdictVariance: 'High variance',
+    pcVerdictMargins: 'Fine margins',
+    pcClosingLine: 'Model closing line',
+    pcEffDelta: 'Supercharger+ efficiency Δ',
+    pcEffCaption: 'Goal conversion vs xG, adjusted for pitch control (χ shift estimate).',
+    pcFieldTilt: 'Field tilt',
+    pcPossession: 'Possession',
+    pcConversion: 'Goal conversion',
+    pcPostMortem: 'Post-match analytics',
+    pcTapFlip: 'tap card for strategic analysis',
+    pcColHome: 'H',
+    pcColDraw: 'D',
+    pcColAway: 'A',
+    pcBeatFav: 'Model beat · Favorite',
+    pcBeatUpset: 'Model beat · Upset',
+    pcBeatDraw: 'Model beat · Draw',
+    pcBeatLean: 'Model lean · Correct',
+    pcBeatMiss: 'Model miss',
+    pcOverXg: 'Over xG',
+    pcUnderXg: 'Under xG',
     liveProbHome: 'H',
     liveProbDraw: 'D',
     liveProbAway: 'A',
@@ -1666,131 +1717,155 @@ function mergeArchiveData(match){
       score:arc.score||merged.score,
       boxScore,
       advancedMetrics:arc.advancedMetrics||merged.advancedMetrics,
+      metrics:arc.metrics||merged.metrics,
       insights:(arc.insights&&arc.insights.length)?arc.insights:(merged.insights||[]),
       insight:merged.insight||arc.insight,
-      potm:arc.potm||merged.potm||arc.playerOfMatch||merged.playerOfMatch,
+    };
+  }
+  const db=allMatches.find(m=>String(m.id)===String(match.id)||archivePairKey(m)===archivePairKey(match));
+  if(db){
+    merged={
+      ...merged,
+      favTeam:merged.favTeam||db.favTeam,
+      layers:(merged.layers&&merged.layers.length)?merged.layers:(db.layers||[]),
+      sourceAccuracy:{...(db.sourceAccuracy||{}),...(merged.sourceAccuracy||{})},
+      homeMomentumFactor:merged.homeMomentumFactor??db.homeMomentumFactor,
+      awayMomentumFactor:merged.awayMomentumFactor??db.awayMomentumFactor,
     };
   }
   return merged;
 }
 
-function teamShortName(name){
-  const n=String(name||'').trim();
-  if(!n)return'';
-  const parts=n.split(/\s+/);
-  return parts.length>1&&parts[0].length<=3?parts.join(' '):parts[parts.length-1];
+function resolveCompletedXg(match,adv,bs){
+  const xg=match.metrics?.xg||adv?.xg||bs?.xg||null;
+  return{
+    home:xg?.home??null,
+    away:xg?.away??null,
+  };
 }
-function goalScorerLabel(g,homeName,awayName){
-  const s=String(g.scorer||'').trim();
-  if(s)return s;
-  return g.team==='home'?homeName:awayName;
+function parsePctStr(s){
+  if(s==null||s===''||s==='--')return null;
+  const n=parseFloat(String(s).replace('%',''));
+  return isNaN(n)?null:n;
 }
-function runningScoreAfterGoal(goals,idx){
-  const h=goals.slice(0,idx+1).filter(x=>x.team==='home').length;
-  const a=goals.slice(0,idx+1).filter(x=>x.team==='away').length;
-  return`${h}–${a}`;
+function xgOutcomeVerdict(hScore,aScore,hXg,aXg,homeWon,awayWon,isDraw,d){
+  if(hXg==null||aXg==null)return null;
+  const margin=0.35;
+  const xgSide=hXg>aXg+margin?'home':aXg>hXg+margin?'away':'even';
+  const actSide=homeWon?'home':awayWon?'away':'draw';
+  if(isDraw)return xgSide==='even'?{cls:'margins',text:d.pcVerdictMargins}:{cls:'variance',text:d.pcVerdictVariance};
+  if(xgSide===actSide)return{cls:'deserved',text:d.pcVerdictDeserved};
+  if(xgSide==='even')return{cls:'margins',text:d.pcVerdictMargins};
+  return{cls:'variance',text:d.pcVerdictVariance};
 }
-function buildCompletedScorerSheet(goals,home,away){
-  if(!goals.length)return'';
-  const homeLines=goals.filter(g=>g.team==='home').map(g=>{
-    const min=g.minute!=null?`${g.minute}'`:'';
-    const name=goalScorerLabel(g,home,away);
-    return`<div class="pc-scorer-line"><span class="pc-scorer-min">${esc(min)}</span>${esc(name)}</div>`;
-  }).join('');
-  const awayLines=goals.filter(g=>g.team==='away').map(g=>{
-    const min=g.minute!=null?`${g.minute}'`:'';
-    const name=goalScorerLabel(g,home,away);
-    return`<div class="pc-scorer-line">${esc(name)}<span class="pc-scorer-min right">${esc(min)}</span></div>`;
-  }).join('');
-  return`<div class="pc-scorer-sheet"><div class="pc-scorer-col home">${homeLines||'<span style="color:var(--text-lo);font-style:italic;">—</span>'}</div><div class="pc-scorer-col away">${awayLines||'<span style="color:var(--text-lo);font-style:italic;">—</span>'}</div></div>`;
-}
-function buildCompletedMomentsHTML(goals,home,away){
-  if(!goals.length)return'<div style="color:var(--text-lo);font-style:italic;font-size:11px;">No goals scored.</div>';
-  return`<div class="pc-moments-list">${goals.map((g,idx)=>{
-    const side=g.team==='home'?'home':'away';
-    const teamName=g.team==='home'?home:away;
-    const scorer=String(g.scorer||'').trim();
-    const min=g.minute!=null?`${g.minute}'`:'—';
-    const score=runningScoreAfterGoal(goals,idx);
-    const nameLine=scorer
-      ?`<span class="pc-moment-name">${esc(scorer)}</span> <span class="pc-moment-team">${esc(teamShortName(teamName))}</span>`
-      :`<span class="pc-moment-name">${esc(teamName)}</span> <span class="pc-moment-team">goal</span>`;
-    return`<div class="pc-moment-row ${side}"><span class="pc-moment-min">${esc(min)}</span><div>${nameLine}</div><span class="pc-moment-score">${esc(score)}</span></div>`;
-  }).join('')}</div>`;
-}
-function resolvePlayerOfMatch(match,goals,home,away,homeWon,awayWon){
-  const bs=match.boxScore,adv=match.advancedMetrics;
-  const raw=match.potm||match.playerOfMatch||bs?.playerOfMatch||adv?.potm;
-  if(raw){
-    if(typeof raw==='string')return{name:raw,team:null,note:null};
-    if(typeof raw==='object'){
-      const name=raw.name||raw.player||raw.displayName;
-      if(name)return{name,team:raw.team||null,note:raw.note||null};
-    }
+function assessModelBeat(match,d){
+  const side=matchOutcomeSide(match);
+  const sa=match.sourceAccuracy||{};
+  const elo=sa['ELO/Poisson Model'];
+  const mkt=sa['Sportsbooks (Consensus)'];
+  const kalshi=sa['Prediction Markets (Kalshi)'];
+  const hits=[elo,mkt,kalshi].filter(v=>v===true).length;
+  if(side==='draw'){
+    if(elo||mkt||kalshi)return{type:'beat',text:d.pcBeatDraw};
+    if(elo===false||mkt===false)return{type:'miss',text:d.pcBeatMiss};
+    return null;
   }
-  const winSide=homeWon?'home':awayWon?'away':null;
-  const named=goals.filter(g=>String(g.scorer||'').trim());
-  let pool=winSide?named.filter(g=>g.team===winSide):named;
-  if(!pool.length&&named.length)pool=named;
-  if(!pool.length)return null;
-  const counts={};
-  pool.forEach(g=>{const n=String(g.scorer).trim();counts[n]=(counts[n]||0)+1;});
-  const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]||0)[0];
-  const pick=pool.find(g=>String(g.scorer).trim()===top[0]);
-  const team=pick?.team==='home'?home:(pick?.team==='away'?away:(winSide==='home'?home:winSide==='away'?away:null));
-  const note=top[1]>1?`${top[1]} goals`:null;
-  return{name:top[0],team,note};
+  if(side==='und'){
+    if(elo)return{type:'beat',text:d.pcBeatUpset};
+    if(hits===0&&(elo===false||mkt===false))return{type:'miss',text:d.pcBeatMiss};
+    return hits?{type:'partial',text:d.pcBeatLean}:null;
+  }
+  if(side==='fav'){
+    if(hits>=2)return{type:'beat',text:d.pcBeatFav};
+    if(elo||mkt||kalshi)return{type:'partial',text:d.pcBeatLean};
+    if(elo===false&&mkt===false)return{type:'miss',text:d.pcBeatMiss};
+  }
+  return null;
 }
-function renderPotmHTML(potm){
-  if(!potm){
-    return`<div class="pc-potm-box">
-      <div style="font-size:7px;font-weight:800;color:var(--gold);letter-spacing:0.5px;">PLAYER OF THE MATCH</div>
-      <div class="pc-potm-name" style="color:var(--text-lo);font-weight:600;">Not available</div>
-      <div class="pc-potm-note">Named scorers not in feed for this match.</div>
+function buildClosingLineHTML(match,d){
+  const favIsHome=match.favTeam===match.home;
+  const norm={};
+  (match.layers||[]).forEach(l=>{const k=canonSrc(l.source);if(!norm[k])norm[k]=l;});
+  const sources=['Sportsbooks (Consensus)','ELO/Poisson Model'];
+  const srcShort={
+    'Sportsbooks (Consensus)':'Sportsbooks',
+    'ELO/Poisson Model':'ELO/Poisson',
+  };
+  const head=`<div class="pc-model-row head"><span class="pc-model-src">&nbsp;</span><span class="pc-model-pct">${esc(d.pcColHome)}</span><span class="pc-model-pct draw">${esc(d.pcColDraw)}</span><span class="pc-model-pct">${esc(d.pcColAway)}</span></div>`;
+  const rows=sources.map(s=>{
+    const l=norm[s];
+    if(!l)return'';
+    const hp=favIsHome?parsePctStr(l.fav):parsePctStr(l.und);
+    const ap=favIsHome?parsePctStr(l.und):parsePctStr(l.fav);
+    const dp=parsePctStr(l.draw);
+    const fmt=v=>v!=null?`${v.toFixed(1)}%`:'—';
+    return`<div class="pc-model-row"><span class="pc-model-src">${esc(srcShort[s]||s)}</span><span class="pc-model-pct">${fmt(hp)}</span><span class="pc-model-pct draw">${fmt(dp)}</span><span class="pc-model-pct">${fmt(ap)}</span></div>`;
+  }).filter(Boolean).join('');
+  if(!rows)return'';
+  const beat=assessModelBeat(match,d);
+  const beatHTML=beat?`<span class="pc-beat-badge ${beat.type}">${esc(beat.text)}</span>`:'';
+  return`<div class="pc-analytics-panel"><div class="pc-analytics-label">${esc(d.pcClosingLine)}</div><div class="pc-model-rows">${head}${rows}</div>${beatHTML}</div>`;
+}
+function computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs){
+  const hTilt=adv?.fieldTilt?.home??match.metrics?.fieldTilt?.home??null;
+  const aTilt=adv?.fieldTilt?.away??match.metrics?.fieldTilt?.away??null;
+  const hp=bs?.possession?.home??match.metrics?.possession?.home??null;
+  const ap=bs?.possession?.away??match.metrics?.possession?.away??null;
+  const hOver=hXg!=null?+(hScore-hXg).toFixed(2):null;
+  const aOver=aXg!=null?+(aScore-aXg).toFixed(2):null;
+  const hConv=hXg!=null&&hXg>0.05?+(hScore/hXg).toFixed(2):null;
+  const aConv=aXg!=null&&aXg>0.05?+(aScore/aXg).toFixed(2):null;
+  const homeWon=hScore>aScore,awayWon=aScore>hScore;
+  let ped=null,pedTeam=null;
+  if(homeWon){ped=hOver!=null&&aOver!=null?+(hOver-aOver).toFixed(2):hOver;pedTeam=match.home;}
+  else if(awayWon){ped=hOver!=null&&aOver!=null?+(aOver-hOver).toFixed(2):aOver;pedTeam=match.away;}
+  else if(hOver!=null&&aOver!=null)ped=+(hOver-aOver).toFixed(2);
+  const tiltBias=hTilt!=null?+((hTilt-50)*0.02).toFixed(2):0;
+  const chiEst=ped!=null?+(ped*0.35+tiltBias).toFixed(3):null;
+  return{hOver,aOver,hConv,aConv,hTilt,aTilt,hp,ap,ped,pedTeam,chiEst};
+}
+function buildEfficiencyPanelHTML(match,eff,d){
+  const sign=eff.ped!=null&&eff.ped>0?'+':'';
+  const deltaCls=eff.ped==null?'':eff.ped>0?'pos':eff.ped<0?'neg':'';
+  const deltaTxt=eff.ped!=null?`${sign}${eff.ped.toFixed(2)}`:'—';
+  const chiTxt=eff.chiEst!=null?`${eff.chiEst>=0?'+':''}${eff.chiEst.toFixed(3)} χ`:'';
+  const teamNote=eff.pedTeam?`${tn(eff.pedTeam)} · `:'';
+  const fmtPct=v=>v!=null?`${Number(v).toFixed(1)}%`:'—';
+  const fmtNum=v=>v!=null?Number(v).toFixed(2):'—';
+  return`<div class="pc-analytics-label">${esc(d.pcPostMortem)}</div>
+    <div class="pc-eff-block">
+      <div style="font-size:8px;font-weight:800;color:var(--text-lo);letter-spacing:0.5px;text-transform:uppercase;">${esc(d.pcEffDelta)}</div>
+      <div class="pc-eff-delta ${deltaCls}">${esc(deltaTxt)}</div>
+      <div class="pc-eff-caption">${esc(teamNote)}${esc(d.pcEffCaption)}${chiTxt?` · ${esc(chiTxt)}`:''}</div>
+      <div class="pc-eff-grid">
+        <div class="pc-eff-stat">${esc(d.pcFieldTilt)}<strong>${fmtPct(eff.hTilt)} · ${fmtPct(eff.aTilt)}</strong></div>
+        <div class="pc-eff-stat">${esc(d.pcPossession)}<strong>${fmtPct(eff.hp)} · ${fmtPct(eff.ap)}</strong></div>
+        <div class="pc-eff-stat">${esc(d.pcOverXg)} (H/A)<strong>${fmtNum(eff.hOver)} · ${fmtNum(eff.aOver)}</strong></div>
+        <div class="pc-eff-stat">${esc(d.pcConversion)} (H/A)<strong>${fmtNum(eff.hConv)} · ${fmtNum(eff.aConv)}</strong></div>
+      </div>
     </div>`;
-  }
-  const teamLine=potm.team?`<div class="pc-potm-team">${esc(potm.team)}</div>`:'';
-  const noteLine=potm.note?`<div class="pc-potm-note">${esc(potm.note)}</div>`:'';
-  return`<div class="pc-potm-box">
-    <div style="font-size:7px;font-weight:800;color:var(--gold);letter-spacing:0.5px;">PLAYER OF THE MATCH</div>
-    <div class="pc-potm-name">${esc(potm.name)}</div>
-    ${teamLine}
-    ${noteLine}
-  </div>`;
 }
 
 function renderCompleted(rawMatch){
   const match=mergeArchiveData(rawMatch);
+  const d=DICT[lang];
   const home=tn(match.home),away=tn(match.away);
   const bs=match.boxScore,adv=match.advancedMetrics;
   const hScore=match.homeScore??0,aScore=match.awayScore??0;
   const homeWon=hScore>aScore,isDraw=hScore===aScore,awayWon=aScore>hScore;
   const winner=homeWon?home:awayWon?away:null;
-
-  const hp=bs?.possession?.home??50,ap=bs?.possession?.away??(100-hp);
-  const hXg=adv?.xg?.home??null,aXg=adv?.xg?.away??null;
-
-  const goals=(bs?.goals||[]).sort((a,b)=>(a.minute||0)-(b.minute||0));
-  const scorerSheetHTML=buildCompletedScorerSheet(goals,home,away);
-  const momentsHTML=buildCompletedMomentsHTML(goals,home,away);
-  const potm=resolvePlayerOfMatch(match,goals,home,away,homeWon,awayWon);
-  const potmHTML=renderPotmHTML(potm);
-
-  const statRows=[
-    {lbl:'POSSESSION', h:`${hp}%`, a:`${ap}%`},
-    {lbl:'xG (EXPECTED GOALS)', h:hXg!=null?Number(hXg).toFixed(2):'—', a:aXg!=null?Number(aXg).toFixed(2):'—'},
-    {lbl:'SHOTS', h:bs?.shots?.home??0, a:bs?.shots?.away??0},
-    {lbl:'SHOTS ON TARGET', h:bs?.shotsOnTarget?.home??0, a:bs?.shotsOnTarget?.away??0},
-    {lbl:'BIG CHANCES', h:adv?.bigChances?.home??0, a:adv?.bigChances?.away??0},
-    {lbl:'FOULS', h:bs?.fouls?.home??0, a:bs?.fouls?.away??0},
-    {lbl:'YELLOW CARDS', h:bs?.yellowCards?.home??0, a:bs?.yellowCards?.away??0}
-  ].map(r=>`
-    <div style="display:grid; grid-template-columns:40px 1fr 40px; align-items:center; border-bottom:1px solid rgba(255,255,255,0.03); padding:5px 0; font-size:12px;">
-      <span style="color:var(--neon); font-weight:800; text-align:left;">${r.h}</span>
-      <span style="color:var(--text-lo); font-size:9px; font-weight:700; text-align:center; letter-spacing:0.5px;">${r.lbl}</span>
-      <span style="color:rgba(248,113,113,0.8); font-weight:800; text-align:right;">${r.a}</span>
-    </div>
-  `).join('');
+  const {home:hXg,away:aXg}=resolveCompletedXg(match,adv,bs);
+  const verdict=xgOutcomeVerdict(hScore,aScore,hXg,aXg,homeWon,awayWon,isDraw,d);
+  const xgStrip=hXg!=null&&aXg!=null
+    ?`<div class="pc-xg-strip">
+        <div class="pc-xg-main"><span>${esc(d.pcXgLabel)}</span><span class="pc-xg-val">${Number(hXg).toFixed(2)} – ${Number(aXg).toFixed(2)}</span></div>
+        <div class="pc-xg-actual">${esc(d.pcActualGoals)}: ${hScore} – ${aScore}</div>
+        ${verdict?`<span class="pc-verdict-pill ${verdict.cls}">${esc(verdict.text)}</span>`:''}
+      </div>`
+    :'';
+  const closingHTML=buildClosingLineHTML(match,d);
+  const eff=computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs);
+  const analyticsRight=buildEfficiencyPanelHTML(match,eff,d);
 
   const front=`<div class="flip-face flip-face-front pc-front-layout" style="backface-visibility: hidden; -webkit-backface-visibility: hidden; position: relative; width: 100%; z-index: 2;">
     <div style="display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid rgba(255,255,255,0.05); padding-right:12px;">
@@ -1810,20 +1885,13 @@ function renderCompleted(rawMatch){
             <span style="font-size:12px; font-weight:900; letter-spacing:0.5px; ${awayWon?'color:var(--green);':''}">${esc(away.toUpperCase())}</span>
           </div>
         </div>
-        ${scorerSheetHTML}
+        ${xgStrip}
+        ${closingHTML}
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.05);">
-        <div>
-          <div style="font-size:8px; font-weight:800; color:var(--gold); letter-spacing:1px; margin-bottom:4px;">KEY MOMENTS</div>
-          ${momentsHTML}
-        </div>
-        ${potmHTML}
-      </div>
-      <div style="text-align: left; font-size: 10px; font-weight: 700; color: var(--gold); margin-top:12px;">➔ tap card for strategic analysis</div>
+      <div style="text-align:left; font-size:10px; font-weight:700; color:var(--gold); margin-top:12px;">➔ ${esc(d.pcTapFlip)}</div>
     </div>
     <div style="display:flex; flex-direction:column; justify-content:center; padding:0 4px;">
-      <div style="font-size:9px; font-weight:800; text-align:center; color:var(--gold); letter-spacing:1.5px; margin-bottom:10px;">MATCH STATS</div>
-      ${statRows}
+      ${analyticsRight}
     </div>
   </div>`;
 
