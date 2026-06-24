@@ -169,8 +169,8 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 
 /* ── LIVE NOW BANNER ── */
 .live-now-banner{
-  display:flex;align-items:center;gap:8px;
-  padding:8px 14px;margin-bottom:8px;
+  display:flex;align-items:center;gap:6px;
+  padding:5px 10px;margin-bottom:6px;
   background:rgba(230,29,37,0.12);border:1px solid rgba(230,29,37,0.3);
   border-radius:var(--radius-sm);
   font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);
@@ -233,7 +233,6 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 
 /* ── LIVE CARD SPECIFICS ── */
 .live-card-label{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:6px;}
-.live-score-big{font-size:28px;font-weight:900;color:var(--gold);letter-spacing:3px;}
 
 /* ── LIVE TELEMETRY ENGINE ── */
 .live-pulse-neon{
@@ -248,47 +247,53 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 @media(prefers-reduced-motion:reduce){.live-pulse-neon{animation:none;}}
 
 .live-status-bar{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;
-  padding:7px 18px;border-bottom:1px solid rgba(230,29,37,0.15);
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:5px 12px;border-bottom:1px solid rgba(230,29,37,0.15);
   background:linear-gradient(90deg,rgba(230,29,37,0.14),rgba(230,29,37,0.04));
 }
+.live-status-right{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.live-kickoff-inline{font-size:9px;color:var(--text-lo);font-weight:600;white-space:nowrap;}
 .live-phase-banner{
-  font-size:9px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;
-  color:var(--neon);padding:2px 8px;border:1px solid rgba(56,189,248,0.28);
+  font-size:8px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;
+  color:var(--neon);padding:2px 7px;border:1px solid rgba(56,189,248,0.28);
   border-radius:4px;background:rgba(56,189,248,0.07);white-space:nowrap;
 }
-.live-scoreboard{padding:10px 18px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);}
-.live-scoreboard-names{
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:10px;font-weight:700;color:var(--text-lo);margin-bottom:4px;gap:8px;
+.live-scoreboard{padding:8px 12px 6px;border-bottom:1px solid rgba(255,255,255,0.04);}
+.live-score-row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  gap:8px;align-items:center;
 }
-.live-scoreboard-names span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.live-scoreboard-names span:last-child{text-align:right;}
+.live-team-block{display:flex;align-items:center;gap:6px;min-width:0;}
+.live-team-block.away{flex-direction:row-reverse;}
+.live-team-name{font-size:12px;font-weight:800;color:var(--text-hi);line-height:1.15;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.live-score-center{text-align:center;padding:0 2px;}
+.live-score-big{font-size:24px;font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1;}
 .live-minute-row{
-  display:inline-flex;align-items:center;gap:5px;margin-top:2px;
-  font-size:12px;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums;
+  display:inline-flex;align-items:center;gap:4px;margin-top:3px;
+  font-size:11px;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums;
 }
 .live-telemetry-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;
-  padding:10px 18px;border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr;gap:5px 10px;
+  padding:7px 12px;border-bottom:1px solid var(--border);
 }
-.live-tel-cell{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.live-tel-cell{display:flex;flex-direction:column;gap:2px;min-width:0;}
 .live-tel-cell.full{grid-column:1/-1;}
-.live-tel-label{font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--text-lo);}
-.live-tel-value{font-size:11px;font-weight:700;color:var(--text-hi);font-variant-numeric:tabular-nums;}
-.live-tilt-bar{display:flex;height:7px;border-radius:4px;overflow:hidden;background:rgba(255,255,255,0.06);}
+.live-tel-label{font-size:8px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-lo);}
+.live-tel-value{font-size:10.5px;font-weight:700;color:var(--text-hi);font-variant-numeric:tabular-nums;}
+.live-tilt-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;background:rgba(255,255,255,0.06);}
 .live-tilt-home{transition:width 0.45s ease;background:linear-gradient(90deg,var(--green),rgba(60,172,59,0.55));}
 .live-tilt-away{flex:1;background:linear-gradient(90deg,rgba(230,29,37,0.45),var(--red));}
-.live-tilt-labels{display:flex;justify-content:space-between;font-size:9px;font-weight:700;color:var(--text-mid);margin-top:2px;}
-.live-prob-shift{display:flex;flex-wrap:wrap;gap:5px;font-size:9px;font-variant-numeric:tabular-nums;}
+.live-tilt-labels{display:flex;justify-content:space-between;font-size:8px;font-weight:700;color:var(--text-mid);margin-top:1px;}
+.live-prob-shift{display:flex;flex-wrap:wrap;gap:4px;font-size:9px;font-variant-numeric:tabular-nums;}
 .live-prob-chip{
-  padding:2px 6px;border-radius:4px;background:rgba(255,255,255,0.04);
+  padding:2px 5px;border-radius:4px;background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.07);white-space:nowrap;
 }
+.live-prob-hint{font-size:8px;color:var(--text-lo);margin-top:2px;line-height:1.2;}
 .live-prob-up{color:var(--green);font-weight:800;}
 .live-prob-down{color:var(--red);font-weight:800;}
 .live-event-feed{
-  max-height:92px;overflow-y:auto;padding:8px 18px 10px;
+  max-height:72px;overflow-y:auto;padding:6px 12px 7px;
   font-size:10px;border-top:1px solid rgba(255,255,255,0.04);
 }
 .live-event-feed::-webkit-scrollbar{width:4px;}
@@ -300,8 +305,8 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
   border-radius:4px;border-bottom:none;color:#ffb4b4;
 }
 .live-event-minute{font-weight:800;color:var(--gold);min-width:30px;font-variant-numeric:tabular-nums;flex-shrink:0;}
-.live-event-empty{color:var(--text-lo);font-style:italic;font-size:9px;padding:2px 0;}
-.match-card[data-signal="live"] .match-header{border-bottom:none;padding-bottom:8px;}
+.live-event-empty{color:var(--text-lo);font-style:italic;font-size:9px;padding:1px 0;}
+.match-card[data-signal="live"]{margin-bottom:8px;}
 
 /* ── SOURCE TABLE ── */
 .sources-table{width:100%;padding:0 18px;}
@@ -601,7 +606,8 @@ const DICT = {
     livePhaseSecond: 'Second Half',
     liveTelXg: 'Expected Goals (xG)',
     liveTelTilt: 'Field Tilt · L10',
-    liveTelModel: 'Live Model Shift',
+    liveTelModel: 'Live win chance',
+    liveProbHint: 'Home · Draw · Away (sums to 100%)',
     liveEventFeed: 'Match Events',
     liveNoEvents: 'Awaiting match events…',
     liveProbHome: 'H',
@@ -643,7 +649,7 @@ const DICT = {
     insightHighScoring: '최다 득점 경기: {home} {hs}–{as} {away} (총 {total}골).',
     insightGoalsPace: '{played}경기 {goals}골 — 경기당 평균 {avg}골.',
     livePhaseFirst: '전반', livePhaseHalf: '하프타임', livePhaseSecond: '후반',
-    liveTelXg: '기대득점 (xG)', liveTelTilt: '필드 틸트 · L10', liveTelModel: '실시간 모델 변동',
+    liveTelXg: '기대득점 (xG)', liveTelTilt: '필드 틸트 · L10', liveTelModel: '실시간 승률', liveProbHint: '홈 · 무 · 원정 (합계 100%)',
     liveEventFeed: '경기 이벤트', liveNoEvents: '이벤트 대기 중…',
     liveProbHome: '홈', liveProbDraw: '무', liveProbAway: '원',
     teams: {
@@ -687,7 +693,7 @@ const DICT = {
     insightHighScoring: '最多得点試合: {home} {hs}–{as} {away} (合計{total}点)。',
     insightGoalsPace: '{played}試合 {goals}得点 — 試合平均 {avg}点。',
     livePhaseFirst: '前半', livePhaseHalf: 'ハーフタイム', livePhaseSecond: '後半',
-    liveTelXg: '期待得点 (xG)', liveTelTilt: 'フィールド・ティルト · L10', liveTelModel: 'ライブモデル変動',
+    liveTelXg: '期待得点 (xG)', liveTelTilt: 'フィールド・ティルト · L10', liveTelModel: 'ライブ勝率', liveProbHint: 'H · D · A (合計100%)',
     liveEventFeed: '試合イベント', liveNoEvents: 'イベント待機中…',
     liveProbHome: 'H', liveProbDraw: 'D', liveProbAway: 'A',
     teams: {
@@ -982,12 +988,14 @@ function updateLiveCardDOM(matchId,payload){
   }
   if(payload.metrics?.fieldTilt){
     const t=payload.metrics.fieldTilt;
+    const hPct=Math.round(t.home);
+    const aPct=100-hPct;
     const bar=card.querySelector('.live-tilt-home');
     const hL=card.querySelector('.live-tilt-home-label');
     const aL=card.querySelector('.live-tilt-away-label');
-    if(bar)bar.style.width=`${Math.max(4,Math.min(96,t.home))}%`;
-    if(hL)hL.textContent=`${Math.round(t.home)}%`;
-    if(aL)aL.textContent=`${Math.round(t.away)}%`;
+    if(bar)bar.style.width=`${Math.max(4,Math.min(96,hPct))}%`;
+    if(hL)hL.textContent=`${hPct}%`;
+    if(aL)aL.textContent=`${aPct}%`;
   }
   if(payload.probs){
     const el=card.querySelector('.live-prob-shift');
@@ -998,18 +1006,28 @@ function updateLiveCardDOM(matchId,payload){
     if(el)el.innerHTML=payload.eventsHtml;
   }
 }
+function roundProbsTo100(h,d,a){
+  const vals=[h,d,a];
+  const floored=vals.map(v=>Math.floor(v));
+  let remainder=100-floored.reduce((s,v)=>s+v,0);
+  const order=vals.map((v,i)=>({i,frac:v-floored[i]})).sort((x,y)=>y.frac-x.frac);
+  const out=[...floored];
+  for(let r=0;r<remainder;r++)out[order[r].i]++;
+  return{home:out[0],draw:out[1],away:out[2]};
+}
 function buildLiveProbHtml(match,hg,ag,minute){
   const base=layerHomeDrawAway(match);
   if(!base)return'<span class="live-event-empty">—</span>';
   const live=shiftLiveProbs(base,hg,ag,minute);
+  const norm=roundProbsTo100(live.home,live.draw,live.away);
   const d=DICT[lang];
   const chip=(lbl,val,delta)=>{
     const cls=delta>0.5?'live-prob-up':delta<-0.5?'live-prob-down':'';
     const sign=delta>0?'+':'';
     const dTxt=Math.abs(delta)>=0.5?` <span class="${cls}">(${sign}${delta.toFixed(1)})</span>`:'';
-    return`<span class="live-prob-chip">${esc(lbl)} ${val.toFixed(0)}%${dTxt}</span>`;
+    return`<span class="live-prob-chip">${esc(lbl)} ${val}%${dTxt}</span>`;
   };
-  return chip(d.liveProbHome||'H',live.home,live.dHome)+chip(d.liveProbDraw||'D',live.draw,live.dDraw)+chip(d.liveProbAway||'A',live.away,live.dAway);
+  return chip(d.liveProbHome||'H',norm.home,live.dHome)+chip(d.liveProbDraw||'D',norm.draw,live.dDraw)+chip(d.liveProbAway||'A',norm.away,live.dAway);
 }
 function buildLiveEventsHtml(match,events){
   const d=DICT[lang];
@@ -1448,18 +1466,32 @@ function renderLive(rawMatch){
   const hg=match.homeScore??parts[0]??0;
   const ag=match.awayScore??parts[1]??0;
   const xgTxt=xg?`${Number(xg.home).toFixed(2)} - ${Number(xg.away).toFixed(2)}`:'—';
-  const hTilt=tilt?Math.round(tilt.home):50,aTilt=tilt?Math.round(tilt.away):50;
+  const hTilt=tilt?Math.round(tilt.home):50,aTilt=100-hTilt;
   const probHtml=buildLiveProbHtml(match,hg,ag,match.liveMinute);
   const eventsHtml=buildLiveEventsHtml(match,match.liveEvents);
   return`<div class="match-card" data-signal="live" id="live-card-${match.id}">
     <div class="live-status-bar">
       <div class="live-card-label"><span class="live-pulse-neon"></span>LIVE · ${esc(match.group||match.stage||'')}</div>
-      <div class="live-phase-banner">${esc(phaseLbl)}</div>
+      <div class="live-status-right">
+        <span class="live-kickoff-inline">${fmtKO(match.kickoff)}</span>
+        <div class="live-phase-banner">${esc(phaseLbl)}</div>
+      </div>
     </div>
     <div class="live-scoreboard">
-      <div class="live-scoreboard-names"><span>${esc(home)}</span><span>${esc(away)}</span></div>
-      <div class="live-score-big">${esc(score)}</div>
-      ${minute?`<div class="live-minute-row"><span class="live-pulse-neon"></span><span class="live-minute-val">${esc(minute)}</span></div>`:''}
+      <div class="live-score-row">
+        <div class="live-team-block home">
+          <div class="flag">${flagHTML(match.homeFlag)}</div>
+          <span class="live-team-name">${esc(home)}</span>
+        </div>
+        <div class="live-score-center">
+          <div class="live-score-big">${esc(score)}</div>
+          ${minute?`<div class="live-minute-row"><span class="live-pulse-neon"></span><span class="live-minute-val">${esc(minute)}</span></div>`:''}
+        </div>
+        <div class="live-team-block away">
+          <div class="flag">${flagHTML(match.awayFlag)}</div>
+          <span class="live-team-name">${esc(away)}</span>
+        </div>
+      </div>
     </div>
     <div class="live-telemetry-grid">
       <div class="live-tel-cell">
@@ -1474,14 +1506,8 @@ function renderLive(rawMatch){
       <div class="live-tel-cell full">
         <span class="live-tel-label">${esc(d.liveTelModel)}</span>
         <div class="live-prob-shift">${probHtml}</div>
+        <div class="live-prob-hint">${esc(d.liveProbHint||'')}</div>
       </div>
-    </div>
-    <div class="match-header" style="border-bottom:none;padding-top:6px">
-      <div class="match-teams">
-        <div class="team-row"><div class="flag">${flagHTML(match.homeFlag)}</div><span class="team-name">${esc(home)}</span></div>
-        <div class="team-row"><div class="flag">${flagHTML(match.awayFlag)}</div><span class="team-name">${esc(away)}</span></div>
-      </div>
-      <div class="match-meta-col"><span class="match-kickoff">${fmtKO(match.kickoff)}</span></div>
     </div>
     <div class="live-event-feed">${eventsHtml}</div>
   </div>`;
