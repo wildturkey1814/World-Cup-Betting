@@ -3421,7 +3421,9 @@
       "homeMomentumFactor": "+0.202",
       "awayMomentumFactor": "+0.767",
       "kalshiWinProbAway": "0.0%",
-      "matchday": 3
+      "matchday": 3,
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "match_id1000001666456924",
@@ -4451,7 +4453,9 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 1
+      "matchday": 1,
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760422",
@@ -5327,7 +5331,9 @@
           "body": "Shot conversion rate was decisive — Switzerland turned pressure into goals while Bosnia & Herzegovina struggled to create clear openings."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760440",
@@ -6481,6 +6487,7 @@
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",
   "polymarketUpdated": "June 23, 2026 · 10:20 PM UTC",
   "knockoutEliminated": [
+    "Bosnia & Herzegovina",
     "Haiti",
     "Iraq",
     "Qatar",
