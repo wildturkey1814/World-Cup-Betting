@@ -134,10 +134,10 @@ button:focus-visible{outline:2px solid var(--neon);outline-offset:2px;}
 .btn:hover{color:var(--text-hi);border-color:rgba(255,255,255,0.25);}
 .btn.active{color:var(--gold);border-color:var(--gold);background:rgba(232,160,32,0.08);}
 
-/* Completed view: force-hide live/upcoming chrome even if JS hiccups */
-body[data-match-state="completed"] #live-section,
+/* Completed view: force-hide upcoming chrome even if JS hiccups (keep live when a match is on) */
 body[data-match-state="completed"] #signal-legend-box,
 body[data-match-state="completed"] #tournament-summary-section{display:none!important;}
+body[data-match-state="completed"]:not(.has-live) #live-section{display:none!important;}
 .btn.lang-active{border-color:var(--neon);color:var(--neon);background:rgba(56,189,248,0.08);}
 .stage-tabs{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:1px;flex:1;min-width:0;}
 .stage-tabs::-webkit-scrollbar{display:none;}
@@ -504,6 +504,11 @@ body[data-match-state="completed"] #tournament-summary-section{display:none!impo
     </div>
   </div>
 
+  <div id="live-section" style="display:none">
+    <div class="live-now-banner"><div class="live-pulse"></div>LIVE NOW</div>
+    <div id="live-list" class="card-grid"></div>
+  </div>
+
   <div class="tournament-summary-section" id="tournament-summary-section">
     <div class="tournament-summary-wrap" id="tournament-summary-wrap">
       <div class="tournament-summary" id="tournament-summary-panel"></div>
@@ -527,11 +532,6 @@ body[data-match-state="completed"] #tournament-summary-section{display:none!impo
       <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>DRAW — draw probability high</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>UPSET — ELO backs underdog</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>VALUE — ELO backs favourite</div>
-    </div>
-
-    <div id="live-section" style="display:none">
-      <div class="live-now-banner"><div class="live-pulse"></div>LIVE NOW</div>
-      <div id="live-list" class="card-grid"></div>
     </div>
 
     <div class="section-head" id="grid-header-bar">
@@ -783,12 +783,72 @@ function fmtMinuteTick(raw){
 function isLiveWindow(match){
   if(!match.kickoff)return false;
   const ko=new Date(match.kickoff).getTime(),now=Date.now();
-  return now>=ko-5*60*1000&&now<=ko+130*60*1000;
+  return now>=ko-5*60*1000&&now<=ko+150*60*1000;
+}
+function isEspnLiveStatus(statusName){
+  return /IN_PROGRESS|HALFTIME|FIRST_HALF|SECOND_HALF|STATUS_LIVE|STARTED|DELAYED/i.test(String(statusName||''));
 }
 function isActiveLive(m){
-  if(!m||m.type==='COMPLETED'||m.liveFinal)return false;
-  if(m.type==='IN_PLAY')return true;
+  if(!m||m.type==='COMPLETED')return false;
+  if(m.espnLiveActive||m.type==='IN_PLAY')return true;
+  if(m.liveFinal)return false;
   return m.type==='UPCOMING'&&isLiveWindow(m);
+}
+function stageLiveMatches(stageName){
+  const seen=new Map();allMatches.forEach(m=>seen.set(m.id,m));
+  return [...seen.values()]
+    .filter(m=>(m.stage||'Group Stage')===stageName)
+    .filter(matchesSearch)
+    .filter(m=>isActiveLive(m));
+}
+function applyEspnLiveFlags(events){
+  let changed=false;
+  for(const m of allMatches){
+    if(m.type==='COMPLETED')continue;
+    const ev=findEspnEvent(events||[],m);
+    if(!ev){
+      if(m.espnLiveActive){m.espnLiveActive=false;changed=true;}
+      continue;
+    }
+    const st=ev.competitions?.[0]?.status?.type?.name||'';
+    if(isEspnLiveStatus(st)){
+      if(!m.espnLiveActive||m.liveFinal){
+        m.espnLiveActive=true;
+        m.liveFinal=false;
+        changed=true;
+      }
+    }else if(st==='STATUS_FINAL'){
+      if(m.espnLiveActive||!m.liveFinal){
+        m.espnLiveActive=false;
+        m.liveFinal=true;
+        changed=true;
+      }
+    }else if(m.espnLiveActive){
+      m.espnLiveActive=false;
+      changed=true;
+    }
+  }
+  return changed;
+}
+async function syncEspnLiveStatus(){
+  try{
+    const r=await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard');
+    if(!r.ok)return false;
+    const d=await r.json();
+    return applyEspnLiveFlags(d.events||[]);
+  }catch(e){return false;}
+}
+function renderLiveSection(live){
+  const liveSection=document.getElementById('live-section');
+  const liveList=document.getElementById('live-list');
+  document.body.classList.toggle('has-live',!!live.length);
+  if(live.length&&liveSection){
+    liveSection.style.display='';
+    if(liveList)liveList.innerHTML=live.map(renderLive).join('');
+  }else if(liveSection){
+    liveSection.style.display='none';
+    if(liveList)liveList.innerHTML='';
+  }
 }
 function parseLivePhase(statusObj,statusType){
   const detail=String(statusType?.detail||statusType?.shortDetail||'').toUpperCase();
@@ -1129,10 +1189,20 @@ async function pollLiveScore(match){
       if(payload.metrics)allMatches[idx].liveMetrics=payload.metrics;
       if(payload.events?.length)allMatches[idx].liveEvents=payload.events;
     }
-    if(status==='STATUS_FINAL'){
+    if(isEspnLiveStatus(status)){
+      if(idx>=0){
+        allMatches[idx].espnLiveActive=true;
+        allMatches[idx].liveFinal=false;
+      }
+      if(!document.getElementById(`live-card-${match.id}`))renderLiveSection(stageLiveMatches(currentStage));
+    }else if(status==='STATUS_FINAL'){
       clearInterval(liveTrackers[match.id]);
       delete liveTrackers[match.id];
-      if(idx>=0)allMatches[idx].liveFinal=true;
+      if(idx>=0){
+        allMatches[idx].liveFinal=true;
+        allMatches[idx].espnLiveActive=false;
+      }
+      renderLiveSection(stageLiveMatches(currentStage));
     }
   }catch(e){}
 }
@@ -1758,13 +1828,9 @@ function syncMatchStateUI(){
 function applyViewChrome(mode){
   const d=DICT[lang];
   const titleEl=document.getElementById('lbl-grid-state-title');
-  const liveSection=document.getElementById('live-section');
-  const liveList=document.getElementById('live-list');
   const pulse=document.getElementById('tournament-summary-section');
   document.body.dataset.matchState=mode;
   if(mode==='completed'){
-    if(liveSection)liveSection.style.display='none';
-    if(liveList)liveList.innerHTML='';
     if(pulse)pulse.style.display='none';
     if(titleEl)titleEl.textContent=d.completed;
   }else{
@@ -1815,27 +1881,19 @@ function renderGrid(){
   const seen=new Map();allMatches.forEach(m=>seen.set(m.id,m));
   const all=[...seen.values()];
   const stageM=all.filter(m=>(m.stage||'Group Stage')===currentStage).filter(matchesSearch);
+  const live=stageLiveMatches(currentStage);
 
-  const live=showUpcoming?stageM.filter(m=>isActiveLive(m)):[];
   const upcoming=showUpcoming
     ?stageM.filter(m=>!isActiveLive(m)&&!isFinishedMatch(m,finishedKeys)&&m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0))
     :[];
   const completed=showUpcoming?[]:gatherStageCompleted(currentStage).filter(matchesSearch);
 
-  const liveSection=document.getElementById('live-section');
-  const liveList=document.getElementById('live-list');
+  renderLiveSection(live);
+
   const titleEl=document.getElementById('lbl-grid-state-title');
   const totalEl=document.getElementById('count-grid-state-total');
   const targetGrid=document.getElementById('dynamic-grid-content');
   if(!titleEl||!totalEl||!targetGrid) return;
-
-  if(showUpcoming&&live.length&&liveSection){
-    liveSection.style.display='';
-    if(liveList)liveList.innerHTML=live.map(renderLive).join('');
-  }else if(liveSection){
-    liveSection.style.display='none';
-    if(liveList)liveList.innerHTML='';
-  }
 
   if(showUpcoming){
     titleEl.textContent=d.upcoming;
@@ -2022,9 +2080,15 @@ async function loadData(){
     document.getElementById('status-pane').style.display='none';
     document.getElementById('view-grid').classList.add('active');
     applyLabels();buildStageTabs();bindFilterControls();applyViewChrome(currentMatchState);
+    await syncEspnLiveStatus();
     try{renderGrid();}catch(renderErr){console.error(renderErr);showError('Could not render match grid.');return;}
     renderTournamentSummary();
     startLivePolling();
+    syncEspnLiveStatus().then(changed=>{
+      if(!changed)return;
+      try{if(currentView==='bracket')renderBracket();else renderMatchGrid();}catch(e){console.error(e);}
+      startLivePolling();
+    });
     setInterval(async()=>{
       try{
         const j=await fetchJson('data.json?v='+Date.now());
@@ -2036,6 +2100,7 @@ async function loadData(){
           const cj=await fetchJson('completed_matches.json?v='+Date.now());
           if(Array.isArray(cj))completedArchive=cj;
         }catch(e){}
+        await syncEspnLiveStatus();
         applyLabels();
         try{if(currentView==='bracket')renderBracket();else renderGrid();}catch(e){console.error(e);}
         startLivePolling();
