@@ -1595,8 +1595,8 @@ function winOddsHTML(match){
   const pUnd=effectiveTournamentWin(undTeam,favIsHome?match.polymarketWinProbAway:match.polymarketWinProbHome);
   const hasData=kFav||kUnd||pFav||pUnd||isKnockoutEliminated(favTeam)||isKnockoutEliminated(undTeam);
   if(!hasData)return'';
-  const favName=tn(match.favTeam).split(' ')[0];
-  const undName=tn(favIsHome?match.away:match.home).split(' ')[0];
+  const favName=teamShortLabel(match.favTeam,teamFlagFor(match,match.favTeam));
+  const undName=teamShortLabel(undTeam,teamFlagFor(match,undTeam));
   function cell(v){
     if(v==='0.0%')return`<div class="win-odds-val null">0.0%</div>`;
     return v?`<div class="win-odds-val hi">${esc(v)}</div>`:`<div class="win-odds-val null">--</div>`;
@@ -1636,6 +1636,8 @@ function renderUpcoming(match){
   const home=tn(match.home),away=tn(match.away),favIsHome=match.favTeam===match.home;
   const favName=favIsHome?home:away,undName=favIsHome?away:home;
   const favFlag=favIsHome?match.homeFlag:match.awayFlag,undFlag=favIsHome?match.awayFlag:match.homeFlag;
+  const favShort=teamShortLabel(match.favTeam,favFlag);
+  const undShort=teamShortLabel(favIsHome?match.away:match.home,undFlag);
   const reco=calcReco(match),signal=reco?reco.type:'lean';
   
   const norm={};
@@ -1665,7 +1667,7 @@ function renderUpcoming(match){
   const wop=winOddsHTML(match);
   const sc=superchargerHTML(match);
 
-  return`<div class="match-card${pImg?' has-player-img':''}" data-signal="${signal}">${pImg}<div class="match-header"><div class="match-teams"><div class="team-row"><div class="flag">${flagHTML(favFlag)}</div><span class="team-name">${esc(favName)}</span><span class="team-badge badge-fav">${esc(d.favBadge||'FAV')}</span></div><div class="team-row"><div class="flag">${flagHTML(undFlag)}</div><span class="team-name">${esc(undName)}</span><span class="team-badge badge-und">${esc(d.undBadge||'UND')}</span></div></div><div class="match-meta-col"><span class="match-group-tag">${esc(match.group||match.stage||'')}</span><span class="match-kickoff">${fmtKO(match.kickoff)}</span></div></div><div class="sources-table"><div class="sources-header"><span>${esc(d.source)}</span><span class="col-fav-label">${esc(favName.split(' ')[0])}</span><span class="col-draw-label">${esc(d.colDraw)}</span><span class="col-und-label">${esc(undName.split(' ')[0])}</span></div>${rows}${sc}</div>${wop}${recoHTML}</div>`;
+  return`<div class="match-card${pImg?' has-player-img':''}" data-signal="${signal}">${pImg}<div class="match-header"><div class="match-teams"><div class="team-row"><div class="flag">${flagHTML(favFlag)}</div><span class="team-name">${esc(favName)}</span><span class="team-badge badge-fav">${esc(d.favBadge||'FAV')}</span></div><div class="team-row"><div class="flag">${flagHTML(undFlag)}</div><span class="team-name">${esc(undName)}</span><span class="team-badge badge-und">${esc(d.undBadge||'UND')}</span></div></div><div class="match-meta-col"><span class="match-group-tag">${esc(match.group||match.stage||'')}</span><span class="match-kickoff">${fmtKO(match.kickoff)}</span></div></div><div class="sources-table"><div class="sources-header"><span>${esc(d.source)}</span><span class="col-fav-label">${esc(favShort)}</span><span class="col-draw-label">${esc(d.colDraw)}</span><span class="col-und-label">${esc(undShort)}</span></div>${rows}${sc}</div>${wop}${recoHTML}</div>`;
 }
 
 /* ── RENDER LIVE ── */
@@ -1914,6 +1916,17 @@ function teamColHeader(name){
   const w=n.split(/\s+/).pop()||n;
   return w.length>6?w.slice(0,5):w;
 }
+function teamShortLabel(name,flag){
+  const code=flag?String(flag).trim().toUpperCase():'';
+  if(code.length>=3)return code.slice(0,3);
+  if(code)return code.toUpperCase();
+  return teamColHeader(name);
+}
+function teamFlagFor(match,team){
+  if(team===match.home)return match.homeFlag||'';
+  if(team===match.away)return match.awayFlag||'';
+  return'';
+}
 function ordHomeAway(sides,homeVal,awayVal){
   const [first]=sides;
   return first.isHome?[homeVal,awayVal]:[awayVal,homeVal];
@@ -1938,8 +1951,8 @@ function computePostGameEfficiency(match,hScore,aScore,hXg,aXg,adv,bs){
 }
 function buildEfficiencyPanelHTML(match,eff,d,bs,sides){
   const [first,second]=sides;
-  const firstLbl=teamColHeader(first.team);
-  const secondLbl=teamColHeader(second.team);
+  const firstLbl=teamShortLabel(first.team,first.flag);
+  const secondLbl=teamShortLabel(second.team,second.flag);
   const pairLbl=`${esc(firstLbl)} · ${esc(secondLbl)}`;
   const sign=eff.ped!=null&&eff.ped>0?'+':'';
   const deltaCls=eff.ped==null?'':eff.ped>0?'pos':eff.ped<0?'neg':'';
