@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 25, 2026 · 11:02 PM UTC",
+  "lastUpdated": "June 25, 2026 · 11:03 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -249,7 +249,7 @@
       "homeScore": 4,
       "awayScore": 1,
       "score": "UNITED STATES 4 - 1 PARAGUAY",
-      "kalshiWinProbHome": "4.4%",
+      "kalshiWinProbHome": "4.3%",
       "polymarketWinProbHome": "2.9%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbAway": "0.1%",
@@ -814,8 +814,8 @@
       "homeScore": 2,
       "awayScore": 2,
       "score": "NETHERLANDS 2 - 2 JAPAN",
-      "kalshiWinProbHome": "6.6%",
-      "kalshiWinProbAway": "1.5%",
+      "kalshiWinProbHome": "6.3%",
+      "kalshiWinProbAway": "1.6%",
       "polymarketWinProbHome": "5.9%",
       "polymarketWinProbAway": "1.9%",
       "boxScore": {
@@ -1646,7 +1646,7 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "13.9%",
+      "kalshiWinProbHome": "14.4%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "14.4%",
       "polymarketWinProbAway": "0.1%",
@@ -2309,7 +2309,7 @@
           "und": "20.0%"
         }
       ],
-      "kalshiWinProbHome": "6.6%",
+      "kalshiWinProbHome": "6.3%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "5.9%",
       "polymarketWinProbAway": "0.1%",
@@ -2578,7 +2578,7 @@
           "und": "65.3%"
         }
       ],
-      "kalshiWinProbAway": "1.5%",
+      "kalshiWinProbAway": "1.6%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "1.9%",
       "score": "TUNISIA 0 - 4 JAPAN",
@@ -4607,7 +4607,7 @@
           "und": "33.3%"
         }
       ],
-      "kalshiWinProbHome": "1.5%",
+      "kalshiWinProbHome": "1.6%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.1%",
@@ -4648,13 +4648,13 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "4.0%",
-          "draw": "11.1%",
-          "und": "84.9%"
+          "fav": "1.0%",
+          "draw": "4.0%",
+          "und": "95.0%"
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "6.6%",
+      "kalshiWinProbAway": "6.3%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "5.9%",
       "homeMomentumFactor": "+0.569",
@@ -4700,7 +4700,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "4.4%",
+      "kalshiWinProbAway": "4.3%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "2.9%",
       "homeMomentumFactor": "+0.306",
@@ -5224,7 +5224,7 @@
           "und": "84.7%"
         }
       ],
-      "kalshiWinProbAway": "13.9%",
+      "kalshiWinProbAway": "14.4%",
       "polymarketWinProbAway": "14.4%",
       "homeMomentumFactor": "+0.272",
       "awayMomentumFactor": "-0.037",
@@ -6558,7 +6558,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "4.4%",
+      "kalshiWinProbHome": "4.3%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "2.9%",
       "polymarketWinProbAway": "0.1%"
@@ -7189,7 +7189,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "13.9%",
+      "kalshiWinProbHome": "14.4%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "14.4%",
       "polymarketWinProbAway": "0.2%"
@@ -7476,7 +7476,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 25, 2026 · 11:02 PM UTC",
+  "kalshiUpdated": "June 25, 2026 · 11:03 PM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Curacao",
@@ -7491,5 +7491,5 @@
     "Tunisia",
     "Turkey"
   ],
-  "polymarketUpdated": "June 25, 2026 · 11:02 PM UTC"
+  "polymarketUpdated": "June 25, 2026 · 11:03 PM UTC"
 }
