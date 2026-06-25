@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 25, 2026 · 10:24 AM UTC",
+  "lastUpdated": "June 25, 2026 · 10:29 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -22,7 +22,7 @@
       "homeScore": 2,
       "awayScore": 0,
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
-      "kalshiWinProbHome": "3.2%",
+      "kalshiWinProbHome": "3.3%",
       "polymarketWinProbHome": "1.1%",
       "polymarketWinProbAway": "0.1%",
       "boxScore": {
@@ -1648,7 +1648,7 @@
       ],
       "kalshiWinProbHome": "15.0%",
       "kalshiWinProbAway": "0.1%",
-      "polymarketWinProbHome": "14.8%",
+      "polymarketWinProbHome": "14.9%",
       "polymarketWinProbAway": "0.1%",
       "score": "ARGENTINA 3 - 0 ALGERIA",
       "homeScore": 3,
@@ -4073,7 +4073,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "3.2%",
+      "kalshiWinProbAway": "3.3%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "1.1%",
       "homeMomentumFactor": "-0.109",
@@ -4319,9 +4319,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "15.9%",
-          "draw": "36.9%",
-          "und": "47.2%"
+          "fav": "17.8%",
+          "draw": "18.7%",
+          "und": "63.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4360,9 +4360,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.1%",
-          "draw": "11.5%",
-          "und": "82.3%"
+          "fav": "7.3%",
+          "draw": "28.8%",
+          "und": "63.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4644,9 +4644,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "31.8%",
-          "draw": "42.4%",
-          "und": "25.8%"
+          "fav": "37.8%",
+          "draw": "28.6%",
+          "und": "33.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4725,9 +4725,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "28.9%",
-          "draw": "50.1%",
-          "und": "20.9%"
+          "fav": "38.5%",
+          "draw": "36.9%",
+          "und": "24.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -4737,9 +4737,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "39.8%",
-          "draw": "35.7%",
-          "und": "24.5%"
+          "fav": "40.2%",
+          "draw": "36.1%",
+          "und": "23.7%"
         }
       ],
       "kalshiWinProbHome": "0.2%",
@@ -5024,7 +5024,7 @@
         }
       ],
       "kalshiWinProbAway": "15.0%",
-      "polymarketWinProbAway": "14.8%",
+      "polymarketWinProbAway": "14.9%",
       "homeMomentumFactor": "+0.272",
       "awayMomentumFactor": "-0.037",
       "matchday": 3
@@ -6251,7 +6251,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "3.2%",
+      "kalshiWinProbHome": "3.3%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "1.1%",
       "polymarketWinProbAway": "0.0%"
@@ -6988,7 +6988,7 @@
       "matchday": 2,
       "kalshiWinProbHome": "15.0%",
       "kalshiWinProbAway": "0.1%",
-      "polymarketWinProbHome": "14.8%",
+      "polymarketWinProbHome": "14.9%",
       "polymarketWinProbAway": "0.2%"
     },
     {
@@ -7251,12 +7251,12 @@
           "und": "55.0%"
         }
       ],
-      "matchday": 3,
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.098",
-      "awayMomentumFactor": "-0.516"
+      "awayMomentumFactor": "-0.516",
+      "matchday": 3
     }
   ],
   "groupStageProgress": {
@@ -7273,7 +7273,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 25, 2026 · 10:24 AM UTC",
+  "kalshiUpdated": "June 25, 2026 · 10:29 AM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Czechia",
@@ -7286,5 +7286,5 @@
     "Tunisia",
     "Turkey"
   ],
-  "polymarketUpdated": "June 25, 2026 · 10:24 AM UTC"
+  "polymarketUpdated": "June 25, 2026 · 10:29 AM UTC"
 }
