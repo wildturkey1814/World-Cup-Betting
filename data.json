@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 25, 2026 · 6:28 PM UTC",
+  "lastUpdated": "June 25, 2026 · 10:55 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -936,9 +936,9 @@
       "awayScore": 0,
       "score": "IVORY COAST 1 - 0 ECUADOR",
       "kalshiWinProbHome": "0.3%",
-      "kalshiWinProbAway": "0.1%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "0.4%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 45.8,
@@ -2459,8 +2459,8 @@
           "und": "5.1%"
         }
       ],
-      "kalshiWinProbHome": "0.1%",
-      "polymarketWinProbHome": "0.1%",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "score": "ECUADOR 0 - 0 CURACAO",
       "homeScore": 0,
       "awayScore": 0,
@@ -2541,7 +2541,9 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2
+      "matchday": 2,
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "match_id1000001666456974",
@@ -4308,7 +4310,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Ecuador",
       "away": "Germany",
       "favTeam": "Germany",
@@ -4336,20 +4338,116 @@
           "und": "62.6%"
         }
       ],
-      "kalshiWinProbHome": "0.1%",
+      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "5.2%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "5.2%",
       "homeMomentumFactor": "+0.235",
       "awayMomentumFactor": "-0.557",
-      "matchday": 3
+      "matchday": 3,
+      "score": "ECUADOR 2 - 1 GERMANY",
+      "homeScore": 2,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 59.9,
+          "away": 40.1
+        },
+        "shots": {
+          "home": 13,
+          "away": 5
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 1
+        },
+        "corners": {
+          "home": 4,
+          "away": 2
+        },
+        "fouls": {
+          "home": 12,
+          "away": 11
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 18,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 57,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 63,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Ecuador won 2-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.93,
+          "away": 0.88
+        },
+        "fieldTilt": {
+          "home": 53.1,
+          "away": 46.9
+        },
+        "ppda": {
+          "home": 8.9,
+          "away": 15.7
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 458,
+          "away": 314
+        },
+        "finalThirdEntries": {
+          "home": 41,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Ecuador created the clearer chances, generating 1.93 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Ecuador (PPDA 8.9) disrupted Germany's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Ecuador's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001666457080",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Curacao",
       "away": "Ivory Coast",
       "favTeam": "Ivory Coast",
@@ -4381,7 +4479,100 @@
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.718",
       "awayMomentumFactor": "-0.156",
-      "matchday": 3
+      "matchday": 3,
+      "score": "CURACAO 0 - 2 IVORY COAST",
+      "homeScore": 0,
+      "awayScore": 2,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 49.0,
+          "away": 51.0
+        },
+        "shots": {
+          "home": 9,
+          "away": 13
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 6
+        },
+        "corners": {
+          "home": 3,
+          "away": 3
+        },
+        "fouls": {
+          "home": 11,
+          "away": 9
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 18,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Ivory Coast won 2-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.43,
+          "away": 2.29
+        },
+        "fieldTilt": {
+          "home": 44.4,
+          "away": 55.6
+        },
+        "ppda": {
+          "home": 13.1,
+          "away": 10.4
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 394,
+          "away": 454
+        },
+        "finalThirdEntries": {
+          "home": 38,
+          "away": 47
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Ivory Coast created the clearer chances, generating 2.29 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Ivory Coast (PPDA 10.4) disrupted Curacao's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Ivory Coast's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ],
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "id1000001666456978",
@@ -5263,7 +5454,9 @@
       ],
       "matchday": 1,
       "kalshiWinProbHome": "5.2%",
-      "polymarketWinProbHome": "5.2%"
+      "polymarketWinProbHome": "5.2%",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760428",
@@ -7262,13 +7455,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 54,
-    "upcomingGroupMatches": 19,
+    "completedGroupMatches": 56,
+    "upcomingGroupMatches": 17,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 6
+      "3": 8
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
@@ -7276,7 +7469,9 @@
   "kalshiUpdated": "June 25, 2026 · 6:28 PM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
+    "Curacao",
     "Czechia",
+    "Ecuador",
     "Haiti",
     "Iraq",
     "Qatar",
