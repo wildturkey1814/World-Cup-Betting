@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 25, 2026 · 5:34 PM UTC",
+  "lastUpdated": "June 25, 2026 · 6:28 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1646,7 +1646,7 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "15.2%",
+      "kalshiWinProbHome": "15.3%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "14.8%",
       "polymarketWinProbAway": "0.1%",
@@ -4331,9 +4331,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "18.0%",
-          "draw": "19.0%",
-          "und": "63.0%"
+          "fav": "18.2%",
+          "draw": "19.2%",
+          "und": "62.6%"
         }
       ],
       "kalshiWinProbHome": "0.1%",
@@ -4411,9 +4411,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "50.5%",
-          "draw": "27.3%",
-          "und": "22.2%"
+          "fav": "49.0%",
+          "draw": "27.6%",
+          "und": "23.5%"
         }
       ],
       "kalshiWinProbHome": "1.5%",
@@ -4656,9 +4656,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "37.8%",
-          "draw": "28.6%",
-          "und": "33.7%"
+          "fav": "37.4%",
+          "draw": "28.3%",
+          "und": "34.3%"
         }
       ],
       "kalshiWinProbHome": "0.1%",
@@ -5023,7 +5023,7 @@
           "und": "84.0%"
         }
       ],
-      "kalshiWinProbAway": "15.2%",
+      "kalshiWinProbAway": "15.3%",
       "polymarketWinProbAway": "14.8%",
       "homeMomentumFactor": "+0.272",
       "awayMomentumFactor": "-0.037",
@@ -6986,7 +6986,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "15.2%",
+      "kalshiWinProbHome": "15.3%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "14.8%",
       "polymarketWinProbAway": "0.2%"
@@ -7273,7 +7273,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 25, 2026 · 5:34 PM UTC",
+  "kalshiUpdated": "June 25, 2026 · 6:28 PM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Czechia",
@@ -7286,5 +7286,5 @@
     "Tunisia",
     "Turkey"
   ],
-  "polymarketUpdated": "June 25, 2026 · 5:34 PM UTC"
+  "polymarketUpdated": "June 25, 2026 · 6:28 PM UTC"
 }
