@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 26, 2026 · 10:39 AM UTC",
+  "lastUpdated": "June 26, 2026 · 10:40 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -7857,13 +7857,13 @@
           "und": "22.3%"
         }
       ],
-      "matchday": 3,
       "kalshiWinProbHome": "6.0%",
       "kalshiWinProbAway": "1.3%",
       "polymarketWinProbHome": "5.5%",
       "polymarketWinProbAway": "1.4%",
       "homeMomentumFactor": "-0.088",
-      "awayMomentumFactor": "-0.074"
+      "awayMomentumFactor": "-0.074",
+      "matchday": 3
     },
     {
       "id": "id1000001653452547",
@@ -7892,13 +7892,13 @@
           "und": "23.6%"
         }
       ],
-      "matchday": 3,
       "kalshiWinProbHome": "6.8%",
       "kalshiWinProbAway": "1.7%",
       "polymarketWinProbHome": "5.8%",
       "polymarketWinProbAway": "1.5%",
       "homeMomentumFactor": "-0.142",
-      "awayMomentumFactor": "+0.126"
+      "awayMomentumFactor": "+0.126",
+      "matchday": 3
     },
     {
       "id": "id1000001653452553",
@@ -7927,13 +7927,13 @@
           "und": "13.0%"
         }
       ],
-      "matchday": 3,
       "kalshiWinProbHome": "4.0%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
       "polymarketWinProbHome": "3.0%",
+      "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.542",
-      "awayMomentumFactor": "+0.038"
+      "awayMomentumFactor": "+0.038",
+      "matchday": 3
     }
   ],
   "groupStageProgress": {
@@ -7950,7 +7950,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 26, 2026 · 10:39 AM UTC",
+  "kalshiUpdated": "June 26, 2026 · 10:40 AM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Curacao",
@@ -7967,5 +7967,5 @@
     "Tunisia",
     "Turkey"
   ],
-  "polymarketUpdated": "June 26, 2026 · 10:39 AM UTC"
+  "polymarketUpdated": "June 26, 2026 · 10:40 AM UTC"
 }
