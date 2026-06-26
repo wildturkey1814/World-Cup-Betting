@@ -10274,5 +10274,391 @@
         "und": "21.2%"
       }
     ]
+  },
+  {
+    "id": "id1000001666457014",
+    "home": "Norway",
+    "away": "France",
+    "homeFlag": "nor",
+    "awayFlag": "fra",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-26T19:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 4,
+    "score": "NORWAY 1 - 4 FRANCE",
+    "winner": "France",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.61,
+        "away": 3.68
+      },
+      "possession": {
+        "home": 38.2,
+        "away": 61.8
+      },
+      "fieldTilt": {
+        "home": 32.4,
+        "away": 67.6
+      },
+      "ppda": {
+        "home": 23.5,
+        "away": 7.2
+      },
+      "shots": {
+        "home": 3,
+        "away": 23
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 11
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 4
+      },
+      "progressivePasses": {
+        "home": 335,
+        "away": 563
+      },
+      "finalThirdEntries": {
+        "home": 25,
+        "away": 55
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "fouls": {
+        "home": 13,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 38.2,
+        "away": 61.8
+      },
+      "shots": {
+        "home": 3,
+        "away": 23
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 11
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "fouls": {
+        "home": 13,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 14,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 45,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 61,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 62,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 71,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.61,
+        "away": 3.68
+      },
+      "fieldTilt": {
+        "home": 32.4,
+        "away": 67.6
+      },
+      "ppda": {
+        "home": 23.5,
+        "away": 7.2
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 4
+      },
+      "progressivePasses": {
+        "home": 335,
+        "away": 563
+      },
+      "finalThirdEntries": {
+        "home": 25,
+        "away": 55
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "France generated 3.68 xG, creating 4 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (61.8%) and high pressing intensity (PPDA 7.2) cut off Norway's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — France turned pressure into goals while Norway struggled to create clear openings."
+      }
+    ],
+    "insight": "France won 4-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "13.4%",
+        "draw": "17.3%",
+        "und": "69.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "13.3%",
+        "draw": "20.0%",
+        "und": "66.7%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "12.1%",
+        "draw": "17.2%",
+        "und": "70.7%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666457016",
+    "home": "Senegal",
+    "away": "Iraq",
+    "homeFlag": "sen",
+    "awayFlag": "irq",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-26T19:00:00.000Z",
+    "homeScore": 5,
+    "awayScore": 0,
+    "score": "SENEGAL 5 - 0 IRAQ",
+    "winner": "Senegal",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.04,
+        "away": 0.46
+      },
+      "possession": {
+        "home": 67.1,
+        "away": 32.9
+      },
+      "fieldTilt": {
+        "home": 67.8,
+        "away": 32.2
+      },
+      "ppda": {
+        "home": 8.0,
+        "away": 19.5
+      },
+      "shots": {
+        "home": 19,
+        "away": 2
+      },
+      "shotsOnTarget": {
+        "home": 7,
+        "away": 0
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 551,
+        "away": 273
+      },
+      "finalThirdEntries": {
+        "home": 54,
+        "away": 27
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 9,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 67.1,
+        "away": 32.9
+      },
+      "shots": {
+        "home": 19,
+        "away": 2
+      },
+      "shotsOnTarget": {
+        "home": 7,
+        "away": 0
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 9,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 38,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 46,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 63,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 64,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 87,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.04,
+        "away": 0.46
+      },
+      "fieldTilt": {
+        "home": 67.8,
+        "away": 32.2
+      },
+      "ppda": {
+        "home": 8.0,
+        "away": 19.5
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 551,
+        "away": 273
+      },
+      "finalThirdEntries": {
+        "home": 54,
+        "away": 27
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Senegal generated 3.04 xG, creating 5 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (67.1%) and high pressing intensity (PPDA 8.0) cut off Iraq's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Senegal turned pressure into goals while Iraq struggled to create clear openings."
+      }
+    ],
+    "insight": "Senegal won 5-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "62.0%",
+        "draw": "30.0%",
+        "und": "8.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "64.5%",
+        "draw": "20.6%",
+        "und": "14.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "79.8%",
+        "draw": "13.1%",
+        "und": "7.1%"
+      }
+    ]
   }
 ]

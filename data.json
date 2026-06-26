@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 26, 2026 · 5:23 PM UTC",
+  "lastUpdated": "June 26, 2026 · 9:50 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -5121,7 +5121,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Norway",
       "away": "France",
       "favTeam": "France",
@@ -5155,14 +5155,120 @@
       "polymarketWinProbAway": "18.9%",
       "homeMomentumFactor": "+0.647",
       "awayMomentumFactor": "+0.007",
-      "matchday": 3
+      "matchday": 3,
+      "score": "NORWAY 1 - 4 FRANCE",
+      "homeScore": 1,
+      "awayScore": 4,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 38.2,
+          "away": 61.8
+        },
+        "shots": {
+          "home": 3,
+          "away": 23
+        },
+        "shotsOnTarget": {
+          "home": 1,
+          "away": 11
+        },
+        "corners": {
+          "home": 8,
+          "away": 4
+        },
+        "fouls": {
+          "home": 13,
+          "away": 13
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 14,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 45,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 61,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 62,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 71,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "France won 4-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 0.61,
+          "away": 3.68
+        },
+        "fieldTilt": {
+          "home": 32.4,
+          "away": 67.6
+        },
+        "ppda": {
+          "home": 23.5,
+          "away": 7.2
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 4
+        },
+        "progressivePasses": {
+          "home": 335,
+          "away": 563
+        },
+        "finalThirdEntries": {
+          "home": 25,
+          "away": 55
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "France generated 3.68 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (61.8%) and high pressing intensity (PPDA 7.2) cut off Norway's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — France turned pressure into goals while Norway struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "id1000001666457016",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Senegal",
       "away": "Iraq",
       "favTeam": "Senegal",
@@ -5196,7 +5302,113 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.397",
       "awayMomentumFactor": "-0.005",
-      "matchday": 3
+      "matchday": 3,
+      "score": "SENEGAL 5 - 0 IRAQ",
+      "homeScore": 5,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 67.1,
+          "away": 32.9
+        },
+        "shots": {
+          "home": 19,
+          "away": 2
+        },
+        "shotsOnTarget": {
+          "home": 7,
+          "away": 0
+        },
+        "corners": {
+          "home": 6,
+          "away": 4
+        },
+        "fouls": {
+          "home": 9,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 38,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 46,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 63,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 64,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 87,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Senegal won 5-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.04,
+          "away": 0.46
+        },
+        "fieldTilt": {
+          "home": 67.8,
+          "away": 32.2
+        },
+        "ppda": {
+          "home": 8.0,
+          "away": 19.5
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 551,
+          "away": 273
+        },
+        "finalThirdEntries": {
+          "home": 54,
+          "away": 27
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Senegal generated 3.04 xG, creating 5 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (67.1%) and high pressing intensity (PPDA 8.0) cut off Iraq's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Senegal turned pressure into goals while Iraq struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "id1000001666457004",
@@ -7957,13 +8169,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 60,
-    "upcomingGroupMatches": 16,
+    "completedGroupMatches": 62,
+    "upcomingGroupMatches": 14,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 12
+      "3": 14
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
