@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 27, 2026 · 11:39 PM UTC",
+  "lastUpdated": "June 27, 2026 · 11:44 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -6260,7 +6260,7 @@
       "liveScore": "0 - 0",
       "homeScore": 0,
       "awayScore": 0,
-      "liveMinute": "8'",
+      "liveMinute": "13'",
       "livePhase": "FIRST HALF"
     },
     {
@@ -6301,10 +6301,10 @@
       "homeMomentumFactor": "+0.372",
       "awayMomentumFactor": "+0.637",
       "matchday": 3,
-      "liveScore": "0 - 0",
+      "liveScore": "0 - 1",
       "homeScore": 0,
-      "awayScore": 0,
-      "liveMinute": "8'",
+      "awayScore": 1,
+      "liveMinute": "12'",
       "livePhase": "FIRST HALF"
     },
     {
