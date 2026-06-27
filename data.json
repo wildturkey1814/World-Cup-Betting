@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 27, 2026 · 9:18 AM UTC",
+  "lastUpdated": "June 27, 2026 · 9:32 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1785,7 +1785,7 @@
         }
       ],
       "kalshiWinProbHome": "0.1%",
-      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "score": "AUSTRIA 3 - 1 JORDAN",
       "homeScore": 3,
@@ -6142,7 +6142,7 @@
       ],
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.2%",
+      "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.080",
       "awayMomentumFactor": "-0.069",
       "matchday": 3
@@ -8150,7 +8150,7 @@
       "kalshiWinProbHome": "18.4%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "17.6%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "espn-760457",
@@ -8598,7 +8598,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 27, 2026 · 9:18 AM UTC",
+  "kalshiUpdated": "June 27, 2026 · 9:32 AM UTC",
   "knockoutEliminated": [
     "Bosnia & Herzegovina",
     "Curacao",
@@ -8619,5 +8619,5 @@
     "Turkey",
     "Uruguay"
   ],
-  "polymarketUpdated": "June 27, 2026 · 9:18 AM UTC"
+  "polymarketUpdated": "June 27, 2026 · 9:32 AM UTC"
 }
