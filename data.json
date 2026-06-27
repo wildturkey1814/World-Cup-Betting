@@ -486,7 +486,7 @@
       "homeScore": 1,
       "awayScore": 1,
       "score": "BRAZIL 1 - 1 MOROCCO",
-      "kalshiWinProbHome": "5.5%",
+      "kalshiWinProbHome": "5.6%",
       "kalshiWinProbAway": "1.0%",
       "polymarketWinProbHome": "5.7%",
       "polymarketWinProbAway": "1.5%",
@@ -814,7 +814,7 @@
       "homeScore": 2,
       "awayScore": 2,
       "score": "NETHERLANDS 2 - 2 JAPAN",
-      "kalshiWinProbHome": "5.2%",
+      "kalshiWinProbHome": "5.3%",
       "kalshiWinProbAway": "0.9%",
       "polymarketWinProbHome": "4.8%",
       "polymarketWinProbAway": "1.5%",
@@ -1515,7 +1515,7 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "22.5%",
+      "kalshiWinProbHome": "22.6%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "23.6%",
       "polymarketWinProbAway": "0.0%",
@@ -1924,7 +1924,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "8.9%",
+      "kalshiWinProbHome": "9.0%",
       "polymarketWinProbHome": "9.0%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
@@ -2053,7 +2053,7 @@
           "und": "4.0%"
         }
       ],
-      "kalshiWinProbHome": "5.5%",
+      "kalshiWinProbHome": "5.6%",
       "polymarketWinProbHome": "5.7%",
       "polymarketWinProbAway": "0.0%",
       "score": "BRAZIL 3 - 0 HAITI",
@@ -2313,7 +2313,7 @@
           "und": "20.0%"
         }
       ],
-      "kalshiWinProbHome": "5.2%",
+      "kalshiWinProbHome": "5.3%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "4.8%",
       "polymarketWinProbAway": "0.0%",
@@ -3793,7 +3793,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "5.5%",
+      "kalshiWinProbAway": "5.6%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "5.7%",
       "homeMomentumFactor": "+0.024",
@@ -4747,7 +4747,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "5.2%",
+      "kalshiWinProbAway": "5.3%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "4.8%",
       "homeMomentumFactor": "+0.569",
@@ -5157,7 +5157,7 @@
         }
       ],
       "kalshiWinProbHome": "1.9%",
-      "kalshiWinProbAway": "22.5%",
+      "kalshiWinProbAway": "22.6%",
       "polymarketWinProbHome": "2.4%",
       "polymarketWinProbAway": "23.6%",
       "homeMomentumFactor": "+0.647",
@@ -5954,7 +5954,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Panama",
       "away": "England",
       "favTeam": "England",
@@ -5987,14 +5987,105 @@
       "polymarketWinProbAway": "10.1%",
       "homeMomentumFactor": "+0.638",
       "awayMomentumFactor": "+0.254",
-      "matchday": 3
+      "matchday": 3,
+      "score": "PANAMA 0 - 2 ENGLAND",
+      "homeScore": 0,
+      "awayScore": 2,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 42.0,
+          "away": 58.0
+        },
+        "shots": {
+          "home": 5,
+          "away": 12
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 6
+        },
+        "corners": {
+          "home": 5,
+          "away": 5
+        },
+        "fouls": {
+          "home": 8,
+          "away": 10
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 53,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 64,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "England won 2-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.05,
+          "away": 1.9
+        },
+        "fieldTilt": {
+          "home": 42.2,
+          "away": 57.8
+        },
+        "ppda": {
+          "home": 13.5,
+          "away": 10.4
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 387,
+          "away": 444
+        },
+        "finalThirdEntries": {
+          "home": 36,
+          "away": 44
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "England created the clearer chances, generating 1.9 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from England (PPDA 10.4) disrupted Panama's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but England's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001666457052",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Croatia",
       "away": "Ghana",
       "favTeam": "Croatia",
@@ -6028,14 +6119,110 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.492",
       "awayMomentumFactor": "-0.138",
-      "matchday": 3
+      "matchday": 3,
+      "score": "CROATIA 2 - 1 GHANA",
+      "homeScore": 2,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 55.0,
+          "away": 45.0
+        },
+        "shots": {
+          "home": 15,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 6,
+          "away": 3
+        },
+        "corners": {
+          "home": 2,
+          "away": 5
+        },
+        "fouls": {
+          "home": 13,
+          "away": 17
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 39,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 43,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 83,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Croatia won 2-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.35,
+          "away": 1.22
+        },
+        "fieldTilt": {
+          "home": 55.5,
+          "away": 44.5
+        },
+        "ppda": {
+          "home": 11.8,
+          "away": 16.2
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 455,
+          "away": 358
+        },
+        "finalThirdEntries": {
+          "home": 47,
+          "away": 39
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Croatia created the clearer chances, generating 2.35 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Croatia (PPDA 11.8) disrupted Ghana's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Croatia's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001666457038",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Colombia",
       "away": "Portugal",
       "favTeam": "Portugal",
@@ -6064,19 +6251,24 @@
         }
       ],
       "kalshiWinProbHome": "1.5%",
-      "kalshiWinProbAway": "8.9%",
+      "kalshiWinProbAway": "9.0%",
       "polymarketWinProbHome": "1.8%",
       "polymarketWinProbAway": "9.0%",
       "homeMomentumFactor": "-0.478",
       "awayMomentumFactor": "-0.305",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "8'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001666457040",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "DR Congo",
       "away": "Uzbekistan",
       "favTeam": "DR Congo",
@@ -6108,7 +6300,12 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.372",
       "awayMomentumFactor": "+0.637",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "8'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001666457028",
@@ -6126,9 +6323,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "22.3%",
-          "draw": "55.6%",
-          "und": "22.1%"
+          "fav": "27.3%",
+          "draw": "47.0%",
+          "und": "25.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -6167,9 +6364,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "5.2%",
-          "draw": "28.5%",
-          "und": "66.2%"
+          "fav": "6.3%",
+          "draw": "30.3%",
+          "und": "63.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -8264,7 +8461,7 @@
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "matchday": 2,
-      "kalshiWinProbHome": "22.5%",
+      "kalshiWinProbHome": "22.6%",
       "polymarketWinProbHome": "23.6%"
     },
     {
@@ -8381,7 +8578,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "8.9%",
+      "kalshiWinProbHome": "9.0%",
       "polymarketWinProbHome": "9.0%",
       "polymarketWinProbAway": "0.1%"
     },
@@ -8401,9 +8598,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "17.9%",
-          "draw": "27.3%",
-          "und": "54.8%"
+          "fav": "16.0%",
+          "draw": "43.2%",
+          "und": "40.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -8458,7 +8655,7 @@
           "und": "18.0%"
         }
       ],
-      "kalshiWinProbHome": "5.5%",
+      "kalshiWinProbHome": "5.6%",
       "kalshiWinProbAway": "0.9%",
       "polymarketWinProbHome": "5.7%",
       "polymarketWinProbAway": "1.5%",
@@ -8499,7 +8696,7 @@
           "und": "24.2%"
         }
       ],
-      "kalshiWinProbHome": "5.2%",
+      "kalshiWinProbHome": "5.3%",
       "kalshiWinProbAway": "1.0%",
       "polymarketWinProbHome": "4.8%",
       "polymarketWinProbAway": "1.5%",
@@ -8523,9 +8720,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "51.0%",
-          "draw": "37.5%",
-          "und": "11.4%"
+          "fav": "51.5%",
+          "draw": "37.3%",
+          "und": "11.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -8605,9 +8802,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "70.1%",
-          "draw": "18.7%",
-          "und": "11.2%"
+          "fav": "53.2%",
+          "draw": "35.4%",
+          "und": "11.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -8663,7 +8860,7 @@
           "und": "8.1%"
         }
       ],
-      "kalshiWinProbHome": "22.5%",
+      "kalshiWinProbHome": "22.6%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "23.6%",
       "polymarketWinProbAway": "0.0%",
@@ -8728,8 +8925,8 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "83.7%",
-          "draw": "11.4%",
+          "fav": "83.9%",
+          "draw": "11.2%",
           "und": "4.9%"
         },
         {
@@ -8757,13 +8954,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 66,
-    "upcomingGroupMatches": 15,
-    "liveGroupMatches": 0,
+    "completedGroupMatches": 68,
+    "upcomingGroupMatches": 11,
+    "liveGroupMatches": 2,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 18
+      "3": 20
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
