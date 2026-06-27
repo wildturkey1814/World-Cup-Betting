@@ -10660,5 +10660,721 @@
         "und": "7.1%"
       }
     ]
+  },
+  {
+    "id": "id1000001666457004",
+    "home": "Cape Verde",
+    "away": "Saudi Arabia",
+    "homeFlag": "cpv",
+    "awayFlag": "ksa",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-27T00:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 0,
+    "score": "CAPE VERDE 0 - 0 SAUDI ARABIA",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.29,
+        "away": 1.31
+      },
+      "possession": {
+        "home": 52.8,
+        "away": 47.2
+      },
+      "fieldTilt": {
+        "home": 46.2,
+        "away": 53.8
+      },
+      "ppda": {
+        "home": 13.4,
+        "away": 10.8
+      },
+      "shots": {
+        "home": 8,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 4
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 398,
+        "away": 406
+      },
+      "finalThirdEntries": {
+        "home": 34,
+        "away": 47
+      },
+      "corners": {
+        "home": 5,
+        "away": 2
+      },
+      "fouls": {
+        "home": 16,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 52.8,
+        "away": 47.2
+      },
+      "shots": {
+        "home": 8,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 4
+      },
+      "corners": {
+        "home": 5,
+        "away": 2
+      },
+      "fouls": {
+        "home": 16,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.29,
+        "away": 1.31
+      },
+      "fieldTilt": {
+        "home": 46.2,
+        "away": 53.8
+      },
+      "ppda": {
+        "home": 13.4,
+        "away": 10.8
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 398,
+        "away": 406
+      },
+      "finalThirdEntries": {
+        "home": 34,
+        "away": 47
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.6), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 0-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "36.1%",
+        "draw": "29.0%",
+        "und": "34.9%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "25.8%",
+        "draw": "24.1%",
+        "und": "50.1%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "34.7%",
+        "draw": "28.6%",
+        "und": "36.7%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666457002",
+    "home": "Uruguay",
+    "away": "Spain",
+    "homeFlag": "uru",
+    "awayFlag": "esp",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-27T00:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 1,
+    "score": "URUGUAY 0 - 1 SPAIN",
+    "winner": "Spain",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.63,
+        "away": 1.18
+      },
+      "possession": {
+        "home": 59.3,
+        "away": 40.7
+      },
+      "fieldTilt": {
+        "home": 65.4,
+        "away": 34.6
+      },
+      "ppda": {
+        "home": 10.8,
+        "away": 16.1
+      },
+      "shots": {
+        "home": 10,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 515,
+        "away": 369
+      },
+      "finalThirdEntries": {
+        "home": 50,
+        "away": 29
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "fouls": {
+        "home": 16,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 59.3,
+        "away": 40.7
+      },
+      "shots": {
+        "home": 10,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 3
+      },
+      "corners": {
+        "home": 8,
+        "away": 4
+      },
+      "fouls": {
+        "home": 16,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 55,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.63,
+        "away": 1.18
+      },
+      "fieldTilt": {
+        "home": 65.4,
+        "away": 34.6
+      },
+      "ppda": {
+        "home": 10.8,
+        "away": 16.1
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 515,
+        "away": 369
+      },
+      "finalThirdEntries": {
+        "home": 50,
+        "away": 29
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Spain absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Spain converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Spain generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Spain won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "14.4%",
+        "draw": "43.5%",
+        "und": "42.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "28.1%",
+        "draw": "24.8%",
+        "und": "47.2%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "14.3%",
+        "draw": "24.5%",
+        "und": "61.2%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666456992",
+    "home": "Egypt",
+    "away": "Iran",
+    "homeFlag": "egy",
+    "awayFlag": "irn",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-27T03:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 1,
+    "score": "EGYPT 1 - 1 IRAN",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.18,
+        "away": 1.05
+      },
+      "possession": {
+        "home": 50.9,
+        "away": 49.1
+      },
+      "fieldTilt": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "ppda": {
+        "home": 12.9,
+        "away": 11.9
+      },
+      "shots": {
+        "home": 7,
+        "away": 5
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 468,
+        "away": 369
+      },
+      "finalThirdEntries": {
+        "home": 49,
+        "away": 38
+      },
+      "corners": {
+        "home": 4,
+        "away": 6
+      },
+      "fouls": {
+        "home": 15,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 50.9,
+        "away": 49.1
+      },
+      "shots": {
+        "home": 7,
+        "away": 5
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 2
+      },
+      "corners": {
+        "home": 4,
+        "away": 6
+      },
+      "fouls": {
+        "home": 15,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 13,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 19,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.18,
+        "away": 1.05
+      },
+      "fieldTilt": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "ppda": {
+        "home": 12.9,
+        "away": 11.9
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 468,
+        "away": 369
+      },
+      "finalThirdEntries": {
+        "home": 49,
+        "away": 38
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.23), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 1-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "38.5%",
+        "draw": "36.9%",
+        "und": "24.5%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "35.6%",
+        "draw": "26.8%",
+        "und": "37.7%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "39.4%",
+        "draw": "36.4%",
+        "und": "24.2%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666456990",
+    "home": "New Zealand",
+    "away": "Belgium",
+    "homeFlag": "nzl",
+    "awayFlag": "bel",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-27T03:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 5,
+    "score": "NEW ZEALAND 1 - 5 BELGIUM",
+    "winner": "Belgium",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.64,
+        "away": 3.6
+      },
+      "possession": {
+        "home": 36.2,
+        "away": 63.8
+      },
+      "fieldTilt": {
+        "home": 29.0,
+        "away": 71.0
+      },
+      "ppda": {
+        "home": 17.7,
+        "away": 7.5
+      },
+      "shots": {
+        "home": 4,
+        "away": 21
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 10
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 5
+      },
+      "progressivePasses": {
+        "home": 292,
+        "away": 505
+      },
+      "finalThirdEntries": {
+        "home": 22,
+        "away": 57
+      },
+      "corners": {
+        "home": 2,
+        "away": 2
+      },
+      "fouls": {
+        "home": 16,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 36.2,
+        "away": 63.8
+      },
+      "shots": {
+        "home": 4,
+        "away": 21
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 10
+      },
+      "corners": {
+        "home": 2,
+        "away": 2
+      },
+      "fouls": {
+        "home": 16,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 44,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 56,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 68,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 72,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 77,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 82,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.64,
+        "away": 3.6
+      },
+      "fieldTilt": {
+        "home": 29.0,
+        "away": 71.0
+      },
+      "ppda": {
+        "home": 17.7,
+        "away": 7.5
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 5
+      },
+      "progressivePasses": {
+        "home": 292,
+        "away": 505
+      },
+      "finalThirdEntries": {
+        "home": 22,
+        "away": 57
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Belgium generated 3.6 xG, creating 5 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (63.8%) and high pressing intensity (PPDA 7.5) cut off New Zealand's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Belgium turned pressure into goals while New Zealand struggled to create clear openings."
+      }
+    ],
+    "insight": "Belgium won 5-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "6.5%",
+        "draw": "12.6%",
+        "und": "80.9%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "8.1%",
+        "draw": "17.4%",
+        "und": "74.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "6.1%",
+        "draw": "11.1%",
+        "und": "82.8%"
+      }
+    ]
   }
 ]
