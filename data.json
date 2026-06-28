@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 28, 2026 · 3:05 PM UTC",
+  "lastUpdated": "June 28, 2026 · 3:06 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1515,7 +1515,7 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "23.8%",
+      "kalshiWinProbHome": "23.9%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "22.9%",
       "polymarketWinProbAway": "0.0%",
@@ -1649,7 +1649,7 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "21.5%",
+      "kalshiWinProbHome": "21.2%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "20.8%",
       "polymarketWinProbAway": "0.0%",
@@ -5157,7 +5157,7 @@
         }
       ],
       "kalshiWinProbHome": "1.9%",
-      "kalshiWinProbAway": "23.8%",
+      "kalshiWinProbAway": "23.9%",
       "polymarketWinProbHome": "2.1%",
       "polymarketWinProbAway": "22.9%",
       "homeMomentumFactor": "+0.647",
@@ -6664,7 +6664,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "21.5%",
+      "kalshiWinProbAway": "21.2%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "20.8%",
       "homeMomentumFactor": "+0.272",
@@ -8733,7 +8733,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "21.5%",
+      "kalshiWinProbHome": "21.2%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "20.8%",
       "polymarketWinProbAway": "0.0%"
@@ -8844,7 +8844,7 @@
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "matchday": 2,
-      "kalshiWinProbHome": "23.8%",
+      "kalshiWinProbHome": "23.9%",
       "polymarketWinProbHome": "22.9%"
     },
     {
@@ -9243,7 +9243,7 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "23.8%",
+      "kalshiWinProbHome": "23.9%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "22.9%",
       "polymarketWinProbAway": "0.0%",
@@ -9325,7 +9325,7 @@
           "und": "3.0%"
         }
       ],
-      "kalshiWinProbHome": "21.5%",
+      "kalshiWinProbHome": "21.2%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "20.8%",
       "polymarketWinProbAway": "0.0%",
@@ -9634,7 +9634,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 28, 2026 · 3:05 PM UTC",
+  "kalshiUpdated": "June 28, 2026 · 3:06 PM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -9659,5 +9659,5 @@
     "Turkey",
     "Uruguay"
   ],
-  "polymarketUpdated": "June 28, 2026 · 3:05 PM UTC"
+  "polymarketUpdated": "June 28, 2026 · 3:06 PM UTC"
 }
