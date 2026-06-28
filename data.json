@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 28, 2026 · 10:11 AM UTC",
+  "lastUpdated": "June 28, 2026 · 10:12 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1649,7 +1649,7 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "20.7%",
+      "kalshiWinProbHome": "19.8%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "21.1%",
       "polymarketWinProbAway": "0.0%",
@@ -6664,7 +6664,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "20.7%",
+      "kalshiWinProbAway": "19.8%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "21.1%",
       "homeMomentumFactor": "+0.272",
@@ -8733,7 +8733,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "20.7%",
+      "kalshiWinProbHome": "19.8%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "21.1%",
       "polymarketWinProbAway": "0.0%"
@@ -8981,9 +8981,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "16.0%",
-          "draw": "43.2%",
-          "und": "40.8%"
+          "fav": "15.4%",
+          "draw": "43.1%",
+          "und": "41.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9021,9 +9021,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "56.8%",
+          "fav": "56.6%",
           "draw": "24.9%",
-          "und": "18.3%"
+          "und": "18.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9062,9 +9062,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "45.9%",
-          "draw": "29.7%",
-          "und": "24.4%"
+          "fav": "44.6%",
+          "draw": "30.2%",
+          "und": "25.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9103,9 +9103,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "51.5%",
-          "draw": "37.3%",
-          "und": "11.2%"
+          "fav": "52.0%",
+          "draw": "37.0%",
+          "und": "11.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9144,9 +9144,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "22.7%",
-          "draw": "41.1%",
-          "und": "36.2%"
+          "fav": "26.2%",
+          "draw": "27.0%",
+          "und": "46.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9185,9 +9185,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "53.2%",
-          "draw": "35.4%",
-          "und": "11.4%"
+          "fav": "70.8%",
+          "draw": "18.4%",
+          "und": "10.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9226,9 +9226,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "56.9%",
-          "draw": "32.6%",
-          "und": "10.5%"
+          "fav": "56.5%",
+          "draw": "33.1%",
+          "und": "10.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9267,9 +9267,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "29.4%",
-          "draw": "32.2%",
-          "und": "38.4%"
+          "fav": "23.3%",
+          "draw": "48.5%",
+          "und": "28.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9308,9 +9308,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "83.9%",
-          "draw": "11.2%",
-          "und": "4.9%"
+          "fav": "63.4%",
+          "draw": "30.3%",
+          "und": "6.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9325,20 +9325,142 @@
           "und": "3.0%"
         }
       ],
-      "kalshiWinProbHome": "20.7%",
+      "kalshiWinProbHome": "19.8%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "21.1%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.097",
       "awayMomentumFactor": "+0.315",
       "matchday": 3
+    },
+    {
+      "id": "id1000001653452563",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "favTeam": "Mexico",
+      "homeFlag": "mex",
+      "awayFlag": "ecu",
+      "kickoff": "2026-07-01T01:00:00.000Z",
+      "meta": "June 30 · 9:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "43.0%",
+          "draw": "31.8%",
+          "und": "25.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "58.2%",
+          "draw": "22.2%",
+          "und": "19.5%"
+        },
+        {
+          "source": "Prediction Markets (Kalshi)",
+          "fav": "44.4%",
+          "draw": "31.3%",
+          "und": "24.2%"
+        }
+      ],
+      "matchday": 3,
+      "kalshiWinProbHome": "2.9%",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%",
+      "polymarketWinProbHome": "1.1%",
+      "homeMomentumFactor": "-0.308",
+      "awayMomentumFactor": "+0.326"
+    },
+    {
+      "id": "id1000001653452565",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "England",
+      "away": "DR Congo",
+      "favTeam": "England",
+      "homeFlag": "eng",
+      "awayFlag": "cod",
+      "kickoff": "2026-07-01T16:00:00.000Z",
+      "meta": "July 1 · 12:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "75.4%",
+          "draw": "16.8%",
+          "und": "7.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "71.4%",
+          "draw": "18.5%",
+          "und": "10.1%"
+        },
+        {
+          "source": "Prediction Markets (Kalshi)",
+          "fav": "77.0%",
+          "draw": "17.0%",
+          "und": "6.0%"
+        }
+      ],
+      "matchday": 3,
+      "kalshiWinProbHome": "9.9%",
+      "polymarketWinProbHome": "10.2%",
+      "polymarketWinProbAway": "0.1%",
+      "homeMomentumFactor": "+0.063",
+      "awayMomentumFactor": "+0.186"
+    },
+    {
+      "id": "id1000001653452555",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Belgium",
+      "away": "Senegal",
+      "favTeam": "Belgium",
+      "homeFlag": "bel",
+      "awayFlag": "sen",
+      "kickoff": "2026-07-01T20:00:00.000Z",
+      "meta": "July 1 · 4:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "33.9%",
+          "draw": "44.7%",
+          "und": "21.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "47.2%",
+          "draw": "24.8%",
+          "und": "28.1%"
+        },
+        {
+          "source": "Prediction Markets (Kalshi)",
+          "fav": "45.0%",
+          "draw": "29.0%",
+          "und": "26.0%"
+        }
+      ],
+      "matchday": 3,
+      "kalshiWinProbHome": "1.1%",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%",
+      "polymarketWinProbHome": "1.4%",
+      "homeMomentumFactor": "-0.102",
+      "awayMomentumFactor": "-0.516"
     }
   ],
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 72,
-    "upcomingGroupMatches": 9,
+    "upcomingGroupMatches": 12,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
@@ -9348,7 +9470,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 28, 2026 · 10:11 AM UTC",
+  "kalshiUpdated": "June 28, 2026 · 10:12 AM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -9373,5 +9495,5 @@
     "Turkey",
     "Uruguay"
   ],
-  "polymarketUpdated": "June 28, 2026 · 10:11 AM UTC"
+  "polymarketUpdated": "June 28, 2026 · 10:12 AM UTC"
 }
