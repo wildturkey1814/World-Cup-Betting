@@ -11737,5 +11737,746 @@
         "und": "16.2%"
       }
     ]
+  },
+  {
+    "id": "id1000001666457038",
+    "home": "Colombia",
+    "away": "Portugal",
+    "homeFlag": "col",
+    "awayFlag": "por",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-27T23:30:00.000Z",
+    "homeScore": 0,
+    "awayScore": 0,
+    "score": "COLOMBIA 0 - 0 PORTUGAL",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.78,
+        "away": 1.51
+      },
+      "possession": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "fieldTilt": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "ppda": {
+        "home": 13.4,
+        "away": 13.6
+      },
+      "shots": {
+        "home": 10,
+        "away": 9
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 4
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 501,
+        "away": 410
+      },
+      "finalThirdEntries": {
+        "home": 42,
+        "away": 36
+      },
+      "corners": {
+        "home": 9,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "shots": {
+        "home": 10,
+        "away": 9
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 4
+      },
+      "corners": {
+        "home": 9,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.78,
+        "away": 1.51
+      },
+      "fieldTilt": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "ppda": {
+        "home": 13.4,
+        "away": 13.6
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 501,
+        "away": 410
+      },
+      "finalThirdEntries": {
+        "home": 42,
+        "away": 36
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 3.29), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 0-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "23.6%",
+        "draw": "39.6%",
+        "und": "36.8%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "27.6%",
+        "draw": "24.6%",
+        "und": "47.7%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "24.2%",
+        "draw": "23.2%",
+        "und": "52.5%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666457040",
+    "home": "DR Congo",
+    "away": "Uzbekistan",
+    "homeFlag": "cod",
+    "awayFlag": "uzb",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-27T23:30:00.000Z",
+    "homeScore": 3,
+    "awayScore": 1,
+    "score": "DR CONGO 3 - 1 UZBEKISTAN",
+    "winner": "DR Congo",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.86,
+        "away": 1.08
+      },
+      "possession": {
+        "home": 52.8,
+        "away": 47.2
+      },
+      "fieldTilt": {
+        "home": 55.2,
+        "away": 44.8
+      },
+      "ppda": {
+        "home": 8.9,
+        "away": 15.9
+      },
+      "shots": {
+        "home": 11,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 481,
+        "away": 418
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 36
+      },
+      "corners": {
+        "home": 9,
+        "away": 5
+      },
+      "fouls": {
+        "home": 15,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 52.8,
+        "away": 47.2
+      },
+      "shots": {
+        "home": 11,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 2
+      },
+      "corners": {
+        "home": 9,
+        "away": 5
+      },
+      "fouls": {
+        "home": 15,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 12,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 25,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 47,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 58,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.86,
+        "away": 1.08
+      },
+      "fieldTilt": {
+        "home": 55.2,
+        "away": 44.8
+      },
+      "ppda": {
+        "home": 8.9,
+        "away": 15.9
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 481,
+        "away": 418
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 36
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "DR Congo created the clearer chances, generating 1.86 xG and putting 4 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from DR Congo (PPDA 8.9) disrupted Uzbekistan's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but DR Congo's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "DR Congo won 3-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "40.1%",
+        "draw": "43.6%",
+        "und": "16.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "49.5%",
+        "draw": "24.2%",
+        "und": "26.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "54.1%",
+        "draw": "25.5%",
+        "und": "20.4%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666457028",
+    "home": "Algeria",
+    "away": "Austria",
+    "homeFlag": "alg",
+    "awayFlag": "aut",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-28T02:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 3,
+    "score": "ALGERIA 3 - 3 AUSTRIA",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 0.54,
+        "away": 2.8
+      },
+      "possession": {
+        "home": 41.0,
+        "away": 59.0
+      },
+      "fieldTilt": {
+        "home": 31.6,
+        "away": 68.4
+      },
+      "ppda": {
+        "home": 20.1,
+        "away": 8.7
+      },
+      "shots": {
+        "home": 5,
+        "away": 19
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 9
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 317,
+        "away": 553
+      },
+      "finalThirdEntries": {
+        "home": 24,
+        "away": 53
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "fouls": {
+        "home": 12,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 41.0,
+        "away": 59.0
+      },
+      "shots": {
+        "home": 5,
+        "away": 19
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 9
+      },
+      "corners": {
+        "home": 7,
+        "away": 4
+      },
+      "fouls": {
+        "home": 12,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 15,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 41,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 42,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 55,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 58,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 84,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.54,
+        "away": 2.8
+      },
+      "fieldTilt": {
+        "home": 31.6,
+        "away": 68.4
+      },
+      "ppda": {
+        "home": 20.1,
+        "away": 8.7
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 317,
+        "away": 553
+      },
+      "finalThirdEntries": {
+        "home": 24,
+        "away": 53
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Algeria generated 2.8 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (59.0%) and high pressing intensity (PPDA 8.7) cut off Austria's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Algeria turned pressure into goals while Austria struggled to create clear openings."
+      }
+    ],
+    "insight": "The match ended level at 3-3.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "27.3%",
+        "draw": "47.0%",
+        "und": "25.7%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "15.5%",
+        "draw": "20.9%",
+        "und": "63.6%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "27.3%",
+        "draw": "46.5%",
+        "und": "26.3%"
+      }
+    ]
+  },
+  {
+    "id": "id1000001666457026",
+    "home": "Jordan",
+    "away": "Argentina",
+    "homeFlag": "jor",
+    "awayFlag": "arg",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-28T02:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 3,
+    "score": "JORDAN 1 - 3 ARGENTINA",
+    "winner": "Argentina",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.0,
+        "away": 2.17
+      },
+      "possession": {
+        "home": 44.9,
+        "away": 55.1
+      },
+      "fieldTilt": {
+        "home": 47.9,
+        "away": 52.1
+      },
+      "ppda": {
+        "home": 16.3,
+        "away": 10.7
+      },
+      "shots": {
+        "home": 5,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 6
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 360,
+        "away": 467
+      },
+      "finalThirdEntries": {
+        "home": 40,
+        "away": 41
+      },
+      "corners": {
+        "home": 7,
+        "away": 5
+      },
+      "fouls": {
+        "home": 15,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 44.9,
+        "away": 55.1
+      },
+      "shots": {
+        "home": 5,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 6
+      },
+      "corners": {
+        "home": 7,
+        "away": 5
+      },
+      "fouls": {
+        "home": 15,
+        "away": 13
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 39,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 42,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 61,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 72,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.0,
+        "away": 2.17
+      },
+      "fieldTilt": {
+        "home": 47.9,
+        "away": 52.1
+      },
+      "ppda": {
+        "home": 16.3,
+        "away": 10.7
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 360,
+        "away": 467
+      },
+      "finalThirdEntries": {
+        "home": 40,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Argentina created the clearer chances, generating 2.17 xG and putting 6 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Argentina (PPDA 10.7) disrupted Jordan's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Argentina won 3-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "6.3%",
+        "draw": "30.3%",
+        "und": "63.4%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "4.1%",
+        "draw": "15.0%",
+        "und": "80.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "4.0%",
+        "draw": "9.1%",
+        "und": "86.9%"
+      }
+    ]
   }
 ]
