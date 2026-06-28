@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 28, 2026 · 10:12 AM UTC",
+  "lastUpdated": "June 28, 2026 · 10:14 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -1649,7 +1649,7 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "19.8%",
+      "kalshiWinProbHome": "20.5%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "21.1%",
       "polymarketWinProbAway": "0.0%",
@@ -6664,7 +6664,7 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "19.8%",
+      "kalshiWinProbAway": "20.5%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "21.1%",
       "homeMomentumFactor": "+0.272",
@@ -8733,7 +8733,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "19.8%",
+      "kalshiWinProbHome": "20.5%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "21.1%",
       "polymarketWinProbAway": "0.0%"
@@ -9325,7 +9325,7 @@
           "und": "3.0%"
         }
       ],
-      "kalshiWinProbHome": "19.8%",
+      "kalshiWinProbHome": "20.5%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "21.1%",
       "polymarketWinProbAway": "0.0%",
@@ -9470,7 +9470,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 28, 2026 · 10:12 AM UTC",
+  "kalshiUpdated": "June 28, 2026 · 10:14 AM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -9495,5 +9495,5 @@
     "Turkey",
     "Uruguay"
   ],
-  "polymarketUpdated": "June 28, 2026 · 10:12 AM UTC"
+  "polymarketUpdated": "June 28, 2026 · 10:14 AM UTC"
 }
