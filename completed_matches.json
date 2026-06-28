@@ -12478,5 +12478,178 @@
         "und": "86.9%"
       }
     ]
+  },
+  {
+    "id": "id1000001653452545",
+    "home": "South Africa",
+    "away": "Canada",
+    "homeFlag": "rsa",
+    "awayFlag": "can",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-28T19:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 1,
+    "score": "SOUTH AFRICA 0 - 1 CANADA",
+    "winner": "Canada",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.76,
+        "away": 1.25
+      },
+      "possession": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "fieldTilt": {
+        "home": 61.9,
+        "away": 38.1
+      },
+      "ppda": {
+        "home": 11.7,
+        "away": 14.8
+      },
+      "shots": {
+        "home": 11,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 433,
+        "away": 402
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 11,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "shots": {
+        "home": 11,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 11,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 68,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.76,
+        "away": 1.25
+      },
+      "fieldTilt": {
+        "home": 61.9,
+        "away": 38.1
+      },
+      "ppda": {
+        "home": 11.7,
+        "away": 14.8
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 433,
+        "away": 402
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Canada absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Canada converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Canada generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Canada won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "14.7%",
+        "draw": "44.0%",
+        "und": "41.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "22.3%",
+        "draw": "23.1%",
+        "und": "54.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "17.3%",
+        "draw": "38.8%",
+        "und": "43.9%"
+      }
+    ]
   }
 ]
