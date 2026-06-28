@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 28, 2026 · 3:06 PM UTC",
+  "lastUpdated": "June 28, 2026 · 7:56 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -8970,7 +8970,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "South Africa",
       "away": "Canada",
       "favTeam": "Canada",
@@ -9003,7 +9003,12 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.098",
       "awayMomentumFactor": "-0.516",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "45'+3'",
+      "livePhase": "HALFTIME"
     },
     {
       "id": "id1000001653452557",
@@ -9624,8 +9629,8 @@
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 72,
-    "upcomingGroupMatches": 16,
-    "liveGroupMatches": 0,
+    "upcomingGroupMatches": 15,
+    "liveGroupMatches": 1,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
