@@ -12651,5 +12651,188 @@
         "und": "43.9%"
       }
     ]
+  },
+  {
+    "id": "id1000001653452557",
+    "home": "Brazil",
+    "away": "Japan",
+    "homeFlag": "bra",
+    "awayFlag": "jpn",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-06-29T17:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 1,
+    "score": "BRAZIL 2 - 1 JAPAN",
+    "winner": "Brazil",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.29,
+        "away": 0.82
+      },
+      "possession": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "fieldTilt": {
+        "home": 61.5,
+        "away": 38.5
+      },
+      "ppda": {
+        "home": 11.3,
+        "away": 15.4
+      },
+      "shots": {
+        "home": 15,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 428,
+        "away": 403
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "shots": {
+        "home": 15,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 1
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 8,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 14,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 51,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.29,
+        "away": 0.82
+      },
+      "fieldTilt": {
+        "home": 61.5,
+        "away": 38.5
+      },
+      "ppda": {
+        "home": 11.3,
+        "away": 15.4
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 428,
+        "away": 403
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Brazil created the clearer chances, generating 2.29 xG and putting 5 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Brazil (PPDA 11.3) disrupted Japan's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Brazil's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Brazil won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "55.2%",
+        "draw": "26.2%",
+        "und": "18.6%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "54.5%",
+        "draw": "23.1%",
+        "und": "22.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "45.9%",
+        "draw": "40.8%",
+        "und": "13.3%"
+      }
+    ]
   }
 ]
