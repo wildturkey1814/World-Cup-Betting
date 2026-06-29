@@ -1,6 +1,6 @@
 {
   "currentStage": "Group Stage",
-  "lastUpdated": "June 29, 2026 · 7:24 PM UTC",
+  "lastUpdated": "June 29, 2026 · 8:58 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9356,7 +9356,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Germany",
       "away": "Paraguay",
       "favTeam": "Germany",
@@ -9390,7 +9390,12 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.496",
       "awayMomentumFactor": "+0.004",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "28'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001653452543",
@@ -9806,8 +9811,8 @@
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 74,
-    "upcomingGroupMatches": 14,
-    "liveGroupMatches": 0,
+    "upcomingGroupMatches": 13,
+    "liveGroupMatches": 1,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
