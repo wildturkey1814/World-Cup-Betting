@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "June 30, 2026 · 5:30 PM UTC",
+  "lastUpdated": "June 30, 2026 · 10:01 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9245,7 +9245,8 @@
         }
       ],
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.2%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9358,7 +9359,8 @@
         }
       ],
       "kalshiWinProbHome": "7.4%",
-      "polymarketWinProbHome": "7.1%"
+      "polymarketWinProbHome": "7.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9467,7 +9469,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9577,14 +9580,15 @@
       ],
       "kalshiWinProbAway": "3.8%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "3.8%"
+      "polymarketWinProbAway": "3.8%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Ivory Coast",
       "away": "Norway",
       "favTeam": "Norway",
@@ -9627,18 +9631,110 @@
       "homeMomentumFactor": "-0.160",
       "awayMomentumFactor": "+0.337",
       "importedFrom": "ESPN",
-      "liveScore": "0 - 0",
-      "homeScore": 0,
-      "awayScore": 0,
-      "liveMinute": "30'",
-      "livePhase": "FIRST HALF"
+      "homeScore": 1,
+      "awayScore": 2,
+      "score": "IVORY COAST 1 - 2 NORWAY",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
+      },
+      "insight": "Norway won 2-1.",
+      "boxScore": {
+        "possession": {
+          "home": 47.6,
+          "away": 52.4
+        },
+        "shots": {
+          "home": 6,
+          "away": 12
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 6
+        },
+        "corners": {
+          "home": 3,
+          "away": 4
+        },
+        "fouls": {
+          "home": 12,
+          "away": 10
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 35,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 37,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 41,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.0,
+          "away": 1.8
+        },
+        "fieldTilt": {
+          "home": 38.7,
+          "away": 61.3
+        },
+        "ppda": {
+          "home": 13.3,
+          "away": 9.2
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 434,
+          "away": 489
+        },
+        "finalThirdEntries": {
+          "home": 31,
+          "away": 54
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Norway created the clearer chances, generating 1.8 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Norway (PPDA 9.2) disrupted Ivory Coast's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Norway's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "espn-760492",
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "France",
       "away": "Sweden",
       "favTeam": "France",
@@ -9680,7 +9776,12 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.321",
       "awayMomentumFactor": "+0.099",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "liveScore": "1 - 0",
+      "homeScore": 1,
+      "awayScore": 0,
+      "liveMinute": "45'+4'",
+      "livePhase": "HALFTIME"
     },
     {
       "id": "espn-760491",

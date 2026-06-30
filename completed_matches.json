@@ -13402,5 +13402,197 @@
       }
     ],
     "favTeam": null
+  },
+  {
+    "id": "espn-760490",
+    "home": "Ivory Coast",
+    "away": "Norway",
+    "homeFlag": "civ",
+    "awayFlag": "nor",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-06-30T17:00Z",
+    "homeScore": 1,
+    "awayScore": 2,
+    "score": "IVORY COAST 1 - 2 NORWAY",
+    "winner": "Norway",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.0,
+        "away": 1.8
+      },
+      "possession": {
+        "home": 47.6,
+        "away": 52.4
+      },
+      "fieldTilt": {
+        "home": 38.7,
+        "away": 61.3
+      },
+      "ppda": {
+        "home": 13.3,
+        "away": 9.2
+      },
+      "shots": {
+        "home": 6,
+        "away": 12
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 6
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 434,
+        "away": 489
+      },
+      "finalThirdEntries": {
+        "home": 31,
+        "away": 54
+      },
+      "corners": {
+        "home": 3,
+        "away": 4
+      },
+      "fouls": {
+        "home": 12,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 47.6,
+        "away": 52.4
+      },
+      "shots": {
+        "home": 6,
+        "away": 12
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 6
+      },
+      "corners": {
+        "home": 3,
+        "away": 4
+      },
+      "fouls": {
+        "home": 12,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 35,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 37,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 41,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.0,
+        "away": 1.8
+      },
+      "fieldTilt": {
+        "home": 38.7,
+        "away": 61.3
+      },
+      "ppda": {
+        "home": 13.3,
+        "away": 9.2
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 434,
+        "away": 489
+      },
+      "finalThirdEntries": {
+        "home": 31,
+        "away": 54
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Norway created the clearer chances, generating 1.8 xG and putting 6 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Norway (PPDA 9.2) disrupted Ivory Coast's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Norway's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Norway won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false,
+      "Supercharger (ELO+)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "39.8%",
+        "draw": "--",
+        "und": "60.2%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "38.5%",
+        "draw": "--",
+        "und": "61.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "46.9%",
+        "draw": "--",
+        "und": "53.1%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "43.1%",
+        "draw": "--",
+        "und": "56.9%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Norway"
   }
 ]
