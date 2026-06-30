@@ -10,43 +10,31 @@ import hashlib
 import random
 from typing import Any
 
-def infer_fav_team(match: dict) -> str | None:
-    """Resolve pre-match favorite from stored field, layers, or ELO baseline."""
-    existing = match.get("favTeam")
-    if existing:
-        return existing
-
+def fav_team_from_sportsbooks(match: dict) -> str | None:
+    """Favorite = higher pre-match win % in Sportsbooks (Consensus) layer."""
     home = match.get("home", "")
     away = match.get("away", "")
     if not home or not away:
         return None
 
-    home_p: list[float] = []
-    away_p: list[float] = []
     for layer in match.get("layers") or []:
+        source = str(layer.get("source", ""))
+        if "Sportsbook" not in source:
+            continue
         try:
-            h_raw = str(layer.get("fav", "")).replace("%", "").strip()
-            a_raw = str(layer.get("und", "")).replace("%", "").strip()
-            if h_raw and h_raw != "--":
-                home_p.append(float(h_raw))
-            if a_raw and a_raw != "--":
-                away_p.append(float(a_raw))
+            home_pct = float(str(layer.get("fav", "")).replace("%", "").strip())
+            away_pct = float(str(layer.get("und", "")).replace("%", "").strip())
         except (TypeError, ValueError):
             continue
+        if home_pct == away_pct:
+            return None
+        return home if home_pct > away_pct else away
+    return None
 
-    if home_p and away_p:
-        home_avg = sum(home_p) / len(home_p)
-        away_avg = sum(away_p) / len(away_p)
-        if abs(home_avg - away_avg) >= 0.05:
-            return home if home_avg >= away_avg else away
 
-    try:
-        from fetch_odds import elo_probs
-
-        ep = elo_probs(home, away, group_stage=True)
-        return home if ep["home"] >= ep["away"] else away
-    except Exception:
-        return None
+def infer_fav_team(match: dict) -> str | None:
+    """Resolve pre-match favorite from sportsbook consensus only."""
+    return fav_team_from_sportsbooks(match)
 
 
 FLAG_CODES = {
@@ -329,6 +317,8 @@ def enrich_completed_match(match: dict) -> dict:
     fav_team = infer_fav_team(enriched)
     if fav_team:
         enriched["favTeam"] = fav_team
+    else:
+        enriched.pop("favTeam", None)
     enriched["boxScore"] = entry["boxScore"]
     enriched["advancedMetrics"] = entry["advancedMetrics"]
     enriched["insights"] = entry["insights"]

@@ -1,5 +1,5 @@
 {
-  "currentStage": "Group Stage",
+  "currentStage": "Round of 32",
   "lastUpdated": "June 24, 2026 · 1:28 AM UTC",
   "matches": [
     {
@@ -9,7 +9,6 @@
       "group": "GROUP_A",
       "stage": "Group Stage",
       "kickoff": "2026-06-11T19:00:00Z",
-      "favTeam": "Mexico",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -120,7 +119,6 @@
       "group": "GROUP_A",
       "stage": "Group Stage",
       "kickoff": "2026-06-12T02:00:00Z",
-      "favTeam": "South Korea",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -236,7 +234,6 @@
       "group": "GROUP_D",
       "stage": "Group Stage",
       "kickoff": "2026-06-13T01:00:00Z",
-      "favTeam": "United States",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -362,7 +359,6 @@
       "group": "GROUP_B",
       "stage": "Group Stage",
       "kickoff": "2026-06-13T19:00:00Z",
-      "favTeam": "Qatar",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -473,7 +469,6 @@
       "group": "GROUP_C",
       "stage": "Group Stage",
       "kickoff": "2026-06-13T22:00:00Z",
-      "favTeam": "Brazil",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -584,7 +579,6 @@
       "group": "GROUP_C",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T01:00:00Z",
-      "favTeam": "Haiti",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -690,7 +684,6 @@
       "group": "GROUP_D",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T04:00:00Z",
-      "favTeam": "Australia",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -801,7 +794,6 @@
       "group": "GROUP_F",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T20:00:00Z",
-      "favTeam": "Netherlands",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -922,7 +914,6 @@
       "group": "GROUP_E",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T23:00:00Z",
-      "favTeam": "Ivory Coast",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1028,7 +1019,6 @@
       "group": "GROUP_F",
       "stage": "Group Stage",
       "kickoff": "2026-06-15T02:00:00Z",
-      "favTeam": "Sweden",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1159,7 +1149,6 @@
       "group": "GROUP_G",
       "stage": "Group Stage",
       "kickoff": "2026-06-15T19:00:00Z",
-      "favTeam": "Belgium",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1270,7 +1259,6 @@
       "group": "GROUP_H",
       "stage": "Group Stage",
       "kickoff": "2026-06-15T22:00:00Z",
-      "favTeam": "Saudi Arabia",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1380,7 +1368,6 @@
       "group": "GROUP_G",
       "stage": "Group Stage",
       "kickoff": "2026-06-16T01:00:00Z",
-      "favTeam": "Iran",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1499,7 +1486,6 @@
       "group": "GROUP_I",
       "stage": "Group Stage",
       "kickoff": "2026-06-16T19:00:00Z",
-      "favTeam": "France",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -3463,7 +3449,7 @@
       "polymarketWinProbHome": "0.7%",
       "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.010",
-      "awayMomentumFactor": "-0.733",
+      "awayMomentumFactor": "-0.599",
       "matchday": 3
     },
     {
@@ -3504,7 +3490,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.2%",
       "homeMomentumFactor": "+0.024",
-      "awayMomentumFactor": "+0.020",
+      "awayMomentumFactor": "+0.167",
       "matchday": 3
     },
     {
@@ -3542,7 +3528,7 @@
       ],
       "kalshiWinProbHome": "1.9%",
       "polymarketWinProbHome": "1.7%",
-      "homeMomentumFactor": "-0.024",
+      "homeMomentumFactor": "+0.018",
       "awayMomentumFactor": "+0.230",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
@@ -3625,7 +3611,7 @@
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "+0.283",
+      "homeMomentumFactor": "+0.345",
       "awayMomentumFactor": "+0.439",
       "kalshiWinProbHome": "0.0%",
       "matchday": 3
@@ -3668,7 +3654,7 @@
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "5.5%",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "-0.557",
+      "awayMomentumFactor": "-0.452",
       "matchday": 3
     },
     {
@@ -3747,7 +3733,7 @@
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "-0.061",
+      "homeMomentumFactor": "-0.148",
       "awayMomentumFactor": "+0.071",
       "matchday": 3
     },
@@ -3787,7 +3773,7 @@
       "kalshiWinProbAway": "6.5%",
       "polymarketWinProbAway": "5.0%",
       "homeMomentumFactor": "+0.450",
-      "awayMomentumFactor": "-0.185",
+      "awayMomentumFactor": "-0.111",
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "matchday": 3
@@ -3869,7 +3855,7 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "-0.017",
+      "homeMomentumFactor": "+0.112",
       "awayMomentumFactor": "+0.235",
       "matchday": 3
     },
@@ -4455,8 +4441,7 @@
       ],
       "matchday": 1,
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
-      "favTeam": "Canada"
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760422",
@@ -4586,8 +4571,7 @@
           "body": "Shot conversion rate was decisive — Germany turned pressure into goals while Curacao struggled to create clear openings."
         }
       ],
-      "matchday": 1,
-      "favTeam": "Germany"
+      "matchday": 1
     },
     {
       "id": "espn-760428",
@@ -4676,8 +4660,7 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 1,
-      "favTeam": "Spain"
+      "matchday": 1
     },
     {
       "id": "espn-760430",
@@ -4794,8 +4777,7 @@
       ],
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
-      "matchday": 1,
-      "favTeam": "Norway"
+      "matchday": 1
     },
     {
       "id": "espn-760437",
@@ -4915,8 +4897,7 @@
           "body": "Shot conversion rate was decisive — England turned pressure into goals while Croatia struggled to create clear openings."
         }
       ],
-      "matchday": 1,
-      "favTeam": "England"
+      "matchday": 1
     },
     {
       "id": "espn-760434",
@@ -5011,8 +4992,7 @@
           "body": "Dead-ball situations proved a key differentiator, with Ghana generating danger from corners and free-kicks throughout."
         }
       ],
-      "matchday": 1,
-      "favTeam": "Ghana"
+      "matchday": 1
     },
     {
       "id": "espn-760436",
@@ -5122,8 +5102,7 @@
           "body": "The margin was slim but Colombia's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 1,
-      "favTeam": "Colombia"
+      "matchday": 1
     },
     {
       "id": "espn-760438",
@@ -5223,8 +5202,7 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Czechia"
+      "matchday": 2
     },
     {
       "id": "espn-760439",
@@ -5341,8 +5319,7 @@
       ],
       "matchday": 2,
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
-      "favTeam": "Switzerland"
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760440",
@@ -5464,8 +5441,7 @@
       ],
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "matchday": 2,
-      "favTeam": "Canada"
+      "matchday": 2
     },
     {
       "id": "espn-760441",
@@ -5560,8 +5536,7 @@
           "body": "Dead-ball situations proved a key differentiator, with Mexico generating danger from corners and free-kicks throughout."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Mexico"
+      "matchday": 2
     },
     {
       "id": "espn-760442",
@@ -5661,8 +5636,7 @@
           "body": "The margin was slim but United States's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 2,
-      "favTeam": "United States"
+      "matchday": 2
     },
     {
       "id": "espn-760445",
@@ -5757,8 +5731,7 @@
           "body": "Dead-ball situations proved a key differentiator, with Morocco generating danger from corners and free-kicks throughout."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Morocco"
+      "matchday": 2
     },
     {
       "id": "espn-760448",
@@ -5863,8 +5836,7 @@
           "body": "The margin was slim but Germany's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Germany"
+      "matchday": 2
     },
     {
       "id": "espn-760453",
@@ -5974,8 +5946,7 @@
           "body": "Shot conversion rate was decisive — Spain turned pressure into goals while Saudi Arabia struggled to create clear openings."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Spain"
+      "matchday": 2
     },
     {
       "id": "espn-760451",
@@ -6064,8 +6035,7 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Belgium"
+      "matchday": 2
     },
     {
       "id": "espn-760450",
@@ -6175,8 +6145,7 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Uruguay"
+      "matchday": 2
     },
     {
       "id": "espn-760456",
@@ -6276,8 +6245,7 @@
           "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Argentina"
+      "matchday": 2
     },
     {
       "id": "espn-760457",
@@ -6384,8 +6352,7 @@
       ],
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "matchday": 2,
-      "favTeam": "France"
+      "matchday": 2
     },
     {
       "id": "espn-760461",
@@ -6500,8 +6467,581 @@
           "body": "Shot conversion rate was decisive — Portugal turned pressure into goals while Uzbekistan struggled to create clear openings."
         }
       ],
-      "matchday": 2,
-      "favTeam": "Portugal"
+      "matchday": 2
+    },
+    {
+      "id": "espn-760486",
+      "type": "COMPLETED",
+      "home": "South Africa",
+      "away": "Canada",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-28T19:00Z",
+      "homeFlag": "rsa",
+      "awayFlag": "can",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "homeScore": 0,
+      "awayScore": 1,
+      "score": "SOUTH AFRICA 0 - 1 CANADA",
+      "insight": "Canada won 1-0.",
+      "boxScore": {
+        "possession": {
+          "home": 54.8,
+          "away": 45.2
+        },
+        "shots": {
+          "home": 11,
+          "away": 8
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 3
+        },
+        "corners": {
+          "home": 9,
+          "away": 2
+        },
+        "fouls": {
+          "home": 11,
+          "away": 11
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 68,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.76,
+          "away": 1.25
+        },
+        "fieldTilt": {
+          "home": 61.9,
+          "away": 38.1
+        },
+        "ppda": {
+          "home": 11.7,
+          "away": 14.8
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 433,
+          "away": 402
+        },
+        "finalThirdEntries": {
+          "home": 53,
+          "away": 31
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "Canada absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, Canada converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with Canada generating danger from corners and free-kicks throughout."
+        }
+      ]
+    },
+    {
+      "id": "espn-760487",
+      "type": "COMPLETED",
+      "home": "Brazil",
+      "away": "Japan",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-29T17:00Z",
+      "homeFlag": "bra",
+      "awayFlag": "jpn",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "homeScore": 2,
+      "awayScore": 1,
+      "score": "BRAZIL 2 - 1 JAPAN",
+      "insight": "Brazil won 2-1.",
+      "boxScore": {
+        "possession": {
+          "home": 53.6,
+          "away": 46.4
+        },
+        "shots": {
+          "home": 15,
+          "away": 4
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 1
+        },
+        "corners": {
+          "home": 5,
+          "away": 6
+        },
+        "fouls": {
+          "home": 9,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 8,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 14,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 51,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.29,
+          "away": 0.82
+        },
+        "fieldTilt": {
+          "home": 61.5,
+          "away": 38.5
+        },
+        "ppda": {
+          "home": 11.3,
+          "away": 15.4
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 428,
+          "away": 403
+        },
+        "finalThirdEntries": {
+          "home": 53,
+          "away": 31
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Brazil created the clearer chances, generating 2.29 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Brazil (PPDA 11.3) disrupted Japan's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Brazil's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
+    },
+    {
+      "id": "espn-760489",
+      "type": "COMPLETED",
+      "home": "Germany",
+      "away": "Paraguay",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-29T20:30Z",
+      "homeFlag": "ger",
+      "awayFlag": "pry",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "penaltyNote": "Paraguay advance 4-3 on penalties",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "GERMANY 1 - 1 PARAGUAY",
+      "insight": "Paraguay advanced (1-1, penalties).",
+      "boxScore": {
+        "possession": {
+          "home": 50.8,
+          "away": 49.2
+        },
+        "shots": {
+          "home": 7,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 2,
+          "away": 3
+        },
+        "fouls": {
+          "home": 9,
+          "away": 17
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 16,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 78,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.07,
+          "away": 1.5
+        },
+        "fieldTilt": {
+          "home": 53.0,
+          "away": 47.0
+        },
+        "ppda": {
+          "home": 12.5,
+          "away": 10.4
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 426,
+          "away": 440
+        },
+        "finalThirdEntries": {
+          "home": 46,
+          "away": 37
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.57), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760488",
+      "type": "COMPLETED",
+      "home": "Netherlands",
+      "away": "Morocco",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-30T01:00Z",
+      "homeFlag": "ned",
+      "awayFlag": "mar",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "penaltyNote": "Morocco advance 3-2 on penalties",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "NETHERLANDS 1 - 1 MOROCCO",
+      "insight": "Morocco advanced (1-1, penalties).",
+      "boxScore": {
+        "possession": {
+          "home": 47.1,
+          "away": 52.9
+        },
+        "shots": {
+          "home": 10,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 5,
+          "away": 2
+        },
+        "fouls": {
+          "home": 16,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 13,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 74,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.62,
+          "away": 1.48
+        },
+        "fieldTilt": {
+          "home": 53.7,
+          "away": 46.3
+        },
+        "ppda": {
+          "home": 12.2,
+          "away": 10.1
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 414,
+          "away": 401
+        },
+        "finalThirdEntries": {
+          "home": 43,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.1), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
+    },
+    {
+      "id": "espn-760490",
+      "type": "UPCOMING",
+      "home": "Ivory Coast",
+      "away": "Norway",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-30T17:00Z",
+      "homeFlag": "civ",
+      "awayFlag": "nor",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Ivory Coast vs Norway",
+      "homeMomentumFactor": "-0.156",
+      "awayMomentumFactor": "+0.647"
+    },
+    {
+      "id": "espn-760492",
+      "type": "UPCOMING",
+      "home": "France",
+      "away": "Sweden",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-30T21:00Z",
+      "homeFlag": "fra",
+      "awayFlag": "swe",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · France vs Sweden",
+      "homeMomentumFactor": "+0.007",
+      "awayMomentumFactor": "+0.071"
+    },
+    {
+      "id": "espn-760491",
+      "type": "UPCOMING",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-01T01:00Z",
+      "homeFlag": "mex",
+      "awayFlag": "ecu",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Mexico vs Ecuador",
+      "homeMomentumFactor": "-0.335",
+      "awayMomentumFactor": "+0.235"
+    },
+    {
+      "id": "espn-760495",
+      "type": "UPCOMING",
+      "home": "England",
+      "away": "DR Congo",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-01T16:00Z",
+      "homeFlag": "eng",
+      "awayFlag": "cod",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · England vs DR Congo",
+      "homeMomentumFactor": "+0.254",
+      "awayMomentumFactor": "-0.035"
+    },
+    {
+      "id": "espn-760493",
+      "type": "UPCOMING",
+      "home": "Belgium",
+      "away": "Senegal",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-01T20:00Z",
+      "homeFlag": "bel",
+      "awayFlag": "sen",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Belgium vs Senegal",
+      "homeMomentumFactor": "-0.022",
+      "awayMomentumFactor": "-0.397"
+    },
+    {
+      "id": "espn-760494",
+      "type": "UPCOMING",
+      "home": "United States",
+      "away": "Bosnia & Herzegovina",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-02T00:00Z",
+      "homeFlag": "usa",
+      "awayFlag": "bih",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · United States vs Bosnia & Herzegovina",
+      "homeMomentumFactor": "-0.235",
+      "awayMomentumFactor": "+0.202"
+    },
+    {
+      "id": "espn-760497",
+      "type": "UPCOMING",
+      "home": "Spain",
+      "away": "Austria",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-02T19:00Z",
+      "homeFlag": "esp",
+      "awayFlag": "aut",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Spain vs Austria",
+      "homeMomentumFactor": "-0.320",
+      "awayMomentumFactor": "-0.069"
+    },
+    {
+      "id": "espn-760496",
+      "type": "UPCOMING",
+      "home": "Portugal",
+      "away": "Croatia",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-02T23:00Z",
+      "homeFlag": "por",
+      "awayFlag": "cro",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Portugal vs Croatia",
+      "homeMomentumFactor": "-0.305",
+      "awayMomentumFactor": "-0.310"
+    },
+    {
+      "id": "espn-760498",
+      "type": "UPCOMING",
+      "home": "Switzerland",
+      "away": "Algeria",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-03T03:00Z",
+      "homeFlag": "sui",
+      "awayFlag": "alg",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Switzerland vs Algeria",
+      "homeMomentumFactor": "+0.010",
+      "awayMomentumFactor": "+0.122"
+    },
+    {
+      "id": "espn-760499",
+      "type": "UPCOMING",
+      "home": "Australia",
+      "away": "Egypt",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-03T18:00Z",
+      "homeFlag": "aus",
+      "awayFlag": "egy",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Australia vs Egypt",
+      "homeMomentumFactor": "+0.235",
+      "awayMomentumFactor": "+0.091"
+    },
+    {
+      "id": "espn-760500",
+      "type": "UPCOMING",
+      "home": "Argentina",
+      "away": "Cape Verde",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-07-03T22:00Z",
+      "homeFlag": "arg",
+      "awayFlag": "cpv",
+      "layers": [],
+      "importedFrom": "ESPN",
+      "meta": "Round of 32 · Argentina vs Cape Verde",
+      "homeMomentumFactor": "-0.037",
+      "awayMomentumFactor": "+0.403"
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",

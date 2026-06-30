@@ -430,10 +430,10 @@ def build_record(fixture, pmap=None):
         layers.append({"source":"Prediction Markets (P2P)",
                         "fav":pct(avg(pm,"home")), "draw":pct(avg(pm,"draw")), "und":pct(avg(pm,"away"))})
 
-    # ── FIXED: Compare relative Home vs Away probabilities directly instead of a hard 50% gate
-    best_home = avg(sb,"home") if sb else ep["home"]
-    best_away = avg(sb,"away") if sb else ep["away"]
-    fav_team  = home if best_home >= best_away else away
+    # Favorite comes from sportsbook consensus when available.
+    fav_team = None
+    if sb:
+        fav_team = home if avg(sb, "home") >= avg(sb, "away") else away
 
     try:
         dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
