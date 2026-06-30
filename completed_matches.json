@@ -160,7 +160,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Mexico"
+    "favTeam": null
   },
   {
     "id": "537328",
@@ -328,7 +328,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "South Korea"
+    "favTeam": null
   },
   {
     "id": "espn-760416",
@@ -484,7 +484,7 @@
     "insight": "The match ended level at 1-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Canada"
+    "favTeam": null
   },
   {
     "id": "537345",
@@ -662,7 +662,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "United States"
+    "favTeam": null
   },
   {
     "id": "537334",
@@ -825,7 +825,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Qatar"
+    "favTeam": null
   },
   {
     "id": "537339",
@@ -988,7 +988,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Brazil"
+    "favTeam": null
   },
   {
     "id": "537340",
@@ -1146,7 +1146,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Haiti"
+    "favTeam": null
   },
   {
     "id": "537346",
@@ -1309,7 +1309,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Australia"
+    "favTeam": null
   },
   {
     "id": "espn-760422",
@@ -1495,7 +1495,7 @@
     "insight": "Germany won 7-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Germany"
+    "favTeam": null
   },
   {
     "id": "537357",
@@ -1668,7 +1668,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Netherlands"
+    "favTeam": null
   },
   {
     "id": "537352",
@@ -1826,7 +1826,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Ivory Coast"
+    "favTeam": null
   },
   {
     "id": "537358",
@@ -2009,7 +2009,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Sweden"
+    "favTeam": null
   },
   {
     "id": "espn-760428",
@@ -2154,7 +2154,7 @@
     "insight": "The match ended level at 0-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Spain"
+    "favTeam": null
   },
   {
     "id": "537363",
@@ -2317,7 +2317,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Belgium"
+    "favTeam": null
   },
   {
     "id": "537370",
@@ -2480,7 +2480,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Saudi Arabia"
+    "favTeam": null
   },
   {
     "id": "537364",
@@ -2653,7 +2653,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "Iran"
+    "favTeam": null
   },
   {
     "id": "537391",
@@ -2826,7 +2826,7 @@
         "und": "33.0%"
       }
     ],
-    "favTeam": "France"
+    "favTeam": null
   },
   {
     "id": "espn-760430",
@@ -2997,7 +2997,7 @@
     "insight": "Norway won 4-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Norway"
+    "favTeam": null
   },
   {
     "id": "match_id1000001666457018",
@@ -3725,7 +3725,7 @@
     "insight": "England won 4-2.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "England"
+    "favTeam": null
   },
   {
     "id": "espn-760434",
@@ -3876,7 +3876,7 @@
     "insight": "Ghana won 1-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Ghana"
+    "favTeam": null
   },
   {
     "id": "espn-760436",
@@ -4042,7 +4042,7 @@
     "insight": "Colombia won 3-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Colombia"
+    "favTeam": null
   },
   {
     "id": "espn-760438",
@@ -4198,7 +4198,7 @@
     "insight": "The match ended level at 1-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Czechia"
+    "favTeam": null
   },
   {
     "id": "espn-760439",
@@ -4369,7 +4369,7 @@
     "insight": "Switzerland won 4-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Switzerland"
+    "favTeam": null
   },
   {
     "id": "espn-760440",
@@ -4545,7 +4545,7 @@
     "insight": "Canada won 6-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Canada"
+    "favTeam": null
   },
   {
     "id": "espn-760441",
@@ -4696,7 +4696,7 @@
     "insight": "Mexico won 1-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Mexico"
+    "favTeam": null
   },
   {
     "id": "espn-760442",
@@ -4852,7 +4852,7 @@
     "insight": "United States won 2-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "United States"
+    "favTeam": null
   },
   {
     "id": "espn-760445",
@@ -5003,7 +5003,7 @@
     "insight": "Morocco won 1-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Morocco"
+    "favTeam": null
   },
   {
     "id": "match_id1000001666456932",
@@ -5721,7 +5721,7 @@
     "insight": "Germany won 2-1.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Germany"
+    "favTeam": null
   },
   {
     "id": "match_id1000001666457076",
@@ -6244,7 +6244,7 @@
     "insight": "Spain won 4-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Spain"
+    "favTeam": null
   },
   {
     "id": "espn-760451",
@@ -6389,7 +6389,7 @@
     "insight": "The match ended level at 0-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Belgium"
+    "favTeam": null
   },
   {
     "id": "espn-760450",
@@ -6555,7 +6555,7 @@
     "insight": "The match ended level at 2-2.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Uruguay"
+    "favTeam": null
   },
   {
     "id": "match_id1000001666456988",
@@ -6900,7 +6900,7 @@
     "insight": "Argentina won 2-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Argentina"
+    "favTeam": null
   },
   {
     "id": "espn-760457",
@@ -7061,7 +7061,7 @@
     "insight": "France won 3-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "France"
+    "favTeam": null
   },
   {
     "id": "match_id1000001666457012",
@@ -7610,7 +7610,7 @@
     "insight": "Portugal won 5-0.",
     "sourceAccuracy": {},
     "layers": [],
-    "favTeam": "Portugal"
+    "favTeam": null
   },
   {
     "id": "match_id1000001666457046",
@@ -7953,5 +7953,629 @@
       }
     ],
     "favTeam": "Croatia"
+  },
+  {
+    "id": "espn-760486",
+    "home": "South Africa",
+    "away": "Canada",
+    "homeFlag": "rsa",
+    "awayFlag": "can",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-06-28T19:00Z",
+    "homeScore": 0,
+    "awayScore": 1,
+    "score": "SOUTH AFRICA 0 - 1 CANADA",
+    "winner": "Canada",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.76,
+        "away": 1.25
+      },
+      "possession": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "fieldTilt": {
+        "home": 61.9,
+        "away": 38.1
+      },
+      "ppda": {
+        "home": 11.7,
+        "away": 14.8
+      },
+      "shots": {
+        "home": 11,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 433,
+        "away": 402
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 11,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 54.8,
+        "away": 45.2
+      },
+      "shots": {
+        "home": 11,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 11,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 68,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.76,
+        "away": 1.25
+      },
+      "fieldTilt": {
+        "home": 61.9,
+        "away": 38.1
+      },
+      "ppda": {
+        "home": 11.7,
+        "away": 14.8
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 433,
+        "away": 402
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Canada absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Canada converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Canada generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Canada won 1-0.",
+    "sourceAccuracy": {},
+    "layers": [],
+    "favTeam": null
+  },
+  {
+    "id": "espn-760487",
+    "home": "Brazil",
+    "away": "Japan",
+    "homeFlag": "bra",
+    "awayFlag": "jpn",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-06-29T17:00Z",
+    "homeScore": 2,
+    "awayScore": 1,
+    "score": "BRAZIL 2 - 1 JAPAN",
+    "winner": "Brazil",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.29,
+        "away": 0.82
+      },
+      "possession": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "fieldTilt": {
+        "home": 61.5,
+        "away": 38.5
+      },
+      "ppda": {
+        "home": 11.3,
+        "away": 15.4
+      },
+      "shots": {
+        "home": 15,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 428,
+        "away": 403
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.6,
+        "away": 46.4
+      },
+      "shots": {
+        "home": 15,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 1
+      },
+      "corners": {
+        "home": 5,
+        "away": 6
+      },
+      "fouls": {
+        "home": 9,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 8,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 14,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 51,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.29,
+        "away": 0.82
+      },
+      "fieldTilt": {
+        "home": 61.5,
+        "away": 38.5
+      },
+      "ppda": {
+        "home": 11.3,
+        "away": 15.4
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 428,
+        "away": 403
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 31
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Brazil created the clearer chances, generating 2.29 xG and putting 5 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Brazil (PPDA 11.3) disrupted Japan's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Brazil's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Brazil won 2-1.",
+    "sourceAccuracy": {},
+    "layers": [],
+    "favTeam": null
+  },
+  {
+    "id": "espn-760489",
+    "home": "Germany",
+    "away": "Paraguay",
+    "homeFlag": "ger",
+    "awayFlag": "pry",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-06-29T20:30Z",
+    "homeScore": 1,
+    "awayScore": 1,
+    "score": "GERMANY 1 - 1 PARAGUAY",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.07,
+        "away": 1.5
+      },
+      "possession": {
+        "home": 50.8,
+        "away": 49.2
+      },
+      "fieldTilt": {
+        "home": 53.0,
+        "away": 47.0
+      },
+      "ppda": {
+        "home": 12.5,
+        "away": 10.4
+      },
+      "shots": {
+        "home": 7,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 426,
+        "away": 440
+      },
+      "finalThirdEntries": {
+        "home": 46,
+        "away": 37
+      },
+      "corners": {
+        "home": 2,
+        "away": 3
+      },
+      "fouls": {
+        "home": 9,
+        "away": 17
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 50.8,
+        "away": 49.2
+      },
+      "shots": {
+        "home": 7,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "corners": {
+        "home": 2,
+        "away": 3
+      },
+      "fouls": {
+        "home": 9,
+        "away": 17
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 16,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 78,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.07,
+        "away": 1.5
+      },
+      "fieldTilt": {
+        "home": 53.0,
+        "away": 47.0
+      },
+      "ppda": {
+        "home": 12.5,
+        "away": 10.4
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 426,
+        "away": 440
+      },
+      "finalThirdEntries": {
+        "home": 46,
+        "away": 37
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.57), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "Paraguay advanced (1-1, penalties).",
+    "sourceAccuracy": {},
+    "layers": [],
+    "favTeam": null
+  },
+  {
+    "id": "espn-760488",
+    "home": "Netherlands",
+    "away": "Morocco",
+    "homeFlag": "ned",
+    "awayFlag": "mar",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-06-30T01:00Z",
+    "homeScore": 1,
+    "awayScore": 1,
+    "score": "NETHERLANDS 1 - 1 MOROCCO",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.62,
+        "away": 1.48
+      },
+      "possession": {
+        "home": 47.1,
+        "away": 52.9
+      },
+      "fieldTilt": {
+        "home": 53.7,
+        "away": 46.3
+      },
+      "ppda": {
+        "home": 12.2,
+        "away": 10.1
+      },
+      "shots": {
+        "home": 10,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 4
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 414,
+        "away": 401
+      },
+      "finalThirdEntries": {
+        "home": 43,
+        "away": 41
+      },
+      "corners": {
+        "home": 5,
+        "away": 2
+      },
+      "fouls": {
+        "home": 16,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 47.1,
+        "away": 52.9
+      },
+      "shots": {
+        "home": 10,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 4
+      },
+      "corners": {
+        "home": 5,
+        "away": 2
+      },
+      "fouls": {
+        "home": 16,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 13,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 74,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.62,
+        "away": 1.48
+      },
+      "fieldTilt": {
+        "home": 53.7,
+        "away": 46.3
+      },
+      "ppda": {
+        "home": 12.2,
+        "away": 10.1
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 414,
+        "away": 401
+      },
+      "finalThirdEntries": {
+        "home": 43,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 3.1), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "Morocco advanced (1-1, penalties).",
+    "sourceAccuracy": {},
+    "layers": [],
+    "favTeam": null
   }
 ]
