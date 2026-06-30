@@ -141,6 +141,7 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 .btn.lang-active{border-color:var(--neon);color:var(--neon);background:rgba(56,189,248,0.08);}
 .stage-tabs{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:1px;flex:1;min-width:0;}
 .stage-tabs::-webkit-scrollbar{display:none;}
+.view-bracket-btn{margin-left:auto;flex-shrink:0;opacity:0.72;}
 
 /* ── SEARCH ── */
 .search-wrap{position:relative;margin-bottom:10px;}
@@ -559,9 +560,9 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
     <div class="controls-row compact">
       <span class="controls-label" id="lbl-view">View</span>
       <button class="btn active" id="btn-grid" onclick="switchView('grid')"></button>
-      <button class="btn" id="btn-bracket" onclick="switchView('bracket')"></button>
       <span class="controls-label" id="lbl-stage" style="margin-left:6px">Stage</span>
       <div class="stage-tabs" id="stage-tabs"></div>
+      <button class="btn view-bracket-btn" id="btn-bracket" onclick="switchView('bracket')"></button>
     </div>
     <div class="controls-row compact state-filter-row" id="state-filter-row">
       <span class="controls-label" style="color:var(--gold)">Status</span>
@@ -650,6 +651,13 @@ const DICT = {
     knockoutUpcoming: 'Upcoming & live',
     knockoutCompleted: 'Completed',
     winOnlyNote: 'Knockout — win or go home (extra time & penalties if level after 90)',
+    summaryPkDeciders: 'Decided on penalties',
+    summaryKnockoutGoals: 'Goals · avg per knockout match',
+    insightCanadaR32: 'Canada beat South Africa 1–0 in the Round of 32 — their first knockout win at a World Cup.',
+    insightBrazilR32: 'Brazil advanced past Japan in the Round of 32.',
+    insightParaguayPK: 'Paraguay eliminated Germany on penalties after a 1–1 draw — the biggest shock of the Round of 32 so far.',
+    insightMoroccoPK: 'Morocco knocked out the Netherlands on penalties (1–1) to reach the Round of 16.',
+    insightKnockoutPace: '{goals} goals across {played} knockout matches — averaging {avg} per game.',
     matchday1: 'Matchday 1', matchday2: 'Matchday 2', matchday3: 'Matchday 3',
     matchdayProgress: 'Group stage progress',
     matchdayComplete: 'complete',
@@ -1441,11 +1449,33 @@ function calcReco(match){
 function matchOutcomeSide(match){
   const hg=match.homeScore,ag=match.awayScore;
   if(hg==null||ag==null)return null;
-  if(hg===ag)return 'draw';
-  if(!match.favTeam)return null;
+  const {homeWon,awayWon,isDraw}=resolveKnockoutOutcome(match,hg,ag);
+  if(isDraw)return 'draw';
+  if(!match.favTeam)return homeWon?'home':'away';
   const favIsHome=match.favTeam===match.home;
-  const favWon=favIsHome?hg>ag:ag>hg;
+  const favWon=favIsHome?homeWon:awayWon;
   return favWon?'fav':'und';
+}
+function isPenaltyDecider(match){
+  const note=match.penaltyNote||match.insight||'';
+  return /penalt/i.test(note);
+}
+function buildKnockoutInsights(pool,s){
+  const items=[];
+  const find=fn=>pool.find(fn);
+  const kick=m=>new Date(m.kickoff||0).getTime()||0;
+  const canadaR32=find(m=>m.home==='South Africa'&&m.away==='Canada'&&+(m.awayScore||0)===1);
+  if(canadaR32)items.push({id:'canadaR32',kick:kick(canadaR32),prio:100});
+  const brazilR32=find(m=>m.home==='Brazil'&&m.away==='Japan');
+  if(brazilR32)items.push({id:'brazilR32',kick:kick(brazilR32),prio:95});
+  const paraguayPK=find(m=>m.home==='Germany'&&m.away==='Paraguay'&&/penalt/i.test(m.penaltyNote||m.insight||''));
+  if(paraguayPK)items.push({id:'paraguayPK',kick:kick(paraguayPK),prio:90});
+  const moroccoPK=find(m=>m.home==='Netherlands'&&m.away==='Morocco'&&/penalt/i.test(m.penaltyNote||m.insight||''));
+  if(moroccoPK)items.push({id:'moroccoPK',kick:kick(moroccoPK),prio:88});
+  if(pool.length)items.push({id:'knockoutPace',kick:0,prio:5,params:{goals:s.goals,played:s.played,avg:s.avgGoals}});
+  const seen=new Set();
+  return items.filter(i=>{if(seen.has(i.id))return false;seen.add(i.id);return true;})
+    .sort((a,b)=>(b.kick-a.kick)||(b.prio-a.prio)).slice(0,5);
 }
 function recoWasCorrect(match,reco){
   const side=matchOutcomeSide(match);
@@ -1536,53 +1566,70 @@ function buildWorldCupInsights(pool,s){
     .sort((a,b)=>(b.kick-a.kick)||(b.prio-a.prio)).slice(0,5);
 }
 function buildTournamentSummary(){
-  const pool=gatherCompletedPool();
+  const knockout=isKnockoutStage(currentStage);
+  const pool=knockout
+    ?gatherStageCompleted(currentStage)
+    :gatherCompletedPool().filter(m=>(m.stage||'Group Stage')==='Group Stage');
   const g=meta.groupStageProgress||{};
-  const total=g.totalGroupMatches||72;
-  let goals=0,favW=0,draws=0,upsets=0,decided=0;
+  const total=knockout?16:(g.totalGroupMatches||72);
+  let goals=0,favW=0,draws=0,upsets=0,decided=0,pkDeciders=0;
   pool.forEach(m=>{
     const hg=+m.homeScore||0,ag=+m.awayScore||0;
     goals+=hg+ag;
+    if(isPenaltyDecider(m))pkDeciders++;
     const side=matchOutcomeSide(m);
     if(side==='draw')draws++;
     else if(side==='fav'){favW++;decided++;}
     else if(side==='und'){upsets++;decided++;}
   });
   const played=pool.length;
-  return {
+  const base={
     played,total,goals,
     avgGoals:played?(goals/played).toFixed(1):'0.0',
-    favW,draws,upsets,decided,
+    favW,draws,upsets,decided,pkDeciders,
     favWinPct:decided?Math.round((favW/decided)*100):null,
     drawPct:played?Math.round((draws/played)*100):0,
     upsetPct:decided?Math.round((upsets/decided)*100):null,
+    isKnockout:knockout,
+  };
+  if(knockout){
+    return {...base,insights:buildKnockoutInsights(pool,{played,goals,avgGoals:base.avgGoals})};
+  }
+  return {
+    ...base,
     md1:g.matchdayCompleted?.[1]??0,
     md2:g.matchdayCompleted?.[2]??0,
-    insights:buildWorldCupInsights(pool,{played,goals,avgGoals:played?(goals/played).toFixed(1):'0.0'}),
+    insights:buildWorldCupInsights(pool,{played,goals,avgGoals:base.avgGoals}),
   };
 }
 function renderTournamentSummary(){
   const section=document.getElementById('tournament-summary-section');
   const panel=document.getElementById('tournament-summary-panel');
   if(!section||!panel)return;
-  const show=currentView==='grid'&&currentMatchState==='upcoming';
+  const knockout=isKnockoutStage(currentStage);
+  const show=currentView==='grid'&&(knockout||currentMatchState==='upcoming');
   section.style.display=show?'':'none';
   if(!show)return;
   const d=DICT[lang];
   const s=buildTournamentSummary();
   const bullets=s.insights.map(item=>`<li>${esc(fmtInsightText(d,item))}</li>`).join('');
+  const progressRow=knockout
+    ?snapStat(esc(d.r32Progress||'Round of 32'),`<span class="snap-stat-val gold">${s.played} / ${s.total}</span>`)
+    :`${snapStat(esc(d.summaryPlayed),`<span class="snap-stat-val gold">${s.played} / ${s.total}</span>`)}${snapStat(esc(d.matchdayProgress),`<span class="snap-stat-val gold">MD1 ${s.md1}/24 · MD2 ${s.md2}/24</span>`)}`;
+  const thirdStat=knockout
+    ?snapStat(esc(d.summaryPkDeciders||'Decided on penalties'),fmtStatTriple(s.pkDeciders,s.played,null))
+    :snapStat(esc(d.summaryDraws),fmtStatTriple(s.draws,s.played,s.drawPct));
   panel.innerHTML=`<div class="snap-card">
     <div class="snap-header">
-      <div class="snap-eyebrow">${esc(d.summaryTitle)}</div>
+      <div class="snap-eyebrow">${esc(d.summaryTitle)}${knockout?` · ${esc(d.r32||'Round of 32')}`:''}</div>
       <div class="snap-title">THE PULSE</div>
     </div>
     <div class="snap-grid">
       <div class="snap-col">
         <div class="snap-col-label">${esc(d.summaryColProgress)}</div>
-        ${snapStat(esc(d.summaryPlayed),`<span class="snap-stat-val gold">${s.played} / ${s.total}</span>`)}
-        ${snapStat(esc(d.matchdayProgress),`<span class="snap-stat-val gold">MD1 ${s.md1}/24 · MD2 ${s.md2}/24</span>`)}
-        ${snapStat(esc(d.summaryGoals),`<span class="snap-stat-val gold">${s.goals} · ${s.avgGoals}</span>`)}
-        ${snapStat(esc(d.summaryDraws),fmtStatTriple(s.draws,s.played,s.drawPct))}
+        ${progressRow}
+        ${snapStat(esc(knockout?(d.summaryKnockoutGoals||d.summaryGoals):d.summaryGoals),`<span class="snap-stat-val gold">${s.goals} · ${s.avgGoals}</span>`)}
+        ${thirdStat}
         ${snapStat(esc(d.summaryFavWin),s.decided?fmtStatTriple(s.favW,s.decided,s.favWinPct):'<span class="snap-stat-val">—</span>')}
         ${snapStat(esc(d.summaryUpsets),s.decided?fmtStatTriple(s.upsets,s.decided,s.upsetPct):'<span class="snap-stat-val">—</span>')}
       </div>
@@ -1679,16 +1726,17 @@ function renderUpcoming(match){
   const norm={};
   (match.layers||[]).forEach(l=>{const k=canonSrc(l.source);if(!norm[k])norm[k]=l;});
   
-  const SOURCES=['Sportsbooks (Consensus)','ELO/Poisson Model'];
+  const SOURCES=['Sportsbooks (Consensus)','ELO/Poisson Model','Prediction Markets (P2P)'];
   const srcLabel={
-    en:{'Sportsbooks (Consensus)':'Sportsbooks (Consensus)','ELO/Poisson Model':'ELO/Poisson Model'},
-    ko:{'Sportsbooks (Consensus)':'스포츠북 (합의)','ELO/Poisson Model':'ELO/포아송 모델'},
-    ja:{'Sportsbooks (Consensus)':'スポーツブック','ELO/Poisson Model':'ELO/ポアソンモデル'}
+    en:{'Sportsbooks (Consensus)':'Sportsbooks (Consensus)','ELO/Poisson Model':'ELO/Poisson Model','Prediction Markets (P2P)':'Prediction Markets (P2P)'},
+    ko:{'Sportsbooks (Consensus)':'스포츠북 (합의)','ELO/Poisson Model':'ELO/포아송 모델','Prediction Markets (P2P)':'예측 시장 (P2P)'},
+    ja:{'Sportsbooks (Consensus)':'スポーツブック','ELO/Poisson Model':'ELO/ポアソンモデル','Prediction Markets (P2P)':'予測市場 (P2P)'}
   };
   
   let rows='';
   SOURCES.forEach(s=>{
     const l=norm[s];
+    if(!l&&(s==='Sportsbooks (Consensus)'||s==='Prediction Markets (P2P)'))return;
     const rv=l?(l.fav||'--'):'--',dv=l?(l.draw||'--'):'--',uv=l?(l.und||'--'):'--';
     const c1=favIsHome?rv:uv,c3=favIsHome?uv:rv,nil=v=>v==='--';
     const sl=(srcLabel[lang]||srcLabel.en)[s]||s;
@@ -2437,7 +2485,7 @@ function switchView(v){
   const sw=document.getElementById('search-wrap');if(sw)sw.style.display=v==='grid'?'':'none';
   if(v==='bracket')renderBracket();else{renderTournamentSummary();renderGrid();}
 }
-function switchStage(s){currentStage=s;buildStageTabs();if(currentView==='bracket')renderBracket();else renderGrid();}
+function switchStage(s){currentStage=s;buildStageTabs();renderTournamentSummary();if(currentView==='bracket')renderBracket();else renderGrid();}
 function switchLang(l){lang=l;applyLabels();buildStageTabs();if(currentView==='bracket')renderBracket();else renderGrid();}
 function switchSort(m){currentSort=m;expandedGroups.clear();applyLabels();renderGrid();}
 function onSearch(v){searchQuery=v.trim().toLowerCase();const c=document.getElementById('search-clear');if(c)c.classList.toggle('visible',searchQuery.length>0);renderGrid();}
