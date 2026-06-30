@@ -527,6 +527,22 @@ def layer_by_source(match: dict, source_name: str) -> dict | None:
     return None
 
 
+def match_pm_layer(match: dict) -> dict | None:
+    """Return the first match-level prediction-market layer (P2P or Kalshi)."""
+    for layer in match.get("layers") or []:
+        src = str(layer.get("source") or "")
+        if src == SOURCE_PM or "Prediction Markets" in src:
+            return layer
+    return None
+
+
+def source_fav_prob_from_pm_layer(match: dict, *, normalize: bool = True) -> float | None:
+    layer = match_pm_layer(match)
+    if not layer:
+        return None
+    return source_fav_prob_from_layer(match, layer.get("source"), normalize=normalize)
+
+
 def upsert_layer(match: dict, layer: dict) -> None:
     layers = list(match.get("layers") or [])
     source = layer.get("source")
@@ -586,7 +602,7 @@ def actual_fav_outcome_knockout(match: dict) -> float | None:
     return 1.0 if fav_won else 0.0
 
 
-def source_fav_prob_from_layer(match: dict, source_name: str) -> float | None:
+def source_fav_prob_from_layer(match: dict, source_name: str, *, normalize: bool = True) -> float | None:
     layer = layer_by_source(match, source_name)
     if not layer:
         return None
@@ -595,7 +611,17 @@ def source_fav_prob_from_layer(match: dict, source_name: str) -> float | None:
     draw = parse_pct_str(layer.get("draw"))
     if home is None or away is None:
         return None
-    if draw is None and is_knockout_stage(match.get("stage")):
+    fav = match.get("favTeam")
+    if not normalize and is_knockout_stage(match.get("stage")):
+        raw = home if fav == match.get("home") else away if fav == match.get("away") else None
+        return (raw / 100.0) if raw is not None else None
+    if is_knockout_stage(match.get("stage")):
+        total = home + away
+        if total <= 0:
+            return None
+        home /= total
+        away /= total
+    elif draw is None:
         total = home + away
         if total <= 0:
             return None
@@ -614,34 +640,6 @@ def source_fav_prob_from_layer(match: dict, source_name: str) -> float | None:
     if fav == match.get("away"):
         return away
     return None
-
-
-def direct_match_market_probs(match: dict) -> tuple[float | None, float | None, str | None]:
-    """Return (home_win_prob, away_win_prob, note) from direct Kalshi/Polymarket match fields."""
-    kh = parse_pct_str(match.get("kalshiWinProbHome"))
-    ka = parse_pct_str(match.get("kalshiWinProbAway"))
-    ph = parse_pct_str(match.get("polymarketWinProbHome"))
-    pa = parse_pct_str(match.get("polymarketWinProbAway"))
-
-    home_vals = [v / 100.0 for v in (kh, ph) if v is not None]
-    away_vals = [v / 100.0 for v in (ka, pa) if v is not None]
-    if not home_vals and not away_vals:
-        return None, None, None
-
-    home_p = sum(home_vals) / len(home_vals) if home_vals else None
-    away_p = sum(away_vals) / len(away_vals) if away_vals else None
-    if home_p is not None and away_p is not None:
-        total = home_p + away_p
-        if total > 0:
-            home_p /= total
-            away_p /= total
-    elif home_p is not None:
-        away_p = max(0.0, 1.0 - home_p)
-    elif away_p is not None:
-        home_p = max(0.0, 1.0 - away_p)
-
-    note = "Prediction markets: direct match odds (Kalshi/Polymarket)."
-    return home_p, away_p, note
 
 
 def tournament_proxy_probs(match: dict) -> tuple[float | None, float | None, str | None]:
@@ -667,22 +665,21 @@ def tournament_proxy_probs(match: dict) -> tuple[float | None, float | None, str
 
 
 def prediction_market_fav_prob(match: dict) -> tuple[float | None, str | None, bool]:
-    home_p, away_p, note = direct_match_market_probs(match)
-    is_direct = home_p is not None
-    if home_p is None:
-        home_p, away_p, note = tournament_proxy_probs(match)
-        is_direct = False
-    if home_p is None:
-        layer = layer_by_source(match, SOURCE_PM)
-        if layer:
-            return source_fav_prob_from_layer(match, SOURCE_PM), None, False
-        return None, None, False
-    fav = match.get("favTeam")
-    if fav == match.get("home"):
-        return home_p, note, is_direct
-    if fav == match.get("away"):
-        return away_p, note, is_direct
-    return None, note, is_direct
+    """Match-level PM layer first; kalshiWinProb* fields are tournament-winner odds only."""
+    layer = match_pm_layer(match)
+    if layer:
+        prob = source_fav_prob_from_layer(match, layer.get("source"), normalize=False)
+        if prob is not None:
+            src = layer.get("source", SOURCE_PM)
+            return prob, f"Prediction markets: {src} match odds.", True
+    home_p, away_p, note = tournament_proxy_probs(match)
+    if home_p is not None:
+        fav = match.get("favTeam")
+        if fav == match.get("home"):
+            return home_p, note, False
+        if fav == match.get("away"):
+            return away_p, note, False
+    return None, None, False
 
 
 def track_brier(completed: list[dict], source_name: str, *, knockout: bool) -> float | None:
@@ -690,11 +687,13 @@ def track_brier(completed: list[dict], source_name: str, *, knockout: bool) -> f
     for match in completed:
         if knockout != is_knockout_stage(match.get("stage")):
             continue
-        pred = source_fav_prob_from_layer(match, source_name)
-        if knockout and source_name == SOURCE_PM:
-            pm_pred, _, _ = prediction_market_fav_prob(match)
-            if pm_pred is not None:
+        if source_name == SOURCE_PM:
+            pred = source_fav_prob_from_pm_layer(match)
+            if pred is None:
+                pm_pred, _, _ = prediction_market_fav_prob(match)
                 pred = pm_pred
+        else:
+            pred = source_fav_prob_from_layer(match, source_name)
         if pred is None:
             continue
         actual = actual_fav_outcome_knockout(match) if knockout else actual_fav_outcome_group(match)
@@ -788,11 +787,15 @@ def calculate_supercharger(completed_matches: list[dict], match: dict,
             dp = parse_pct_str(layer.get("draw"))
             if hp is None or ap is None:
                 continue
-            total = hp + ap + (dp or 0.0)
-            if total <= 0:
-                continue
-            prob = (hp if fav == match.get("home") else ap) / total
-            draw_p = (dp / total) if dp is not None else None
+            if knockout_match:
+                prob = (hp if fav == match.get("home") else ap) / 100.0
+                draw_p = None
+            else:
+                total = hp + ap + (dp or 0.0)
+                if total <= 0:
+                    continue
+                prob = (hp if fav == match.get("home") else ap) / total
+                draw_p = (dp / total) if dp is not None else None
         if prob is None:
             continue
         blended_fav += w * prob
@@ -804,6 +807,25 @@ def calculate_supercharger(completed_matches: list[dict], match: dict,
         return {"source": SUPERCHARGER_SOURCE, "fav": "--", "draw": "--", "und": "--"}
 
     fav_prob = min(max(blended_fav / used_weight, 0.01), 0.98)
+
+    source_probs: list[float] = []
+    for name, _, _ in sources:
+        if name == SOURCE_PM:
+            p, _, _ = prediction_market_fav_prob(match)
+        else:
+            p = source_fav_prob_from_layer(match, name, normalize=False)
+        if p is not None:
+            source_probs.append(p)
+    if source_probs:
+        lo, hi = min(source_probs), max(source_probs)
+        if fav_prob < lo - 0.001 or fav_prob > hi + 0.001:
+            log.warning(
+                "Supercharger+ out of bounds for %s vs %s: %.3f not in [%.3f, %.3f] (inputs=%s)",
+                match.get("home"), match.get("away"), fav_prob, lo, hi,
+                [round(p, 3) for p in source_probs],
+            )
+            fav_prob = max(lo, min(hi, fav_prob))
+
     if knockout_match:
         und_prob = 1.0 - fav_prob
         draw_out = "--"
