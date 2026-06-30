@@ -9598,16 +9598,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "36.1%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "63.9%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "36.1%",
+          "fav": "52.9%",
           "draw": "--",
-          "und": "63.9%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "47.1%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9647,16 +9647,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "78.9%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "21.1%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "78.9%",
+          "fav": "67.9%",
           "draw": "--",
-          "und": "21.1%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "32.1%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9696,16 +9696,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "70.6%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "29.4%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "70.6%",
+          "fav": "45.4%",
           "draw": "--",
-          "und": "29.4%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "54.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9745,16 +9745,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "86.8%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "13.2%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "86.8%",
+          "fav": "68.0%",
           "draw": "--",
-          "und": "13.2%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "32.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9793,16 +9793,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "63.3%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "36.7%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "63.3%",
+          "fav": "45.4%",
           "draw": "--",
-          "und": "36.7%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "54.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9842,16 +9842,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "78.0%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "22.0%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "78.0%",
+          "fav": "64.4%",
           "draw": "--",
-          "und": "22.0%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "35.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9891,16 +9891,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "65.5%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "34.5%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "65.5%",
+          "fav": "66.1%",
           "draw": "--",
-          "und": "34.5%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "33.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9940,16 +9940,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "58.4%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "41.6%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "58.4%",
+          "fav": "53.0%",
           "draw": "--",
-          "und": "41.6%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "47.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -9989,16 +9989,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "77.5%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "22.5%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "77.5%",
+          "fav": "44.5%",
           "draw": "--",
-          "und": "22.5%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "55.5%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -10038,16 +10038,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "70.8%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "29.2%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "29.2%",
+          "fav": "60.6%",
           "draw": "--",
-          "und": "70.8%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "39.4%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -10087,16 +10087,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "95.7%",
+          "fav": "50.0%",
           "draw": "--",
-          "und": "4.3%"
+          "und": "50.0%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "95.7%",
+          "fav": "73.7%",
           "draw": "--",
-          "und": "4.3%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way)."
+          "und": "26.3%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -10136,16 +10136,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "55.8%",
-          "draw": "22.8%",
-          "und": "21.3%"
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "50.8%",
-          "draw": "32.3%",
-          "und": "16.9%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way)."
+          "fav": "50.1%",
+          "draw": "21.1%",
+          "und": "28.8%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
@@ -10184,16 +10184,16 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "31.6%",
-          "draw": "25.7%",
-          "und": "42.6%"
+          "fav": "36.5%",
+          "draw": "27.0%",
+          "und": "36.5%"
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "47.9%",
-          "draw": "26.0%",
-          "und": "26.1%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way)."
+          "fav": "27.2%",
+          "draw": "20.2%",
+          "und": "52.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: implied from tournament winner odds (dampened proxy)."
         }
       ],
       "venue": null,
