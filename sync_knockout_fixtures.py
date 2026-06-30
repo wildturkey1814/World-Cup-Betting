@@ -10,6 +10,7 @@ from __future__ import annotations
 import logging
 
 from data_utils import OUTPUT_FILE, atomic_write, load_data
+from knockout_layers import enrich_all_knockout_matches, enrich_knockout_match
 from match_stats import FLAG_CODES, enrich_completed_match, infer_fav_team
 from matchday_utils import group_stage_progress, tag_matchdays
 from public_scores import TOURNAMENT_END, TOURNAMENT_START, load_espn_live_by_pair, pair_key
@@ -71,8 +72,10 @@ def _build_knockout_record(espn: dict, match_type: str) -> dict | None:
         fav = infer_fav_team(record)
         if fav:
             record["favTeam"] = fav
+        enrich_knockout_match(record)
     else:
         record["meta"] = f"Round of 32 · {home} vs {away}"
+        enrich_knockout_match(record)
 
     return record
 
@@ -133,13 +136,14 @@ def main() -> None:
         log.info("Removed %d fixture(s) outside Round of 32 date window.", before - len(matches))
 
     r32 = [m for m in matches if (m.get("stage") or GROUP_STAGE) == ROUND_OF_32]
+    enriched = enrich_all_knockout_matches(matches)
     data["matches"] = matches
     data["currentStage"] = ROUND_OF_32 if r32 else data.get("currentStage", GROUP_STAGE)
     data["groupStageProgress"] = group_stage_progress(matches)
     data["lastUpdated"] = data.get("lastUpdated") or ""
 
     atomic_write(OUTPUT_FILE, data)
-    log.info("Synced %d Round of 32 fixture(s). Total R32 rows: %d.", count, len(r32))
+    log.info("Synced %d Round of 32 fixture(s). Total R32 rows: %d. Enriched %d knockout row(s).", count, len(r32), enriched)
 
 
 if __name__ == "__main__":
