@@ -825,11 +825,18 @@ def calculate_supercharger(completed_matches: list[dict], match: dict,
     elif pm_pred is not None and not pm_direct:
         tooltip_parts.append("Prediction markets weighted at 50% (tournament winner proxy).")
 
+    # Layers store home win % in "fav" and away win % in "und" (same as ELO/sportsbooks).
+    home_team = match.get("home")
+    if fav == home_team:
+        home_prob, away_prob = fav_prob, und_prob
+    else:
+        home_prob, away_prob = und_prob, fav_prob
+
     return {
         "source": SUPERCHARGER_SOURCE,
-        "fav": pct(fav_prob),
+        "fav": pct(home_prob),
         "draw": draw_out,
-        "und": pct(und_prob),
+        "und": pct(away_prob),
         "tooltip": " ".join(tooltip_parts),
     }
 
