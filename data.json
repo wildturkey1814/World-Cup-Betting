@@ -6479,7 +6479,14 @@
       "kickoff": "2026-06-28T19:00Z",
       "homeFlag": "rsa",
       "awayFlag": "can",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "22.3%",
+          "draw": "--",
+          "und": "54.5%"
+        }
+      ],
       "importedFrom": "ESPN",
       "homeScore": 0,
       "awayScore": 1,
@@ -6561,7 +6568,8 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Canada generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "favTeam": "Canada"
     },
     {
       "id": "espn-760487",
@@ -6573,7 +6581,14 @@
       "kickoff": "2026-06-29T17:00Z",
       "homeFlag": "bra",
       "awayFlag": "jpn",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "54.5%",
+          "draw": "--",
+          "und": "22.3%"
+        }
+      ],
       "importedFrom": "ESPN",
       "homeScore": 2,
       "awayScore": 1,
@@ -6665,7 +6680,8 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Brazil's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -6677,7 +6693,14 @@
       "kickoff": "2026-06-29T20:30Z",
       "homeFlag": "ger",
       "awayFlag": "pry",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "61.7%",
+          "draw": "--",
+          "und": "16.9%"
+        }
+      ],
       "importedFrom": "ESPN",
       "penaltyNote": "Paraguay advance 4-3 on penalties",
       "homeScore": 1,
@@ -6765,7 +6788,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -6777,7 +6801,14 @@
       "kickoff": "2026-06-30T01:00Z",
       "homeFlag": "ned",
       "awayFlag": "mar",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "52.9%",
+          "draw": "--",
+          "und": "23.6%"
+        }
+      ],
       "importedFrom": "ESPN",
       "penaltyNote": "Morocco advance 3-2 on penalties",
       "homeScore": 1,
@@ -6865,7 +6896,8 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ]
+      ],
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -6877,11 +6909,19 @@
       "kickoff": "2026-06-30T17:00Z",
       "homeFlag": "civ",
       "awayFlag": "nor",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "28.5%",
+          "draw": "--",
+          "und": "46.6%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Ivory Coast vs Norway",
       "homeMomentumFactor": "-0.156",
-      "awayMomentumFactor": "+0.647"
+      "awayMomentumFactor": "+0.647",
+      "favTeam": "Norway"
     },
     {
       "id": "espn-760492",
@@ -6893,11 +6933,19 @@
       "kickoff": "2026-06-30T21:00Z",
       "homeFlag": "fra",
       "awayFlag": "swe",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "60.8%",
+          "draw": "--",
+          "und": "17.6%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · France vs Sweden",
       "homeMomentumFactor": "+0.007",
-      "awayMomentumFactor": "+0.071"
+      "awayMomentumFactor": "+0.071",
+      "favTeam": "France"
     },
     {
       "id": "espn-760491",
@@ -6909,11 +6957,19 @@
       "kickoff": "2026-07-01T01:00Z",
       "homeFlag": "mex",
       "awayFlag": "ecu",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "47.2%",
+          "draw": "--",
+          "und": "28.1%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Mexico vs Ecuador",
       "homeMomentumFactor": "-0.335",
-      "awayMomentumFactor": "+0.235"
+      "awayMomentumFactor": "+0.235",
+      "favTeam": "Mexico"
     },
     {
       "id": "espn-760495",
@@ -6925,11 +6981,19 @@
       "kickoff": "2026-07-01T16:00Z",
       "homeFlag": "eng",
       "awayFlag": "cod",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "71.4%",
+          "draw": "--",
+          "und": "10.1%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · England vs DR Congo",
       "homeMomentumFactor": "+0.254",
-      "awayMomentumFactor": "-0.035"
+      "awayMomentumFactor": "-0.035",
+      "favTeam": "England"
     },
     {
       "id": "espn-760493",
@@ -6941,11 +7005,19 @@
       "kickoff": "2026-07-01T20:00Z",
       "homeFlag": "bel",
       "awayFlag": "sen",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "47.2%",
+          "draw": "--",
+          "und": "28.1%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Belgium vs Senegal",
       "homeMomentumFactor": "-0.022",
-      "awayMomentumFactor": "-0.397"
+      "awayMomentumFactor": "-0.397",
+      "favTeam": "Belgium"
     },
     {
       "id": "espn-760494",
@@ -6957,11 +7029,19 @@
       "kickoff": "2026-07-02T00:00Z",
       "homeFlag": "usa",
       "awayFlag": "bih",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "57.7%",
+          "draw": "--",
+          "und": "19.9%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · United States vs Bosnia & Herzegovina",
       "homeMomentumFactor": "-0.235",
-      "awayMomentumFactor": "+0.202"
+      "awayMomentumFactor": "+0.202",
+      "favTeam": "United States"
     },
     {
       "id": "espn-760497",
@@ -6973,11 +7053,19 @@
       "kickoff": "2026-07-02T19:00Z",
       "homeFlag": "esp",
       "awayFlag": "aut",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "50.6%",
+          "draw": "--",
+          "und": "25.4%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Spain vs Austria",
       "homeMomentumFactor": "-0.320",
-      "awayMomentumFactor": "-0.069"
+      "awayMomentumFactor": "-0.069",
+      "favTeam": "Spain"
     },
     {
       "id": "espn-760496",
@@ -6989,11 +7077,19 @@
       "kickoff": "2026-07-02T23:00Z",
       "homeFlag": "por",
       "awayFlag": "cro",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "43.6%",
+          "draw": "--",
+          "und": "30.9%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Portugal vs Croatia",
       "homeMomentumFactor": "-0.305",
-      "awayMomentumFactor": "-0.310"
+      "awayMomentumFactor": "-0.310",
+      "favTeam": "Portugal"
     },
     {
       "id": "espn-760498",
@@ -7005,11 +7101,19 @@
       "kickoff": "2026-07-03T03:00Z",
       "homeFlag": "sui",
       "awayFlag": "alg",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "62.2%",
+          "draw": "--",
+          "und": "16.6%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Switzerland vs Algeria",
       "homeMomentumFactor": "+0.010",
-      "awayMomentumFactor": "+0.122"
+      "awayMomentumFactor": "+0.122",
+      "favTeam": "Switzerland"
     },
     {
       "id": "espn-760499",
@@ -7021,11 +7125,19 @@
       "kickoff": "2026-07-03T18:00Z",
       "homeFlag": "aus",
       "awayFlag": "egy",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "57.2%",
+          "draw": "--",
+          "und": "20.3%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Australia vs Egypt",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "+0.091"
+      "awayMomentumFactor": "+0.091",
+      "favTeam": "Australia"
     },
     {
       "id": "espn-760500",
@@ -7037,11 +7149,19 @@
       "kickoff": "2026-07-03T22:00Z",
       "homeFlag": "arg",
       "awayFlag": "cpv",
-      "layers": [],
+      "layers": [
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "81.8%",
+          "draw": "--",
+          "und": "3.2%"
+        }
+      ],
       "importedFrom": "ESPN",
       "meta": "Round of 32 · Argentina vs Cape Verde",
       "homeMomentumFactor": "-0.037",
-      "awayMomentumFactor": "+0.403"
+      "awayMomentumFactor": "+0.403",
+      "favTeam": "Argentina"
     }
   ],
   "kalshiUpdated": "June 23, 2026 · 10:20 PM UTC",
