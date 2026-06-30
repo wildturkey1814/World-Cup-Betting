@@ -9592,9 +9592,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "26.9%",
-          "draw": "28.3%",
-          "und": "44.8%"
+          "fav": "37.5%",
+          "draw": "--",
+          "und": "62.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9604,16 +9604,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "52.9%",
+          "fav": "40.9%",
           "draw": "--",
-          "und": "47.1%",
+          "und": "59.1%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "26.3%",
-          "draw": "27.3%",
-          "und": "46.5%"
+          "fav": "36.1%",
+          "draw": "--",
+          "und": "63.9%"
         }
       ],
       "venue": null,
@@ -9641,9 +9641,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "74.0%",
-          "draw": "15.9%",
-          "und": "10.1%"
+          "fav": "88.0%",
+          "draw": "--",
+          "und": "12.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9653,16 +9653,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "67.9%",
+          "fav": "77.4%",
           "draw": "--",
-          "und": "32.1%",
+          "und": "22.6%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "77.8%",
-          "draw": "15.2%",
-          "und": "7.1%"
+          "fav": "91.6%",
+          "draw": "--",
+          "und": "8.4%"
         }
       ],
       "venue": null,
@@ -9690,9 +9690,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "43.2%",
-          "draw": "33.2%",
-          "und": "23.6%"
+          "fav": "64.7%",
+          "draw": "--",
+          "und": "35.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9702,16 +9702,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "45.4%",
+          "fav": "60.3%",
           "draw": "--",
-          "und": "54.6%",
+          "und": "39.7%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "43.4%",
-          "draw": "33.3%",
-          "und": "23.2%"
+          "fav": "65.2%",
+          "draw": "--",
+          "und": "34.8%"
         }
       ],
       "venue": null,
@@ -9739,9 +9739,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "75.4%",
-          "draw": "17.3%",
-          "und": "7.2%"
+          "fav": "91.3%",
+          "draw": "--",
+          "und": "8.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9751,16 +9751,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "68.0%",
+          "fav": "78.9%",
           "draw": "--",
-          "und": "32.0%",
+          "und": "21.1%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "77.0%",
-          "draw": "17.0%",
-          "und": "6.0%"
+          "fav": "92.8%",
+          "draw": "--",
+          "und": "7.2%"
         }
       ],
       "venue": null,
@@ -9787,9 +9787,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "43.0%",
-          "draw": "29.7%",
-          "und": "27.3%"
+          "fav": "61.2%",
+          "draw": "--",
+          "und": "38.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9799,16 +9799,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "45.4%",
+          "fav": "57.8%",
           "draw": "--",
-          "und": "54.6%",
+          "und": "42.2%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "43.4%",
-          "draw": "29.3%",
-          "und": "27.3%"
+          "fav": "61.4%",
+          "draw": "--",
+          "und": "38.6%"
         }
       ],
       "venue": null,
@@ -9836,9 +9836,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "69.7%",
-          "draw": "19.7%",
-          "und": "10.6%"
+          "fav": "86.8%",
+          "draw": "--",
+          "und": "13.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9848,16 +9848,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "64.4%",
+          "fav": "76.0%",
           "draw": "--",
-          "und": "35.6%",
+          "und": "24.0%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "72.0%",
-          "draw": "19.0%",
-          "und": "9.0%"
+          "fav": "88.9%",
+          "draw": "--",
+          "und": "11.1%"
         }
       ],
       "venue": null,
@@ -9885,9 +9885,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "72.2%",
-          "draw": "18.2%",
-          "und": "9.6%"
+          "fav": "88.3%",
+          "draw": "--",
+          "und": "11.7%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9897,16 +9897,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "66.1%",
+          "fav": "76.9%",
           "draw": "--",
-          "und": "33.9%",
+          "und": "23.1%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "74.5%",
-          "draw": "17.3%",
-          "und": "8.2%"
+          "fav": "90.1%",
+          "draw": "--",
+          "und": "9.9%"
         }
       ],
       "venue": null,
@@ -9934,9 +9934,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "54.2%",
-          "draw": "26.5%",
-          "und": "19.3%"
+          "fav": "73.7%",
+          "draw": "--",
+          "und": "26.3%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9946,16 +9946,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "53.0%",
+          "fav": "66.3%",
           "draw": "--",
-          "und": "47.0%",
+          "und": "33.7%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "54.5%",
-          "draw": "26.3%",
-          "und": "19.2%"
+          "fav": "73.9%",
+          "draw": "--",
+          "und": "26.1%"
         }
       ],
       "venue": null,
@@ -9983,9 +9983,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.5%",
-          "draw": "43.5%",
-          "und": "21.0%"
+          "fav": "62.8%",
+          "draw": "--",
+          "und": "37.2%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -9995,16 +9995,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "44.5%",
+          "fav": "60.2%",
           "draw": "--",
-          "und": "55.5%",
+          "und": "39.8%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "46.9%",
-          "draw": "29.6%",
-          "und": "23.5%"
+          "fav": "66.6%",
+          "draw": "--",
+          "und": "33.4%"
         }
       ],
       "venue": null,
@@ -10032,9 +10032,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "22.3%",
-          "draw": "48.7%",
-          "und": "29.0%"
+          "fav": "43.5%",
+          "draw": "--",
+          "und": "56.5%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -10044,16 +10044,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "60.6%",
+          "fav": "45.1%",
           "draw": "--",
-          "und": "39.4%",
+          "und": "54.9%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "28.6%",
-          "draw": "32.6%",
-          "und": "38.8%"
+          "fav": "42.4%",
+          "draw": "--",
+          "und": "57.6%"
         }
       ],
       "venue": null,
@@ -10081,9 +10081,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "83.0%",
-          "draw": "11.9%",
-          "und": "5.1%"
+          "fav": "94.2%",
+          "draw": "--",
+          "und": "5.8%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -10093,16 +10093,16 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "73.7%",
+          "fav": "81.2%",
           "draw": "--",
-          "und": "26.3%",
+          "und": "18.8%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "85.7%",
-          "draw": "11.2%",
-          "und": "3.1%"
+          "fav": "96.5%",
+          "draw": "--",
+          "und": "3.5%"
         }
       ],
       "venue": null,
