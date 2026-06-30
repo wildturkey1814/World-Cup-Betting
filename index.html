@@ -2201,7 +2201,12 @@ function buildStageTabs(){
     ordered.push('Round of 32');
     ordered.sort((a,b)=>STAGES.indexOf(a)-STAGES.indexOf(b));
   }
-  document.getElementById('stage-tabs').innerHTML=[...ordered,...rest].map(s=>{
+  let tabs=[...ordered,...rest];
+  const preferred=meta.currentStage||currentStage;
+  if(preferred&&tabs.includes(preferred)){
+    tabs=[preferred,...tabs.filter(s=>s!==preferred)];
+  }
+  document.getElementById('stage-tabs').innerHTML=tabs.map(s=>{
     const key=STAGE_KEYS[s]||'groupStage',label=DICT[lang][key]||s,active=s===currentStage?' active':'';
     return`<button class="btn${active}" onclick="switchStage('${esc(s)}')">${esc(label)}</button>`;
   }).join('');
