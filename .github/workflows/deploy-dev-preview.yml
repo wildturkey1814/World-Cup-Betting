@@ -22,6 +22,32 @@ jobs:
           ref: dev
           path: src
 
+      - name: Set up Python for live odds sync
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sync sportsbook layers into preview data
+        working-directory: src
+        continue-on-error: true
+        env:
+          FORCE_FETCH: '1'
+          ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
+          ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
+          ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
+          ODDSPAPI_KEY4: ${{ secrets.ODDSPAPI_KEY4 }}
+          ODDSPAPI_KEY5: ${{ secrets.ODDSPAPI_KEY5 }}
+          ODDSPAPI_KEY6: ${{ secrets.ODDSPAPI_KEY6 }}
+          KALSHI_API_KEY_ID:  ${{ secrets.KALSHI_API_KEY_ID }}
+          KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
+        run: |
+          pip install requests cryptography
+          python sync_knockout_fixtures.py || true
+          python fetch_odds.py || true
+          python fetch_kalshi.py || true
+          python fetch_polymarket.py || true
+          python clean_data.py || true
+
       - name: Build static preview bundle
         run: |
           mkdir -p bundle

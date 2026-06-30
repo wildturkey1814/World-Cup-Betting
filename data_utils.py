@@ -213,11 +213,66 @@ def atomic_write_match_list(path: str, matches: list[dict]) -> None:
     log.info("Wrote %s (%d matches).", path, len(clean))
 
 
+def _layer_source_key(layer: dict) -> str:
+    source = str(layer.get("source", "")).lower()
+    if "sportsbook" in source:
+        return "sportsbook"
+    if "elo" in source or "poisson" in source:
+        return "elo"
+    if "supercharger" in source:
+        return "supercharger"
+    if "kalshi" in source or "polymarket" in source or "prediction" in source:
+        return "prediction"
+    return source or "other"
+
+
+def merge_prediction_layers(existing_layers: list[dict] | None,
+                            incoming_layers: list[dict] | None) -> list[dict]:
+    """Combine layer rows by source — keep the best available odds per source."""
+    by_key: dict[str, dict] = {}
+    order: list[str] = []
+
+    def ingest(layer: dict, prefer_incoming: bool) -> None:
+        if not layer or not layer.get("source"):
+            return
+        key = _layer_source_key(layer)
+        if key not in by_key:
+            order.append(key)
+        current = by_key.get(key)
+        if current is None:
+            by_key[key] = layer
+            return
+        cur_fav = str(current.get("fav") or "--")
+        new_fav = str(layer.get("fav") or "--")
+        if prefer_incoming and new_fav != "--":
+            by_key[key] = {**current, **layer}
+        elif cur_fav == "--" and new_fav != "--":
+            by_key[key] = {**current, **layer}
+
+    for layer in existing_layers or []:
+        ingest(layer, prefer_incoming=False)
+    for layer in incoming_layers or []:
+        ingest(layer, prefer_incoming=True)
+
+    preferred = ("sportsbook", "elo", "prediction", "supercharger")
+    merged: list[dict] = []
+    for key in preferred:
+        if key in by_key:
+            merged.append(by_key.pop(key))
+    for key in order:
+        if key in by_key:
+            merged.append(by_key[key])
+    return merged
+
+
 def merge_odds_record(existing: dict, incoming: dict) -> dict:
     """Merge fresh odds layers into an existing match without losing live state."""
     merged = dict(incoming)
     if existing.get("id"):
         merged["id"] = normalize_match_id(existing["id"])
+    merged["layers"] = merge_prediction_layers(
+        existing.get("layers"), incoming.get("layers")
+    )
     for field in PRESERVE_FIELDS:
         if existing.get(field) is not None:
             merged[field] = existing[field]

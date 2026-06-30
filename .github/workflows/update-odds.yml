@@ -13,11 +13,17 @@ on:
       pull_expensive_odds:
         description: 'Set to 1 to force a live premium OddsPapi API call'
         required: false
-        default: '0'
+        default: '1'
+  push:
+    branches: [dev]
+    paths:
+      - 'sync_knockout_fixtures.py'
+      - 'fetch_odds.py'
+      - 'data_utils.py'
 
 jobs:
   sync-all-layers:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -34,10 +40,14 @@ jobs:
       - name: Install Network Dependencies
         run: pip install requests cryptography
 
+      - name: Sync Round of 32 fixtures from ESPN
+        continue-on-error: true
+        run: python sync_knockout_fixtures.py
+
       - name: Process Sportsbook Base Odds
         continue-on-error: true
         env:
-          FORCE_FETCH: ${{ github.event.inputs.pull_expensive_odds }}
+          FORCE_FETCH: ${{ github.ref == 'refs/heads/dev' && '1' || (github.event.inputs.pull_expensive_odds || '0') }}
           ODDSPAPI_KEY:  ${{ secrets.ODDSPAPI_KEY }}
           ODDSPAPI_KEY2: ${{ secrets.ODDSPAPI_KEY2 }}
           ODDSPAPI_KEY3: ${{ secrets.ODDSPAPI_KEY3 }}
