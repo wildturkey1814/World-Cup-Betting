@@ -10,6 +10,33 @@ import hashlib
 import random
 from typing import Any
 
+def fav_team_from_sportsbooks(match: dict) -> str | None:
+    """Favorite = higher pre-match win % in Sportsbooks (Consensus) layer."""
+    home = match.get("home", "")
+    away = match.get("away", "")
+    if not home or not away:
+        return None
+
+    for layer in match.get("layers") or []:
+        source = str(layer.get("source", ""))
+        if "Sportsbook" not in source:
+            continue
+        try:
+            home_pct = float(str(layer.get("fav", "")).replace("%", "").strip())
+            away_pct = float(str(layer.get("und", "")).replace("%", "").strip())
+        except (TypeError, ValueError):
+            continue
+        if home_pct == away_pct:
+            return None
+        return home if home_pct > away_pct else away
+    return None
+
+
+def infer_fav_team(match: dict) -> str | None:
+    """Resolve pre-match favorite from sportsbook consensus only."""
+    return fav_team_from_sportsbooks(match)
+
+
 FLAG_CODES = {
     "Mexico": "mex", "South Africa": "rsa", "South Korea": "kor",
     "Czechia": "cze", "Canada": "can", "Bosnia & Herzegovina": "bih",
@@ -276,6 +303,7 @@ def build_archive_entry(match: dict) -> dict:
         ),
         "sourceAccuracy": match.get("sourceAccuracy", {}),
         "layers": match.get("layers", []),
+        "favTeam": infer_fav_team(match),
     }
 
 
@@ -286,6 +314,11 @@ def enrich_completed_match(match: dict) -> dict:
 
     enriched = dict(match)
     entry = build_archive_entry(match)
+    fav_team = infer_fav_team(enriched)
+    if fav_team:
+        enriched["favTeam"] = fav_team
+    else:
+        enriched.pop("favTeam", None)
     enriched["boxScore"] = entry["boxScore"]
     enriched["advancedMetrics"] = entry["advancedMetrics"]
     enriched["insights"] = entry["insights"]

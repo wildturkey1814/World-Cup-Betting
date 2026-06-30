@@ -60,9 +60,21 @@ def matchday_label(matchday: int, lang: str = "en") -> str:
 
 def group_stage_progress(matches: list[dict]) -> dict:
     """Summarize layer-3 completion against the 72-match group stage."""
-    completed = [m for m in matches if m.get("type") == "COMPLETED"]
-    upcoming = [m for m in matches if m.get("type") == "UPCOMING"]
-    in_play = [m for m in matches if m.get("type") == "IN_PLAY"]
+    completed = [
+        m for m in matches
+        if m.get("type") == "COMPLETED"
+        and (m.get("stage") or "Group Stage") == "Group Stage"
+    ]
+    upcoming = [
+        m for m in matches
+        if m.get("type") == "UPCOMING"
+        and (m.get("stage") or "Group Stage") == "Group Stage"
+    ]
+    in_play = [
+        m for m in matches
+        if m.get("type") == "IN_PLAY"
+        and (m.get("stage") or "Group Stage") == "Group Stage"
+    ]
 
     by_md: dict[int, int] = {1: 0, 2: 0, 3: 0}
     for m in completed:

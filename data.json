@@ -1,6 +1,6 @@
 {
-  "currentStage": "Group Stage",
-  "lastUpdated": "June 29, 2026 · 10:42 PM UTC",
+  "currentStage": "Round of 32",
+  "lastUpdated": "June 30, 2026 · 6:09 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9,7 +9,6 @@
       "group": "GROUP_A",
       "stage": "Group Stage",
       "kickoff": "2026-06-11T19:00:00Z",
-      "favTeam": "Mexico",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -22,9 +21,9 @@
       "homeScore": 2,
       "awayScore": 0,
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
-      "kalshiWinProbHome": "2.9%",
-      "polymarketWinProbHome": "1.2%",
-      "polymarketWinProbAway": "0.1%",
+      "kalshiWinProbHome": "3.1%",
+      "polymarketWinProbHome": "1.6%",
+      "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 50.0,
@@ -120,7 +119,6 @@
       "group": "GROUP_A",
       "stage": "Group Stage",
       "kickoff": "2026-06-12T02:00:00Z",
-      "favTeam": "South Korea",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -236,7 +234,6 @@
       "group": "GROUP_D",
       "stage": "Group Stage",
       "kickoff": "2026-06-13T01:00:00Z",
-      "favTeam": "United States",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -249,8 +246,8 @@
       "homeScore": 4,
       "awayScore": 1,
       "score": "UNITED STATES 4 - 1 PARAGUAY",
-      "kalshiWinProbHome": "3.5%",
-      "polymarketWinProbHome": "2.2%",
+      "kalshiWinProbHome": "4.0%",
+      "polymarketWinProbHome": "2.8%",
       "polymarketWinProbAway": "0.0%",
       "kalshiWinProbAway": "0.0%",
       "boxScore": {
@@ -362,7 +359,6 @@
       "group": "GROUP_B",
       "stage": "Group Stage",
       "kickoff": "2026-06-13T19:00:00Z",
-      "favTeam": "Qatar",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -375,7 +371,7 @@
       "homeScore": 1,
       "awayScore": 1,
       "score": "QATAR 1 - 1 SWITZERLAND",
-      "kalshiWinProbAway": "0.8%",
+      "kalshiWinProbAway": "0.7%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.9%",
       "boxScore": {
@@ -473,7 +469,6 @@
       "group": "GROUP_C",
       "stage": "Group Stage",
       "kickoff": "2026-06-13T22:00:00Z",
-      "favTeam": "Brazil",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -487,9 +482,9 @@
       "awayScore": 1,
       "score": "BRAZIL 1 - 1 MOROCCO",
       "kalshiWinProbHome": "6.8%",
-      "kalshiWinProbAway": "1.2%",
+      "kalshiWinProbAway": "3.8%",
       "polymarketWinProbHome": "7.0%",
-      "polymarketWinProbAway": "1.2%",
+      "polymarketWinProbAway": "4.0%",
       "boxScore": {
         "possession": {
           "home": 47.7,
@@ -584,7 +579,6 @@
       "group": "GROUP_C",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T01:00:00Z",
-      "favTeam": "Haiti",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -690,7 +684,6 @@
       "group": "GROUP_D",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T04:00:00Z",
-      "favTeam": "Australia",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -801,7 +794,6 @@
       "group": "GROUP_F",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T20:00:00Z",
-      "favTeam": "Netherlands",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -814,10 +806,10 @@
       "homeScore": 2,
       "awayScore": 2,
       "score": "NETHERLANDS 2 - 2 JAPAN",
-      "kalshiWinProbHome": "5.2%",
-      "kalshiWinProbAway": "0.9%",
-      "polymarketWinProbHome": "5.1%",
-      "polymarketWinProbAway": "0.1%",
+      "kalshiWinProbHome": "6.5%",
+      "kalshiWinProbAway": "1.8%",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "1.9%",
       "boxScore": {
         "possession": {
           "home": 50.3,
@@ -922,7 +914,6 @@
       "group": "GROUP_E",
       "stage": "Group Stage",
       "kickoff": "2026-06-14T23:00:00Z",
-      "favTeam": "Ivory Coast",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -937,7 +928,7 @@
       "score": "IVORY COAST 1 - 0 ECUADOR",
       "kalshiWinProbHome": "0.2%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
@@ -1028,7 +1019,6 @@
       "group": "GROUP_F",
       "stage": "Group Stage",
       "kickoff": "2026-06-15T02:00:00Z",
-      "favTeam": "Sweden",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1159,7 +1149,6 @@
       "group": "GROUP_G",
       "stage": "Group Stage",
       "kickoff": "2026-06-15T19:00:00Z",
-      "favTeam": "Belgium",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1172,7 +1161,7 @@
       "homeScore": 1,
       "awayScore": 1,
       "score": "BELGIUM 1 - 1 EGYPT",
-      "kalshiWinProbHome": "1.0%",
+      "kalshiWinProbHome": "1.1%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "0.1%",
@@ -1270,7 +1259,6 @@
       "group": "GROUP_H",
       "stage": "Group Stage",
       "kickoff": "2026-06-15T22:00:00Z",
-      "favTeam": "Saudi Arabia",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1381,7 +1369,6 @@
       "group": "GROUP_G",
       "stage": "Group Stage",
       "kickoff": "2026-06-16T01:00:00Z",
-      "favTeam": "Iran",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1502,7 +1489,6 @@
       "group": "GROUP_I",
       "stage": "Group Stage",
       "kickoff": "2026-06-16T19:00:00Z",
-      "favTeam": "France",
       "layers": [
         {
           "source": "ELO/Poisson Model",
@@ -1515,9 +1501,9 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "22.4%",
+      "kalshiWinProbHome": "28.7%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "22.9%",
+      "polymarketWinProbHome": "28.0%",
       "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
@@ -1649,9 +1635,9 @@
           "und": "12.2%"
         }
       ],
-      "kalshiWinProbHome": "21.1%",
+      "kalshiWinProbHome": "21.2%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "19.4%",
+      "polymarketWinProbHome": "19.6%",
       "polymarketWinProbAway": "0.0%",
       "score": "ARGENTINA 3 - 0 ALGERIA",
       "homeScore": 3,
@@ -1924,8 +1910,8 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "6.6%",
-      "polymarketWinProbHome": "6.3%",
+      "kalshiWinProbHome": "6.4%",
+      "polymarketWinProbHome": "6.6%",
       "polymarketWinProbAway": "0.1%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
       "homeScore": 1,
@@ -2313,9 +2299,9 @@
           "und": "20.0%"
         }
       ],
-      "kalshiWinProbHome": "5.2%",
+      "kalshiWinProbHome": "6.5%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "5.1%",
+      "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.0%",
       "score": "NETHERLANDS 5 - 1 SWEDEN",
       "homeScore": 5,
@@ -2582,9 +2568,9 @@
           "und": "65.3%"
         }
       ],
-      "kalshiWinProbAway": "0.9%",
+      "kalshiWinProbAway": "1.8%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "0.1%",
+      "polymarketWinProbAway": "1.9%",
       "score": "TUNISIA 0 - 4 JAPAN",
       "homeScore": 0,
       "awayScore": 4,
@@ -2862,7 +2848,7 @@
           "und": "30.0%"
         }
       ],
-      "kalshiWinProbHome": "1.7%",
+      "kalshiWinProbHome": "1.9%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "2.1%",
       "polymarketWinProbAway": "0.0%",
@@ -3142,7 +3128,7 @@
           "und": "5.1%"
         }
       ],
-      "kalshiWinProbHome": "9.6%",
+      "kalshiWinProbHome": "9.3%",
       "polymarketWinProbHome": "10.2%",
       "polymarketWinProbAway": "0.1%",
       "score": "ENGLAND 0 - 0 GHANA",
@@ -3225,8 +3211,7 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "matchday": 2,
-      "kalshiWinProbAway": "0.1%"
+      "matchday": 2
     },
     {
       "id": "match_id1000001666457048",
@@ -3376,31 +3361,40 @@
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "61.7%",
-          "draw": "21.4%",
-          "und": "16.9%"
+          "fav": "60.8%",
+          "draw": "21.6%",
+          "und": "17.6%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
           "fav": "63.6%",
           "draw": "23.2%",
           "und": "13.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "69.2%",
+          "draw": "17.2%",
+          "und": "13.5%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "2.6%",
-      "polymarketWinProbHome": "2.5%",
+      "kalshiWinProbHome": "2.7%",
+      "polymarketWinProbHome": "2.8%",
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "-0.306",
       "awayMomentumFactor": "-0.035",
       "matchday": 2,
-      "score": "COLOMBIA 1 - 0 DR CONGO",
       "homeScore": 1,
       "awayScore": 0,
+      "score": "COLOMBIA 1 - 0 DR CONGO",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Colombia won 1-0.",
       "boxScore": {
         "possession": {
           "home": 41.5,
@@ -3438,7 +3432,6 @@
           }
         ]
       },
-      "insight": "Colombia won 1-0.",
       "advancedMetrics": {
         "xg": {
           "home": 0.92,
@@ -3481,7 +3474,7 @@
       ]
     },
     {
-      "id": "id1000001666456926",
+      "id": "match_id1000001666456926",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3496,37 +3489,45 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "69.3%",
-          "draw": "17.6%",
-          "und": "13.0%"
+          "fav": "50.0%",
+          "draw": "35.9%",
+          "und": "14.1%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "55.1%",
-          "draw": "23.0%",
-          "und": "21.9%"
+          "fav": "53.6%",
+          "draw": "23.3%",
+          "und": "23.0%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "71.0%",
-          "draw": "18.0%",
-          "und": "11.0%"
+          "fav": "69.7%",
+          "draw": "18.2%",
+          "und": "12.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "39.6%",
+          "draw": "22.5%",
+          "und": "37.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.202",
       "awayMomentumFactor": "+0.767",
+      "kalshiWinProbAway": "0.0%",
       "matchday": 3,
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "homeScore": 3,
       "awayScore": 1,
       "score": "BOSNIA & HERZEGOVINA 3 - 1 QATAR",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
       "insight": "Bosnia & Herzegovina won 3-1.",
       "boxScore": {
@@ -3623,7 +3624,7 @@
       ]
     },
     {
-      "id": "id1000001666456924",
+      "id": "match_id1000001666456924",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3638,38 +3639,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "38.4%",
-          "draw": "32.1%",
-          "und": "29.6%"
+          "fav": "32.7%",
+          "draw": "43.1%",
+          "und": "24.2%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "42.4%",
-          "draw": "25.8%",
-          "und": "31.8%"
+          "fav": "41.0%",
+          "draw": "26.1%",
+          "und": "33.0%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "39.4%",
+          "fav": "41.4%",
           "draw": "31.3%",
-          "und": "29.3%"
+          "und": "27.3%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "43.1%",
+          "draw": "26.2%",
+          "und": "30.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.8%",
+      "kalshiWinProbHome": "0.7%",
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbHome": "0.9%",
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.010",
-      "awayMomentumFactor": "-0.733",
+      "awayMomentumFactor": "-0.599",
       "matchday": 3,
-      "score": "SWITZERLAND 2 - 1 CANADA",
       "homeScore": 2,
       "awayScore": 1,
+      "score": "SWITZERLAND 2 - 1 CANADA",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Switzerland won 2-1.",
       "boxScore": {
         "possession": {
           "home": 57.1,
@@ -3717,7 +3727,6 @@
           }
         ]
       },
-      "insight": "Switzerland won 2-1.",
       "advancedMetrics": {
         "xg": {
           "home": 1.67,
@@ -3760,7 +3769,7 @@
       ]
     },
     {
-      "id": "id1000001666456936",
+      "id": "match_id1000001666456936",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3775,21 +3784,28 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "9.2%",
-          "draw": "35.3%",
-          "und": "55.5%"
+          "fav": "13.3%",
+          "draw": "17.8%",
+          "und": "68.9%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "16.2%",
-          "draw": "21.1%",
-          "und": "62.7%"
+          "fav": "15.4%",
+          "draw": "20.8%",
+          "und": "63.8%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "0.0%",
-          "draw": "2.0%",
-          "und": "98.0%"
+          "fav": "11.1%",
+          "draw": "17.2%",
+          "und": "71.7%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "11.4%",
+          "draw": "14.8%",
+          "und": "73.8%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.0%",
@@ -3797,7 +3813,7 @@
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "7.0%",
       "homeMomentumFactor": "+0.024",
-      "awayMomentumFactor": "+0.020",
+      "awayMomentumFactor": "+0.167",
       "matchday": 3,
       "homeScore": 0,
       "awayScore": 3,
@@ -3805,7 +3821,8 @@
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
       "insight": "Brazil won 3-0.",
       "boxScore": {
@@ -3897,7 +3914,7 @@
       ]
     },
     {
-      "id": "id1000001666456938",
+      "id": "match_id1000001666456938",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -3912,29 +3929,36 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "81.9%",
-          "draw": "12.6%",
-          "und": "5.5%"
+          "fav": "81.7%",
+          "draw": "12.9%",
+          "und": "5.4%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "72.5%",
-          "draw": "18.1%",
-          "und": "9.4%"
+          "fav": "75.2%",
+          "draw": "17.1%",
+          "und": "7.7%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "65.3%",
-          "draw": "23.5%",
-          "und": "11.2%"
+          "fav": "84.5%",
+          "draw": "11.3%",
+          "und": "4.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "83.5%",
+          "draw": "11.5%",
+          "und": "5.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "1.2%",
-      "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "1.2%",
-      "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.024",
+      "kalshiWinProbHome": "3.8%",
+      "polymarketWinProbHome": "4.0%",
+      "homeMomentumFactor": "+0.018",
       "awayMomentumFactor": "+0.230",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%",
       "matchday": 3,
       "homeScore": 4,
       "awayScore": 2,
@@ -3942,7 +3966,8 @@
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
       "insight": "Morocco won 4-2.",
       "boxScore": {
@@ -4049,7 +4074,7 @@
       ]
     },
     {
-      "id": "id1000001666456912",
+      "id": "match_id1000001666456912",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4064,38 +4089,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "24.6%",
-          "draw": "24.4%",
-          "und": "51.0%"
+          "fav": "26.7%",
+          "draw": "24.1%",
+          "und": "49.2%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "26.7%",
-          "draw": "24.4%",
-          "und": "48.9%"
+          "fav": "22.4%",
+          "draw": "23.2%",
+          "und": "54.4%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "24.2%",
+          "fav": "25.2%",
           "draw": "23.2%",
-          "und": "52.5%"
+          "und": "51.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "18.7%",
+          "draw": "18.1%",
+          "und": "63.2%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "2.9%",
+      "kalshiWinProbAway": "3.1%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "1.2%",
+      "polymarketWinProbAway": "1.6%",
       "homeMomentumFactor": "-0.109",
       "awayMomentumFactor": "-0.335",
+      "kalshiWinProbHome": "0.0%",
       "matchday": 3,
-      "score": "CZECHIA 0 - 3 MEXICO",
       "homeScore": 0,
       "awayScore": 3,
+      "score": "CZECHIA 0 - 3 MEXICO",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Mexico won 3-0.",
       "boxScore": {
         "possession": {
           "home": 30.8,
@@ -4143,7 +4177,6 @@
           }
         ]
       },
-      "insight": "Mexico won 3-0.",
       "advancedMetrics": {
         "xg": {
           "home": 0.82,
@@ -4186,7 +4219,7 @@
       ]
     },
     {
-      "id": "id1000001666456914",
+      "id": "match_id1000001666456914",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4201,38 +4234,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.7%",
-          "draw": "41.4%",
-          "und": "43.9%"
+          "fav": "16.3%",
+          "draw": "42.1%",
+          "und": "41.6%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "24.5%",
-          "draw": "23.8%",
-          "und": "51.8%"
+          "fav": "23.2%",
+          "draw": "23.4%",
+          "und": "53.4%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
+          "fav": "17.3%",
+          "draw": "24.5%",
+          "und": "58.2%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
           "fav": "15.2%",
-          "draw": "23.2%",
-          "und": "61.6%"
+          "draw": "24.8%",
+          "und": "60.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "+0.283",
+      "homeMomentumFactor": "+0.345",
       "awayMomentumFactor": "+0.439",
+      "kalshiWinProbHome": "0.0%",
       "matchday": 3,
-      "score": "SOUTH AFRICA 1 - 0 SOUTH KOREA",
       "homeScore": 1,
       "awayScore": 0,
+      "score": "SOUTH AFRICA 1 - 0 SOUTH KOREA",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": false
       },
+      "insight": "South Africa won 1-0.",
       "boxScore": {
         "possession": {
           "home": 38.0,
@@ -4270,7 +4312,6 @@
           }
         ]
       },
-      "insight": "South Africa won 1-0.",
       "advancedMetrics": {
         "xg": {
           "home": 1.28,
@@ -4313,7 +4354,7 @@
       ]
     },
     {
-      "id": "id1000001666457078",
+      "id": "match_id1000001666457078",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4328,38 +4369,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "15.9%",
-          "draw": "37.8%",
-          "und": "46.3%"
+          "fav": "26.4%",
+          "draw": "23.1%",
+          "und": "50.5%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "18.7%",
-          "draw": "22.0%",
-          "und": "59.3%"
+          "fav": "16.2%",
+          "draw": "21.1%",
+          "und": "62.7%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "18.2%",
-          "draw": "19.2%",
-          "und": "62.6%"
+          "fav": "25.2%",
+          "draw": "22.2%",
+          "und": "52.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "16.6%",
+          "draw": "16.9%",
+          "und": "66.5%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "3.1%",
+      "kalshiWinProbAway": "4.8%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "3.5%",
+      "polymarketWinProbAway": "5.5%",
       "homeMomentumFactor": "+0.235",
-      "awayMomentumFactor": "-0.557",
+      "awayMomentumFactor": "-0.452",
       "matchday": 3,
-      "score": "ECUADOR 2 - 1 GERMANY",
       "homeScore": 2,
       "awayScore": 1,
+      "score": "ECUADOR 2 - 1 GERMANY",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": false
       },
+      "insight": "Ecuador won 2-1.",
       "boxScore": {
         "possession": {
           "home": 59.9,
@@ -4407,7 +4457,6 @@
           }
         ]
       },
-      "insight": "Ecuador won 2-1.",
       "advancedMetrics": {
         "xg": {
           "home": 1.93,
@@ -4450,7 +4499,7 @@
       ]
     },
     {
-      "id": "id1000001666457080",
+      "id": "match_id1000001666457080",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4466,35 +4515,46 @@
         {
           "source": "Sportsbooks (Consensus)",
           "fav": "6.5%",
-          "draw": "12.5%",
-          "und": "81.0%"
+          "draw": "30.0%",
+          "und": "63.4%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "20.3%",
-          "draw": "22.5%",
-          "und": "57.2%"
+          "fav": "19.6%",
+          "draw": "22.3%",
+          "und": "58.1%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "6.1%",
-          "draw": "11.1%",
-          "und": "82.8%"
+          "fav": "5.1%",
+          "draw": "10.1%",
+          "und": "84.9%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "33.7%",
+          "draw": "19.9%",
+          "und": "46.4%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbAway": "0.2%",
+      "polymarketWinProbAway": "0.4%",
       "homeMomentumFactor": "+0.718",
       "awayMomentumFactor": "-0.156",
       "matchday": 3,
-      "score": "CURACAO 0 - 2 IVORY COAST",
       "homeScore": 0,
       "awayScore": 2,
+      "score": "CURACAO 0 - 2 IVORY COAST",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Ivory Coast won 2-0.",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "boxScore": {
         "possession": {
           "home": 49.0,
@@ -4537,7 +4597,6 @@
           }
         ]
       },
-      "insight": "Ivory Coast won 2-0.",
       "advancedMetrics": {
         "xg": {
           "home": 1.43,
@@ -4577,12 +4636,10 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Ivory Coast's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ],
-      "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      ]
     },
     {
-      "id": "id1000001666456978",
+      "id": "match_id1000001666456978",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4597,37 +4654,45 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "36.9%",
-          "draw": "29.4%",
-          "und": "33.7%"
+          "fav": "50.6%",
+          "draw": "28.0%",
+          "und": "21.4%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "37.7%",
-          "draw": "26.8%",
-          "und": "35.6%"
+          "fav": "38.8%",
+          "draw": "26.5%",
+          "und": "34.7%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "38.4%",
-          "draw": "28.3%",
-          "und": "33.3%"
+          "fav": "52.0%",
+          "draw": "26.5%",
+          "und": "21.4%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "55.3%",
+          "draw": "20.8%",
+          "und": "23.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.9%",
+      "kalshiWinProbHome": "1.8%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbHome": "1.9%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.180",
+      "homeMomentumFactor": "-0.148",
       "awayMomentumFactor": "+0.071",
+      "matchday": 3,
       "homeScore": 1,
       "awayScore": 1,
-      "matchday": 3,
       "score": "JAPAN 1 - 1 SWEDEN",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
       },
       "insight": "The match ended level at 1-1.",
       "boxScore": {
@@ -4714,7 +4779,7 @@
       ]
     },
     {
-      "id": "id1000001666456976",
+      "id": "match_id1000001666456976",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4729,37 +4794,45 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.7%",
-          "draw": "11.8%",
-          "und": "81.5%"
+          "fav": "6.2%",
+          "draw": "27.7%",
+          "und": "66.2%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "10.6%",
-          "draw": "18.8%",
-          "und": "70.7%"
+          "fav": "9.8%",
+          "draw": "18.3%",
+          "und": "71.9%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "1.0%",
-          "draw": "4.0%",
-          "und": "95.0%"
+          "fav": "3.0%",
+          "draw": "9.1%",
+          "und": "87.9%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "6.1%",
+          "draw": "17.4%",
+          "und": "76.4%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
+      "kalshiWinProbAway": "6.5%",
+      "polymarketWinProbAway": "0.1%",
+      "homeMomentumFactor": "+0.450",
+      "awayMomentumFactor": "-0.111",
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "5.2%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "5.1%",
-      "homeMomentumFactor": "+0.569",
-      "awayMomentumFactor": "-0.185",
+      "matchday": 3,
       "homeScore": 1,
       "awayScore": 3,
-      "matchday": 3,
       "score": "TUNISIA 1 - 3 NETHERLANDS",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
       "insight": "Netherlands won 3-1.",
       "boxScore": {
@@ -4856,7 +4929,7 @@
       ]
     },
     {
-      "id": "id1000001666456948",
+      "id": "match_id1000001666456948",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -4871,38 +4944,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "24.9%",
-          "draw": "22.4%",
-          "und": "52.7%"
+          "fav": "27.4%",
+          "draw": "23.2%",
+          "und": "49.5%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "24.9%",
-          "draw": "23.9%",
-          "und": "51.2%"
+          "fav": "19.4%",
+          "draw": "22.2%",
+          "und": "58.4%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "24.2%",
-          "draw": "21.2%",
-          "und": "54.5%"
+          "fav": "26.3%",
+          "draw": "22.2%",
+          "und": "51.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "17.8%",
+          "draw": "17.3%",
+          "und": "64.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "3.5%",
-      "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "2.2%",
+      "kalshiWinProbAway": "4.0%",
+      "polymarketWinProbAway": "2.8%",
       "homeMomentumFactor": "+0.306",
       "awayMomentumFactor": "-0.235",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "matchday": 3,
-      "score": "TURKEY 3 - 2 UNITED STATES",
       "homeScore": 3,
       "awayScore": 2,
+      "score": "TURKEY 3 - 2 UNITED STATES",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": false
       },
+      "insight": "Turkey won 3-2.",
       "boxScore": {
         "possession": {
           "home": 64.7,
@@ -4960,7 +5042,6 @@
           }
         ]
       },
-      "insight": "Turkey won 3-2.",
       "advancedMetrics": {
         "xg": {
           "home": 3.61,
@@ -5003,7 +5084,7 @@
       ]
     },
     {
-      "id": "id1000001666456950",
+      "id": "match_id1000001666456950",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5018,38 +5099,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "36.6%",
-          "draw": "42.6%",
-          "und": "20.8%"
+          "fav": "27.3%",
+          "draw": "50.6%",
+          "und": "22.1%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "30.4%",
-          "draw": "25.4%",
-          "und": "44.2%"
+          "fav": "32.2%",
+          "draw": "25.8%",
+          "und": "42.0%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "36.4%",
-          "draw": "42.4%",
-          "und": "21.2%"
+          "fav": "32.6%",
+          "draw": "43.9%",
+          "und": "23.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "32.2%",
+          "draw": "28.9%",
+          "und": "38.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "-0.017",
+      "homeMomentumFactor": "+0.112",
       "awayMomentumFactor": "+0.235",
       "matchday": 3,
-      "score": "PARAGUAY 0 - 0 AUSTRALIA",
       "homeScore": 0,
       "awayScore": 0,
+      "score": "PARAGUAY 0 - 0 AUSTRALIA",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
       },
       "insight": "The match ended level at 0-0.",
+      "kalshiWinProbHome": "0.0%",
       "boxScore": {
         "possession": {
           "home": 46.3,
@@ -5120,11 +5210,10 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ],
-      "kalshiWinProbHome": "0.0%"
+      ]
     },
     {
-      "id": "id1000001666457014",
+      "id": "match_id1000001666457014",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5139,38 +5228,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "13.4%",
-          "draw": "17.3%",
-          "und": "69.3%"
+          "fav": "18.2%",
+          "draw": "22.2%",
+          "und": "59.6%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "13.3%",
-          "draw": "20.0%",
-          "und": "66.7%"
+          "fav": "14.6%",
+          "draw": "20.5%",
+          "und": "64.8%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "12.1%",
-          "draw": "17.2%",
-          "und": "70.7%"
+          "fav": "18.2%",
+          "draw": "21.2%",
+          "und": "60.6%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "15.5%",
+          "draw": "16.3%",
+          "und": "68.2%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "1.7%",
-      "kalshiWinProbAway": "22.4%",
+      "kalshiWinProbHome": "1.9%",
+      "kalshiWinProbAway": "28.7%",
       "polymarketWinProbHome": "2.1%",
-      "polymarketWinProbAway": "22.9%",
+      "polymarketWinProbAway": "28.0%",
       "homeMomentumFactor": "+0.647",
       "awayMomentumFactor": "+0.007",
       "matchday": 3,
-      "score": "NORWAY 1 - 4 FRANCE",
       "homeScore": 1,
       "awayScore": 4,
+      "score": "NORWAY 1 - 4 FRANCE",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "France won 4-1.",
       "boxScore": {
         "possession": {
           "home": 38.2,
@@ -5228,7 +5326,6 @@
           }
         ]
       },
-      "insight": "France won 4-1.",
       "advancedMetrics": {
         "xg": {
           "home": 0.61,
@@ -5271,7 +5368,7 @@
       ]
     },
     {
-      "id": "id1000001666457016",
+      "id": "match_id1000001666457016",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5286,38 +5383,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "62.0%",
-          "draw": "30.0%",
-          "und": "8.0%"
+          "fav": "78.0%",
+          "draw": "14.2%",
+          "und": "7.8%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "64.5%",
-          "draw": "20.6%",
-          "und": "14.9%"
+          "fav": "62.7%",
+          "draw": "21.1%",
+          "und": "16.1%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "79.8%",
-          "draw": "13.1%",
-          "und": "7.1%"
+          "fav": "79.6%",
+          "draw": "14.3%",
+          "und": "6.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "53.6%",
+          "draw": "13.6%",
+          "und": "32.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.397",
       "awayMomentumFactor": "-0.005",
+      "kalshiWinProbAway": "0.0%",
       "matchday": 3,
-      "score": "SENEGAL 5 - 0 IRAQ",
       "homeScore": 5,
       "awayScore": 0,
+      "score": "SENEGAL 5 - 0 IRAQ",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Senegal won 5-0.",
       "boxScore": {
         "possession": {
           "home": 67.1,
@@ -5375,7 +5481,6 @@
           }
         ]
       },
-      "insight": "Senegal won 5-0.",
       "advancedMetrics": {
         "xg": {
           "home": 3.04,
@@ -5418,7 +5523,7 @@
       ]
     },
     {
-      "id": "id1000001666457004",
+      "id": "match_id1000001666457004",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5433,21 +5538,28 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "36.1%",
-          "draw": "29.0%",
-          "und": "34.9%"
+          "fav": "39.5%",
+          "draw": "27.8%",
+          "und": "32.8%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "25.8%",
-          "draw": "24.1%",
-          "und": "50.1%"
+          "fav": "28.1%",
+          "draw": "24.8%",
+          "und": "47.1%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "34.7%",
-          "draw": "28.6%",
-          "und": "36.7%"
+          "fav": "40.4%",
+          "draw": "27.3%",
+          "und": "32.3%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "37.5%",
+          "draw": "20.0%",
+          "und": "42.5%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.0%",
@@ -5462,9 +5574,11 @@
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
       },
       "insight": "The match ended level at 0-0.",
+      "kalshiWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 52.8,
@@ -5535,11 +5649,10 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ],
-      "kalshiWinProbAway": "0.0%"
+      ]
     },
     {
-      "id": "id1000001666457002",
+      "id": "match_id1000001666457002",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5554,38 +5667,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "14.4%",
-          "draw": "43.5%",
-          "und": "42.0%"
+          "fav": "14.1%",
+          "draw": "38.7%",
+          "und": "47.3%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "28.1%",
-          "draw": "24.8%",
-          "und": "47.2%"
+          "fav": "26.6%",
+          "draw": "24.3%",
+          "und": "49.0%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "14.3%",
-          "draw": "24.5%",
-          "und": "61.2%"
+          "fav": "12.4%",
+          "draw": "21.6%",
+          "und": "66.0%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "16.0%",
+          "draw": "23.9%",
+          "und": "60.2%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "10.6%",
+      "kalshiWinProbAway": "10.7%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "11.2%",
       "homeMomentumFactor": "-0.121",
       "awayMomentumFactor": "-0.320",
       "matchday": 3,
-      "score": "URUGUAY 0 - 1 SPAIN",
       "homeScore": 0,
       "awayScore": 1,
+      "score": "URUGUAY 0 - 1 SPAIN",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Spain won 1-0.",
       "boxScore": {
         "possession": {
           "home": 59.3,
@@ -5623,7 +5745,6 @@
           }
         ]
       },
-      "insight": "Spain won 1-0.",
       "advancedMetrics": {
         "xg": {
           "home": 1.63,
@@ -5666,7 +5787,7 @@
       ]
     },
     {
-      "id": "id1000001666456992",
+      "id": "match_id1000001666456992",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5681,37 +5802,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "38.5%",
-          "draw": "36.9%",
-          "und": "24.5%"
+          "fav": "38.6%",
+          "draw": "36.8%",
+          "und": "24.7%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "35.6%",
-          "draw": "26.8%",
-          "und": "37.7%"
+          "fav": "37.8%",
+          "draw": "26.7%",
+          "und": "35.5%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "39.4%",
-          "draw": "36.4%",
-          "und": "24.2%"
+          "fav": "39.8%",
+          "draw": "35.7%",
+          "und": "24.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "44.9%",
+          "draw": "24.1%",
+          "und": "31.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "+0.028",
+      "homeMomentumFactor": "+0.091",
       "awayMomentumFactor": "-0.041",
       "matchday": 3,
-      "score": "EGYPT 1 - 1 IRAN",
       "homeScore": 1,
       "awayScore": 1,
+      "score": "EGYPT 1 - 1 IRAN",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
       },
+      "insight": "The match ended level at 1-1.",
+      "kalshiWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
           "home": 50.9,
@@ -5754,7 +5885,6 @@
           }
         ]
       },
-      "insight": "The match ended level at 1-1.",
       "advancedMetrics": {
         "xg": {
           "home": 1.18,
@@ -5794,11 +5924,10 @@
           "title": "Tactical Discipline",
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
-      ],
-      "kalshiWinProbAway": "0.0%"
+      ]
     },
     {
-      "id": "id1000001666456990",
+      "id": "match_id1000001666456990",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5813,37 +5942,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.5%",
-          "draw": "12.6%",
-          "und": "80.9%"
+          "fav": "7.9%",
+          "draw": "31.1%",
+          "und": "61.0%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "8.1%",
-          "draw": "17.4%",
-          "und": "74.5%"
+          "fav": "8.9%",
+          "draw": "17.8%",
+          "und": "73.3%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
           "fav": "6.1%",
-          "draw": "11.1%",
-          "und": "82.8%"
+          "draw": "12.2%",
+          "und": "81.6%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "8.4%",
+          "draw": "18.5%",
+          "und": "73.1%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbAway": "1.0%",
+      "kalshiWinProbAway": "1.1%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "1.4%",
-      "homeMomentumFactor": "+0.302",
+      "homeMomentumFactor": "+0.238",
       "awayMomentumFactor": "-0.022",
       "matchday": 3,
-      "score": "NEW ZEALAND 1 - 5 BELGIUM",
       "homeScore": 1,
       "awayScore": 5,
+      "score": "NEW ZEALAND 1 - 5 BELGIUM",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Belgium won 5-1.",
+      "kalshiWinProbHome": "0.0%",
       "boxScore": {
         "possession": {
           "home": 36.2,
@@ -5906,7 +6045,6 @@
           }
         ]
       },
-      "insight": "Belgium won 5-1.",
       "advancedMetrics": {
         "xg": {
           "home": 0.64,
@@ -5946,11 +6084,10 @@
           "title": "Clinical Finishing",
           "body": "Shot conversion rate was decisive — Belgium turned pressure into goals while New Zealand struggled to create clear openings."
         }
-      ],
-      "kalshiWinProbHome": "0.0%"
+      ]
     },
     {
-      "id": "id1000001666457050",
+      "id": "match_id1000001666457050",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -5965,37 +6102,46 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "7.1%",
-          "draw": "27.1%",
-          "und": "65.8%"
+          "fav": "8.1%",
+          "draw": "29.2%",
+          "und": "62.7%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "7.0%",
-          "draw": "16.6%",
-          "und": "76.4%"
+          "fav": "6.3%",
+          "draw": "16.1%",
+          "und": "77.5%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "4.0%",
-          "draw": "10.1%",
-          "und": "85.9%"
+          "fav": "6.1%",
+          "draw": "11.1%",
+          "und": "82.8%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "5.7%",
+          "draw": "17.2%",
+          "und": "77.2%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbAway": "9.6%",
+      "kalshiWinProbAway": "9.3%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "10.2%",
-      "homeMomentumFactor": "+0.638",
+      "homeMomentumFactor": "+0.456",
       "awayMomentumFactor": "+0.254",
       "matchday": 3,
-      "score": "PANAMA 0 - 2 ENGLAND",
       "homeScore": 0,
       "awayScore": 2,
+      "score": "PANAMA 0 - 2 ENGLAND",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "England won 2-0.",
       "boxScore": {
         "possession": {
           "home": 42.0,
@@ -6038,7 +6184,6 @@
           }
         ]
       },
-      "insight": "England won 2-0.",
       "advancedMetrics": {
         "xg": {
           "home": 1.05,
@@ -6081,7 +6226,7 @@
       ]
     },
     {
-      "id": "id1000001666457052",
+      "id": "match_id1000001666457052",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -6096,38 +6241,46 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "53.3%",
-          "draw": "29.4%",
-          "und": "17.3%"
+          "fav": "55.5%",
+          "draw": "27.8%",
+          "und": "16.7%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "61.7%",
-          "draw": "21.4%",
-          "und": "16.9%"
+          "fav": "57.9%",
+          "draw": "22.3%",
+          "und": "19.8%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "54.5%",
-          "draw": "29.3%",
-          "und": "16.2%"
+          "fav": "56.6%",
+          "draw": "26.3%",
+          "und": "17.2%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "62.7%",
+          "draw": "19.1%",
+          "und": "18.3%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "kalshiWinProbHome": "0.3%",
-      "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "-0.492",
+      "homeMomentumFactor": "-0.310",
       "awayMomentumFactor": "-0.138",
       "matchday": 3,
-      "score": "CROATIA 2 - 1 GHANA",
       "homeScore": 2,
       "awayScore": 1,
+      "score": "CROATIA 2 - 1 GHANA",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Croatia won 2-1.",
       "boxScore": {
         "possession": {
           "home": 55.0,
@@ -6175,7 +6328,6 @@
           }
         ]
       },
-      "insight": "Croatia won 2-1.",
       "advancedMetrics": {
         "xg": {
           "home": 2.35,
@@ -6218,7 +6370,7 @@
       ]
     },
     {
-      "id": "id1000001666457038",
+      "id": "match_id1000001666457038",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -6233,28 +6385,35 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "23.6%",
-          "draw": "39.6%",
-          "und": "36.8%"
+          "fav": "21.5%",
+          "draw": "42.5%",
+          "und": "36.0%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "27.6%",
-          "draw": "24.6%",
-          "und": "47.7%"
+          "fav": "29.1%",
+          "draw": "25.0%",
+          "und": "45.8%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "24.2%",
-          "draw": "23.2%",
-          "und": "52.5%"
+          "fav": "25.5%",
+          "draw": "23.5%",
+          "und": "51.0%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "23.1%",
+          "draw": "25.6%",
+          "und": "51.4%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "2.6%",
-      "kalshiWinProbAway": "6.6%",
-      "polymarketWinProbHome": "2.5%",
-      "polymarketWinProbAway": "6.3%",
-      "homeMomentumFactor": "-0.478",
+      "kalshiWinProbHome": "2.7%",
+      "kalshiWinProbAway": "6.4%",
+      "polymarketWinProbHome": "2.8%",
+      "polymarketWinProbAway": "6.6%",
+      "homeMomentumFactor": "-0.306",
       "awayMomentumFactor": "-0.305",
       "matchday": 3,
       "homeScore": 0,
@@ -6263,7 +6422,8 @@
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
       },
       "insight": "The match ended level at 0-0.",
       "boxScore": {
@@ -6339,7 +6499,7 @@
       ]
     },
     {
-      "id": "id1000001666457040",
+      "id": "match_id1000001666457040",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -6354,26 +6514,33 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "40.1%",
-          "draw": "43.6%",
-          "und": "16.3%"
+          "fav": "35.7%",
+          "draw": "43.0%",
+          "und": "21.3%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "49.5%",
-          "draw": "24.2%",
-          "und": "26.3%"
+          "fav": "52.1%",
+          "draw": "23.7%",
+          "und": "24.2%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "54.1%",
-          "draw": "25.5%",
-          "und": "20.4%"
+          "fav": "53.1%",
+          "draw": "22.4%",
+          "und": "24.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "45.5%",
+          "draw": "25.2%",
+          "und": "29.2%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.372",
+      "homeMomentumFactor": "-0.035",
       "awayMomentumFactor": "+0.637",
       "matchday": 3,
       "homeScore": 3,
@@ -6382,7 +6549,8 @@
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": true,
         "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
       },
       "insight": "DR Congo won 3-1.",
       "boxScore": {
@@ -6479,14 +6647,14 @@
       ]
     },
     {
-      "id": "id1000001666457028",
+      "id": "match_id1000001666457028",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
       "type": "COMPLETED",
       "home": "Algeria",
       "away": "Austria",
-      "favTeam": "Algeria",
+      "favTeam": "Austria",
       "homeFlag": "alg",
       "awayFlag": "aut",
       "kickoff": "2026-06-28T02:00:00.000Z",
@@ -6494,38 +6662,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "27.3%",
-          "draw": "47.0%",
-          "und": "25.7%"
+          "fav": "24.6%",
+          "draw": "42.4%",
+          "und": "33.0%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "15.5%",
-          "draw": "20.9%",
-          "und": "63.6%"
+          "fav": "16.7%",
+          "draw": "21.3%",
+          "und": "62.0%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "27.3%",
-          "draw": "46.5%",
-          "und": "26.3%"
+          "fav": "24.2%",
+          "draw": "43.4%",
+          "und": "32.3%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "25.1%",
+          "draw": "24.1%",
+          "und": "50.8%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "+0.080",
+      "homeMomentumFactor": "+0.122",
       "awayMomentumFactor": "-0.069",
       "matchday": 3,
-      "score": "ALGERIA 3 - 3 AUSTRIA",
       "homeScore": 3,
       "awayScore": 3,
+      "score": "ALGERIA 3 - 3 AUSTRIA",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
       },
+      "insight": "The match ended level at 3-3.",
+      "kalshiWinProbHome": "0.0%",
       "boxScore": {
         "possession": {
           "home": 41.0,
@@ -6588,7 +6765,6 @@
           }
         ]
       },
-      "insight": "The match ended level at 3-3.",
       "advancedMetrics": {
         "xg": {
           "home": 0.54,
@@ -6631,7 +6807,7 @@
       ]
     },
     {
-      "id": "id1000001666457026",
+      "id": "match_id1000001666457026",
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
@@ -6646,38 +6822,47 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "6.3%",
-          "draw": "30.3%",
-          "und": "63.4%"
+          "fav": "7.3%",
+          "draw": "31.8%",
+          "und": "61.0%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "4.1%",
+          "fav": "3.4%",
           "draw": "15.0%",
-          "und": "80.9%"
+          "und": "81.6%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "4.0%",
-          "draw": "9.1%",
-          "und": "86.9%"
+          "fav": "5.1%",
+          "draw": "11.2%",
+          "und": "83.7%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "24.3%",
+          "draw": "17.7%",
+          "und": "58.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "21.1%",
-      "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "19.4%",
-      "homeMomentumFactor": "+0.272",
+      "kalshiWinProbAway": "21.2%",
+      "polymarketWinProbAway": "19.6%",
+      "homeMomentumFactor": "+0.231",
       "awayMomentumFactor": "-0.037",
       "matchday": 3,
-      "score": "JORDAN 1 - 3 ARGENTINA",
       "homeScore": 1,
       "awayScore": 3,
+      "score": "JORDAN 1 - 3 ARGENTINA",
       "sourceAccuracy": {
         "Sportsbooks (Consensus)": false,
         "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": true
       },
+      "insight": "Argentina won 3-1.",
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%",
       "boxScore": {
         "possession": {
           "home": 44.9,
@@ -6730,7 +6915,6 @@
           }
         ]
       },
-      "insight": "Argentina won 3-1.",
       "advancedMetrics": {
         "xg": {
           "home": 1.0,
@@ -7005,8 +7189,6 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "3.1%",
-      "polymarketWinProbHome": "3.5%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%"
     },
@@ -7098,10 +7280,10 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "10.6%",
-      "polymarketWinProbHome": "11.2%",
+      "kalshiWinProbHome": "10.7%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "kalshiWinProbAway": "0.0%"
+      "polymarketWinProbHome": "11.2%"
     },
     {
       "id": "espn-760430",
@@ -7219,7 +7401,7 @@
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "matchday": 1,
-      "kalshiWinProbAway": "1.7%",
+      "kalshiWinProbAway": "1.9%",
       "polymarketWinProbAway": "2.1%"
     },
     {
@@ -7341,7 +7523,7 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "9.6%",
+      "kalshiWinProbHome": "9.3%",
       "kalshiWinProbAway": "0.3%",
       "polymarketWinProbHome": "10.2%",
       "polymarketWinProbAway": "0.4%"
@@ -7440,7 +7622,6 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "0.1%",
       "polymarketWinProbHome": "0.1%"
     },
     {
@@ -7552,9 +7733,8 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbAway": "2.6%",
-      "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "kalshiWinProbAway": "2.7%",
+      "polymarketWinProbAway": "2.8%"
     },
     {
       "id": "espn-760438",
@@ -7655,9 +7835,8 @@
         }
       ],
       "matchday": 2,
-      "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "0.1%",
-      "kalshiWinProbHome": "0.0%"
+      "kalshiWinProbHome": "0.0%",
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "espn-760439",
@@ -7775,7 +7954,7 @@
       "matchday": 2,
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "kalshiWinProbHome": "0.8%",
+      "kalshiWinProbHome": "0.7%",
       "polymarketWinProbHome": "0.9%"
     },
     {
@@ -7996,10 +8175,10 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "2.9%",
+      "kalshiWinProbHome": "3.1%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "1.2%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "polymarketWinProbHome": "1.6%"
     },
     {
       "id": "espn-760442",
@@ -8100,9 +8279,9 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "3.5%",
+      "kalshiWinProbHome": "4.0%",
       "kalshiWinProbAway": "0.1%",
-      "polymarketWinProbHome": "2.2%",
+      "polymarketWinProbHome": "2.8%",
       "polymarketWinProbAway": "0.1%"
     },
     {
@@ -8199,10 +8378,10 @@
         }
       ],
       "matchday": 2,
+      "kalshiWinProbAway": "3.8%",
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "1.2%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "1.2%"
+      "polymarketWinProbAway": "4.0%"
     },
     {
       "id": "espn-760448",
@@ -8308,10 +8487,8 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "3.1%",
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbHome": "3.5%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.4%"
     },
     {
       "id": "espn-760453",
@@ -8422,10 +8599,10 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "10.6%",
-      "polymarketWinProbHome": "11.2%",
+      "kalshiWinProbHome": "10.7%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "kalshiWinProbAway": "0.0%"
+      "polymarketWinProbHome": "11.2%"
     },
     {
       "id": "espn-760451",
@@ -8515,10 +8692,10 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "1.0%",
-      "polymarketWinProbHome": "1.4%",
+      "kalshiWinProbHome": "1.1%",
+      "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "kalshiWinProbAway": "0.0%"
+      "polymarketWinProbHome": "1.4%"
     },
     {
       "id": "espn-760450",
@@ -8629,10 +8806,10 @@
         }
       ],
       "matchday": 2,
+      "kalshiWinProbAway": "0.0%",
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "0.0%",
-      "kalshiWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760456",
@@ -8733,10 +8910,10 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "21.1%",
+      "kalshiWinProbHome": "21.2%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "19.4%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "polymarketWinProbHome": "19.6%"
     },
     {
       "id": "espn-760457",
@@ -8844,8 +9021,8 @@
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "matchday": 2,
-      "kalshiWinProbHome": "22.4%",
-      "polymarketWinProbHome": "22.9%"
+      "kalshiWinProbHome": "28.7%",
+      "polymarketWinProbHome": "28.0%"
     },
     {
       "id": "espn-760461",
@@ -8961,57 +9138,31 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "6.6%",
-      "polymarketWinProbHome": "6.3%",
-      "polymarketWinProbAway": "0.1%"
+      "kalshiWinProbHome": "6.4%",
+      "polymarketWinProbHome": "6.6%"
     },
     {
-      "id": "id1000001653452545",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
+      "id": "espn-760486",
       "type": "COMPLETED",
       "home": "South Africa",
       "away": "Canada",
-      "favTeam": "Canada",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-28T19:00Z",
       "homeFlag": "rsa",
       "awayFlag": "can",
-      "kickoff": "2026-06-28T19:00:00.000Z",
-      "meta": "June 28 · 3:00 PM EDT · Group Stage",
       "layers": [
-        {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "14.7%",
-          "draw": "44.0%",
-          "und": "41.3%"
-        },
         {
           "source": "ELO/Poisson Model",
           "fav": "22.3%",
-          "draw": "23.1%",
+          "draw": "--",
           "und": "54.5%"
-        },
-        {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "17.3%",
-          "draw": "38.8%",
-          "und": "43.9%"
         }
       ],
-      "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.2%",
-      "homeMomentumFactor": "+0.098",
-      "awayMomentumFactor": "-0.516",
-      "matchday": 3,
+      "importedFrom": "ESPN",
       "homeScore": 0,
       "awayScore": 1,
       "score": "SOUTH AFRICA 0 - 1 CANADA",
-      "sourceAccuracy": {
-        "Sportsbooks (Consensus)": false,
-        "ELO/Poisson Model": false,
-        "Prediction Markets (Kalshi)": false
-      },
       "insight": "Canada won 1-0.",
       "boxScore": {
         "possession": {
@@ -9089,56 +9240,33 @@
           "title": "Set-Piece Threat",
           "body": "Dead-ball situations proved a key differentiator, with Canada generating danger from corners and free-kicks throughout."
         }
-      ]
+      ],
+      "kalshiWinProbAway": "0.2%",
+      "polymarketWinProbAway": "0.2%"
     },
     {
-      "id": "id1000001653452557",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
+      "id": "espn-760487",
       "type": "COMPLETED",
       "home": "Brazil",
       "away": "Japan",
-      "favTeam": "Brazil",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-29T17:00Z",
       "homeFlag": "bra",
       "awayFlag": "jpn",
-      "kickoff": "2026-06-29T17:00:00.000Z",
-      "meta": "June 29 · 1:00 PM EDT · Group Stage",
       "layers": [
-        {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "55.2%",
-          "draw": "26.2%",
-          "und": "18.6%"
-        },
         {
           "source": "ELO/Poisson Model",
           "fav": "54.5%",
-          "draw": "23.1%",
+          "draw": "--",
           "und": "22.3%"
-        },
-        {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "45.9%",
-          "draw": "40.8%",
-          "und": "13.3%"
         }
       ],
-      "kalshiWinProbHome": "6.8%",
-      "kalshiWinProbAway": "0.9%",
-      "polymarketWinProbHome": "7.0%",
-      "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "-0.088",
-      "awayMomentumFactor": "-0.074",
-      "matchday": 3,
-      "score": "BRAZIL 2 - 1 JAPAN",
+      "importedFrom": "ESPN",
       "homeScore": 2,
       "awayScore": 1,
-      "sourceAccuracy": {
-        "Sportsbooks (Consensus)": true,
-        "ELO/Poisson Model": true,
-        "Prediction Markets (Kalshi)": true
-      },
+      "score": "BRAZIL 2 - 1 JAPAN",
+      "insight": "Brazil won 2-1.",
       "boxScore": {
         "possession": {
           "home": 53.6,
@@ -9186,7 +9314,6 @@
           }
         ]
       },
-      "insight": "Brazil won 2-1.",
       "advancedMetrics": {
         "xg": {
           "home": 2.29,
@@ -9226,94 +9353,233 @@
           "title": "Decisive Moments",
           "body": "The margin was slim but Brazil's ability to capitalise on key moments proved the difference in a tightly contested match."
         }
-      ]
+      ],
+      "kalshiWinProbHome": "6.8%",
+      "polymarketWinProbHome": "7.0%"
     },
     {
-      "id": "id1000001653452547",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
-      "type": "UPCOMING",
-      "home": "Netherlands",
-      "away": "Morocco",
-      "favTeam": "Netherlands",
-      "homeFlag": "ned",
-      "awayFlag": "mar",
-      "kickoff": "2026-06-30T01:00:00.000Z",
-      "meta": "June 29 · 9:00 PM EDT · Group Stage",
+      "id": "espn-760489",
+      "type": "COMPLETED",
+      "home": "Germany",
+      "away": "Paraguay",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-29T20:30Z",
+      "homeFlag": "ger",
+      "awayFlag": "pry",
       "layers": [
         {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "30.0%",
-          "draw": "45.2%",
-          "und": "24.7%"
+          "source": "ELO/Poisson Model",
+          "fav": "61.7%",
+          "draw": "--",
+          "und": "16.9%"
+        }
+      ],
+      "importedFrom": "ESPN",
+      "penaltyNote": "Paraguay advance 4-3 on penalties",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "GERMANY 1 - 1 PARAGUAY",
+      "insight": "Paraguay advanced (1-1, penalties).",
+      "boxScore": {
+        "possession": {
+          "home": 50.8,
+          "away": 49.2
         },
+        "shots": {
+          "home": 7,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 2,
+          "away": 3
+        },
+        "fouls": {
+          "home": 9,
+          "away": 17
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 16,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 78,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.07,
+          "away": 1.5
+        },
+        "fieldTilt": {
+          "home": 53.0,
+          "away": 47.0
+        },
+        "ppda": {
+          "home": 12.5,
+          "away": 10.4
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 426,
+          "away": 440
+        },
+        "finalThirdEntries": {
+          "home": 46,
+          "away": 37
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.57), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ],
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbAway": "0.0%"
+    },
+    {
+      "id": "espn-760488",
+      "type": "COMPLETED",
+      "home": "Netherlands",
+      "away": "Morocco",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "kickoff": "2026-06-30T01:00Z",
+      "homeFlag": "ned",
+      "awayFlag": "mar",
+      "layers": [
         {
           "source": "ELO/Poisson Model",
           "fav": "52.9%",
-          "draw": "23.5%",
+          "draw": "--",
           "und": "23.6%"
-        },
-        {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "41.4%",
-          "draw": "31.3%",
-          "und": "27.3%"
         }
       ],
-      "kalshiWinProbHome": "5.2%",
-      "kalshiWinProbAway": "1.2%",
-      "polymarketWinProbHome": "5.1%",
-      "polymarketWinProbAway": "1.2%",
-      "homeMomentumFactor": "-0.142",
-      "awayMomentumFactor": "+0.126",
-      "matchday": 3
-    },
-    {
-      "id": "id1000001653452553",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
-      "type": "UPCOMING",
-      "home": "United States",
-      "away": "Bosnia & Herzegovina",
-      "favTeam": "United States",
-      "homeFlag": "usa",
-      "awayFlag": "bih",
-      "kickoff": "2026-07-02T00:00:00.000Z",
-      "meta": "July 1 · 8:00 PM EDT · Group Stage",
-      "layers": [
+      "importedFrom": "ESPN",
+      "penaltyNote": "Morocco advance 3-2 on penalties",
+      "homeScore": 1,
+      "awayScore": 1,
+      "score": "NETHERLANDS 1 - 1 MOROCCO",
+      "insight": "Morocco advanced (1-1, penalties).",
+      "boxScore": {
+        "possession": {
+          "home": 47.1,
+          "away": 52.9
+        },
+        "shots": {
+          "home": 10,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 4
+        },
+        "corners": {
+          "home": 5,
+          "away": 2
+        },
+        "fouls": {
+          "home": 16,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 13,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 74,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.62,
+          "away": 1.48
+        },
+        "fieldTilt": {
+          "home": 53.7,
+          "away": 46.3
+        },
+        "ppda": {
+          "home": 12.2,
+          "away": 10.1
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 414,
+          "away": 401
+        },
+        "finalThirdEntries": {
+          "home": 43,
+          "away": 41
+        }
+      },
+      "insights": [
         {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "69.7%",
-          "draw": "19.7%",
-          "und": "10.6%"
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
         },
         {
-          "source": "ELO/Poisson Model",
-          "fav": "67.1%",
-          "draw": "19.9%",
-          "und": "13.0%"
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 3.1), both teams were wasteful in front of goal when it mattered most."
         },
         {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "72.0%",
-          "draw": "19.0%",
-          "und": "9.0%"
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "kalshiWinProbHome": "3.5%",
-      "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "2.2%",
-      "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.542",
-      "awayMomentumFactor": "+0.038",
-      "matchday": 3
+      "kalshiWinProbAway": "3.8%",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "4.0%"
     },
     {
-      "id": "id1000001653452561",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760490",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "Ivory Coast",
@@ -9326,81 +9592,43 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "24.1%",
-          "draw": "42.8%",
-          "und": "33.1%"
+          "fav": "37.4%",
+          "draw": "--",
+          "und": "62.6%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "28.5%",
-          "draw": "24.9%",
-          "und": "46.6%"
+          "fav": "38.5%",
+          "draw": "--",
+          "und": "61.5%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "26.3%",
-          "draw": "27.3%",
-          "und": "46.5%"
+          "fav": "36.1%",
+          "draw": "--",
+          "und": "63.9%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "36.4%",
+          "draw": "--",
+          "und": "63.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
+      "venue": null,
       "kalshiWinProbHome": "0.2%",
-      "kalshiWinProbAway": "1.7%",
-      "polymarketWinProbHome": "0.2%",
+      "kalshiWinProbAway": "1.9%",
+      "polymarketWinProbHome": "0.4%",
       "polymarketWinProbAway": "2.1%",
-      "homeMomentumFactor": "-0.171",
-      "awayMomentumFactor": "+0.395",
-      "matchday": 3
+      "homeMomentumFactor": "-0.160",
+      "awayMomentumFactor": "+0.337",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452541",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
-      "type": "IN_PLAY",
-      "home": "Germany",
-      "away": "Paraguay",
-      "favTeam": "Germany",
-      "homeFlag": "ger",
-      "awayFlag": "pry",
-      "kickoff": "2026-06-29T20:30:00.000Z",
-      "meta": "June 29 · 4:30 PM EDT · Group Stage",
-      "layers": [
-        {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "56.3%",
-          "draw": "33.4%",
-          "und": "10.3%"
-        },
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "61.7%",
-          "draw": "21.4%",
-          "und": "16.9%"
-        },
-        {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "73.7%",
-          "draw": "18.2%",
-          "und": "8.1%"
-        }
-      ],
-      "kalshiWinProbHome": "3.1%",
-      "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "3.5%",
-      "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.496",
-      "awayMomentumFactor": "+0.004",
-      "matchday": 3,
-      "liveScore": "1 - 1",
-      "homeScore": 1,
-      "awayScore": 1,
-      "liveMinute": "99'",
-      "livePhase": "SECOND HALF"
-    },
-    {
-      "id": "id1000001653452543",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760492",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "France",
@@ -9413,117 +9641,43 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "57.7%",
-          "draw": "31.4%",
+          "fav": "89.2%",
+          "draw": "--",
           "und": "10.8%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "60.8%",
-          "draw": "21.6%",
-          "und": "17.6%"
+          "fav": "79.4%",
+          "draw": "--",
+          "und": "20.6%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "78.0%",
-          "draw": "15.0%",
-          "und": "7.0%"
+          "fav": "91.6%",
+          "draw": "--",
+          "und": "8.4%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "90.0%",
+          "draw": "--",
+          "und": "10.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "22.4%",
+      "venue": null,
+      "kalshiWinProbHome": "28.7%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "22.9%",
+      "polymarketWinProbHome": "28.0%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "+0.081",
-      "awayMomentumFactor": "+0.055",
-      "matchday": 3
+      "homeMomentumFactor": "+0.321",
+      "awayMomentumFactor": "+0.099",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452503",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
-      "type": "UPCOMING",
-      "home": "Australia",
-      "away": "Egypt",
-      "favTeam": "Egypt",
-      "homeFlag": "aus",
-      "awayFlag": "egy",
-      "kickoff": "2026-07-03T18:00:00.000Z",
-      "meta": "July 3 · 2:00 PM EDT · Group Stage",
-      "layers": [
-        {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "28.1%",
-          "draw": "33.3%",
-          "und": "38.6%"
-        },
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "57.2%",
-          "draw": "22.5%",
-          "und": "20.3%"
-        },
-        {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "28.3%",
-          "draw": "33.3%",
-          "und": "38.4%"
-        }
-      ],
-      "kalshiWinProbHome": "0.1%",
-      "kalshiWinProbAway": "0.1%",
-      "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.192",
-      "awayMomentumFactor": "+0.065",
-      "matchday": 3
-    },
-    {
-      "id": "id1000001653452569",
-      "stage": "Group Stage",
-      "group": "Group Stage",
-      "side": "left",
-      "type": "UPCOMING",
-      "home": "Argentina",
-      "away": "Cape Verde",
-      "favTeam": "Argentina",
-      "homeFlag": "arg",
-      "awayFlag": "cpv",
-      "kickoff": "2026-07-03T22:00:00.000Z",
-      "meta": "July 3 · 6:00 PM EDT · Group Stage",
-      "layers": [
-        {
-          "source": "Sportsbooks (Consensus)",
-          "fav": "82.6%",
-          "draw": "12.1%",
-          "und": "5.3%"
-        },
-        {
-          "source": "ELO/Poisson Model",
-          "fav": "81.8%",
-          "draw": "15.0%",
-          "und": "3.2%"
-        },
-        {
-          "source": "Prediction Markets (Kalshi)",
-          "fav": "85.7%",
-          "draw": "11.2%",
-          "und": "3.1%"
-        }
-      ],
-      "kalshiWinProbHome": "21.1%",
-      "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "19.4%",
-      "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.097",
-      "awayMomentumFactor": "+0.315",
-      "matchday": 3
-    },
-    {
-      "id": "id1000001653452563",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760491",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "Mexico",
@@ -9536,35 +9690,43 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "32.7%",
-          "draw": "49.1%",
-          "und": "18.2%"
+          "fav": "64.8%",
+          "draw": "--",
+          "und": "35.2%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "58.2%",
-          "draw": "22.2%",
-          "und": "19.5%"
+          "fav": "68.1%",
+          "draw": "--",
+          "und": "31.9%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "44.4%",
-          "draw": "32.3%",
-          "und": "23.2%"
+          "fav": "65.2%",
+          "draw": "--",
+          "und": "34.8%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "65.6%",
+          "draw": "--",
+          "und": "34.4%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "2.9%",
+      "venue": null,
+      "kalshiWinProbHome": "3.1%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "1.2%",
+      "polymarketWinProbHome": "1.6%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.308",
-      "awayMomentumFactor": "+0.326",
-      "matchday": 3
+      "homeMomentumFactor": "-0.148",
+      "awayMomentumFactor": "+0.259",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452565",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760495",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "England",
@@ -9577,34 +9739,42 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "74.4%",
-          "draw": "17.9%",
-          "und": "7.7%"
+          "fav": "87.3%",
+          "draw": "--",
+          "und": "12.7%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "71.4%",
-          "draw": "18.5%",
-          "und": "10.1%"
+          "fav": "86.7%",
+          "draw": "--",
+          "und": "13.3%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "76.8%",
-          "draw": "17.2%",
-          "und": "6.1%"
+          "fav": "92.8%",
+          "draw": "--",
+          "und": "7.2%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "92.0%",
+          "draw": "--",
+          "und": "8.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "9.6%",
+      "venue": null,
+      "kalshiWinProbHome": "9.3%",
       "polymarketWinProbHome": "10.2%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "+0.063",
-      "awayMomentumFactor": "+0.186",
-      "matchday": 3
+      "homeMomentumFactor": "+0.222",
+      "awayMomentumFactor": "+0.180",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452555",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760493",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "Belgium",
@@ -9617,35 +9787,92 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "43.2%",
-          "draw": "29.6%",
-          "und": "27.2%"
+          "fav": "61.2%",
+          "draw": "--",
+          "und": "38.8%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "47.2%",
-          "draw": "24.8%",
-          "und": "28.1%"
+          "fav": "62.8%",
+          "draw": "--",
+          "und": "37.2%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "43.4%",
-          "draw": "29.3%",
-          "und": "27.3%"
+          "fav": "61.4%",
+          "draw": "--",
+          "und": "38.6%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "61.6%",
+          "draw": "--",
+          "und": "38.4%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "1.0%",
+      "venue": null,
+      "kalshiWinProbHome": "1.1%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "1.4%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.102",
-      "awayMomentumFactor": "-0.516",
-      "matchday": 3
+      "homeMomentumFactor": "+0.149",
+      "awayMomentumFactor": "-0.551",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452551",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760494",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "United States",
+      "away": "Bosnia & Herzegovina",
+      "favTeam": "United States",
+      "homeFlag": "usa",
+      "awayFlag": "bih",
+      "kickoff": "2026-07-02T00:00:00.000Z",
+      "meta": "July 1 · 8:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "86.8%",
+          "draw": "--",
+          "und": "13.2%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "73.6%",
+          "draw": "--",
+          "und": "26.4%"
+        },
+        {
+          "source": "Prediction Markets (Kalshi)",
+          "fav": "88.9%",
+          "draw": "--",
+          "und": "11.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "86.9%",
+          "draw": "--",
+          "und": "13.1%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+        }
+      ],
+      "venue": null,
+      "kalshiWinProbHome": "4.0%",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbHome": "2.8%",
+      "polymarketWinProbAway": "0.0%",
+      "homeMomentumFactor": "-0.385",
+      "awayMomentumFactor": "-0.024",
+      "importedFrom": "ESPN"
+    },
+    {
+      "id": "espn-760497",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "Spain",
@@ -9658,35 +9885,43 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "54.6%",
-          "draw": "36.0%",
-          "und": "9.4%"
+          "fav": "88.3%",
+          "draw": "--",
+          "und": "11.7%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "50.6%",
-          "draw": "24.0%",
-          "und": "25.4%"
+          "fav": "68.8%",
+          "draw": "--",
+          "und": "31.2%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "75.8%",
-          "draw": "17.2%",
-          "und": "7.1%"
+          "fav": "90.1%",
+          "draw": "--",
+          "und": "9.9%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "87.4%",
+          "draw": "--",
+          "und": "12.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "10.6%",
+      "venue": null,
+      "kalshiWinProbHome": "10.7%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "11.2%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "-0.301",
-      "awayMomentumFactor": "+0.228",
-      "matchday": 3
+      "homeMomentumFactor": "-0.102",
+      "awayMomentumFactor": "+0.285",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452549",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760496",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "Portugal",
@@ -9699,35 +9934,43 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "54.3%",
-          "draw": "26.4%",
-          "und": "19.3%"
+          "fav": "69.2%",
+          "draw": "--",
+          "und": "30.8%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "43.6%",
-          "draw": "25.5%",
-          "und": "30.9%"
+          "fav": "56.4%",
+          "draw": "--",
+          "und": "43.6%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "55.6%",
-          "draw": "26.3%",
-          "und": "18.2%"
+          "fav": "73.9%",
+          "draw": "--",
+          "und": "26.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "71.7%",
+          "draw": "--",
+          "und": "28.3%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "6.6%",
+      "venue": null,
+      "kalshiWinProbHome": "6.4%",
       "kalshiWinProbAway": "0.3%",
-      "polymarketWinProbHome": "6.3%",
+      "polymarketWinProbHome": "6.6%",
       "polymarketWinProbAway": "0.4%",
-      "homeMomentumFactor": "-0.235",
-      "awayMomentumFactor": "-0.234",
-      "matchday": 3
+      "homeMomentumFactor": "-0.116",
+      "awayMomentumFactor": "-0.120",
+      "importedFrom": "ESPN"
     },
     {
-      "id": "id1000001653452505",
-      "stage": "Group Stage",
-      "group": "Group Stage",
+      "id": "espn-760498",
+      "stage": "Round of 32",
+      "group": "Round of 32",
       "side": "left",
       "type": "UPCOMING",
       "home": "Switzerland",
@@ -9740,30 +9983,136 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "35.5%",
-          "draw": "43.5%",
-          "und": "21.0%"
+          "fav": "62.8%",
+          "draw": "--",
+          "und": "37.2%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "62.2%",
-          "draw": "21.2%",
-          "und": "16.6%"
+          "fav": "78.1%",
+          "draw": "--",
+          "und": "21.9%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "47.5%",
-          "draw": "29.3%",
-          "und": "23.2%"
+          "fav": "66.6%",
+          "draw": "--",
+          "und": "33.4%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "68.1%",
+          "draw": "--",
+          "und": "31.9%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "0.8%",
+      "venue": null,
+      "kalshiWinProbHome": "0.7%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "0.9%",
       "polymarketWinProbAway": "0.0%",
-      "homeMomentumFactor": "+0.086",
-      "awayMomentumFactor": "-0.179",
-      "matchday": 3
+      "homeMomentumFactor": "+0.191",
+      "awayMomentumFactor": "-0.244",
+      "importedFrom": "ESPN"
+    },
+    {
+      "id": "espn-760499",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Australia",
+      "away": "Egypt",
+      "favTeam": "Egypt",
+      "homeFlag": "aus",
+      "awayFlag": "egy",
+      "kickoff": "2026-07-03T18:00:00.000Z",
+      "meta": "July 3 · 2:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "42.1%",
+          "draw": "--",
+          "und": "57.9%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "70.5%",
+          "draw": "--",
+          "und": "29.5%"
+        },
+        {
+          "source": "Prediction Markets (Kalshi)",
+          "fav": "42.4%",
+          "draw": "--",
+          "und": "57.6%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "46.0%",
+          "draw": "--",
+          "und": "54.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+        }
+      ],
+      "venue": null,
+      "kalshiWinProbHome": "0.1%",
+      "kalshiWinProbAway": "0.1%",
+      "polymarketWinProbHome": "0.1%",
+      "polymarketWinProbAway": "0.1%",
+      "homeMomentumFactor": "+0.177",
+      "awayMomentumFactor": "+0.056",
+      "importedFrom": "ESPN"
+    },
+    {
+      "id": "espn-760500",
+      "stage": "Round of 32",
+      "group": "Round of 32",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Argentina",
+      "away": "Cape Verde",
+      "favTeam": "Argentina",
+      "homeFlag": "arg",
+      "awayFlag": "cpv",
+      "kickoff": "2026-07-03T22:00:00.000Z",
+      "meta": "July 3 · 6:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "90.6%",
+          "draw": "--",
+          "und": "9.4%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "95.6%",
+          "draw": "--",
+          "und": "4.4%"
+        },
+        {
+          "source": "Prediction Markets (Kalshi)",
+          "fav": "96.5%",
+          "draw": "--",
+          "und": "3.5%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "96.4%",
+          "draw": "--",
+          "und": "3.6%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+        }
+      ],
+      "venue": null,
+      "kalshiWinProbHome": "21.2%",
+      "kalshiWinProbAway": "0.0%",
+      "polymarketWinProbHome": "19.6%",
+      "polymarketWinProbAway": "0.0%",
+      "homeMomentumFactor": "+0.106",
+      "awayMomentumFactor": "+0.191",
+      "importedFrom": "ESPN"
     },
     {
       "id": "id1000001653452507",
@@ -9781,47 +10130,97 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "45.7%",
-          "draw": "42.1%",
-          "und": "12.2%"
+          "fav": "45.5%",
+          "draw": "42.4%",
+          "und": "12.1%"
         },
         {
           "source": "ELO/Poisson Model",
-          "fav": "58.2%",
+          "fav": "58.3%",
           "draw": "22.2%",
           "und": "19.5%"
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "63.4%",
-          "draw": "23.8%",
-          "und": "12.9%"
+          "fav": "64.6%",
+          "draw": "23.2%",
+          "und": "12.1%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "57.0%",
+          "draw": "19.5%",
+          "und": "23.5%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
-      "kalshiWinProbHome": "2.6%",
-      "kalshiWinProbAway": "0.1%",
-      "polymarketWinProbHome": "2.5%",
+      "venue": null,
+      "kalshiWinProbHome": "2.7%",
+      "polymarketWinProbHome": "2.8%",
       "polymarketWinProbAway": "0.1%",
-      "homeMomentumFactor": "-0.238",
-      "awayMomentumFactor": "-0.143",
+      "homeMomentumFactor": "-0.203",
+      "awayMomentumFactor": "-0.123",
+      "matchday": 3
+    },
+    {
+      "id": "id1000001653452511",
+      "stage": "Group Stage",
+      "group": "Group Stage",
+      "side": "left",
+      "type": "UPCOMING",
+      "home": "Canada",
+      "away": "Morocco",
+      "favTeam": "Morocco",
+      "homeFlag": "can",
+      "awayFlag": "mar",
+      "kickoff": "2026-07-04T17:00:00.000Z",
+      "meta": "July 4 · 1:00 PM EDT · Group Stage",
+      "layers": [
+        {
+          "source": "Sportsbooks (Consensus)",
+          "fav": "20.1%",
+          "draw": "26.1%",
+          "und": "53.8%"
+        },
+        {
+          "source": "ELO/Poisson Model",
+          "fav": "29.8%",
+          "draw": "25.2%",
+          "und": "45.0%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "24.6%",
+          "draw": "19.4%",
+          "und": "56.0%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: implied from tournament winner odds (dampened proxy)."
+        }
+      ],
+      "venue": null,
+      "kalshiWinProbHome": "0.2%",
+      "kalshiWinProbAway": "3.8%",
+      "polymarketWinProbHome": "0.2%",
+      "polymarketWinProbAway": "4.0%",
+      "homeMomentumFactor": "-0.382",
+      "awayMomentumFactor": "+0.107",
       "matchday": 3
     }
   ],
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 74,
-    "upcomingGroupMatches": 13,
-    "liveGroupMatches": 1,
+    "completedGroupMatches": 72,
+    "upcomingGroupMatches": 2,
+    "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 26
+      "3": 24
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "June 29, 2026 · 10:42 PM UTC",
+  "kalshiUpdated": "June 30, 2026 · 6:09 AM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -9846,5 +10245,5 @@
     "Turkey",
     "Uruguay"
   ],
-  "polymarketUpdated": "June 29, 2026 · 10:42 PM UTC"
+  "polymarketUpdated": "June 30, 2026 · 6:09 AM UTC"
 }

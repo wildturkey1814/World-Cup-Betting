@@ -409,6 +409,14 @@ class ESPNClient:
             away = next((c for c in competitors
                          if c.get("homeAway") == "away"), {})
 
+            notes = competition.get("notes") or []
+            pen_note = ""
+            for note in notes:
+                text = str(note.get("text") or note.get("headline") or "")
+                if "penalt" in text.lower():
+                    pen_note = text
+                    break
+
             results.append({
                 "espnId":    event.get("id"),
                 "kickoff":   event.get("date", ""),
@@ -421,6 +429,7 @@ class ESPNClient:
                 "status":    status_type.get("name", ""),
                 "statusDetail": status_type.get("detail", ""),
                 "state":     status_type.get("state", ""),
+                "penaltyNote": pen_note,
             })
         return results
 

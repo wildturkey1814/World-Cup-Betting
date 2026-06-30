@@ -30,8 +30,9 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 
 from data_utils import OUTPUT_FILE, atomic_write, format_utc_display, load_data
-from match_stats import FLAG_CODES, enrich_completed_match
+from match_stats import FLAG_CODES, enrich_completed_match, infer_fav_team
 from matchday_utils import group_stage_progress, tag_matchdays
+from stage_utils import GROUP_STAGE, ROUND_OF_32, infer_stage, parse_penalty_winner
 from public_scores import (
     TOURNAMENT_END,
     TOURNAMENT_START,
@@ -159,14 +160,17 @@ def _build_record_from_espn(espn: dict) -> dict:
     hg, ag = int(espn["homeScore"]), int(espn["awayScore"])
     is_draw = hg == ag
     home_won = hg > ag
+    kickoff = espn.get("kickoff") or ""
+    stage = infer_stage(home, away, kickoff)
+    pen = espn.get("penaltyNote") or ""
     record: dict = {
         "id": f"espn-{espn.get('espnId') or pair_key(home, away)}",
         "type": "COMPLETED",
         "home": home,
         "away": away,
-        "stage": "Group Stage",
-        "group": "Group Stage",
-        "kickoff": espn.get("kickoff") or "",
+        "stage": stage,
+        "group": stage,
+        "kickoff": kickoff,
         "homeScore": hg,
         "awayScore": ag,
         "score": _score_line(home, away, hg, ag),
@@ -175,13 +179,24 @@ def _build_record_from_espn(espn: dict) -> dict:
         "layers": [],
         "importedFrom": "ESPN",
     }
-    if is_draw:
+    if pen:
+        record["penaltyNote"] = pen
+    winner = parse_penalty_winner(pen, home, away)
+    if winner:
+        record["insight"] = f"{winner} advanced ({hg}-{ag}, penalties)."
+    elif is_draw:
         record["insight"] = f"The match ended level at {hg}-{ag}."
     elif home_won:
         record["insight"] = f"{home} won {hg}-{ag}."
     else:
         record["insight"] = f"{away} won {ag}-{hg}."
-    return enrich_completed_match(record)
+    record = enrich_completed_match(record)
+    fav = infer_fav_team(record)
+    if fav:
+        record["favTeam"] = fav
+    else:
+        record.pop("favTeam", None)
+    return record
 
 
 def import_missing_completed(

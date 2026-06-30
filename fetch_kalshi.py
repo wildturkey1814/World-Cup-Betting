@@ -31,6 +31,7 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
 from data_utils import atomic_write, format_utc_display, load_data
+from fetch_odds import format_knockout_layer, is_knockout_stage
 
 # ── Logging ────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -370,6 +371,8 @@ def main() -> None:
                 "draw":   pct(odds["draw"]),
                 "und":    pct(odds["away"]),
             }
+            if is_knockout_stage(match.get("stage")):
+                kalshi_layer = format_knockout_layer(kalshi_layer)
             layers = match.get("layers", [])
             replaced = False
             for i, layer in enumerate(layers):

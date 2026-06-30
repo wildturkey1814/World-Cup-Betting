@@ -66,7 +66,12 @@ def main() -> None:
     data["knockoutEliminated"] = sorted(eliminated)
 
     from matchday_utils import group_stage_progress, tag_matchdays
+    from knockout_layers import enrich_all_knockout_matches
+
     tag_matchdays(matches)
+    enriched = enrich_all_knockout_matches(matches)
+    if enriched:
+        log.info("Ensured baseline ELO layers on %d knockout match(es).", enriched)
     data["groupStageProgress"] = group_stage_progress(matches)
 
     atomic_write(OUTPUT_FILE, data)
