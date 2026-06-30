@@ -303,6 +303,11 @@ body[data-match-state="completed"]:not(.has-live) #live-section{display:none!imp
 /* ── SOURCE TABLE ── */
 .sources-table{width:100%;padding:0 18px;}
 .sources-header{display:grid;grid-template-columns:1fr 68px 68px 68px;padding:7px 0 5px;border-bottom:1px solid var(--border);}
+.sources-table.knockout .sources-header,
+.sources-table.knockout .source-row,
+.sources-table.knockout .supercharger-row{grid-template-columns:1fr 90px 90px;}
+.knockout-section-label{font-size:12px;font-weight:800;color:var(--gold-hi);letter-spacing:0.3px;padding:14px 0 10px;border-bottom:1px solid rgba(232,160,32,0.2);margin-bottom:14px;}
+.knockout-completed-block{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);}
 .sources-header span{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-lo);text-align:center;}
 .sources-header span:first-child{text-align:left;}
 .source-row{display:grid;grid-template-columns:1fr 68px 68px 68px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03);align-items:center;}
@@ -640,7 +645,11 @@ const DICT = {
     scTooltip: 'Tournament Momentum Factor (χ): rolling average of result divergence vs ELO expectations and xG efficiency. Positive χ means a team is outperforming baseline form in the tournament.',
     scFootnote: 'Enhanced prediction model based on group-stage momentum.',
     zoneMex: 'Mexico Base Zone', zoneCen: 'Central Base Zone', zoneEast: 'East Base Zone', zoneWest: 'West Base Zone',
-    waitingFor: 'Awaiting Match Settlement', groupStage: 'Group Stage Tier', bracketR32: 'Round of 32 Grid', bracketR16: 'Round of 16 Bracket', bracketQF: 'Quarter-Finals Grid',
+    waitingFor: 'Awaiting Match Settlement', groupStage: 'Group Stage Tier', r32: 'Round of 32', bracketR32: 'Round of 32 Grid', bracketR16: 'Round of 16 Bracket', bracketQF: 'Quarter-Finals Grid',
+    r32Progress: 'Round of 32 progress',
+    knockoutUpcoming: 'Upcoming & live',
+    knockoutCompleted: 'Completed',
+    winOnlyNote: 'Knockout — win or go home (extra time & penalties if level after 90)',
     matchday1: 'Matchday 1', matchday2: 'Matchday 2', matchday3: 'Matchday 3',
     matchdayProgress: 'Group stage progress',
     matchdayComplete: 'complete',
@@ -852,6 +861,26 @@ try{
 const expandedGroups=new Set();
 const STAGES=['Group Stage','Round of 32','Round of 16','Quarter-Finals','Semi-Finals','Final'];
 const STAGE_KEYS={'Group Stage':'groupStage','Round of 32':'r32','Round of 16':'r16','Quarter-Finals':'quarters','Semi-Finals':'semis','Final':'final'};
+function isKnockoutStage(stage){return !!stage&&stage!=='Group Stage';}
+function resolveKnockoutOutcome(match,hScore,aScore){
+  const knockout=isKnockoutStage(match.stage||'Group Stage');
+  if(!knockout){
+    const homeWon=hScore>aScore,awayWon=aScore>hScore,isDraw=hScore===aScore;
+    return {homeWon,awayWon,isDraw};
+  }
+  if(hScore!==aScore){
+    return {homeWon:hScore>aScore,awayWon:aScore>hScore,isDraw:false};
+  }
+  const note=match.penaltyNote||match.insight||'';
+  if(note&&/penalt/i.test(note)){
+    const home=match.home||'',away=match.away||'';
+    if(home&&note.toLowerCase().includes(home.toLowerCase())&&/advance/i.test(note))
+      return {homeWon:true,awayWon:false,isDraw:false};
+    if(away&&note.toLowerCase().includes(away.toLowerCase())&&/advance/i.test(note))
+      return {homeWon:false,awayWon:true,isDraw:false};
+  }
+  return {homeWon:false,awayWon:false,isDraw:false};
+}
 
 /* ── LIVE MATCH TELEMETRY ENGINE ── */
 const liveTrackers={};
@@ -1348,6 +1377,7 @@ function flipCard(id){
 /* ── RECO ENGINE ── */
 function calcRecoForMatch(match){
   const layers=match.layers||[];if(!layers.length)return null;
+  const knockout=isKnockoutStage(match.stage||'Group Stage');
   function p(s){return(!s||s==='--')?null:parseFloat(s);}
   const favIsHome=match.favTeam===match.home;
   let fv=[],dv=[],uv=[];
@@ -1366,24 +1396,28 @@ function calcRecoForMatch(match){
     }
     return null;
   }
-  const favIsPlurality=af>=ad&&af>=au;
-  const drawIsPlurality=ad>af&&ad>=au;
-  const undIsPlurality=au>af&&au>ad;
-  const top=Math.max(af,ad,au);
-  const spread=top-Math.min(af,ad,au);
+  const favIsPlurality=knockout?(af>=au):(af>=ad&&af>=au);
+  const undIsPlurality=knockout?(au>af):(au>af&&au>ad);
+  const top=knockout?Math.max(af,au):Math.max(af,ad,au);
+  const spread=knockout?(Math.abs(af-au)):(top-Math.min(af,ad,au));
 
   if(af>=65)return{type:'back',cls:'reco-back',call:d.recoBack,tipKey:'tipBack',sub:`${af.toFixed(1)}% avg — ${fv.length} sources aligned`};
 
-  if(ad>=30&&(drawIsPlurality||(ad>=af-6&&af<42))){
-    return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% avg draw — elevated share, no clear winner`};
-  }
-  if(drawIsPlurality&&ad>=28){
-    return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% draw leads — tight three-way market`};
+  if(!knockout){
+    const drawIsPlurality=ad>af&&ad>=au;
+    if(ad>=30&&(drawIsPlurality||(ad>=af-6&&af<42))){
+      return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% avg draw — elevated share, no clear winner`};
+    }
+    if(drawIsPlurality&&ad>=28){
+      return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% draw leads — tight three-way market`};
+    }
   }
 
   if(favIsPlurality&&af>=40&&(af>=au+8||af>=45)){
-    if(af>=58)return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% avg — favorite leads, ${ad.toFixed(1)}% draw`};
-    return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% favorite — leads draw (${ad.toFixed(1)}%) and underdog (${au.toFixed(1)}%)`};
+    const sub=knockout
+      ?`${af.toFixed(1)}% favorite — leads underdog (${au.toFixed(1)}%)`
+      :(af>=58?`${af.toFixed(1)}% avg — favorite leads, ${ad.toFixed(1)}% draw`:`${af.toFixed(1)}% favorite — leads draw (${ad.toFixed(1)}%) and underdog (${au.toFixed(1)}%)`);
+    return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub};
   }
 
   const div=checkDivergence();
@@ -1393,7 +1427,7 @@ function calcRecoForMatch(match){
     return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`${au.toFixed(1)}% underdog vs ${af.toFixed(1)}% favorite`};
   }
 
-  if(spread<=10&&top<38){
+  if(!knockout&&spread<=10&&top<38){
     return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${af.toFixed(1)}% · ${ad.toFixed(1)}% · ${au.toFixed(1)}% — even split market`};
   }
 
@@ -1612,7 +1646,8 @@ function winOddsHTML(match){
 function superchargerHTML(match){
   const tipId='sc-tip-'+match.id;
   const d=DICT[lang];
-  const footnote=`<div class="supercharger-footnote">${esc(d.scFootnote||'')}</div>`;
+  const knockout=isKnockoutStage(match.stage||'Group Stage');
+  const footnote=`<div class="supercharger-footnote">${esc(knockout?(d.winOnlyNote||''):(d.scFootnote||''))}</div>`;
   const isGroupStage=(match.stage||'Group Stage')==='Group Stage';
   if(isGroupStage){
     return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><span class="supercharger-label-text">⚡ Supercharger+</span><button type="button" class="info-hint-btn" aria-label="About Supercharger+" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button></div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div></div><div class="info-tip-source" id="${tipId}"><div class="info-popover-title">⚡ Supercharger+</div><div class="info-popover-body">${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
@@ -1627,12 +1662,13 @@ function superchargerHTML(match){
     const cls=!isNaN(n)&&n>0?'hi':'null-val';
     return`<div class="prob-cell ${cls}">${esc(v)}</div>`;
   }
-  return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><span class="supercharger-label-text">⚡ Supercharger+</span><button type="button" class="info-hint-btn" aria-label="About Supercharger+" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button></div>${chiCell(favChi)}<div class="prob-cell null-val">--</div>${chiCell(undChi)}</div><div class="info-tip-source" id="${tipId}"><div class="info-popover-title">⚡ Supercharger+ (χ)</div><div class="info-popover-body">${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
+  return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><span class="supercharger-label-text">⚡ Supercharger+</span><button type="button" class="info-hint-btn" aria-label="About Supercharger+" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button></div>${chiCell(favChi)}${knockout?'':`<div class="prob-cell null-val">--</div>`}${chiCell(undChi)}</div><div class="info-tip-source" id="${tipId}"><div class="info-popover-title">⚡ Supercharger+ (χ)</div><div class="info-popover-body">${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
 }
 
 /* ── RENDER UPCOMING ── */
 function renderUpcoming(match){
   const d=DICT[lang];
+  const knockout=isKnockoutStage(match.stage||'Group Stage');
   const home=tn(match.home),away=tn(match.away),favIsHome=match.favTeam===match.home;
   const favName=favIsHome?home:away,undName=favIsHome?away:home;
   const favFlag=favIsHome?match.homeFlag:match.awayFlag,undFlag=favIsHome?match.awayFlag:match.homeFlag;
@@ -1656,7 +1692,11 @@ function renderUpcoming(match){
     const rv=l?(l.fav||'--'):'--',dv=l?(l.draw||'--'):'--',uv=l?(l.und||'--'):'--';
     const c1=favIsHome?rv:uv,c3=favIsHome?uv:rv,nil=v=>v==='--';
     const sl=(srcLabel[lang]||srcLabel.en)[s]||s;
-    rows+=`<div class="source-row"><div class="source-name">${esc(sl)}</div><div class="prob-cell hi ${nil(c1)?'null-val':''}">${esc(c1)}</div><div class="prob-cell ${nil(dv)?'null-val':''}">${esc(dv)}</div><div class="prob-cell ${nil(c3)?'null-val':''}">${esc(c3)}</div></div>`;
+    if(knockout){
+      rows+=`<div class="source-row"><div class="source-name">${esc(sl)}</div><div class="prob-cell hi ${nil(c1)?'null-val':''}">${esc(c1)}</div><div class="prob-cell ${nil(c3)?'null-val':''}">${esc(c3)}</div></div>`;
+    }else{
+      rows+=`<div class="source-row"><div class="source-name">${esc(sl)}</div><div class="prob-cell hi ${nil(c1)?'null-val':''}">${esc(c1)}</div><div class="prob-cell ${nil(dv)?'null-val':''}">${esc(dv)}</div><div class="prob-cell ${nil(c3)?'null-val':''}">${esc(c3)}</div></div>`;
+    }
   });
   
   const tipId='tip-'+match.id,tipText=d[reco?reco.tipKey:'']||'';
@@ -1667,7 +1707,11 @@ function renderUpcoming(match){
   const wop=winOddsHTML(match);
   const sc=superchargerHTML(match);
 
-  return`<div class="match-card${pImg?' has-player-img':''}" data-signal="${signal}">${pImg}<div class="match-header"><div class="match-teams"><div class="team-row"><div class="flag">${flagHTML(favFlag)}</div><span class="team-name">${esc(favName)}</span><span class="team-badge badge-fav">${esc(d.favBadge||'FAV')}</span></div><div class="team-row"><div class="flag">${flagHTML(undFlag)}</div><span class="team-name">${esc(undName)}</span><span class="team-badge badge-und">${esc(d.undBadge||'UND')}</span></div></div><div class="match-meta-col"><span class="match-group-tag">${esc(match.group||match.stage||'')}</span><span class="match-kickoff">${fmtKO(match.kickoff)}</span></div></div><div class="sources-table"><div class="sources-header"><span>${esc(d.source)}</span><span class="col-fav-label">${esc(favShort)}</span><span class="col-draw-label">${esc(d.colDraw)}</span><span class="col-und-label">${esc(undShort)}</span></div>${rows}${sc}</div>${wop}${recoHTML}</div>`;
+  const srcHdr=knockout
+    ?`<div class="sources-header"><span>${esc(d.source)}</span><span class="col-fav-label">${esc(favShort)}</span><span class="col-und-label">${esc(undShort)}</span></div>`
+    :`<div class="sources-header"><span>${esc(d.source)}</span><span class="col-fav-label">${esc(favShort)}</span><span class="col-draw-label">${esc(d.colDraw)}</span><span class="col-und-label">${esc(undShort)}</span></div>`;
+
+  return`<div class="match-card${pImg?' has-player-img':''}" data-signal="${signal}">${pImg}<div class="match-header"><div class="match-teams"><div class="team-row"><div class="flag">${flagHTML(favFlag)}</div><span class="team-name">${esc(favName)}</span><span class="team-badge badge-fav">${esc(d.favBadge||'FAV')}</span></div><div class="team-row"><div class="flag">${flagHTML(undFlag)}</div><span class="team-name">${esc(undName)}</span><span class="team-badge badge-und">${esc(d.undBadge||'UND')}</span></div></div><div class="match-meta-col"><span class="match-group-tag">${esc(match.group||match.stage||'')}</span><span class="match-kickoff">${fmtKO(match.kickoff)}</span></div></div><div class="sources-table${knockout?' knockout':''}">${srcHdr}${rows}${sc}</div>${wop}${recoHTML}</div>`;
 }
 
 /* ── RENDER LIVE ── */
@@ -1777,51 +1821,29 @@ function isRichBoxScore(bs){
   const sh=bs.shots?.home;
   return sh!=null&&sh!==0;
 }
-function inferFavTeamFromLayers(match){
+function favTeamFromSportsbooks(match){
   const layers=match.layers||[];
-  if(!layers.length)return null;
-  const hp=[],ap=[];
-  layers.forEach(l=>{
-    const h=parsePctStr(l.fav),a=parsePctStr(l.und);
-    if(h!=null)hp.push(h);
-    if(a!=null)ap.push(a);
-  });
-  if(!hp.length||!ap.length)return null;
-  const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
-  const homeAvg=avg(hp),awayAvg=avg(ap);
-  if(Math.abs(homeAvg-awayAvg)<0.05)return null;
-  return homeAvg>=awayAvg?match.home:match.away;
+  const sb=layers.find(l=>(l.source||'').includes('Sportsbook'));
+  if(!sb)return null;
+  const hp=parsePctStr(sb.fav),ap=parsePctStr(sb.und);
+  if(hp==null||ap==null||hp===ap)return null;
+  return hp>ap?match.home:match.away;
 }
-const TEAM_ELO={
-  Argentina:2040,France:2005,England:1960,Brazil:1955,Spain:1950,Portugal:1940,Netherlands:1935,Germany:1930,
-  Italy:1910,Croatia:1880,Belgium:1875,Uruguay:1860,Colombia:1845,'United States':1845,Mexico:1820,Austria:1830,
-  Switzerland:1815,Sweden:1790,Denmark:1810,Japan:1800,Morocco:1795,Senegal:1785,Australia:1770,Canada:1765,
-  'South Korea':1740,Ecuador:1730,Norway:1725,Turkey:1720,Czechia:1715,Scotland:1720,Serbia:1710,Paraguay:1705,
-  Poland:1700,Wales:1680,'Bosnia & Herzegovina':1660,Ghana:1655,Cameroon:1650,'Ivory Coast':1640,'DR Congo':1620,
-  'South Africa':1610,Tunisia:1605,Iran:1600,'Saudi Arabia':1595,Egypt:1590,Algeria:1585,Nigeria:1580,Panama:1545,
-  'Costa Rica':1540,Iraq:1530,Jordan:1520,Uzbekistan:1510,Qatar:1500,'New Zealand':1490,'Cape Verde':1480,
-  Curacao:1460,Haiti:1440
-};
-const HOST_NATIONS=new Set(['United States','Mexico','Canada']);
-function inferFavTeamFromElo(match){
-  const home=match.home,away=match.away;
-  if(!home||!away)return null;
-  let eh=TEAM_ELO[home]??1700,ea=TEAM_ELO[away]??1700;
-  if(HOST_NATIONS.has(home))eh+=100;
-  return eh>=ea?home:away;
-}
-function resolveFavTeam(match){
-  if(match.favTeam)return match.favTeam;
-  const fromLayers=inferFavTeamFromLayers(match);
-  if(fromLayers)return fromLayers;
+function findSportsbookLayers(match){
+  if((match.layers||[]).some(l=>(l.source||'').includes('Sportsbook')))return match.layers;
   const key=archivePairKey(match);
   for(const m of allMatches){
-    if(m.favTeam&&archivePairKey(m)===key&&String(m.id)!==String(match.id))return m.favTeam;
+    if(archivePairKey(m)===key&&(m.layers||[]).some(l=>(l.source||'').includes('Sportsbook')))return m.layers;
   }
   for(const m of completedArchive){
-    if(m.favTeam&&archivePairKey(m)===key)return m.favTeam;
+    if(archivePairKey(m)===key&&(m.layers||[]).some(l=>(l.source||'').includes('Sportsbook')))return m.layers;
   }
-  return inferFavTeamFromElo(match);
+  return null;
+}
+function resolveFavTeam(match){
+  const withLayers=findSportsbookLayers(match);
+  if(withLayers)return favTeamFromSportsbooks({...match,layers:withLayers});
+  return favTeamFromSportsbooks(match);
 }
 function mergeArchiveData(match){
   const arc=completedArchive.find(a=>String(a.id)===String(match.id)||archivePairKey(a)===archivePairKey(match));
@@ -1846,12 +1868,15 @@ function mergeArchiveData(match){
   if(db){
     merged={
       ...merged,
-      favTeam:merged.favTeam||db.favTeam,
       layers:(merged.layers&&merged.layers.length)?merged.layers:(db.layers||[]),
       sourceAccuracy:{...(db.sourceAccuracy||{}),...(merged.sourceAccuracy||{})},
       homeMomentumFactor:merged.homeMomentumFactor??db.homeMomentumFactor,
       awayMomentumFactor:merged.awayMomentumFactor??db.awayMomentumFactor,
     };
+  }
+  const sbLayers=findSportsbookLayers(merged);
+  if(sbLayers&&!(merged.layers||[]).some(l=>(l.source||'').includes('Sportsbook'))){
+    merged={...merged,layers:sbLayers};
   }
   merged.favTeam=resolveFavTeam(merged);
   return merged;
@@ -1882,6 +1907,8 @@ function xgOutcomeVerdict(hScore,aScore,hXg,aXg,homeWon,awayWon,isDraw,d){
   return{cls:'variance',text:d.pcVerdictVariance,hint:d.pcVerdictVarianceHint};
 }
 function completedDisplaySides(match,hScore,aScore,homeWon,awayWon,isDraw){
+  const {homeWon:hw,awayWon:aw,isDraw:draw}=resolveKnockoutOutcome(match,hScore,aScore);
+  homeWon=hw;awayWon=aw;isDraw=draw;
   const favTeam=resolveFavTeam(match);
   const favIsHome=favTeam===match.home;
   const home={team:match.home,name:tn(match.home),flag:match.homeFlag,score:hScore,isHome:true,isFav:!!favTeam&&favTeam===match.home,isWinner:homeWon&&!isDraw};
@@ -2122,6 +2149,10 @@ function renderCompleted(rawMatch){
 function buildStageTabs(){
   const stages=[...new Set(allMatches.map(m=>m.stage||'Group Stage'))];
   const ordered=STAGES.filter(s=>stages.includes(s)),rest=stages.filter(s=>!STAGES.includes(s));
+  if(!ordered.includes('Round of 32')&&allMatches.some(m=>(m.stage||'')==='Round of 32')){
+    ordered.push('Round of 32');
+    ordered.sort((a,b)=>STAGES.indexOf(a)-STAGES.indexOf(b));
+  }
   document.getElementById('stage-tabs').innerHTML=[...ordered,...rest].map(s=>{
     const key=STAGE_KEYS[s]||'groupStage',label=DICT[lang][key]||s,active=s===currentStage?' active':'';
     return`<button class="btn${active}" onclick="switchStage('${esc(s)}')">${esc(label)}</button>`;
@@ -2149,16 +2180,42 @@ function groupStageProgressHTML(){
   const md1=g.matchdayCompleted?.[1]??0,md2=g.matchdayCompleted?.[2]??0;
   return`<div class="group-stage-progress">${esc(d.matchdayProgress)}: <strong>${g.completedGroupMatches||0}</strong> / ${g.totalGroupMatches||72} · ${esc(matchdayLabel(1))} ${md1}/24 · ${esc(matchdayLabel(2))} ${md2}/24 · ${esc(matchdayLabel(3))} ${g.currentMatchday===3?'→':''} ${g.currentMatchday>=3?esc(d.matchday3)+' (Jun 24+)':''}</div>`;
 }
+function knockoutProgressHTML(stageName){
+  if(stageName!=='Round of 32')return'';
+  const d=DICT[lang];
+  const all=allMatches.filter(m=>(m.stage||'')===stageName);
+  const done=gatherStageCompleted(stageName).length;
+  return`<div class="group-stage-progress">${esc(d.r32Progress||'Round of 32')}: <strong>${done}</strong> / 16 complete · ${esc(d.winOnlyNote||'')}</div>`;
+}
+function renderKnockoutCompletedBlock(completed,d){
+  if(!completed.length)return'';
+  const byDay={};
+  completed.forEach(m=>{
+    const day=formatCalendarDay(m.kickoff);
+    if(!byDay[day])byDay[day]=[];
+    byDay[day].push(m);
+  });
+  let html=`<div class="knockout-completed-block"><div class="knockout-section-label">${esc(d.knockoutCompleted||'Completed')}</div>`;
+  Object.keys(byDay).sort((a,b)=>new Date(byDay[b][0]?.kickoff||0)-new Date(byDay[a][0]?.kickoff||0)).forEach(dayString=>{
+    const matches=byDay[dayString].sort((a,b)=>new Date(b.kickoff||0)-new Date(a.kickoff||0));
+    html+=`<div class="completed-day-block"><div class="completed-day-header">📅 ${esc(dayString)} · ${matches.length} match${matches.length!==1?'es':''}</div><div class="card-grid">${matches.map(safeCompletedCard).join('')}</div></div>`;
+  });
+  html+=`</div>`;
+  return html;
+}
 function toggleGroup(k){if(expandedGroups.has(k))expandedGroups.delete(k);else expandedGroups.add(k);renderGrid();}
 
 function syncMatchStateUI(){
   const up=document.getElementById('btn-state-upcoming');
   const done=document.getElementById('btn-state-completed');
   const legend=document.getElementById('signal-legend-box');
+  const knockout=isKnockoutStage(currentStage);
+  const stateWrap=up?.parentElement;
+  if(stateWrap)stateWrap.style.display=knockout?'none':'';
   if(up)up.classList.toggle('active',currentMatchState==='upcoming');
   if(done)done.classList.toggle('active',currentMatchState==='completed');
-  if(legend)legend.style.display=currentMatchState==='upcoming'?'flex':'none';
-  document.body.dataset.matchState=currentMatchState;
+  if(legend)legend.style.display=(currentMatchState==='upcoming'&&!knockout)?'flex':'none';
+  document.body.dataset.matchState=knockout?'upcoming':currentMatchState;
 }
 function applyViewChrome(mode){
   const d=DICT[lang];
@@ -2209,8 +2266,9 @@ function renderMatchGrid(){
 /* ── RENDER GRID ── */
 function renderGrid(){
   const d=DICT[lang];
-  const showUpcoming=currentMatchState==='upcoming';
-  applyViewChrome(currentMatchState);
+  const knockout=isKnockoutStage(currentStage);
+  const showUpcoming=knockout||currentMatchState==='upcoming';
+  applyViewChrome(knockout?'upcoming':currentMatchState);
 
   const finishedKeys=buildFinishedPairKeys();
   const seen=new Map();allMatches.forEach(m=>seen.set(m.id,m));
@@ -2218,10 +2276,8 @@ function renderGrid(){
   const stageM=all.filter(m=>(m.stage||'Group Stage')===currentStage).filter(matchesSearch);
   const live=stageLiveMatches(currentStage);
 
-  const upcoming=showUpcoming
-    ?stageM.filter(m=>!isActiveLive(m)&&!isFinishedMatch(m,finishedKeys)&&m.type==='UPCOMING'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0))
-    :[];
-  const completed=showUpcoming?[]:gatherStageCompleted(currentStage).filter(matchesSearch);
+  const upcoming=stageM.filter(m=>!isActiveLive(m)&&!isFinishedMatch(m,finishedKeys)&&m.type!=='COMPLETED'&&!isLiveWindow(m)).sort((a,b)=>new Date(a.kickoff||0)-new Date(b.kickoff||0));
+  const completed=gatherStageCompleted(currentStage).filter(matchesSearch);
 
   renderLiveSection(live);
 
@@ -2230,21 +2286,42 @@ function renderGrid(){
   const targetGrid=document.getElementById('dynamic-grid-content');
   if(!titleEl||!totalEl||!targetGrid) return;
 
+  if(knockout){
+    titleEl.textContent=d.r32||currentStage;
+    totalEl.textContent=String(upcoming.length+completed.length);
+    let html=knockoutProgressHTML(currentStage);
+    if(upcoming.length){
+      html+=`<div class="knockout-section-label">${esc(d.knockoutUpcoming||'Upcoming & live')}</div>`;
+      html+=`<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>`;
+    }else{
+      html+=`<div class="empty">${esc(d.noUpcoming)}</div>`;
+    }
+    html+=renderKnockoutCompletedBlock(completed,d);
+    targetGrid.innerHTML=html;
+    renderTournamentSummary();
+    return;
+  }
+
+  const upcomingOnly=showUpcoming
+    ?upcoming
+    :[];
+  const completedOnly=showUpcoming?[]:completed;
+
   if(showUpcoming){
     titleEl.textContent=d.upcoming;
-    totalEl.textContent=upcoming.length;
+    totalEl.textContent=upcomingOnly.length;
 
     if(searchQuery||currentSort==='time'){
-      targetGrid.innerHTML=upcoming.length?`<div class="card-grid">${upcoming.map(renderUpcoming).join('')}</div>`:`<div class="empty">${esc(d.noUpcoming)}</div>`;
+      targetGrid.innerHTML=upcomingOnly.length?`<div class="card-grid">${upcomingOnly.map(renderUpcoming).join('')}</div>`:`<div class="empty">${esc(d.noUpcoming)}</div>`;
     }else{
       const byGroup={};
-      upcoming.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
+      upcomingOnly.forEach(m=>{const g=m.group||m.stage||'Other';if(!byGroup[g])byGroup[g]=[];byGroup[g].push(m);});
       if(expandedGroups.size===0){
         const now=Date.now(),h48=now+48*60*60*1000;let auto=false;
         Object.entries(byGroup).forEach(([g,ms])=>{if(!auto&&ms.some(m=>{const t=new Date(m.kickoff||0).getTime();return t>=now&&t<=h48;})){expandedGroups.add('up-'+g);auto=true;}});
         if(!auto&&Object.keys(byGroup).length>0)expandedGroups.add('up-'+Object.keys(byGroup)[0]);
       }
-      targetGrid.innerHTML=upcoming.length===0?`<div class="empty">${esc(d.noUpcoming)}</div>`:
+      targetGrid.innerHTML=upcomingOnly.length===0?`<div class="empty">${esc(d.noUpcoming)}</div>`:
         Object.entries(byGroup).map(([group,matches])=>{
           const key='up-'+group,isOpen=expandedGroups.has(key),nk=matches[0]?fmtKO(matches[0].kickoff):'';
           return`<div class="group-section"><button class="group-header" onclick="toggleGroup('${esc(key)}')"><span class="group-header-label">${esc(group)}</span><span class="group-header-meta">${esc(nk)} · ${matches.length} match${matches.length!==1?'es':''}</span><span class="group-header-chevron">${isOpen?'▲':'▼'}</span></button>${isOpen?`<div class="group-body"><div class="card-grid">${matches.map(renderUpcoming).join('')}</div></div>`:''}</div>`;
@@ -2252,11 +2329,11 @@ function renderGrid(){
     }
   }else{
     titleEl.textContent=d.completed;
-    totalEl.textContent=completed.length;
+    totalEl.textContent=completedOnly.length;
     targetGrid.innerHTML=`<div class="empty">Loading completed matches…</div>`;
 
     const byMatchday={};
-    completed.forEach(m=>{
+    completedOnly.forEach(m=>{
       const md=m.matchday||assignMatchday(m.kickoff)||0;
       if(!byMatchday[md])byMatchday[md]={};
       const day=formatCalendarDay(m.kickoff);
@@ -2266,10 +2343,10 @@ function renderGrid(){
 
     const mdOrder=Object.keys(byMatchday).map(Number).filter(n=>!isNaN(n)).sort((a,b)=>b-a);
     let html=groupStageProgressHTML();
-    if(!completed.length){
+    if(!completedOnly.length){
       html+=`<div class="empty">${esc(d.noCompleted)}</div>`;
     }else if(!mdOrder.length){
-      html+=`<div class="card-grid">${completed.map(safeCompletedCard).join('')}</div>`;
+      html+=`<div class="card-grid">${completedOnly.map(safeCompletedCard).join('')}</div>`;
     }else{
       mdOrder.forEach(md=>{
         const days=byMatchday[md];
