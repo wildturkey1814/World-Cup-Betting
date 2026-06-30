@@ -543,7 +543,42 @@ def source_fav_prob_from_pm_layer(match: dict, *, normalize: bool = True) -> flo
     return source_fav_prob_from_layer(match, layer.get("source"), normalize=normalize)
 
 
+def renormalize_for_knockout(fav_pct: float, und_pct: float) -> tuple[float, float]:
+    """Redistribute draw share into fav/und so they sum to 100% for knockout display."""
+    total = fav_pct + und_pct
+    if total <= 0:
+        return fav_pct, und_pct
+    return (fav_pct / total) * 100.0, (und_pct / total) * 100.0
+
+
+def format_knockout_layer(layer: dict) -> dict:
+    """Ensure knockout layer fav/und sum to 100% and draw is hidden."""
+    fav = parse_pct_str(layer.get("fav"))
+    und = parse_pct_str(layer.get("und"))
+    if fav is None or und is None:
+        return {**layer, "draw": "--"}
+    fav_n, und_n = renormalize_for_knockout(fav, und)
+    return {
+        **layer,
+        "fav": pct(fav_n / 100.0),
+        "und": pct(und_n / 100.0),
+        "draw": "--",
+    }
+
+
+def normalize_all_knockout_layers(match: dict) -> None:
+    """Renormalize every source layer on a knockout match (except Supercharger output)."""
+    if not is_knockout_stage(match.get("stage")):
+        return
+    match["layers"] = [
+        layer if layer.get("source") == SUPERCHARGER_SOURCE else format_knockout_layer(layer)
+        for layer in (match.get("layers") or [])
+    ]
+
+
 def upsert_layer(match: dict, layer: dict) -> None:
+    if is_knockout_stage(match.get("stage")) and layer.get("source") != SUPERCHARGER_SOURCE:
+        layer = format_knockout_layer(layer)
     layers = list(match.get("layers") or [])
     source = layer.get("source")
     for i, existing in enumerate(layers):
@@ -1051,6 +1086,9 @@ def build_record(fixture, pmap=None, venue_by_pair=None):
             "und": pct(avg(pm, "away")),
         })
 
+    if not is_group:
+        layers = [format_knockout_layer(layer) for layer in layers]
+
     fav_team = None
     if sb:
         fav_team = home if avg(sb, "home") >= avg(sb, "away") else away
@@ -1102,6 +1140,7 @@ def finalize_predictions(matches: list[dict], completed: list[dict]) -> None:
             continue
         venue = match.get("venue") or venue_by_pair.get(match_pair_key(match))
         refresh_model_layers(match, venue)
+        normalize_all_knockout_layers(match)
         ensure_fav_team(match)
         apply_supercharger_layer(match, completed, matches)
 
