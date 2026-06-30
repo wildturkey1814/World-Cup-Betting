@@ -643,8 +643,8 @@ const DICT = {
     updated: 'Last Database Sync', searchPlaceholder: 'Search teams or groups…',
     winOddsTitle: 'Tournament Winner Futures Tracking Node',
     winOddsFootnote: '— = no futures market listed · 0.0% = eliminated from knockout stage',
-    scTooltip: 'Tournament Momentum Factor (χ): rolling average of result divergence vs ELO expectations and xG efficiency. Positive χ means a team is outperforming baseline form in the tournament.',
-    scFootnote: 'Enhanced prediction model based on group-stage momentum.',
+    scTooltip: 'Supercharger+ blends sportsbook, ELO/Poisson, and prediction-market signals weighted by each source\'s accuracy (Brier score) in completed matches. Group stage uses 3-way tracking; knockout uses win/loss only. Recommendations on each card follow these calibrated odds.',
+    scFootnote: 'Calibrated blend — accuracy-weighted from tournament results so far.',
     zoneMex: 'Mexico Base Zone', zoneCen: 'Central Base Zone', zoneEast: 'East Base Zone', zoneWest: 'West Base Zone',
     waitingFor: 'Awaiting Match Settlement', groupStage: 'Group Stage Tier', r32: 'Round of 32', bracketR32: 'Round of 32 Grid', bracketR16: 'Round of 16 Bracket', bracketQF: 'Quarter-Finals Grid',
     r32Progress: 'Round of 32 progress',
@@ -857,7 +857,48 @@ const SRC_CANONICAL={
   'Prediction Markets (Kalshi)':'Prediction Markets (P2P)',
   'Prediction Markets (Polymarket)':'Prediction Markets (P2P)',
 };
+const SUPERCHARGER_LAYER='Supercharger (ELO+)';
 function canonSrc(s){return SRC_CANONICAL[s]||s;}
+function getSuperchargerLayer(match){
+  return (match.layers||[]).find(l=>String(l.source||'').includes('Supercharger'));
+}
+function parseProbPct(s){
+  if(s==null||s==='--')return null;
+  const n=parseFloat(String(s).replace('%',''));
+  return isNaN(n)?null:n;
+}
+function superchargerProbs(match){
+  const layer=getSuperchargerLayer(match);
+  if(!layer)return null;
+  const favIsHome=match.favTeam===match.home;
+  const homeP=parseProbPct(layer.fav);
+  const awayP=parseProbPct(layer.und);
+  const drawP=parseProbPct(layer.draw);
+  if(homeP==null&&awayP==null)return null;
+  return{
+    af:favIsHome?homeP:awayP,
+    ad:drawP,
+    au:favIsHome?awayP:homeP,
+    layer,
+  };
+}
+function legacyLayerAvgProbs(match){
+  const layers=(match.layers||[]).filter(l=>!String(l.source||'').includes('Supercharger'));
+  if(!layers.length)return null;
+  const favIsHome=match.favTeam===match.home;
+  let fv=[],dv=[],uv=[];
+  layers.forEach(l=>{
+    const fp=favIsHome?parseProbPct(l.fav):parseProbPct(l.und);
+    const up=favIsHome?parseProbPct(l.und):parseProbPct(l.fav);
+    const dp=parseProbPct(l.draw);
+    if(fp!=null)fv.push(fp);
+    if(dp!=null)dv.push(dp);
+    if(up!=null)uv.push(up);
+  });
+  if(!fv.length)return null;
+  const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
+  return{af:avg(fv),ad:dv.length?avg(dv):0,au:uv.length?avg(uv):0,sourceCount:fv.length};
+}
 
 /* ── MANAGEMENT VARIABLES ── */
 let lang='en',currentView='grid',currentStage='Group Stage',currentSort='time',searchQuery='',allMatches=[],completedArchive=[],meta={},knockoutEliminated=new Set();
@@ -1382,25 +1423,32 @@ function flipCard(id){
   hideInfoPopover();
 }
 
-/* ── RECO ENGINE ── */
+/* ── RECO ENGINE (driven by Supercharger+ calibrated odds) ── */
 function calcRecoForMatch(match){
-  const layers=match.layers||[];if(!layers.length)return null;
   const knockout=isKnockoutStage(match.stage||'Group Stage');
-  function p(s){return(!s||s==='--')?null:parseFloat(s);}
+  const sc=superchargerProbs(match);
+  const legacy=sc?null:legacyLayerAvgProbs(match);
+  if(!sc&&!legacy)return null;
+  const af=sc?sc.af:legacy.af;
+  const ad=sc?(sc.ad??0):legacy.ad;
+  const au=sc?(sc.au??0):legacy.au;
+  const sourceLabel=sc?'Supercharger+':`${legacy.sourceCount} sources`;
+  const layers=match.layers||[];
   const favIsHome=match.favTeam===match.home;
-  let fv=[],dv=[],uv=[];
-  layers.forEach(l=>{const fp=favIsHome?p(l.fav):p(l.und),up=favIsHome?p(l.und):p(l.fav),dp=p(l.draw);if(fp!=null)fv.push(fp);if(dp!=null)dv.push(dp);if(up!=null)uv.push(up);});
-  if(!fv.length)return null;
-  const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
-  const af=avg(fv),ad=dv.length?avg(dv):0,au=uv.length?avg(uv):0;
-  const eloL=layers.find(l=>l.source.includes('ELO')),mktL=layers.find(l=>l.source.includes('Sportsbook')||l.source.includes('P2P'));
-  const ef=eloL?(favIsHome?p(eloL.fav):p(eloL.und)):null,mf=mktL?(favIsHome?p(mktL.fav):p(mktL.und)):null;
+  const eloL=layers.find(l=>l.source.includes('ELO'));
+  const mktL=layers.find(l=>l.source.includes('Sportsbook'));
+  const ef=eloL?(favIsHome?parseProbPct(eloL.fav):parseProbPct(eloL.und)):null;
+  const mf=mktL?(favIsHome?parseProbPct(mktL.fav):parseProbPct(mktL.und)):null;
   const gap=(ef!=null&&mf!=null)?Math.abs(ef-mf):0;
   const d=DICT[lang];
   function checkDivergence(){
-    if(gap>=15&&ef!=null&&mf!=null){
+    if(!sc&&gap>=15&&ef!=null&&mf!=null){
       if(ef<mf)return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`ELO: ${(100-ef).toFixed(1)}% underdog vs market ${(100-mf).toFixed(1)}% — ${gap.toFixed(1)}pt gap`};
       return{type:'value',cls:'reco-value',call:d.recoValue,tipKey:'tipValue',sub:`ELO sees ${ef.toFixed(1)}% vs market ${mf.toFixed(1)}% — ${gap.toFixed(1)}pt divergence`};
+    }
+    if(sc&&mf!=null&&af!=null&&Math.abs(af-mf)>=12){
+      if(af<mf-5)return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`Supercharger+ ${af.toFixed(1)}% vs books ${mf.toFixed(1)}% — model favors underdog`};
+      if(af>mf+5)return{type:'value',cls:'reco-value',call:d.recoValue,tipKey:'tipValue',sub:`Supercharger+ ${af.toFixed(1)}% vs books ${mf.toFixed(1)}% — model sees stronger favorite`};
     }
     return null;
   }
@@ -1409,12 +1457,12 @@ function calcRecoForMatch(match){
   const top=knockout?Math.max(af,au):Math.max(af,ad,au);
   const spread=knockout?(Math.abs(af-au)):(top-Math.min(af,ad,au));
 
-  if(af>=65)return{type:'back',cls:'reco-back',call:d.recoBack,tipKey:'tipBack',sub:`${af.toFixed(1)}% avg — ${fv.length} sources aligned`};
+  if(af>=65)return{type:'back',cls:'reco-back',call:d.recoBack,tipKey:'tipBack',sub:`${af.toFixed(1)}% ${sourceLabel} — strong favorite`};
 
   if(!knockout){
     const drawIsPlurality=ad>af&&ad>=au;
     if(ad>=30&&(drawIsPlurality||(ad>=af-6&&af<42))){
-      return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% avg draw — elevated share, no clear winner`};
+      return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% ${sourceLabel} draw — elevated share`};
     }
     if(drawIsPlurality&&ad>=28){
       return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${ad.toFixed(1)}% draw leads — tight three-way market`};
@@ -1423,8 +1471,8 @@ function calcRecoForMatch(match){
 
   if(favIsPlurality&&af>=40&&(af>=au+8||af>=45)){
     const sub=knockout
-      ?`${af.toFixed(1)}% favorite — leads underdog (${au.toFixed(1)}%)`
-      :(af>=58?`${af.toFixed(1)}% avg — favorite leads, ${ad.toFixed(1)}% draw`:`${af.toFixed(1)}% favorite — leads draw (${ad.toFixed(1)}%) and underdog (${au.toFixed(1)}%)`);
+      ?`${af.toFixed(1)}% ${sourceLabel} — leads underdog (${au.toFixed(1)}%)`
+      :(af>=58?`${af.toFixed(1)}% favorite — ${ad.toFixed(1)}% draw (${sourceLabel})`:`${af.toFixed(1)}% favorite — ${ad.toFixed(1)}% draw, ${au.toFixed(1)}% underdog`);
     return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub};
   }
 
@@ -1432,15 +1480,15 @@ function calcRecoForMatch(match){
   if(div)return div;
 
   if(undIsPlurality||au>=af+3){
-    return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`${au.toFixed(1)}% underdog vs ${af.toFixed(1)}% favorite`};
+    return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`${au.toFixed(1)}% underdog vs ${af.toFixed(1)}% favorite (${sourceLabel})`};
   }
 
   if(!knockout&&spread<=10&&top<38){
-    return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${af.toFixed(1)}% · ${ad.toFixed(1)}% · ${au.toFixed(1)}% — even split market`};
+    return{type:'draw',cls:'reco-draw',call:d.recoDraw,tipKey:'tipDraw',sub:`${af.toFixed(1)}% · ${ad.toFixed(1)}% · ${au.toFixed(1)}% — even split (${sourceLabel})`};
   }
 
-  if(af>=au)return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% avg — slight favorite edge`};
-  return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`${au.toFixed(1)}% underdog edge over ${af.toFixed(1)}% favorite`};
+  if(af>=au)return{type:'lean',cls:'reco-lean',call:d.recoLean,tipKey:'tipLean',sub:`${af.toFixed(1)}% ${sourceLabel} — slight favorite edge`};
+  return{type:'upset',cls:'reco-upset',call:d.recoUpset,tipKey:'tipUpset',sub:`${au.toFixed(1)}% underdog edge over ${af.toFixed(1)}% favorite (${sourceLabel})`};
 }
 function calcReco(match){
   if(match.type==='COMPLETED'||match.type==='IN_PLAY')return null;
@@ -1521,6 +1569,8 @@ function layerAvgNonFav(match){
 function suggestedDrawPossible(match){
   const reco=calcRecoForMatch(match);
   if(reco&&reco.type==='draw')return true;
+  const sc=superchargerProbs(match);
+  if(sc&&sc.ad!=null&&sc.ad>=DRAW_POSSIBILITY_PCT)return true;
   const nf=layerAvgNonFav(match);
   return nf&&nf.draw>=DRAW_POSSIBILITY_PCT;
 }
@@ -1689,27 +1739,34 @@ function winOddsHTML(match){
   return`<div class="win-odds-panel"><div class="win-odds-header">🏆 ${esc(d.winOddsTitle||'Tournament Winner Odds')}</div><div class="win-odds-grid"><div class="win-odds-row"><div class="win-odds-source" style="font-size:9px;color:var(--text-lo);font-weight:700;text-transform:uppercase;letter-spacing:1px">Source</div><div class="win-odds-val" style="color:var(--green);font-size:10px;font-weight:800">${esc(favName)}</div><div class="win-odds-val" style="color:var(--red);font-size:10px;font-weight:800">${esc(undName)}</div></div>${rows}</div><div class="win-odds-footnote">${esc(d.winOddsFootnote||'')}</div></div>`;
 }
 
-/* ── SUPERCHARGER+ ROW (Tournament Momentum χ) ── */
+/* ── SUPERCHARGER+ ROW (calibrated % blend) ── */
 function superchargerHTML(match){
   const tipId='sc-tip-'+match.id;
   const d=DICT[lang];
   const knockout=isKnockoutStage(match.stage||'Group Stage');
+  const layer=getSuperchargerLayer(match);
+  const sc=superchargerProbs(match);
   const footnote=`<div class="supercharger-footnote">${esc(knockout?(d.winOnlyNote||''):(d.scFootnote||''))}</div>`;
-  const isGroupStage=(match.stage||'Group Stage')==='Group Stage';
-  if(isGroupStage){
-    return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><span class="supercharger-label-text">⚡ Supercharger+</span><button type="button" class="info-hint-btn" aria-label="About Supercharger+" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button></div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div><div class="prob-cell null-val">--</div></div><div class="info-tip-source" id="${tipId}"><div class="info-popover-title">⚡ Supercharger+</div><div class="info-popover-body">${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
+  function probCell(raw,highlight){
+    const nil=raw==null||raw==='--';
+    const cls=nil?'null-val':(highlight?'hi':'');
+    const txt=nil?'--':(String(raw).includes('%')?raw:`${raw}%`);
+    return`<div class="prob-cell ${cls}">${esc(txt)}</div>`;
   }
-  const favIsHome=match.favTeam===match.home;
-  const homeChi=match.homeMomentumFactor||'+0.000';
-  const awayChi=match.awayMomentumFactor||'+0.000';
-  const favChi=favIsHome?homeChi:awayChi;
-  const undChi=favIsHome?awayChi:homeChi;
-  function chiCell(v){
-    const n=parseFloat(String(v).replace('+',''));
-    const cls=!isNaN(n)&&n>0?'hi':'null-val';
-    return`<div class="prob-cell ${cls}">${esc(v)}</div>`;
+  let favVal='--',drawVal='--',undVal='--';
+  if(sc){
+    favVal=sc.af!=null?`${sc.af.toFixed(1)}%`:'--';
+    undVal=sc.au!=null?`${sc.au.toFixed(1)}%`:'--';
+    drawVal=(!knockout&&sc.ad!=null)?`${sc.ad.toFixed(1)}%`:'--';
+  }else if(layer){
+    const favIsHome=match.favTeam===match.home;
+    favVal=favIsHome?(layer.fav||'--'):(layer.und||'--');
+    undVal=favIsHome?(layer.und||'--'):(layer.fav||'--');
+    drawVal=knockout?'--':(layer.draw||'--');
   }
-  return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><span class="supercharger-label-text">⚡ Supercharger+</span><button type="button" class="info-hint-btn" aria-label="About Supercharger+" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button></div>${chiCell(favChi)}${knockout?'':`<div class="prob-cell null-val">--</div>`}${chiCell(undChi)}</div><div class="info-tip-source" id="${tipId}"><div class="info-popover-title">⚡ Supercharger+ (χ)</div><div class="info-popover-body">${esc(d.scTooltip||'')}</div></div>${footnote}</div>`;
+  const tipBody=(layer&&layer.tooltip)?layer.tooltip:(d.scTooltip||'');
+  const drawCell=knockout?'':probCell(drawVal,false);
+  return`<div class="supercharger-block"><div class="supercharger-row"><div class="supercharger-label"><span class="supercharger-label-text">⚡ Supercharger+</span><button type="button" class="info-hint-btn" aria-label="About Supercharger+" onclick="event.stopPropagation();toggleTooltip(this,'${tipId}')">i</button></div>${probCell(favVal,true)}${drawCell}${probCell(undVal,false)}</div><div class="info-tip-source" id="${tipId}"><div class="info-popover-title">⚡ Supercharger+</div><div class="info-popover-body">${esc(tipBody)}</div></div>${footnote}</div>`;
 }
 
 /* ── RENDER UPCOMING ── */
