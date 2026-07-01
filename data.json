@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "June 30, 2026 · 10:53 PM UTC",
+  "lastUpdated": "July 1, 2026 · 10:55 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9245,7 +9245,8 @@
         }
       ],
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.2%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9358,7 +9359,8 @@
         }
       ],
       "kalshiWinProbHome": "6.6%",
-      "polymarketWinProbHome": "7.0%"
+      "polymarketWinProbHome": "7.0%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9467,7 +9469,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9577,7 +9580,8 @@
       ],
       "kalshiWinProbAway": "3.2%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "3.4%"
+      "polymarketWinProbAway": "3.4%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -9730,7 +9734,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "France",
       "away": "Sweden",
       "favTeam": "France",
@@ -9773,18 +9777,110 @@
       "homeMomentumFactor": "+0.321",
       "awayMomentumFactor": "+0.099",
       "importedFrom": "ESPN",
-      "liveScore": "3 - 0",
       "homeScore": 3,
       "awayScore": 0,
-      "liveMinute": "90'+4'",
-      "livePhase": "SECOND HALF"
+      "score": "FRANCE 3 - 0 SWEDEN",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "insight": "France won 3-0.",
+      "boxScore": {
+        "possession": {
+          "home": 60.6,
+          "away": 39.4
+        },
+        "shots": {
+          "home": 20,
+          "away": 3
+        },
+        "shotsOnTarget": {
+          "home": 9,
+          "away": 1
+        },
+        "corners": {
+          "home": 6,
+          "away": 4
+        },
+        "fouls": {
+          "home": 10,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 39,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 67,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.08,
+          "away": 0.46
+        },
+        "fieldTilt": {
+          "home": 65.5,
+          "away": 34.5
+        },
+        "ppda": {
+          "home": 6.6,
+          "away": 19.8
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 537,
+          "away": 321
+        },
+        "finalThirdEntries": {
+          "home": 57,
+          "away": 30
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "France generated 3.08 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (60.6%) and high pressing intensity (PPDA 6.6) cut off Sweden's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — France turned pressure into goals while Sweden struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "espn-760491",
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Mexico",
       "away": "Ecuador",
       "favTeam": "Mexico",
@@ -9826,7 +9922,99 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.148",
       "awayMomentumFactor": "+0.259",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "score": "MEXICO 2 - 0 ECUADOR",
+      "homeScore": 2,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 59.4,
+          "away": 40.6
+        },
+        "shots": {
+          "home": 14,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 7,
+          "away": 3
+        },
+        "corners": {
+          "home": 6,
+          "away": 1
+        },
+        "fouls": {
+          "home": 15,
+          "away": 15
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 41,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Mexico won 2-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.13,
+          "away": 1.02
+        },
+        "fieldTilt": {
+          "home": 54.4,
+          "away": 45.6
+        },
+        "ppda": {
+          "home": 9.9,
+          "away": 15.5
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 485,
+          "away": 344
+        },
+        "finalThirdEntries": {
+          "home": 47,
+          "away": 38
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Mexico created the clearer chances, generating 2.13 xG and putting 7 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Mexico (PPDA 9.9) disrupted Ecuador's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Mexico's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "espn-760495",

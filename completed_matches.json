@@ -13594,5 +13594,384 @@
       }
     ],
     "favTeam": "Norway"
+  },
+  {
+    "id": "espn-760492",
+    "home": "France",
+    "away": "Sweden",
+    "homeFlag": "fra",
+    "awayFlag": "swe",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-06-30T21:00Z",
+    "homeScore": 3,
+    "awayScore": 0,
+    "score": "FRANCE 3 - 0 SWEDEN",
+    "winner": "France",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.08,
+        "away": 0.46
+      },
+      "possession": {
+        "home": 60.6,
+        "away": 39.4
+      },
+      "fieldTilt": {
+        "home": 65.5,
+        "away": 34.5
+      },
+      "ppda": {
+        "home": 6.6,
+        "away": 19.8
+      },
+      "shots": {
+        "home": 20,
+        "away": 3
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 537,
+        "away": 321
+      },
+      "finalThirdEntries": {
+        "home": 57,
+        "away": 30
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 10,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 60.6,
+        "away": 39.4
+      },
+      "shots": {
+        "home": 20,
+        "away": 3
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 1
+      },
+      "corners": {
+        "home": 6,
+        "away": 4
+      },
+      "fouls": {
+        "home": 10,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 39,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 67,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 89,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.08,
+        "away": 0.46
+      },
+      "fieldTilt": {
+        "home": 65.5,
+        "away": 34.5
+      },
+      "ppda": {
+        "home": 6.6,
+        "away": 19.8
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 537,
+        "away": 321
+      },
+      "finalThirdEntries": {
+        "home": 57,
+        "away": 30
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "France generated 3.08 xG, creating 4 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (60.6%) and high pressing intensity (PPDA 6.6) cut off Sweden's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — France turned pressure into goals while Sweden struggled to create clear openings."
+      }
+    ],
+    "insight": "France won 3-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "90.2%",
+        "draw": "--",
+        "und": "9.8%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "79.4%",
+        "draw": "--",
+        "und": "20.6%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "100.0%",
+        "draw": "--",
+        "und": "0.0%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "91.8%",
+        "draw": "--",
+        "und": "8.2%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "France"
+  },
+  {
+    "id": "espn-760491",
+    "home": "Mexico",
+    "away": "Ecuador",
+    "homeFlag": "mex",
+    "awayFlag": "ecu",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-01T01:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 0,
+    "score": "MEXICO 2 - 0 ECUADOR",
+    "winner": "Mexico",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.13,
+        "away": 1.02
+      },
+      "possession": {
+        "home": 59.4,
+        "away": 40.6
+      },
+      "fieldTilt": {
+        "home": 54.4,
+        "away": 45.6
+      },
+      "ppda": {
+        "home": 9.9,
+        "away": 15.5
+      },
+      "shots": {
+        "home": 14,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 7,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 485,
+        "away": 344
+      },
+      "finalThirdEntries": {
+        "home": 47,
+        "away": 38
+      },
+      "corners": {
+        "home": 6,
+        "away": 1
+      },
+      "fouls": {
+        "home": 15,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 59.4,
+        "away": 40.6
+      },
+      "shots": {
+        "home": 14,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 7,
+        "away": 3
+      },
+      "corners": {
+        "home": 6,
+        "away": 1
+      },
+      "fouls": {
+        "home": 15,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 41,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 89,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.13,
+        "away": 1.02
+      },
+      "fieldTilt": {
+        "home": 54.4,
+        "away": 45.6
+      },
+      "ppda": {
+        "home": 9.9,
+        "away": 15.5
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 485,
+        "away": 344
+      },
+      "finalThirdEntries": {
+        "home": 47,
+        "away": 38
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Mexico created the clearer chances, generating 2.13 xG and putting 7 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Mexico (PPDA 9.9) disrupted Ecuador's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Mexico's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Mexico won 2-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "58.5%",
+        "draw": "--",
+        "und": "41.5%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "68.1%",
+        "draw": "--",
+        "und": "31.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "65.2%",
+        "draw": "--",
+        "und": "34.8%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "63.4%",
+        "draw": "--",
+        "und": "36.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Mexico"
   }
 ]
