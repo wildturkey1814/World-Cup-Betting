@@ -13973,5 +13973,192 @@
       }
     ],
     "favTeam": "Mexico"
+  },
+  {
+    "id": "espn-760495",
+    "home": "England",
+    "away": "DR Congo",
+    "homeFlag": "eng",
+    "awayFlag": "cod",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-01T16:00Z",
+    "homeScore": 2,
+    "awayScore": 1,
+    "score": "ENGLAND 2 - 1 DR CONGO",
+    "winner": "England",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.14,
+        "away": 0.81
+      },
+      "possession": {
+        "home": 57.6,
+        "away": 42.4
+      },
+      "fieldTilt": {
+        "home": 56.8,
+        "away": 43.2
+      },
+      "ppda": {
+        "home": 8.6,
+        "away": 12.5
+      },
+      "shots": {
+        "home": 14,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 475,
+        "away": 352
+      },
+      "finalThirdEntries": {
+        "home": 44,
+        "away": 34
+      },
+      "corners": {
+        "home": 6,
+        "away": 2
+      },
+      "fouls": {
+        "home": 15,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 57.6,
+        "away": 42.4
+      },
+      "shots": {
+        "home": 14,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 1
+      },
+      "corners": {
+        "home": 6,
+        "away": 2
+      },
+      "fouls": {
+        "home": 15,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 6,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 27,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 63,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.14,
+        "away": 0.81
+      },
+      "fieldTilt": {
+        "home": 56.8,
+        "away": 43.2
+      },
+      "ppda": {
+        "home": 8.6,
+        "away": 12.5
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 475,
+        "away": 352
+      },
+      "finalThirdEntries": {
+        "home": 44,
+        "away": 34
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "England created the clearer chances, generating 2.14 xG and putting 6 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from England (PPDA 8.6) disrupted DR Congo's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but England's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "England won 2-1.",
+    "sourceAccuracy": {},
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "86.8%",
+        "draw": "--",
+        "und": "13.2%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "86.7%",
+        "draw": "--",
+        "und": "13.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "92.6%",
+        "draw": "--",
+        "und": "7.4%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "89.3%",
+        "draw": "--",
+        "und": "10.7%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "England"
   }
 ]
