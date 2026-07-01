@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 1, 2026 · 11:42 AM UTC",
+  "lastUpdated": "July 1, 2026 · 5:33 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -10021,7 +10021,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "England",
       "away": "DR Congo",
       "favTeam": "England",
@@ -10062,7 +10062,12 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.222",
       "awayMomentumFactor": "+0.180",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "liveScore": "0 - 1",
+      "homeScore": 0,
+      "awayScore": 1,
+      "liveMinute": "70'",
+      "livePhase": "SECOND HALF"
     },
     {
       "id": "espn-760493",
