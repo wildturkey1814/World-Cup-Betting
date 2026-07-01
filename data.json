@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 1, 2026 · 6:25 PM UTC",
+  "lastUpdated": "July 1, 2026 · 10:24 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9245,7 +9245,8 @@
         }
       ],
       "kalshiWinProbAway": "0.2%",
-      "polymarketWinProbAway": "0.2%"
+      "polymarketWinProbAway": "0.2%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9358,7 +9359,8 @@
         }
       ],
       "kalshiWinProbHome": "6.9%",
-      "polymarketWinProbHome": "6.8%"
+      "polymarketWinProbHome": "6.8%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9467,7 +9469,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9577,7 +9580,8 @@
       ],
       "kalshiWinProbAway": "2.4%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.5%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -10159,7 +10163,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Belgium",
       "away": "Senegal",
       "favTeam": "Belgium",
@@ -10201,7 +10205,12 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.149",
       "awayMomentumFactor": "-0.551",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "liveScore": "2 - 2",
+      "homeScore": 2,
+      "awayScore": 2,
+      "liveMinute": "106'",
+      "livePhase": "SECOND HALF"
     },
     {
       "id": "espn-760494",
