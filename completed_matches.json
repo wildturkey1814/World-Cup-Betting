@@ -14160,5 +14160,394 @@
       }
     ],
     "favTeam": "England"
+  },
+  {
+    "id": "espn-760493",
+    "home": "Belgium",
+    "away": "Senegal",
+    "homeFlag": "bel",
+    "awayFlag": "sen",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-01T20:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 2,
+    "score": "BELGIUM 3 - 2 SENEGAL",
+    "winner": "Belgium",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.73,
+        "away": 0.48
+      },
+      "possession": {
+        "home": 63.7,
+        "away": 36.3
+      },
+      "fieldTilt": {
+        "home": 74.0,
+        "away": 26.0
+      },
+      "ppda": {
+        "home": 7.0,
+        "away": 19.4
+      },
+      "shots": {
+        "home": 15,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 521,
+        "away": 335
+      },
+      "finalThirdEntries": {
+        "home": 65,
+        "away": 20
+      },
+      "corners": {
+        "home": 8,
+        "away": 5
+      },
+      "fouls": {
+        "home": 9,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 63.7,
+        "away": 36.3
+      },
+      "shots": {
+        "home": 15,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 2
+      },
+      "corners": {
+        "home": 8,
+        "away": 5
+      },
+      "fouls": {
+        "home": 9,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 27,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 34,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 35,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 46,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 69,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.73,
+        "away": 0.48
+      },
+      "fieldTilt": {
+        "home": 74.0,
+        "away": 26.0
+      },
+      "ppda": {
+        "home": 7.0,
+        "away": 19.4
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 521,
+        "away": 335
+      },
+      "finalThirdEntries": {
+        "home": 65,
+        "away": 20
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Belgium generated 2.73 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (63.7%) and high pressing intensity (PPDA 7.0) cut off Senegal's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Belgium turned pressure into goals while Senegal struggled to create clear openings."
+      }
+    ],
+    "insight": "Belgium won 3-2.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "60.0%",
+        "draw": "--",
+        "und": "40.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "62.8%",
+        "draw": "--",
+        "und": "37.2%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "64.4%",
+        "draw": "--",
+        "und": "35.6%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "62.4%",
+        "draw": "--",
+        "und": "37.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Belgium"
+  },
+  {
+    "id": "espn-760494",
+    "home": "United States",
+    "away": "Bosnia & Herzegovina",
+    "homeFlag": "usa",
+    "awayFlag": "bih",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-02T00:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 0,
+    "score": "UNITED STATES 2 - 0 BOSNIA & HERZEGOVINA",
+    "winner": "United States",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.27,
+        "away": 1.28
+      },
+      "possession": {
+        "home": 55.7,
+        "away": 44.3
+      },
+      "fieldTilt": {
+        "home": 58.5,
+        "away": 41.5
+      },
+      "ppda": {
+        "home": 9.4,
+        "away": 15.2
+      },
+      "shots": {
+        "home": 15,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 455,
+        "away": 375
+      },
+      "finalThirdEntries": {
+        "home": 51,
+        "away": 31
+      },
+      "corners": {
+        "home": 7,
+        "away": 1
+      },
+      "fouls": {
+        "home": 14,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 55.7,
+        "away": 44.3
+      },
+      "shots": {
+        "home": 15,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 2
+      },
+      "corners": {
+        "home": 7,
+        "away": 1
+      },
+      "fouls": {
+        "home": 14,
+        "away": 15
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 61,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 79,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.27,
+        "away": 1.28
+      },
+      "fieldTilt": {
+        "home": 58.5,
+        "away": 41.5
+      },
+      "ppda": {
+        "home": 9.4,
+        "away": 15.2
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 455,
+        "away": 375
+      },
+      "finalThirdEntries": {
+        "home": 51,
+        "away": 31
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "United States created the clearer chances, generating 2.27 xG and putting 6 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from United States (PPDA 9.4) disrupted Bosnia & Herzegovina's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but United States's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "United States won 2-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "77.4%",
+        "draw": "--",
+        "und": "22.6%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "73.6%",
+        "draw": "--",
+        "und": "26.4%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "88.7%",
+        "draw": "--",
+        "und": "11.3%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "81.2%",
+        "draw": "--",
+        "und": "18.8%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "United States"
   }
 ]
