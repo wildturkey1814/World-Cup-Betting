@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 2, 2026 · 5:02 PM UTC",
+  "lastUpdated": "July 2, 2026 · 8:43 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -10477,7 +10477,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Spain",
       "away": "Austria",
       "favTeam": "Spain",
@@ -10519,7 +10519,12 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.102",
       "awayMomentumFactor": "+0.285",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "liveScore": "2 - 0",
+      "homeScore": 2,
+      "awayScore": 0,
+      "liveMinute": "81'",
+      "livePhase": "SECOND HALF"
     },
     {
       "id": "espn-760496",
