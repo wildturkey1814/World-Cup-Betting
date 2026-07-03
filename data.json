@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 3, 2026 · 4:06 PM UTC",
+  "lastUpdated": "July 3, 2026 · 8:20 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -10910,7 +10910,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Australia",
       "away": "Egypt",
       "favTeam": "Egypt",
@@ -10952,7 +10952,12 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.177",
       "awayMomentumFactor": "+0.056",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "liveScore": "1 - 1",
+      "homeScore": 1,
+      "awayScore": 1,
+      "liveMinute": "105'",
+      "livePhase": "HALFTIME"
     },
     {
       "id": "espn-760500",
