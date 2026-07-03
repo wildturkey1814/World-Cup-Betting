@@ -14549,5 +14549,576 @@
       }
     ],
     "favTeam": "United States"
+  },
+  {
+    "id": "espn-760497",
+    "home": "Spain",
+    "away": "Austria",
+    "homeFlag": "esp",
+    "awayFlag": "aut",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-02T19:00Z",
+    "homeScore": 3,
+    "awayScore": 0,
+    "score": "SPAIN 3 - 0 AUSTRIA",
+    "winner": "Spain",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.4,
+        "away": 0.52
+      },
+      "possession": {
+        "home": 60.9,
+        "away": 39.1
+      },
+      "fieldTilt": {
+        "home": 66.4,
+        "away": 33.6
+      },
+      "ppda": {
+        "home": 8.3,
+        "away": 16.6
+      },
+      "shots": {
+        "home": 22,
+        "away": 3
+      },
+      "shotsOnTarget": {
+        "home": 8,
+        "away": 1
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 492,
+        "away": 305
+      },
+      "finalThirdEntries": {
+        "home": 54,
+        "away": 25
+      },
+      "corners": {
+        "home": 4,
+        "away": 7
+      },
+      "fouls": {
+        "home": 13,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 60.9,
+        "away": 39.1
+      },
+      "shots": {
+        "home": 22,
+        "away": 3
+      },
+      "shotsOnTarget": {
+        "home": 8,
+        "away": 1
+      },
+      "corners": {
+        "home": 4,
+        "away": 7
+      },
+      "fouls": {
+        "home": 13,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 16,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 53,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 86,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.4,
+        "away": 0.52
+      },
+      "fieldTilt": {
+        "home": 66.4,
+        "away": 33.6
+      },
+      "ppda": {
+        "home": 8.3,
+        "away": 16.6
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 492,
+        "away": 305
+      },
+      "finalThirdEntries": {
+        "home": 54,
+        "away": 25
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Spain generated 3.4 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (60.9%) and high pressing intensity (PPDA 8.3) cut off Austria's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Spain turned pressure into goals while Austria struggled to create clear openings."
+      }
+    ],
+    "insight": "Spain won 3-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "85.4%",
+        "draw": "--",
+        "und": "14.6%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "68.8%",
+        "draw": "--",
+        "und": "31.2%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "100.0%",
+        "draw": "--",
+        "und": "0.0%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "89.0%",
+        "draw": "--",
+        "und": "11.0%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Spain"
+  },
+  {
+    "id": "espn-760496",
+    "home": "Portugal",
+    "away": "Croatia",
+    "homeFlag": "por",
+    "awayFlag": "cro",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-02T23:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 1,
+    "score": "PORTUGAL 2 - 1 CROATIA",
+    "winner": "Portugal",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.87,
+        "away": 0.92
+      },
+      "possession": {
+        "home": 56.1,
+        "away": 43.9
+      },
+      "fieldTilt": {
+        "home": 61.7,
+        "away": 38.3
+      },
+      "ppda": {
+        "home": 11.4,
+        "away": 15.8
+      },
+      "shots": {
+        "home": 10,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 469,
+        "away": 360
+      },
+      "finalThirdEntries": {
+        "home": 48,
+        "away": 34
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 15,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 56.1,
+        "away": 43.9
+      },
+      "shots": {
+        "home": 10,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 15,
+        "away": 18
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 26,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 47,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 59,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.87,
+        "away": 0.92
+      },
+      "fieldTilt": {
+        "home": 61.7,
+        "away": 38.3
+      },
+      "ppda": {
+        "home": 11.4,
+        "away": 15.8
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 469,
+        "away": 360
+      },
+      "finalThirdEntries": {
+        "home": 48,
+        "away": 34
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Portugal created the clearer chances, generating 1.87 xG and putting 5 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Portugal (PPDA 11.4) disrupted Croatia's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Portugal's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Portugal won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "68.5%",
+        "draw": "--",
+        "und": "31.5%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "56.4%",
+        "draw": "--",
+        "und": "43.6%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "79.4%",
+        "draw": "--",
+        "und": "20.6%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "71.3%",
+        "draw": "--",
+        "und": "28.7%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Portugal"
+  },
+  {
+    "id": "espn-760498",
+    "home": "Switzerland",
+    "away": "Algeria",
+    "homeFlag": "sui",
+    "awayFlag": "alg",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-03T03:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 0,
+    "score": "SWITZERLAND 2 - 0 ALGERIA",
+    "winner": "Switzerland",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.31,
+        "away": 1.03
+      },
+      "possession": {
+        "home": 57.2,
+        "away": 42.8
+      },
+      "fieldTilt": {
+        "home": 58.1,
+        "away": 41.9
+      },
+      "ppda": {
+        "home": 9.5,
+        "away": 13.4
+      },
+      "shots": {
+        "home": 13,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 482,
+        "away": 403
+      },
+      "finalThirdEntries": {
+        "home": 44,
+        "away": 37
+      },
+      "corners": {
+        "home": 8,
+        "away": 1
+      },
+      "fouls": {
+        "home": 8,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 57.2,
+        "away": 42.8
+      },
+      "shots": {
+        "home": 13,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 5,
+        "away": 2
+      },
+      "corners": {
+        "home": 8,
+        "away": 1
+      },
+      "fouls": {
+        "home": 8,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 33,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 48,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.31,
+        "away": 1.03
+      },
+      "fieldTilt": {
+        "home": 58.1,
+        "away": 41.9
+      },
+      "ppda": {
+        "home": 9.5,
+        "away": 13.4
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 482,
+        "away": 403
+      },
+      "finalThirdEntries": {
+        "home": 44,
+        "away": 37
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Switzerland created the clearer chances, generating 2.31 xG and putting 5 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Switzerland (PPDA 9.5) disrupted Algeria's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Switzerland's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Switzerland won 2-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "65.9%",
+        "draw": "--",
+        "und": "34.1%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "78.1%",
+        "draw": "--",
+        "und": "21.9%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "71.0%",
+        "draw": "--",
+        "und": "29.0%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "70.5%",
+        "draw": "--",
+        "und": "29.5%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Switzerland"
   }
 ]

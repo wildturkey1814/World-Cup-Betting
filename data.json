@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 2, 2026 · 8:47 PM UTC",
+  "lastUpdated": "July 3, 2026 · 8:36 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbAway": "0.2%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "6.5%",
-      "polymarketWinProbHome": "6.5%"
+      "polymarketWinProbHome": "6.5%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.5%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.5%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -10473,7 +10477,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Spain",
       "away": "Austria",
       "favTeam": "Spain",
@@ -10516,18 +10520,110 @@
       "homeMomentumFactor": "-0.102",
       "awayMomentumFactor": "+0.285",
       "importedFrom": "ESPN",
-      "liveScore": "2 - 0",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 0,
-      "liveMinute": "85'",
-      "livePhase": "SECOND HALF"
+      "score": "SPAIN 3 - 0 AUSTRIA",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "insight": "Spain won 3-0.",
+      "boxScore": {
+        "possession": {
+          "home": 60.9,
+          "away": 39.1
+        },
+        "shots": {
+          "home": 22,
+          "away": 3
+        },
+        "shotsOnTarget": {
+          "home": 8,
+          "away": 1
+        },
+        "corners": {
+          "home": 4,
+          "away": 7
+        },
+        "fouls": {
+          "home": 13,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 16,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 53,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 86,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.4,
+          "away": 0.52
+        },
+        "fieldTilt": {
+          "home": 66.4,
+          "away": 33.6
+        },
+        "ppda": {
+          "home": 8.3,
+          "away": 16.6
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 0
+        },
+        "progressivePasses": {
+          "home": 492,
+          "away": 305
+        },
+        "finalThirdEntries": {
+          "home": 54,
+          "away": 25
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Spain generated 3.4 xG, creating 3 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (60.9%) and high pressing intensity (PPDA 8.3) cut off Austria's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Spain turned pressure into goals while Austria struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "espn-760496",
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Portugal",
       "away": "Croatia",
       "favTeam": "Portugal",
@@ -10569,14 +10665,111 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.116",
       "awayMomentumFactor": "-0.120",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "score": "PORTUGAL 2 - 1 CROATIA",
+      "homeScore": 2,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 56.1,
+          "away": 43.9
+        },
+        "shots": {
+          "home": 10,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 3
+        },
+        "corners": {
+          "home": 9,
+          "away": 2
+        },
+        "fouls": {
+          "home": 15,
+          "away": 18
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 26,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 47,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 59,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Portugal won 2-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.87,
+          "away": 0.92
+        },
+        "fieldTilt": {
+          "home": 61.7,
+          "away": 38.3
+        },
+        "ppda": {
+          "home": 11.4,
+          "away": 15.8
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 469,
+          "away": 360
+        },
+        "finalThirdEntries": {
+          "home": 48,
+          "away": 34
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Portugal created the clearer chances, generating 1.87 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Portugal (PPDA 11.4) disrupted Croatia's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Portugal's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "espn-760498",
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Switzerland",
       "away": "Algeria",
       "favTeam": "Switzerland",
@@ -10618,7 +10811,99 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.191",
       "awayMomentumFactor": "-0.244",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "score": "SWITZERLAND 2 - 0 ALGERIA",
+      "homeScore": 2,
+      "awayScore": 0,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 57.2,
+          "away": 42.8
+        },
+        "shots": {
+          "home": 13,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 5,
+          "away": 2
+        },
+        "corners": {
+          "home": 8,
+          "away": 1
+        },
+        "fouls": {
+          "home": 8,
+          "away": 9
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 3
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 33,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 48,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Switzerland won 2-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.31,
+          "away": 1.03
+        },
+        "fieldTilt": {
+          "home": 58.1,
+          "away": 41.9
+        },
+        "ppda": {
+          "home": 9.5,
+          "away": 13.4
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 482,
+          "away": 403
+        },
+        "finalThirdEntries": {
+          "home": 44,
+          "away": 37
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Switzerland created the clearer chances, generating 2.31 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Switzerland (PPDA 9.5) disrupted Algeria's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Switzerland's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "espn-760499",
