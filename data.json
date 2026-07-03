@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 3, 2026 · 3:44 PM UTC",
+  "lastUpdated": "July 3, 2026 · 4:06 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -21,7 +21,7 @@
       "homeScore": 2,
       "awayScore": 0,
       "score": "MEXICO 2 - 0 SOUTH AFRICA",
-      "kalshiWinProbHome": "5.0%",
+      "kalshiWinProbHome": "4.9%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "0.0%",
       "boxScore": {
@@ -483,8 +483,8 @@
       "score": "BRAZIL 1 - 1 MOROCCO",
       "kalshiWinProbHome": "6.2%",
       "kalshiWinProbAway": "2.3%",
-      "polymarketWinProbHome": "6.2%",
-      "polymarketWinProbAway": "2.4%",
+      "polymarketWinProbHome": "6.8%",
+      "polymarketWinProbAway": "2.5%",
       "boxScore": {
         "possession": {
           "home": 47.7,
@@ -1501,9 +1501,9 @@
       "homeScore": 3,
       "awayScore": 1,
       "score": "FRANCE 3 - 1 SENEGAL",
-      "kalshiWinProbHome": "34.0%",
+      "kalshiWinProbHome": "33.5%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "33.5%",
+      "polymarketWinProbHome": "33.4%",
       "polymarketWinProbAway": "0.0%",
       "boxScore": {
         "possession": {
@@ -1910,8 +1910,8 @@
           "und": "7.1%"
         }
       ],
-      "kalshiWinProbHome": "7.3%",
-      "polymarketWinProbHome": "6.2%",
+      "kalshiWinProbHome": "7.0%",
+      "polymarketWinProbHome": "6.0%",
       "polymarketWinProbAway": "0.0%",
       "score": "PORTUGAL 1 - 1 DR CONGO",
       "homeScore": 1,
@@ -2041,7 +2041,7 @@
         }
       ],
       "kalshiWinProbHome": "6.2%",
-      "polymarketWinProbHome": "6.2%",
+      "polymarketWinProbHome": "6.8%",
       "polymarketWinProbAway": "0.0%",
       "score": "BRAZIL 3 - 0 HAITI",
       "homeScore": 3,
@@ -3130,7 +3130,7 @@
         }
       ],
       "kalshiWinProbHome": "7.2%",
-      "polymarketWinProbHome": "7.2%",
+      "polymarketWinProbHome": "7.3%",
       "polymarketWinProbAway": "0.0%",
       "score": "ENGLAND 0 - 0 GHANA",
       "homeScore": 0,
@@ -3815,7 +3815,7 @@
       "kalshiWinProbHome": "0.0%",
       "kalshiWinProbAway": "6.2%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "6.2%",
+      "polymarketWinProbAway": "6.8%",
       "homeMomentumFactor": "+0.024",
       "awayMomentumFactor": "+0.167",
       "matchday": 3,
@@ -3958,7 +3958,7 @@
         }
       ],
       "kalshiWinProbHome": "2.3%",
-      "polymarketWinProbHome": "2.4%",
+      "polymarketWinProbHome": "2.5%",
       "homeMomentumFactor": "+0.018",
       "awayMomentumFactor": "+0.230",
       "kalshiWinProbAway": "0.0%",
@@ -4117,7 +4117,7 @@
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbAway": "5.0%",
+      "kalshiWinProbAway": "4.9%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "3.1%",
       "homeMomentumFactor": "-0.109",
@@ -5257,9 +5257,9 @@
         }
       ],
       "kalshiWinProbHome": "1.7%",
-      "kalshiWinProbAway": "34.0%",
+      "kalshiWinProbAway": "33.5%",
       "polymarketWinProbHome": "1.8%",
-      "polymarketWinProbAway": "33.5%",
+      "polymarketWinProbAway": "33.4%",
       "homeMomentumFactor": "+0.647",
       "awayMomentumFactor": "+0.007",
       "matchday": 3,
@@ -5696,9 +5696,9 @@
         }
       ],
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "11.9%",
+      "kalshiWinProbAway": "12.7%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "12.4%",
+      "polymarketWinProbAway": "13.5%",
       "homeMomentumFactor": "-0.121",
       "awayMomentumFactor": "-0.320",
       "matchday": 3,
@@ -6132,7 +6132,7 @@
       ],
       "kalshiWinProbAway": "7.2%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "7.2%",
+      "polymarketWinProbAway": "7.3%",
       "homeMomentumFactor": "+0.456",
       "awayMomentumFactor": "+0.254",
       "matchday": 3,
@@ -6416,9 +6416,9 @@
         }
       ],
       "kalshiWinProbHome": "2.3%",
-      "kalshiWinProbAway": "7.3%",
+      "kalshiWinProbAway": "7.0%",
       "polymarketWinProbHome": "2.4%",
-      "polymarketWinProbAway": "6.2%",
+      "polymarketWinProbAway": "6.0%",
       "homeMomentumFactor": "-0.306",
       "awayMomentumFactor": "-0.305",
       "matchday": 3,
@@ -7288,10 +7288,10 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "11.9%",
+      "kalshiWinProbHome": "12.7%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "polymarketWinProbHome": "12.4%"
+      "polymarketWinProbHome": "13.5%"
     },
     {
       "id": "espn-760430",
@@ -7533,7 +7533,7 @@
       "matchday": 1,
       "kalshiWinProbHome": "7.2%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "7.2%",
+      "polymarketWinProbHome": "7.3%",
       "polymarketWinProbAway": "0.0%"
     },
     {
@@ -8190,7 +8190,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "5.0%",
+      "kalshiWinProbHome": "4.9%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "polymarketWinProbHome": "3.1%"
@@ -8396,7 +8396,7 @@
       "kalshiWinProbAway": "2.3%",
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "2.4%"
+      "polymarketWinProbAway": "2.5%"
     },
     {
       "id": "espn-760448",
@@ -8614,10 +8614,10 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "11.9%",
+      "kalshiWinProbHome": "12.7%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
-      "polymarketWinProbHome": "12.4%"
+      "polymarketWinProbHome": "13.5%"
     },
     {
       "id": "espn-760451",
@@ -9036,8 +9036,8 @@
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%",
       "matchday": 2,
-      "kalshiWinProbHome": "34.0%",
-      "polymarketWinProbHome": "33.5%"
+      "kalshiWinProbHome": "33.5%",
+      "polymarketWinProbHome": "33.4%"
     },
     {
       "id": "espn-760461",
@@ -9153,8 +9153,8 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "7.3%",
-      "polymarketWinProbHome": "6.2%",
+      "kalshiWinProbHome": "7.0%",
+      "polymarketWinProbHome": "6.0%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbAway": "0.0%"
     },
@@ -9375,7 +9375,7 @@
         }
       ],
       "kalshiWinProbHome": "6.2%",
-      "polymarketWinProbHome": "6.2%",
+      "polymarketWinProbHome": "6.8%",
       "favTeam": "Brazil"
     },
     {
@@ -9596,7 +9596,7 @@
       ],
       "kalshiWinProbAway": "2.3%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.4%",
+      "polymarketWinProbAway": "2.5%",
       "favTeam": "Netherlands"
     },
     {
@@ -9786,9 +9786,9 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "34.0%",
+      "kalshiWinProbHome": "33.5%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "33.5%",
+      "polymarketWinProbHome": "33.4%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.321",
       "awayMomentumFactor": "+0.099",
@@ -9932,7 +9932,7 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "5.0%",
+      "kalshiWinProbHome": "4.9%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "0.0%",
@@ -10074,7 +10074,7 @@
       ],
       "venue": null,
       "kalshiWinProbHome": "7.2%",
-      "polymarketWinProbHome": "7.2%",
+      "polymarketWinProbHome": "7.3%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.222",
       "awayMomentumFactor": "+0.180",
@@ -10513,9 +10513,9 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "11.9%",
+      "kalshiWinProbHome": "12.7%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "12.4%",
+      "polymarketWinProbHome": "13.5%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.102",
       "awayMomentumFactor": "+0.285",
@@ -10659,9 +10659,9 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "7.3%",
+      "kalshiWinProbHome": "7.0%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "6.2%",
+      "polymarketWinProbHome": "6.0%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "-0.116",
       "awayMomentumFactor": "-0.120",
@@ -10933,9 +10933,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "40.3%",
+          "fav": "39.4%",
           "draw": "--",
-          "und": "59.7%"
+          "und": "60.6%"
         },
         {
           "source": "Supercharger (ELO+)",
@@ -10982,9 +10982,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "96.7%",
+          "fav": "96.5%",
           "draw": "--",
-          "und": "3.3%"
+          "und": "3.5%"
         },
         {
           "source": "Supercharger (ELO+)",
@@ -11031,8 +11031,8 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "67.7%",
-          "draw": "22.2%",
+          "fav": "68.7%",
+          "draw": "21.2%",
           "und": "10.1%"
         },
         {
@@ -11096,7 +11096,7 @@
       "kalshiWinProbHome": "0.2%",
       "kalshiWinProbAway": "2.3%",
       "polymarketWinProbHome": "0.2%",
-      "polymarketWinProbAway": "2.4%",
+      "polymarketWinProbAway": "2.5%",
       "homeMomentumFactor": "-0.382",
       "awayMomentumFactor": "+0.107",
       "matchday": 3
@@ -11129,9 +11129,9 @@
         },
         {
           "source": "Prediction Markets (Kalshi)",
-          "fav": "52.5%",
-          "draw": "25.2%",
-          "und": "22.2%"
+          "fav": "54.1%",
+          "draw": "25.5%",
+          "und": "20.4%"
         },
         {
           "source": "Supercharger (ELO+)",
@@ -11144,7 +11144,7 @@
       "venue": null,
       "kalshiWinProbHome": "6.2%",
       "kalshiWinProbAway": "1.7%",
-      "polymarketWinProbHome": "6.2%",
+      "polymarketWinProbHome": "6.8%",
       "polymarketWinProbAway": "1.8%",
       "homeMomentumFactor": "+0.148",
       "awayMomentumFactor": "+0.325",
@@ -11192,9 +11192,9 @@
       ],
       "venue": null,
       "kalshiWinProbHome": "0.0%",
-      "kalshiWinProbAway": "34.0%",
+      "kalshiWinProbAway": "33.5%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "33.5%",
+      "polymarketWinProbAway": "33.4%",
       "homeMomentumFactor": "+0.062",
       "awayMomentumFactor": "+0.234",
       "matchday": 3
@@ -11240,10 +11240,10 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "5.0%",
+      "kalshiWinProbHome": "4.9%",
       "kalshiWinProbAway": "7.2%",
       "polymarketWinProbHome": "3.1%",
-      "polymarketWinProbAway": "7.2%",
+      "polymarketWinProbAway": "7.3%",
       "homeMomentumFactor": "-0.152",
       "awayMomentumFactor": "+0.220",
       "matchday": 3
@@ -11339,10 +11339,10 @@
       ],
       "venue": null,
       "matchday": 3,
-      "kalshiWinProbHome": "7.3%",
-      "kalshiWinProbAway": "11.9%",
-      "polymarketWinProbHome": "6.2%",
-      "polymarketWinProbAway": "12.4%",
+      "kalshiWinProbHome": "7.0%",
+      "kalshiWinProbAway": "12.7%",
+      "polymarketWinProbHome": "6.0%",
+      "polymarketWinProbAway": "13.5%",
       "homeMomentumFactor": "-0.027",
       "awayMomentumFactor": "-0.042"
     }
@@ -11361,7 +11361,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "July 3, 2026 · 10:16 AM UTC",
+  "kalshiUpdated": "July 3, 2026 · 4:06 PM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Argentina",
@@ -11393,5 +11393,5 @@
     "Uruguay",
     "Uzbekistan"
   ],
-  "polymarketUpdated": "July 3, 2026 · 10:16 AM UTC"
+  "polymarketUpdated": "July 3, 2026 · 4:06 PM UTC"
 }
