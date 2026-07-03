@@ -15120,5 +15120,192 @@
       }
     ],
     "favTeam": "Switzerland"
+  },
+  {
+    "id": "espn-760499",
+    "home": "Australia",
+    "away": "Egypt",
+    "homeFlag": "aus",
+    "awayFlag": "egy",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-03T18:00Z",
+    "homeScore": 1,
+    "awayScore": 1,
+    "score": "AUSTRALIA 1 - 1 EGYPT",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.5,
+        "away": 1.06
+      },
+      "possession": {
+        "home": 50.2,
+        "away": 49.8
+      },
+      "fieldTilt": {
+        "home": 48.0,
+        "away": 52.0
+      },
+      "ppda": {
+        "home": 10.9,
+        "away": 12.2
+      },
+      "shots": {
+        "home": 8,
+        "away": 5
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 391,
+        "away": 418
+      },
+      "finalThirdEntries": {
+        "home": 37,
+        "away": 41
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "fouls": {
+        "home": 15,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 50.2,
+        "away": 49.8
+      },
+      "shots": {
+        "home": 8,
+        "away": 5
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 2
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "fouls": {
+        "home": 15,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 24,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 77,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.5,
+        "away": 1.06
+      },
+      "fieldTilt": {
+        "home": 48.0,
+        "away": 52.0
+      },
+      "ppda": {
+        "home": 10.9,
+        "away": 12.2
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 391,
+        "away": 418
+      },
+      "finalThirdEntries": {
+        "home": 37,
+        "away": 41
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.56), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 1-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false,
+      "Supercharger (ELO+)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "40.0%",
+        "draw": "--",
+        "und": "60.0%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "70.5%",
+        "draw": "--",
+        "und": "29.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "39.4%",
+        "draw": "--",
+        "und": "60.6%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "45.4%",
+        "draw": "--",
+        "und": "54.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Egypt"
   }
 ]

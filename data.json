@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 3, 2026 · 8:40 PM UTC",
+  "lastUpdated": "July 3, 2026 · 11:51 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.2%",
       "polymarketWinProbAway": "0.2%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "6.2%",
-      "polymarketWinProbHome": "6.8%"
+      "polymarketWinProbHome": "6.8%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.4%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.5%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -10906,7 +10910,7 @@
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Australia",
       "away": "Egypt",
       "favTeam": "Egypt",
@@ -10949,18 +10953,105 @@
       "homeMomentumFactor": "+0.177",
       "awayMomentumFactor": "+0.056",
       "importedFrom": "ESPN",
-      "liveScore": "1 - 1",
       "homeScore": 1,
       "awayScore": 1,
-      "liveMinute": "120'+2'",
-      "livePhase": "SECOND HALF"
+      "score": "AUSTRALIA 1 - 1 EGYPT",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
+      },
+      "insight": "The match ended level at 1-1.",
+      "boxScore": {
+        "possession": {
+          "home": 50.2,
+          "away": 49.8
+        },
+        "shots": {
+          "home": 8,
+          "away": 5
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 2
+        },
+        "corners": {
+          "home": 4,
+          "away": 5
+        },
+        "fouls": {
+          "home": 15,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 24,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 77,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.5,
+          "away": 1.06
+        },
+        "fieldTilt": {
+          "home": 48.0,
+          "away": 52.0
+        },
+        "ppda": {
+          "home": 10.9,
+          "away": 12.2
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 391,
+          "away": 418
+        },
+        "finalThirdEntries": {
+          "home": 37,
+          "away": 41
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.56), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
     },
     {
       "id": "espn-760500",
       "stage": "Round of 32",
       "group": "Round of 32",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Argentina",
       "away": "Cape Verde",
       "favTeam": "Argentina",
@@ -11002,7 +11093,12 @@
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.106",
       "awayMomentumFactor": "+0.191",
-      "importedFrom": "ESPN"
+      "importedFrom": "ESPN",
+      "liveScore": "1 - 1",
+      "homeScore": 1,
+      "awayScore": 1,
+      "liveMinute": "90'+1'",
+      "livePhase": "SECOND HALF"
     },
     {
       "id": "id1000001653452507",
