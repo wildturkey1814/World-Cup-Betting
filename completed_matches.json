@@ -15686,5 +15686,197 @@
       }
     ],
     "favTeam": "Colombia"
+  },
+  {
+    "id": "id1000001653452511",
+    "home": "Canada",
+    "away": "Morocco",
+    "homeFlag": "can",
+    "awayFlag": "mar",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-04T17:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 3,
+    "score": "CANADA 0 - 3 MOROCCO",
+    "winner": "Morocco",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.68,
+        "away": 3.31
+      },
+      "possession": {
+        "home": 37.2,
+        "away": 62.8
+      },
+      "fieldTilt": {
+        "home": 26.2,
+        "away": 73.8
+      },
+      "ppda": {
+        "home": 20.0,
+        "away": 8.1
+      },
+      "shots": {
+        "home": 4,
+        "away": 20
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 8
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 313,
+        "away": 484
+      },
+      "finalThirdEntries": {
+        "home": 23,
+        "away": 61
+      },
+      "corners": {
+        "home": 6,
+        "away": 1
+      },
+      "fouls": {
+        "home": 11,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 37.2,
+        "away": 62.8
+      },
+      "shots": {
+        "home": 4,
+        "away": 20
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 8
+      },
+      "corners": {
+        "home": 6,
+        "away": 1
+      },
+      "fouls": {
+        "home": 11,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 85,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 87,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 88,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.68,
+        "away": 3.31
+      },
+      "fieldTilt": {
+        "home": 26.2,
+        "away": 73.8
+      },
+      "ppda": {
+        "home": 20.0,
+        "away": 8.1
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 313,
+        "away": 484
+      },
+      "finalThirdEntries": {
+        "home": 23,
+        "away": 61
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Morocco generated 3.31 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (62.8%) and high pressing intensity (PPDA 8.1) cut off Canada's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Morocco turned pressure into goals while Canada struggled to create clear openings."
+      }
+    ],
+    "insight": "Morocco won 3-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false,
+      "Supercharger (ELO+)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "14.4%",
+        "draw": "43.7%",
+        "und": "41.8%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "29.8%",
+        "draw": "25.2%",
+        "und": "45.0%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "6.1%",
+        "draw": "24.2%",
+        "und": "69.7%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "30.5%",
+        "draw": "20.9%",
+        "und": "48.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Morocco"
   }
 ]
