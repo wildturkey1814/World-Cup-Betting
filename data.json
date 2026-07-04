@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 4, 2026 · 9:42 PM UTC",
+  "lastUpdated": "July 4, 2026 · 11:45 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -11536,7 +11536,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Paraguay",
       "away": "France",
       "favTeam": "France",
@@ -11578,7 +11578,94 @@
       "polymarketWinProbAway": "36.0%",
       "homeMomentumFactor": "+0.062",
       "awayMomentumFactor": "+0.234",
-      "matchday": 3
+      "matchday": 3,
+      "score": "PARAGUAY 0 - 1 FRANCE",
+      "homeScore": 0,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
+      },
+      "boxScore": {
+        "possession": {
+          "home": 53.4,
+          "away": 46.6
+        },
+        "shots": {
+          "home": 9,
+          "away": 7
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 9,
+          "away": 5
+        },
+        "fouls": {
+          "home": 13,
+          "away": 11
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 61,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "France won 1-0.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.43,
+          "away": 1.21
+        },
+        "fieldTilt": {
+          "home": 57.0,
+          "away": 43.0
+        },
+        "ppda": {
+          "home": 11.4,
+          "away": 15.8
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 503,
+          "away": 352
+        },
+        "finalThirdEntries": {
+          "home": 45,
+          "away": 33
+        }
+      },
+      "insights": [
+        {
+          "title": "Defensive Resilience",
+          "body": "France absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+        },
+        {
+          "title": "Counter-Attack Efficiency",
+          "body": "Despite lower possession, France converted limited chances with clinical precision on the break."
+        },
+        {
+          "title": "Set-Piece Threat",
+          "body": "Dead-ball situations proved a key differentiator, with France generating danger from corners and free-kicks throughout."
+        }
+      ]
     },
     {
       "id": "id1000001653452519",
@@ -11829,13 +11916,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 74,
-    "upcomingGroupMatches": 7,
+    "completedGroupMatches": 75,
+    "upcomingGroupMatches": 6,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 26
+      "3": 27
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"

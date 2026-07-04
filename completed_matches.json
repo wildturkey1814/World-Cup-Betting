@@ -15878,5 +15878,187 @@
       }
     ],
     "favTeam": "Morocco"
+  },
+  {
+    "id": "id1000001653452509",
+    "home": "Paraguay",
+    "away": "France",
+    "homeFlag": "pry",
+    "awayFlag": "fra",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-04T21:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 1,
+    "score": "PARAGUAY 0 - 1 FRANCE",
+    "winner": "France",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.43,
+        "away": 1.21
+      },
+      "possession": {
+        "home": 53.4,
+        "away": 46.6
+      },
+      "fieldTilt": {
+        "home": 57.0,
+        "away": 43.0
+      },
+      "ppda": {
+        "home": 11.4,
+        "away": 15.8
+      },
+      "shots": {
+        "home": 9,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 503,
+        "away": 352
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 33
+      },
+      "corners": {
+        "home": 9,
+        "away": 5
+      },
+      "fouls": {
+        "home": 13,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.4,
+        "away": 46.6
+      },
+      "shots": {
+        "home": 9,
+        "away": 7
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 5
+      },
+      "fouls": {
+        "home": 13,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 61,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.43,
+        "away": 1.21
+      },
+      "fieldTilt": {
+        "home": 57.0,
+        "away": 43.0
+      },
+      "ppda": {
+        "home": 11.4,
+        "away": 15.8
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 503,
+        "away": 352
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 33
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "France absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, France converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with France generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "France won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false,
+      "Supercharger (ELO+)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "6.8%",
+        "draw": "32.7%",
+        "und": "60.6%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "12.0%",
+        "draw": "19.4%",
+        "und": "68.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "3.0%",
+        "draw": "18.2%",
+        "und": "78.8%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "12.1%",
+        "draw": "15.8%",
+        "und": "72.1%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "France"
   }
 ]
