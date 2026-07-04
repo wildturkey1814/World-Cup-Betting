@@ -15272,7 +15272,7 @@
         "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
       }
     ],
-    "insight": "The match ended level at 1-1.",
+    "insight": "Egypt advanced (1-1, penalties).",
     "sourceAccuracy": {
       "Sportsbooks (Consensus)": false,
       "ELO/Poisson Model": false,
@@ -15307,5 +15307,384 @@
       }
     ],
     "favTeam": "Egypt"
+  },
+  {
+    "id": "espn-760500",
+    "home": "Argentina",
+    "away": "Cape Verde",
+    "homeFlag": "arg",
+    "awayFlag": "cpv",
+    "group": "Round of 32",
+    "stage": "Round of 32",
+    "kickoff": "2026-07-03T22:00Z",
+    "homeScore": 3,
+    "awayScore": 2,
+    "score": "ARGENTINA 3 - 2 CAPE VERDE",
+    "winner": "Argentina",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.38,
+        "away": 0.34
+      },
+      "possession": {
+        "home": 69.4,
+        "away": 30.6
+      },
+      "fieldTilt": {
+        "home": 73.5,
+        "away": 26.5
+      },
+      "ppda": {
+        "home": 9.0,
+        "away": 19.5
+      },
+      "shots": {
+        "home": 19,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 617,
+        "away": 286
+      },
+      "finalThirdEntries": {
+        "home": 65,
+        "away": 21
+      },
+      "corners": {
+        "home": 9,
+        "away": 7
+      },
+      "fouls": {
+        "home": 15,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 69.4,
+        "away": 30.6
+      },
+      "shots": {
+        "home": 19,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 9,
+        "away": 2
+      },
+      "corners": {
+        "home": 9,
+        "away": 7
+      },
+      "fouls": {
+        "home": 15,
+        "away": 10
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 13,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 52,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 62,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 73,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 89,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.38,
+        "away": 0.34
+      },
+      "fieldTilt": {
+        "home": 73.5,
+        "away": 26.5
+      },
+      "ppda": {
+        "home": 9.0,
+        "away": 19.5
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 617,
+        "away": 286
+      },
+      "finalThirdEntries": {
+        "home": 65,
+        "away": 21
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Argentina generated 3.38 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (69.4%) and high pressing intensity (PPDA 9.0) cut off Cape Verde's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Argentina turned pressure into goals while Cape Verde struggled to create clear openings."
+      }
+    ],
+    "insight": "Argentina won 3-2.",
+    "sourceAccuracy": {},
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "94.7%",
+        "draw": "--",
+        "und": "5.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "95.6%",
+        "draw": "--",
+        "und": "4.4%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "96.7%",
+        "draw": "--",
+        "und": "3.3%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "95.8%",
+        "draw": "--",
+        "und": "4.2%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: knockout (2-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Argentina"
+  },
+  {
+    "id": "id1000001653452507",
+    "home": "Colombia",
+    "away": "Ghana",
+    "homeFlag": "col",
+    "awayFlag": "gha",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-04T01:30:00.000Z",
+    "homeScore": 1,
+    "awayScore": 0,
+    "score": "COLOMBIA 1 - 0 GHANA",
+    "winner": "Colombia",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.14,
+        "away": 2.11
+      },
+      "possession": {
+        "home": 38.1,
+        "away": 61.9
+      },
+      "fieldTilt": {
+        "home": 40.7,
+        "away": 59.3
+      },
+      "ppda": {
+        "home": 15.4,
+        "away": 9.0
+      },
+      "shots": {
+        "home": 6,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 5
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 301,
+        "away": 521
+      },
+      "finalThirdEntries": {
+        "home": 32,
+        "away": 47
+      },
+      "corners": {
+        "home": 2,
+        "away": 6
+      },
+      "fouls": {
+        "home": 11,
+        "away": 14
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 38.1,
+        "away": 61.9
+      },
+      "shots": {
+        "home": 6,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 5
+      },
+      "corners": {
+        "home": 2,
+        "away": 6
+      },
+      "fouls": {
+        "home": 11,
+        "away": 14
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 3
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 48,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.14,
+        "away": 2.11
+      },
+      "fieldTilt": {
+        "home": 40.7,
+        "away": 59.3
+      },
+      "ppda": {
+        "home": 15.4,
+        "away": 9.0
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 0
+      },
+      "progressivePasses": {
+        "home": 301,
+        "away": 521
+      },
+      "finalThirdEntries": {
+        "home": 32,
+        "away": 47
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Colombia absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Colombia converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Colombia generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Colombia won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "71.2%",
+        "draw": "8.5%",
+        "und": "20.2%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "58.3%",
+        "draw": "22.2%",
+        "und": "19.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "68.7%",
+        "draw": "21.2%",
+        "und": "10.1%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "66.2%",
+        "draw": "9.5%",
+        "und": "24.3%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Colombia"
   }
 ]
