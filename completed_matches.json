@@ -16060,5 +16060,197 @@
       }
     ],
     "favTeam": "France"
+  },
+  {
+    "id": "id1000001653452517",
+    "home": "Brazil",
+    "away": "Norway",
+    "homeFlag": "bra",
+    "awayFlag": "nor",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-05T20:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 2,
+    "score": "BRAZIL 1 - 2 NORWAY",
+    "winner": "Norway",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.29,
+        "away": 1.86
+      },
+      "possession": {
+        "home": 43.6,
+        "away": 56.4
+      },
+      "fieldTilt": {
+        "home": 40.3,
+        "away": 59.7
+      },
+      "ppda": {
+        "home": 16.2,
+        "away": 9.1
+      },
+      "shots": {
+        "home": 8,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 347,
+        "away": 433
+      },
+      "finalThirdEntries": {
+        "home": 35,
+        "away": 47
+      },
+      "corners": {
+        "home": 9,
+        "away": 4
+      },
+      "fouls": {
+        "home": 9,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 43.6,
+        "away": 56.4
+      },
+      "shots": {
+        "home": 8,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 3
+      },
+      "corners": {
+        "home": 9,
+        "away": 4
+      },
+      "fouls": {
+        "home": 9,
+        "away": 11
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 46,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 66,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 89,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.29,
+        "away": 1.86
+      },
+      "fieldTilt": {
+        "home": 40.3,
+        "away": 59.7
+      },
+      "ppda": {
+        "home": 16.2,
+        "away": 9.1
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 347,
+        "away": 433
+      },
+      "finalThirdEntries": {
+        "home": 35,
+        "away": 47
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Norway created the clearer chances, generating 1.86 xG and putting 3 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Norway (PPDA 9.1) disrupted Brazil's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Norway's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Norway won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "33.4%",
+        "draw": "26.9%",
+        "und": "39.7%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "59.7%",
+        "draw": "21.9%",
+        "und": "18.4%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "53.5%",
+        "draw": "25.7%",
+        "und": "20.8%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "60.5%",
+        "draw": "14.6%",
+        "und": "24.9%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Norway"
   }
 ]

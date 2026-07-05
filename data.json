@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 5, 2026 · 8:02 PM UTC",
+  "lastUpdated": "July 5, 2026 · 10:14 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "7.1%"
+      "polymarketWinProbHome": "7.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.6%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.5%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -11483,7 +11487,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Brazil",
       "away": "Norway",
       "favTeam": "Norway",
@@ -11525,12 +11529,104 @@
       "polymarketWinProbAway": "1.8%",
       "homeMomentumFactor": "+0.148",
       "awayMomentumFactor": "+0.325",
-      "liveScore": "0 - 0",
-      "homeScore": 0,
-      "awayScore": 0,
-      "liveMinute": "2'",
-      "livePhase": "FIRST HALF",
-      "matchday": 3
+      "homeScore": 1,
+      "awayScore": 2,
+      "matchday": 3,
+      "score": "BRAZIL 1 - 2 NORWAY",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "insight": "Norway won 2-1.",
+      "boxScore": {
+        "possession": {
+          "home": 43.6,
+          "away": 56.4
+        },
+        "shots": {
+          "home": 8,
+          "away": 10
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 3
+        },
+        "corners": {
+          "home": 9,
+          "away": 4
+        },
+        "fouls": {
+          "home": 9,
+          "away": 11
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 46,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 66,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 89,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.29,
+          "away": 1.86
+        },
+        "fieldTilt": {
+          "home": 40.3,
+          "away": 59.7
+        },
+        "ppda": {
+          "home": 16.2,
+          "away": 9.1
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 347,
+          "away": 433
+        },
+        "finalThirdEntries": {
+          "home": 35,
+          "away": 47
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Norway created the clearer chances, generating 1.86 xG and putting 3 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Norway (PPDA 9.1) disrupted Brazil's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Norway's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001653452509",
@@ -11966,13 +12062,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 75,
+    "completedGroupMatches": 76,
     "upcomingGroupMatches": 6,
-    "liveGroupMatches": 1,
+    "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 27
+      "3": 28
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
