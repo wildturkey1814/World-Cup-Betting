@@ -16252,5 +16252,207 @@
       }
     ],
     "favTeam": "Norway"
+  },
+  {
+    "id": "id1000001653452519",
+    "home": "Mexico",
+    "away": "England",
+    "homeFlag": "mex",
+    "awayFlag": "eng",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-06T00:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 3,
+    "score": "MEXICO 2 - 3 ENGLAND",
+    "winner": "England",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.33,
+        "away": 3.26
+      },
+      "possession": {
+        "home": 36.6,
+        "away": 63.4
+      },
+      "fieldTilt": {
+        "home": 24.7,
+        "away": 75.3
+      },
+      "ppda": {
+        "home": 21.5,
+        "away": 8.6
+      },
+      "shots": {
+        "home": 4,
+        "away": 21
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 9
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 288,
+        "away": 479
+      },
+      "finalThirdEntries": {
+        "home": 19,
+        "away": 57
+      },
+      "corners": {
+        "home": 2,
+        "away": 2
+      },
+      "fouls": {
+        "home": 12,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 36.6,
+        "away": 63.4
+      },
+      "shots": {
+        "home": 4,
+        "away": 21
+      },
+      "shotsOnTarget": {
+        "home": 2,
+        "away": 9
+      },
+      "corners": {
+        "home": 2,
+        "away": 2
+      },
+      "fouls": {
+        "home": 12,
+        "away": 9
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 6,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 12,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 32,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 64,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 83,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.33,
+        "away": 3.26
+      },
+      "fieldTilt": {
+        "home": 24.7,
+        "away": 75.3
+      },
+      "ppda": {
+        "home": 21.5,
+        "away": 8.6
+      },
+      "bigChances": {
+        "home": 5,
+        "away": 3
+      },
+      "progressivePasses": {
+        "home": 288,
+        "away": 479
+      },
+      "finalThirdEntries": {
+        "home": 19,
+        "away": 57
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "England generated 3.26 xG, creating 3 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (63.4%) and high pressing intensity (PPDA 8.6) cut off Mexico's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — England turned pressure into goals while Mexico struggled to create clear openings."
+      }
+    ],
+    "insight": "England won 3-2.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "37.6%",
+        "draw": "27.7%",
+        "und": "34.7%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "27.0%",
+        "draw": "24.4%",
+        "und": "48.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "32.7%",
+        "draw": "30.7%",
+        "und": "36.6%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "31.8%",
+        "draw": "15.6%",
+        "und": "52.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Mexico"
   }
 ]

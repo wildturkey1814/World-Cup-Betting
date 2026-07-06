@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 6, 2026 · 12:16 AM UTC",
+  "lastUpdated": "July 6, 2026 · 12:31 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.7%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.8%"
+      "polymarketWinProbAway": "2.8%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -11765,7 +11769,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Mexico",
       "away": "England",
       "favTeam": "Mexico",
@@ -11807,7 +11811,114 @@
       "polymarketWinProbAway": "8.6%",
       "homeMomentumFactor": "-0.152",
       "awayMomentumFactor": "+0.220",
-      "matchday": 3
+      "matchday": 3,
+      "score": "MEXICO 2 - 3 ENGLAND",
+      "homeScore": 2,
+      "awayScore": 3,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 36.6,
+          "away": 63.4
+        },
+        "shots": {
+          "home": 4,
+          "away": 21
+        },
+        "shotsOnTarget": {
+          "home": 2,
+          "away": 9
+        },
+        "corners": {
+          "home": 2,
+          "away": 2
+        },
+        "fouls": {
+          "home": 12,
+          "away": 9
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 6,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 12,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 32,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 64,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 83,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "England won 3-2.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 0.33,
+          "away": 3.26
+        },
+        "fieldTilt": {
+          "home": 24.7,
+          "away": 75.3
+        },
+        "ppda": {
+          "home": 21.5,
+          "away": 8.6
+        },
+        "bigChances": {
+          "home": 5,
+          "away": 3
+        },
+        "progressivePasses": {
+          "home": 288,
+          "away": 479
+        },
+        "finalThirdEntries": {
+          "home": 19,
+          "away": 57
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "England generated 3.26 xG, creating 3 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (63.4%) and high pressing intensity (PPDA 8.6) cut off Mexico's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — England turned pressure into goals while Mexico struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "id1000001653452515",
@@ -12058,13 +12169,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 76,
-    "upcomingGroupMatches": 6,
+    "completedGroupMatches": 77,
+    "upcomingGroupMatches": 5,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 28
+      "3": 29
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
