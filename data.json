@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 6, 2026 · 2:04 PM UTC",
+  "lastUpdated": "July 6, 2026 · 2:07 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -246,7 +246,7 @@
       "homeScore": 4,
       "awayScore": 1,
       "score": "UNITED STATES 4 - 1 PARAGUAY",
-      "kalshiWinProbHome": "3.8%",
+      "kalshiWinProbHome": "3.7%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "0.0%",
       "kalshiWinProbAway": "0.0%",
@@ -3129,7 +3129,7 @@
           "und": "5.1%"
         }
       ],
-      "kalshiWinProbHome": "13.0%",
+      "kalshiWinProbHome": "12.9%",
       "polymarketWinProbHome": "14.1%",
       "polymarketWinProbAway": "0.0%",
       "score": "ENGLAND 0 - 0 GHANA",
@@ -4972,7 +4972,7 @@
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbAway": "3.8%",
+      "kalshiWinProbAway": "3.7%",
       "polymarketWinProbAway": "3.1%",
       "homeMomentumFactor": "+0.306",
       "awayMomentumFactor": "-0.235",
@@ -6130,7 +6130,7 @@
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbAway": "13.0%",
+      "kalshiWinProbAway": "12.9%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "14.1%",
       "homeMomentumFactor": "+0.456",
@@ -7531,7 +7531,7 @@
         }
       ],
       "matchday": 1,
-      "kalshiWinProbHome": "13.0%",
+      "kalshiWinProbHome": "12.9%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "14.1%",
       "polymarketWinProbAway": "0.0%"
@@ -8294,7 +8294,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbHome": "3.8%",
+      "kalshiWinProbHome": "3.7%",
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "0.1%"
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.8%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.5%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -10069,7 +10073,7 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "13.0%",
+      "kalshiWinProbHome": "12.9%",
       "polymarketWinProbHome": "14.1%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.222",
@@ -10368,7 +10372,7 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "3.8%",
+      "kalshiWinProbHome": "3.7%",
       "kalshiWinProbAway": "0.0%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "0.0%",
@@ -11802,7 +11806,7 @@
       ],
       "venue": null,
       "kalshiWinProbHome": "5.6%",
-      "kalshiWinProbAway": "13.0%",
+      "kalshiWinProbAway": "12.9%",
       "polymarketWinProbHome": "4.7%",
       "polymarketWinProbAway": "14.1%",
       "homeMomentumFactor": "-0.152",
@@ -11957,7 +11961,7 @@
         }
       ],
       "venue": null,
-      "kalshiWinProbHome": "3.8%",
+      "kalshiWinProbHome": "3.7%",
       "kalshiWinProbAway": "1.1%",
       "polymarketWinProbHome": "3.1%",
       "polymarketWinProbAway": "1.4%",
@@ -12204,7 +12208,7 @@
       "venue": null,
       "matchday": 3,
       "kalshiWinProbHome": "4.9%",
-      "kalshiWinProbAway": "13.0%",
+      "kalshiWinProbAway": "12.9%",
       "polymarketWinProbHome": "4.7%",
       "polymarketWinProbAway": "14.1%",
       "homeMomentumFactor": "+0.274",
@@ -12225,7 +12229,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "July 6, 2026 · 2:04 PM UTC",
+  "kalshiUpdated": "July 6, 2026 · 2:07 PM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -12257,5 +12261,5 @@
     "Uruguay",
     "Uzbekistan"
   ],
-  "polymarketUpdated": "July 6, 2026 · 2:04 PM UTC"
+  "polymarketUpdated": "July 6, 2026 · 2:07 PM UTC"
 }
