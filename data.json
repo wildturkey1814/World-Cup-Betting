@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 6, 2026 · 6:19 PM UTC",
+  "lastUpdated": "July 6, 2026 · 7:13 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.9%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.5%"
+      "polymarketWinProbAway": "2.5%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -11970,7 +11974,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Portugal",
       "away": "Spain",
       "favTeam": "Spain",
@@ -12012,7 +12016,12 @@
       "polymarketWinProbAway": "13.0%",
       "homeMomentumFactor": "-0.027",
       "awayMomentumFactor": "-0.042",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "13'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001653452521",
@@ -12215,8 +12224,8 @@
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 77,
-    "upcomingGroupMatches": 6,
-    "liveGroupMatches": 0,
+    "upcomingGroupMatches": 5,
+    "liveGroupMatches": 1,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
