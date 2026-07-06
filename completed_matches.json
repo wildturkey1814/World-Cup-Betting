@@ -16454,5 +16454,187 @@
       }
     ],
     "favTeam": "Mexico"
+  },
+  {
+    "id": "id1000001653452513",
+    "home": "Portugal",
+    "away": "Spain",
+    "homeFlag": "por",
+    "awayFlag": "esp",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-06T19:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 1,
+    "score": "PORTUGAL 0 - 1 SPAIN",
+    "winner": "Spain",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.42,
+        "away": 1.48
+      },
+      "possession": {
+        "home": 61.4,
+        "away": 38.6
+      },
+      "fieldTilt": {
+        "home": 60.1,
+        "away": 39.9
+      },
+      "ppda": {
+        "home": 8.9,
+        "away": 13.6
+      },
+      "shots": {
+        "home": 8,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 4
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 477,
+        "away": 357
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 34
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 15,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "GRIND"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 61.4,
+        "away": 38.6
+      },
+      "shots": {
+        "home": 8,
+        "away": 10
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 4
+      },
+      "corners": {
+        "home": 9,
+        "away": 2
+      },
+      "fouls": {
+        "home": 15,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 5,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.42,
+        "away": 1.48
+      },
+      "fieldTilt": {
+        "home": 60.1,
+        "away": 39.9
+      },
+      "ppda": {
+        "home": 8.9,
+        "away": 13.6
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 477,
+        "away": 357
+      },
+      "finalThirdEntries": {
+        "home": 45,
+        "away": 34
+      }
+    },
+    "insights": [
+      {
+        "title": "Defensive Resilience",
+        "body": "Spain absorbed sustained pressure, conceding territory but maintaining defensive shape through disciplined low-block organization."
+      },
+      {
+        "title": "Counter-Attack Efficiency",
+        "body": "Despite lower possession, Spain converted limited chances with clinical precision on the break."
+      },
+      {
+        "title": "Set-Piece Threat",
+        "body": "Dead-ball situations proved a key differentiator, with Spain generating danger from corners and free-kicks throughout."
+      }
+    ],
+    "insight": "Spain won 1-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false,
+      "Supercharger (ELO+)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "21.0%",
+        "draw": "43.9%",
+        "und": "35.1%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "34.3%",
+        "draw": "26.4%",
+        "und": "39.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "23.2%",
+        "draw": "28.3%",
+        "und": "48.5%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "36.9%",
+        "draw": "21.5%",
+        "und": "41.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Spain"
   }
 ]
