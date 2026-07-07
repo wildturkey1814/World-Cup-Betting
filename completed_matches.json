@@ -16838,5 +16838,207 @@
       }
     ],
     "favTeam": "Belgium"
+  },
+  {
+    "id": "id1000001653452521",
+    "home": "Argentina",
+    "away": "Egypt",
+    "homeFlag": "arg",
+    "awayFlag": "egy",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-07T16:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 2,
+    "score": "ARGENTINA 3 - 2 EGYPT",
+    "winner": "Argentina",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 3.72,
+        "away": 0.39
+      },
+      "possession": {
+        "home": 65.8,
+        "away": 34.2
+      },
+      "fieldTilt": {
+        "home": 74.4,
+        "away": 25.6
+      },
+      "ppda": {
+        "home": 8.0,
+        "away": 19.6
+      },
+      "shots": {
+        "home": 22,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 10,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 547,
+        "away": 274
+      },
+      "finalThirdEntries": {
+        "home": 60,
+        "away": 22
+      },
+      "corners": {
+        "home": 4,
+        "away": 6
+      },
+      "fouls": {
+        "home": 16,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 65.8,
+        "away": 34.2
+      },
+      "shots": {
+        "home": 22,
+        "away": 4
+      },
+      "shotsOnTarget": {
+        "home": 10,
+        "away": 2
+      },
+      "corners": {
+        "home": 4,
+        "away": 6
+      },
+      "fouls": {
+        "home": 16,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 1,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 23,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 47,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 53,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 54,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 66,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 3.72,
+        "away": 0.39
+      },
+      "fieldTilt": {
+        "home": 74.4,
+        "away": 25.6
+      },
+      "ppda": {
+        "home": 8.0,
+        "away": 19.6
+      },
+      "bigChances": {
+        "home": 4,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 547,
+        "away": 274
+      },
+      "finalThirdEntries": {
+        "home": 60,
+        "away": 22
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Argentina generated 3.72 xG, creating 4 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (65.8%) and high pressing intensity (PPDA 8.0) cut off Egypt's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Argentina turned pressure into goals while Egypt struggled to create clear openings."
+      }
+    ],
+    "insight": "Argentina won 3-2.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "68.3%",
+        "draw": "10.0%",
+        "und": "21.8%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "77.2%",
+        "draw": "16.3%",
+        "und": "6.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "72.5%",
+        "draw": "19.4%",
+        "und": "8.2%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "72.6%",
+        "draw": "8.1%",
+        "und": "19.3%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Argentina"
   }
 ]

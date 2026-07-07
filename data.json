@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 7, 2026 · 11:23 AM UTC",
+  "lastUpdated": "July 7, 2026 · 6:24 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -12217,7 +12217,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Argentina",
       "away": "Egypt",
       "favTeam": "Argentina",
@@ -12259,7 +12259,114 @@
       "polymarketWinProbAway": "0.2%",
       "homeMomentumFactor": "+0.290",
       "awayMomentumFactor": "-0.033",
-      "matchday": 3
+      "matchday": 3,
+      "score": "ARGENTINA 3 - 2 EGYPT",
+      "homeScore": 3,
+      "awayScore": 2,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 65.8,
+          "away": 34.2
+        },
+        "shots": {
+          "home": 22,
+          "away": 4
+        },
+        "shotsOnTarget": {
+          "home": 10,
+          "away": 2
+        },
+        "corners": {
+          "home": 4,
+          "away": 6
+        },
+        "fouls": {
+          "home": 16,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 1,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 23,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 47,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 53,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 54,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 66,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Argentina won 3-2.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 3.72,
+          "away": 0.39
+        },
+        "fieldTilt": {
+          "home": 74.4,
+          "away": 25.6
+        },
+        "ppda": {
+          "home": 8.0,
+          "away": 19.6
+        },
+        "bigChances": {
+          "home": 4,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 547,
+          "away": 274
+        },
+        "finalThirdEntries": {
+          "home": 60,
+          "away": 22
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Argentina generated 3.72 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (65.8%) and high pressing intensity (PPDA 8.0) cut off Egypt's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Argentina turned pressure into goals while Egypt struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "id1000001653452523",
@@ -12461,13 +12568,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 79,
-    "upcomingGroupMatches": 5,
+    "completedGroupMatches": 80,
+    "upcomingGroupMatches": 4,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 31
+      "3": 32
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
