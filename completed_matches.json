@@ -16636,5 +16636,207 @@
       }
     ],
     "favTeam": "Spain"
+  },
+  {
+    "id": "id1000001653452515",
+    "home": "United States",
+    "away": "Belgium",
+    "homeFlag": "usa",
+    "awayFlag": "bel",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-07T00:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 4,
+    "score": "UNITED STATES 1 - 4 BELGIUM",
+    "winner": "Belgium",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 0.39,
+        "away": 2.47
+      },
+      "possession": {
+        "home": 38.1,
+        "away": 61.9
+      },
+      "fieldTilt": {
+        "home": 26.0,
+        "away": 74.0
+      },
+      "ppda": {
+        "home": 20.1,
+        "away": 8.4
+      },
+      "shots": {
+        "home": 3,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 7
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 4
+      },
+      "progressivePasses": {
+        "home": 334,
+        "away": 547
+      },
+      "finalThirdEntries": {
+        "home": 23,
+        "away": 58
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "fouls": {
+        "home": 8,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "DOMINANT"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 38.1,
+        "away": 61.9
+      },
+      "shots": {
+        "home": 3,
+        "away": 14
+      },
+      "shotsOnTarget": {
+        "home": 1,
+        "away": 7
+      },
+      "corners": {
+        "home": 6,
+        "away": 6
+      },
+      "fouls": {
+        "home": 8,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 2
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 11,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 13,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 17,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 25,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 50,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 0.39,
+        "away": 2.47
+      },
+      "fieldTilt": {
+        "home": 26.0,
+        "away": 74.0
+      },
+      "ppda": {
+        "home": 20.1,
+        "away": 8.4
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 4
+      },
+      "progressivePasses": {
+        "home": 334,
+        "away": 547
+      },
+      "finalThirdEntries": {
+        "home": 23,
+        "away": 58
+      }
+    },
+    "insights": [
+      {
+        "title": "Superior Attacking Output",
+        "body": "Belgium generated 2.47 xG, creating 4 big chances and consistently overloading the defensive line."
+      },
+      {
+        "title": "Territorial Control",
+        "body": "Dominant possession (61.9%) and high pressing intensity (PPDA 8.4) cut off United States's build-up at source."
+      },
+      {
+        "title": "Clinical Finishing",
+        "body": "Shot conversion rate was decisive — Belgium turned pressure into goals while United States struggled to create clear openings."
+      }
+    ],
+    "insight": "Belgium won 4-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "35.6%",
+        "draw": "26.0%",
+        "und": "38.4%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "35.3%",
+        "draw": "26.7%",
+        "und": "38.0%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "36.7%",
+        "draw": "28.6%",
+        "und": "34.7%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "47.4%",
+        "draw": "16.1%",
+        "und": "36.4%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Belgium"
   }
 ]

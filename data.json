@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 6, 2026 · 11:40 PM UTC",
+  "lastUpdated": "July 7, 2026 · 10:38 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -11925,7 +11925,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "United States",
       "away": "Belgium",
       "favTeam": "Belgium",
@@ -11967,7 +11967,114 @@
       "polymarketWinProbAway": "1.2%",
       "homeMomentumFactor": "-0.350",
       "awayMomentumFactor": "+0.293",
-      "matchday": 3
+      "matchday": 3,
+      "score": "UNITED STATES 1 - 4 BELGIUM",
+      "homeScore": 1,
+      "awayScore": 4,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 38.1,
+          "away": 61.9
+        },
+        "shots": {
+          "home": 3,
+          "away": 14
+        },
+        "shotsOnTarget": {
+          "home": 1,
+          "away": 7
+        },
+        "corners": {
+          "home": 6,
+          "away": 6
+        },
+        "fouls": {
+          "home": 8,
+          "away": 12
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 2
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 11,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 13,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 17,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 25,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 50,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Belgium won 4-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 0.39,
+          "away": 2.47
+        },
+        "fieldTilt": {
+          "home": 26.0,
+          "away": 74.0
+        },
+        "ppda": {
+          "home": 20.1,
+          "away": 8.4
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 4
+        },
+        "progressivePasses": {
+          "home": 334,
+          "away": 547
+        },
+        "finalThirdEntries": {
+          "home": 23,
+          "away": 58
+        }
+      },
+      "insights": [
+        {
+          "title": "Superior Attacking Output",
+          "body": "Belgium generated 2.47 xG, creating 4 big chances and consistently overloading the defensive line."
+        },
+        {
+          "title": "Territorial Control",
+          "body": "Dominant possession (61.9%) and high pressing intensity (PPDA 8.4) cut off United States's build-up at source."
+        },
+        {
+          "title": "Clinical Finishing",
+          "body": "Shot conversion rate was decisive — Belgium turned pressure into goals while United States struggled to create clear openings."
+        }
+      ]
     },
     {
       "id": "id1000001653452513",
@@ -12305,13 +12412,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 78,
-    "upcomingGroupMatches": 5,
+    "completedGroupMatches": 79,
+    "upcomingGroupMatches": 4,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 30
+      "3": 31
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
