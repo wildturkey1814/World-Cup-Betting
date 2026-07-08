@@ -17040,5 +17040,181 @@
       }
     ],
     "favTeam": "Argentina"
+  },
+  {
+    "id": "id1000001653452523",
+    "home": "Switzerland",
+    "away": "Colombia",
+    "homeFlag": "sui",
+    "awayFlag": "col",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-07T20:00:00.000Z",
+    "homeScore": 0,
+    "awayScore": 0,
+    "score": "SWITZERLAND 0 - 0 COLOMBIA",
+    "winner": null,
+    "isDraw": true,
+    "metrics": {
+      "xg": {
+        "home": 1.39,
+        "away": 1.11
+      },
+      "possession": {
+        "home": 52.1,
+        "away": 47.9
+      },
+      "fieldTilt": {
+        "home": 49.0,
+        "away": 51.0
+      },
+      "ppda": {
+        "home": 12.4,
+        "away": 10.4
+      },
+      "shots": {
+        "home": 9,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 398,
+        "away": 387
+      },
+      "finalThirdEntries": {
+        "home": 41,
+        "away": 44
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "fouls": {
+        "home": 10,
+        "away": 17
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "STALEMATE"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 52.1,
+        "away": 47.9
+      },
+      "shots": {
+        "home": 9,
+        "away": 6
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 2
+      },
+      "corners": {
+        "home": 4,
+        "away": 5
+      },
+      "fouls": {
+        "home": 10,
+        "away": 17
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.39,
+        "away": 1.11
+      },
+      "fieldTilt": {
+        "home": 49.0,
+        "away": 51.0
+      },
+      "ppda": {
+        "home": 12.4,
+        "away": 10.4
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 398,
+        "away": 387
+      },
+      "finalThirdEntries": {
+        "home": 41,
+        "away": 44
+      }
+    },
+    "insights": [
+      {
+        "title": "Evenly Matched Midfield Battle",
+        "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+      },
+      {
+        "title": "Lack of Clinical Edge",
+        "body": "Despite creating chances (combined xG 2.5), both teams were wasteful in front of goal when it mattered most."
+      },
+      {
+        "title": "Tactical Discipline",
+        "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+      }
+    ],
+    "insight": "The match ended level at 0-0.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": false,
+      "Prediction Markets (Kalshi)": false,
+      "Supercharger (ELO+)": false
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "27.1%",
+        "draw": "31.8%",
+        "und": "41.1%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "33.1%",
+        "draw": "26.1%",
+        "und": "40.8%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "26.3%",
+        "draw": "31.3%",
+        "und": "42.4%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "40.7%",
+        "draw": "17.8%",
+        "und": "41.5%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Colombia"
   }
 ]

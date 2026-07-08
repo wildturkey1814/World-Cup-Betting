@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 7, 2026 · 10:42 PM UTC",
+  "lastUpdated": "July 8, 2026 · 7:41 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "2.9%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.9%"
+      "polymarketWinProbAway": "2.9%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -12369,7 +12373,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Switzerland",
       "away": "Colombia",
       "favTeam": "Colombia",
@@ -12412,11 +12416,87 @@
       "homeMomentumFactor": "+0.104",
       "awayMomentumFactor": "-0.287",
       "matchday": 3,
-      "liveScore": "0 - 0",
       "homeScore": 0,
       "awayScore": 0,
-      "liveMinute": "120'",
-      "livePhase": "SECOND HALF"
+      "score": "SWITZERLAND 0 - 0 COLOMBIA",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": false,
+        "Prediction Markets (Kalshi)": false,
+        "Supercharger (ELO+)": false
+      },
+      "insight": "The match ended level at 0-0.",
+      "boxScore": {
+        "possession": {
+          "home": 52.1,
+          "away": 47.9
+        },
+        "shots": {
+          "home": 9,
+          "away": 6
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 2
+        },
+        "corners": {
+          "home": 4,
+          "away": 5
+        },
+        "fouls": {
+          "home": 10,
+          "away": 17
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": []
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.39,
+          "away": 1.11
+        },
+        "fieldTilt": {
+          "home": 49.0,
+          "away": 51.0
+        },
+        "ppda": {
+          "home": 12.4,
+          "away": 10.4
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 398,
+          "away": 387
+        },
+        "finalThirdEntries": {
+          "home": 41,
+          "away": 44
+        }
+      },
+      "insights": [
+        {
+          "title": "Evenly Matched Midfield Battle",
+          "body": "Both sides cancelled each other out in a tightly contested midfield duel, with neither team able to establish clear dominance."
+        },
+        {
+          "title": "Lack of Clinical Edge",
+          "body": "Despite creating chances (combined xG 2.5), both teams were wasteful in front of goal when it mattered most."
+        },
+        {
+          "title": "Tactical Discipline",
+          "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
+        }
+      ]
     },
     {
       "id": "id1000001653452525",
@@ -12569,13 +12649,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 80,
+    "completedGroupMatches": 81,
     "upcomingGroupMatches": 3,
-    "liveGroupMatches": 1,
+    "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 32
+      "3": 33
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
