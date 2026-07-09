@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 9, 2026 · 11:23 AM UTC",
+  "lastUpdated": "July 9, 2026 · 11:31 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -482,7 +482,7 @@
       "awayScore": 1,
       "score": "BRAZIL 1 - 1 MOROCCO",
       "kalshiWinProbHome": "7.0%",
-      "kalshiWinProbAway": "3.0%",
+      "kalshiWinProbAway": "3.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "2.9%",
       "boxScore": {
@@ -3957,7 +3957,7 @@
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: direct match odds (Kalshi/Polymarket)."
         }
       ],
-      "kalshiWinProbHome": "3.0%",
+      "kalshiWinProbHome": "3.1%",
       "polymarketWinProbHome": "2.9%",
       "homeMomentumFactor": "+0.018",
       "awayMomentumFactor": "+0.230",
@@ -8393,7 +8393,7 @@
         }
       ],
       "matchday": 2,
-      "kalshiWinProbAway": "3.0%",
+      "kalshiWinProbAway": "3.1%",
       "kalshiWinProbHome": "0.0%",
       "polymarketWinProbHome": "0.0%",
       "polymarketWinProbAway": "2.9%"
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9591,9 +9594,10 @@
           "body": "Compact defensive structures from both sides made it difficult to break through — a draw was a fair reflection of the contest."
         }
       ],
-      "kalshiWinProbAway": "3.0%",
+      "kalshiWinProbAway": "3.1%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "2.9%"
+      "polymarketWinProbAway": "2.9%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -11374,7 +11378,7 @@
       ],
       "venue": null,
       "kalshiWinProbHome": "0.1%",
-      "kalshiWinProbAway": "3.0%",
+      "kalshiWinProbAway": "3.1%",
       "polymarketWinProbHome": "0.1%",
       "polymarketWinProbAway": "2.9%",
       "homeMomentumFactor": "-0.382",
@@ -12536,7 +12540,7 @@
       ],
       "venue": null,
       "kalshiWinProbHome": "32.2%",
-      "kalshiWinProbAway": "3.0%",
+      "kalshiWinProbAway": "3.1%",
       "polymarketWinProbHome": "31.9%",
       "polymarketWinProbAway": "2.9%",
       "homeMomentumFactor": "+0.195",
@@ -12705,7 +12709,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "July 9, 2026 · 11:23 AM UTC",
+  "kalshiUpdated": "July 9, 2026 · 11:31 AM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -12738,5 +12742,5 @@
     "Uruguay",
     "Uzbekistan"
   ],
-  "polymarketUpdated": "July 9, 2026 · 11:23 AM UTC"
+  "polymarketUpdated": "July 9, 2026 · 11:31 AM UTC"
 }
