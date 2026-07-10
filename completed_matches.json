@@ -17403,5 +17403,197 @@
       }
     ],
     "favTeam": "France"
+  },
+  {
+    "id": "id1000001653452527",
+    "home": "Spain",
+    "away": "Belgium",
+    "homeFlag": "esp",
+    "awayFlag": "bel",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-10T19:00:00.000Z",
+    "homeScore": 2,
+    "awayScore": 1,
+    "score": "SPAIN 2 - 1 BELGIUM",
+    "winner": "Spain",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 2.23,
+        "away": 1.19
+      },
+      "possession": {
+        "home": 53.0,
+        "away": 47.0
+      },
+      "fieldTilt": {
+        "home": 55.3,
+        "away": 44.7
+      },
+      "ppda": {
+        "home": 10.0,
+        "away": 14.5
+      },
+      "shots": {
+        "home": 14,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 3
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 470,
+        "away": 388
+      },
+      "finalThirdEntries": {
+        "home": 43,
+        "away": 35
+      },
+      "corners": {
+        "home": 3,
+        "away": 2
+      },
+      "fouls": {
+        "home": 12,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.0,
+        "away": 47.0
+      },
+      "shots": {
+        "home": 14,
+        "away": 8
+      },
+      "shotsOnTarget": {
+        "home": 6,
+        "away": 3
+      },
+      "corners": {
+        "home": 3,
+        "away": 2
+      },
+      "fouls": {
+        "home": 12,
+        "away": 8
+      },
+      "yellowCards": {
+        "home": 3,
+        "away": 0
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 7,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 44,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 77,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 2.23,
+        "away": 1.19
+      },
+      "fieldTilt": {
+        "home": 55.3,
+        "away": 44.7
+      },
+      "ppda": {
+        "home": 10.0,
+        "away": 14.5
+      },
+      "bigChances": {
+        "home": 2,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 470,
+        "away": 388
+      },
+      "finalThirdEntries": {
+        "home": 43,
+        "away": 35
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Spain created the clearer chances, generating 2.23 xG and putting 6 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Spain (PPDA 10.0) disrupted Belgium's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Spain's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Spain won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "60.2%",
+        "draw": "24.4%",
+        "und": "15.4%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "47.9%",
+        "draw": "24.6%",
+        "und": "27.5%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "60.0%",
+        "draw": "24.0%",
+        "und": "16.0%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "56.3%",
+        "draw": "15.1%",
+        "und": "28.6%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Spain"
   }
 ]

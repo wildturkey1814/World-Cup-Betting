@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 10, 2026 · 5:30 PM UTC",
+  "lastUpdated": "July 10, 2026 · 9:31 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "3.0%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
@@ -12689,7 +12693,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "COMPLETED",
       "home": "Spain",
       "away": "Belgium",
       "favTeam": "Spain",
@@ -12731,7 +12735,104 @@
       "polymarketWinProbAway": "2.1%",
       "homeMomentumFactor": "-0.030",
       "awayMomentumFactor": "+0.238",
-      "matchday": 3
+      "matchday": 3,
+      "score": "SPAIN 2 - 1 BELGIUM",
+      "homeScore": 2,
+      "awayScore": 1,
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "boxScore": {
+        "possession": {
+          "home": 53.0,
+          "away": 47.0
+        },
+        "shots": {
+          "home": 14,
+          "away": 8
+        },
+        "shotsOnTarget": {
+          "home": 6,
+          "away": 3
+        },
+        "corners": {
+          "home": 3,
+          "away": 2
+        },
+        "fouls": {
+          "home": 12,
+          "away": 8
+        },
+        "yellowCards": {
+          "home": 3,
+          "away": 0
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 7,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 44,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 77,
+            "scorer": ""
+          }
+        ]
+      },
+      "insight": "Spain won 2-1.",
+      "advancedMetrics": {
+        "xg": {
+          "home": 2.23,
+          "away": 1.19
+        },
+        "fieldTilt": {
+          "home": 55.3,
+          "away": 44.7
+        },
+        "ppda": {
+          "home": 10.0,
+          "away": 14.5
+        },
+        "bigChances": {
+          "home": 2,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 470,
+          "away": 388
+        },
+        "finalThirdEntries": {
+          "home": 43,
+          "away": 35
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Spain created the clearer chances, generating 2.23 xG and putting 6 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Spain (PPDA 10.0) disrupted Belgium's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Spain's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001653452531",
@@ -12786,13 +12887,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 82,
-    "upcomingGroupMatches": 3,
+    "completedGroupMatches": 83,
+    "upcomingGroupMatches": 2,
     "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 34
+      "3": 35
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
