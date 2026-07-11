@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 11, 2026 · 8:53 PM UTC",
+  "lastUpdated": "July 11, 2026 · 9:10 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -12644,7 +12644,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Norway",
       "away": "England",
       "favTeam": "Norway",
@@ -12686,7 +12686,12 @@
       "polymarketWinProbAway": "14.4%",
       "homeMomentumFactor": "+0.274",
       "awayMomentumFactor": "+0.392",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0,
+      "liveMinute": "9'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001653452527",
@@ -12937,8 +12942,8 @@
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 83,
-    "upcomingGroupMatches": 3,
-    "liveGroupMatches": 0,
+    "upcomingGroupMatches": 2,
+    "liveGroupMatches": 1,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
