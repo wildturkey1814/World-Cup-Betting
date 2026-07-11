@@ -17595,5 +17595,197 @@
       }
     ],
     "favTeam": "Spain"
+  },
+  {
+    "id": "id1000001653452529",
+    "home": "Norway",
+    "away": "England",
+    "homeFlag": "nor",
+    "awayFlag": "eng",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-11T21:00:00.000Z",
+    "homeScore": 1,
+    "awayScore": 2,
+    "score": "NORWAY 1 - 2 ENGLAND",
+    "winner": "England",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.37,
+        "away": 1.88
+      },
+      "possession": {
+        "home": 43.2,
+        "away": 56.8
+      },
+      "fieldTilt": {
+        "home": 47.0,
+        "away": 53.0
+      },
+      "ppda": {
+        "home": 16.1,
+        "away": 11.4
+      },
+      "shots": {
+        "home": 8,
+        "away": 11
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 5
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 369,
+        "away": 461
+      },
+      "finalThirdEntries": {
+        "home": 38,
+        "away": 46
+      },
+      "corners": {
+        "home": 8,
+        "away": 6
+      },
+      "fouls": {
+        "home": 12,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 43.2,
+        "away": 56.8
+      },
+      "shots": {
+        "home": 8,
+        "away": 11
+      },
+      "shotsOnTarget": {
+        "home": 3,
+        "away": 5
+      },
+      "corners": {
+        "home": 8,
+        "away": 6
+      },
+      "fouls": {
+        "home": 12,
+        "away": 16
+      },
+      "yellowCards": {
+        "home": 0,
+        "away": 1
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "away",
+          "minute": 16,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 50,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 80,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.37,
+        "away": 1.88
+      },
+      "fieldTilt": {
+        "home": 47.0,
+        "away": 53.0
+      },
+      "ppda": {
+        "home": 16.1,
+        "away": 11.4
+      },
+      "bigChances": {
+        "home": 1,
+        "away": 2
+      },
+      "progressivePasses": {
+        "home": 369,
+        "away": 461
+      },
+      "finalThirdEntries": {
+        "home": 38,
+        "away": 46
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "England created the clearer chances, generating 1.88 xG and putting 5 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from England (PPDA 11.4) disrupted Norway's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but England's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "England won 2-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": false,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "39.9%",
+        "draw": "30.8%",
+        "und": "29.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "19.5%",
+        "draw": "22.2%",
+        "und": "58.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "9.1%",
+        "draw": "74.8%",
+        "und": "16.2%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "25.4%",
+        "draw": "16.3%",
+        "und": "58.3%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Norway"
   }
 ]

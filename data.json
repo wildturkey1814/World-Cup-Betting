@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 11, 2026 · 10:58 PM UTC",
+  "lastUpdated": "July 11, 2026 · 11:49 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -12644,7 +12644,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Norway",
       "away": "England",
       "favTeam": "Norway",
@@ -12687,11 +12687,103 @@
       "homeMomentumFactor": "+0.274",
       "awayMomentumFactor": "+0.392",
       "matchday": 3,
-      "liveScore": "1 - 1",
       "homeScore": 1,
-      "awayScore": 1,
-      "liveMinute": "90'+5'",
-      "livePhase": "SECOND HALF"
+      "awayScore": 2,
+      "score": "NORWAY 1 - 2 ENGLAND",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": false,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "insight": "England won 2-1.",
+      "boxScore": {
+        "possession": {
+          "home": 43.2,
+          "away": 56.8
+        },
+        "shots": {
+          "home": 8,
+          "away": 11
+        },
+        "shotsOnTarget": {
+          "home": 3,
+          "away": 5
+        },
+        "corners": {
+          "home": 8,
+          "away": 6
+        },
+        "fouls": {
+          "home": 12,
+          "away": 16
+        },
+        "yellowCards": {
+          "home": 0,
+          "away": 1
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "away",
+            "minute": 16,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 50,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 80,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.37,
+          "away": 1.88
+        },
+        "fieldTilt": {
+          "home": 47.0,
+          "away": 53.0
+        },
+        "ppda": {
+          "home": 16.1,
+          "away": 11.4
+        },
+        "bigChances": {
+          "home": 1,
+          "away": 2
+        },
+        "progressivePasses": {
+          "home": 369,
+          "away": 461
+        },
+        "finalThirdEntries": {
+          "home": 38,
+          "away": 46
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "England created the clearer chances, generating 1.88 xG and putting 5 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from England (PPDA 11.4) disrupted Norway's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but England's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001653452527",
@@ -12941,13 +13033,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 83,
+    "completedGroupMatches": 84,
     "upcomingGroupMatches": 2,
-    "liveGroupMatches": 1,
+    "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 35
+      "3": 36
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
