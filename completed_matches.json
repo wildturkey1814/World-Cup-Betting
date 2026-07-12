@@ -17787,5 +17787,202 @@
       }
     ],
     "favTeam": "Norway"
+  },
+  {
+    "id": "id1000001653452531",
+    "home": "Argentina",
+    "away": "Switzerland",
+    "homeFlag": "arg",
+    "awayFlag": "sui",
+    "group": "Group Stage",
+    "stage": "Group Stage",
+    "kickoff": "2026-07-12T01:00:00.000Z",
+    "homeScore": 3,
+    "awayScore": 1,
+    "score": "ARGENTINA 3 - 1 SWITZERLAND",
+    "winner": "Argentina",
+    "isDraw": false,
+    "metrics": {
+      "xg": {
+        "home": 1.68,
+        "away": 0.92
+      },
+      "possession": {
+        "home": 53.0,
+        "away": 47.0
+      },
+      "fieldTilt": {
+        "home": 61.1,
+        "away": 38.9
+      },
+      "ppda": {
+        "home": 9.0,
+        "away": 13.6
+      },
+      "shots": {
+        "home": 10,
+        "away": 5
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 2
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 424,
+        "away": 408
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 29
+      },
+      "corners": {
+        "home": 2,
+        "away": 3
+      },
+      "fouls": {
+        "home": 15,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "archetype": "CONTESTED"
+    },
+    "boxScore": {
+      "possession": {
+        "home": 53.0,
+        "away": 47.0
+      },
+      "shots": {
+        "home": 10,
+        "away": 5
+      },
+      "shotsOnTarget": {
+        "home": 4,
+        "away": 2
+      },
+      "corners": {
+        "home": 2,
+        "away": 3
+      },
+      "fouls": {
+        "home": 15,
+        "away": 12
+      },
+      "yellowCards": {
+        "home": 2,
+        "away": 4
+      },
+      "redCards": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": [
+        {
+          "team": "home",
+          "minute": 18,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 28,
+          "scorer": ""
+        },
+        {
+          "team": "away",
+          "minute": 45,
+          "scorer": ""
+        },
+        {
+          "team": "home",
+          "minute": 84,
+          "scorer": ""
+        }
+      ]
+    },
+    "advancedMetrics": {
+      "xg": {
+        "home": 1.68,
+        "away": 0.92
+      },
+      "fieldTilt": {
+        "home": 61.1,
+        "away": 38.9
+      },
+      "ppda": {
+        "home": 9.0,
+        "away": 13.6
+      },
+      "bigChances": {
+        "home": 3,
+        "away": 1
+      },
+      "progressivePasses": {
+        "home": 424,
+        "away": 408
+      },
+      "finalThirdEntries": {
+        "home": 53,
+        "away": 29
+      }
+    },
+    "insights": [
+      {
+        "title": "Attacking Intent",
+        "body": "Argentina created the clearer chances, generating 1.68 xG and putting 4 shots on target."
+      },
+      {
+        "title": "Pressing Intensity",
+        "body": "Higher pressing intensity from Argentina (PPDA 9.0) disrupted Switzerland's rhythm and forced errors in dangerous areas."
+      },
+      {
+        "title": "Decisive Moments",
+        "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
+      }
+    ],
+    "insight": "Argentina won 3-1.",
+    "sourceAccuracy": {
+      "Sportsbooks (Consensus)": true,
+      "ELO/Poisson Model": true,
+      "Prediction Markets (Kalshi)": true,
+      "Supercharger (ELO+)": true
+    },
+    "layers": [
+      {
+        "source": "Sportsbooks (Consensus)",
+        "fav": "56.3%",
+        "draw": "27.4%",
+        "und": "16.3%"
+      },
+      {
+        "source": "ELO/Poisson Model",
+        "fav": "61.1%",
+        "draw": "21.5%",
+        "und": "17.3%"
+      },
+      {
+        "source": "Prediction Markets (Kalshi)",
+        "fav": "57.6%",
+        "draw": "26.3%",
+        "und": "16.2%"
+      },
+      {
+        "source": "Supercharger (ELO+)",
+        "fav": "58.3%",
+        "draw": "15.0%",
+        "und": "26.7%",
+        "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
+      }
+    ],
+    "favTeam": "Argentina"
   }
 ]

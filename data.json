@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 12, 2026 · 1:13 AM UTC",
+  "lastUpdated": "July 12, 2026 · 4:37 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -12936,7 +12936,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "IN_PLAY",
+      "type": "COMPLETED",
       "home": "Argentina",
       "away": "Switzerland",
       "favTeam": "Argentina",
@@ -12979,11 +12979,108 @@
       "homeMomentumFactor": "+0.446",
       "awayMomentumFactor": "+0.117",
       "matchday": 3,
-      "liveScore": "1 - 0",
-      "homeScore": 1,
-      "awayScore": 0,
-      "liveMinute": "13'",
-      "livePhase": "FIRST HALF"
+      "homeScore": 3,
+      "awayScore": 1,
+      "score": "ARGENTINA 3 - 1 SWITZERLAND",
+      "sourceAccuracy": {
+        "Sportsbooks (Consensus)": true,
+        "ELO/Poisson Model": true,
+        "Prediction Markets (Kalshi)": true,
+        "Supercharger (ELO+)": true
+      },
+      "insight": "Argentina won 3-1.",
+      "boxScore": {
+        "possession": {
+          "home": 53.0,
+          "away": 47.0
+        },
+        "shots": {
+          "home": 10,
+          "away": 5
+        },
+        "shotsOnTarget": {
+          "home": 4,
+          "away": 2
+        },
+        "corners": {
+          "home": 2,
+          "away": 3
+        },
+        "fouls": {
+          "home": 15,
+          "away": 12
+        },
+        "yellowCards": {
+          "home": 2,
+          "away": 4
+        },
+        "redCards": {
+          "home": 0,
+          "away": 0
+        },
+        "goals": [
+          {
+            "team": "home",
+            "minute": 18,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 28,
+            "scorer": ""
+          },
+          {
+            "team": "away",
+            "minute": 45,
+            "scorer": ""
+          },
+          {
+            "team": "home",
+            "minute": 84,
+            "scorer": ""
+          }
+        ]
+      },
+      "advancedMetrics": {
+        "xg": {
+          "home": 1.68,
+          "away": 0.92
+        },
+        "fieldTilt": {
+          "home": 61.1,
+          "away": 38.9
+        },
+        "ppda": {
+          "home": 9.0,
+          "away": 13.6
+        },
+        "bigChances": {
+          "home": 3,
+          "away": 1
+        },
+        "progressivePasses": {
+          "home": 424,
+          "away": 408
+        },
+        "finalThirdEntries": {
+          "home": 53,
+          "away": 29
+        }
+      },
+      "insights": [
+        {
+          "title": "Attacking Intent",
+          "body": "Argentina created the clearer chances, generating 1.68 xG and putting 4 shots on target."
+        },
+        {
+          "title": "Pressing Intensity",
+          "body": "Higher pressing intensity from Argentina (PPDA 9.0) disrupted Switzerland's rhythm and forced errors in dangerous areas."
+        },
+        {
+          "title": "Decisive Moments",
+          "body": "The margin was slim but Argentina's ability to capitalise on key moments proved the difference in a tightly contested match."
+        }
+      ]
     },
     {
       "id": "id1000001653452533",
@@ -13038,13 +13135,13 @@
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
-    "completedGroupMatches": 84,
+    "completedGroupMatches": 85,
     "upcomingGroupMatches": 1,
-    "liveGroupMatches": 1,
+    "liveGroupMatches": 0,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
-      "3": 36
+      "3": 37
     },
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
