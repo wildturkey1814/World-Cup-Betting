@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 11, 2026 · 11:58 PM UTC",
+  "lastUpdated": "July 12, 2026 · 1:13 AM UTC",
   "matches": [
     {
       "id": "537327",
@@ -12936,7 +12936,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Argentina",
       "away": "Switzerland",
       "favTeam": "Argentina",
@@ -12978,7 +12978,12 @@
       "polymarketWinProbAway": "1.6%",
       "homeMomentumFactor": "+0.446",
       "awayMomentumFactor": "+0.117",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "1 - 0",
+      "homeScore": 1,
+      "awayScore": 0,
+      "liveMinute": "13'",
+      "livePhase": "FIRST HALF"
     },
     {
       "id": "id1000001653452533",
@@ -13034,8 +13039,8 @@
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 84,
-    "upcomingGroupMatches": 2,
-    "liveGroupMatches": 0,
+    "upcomingGroupMatches": 1,
+    "liveGroupMatches": 1,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
