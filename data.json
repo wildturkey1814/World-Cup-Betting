@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 12, 2026 · 12:08 PM UTC",
+  "lastUpdated": "July 12, 2026 · 12:28 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -3130,7 +3130,7 @@
         }
       ],
       "kalshiWinProbHome": "20.8%",
-      "polymarketWinProbHome": "21.9%",
+      "polymarketWinProbHome": "21.8%",
       "polymarketWinProbAway": "0.0%",
       "score": "ENGLAND 0 - 0 GHANA",
       "homeScore": 0,
@@ -6132,7 +6132,7 @@
       ],
       "kalshiWinProbAway": "20.8%",
       "polymarketWinProbHome": "0.0%",
-      "polymarketWinProbAway": "21.9%",
+      "polymarketWinProbAway": "21.8%",
       "homeMomentumFactor": "+0.456",
       "awayMomentumFactor": "+0.254",
       "matchday": 3,
@@ -7533,7 +7533,7 @@
       "matchday": 1,
       "kalshiWinProbHome": "20.8%",
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbHome": "21.9%",
+      "polymarketWinProbHome": "21.8%",
       "polymarketWinProbAway": "0.0%"
     },
     {
@@ -9261,8 +9261,7 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%",
-      "favTeam": "South Africa"
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "espn-760487",
@@ -9375,8 +9374,7 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%",
-      "favTeam": "Brazil"
+      "polymarketWinProbHome": "0.1%"
     },
     {
       "id": "espn-760489",
@@ -9485,8 +9483,7 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
-      "favTeam": "Germany"
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760488",
@@ -9596,8 +9593,7 @@
       ],
       "kalshiWinProbAway": "3.0%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%",
-      "favTeam": "Netherlands"
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "espn-760490",
@@ -10074,7 +10070,7 @@
       ],
       "venue": null,
       "kalshiWinProbHome": "20.8%",
-      "polymarketWinProbHome": "21.9%",
+      "polymarketWinProbHome": "21.8%",
       "polymarketWinProbAway": "0.0%",
       "homeMomentumFactor": "+0.222",
       "awayMomentumFactor": "+0.180",
@@ -11808,7 +11804,7 @@
       "kalshiWinProbHome": "5.6%",
       "kalshiWinProbAway": "20.8%",
       "polymarketWinProbHome": "4.7%",
-      "polymarketWinProbAway": "21.9%",
+      "polymarketWinProbAway": "21.8%",
       "homeMomentumFactor": "-0.152",
       "awayMomentumFactor": "+0.220",
       "matchday": 3,
@@ -12683,7 +12679,7 @@
       "kalshiWinProbHome": "6.1%",
       "kalshiWinProbAway": "20.8%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "21.9%",
+      "polymarketWinProbAway": "21.8%",
       "homeMomentumFactor": "+0.274",
       "awayMomentumFactor": "+0.392",
       "matchday": 3,
@@ -13147,9 +13143,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "37.6%",
-          "draw": "31.7%",
-          "und": "30.6%"
+          "fav": "28.3%",
+          "draw": "47.3%",
+          "und": "24.4%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -13158,27 +13154,27 @@
           "und": "45.3%"
         },
         {
-          "source": "Supercharger (ELO+)",
-          "fav": "33.5%",
-          "draw": "28.4%",
-          "und": "38.1%",
-          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way)."
-        },
-        {
           "source": "Prediction Markets (Kalshi)",
           "fav": "38.4%",
           "draw": "31.3%",
           "und": "30.3%"
+        },
+        {
+          "source": "Supercharger (ELO+)",
+          "fav": "32.6%",
+          "draw": "22.2%",
+          "und": "45.2%",
+          "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
       "venue": null,
-      "matchday": 3,
       "kalshiWinProbHome": "20.8%",
       "kalshiWinProbAway": "18.5%",
-      "polymarketWinProbHome": "21.9%",
+      "polymarketWinProbHome": "21.8%",
       "polymarketWinProbAway": "18.9%",
       "homeMomentumFactor": "+0.336",
-      "awayMomentumFactor": "+0.328"
+      "awayMomentumFactor": "+0.328",
+      "matchday": 3
     }
   ],
   "groupStageProgress": {
@@ -13195,7 +13191,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "July 12, 2026 · 12:08 PM UTC",
+  "kalshiUpdated": "July 12, 2026 · 12:28 PM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -13228,5 +13224,5 @@
     "Uruguay",
     "Uzbekistan"
   ],
-  "polymarketUpdated": "July 12, 2026 · 12:08 PM UTC"
+  "polymarketUpdated": "July 12, 2026 · 12:28 PM UTC"
 }
