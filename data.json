@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 13, 2026 · 8:34 PM UTC",
+  "lastUpdated": "July 13, 2026 · 8:58 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,8 +9261,7 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%",
-      "favTeam": "South Africa"
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "espn-760487",
@@ -9375,8 +9374,7 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%",
-      "favTeam": "Brazil"
+      "polymarketWinProbHome": "0.1%"
     },
     {
       "id": "espn-760489",
@@ -9485,8 +9483,7 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
-      "favTeam": "Germany"
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760488",
@@ -9596,8 +9593,7 @@
       ],
       "kalshiWinProbAway": "3.0%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%",
-      "favTeam": "Netherlands"
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "espn-760490",
@@ -13098,9 +13094,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "31.2%",
-          "draw": "43.7%",
-          "und": "25.2%"
+          "fav": "48.0%",
+          "draw": "10.4%",
+          "und": "41.6%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -13116,9 +13112,9 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "38.8%",
-          "draw": "21.3%",
-          "und": "39.9%",
+          "fav": "43.9%",
+          "draw": "11.2%",
+          "und": "44.9%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
@@ -13147,9 +13143,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "27.6%",
-          "draw": "47.7%",
-          "und": "24.7%"
+          "fav": "50.0%",
+          "draw": "11.9%",
+          "und": "38.0%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -13165,9 +13161,9 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "31.6%",
-          "draw": "22.3%",
-          "und": "46.1%",
+          "fav": "38.4%",
+          "draw": "11.4%",
+          "und": "50.1%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
@@ -13195,7 +13191,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "July 13, 2026 · 8:34 PM UTC",
+  "kalshiUpdated": "July 13, 2026 · 8:58 PM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -13228,5 +13224,5 @@
     "Uruguay",
     "Uzbekistan"
   ],
-  "polymarketUpdated": "July 13, 2026 · 8:34 PM UTC"
+  "polymarketUpdated": "July 13, 2026 · 8:58 PM UTC"
 }
