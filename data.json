@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 13, 2026 · 3:35 PM UTC",
+  "lastUpdated": "July 13, 2026 · 3:43 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,8 +9261,7 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%",
-      "favTeam": "South Africa"
+      "polymarketWinProbHome": "0.0%"
     },
     {
       "id": "espn-760487",
@@ -9375,8 +9374,7 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%",
-      "favTeam": "Brazil"
+      "polymarketWinProbHome": "0.1%"
     },
     {
       "id": "espn-760489",
@@ -9485,8 +9483,7 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%",
-      "favTeam": "Germany"
+      "polymarketWinProbAway": "0.0%"
     },
     {
       "id": "espn-760488",
@@ -9596,8 +9593,7 @@
       ],
       "kalshiWinProbAway": "3.0%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%",
-      "favTeam": "Netherlands"
+      "polymarketWinProbAway": "0.1%"
     },
     {
       "id": "espn-760490",
@@ -13098,9 +13094,9 @@
       "layers": [
         {
           "source": "Sportsbooks (Consensus)",
-          "fav": "46.7%",
-          "draw": "10.6%",
-          "und": "42.7%"
+          "fav": "40.2%",
+          "draw": "29.9%",
+          "und": "29.9%"
         },
         {
           "source": "ELO/Poisson Model",
@@ -13116,9 +13112,9 @@
         },
         {
           "source": "Supercharger (ELO+)",
-          "fav": "43.5%",
-          "draw": "11.2%",
-          "und": "45.2%",
+          "fav": "41.6%",
+          "draw": "17.1%",
+          "und": "41.3%",
           "tooltip": "Supercharger+ blends source win probabilities weighted by inverse Brier score. Track: group stage (3-way). Prediction markets: Prediction Markets (Kalshi) match odds."
         }
       ],
@@ -13195,7 +13191,7 @@
     "currentMatchday": 3,
     "matchday3Starts": "2026-06-24"
   },
-  "kalshiUpdated": "July 13, 2026 · 3:35 PM UTC",
+  "kalshiUpdated": "July 13, 2026 · 3:42 PM UTC",
   "knockoutEliminated": [
     "Algeria",
     "Austria",
@@ -13228,5 +13224,5 @@
     "Uruguay",
     "Uzbekistan"
   ],
-  "polymarketUpdated": "July 13, 2026 · 3:35 PM UTC"
+  "polymarketUpdated": "July 13, 2026 · 3:43 PM UTC"
 }
