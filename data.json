@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 18, 2026 · 8:12 PM UTC",
+  "lastUpdated": "July 18, 2026 · 8:26 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -9261,7 +9261,8 @@
       "kalshiWinProbAway": "0.1%",
       "polymarketWinProbAway": "0.1%",
       "kalshiWinProbHome": "0.0%",
-      "polymarketWinProbHome": "0.0%"
+      "polymarketWinProbHome": "0.0%",
+      "favTeam": "South Africa"
     },
     {
       "id": "espn-760487",
@@ -9374,7 +9375,8 @@
         }
       ],
       "kalshiWinProbHome": "7.0%",
-      "polymarketWinProbHome": "0.1%"
+      "polymarketWinProbHome": "0.1%",
+      "favTeam": "Brazil"
     },
     {
       "id": "espn-760489",
@@ -9483,7 +9485,8 @@
         }
       ],
       "kalshiWinProbAway": "0.0%",
-      "polymarketWinProbAway": "0.0%"
+      "polymarketWinProbAway": "0.0%",
+      "favTeam": "Germany"
     },
     {
       "id": "espn-760488",
@@ -9593,7 +9596,8 @@
       ],
       "kalshiWinProbAway": "3.0%",
       "polymarketWinProbHome": "0.1%",
-      "polymarketWinProbAway": "0.1%"
+      "polymarketWinProbAway": "0.1%",
+      "favTeam": "Netherlands"
     },
     {
       "id": "espn-760490",
