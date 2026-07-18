@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 18, 2026 · 8:32 PM UTC",
+  "lastUpdated": "July 18, 2026 · 9:10 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -13191,7 +13191,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "France",
       "away": "England",
       "favTeam": "England",
@@ -13230,7 +13230,10 @@
       "polymarketWinProbAway": "0.1%",
       "homeMomentumFactor": "+0.140",
       "awayMomentumFactor": "+0.336",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 1",
+      "homeScore": 0,
+      "awayScore": 1
     },
     {
       "id": "id1000001653452537",
@@ -13286,8 +13289,8 @@
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 85,
-    "upcomingGroupMatches": 2,
-    "liveGroupMatches": 2,
+    "upcomingGroupMatches": 1,
+    "liveGroupMatches": 3,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
