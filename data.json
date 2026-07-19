@@ -1,6 +1,6 @@
 {
   "currentStage": "Round of 32",
-  "lastUpdated": "July 19, 2026 · 7:44 PM UTC",
+  "lastUpdated": "July 19, 2026 · 8:12 PM UTC",
   "matches": [
     {
       "id": "537327",
@@ -13240,7 +13240,7 @@
       "stage": "Group Stage",
       "group": "Group Stage",
       "side": "left",
-      "type": "UPCOMING",
+      "type": "IN_PLAY",
       "home": "Spain",
       "away": "Argentina",
       "favTeam": "Argentina",
@@ -13282,15 +13282,18 @@
       "polymarketWinProbAway": "40.5%",
       "homeMomentumFactor": "+0.030",
       "awayMomentumFactor": "+0.328",
-      "matchday": 3
+      "matchday": 3,
+      "liveScore": "0 - 0",
+      "homeScore": 0,
+      "awayScore": 0
     }
   ],
   "groupStageProgress": {
     "totalGroupMatches": 72,
     "matchesPerMatchday": 24,
     "completedGroupMatches": 85,
-    "upcomingGroupMatches": 1,
-    "liveGroupMatches": 3,
+    "upcomingGroupMatches": 0,
+    "liveGroupMatches": 4,
     "matchdayCompleted": {
       "1": 24,
       "2": 24,
